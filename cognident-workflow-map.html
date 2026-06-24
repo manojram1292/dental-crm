@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cognident AI — Workflow Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b1316; --bg2:#0e1a1e; --surface:#12232a; --surface2:#162c33;
+    --line:#21353c; --line2:#2d4751; --text:#e9f2f3; --muted:#8aa3aa; --faint:#5e767e;
+    --teal:#2fd6c3; --blue:#5aa9ff; --green:#37d98a; --gold:#f2b340;
+    --ok:#37d98a; --warn:#f2b340; --bad:#ff6565; --ai:#2fd6c3; --input:#7a98a2; --neutral:#9fb4bb;
+    --nodeW:162px; --nodeH:70px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:radial-gradient(1200px 600px at 80% -10%, #11242b 0%, var(--bg) 55%);
+    color:var(--text); font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  .cg-wrap{max-width:1180px;margin:0 auto;padding:22px 18px 60px}
+
+  /* Header */
+  .cg-top{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:18px}
+  .cg-brand{display:flex;flex-direction:column;gap:6px}
+  .cg-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;color:var(--teal);text-transform:uppercase}
+  .cg-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:30px;letter-spacing:-.02em;line-height:1;margin:0;display:flex;align-items:center;gap:11px}
+  .cg-title .dot{width:11px;height:11px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(47,214,195,.16)}
+  .cg-sub{color:var(--muted);font-size:13px;max-width:520px}
+  .cg-gapbtn{display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:1px solid var(--line2);
+    background:var(--surface);color:var(--text);font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:13px;
+    padding:9px 14px;border-radius:9px;transition:.15s;user-select:none}
+  .cg-gapbtn:hover{border-color:var(--bad);color:#fff}
+  .cg-gapbtn .pip{width:9px;height:9px;border-radius:2px;transform:rotate(45deg);background:var(--faint);transition:.15s}
+  body.gaps-on .cg-gapbtn{border-color:var(--bad);background:rgba(255,101,101,.12)}
+  body.gaps-on .cg-gapbtn .pip{background:var(--bad);box-shadow:0 0 8px var(--bad)}
+
+  /* Tabs */
+  .cg-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+  .cg-tab{display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:1px solid var(--line);
+    background:var(--bg2);color:var(--muted);font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:12.5px;
+    padding:8px 13px;border-radius:8px;transition:.15s;white-space:nowrap}
+  .cg-tab:hover{color:var(--text);border-color:var(--line2)}
+  .cg-tab .tdot{width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.85}
+  .cg-tab.on{background:var(--surface2);color:var(--text);border-color:var(--line2)}
+  .cg-tab.on .tdot{box-shadow:0 0 8px currentColor}
+  .cg-tab.t-ov{--c:var(--teal)} .cg-tab.t-inv{--c:var(--blue)} .cg-tab.t-ster{--c:var(--green)}
+  .cg-tab.t-sched{--c:var(--gold)} .cg-tab.t-cross{--c:var(--teal)} .cg-tab.t-daily{--c:var(--neutral)} .cg-tab.t-gaps{--c:var(--bad)}
+  .cg-tab .tdot{color:var(--c)}
+  .cg-tab.on{color:var(--text)}
+
+  .cg-tabhead{display:flex;align-items:baseline;gap:12px;margin:4px 2px 12px;flex-wrap:wrap}
+  .cg-tabhead h2{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin:0;letter-spacing:-.01em}
+  .cg-tabhead .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--faint);letter-spacing:.04em}
+
+  /* Stage / canvas */
+  .cg-stage{border:1px solid var(--line);border-radius:14px;background:
+    linear-gradient(var(--bg2),var(--bg2)) padding-box;overflow:hidden;position:relative}
+  .cg-canvas{overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;
+    background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:22px 22px;background-position:-1px -1px}
+  .cg-inner{position:relative;height:660px}
+  .cg-edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+  .cg-edges path.e{fill:none;stroke:var(--line2);stroke-width:1.6;opacity:.55;transition:opacity .2s}
+  .cg-edges path.e.flow{stroke-width:2.4;opacity:1;stroke-dasharray:7 7;animation:dash .65s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-28}}
+  .cg-edges .elabel{font-family:'JetBrains Mono',monospace;font-size:9.5px;fill:var(--faint);letter-spacing:.02em}
+
+  /* Nodes */
+  .cg-nodes{position:absolute;inset:0}
+  .node{position:absolute;width:var(--nodeW);min-height:var(--nodeH);background:var(--surface);
+    border:1px solid var(--line2);border-left:3px solid var(--ac,var(--neutral));border-radius:10px;
+    padding:9px 11px 10px;display:flex;flex-direction:column;gap:3px;transition:transform .25s, box-shadow .25s, border-color .2s;
+    box-shadow:0 1px 0 rgba(0,0,0,.3)}
+  .node .nid{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;color:var(--ac,var(--neutral));text-transform:uppercase;display:flex;align-items:center;gap:5px}
+  .node .nid b{width:5px;height:5px;border-radius:50%;background:var(--ac,var(--neutral))}
+  .node .nt{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;line-height:1.15;letter-spacing:-.01em}
+  .node .ns{font-size:10.5px;color:var(--muted);line-height:1.25}
+  .node.wide{width:auto}
+  .node.active{transform:translateY(-2px) scale(1.025);border-color:var(--ac);box-shadow:0 0 0 1.5px var(--ac), 0 8px 26px rgba(0,0,0,.45), 0 0 22px -4px var(--ac)}
+  .node.dim{opacity:.42;filter:saturate(.7)}
+  .node .tag{position:absolute;top:-8px;right:8px;font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.08em;
+    background:var(--bg);border:1px solid var(--ac);color:var(--ac);padding:1px 6px;border-radius:20px;text-transform:uppercase}
+
+  /* tone accents */
+  .t-input{--ac:var(--input)} .t-ai{--ac:var(--ai)} .t-ok{--ac:var(--ok)} .t-warn{--ac:var(--warn)}
+  .t-bad{--ac:var(--bad)} .t-inv{--ac:var(--blue)} .t-ster{--ac:var(--green)} .t-sched{--ac:var(--gold)}
+  .t-action{--ac:var(--teal)} .t-neutral{--ac:var(--neutral)}
+
+  /* Gap chips */
+  .gchip{position:absolute;display:none;align-items:center;justify-content:center;width:22px;height:22px;cursor:pointer;
+    z-index:6;transition:transform .15s}
+  body.gaps-on .gchip{display:flex;animation:pop .3s ease}
+  @keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+  .gchip .d{width:18px;height:18px;transform:rotate(45deg);border-radius:4px;display:flex;align-items:center;justify-content:center;
+    background:var(--bad);box-shadow:0 0 0 3px rgba(255,101,101,.18), 0 2px 8px rgba(0,0,0,.5)}
+  .gchip.sev-crit .d{background:#ff3b3b;box-shadow:0 0 0 3px rgba(255,59,59,.25),0 0 14px rgba(255,59,59,.6)}
+  .gchip.sev-high .d{background:var(--bad)}
+  .gchip.sev-med .d{background:var(--warn);box-shadow:0 0 0 3px rgba(242,179,64,.18),0 2px 8px rgba(0,0,0,.5)}
+  .gchip.sev-low .d{background:#7aa0aa}
+  .gchip .n{transform:rotate(-45deg);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#10171a}
+  .gchip:hover{transform:scale(1.22)}
+
+  /* Controls + detail */
+  .cg-controls{display:flex;align-items:center;gap:10px;padding:12px 14px;border-top:1px solid var(--line);background:var(--bg2);flex-wrap:wrap}
+  .cbtn{display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;border:1px solid var(--line2);
+    background:var(--surface);color:var(--text);font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:12.5px;
+    height:34px;padding:0 13px;border-radius:8px;transition:.15s}
+  .cbtn:hover{border-color:var(--teal);color:#fff}
+  .cbtn.play{background:var(--teal);color:#06231f;border-color:var(--teal);font-weight:600}
+  .cbtn.play:hover{filter:brightness(1.08)}
+  .cbtn svg{width:13px;height:13px}
+  .cg-stepcount{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);letter-spacing:.04em;margin-left:2px}
+  .cg-progress{flex:1;min-width:120px;height:4px;background:var(--line);border-radius:3px;overflow:hidden}
+  .cg-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--green));transition:width .35s}
+
+  .cg-detail{display:grid;grid-template-columns:1fr;gap:14px;padding:16px 16px 18px;border-top:1px solid var(--line);background:
+    linear-gradient(180deg, rgba(47,214,195,.03), transparent)}
+  .cg-detail .dstep{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:7px}
+  .cg-detail h3{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin:0 0 8px;letter-spacing:-.01em}
+  .cg-detail p{margin:0;color:#c8d6da;font-size:13.5px;line-height:1.55}
+  .cg-data{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+  .cg-data span{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);background:var(--surface);
+    border:1px solid var(--line);padding:3px 8px;border-radius:6px}
+  .cg-eg{margin-top:12px;border-left:2px solid var(--gold);background:rgba(242,179,64,.06);padding:9px 12px;border-radius:0 8px 8px 0;
+    font-size:12.5px;color:#e7d9bd;line-height:1.5}
+  .cg-eg b{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:3px}
+
+  /* Legend */
+  .cg-legend{display:flex;flex-wrap:wrap;gap:12px 18px;margin:14px 2px 0;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg2)}
+  .cg-legend .lg{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--muted)}
+  .cg-legend .lg i{width:10px;height:10px;border-radius:3px;background:var(--c)}
+  .cg-legend .grp{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center}
+  .cg-legend .sep{width:1px;height:16px;background:var(--line2)}
+
+  /* Gaps view */
+  .cg-gapsview{display:none;flex-direction:column;gap:16px}
+  .cg-gapsview.on{display:flex}
+  .gintro{border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:16px 18px}
+  .gintro h2{font-family:'Space Grotesk',sans-serif;font-size:19px;margin:0 0 6px;letter-spacing:-.01em}
+  .gintro p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+  .ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:13px}
+  .gcard{border:1px solid var(--line);border-left:3px solid var(--gc,var(--bad));border-radius:11px;background:var(--surface);padding:14px 15px;transition:.2s}
+  .gcard.hot{box-shadow:0 0 0 1.5px var(--gc),0 0 24px -6px var(--gc);transform:translateY(-2px)}
+  .gcard .ghead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}
+  .gcard .gnum{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gc);font-weight:600}
+  .gcard .gsev{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;
+    border:1px solid var(--gc);color:var(--gc);padding:2px 7px;border-radius:20px}
+  .gcard h4{font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:600;margin:0 0 8px;line-height:1.25;letter-spacing:-.01em}
+  .gcard .grow{margin:7px 0;font-size:12.5px;line-height:1.45;color:#c5d3d7}
+  .gcard .grow b{display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}
+  .gcard .gwhere{margin-top:9px;font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:7px}
+  .gcard .gwhere .pin{color:var(--gc)}
+  .gcard.crit{--gc:#ff3b3b} .gcard.high{--gc:var(--bad)} .gcard.med{--gc:var(--warn)} .gcard.low{--gc:#7aa0aa}
+
+  .hint{margin:10px 2px 0;font-size:11.5px;color:var(--faint);font-family:'JetBrains Mono',monospace;letter-spacing:.02em}
+
+  @media (max-width:640px){
+    .cg-title{font-size:24px} .cg-inner{height:600px}
+    .cg-detail h3{font-size:16px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .cg-edges path.e.flow{animation:none;stroke-dasharray:none}
+    .node.active{transform:none}
+    .gchip{animation:none}
+  }
+</style>
+</head>
+<body>
+<div class="cg-wrap">
+
+  <div class="cg-top">
+    <div class="cg-brand">
+      <span class="cg-eyebrow">Operations Intelligence · Workflow Map</span>
+      <h1 class="cg-title"><span class="dot"></span>Cognident AI</h1>
+      <span class="cg-sub">Every sequence from your spec, animated end to end — Inventory, Sterilization, and Schedule Optimization — with the gaps I found pinned where they belong.</span>
+    </div>
+    <button class="cg-gapbtn" id="gapToggle"><span class="pip"></span> Show gaps <span id="gapCount" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--faint)"></span></button>
+  </div>
+
+  <div class="cg-tabs" id="tabs">
+    <div class="cg-tab t-ov on" data-view="overview"><span class="tdot"></span>System Overview</div>
+    <div class="cg-tab t-inv" data-view="inventory"><span class="tdot"></span>1 · Inventory</div>
+    <div class="cg-tab t-ster" data-view="sterilization"><span class="tdot"></span>2 · Sterilization</div>
+    <div class="cg-tab t-sched" data-view="schedule"><span class="tdot"></span>3 · Schedule</div>
+    <div class="cg-tab t-cross" data-view="cross"><span class="tdot"></span>Cross-Module</div>
+    <div class="cg-tab t-daily" data-view="daily"><span class="tdot"></span>A Day in the Clinic</div>
+    <div class="cg-tab t-gaps" data-view="gaps"><span class="tdot"></span>⚠ Gaps &amp; Map</div>
+  </div>
+
+  <div class="cg-tabhead" id="tabhead">
+    <h2 id="viewTitle">System Overview</h2>
+    <span class="meta" id="viewMeta"></span>
+  </div>
+
+  <!-- FLOWCHART STAGE -->
+  <div class="cg-stage" id="stage">
+    <div class="cg-canvas" id="canvas">
+      <div class="cg-inner" id="inner">
+        <svg class="cg-edges" id="edges" preserveAspectRatio="none"></svg>
+        <div class="cg-nodes" id="nodes"></div>
+      </div>
+    </div>
+
+    <div class="cg-controls">
+      <button class="cbtn" id="prevBtn" title="Previous step">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 18l-6-6 6-6"/></svg> Prev</button>
+      <button class="cbtn play" id="playBtn" title="Play sequence">
+        <svg id="playIco" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> <span id="playTxt">Play sequence</span></button>
+      <button class="cbtn" id="nextBtn" title="Next step">Next
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18l6-6-6-6"/></svg></button>
+      <span class="cg-stepcount" id="stepCount">01 / 01</span>
+      <div class="cg-progress"><i id="progBar"></i></div>
+    </div>
+
+    <div class="cg-detail">
+      <div>
+        <div class="dstep" id="dStep">Step 01</div>
+        <h3 id="dTitle">—</h3>
+        <p id="dBody">—</p>
+        <div class="cg-data" id="dData"></div>
+        <div class="cg-eg" id="dEg" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAPS VIEW -->
+  <div class="cg-gapsview" id="gapsView">
+    <div class="gintro">
+      <h2>What the spec does well — and 14 gaps to close</h2>
+      <p>The document is strong on <i>what</i> each module does. These are the places where the connecting logic, a missing event, or a compliance reality isn't yet defined. Each gap below is also pinned as a diamond on the relevant flowchart when "Show gaps" is on — that's the "map it around" part.</p>
+    </div>
+    <div class="ggrid" id="gapGrid"></div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="cg-legend" id="legend">
+    <div class="grp">
+      <span class="cg-eyebrow" style="color:var(--faint)">State</span>
+      <span class="lg" style="--c:var(--ok)"><i></i>Ready / Sterile / In-stock</span>
+      <span class="lg" style="--c:var(--warn)"><i></i>Low / Dirty / Warning</span>
+      <span class="lg" style="--c:var(--bad)"><i></i>Missing / Blocked / Failed</span>
+    </div>
+    <span class="sep"></span>
+    <div class="grp">
+      <span class="cg-eyebrow" style="color:var(--faint)">Domain</span>
+      <span class="lg" style="--c:var(--ai)"><i></i>AI engine</span>
+      <span class="lg" style="--c:var(--blue)"><i></i>Inventory</span>
+      <span class="lg" style="--c:var(--green)"><i></i>Sterilization</span>
+      <span class="lg" style="--c:var(--gold)"><i></i>Schedule</span>
+      <span class="lg" style="--c:var(--input)"><i></i>Input / scan</span>
+    </div>
+  </div>
+  <div class="hint" id="hint">Tip: press Play to flow through the sequence · toggle "Show gaps" to map missing pieces onto each module.</div>
+
+</div>
+
+<script>
+/* ============ DATA ============ */
+const NW=162, NH=70;
+
+const VIEWS = {
+  overview:{
+    w:1080, h:620, meta:"Inputs → Cognident Core → Actions → Outcome",
+    nodes:{
+      in_sched:{x:24,y:60,t:"Schedule input",s:"Screenshot · CSV · manual",tone:"input"},
+      in_scan:{x:24,y:175,t:"Supply scans",s:"Barcode / QR · receiving",tone:"input"},
+      in_kit:{x:24,y:290,t:"Kit & autoclave logs",s:"Kit scans · cycle data",tone:"input"},
+      in_time:{x:24,y:405,t:"Timing & delay logs",s:"Procedure timing · reasons",tone:"input"},
+      c_parse:{x:318,y:48,t:"Schedule parsing",s:"OCR → structured appts",tone:"ai"},
+      c_inv:{x:318,y:150,t:"Inventory intelligence",s:"Demand · thresholds",tone:"inv"},
+      c_ster:{x:318,y:252,t:"Sterilization intel",s:"Kit demand · priority",tone:"ster"},
+      c_opt:{x:318,y:354,t:"Schedule optimization",s:"Duration · risk",tone:"sched"},
+      c_notify:{x:318,y:456,t:"Notification engine",s:"Pushes alerts out",tone:"ai"},
+      o_ready:{x:612,y:48,t:"Daily readiness report",s:"+ morning huddle list",tone:"action"},
+      o_check:{x:612,y:150,t:"Operatory checklist",s:"+ missing-item alerts",tone:"action"},
+      o_steri:{x:612,y:252,t:"Sterile-kit alerts",s:"Ready / do-not-use",tone:"action"},
+      o_reorder:{x:612,y:354,t:"Reorder suggestions",s:"+ draft purchase order",tone:"action"},
+      o_book:{x:612,y:456,t:"Optimized booking",s:"Templates · risk score",tone:"action"},
+      db:{x:24,y:540,w:520,t:"Shared database",s:"Clinics · items · batches · kits · cycles · schedule · delays · audit log",tone:"neutral"},
+      ai:{x:566,y:540,w:230,t:"AI layer",s:"OCR · classifier · forecasts · summaries",tone:"ai"},
+      o_out:{x:880,y:240,t:"Operational outcome",s:"Less downtime · more production",tone:"ok"}
+    },
+    edges:[
+      ["in_sched","c_parse"],["in_scan","c_inv"],["in_kit","c_ster"],["in_time","c_opt"],["in_time","c_parse"],
+      ["c_parse","o_ready"],["c_inv","o_check"],["c_inv","o_reorder"],["c_ster","o_steri"],["c_opt","o_book"],
+      ["c_parse","c_notify","b","l"],["c_notify","o_steri","r","l"],
+      ["o_ready","o_out"],["o_check","o_out"],["o_steri","o_out"],["o_reorder","o_out"],["o_book","o_out"]
+    ],
+    steps:[
+      {nodes:["in_sched","in_scan","in_kit","in_time"],title:"Raw clinic signals come in",body:"Everything starts as low-effort input: tomorrow's schedule (a Dentrix screenshot, CSV, or manual entry), barcode/QR scans at receiving and chairside, kit and autoclave logs, and timing/delay notes. No deep PMS integration is required in Phase 1.",data:["PMS_type","barcode","UDI","cycle_id"]},
+      {nodes:["c_parse","c_inv","c_ster","c_opt","c_notify"],title:"The Cognident core turns signals into meaning",body:"Five engines run over the inputs: schedule parsing reads the screenshot into appointments, inventory intelligence checks supply against demand, sterilization intelligence ranks kit demand, schedule optimization learns real durations and risk, and the notification engine decides what to surface.",data:["procedure_template","minimum_threshold","sterilization_cycle","risk_buffer_time"]},
+      {nodes:["db","ai"],title:"Powered by one shared database + an AI layer",body:"All engines read and write a single operational database — clinics, users, operatories, inventory, batches, movements, kits, cycles, schedule events, delay logs, alerts, and a full audit log. The AI layer sits beside it for OCR, classification, forecasting, and summaries.",data:["audit_log","inventory_movements","sterilization_cycle_items","delay_logs"]},
+      {nodes:["o_ready","o_check","o_steri","o_reorder","o_book"],title:"Outputs are actions, not just dashboards",body:"The core produces things a clinic acts on before the patient arrives: a daily readiness report and huddle list, per-operatory checklists with missing-item alerts, sterile-kit status, reorder suggestions with a draft PO, and optimized booking with a risk score.",data:["readiness_score","reorder_quantity","do_not_use_flag"]},
+      {nodes:["o_out"],title:"Outcome: readiness before the chair is filled",body:"The whole loop exists to answer three daily questions — do we have the supplies, are the right sterile kits ready, and is the schedule realistic — so the team fixes problems before patient arrival. Less downtime, fewer delays, higher production per clinical day.",data:["chair_utilization","lost_production"]}
+    ]
+  },
+
+  inventory:{
+    w:900, h:560, meta:"6 steps · real-time supply visibility",
+    nodes:{
+      i_master:{x:24,y:55,t:"Item master setup",s:"Name · SKU · threshold · cost",tone:"inv"},
+      i_recv:{x:24,y:185,t:"Receiving supplies",s:"Scan in: lot · expiry · location",tone:"inv"},
+      i_move:{x:24,y:315,t:"Move to operatory",s:"Scan out → scan in",tone:"inv"},
+      i_expiry:{x:24,y:445,t:"Expiry & waste",s:"90 / 60 / 30-day alerts",tone:"warn"},
+      i_tmpl:{x:262,y:55,t:"Procedure templates",s:"Items each procedure needs",tone:"neutral"},
+      i_stock:{x:262,y:250,t:"Inventory database",s:"Live qty · batches · cost",tone:"ok"},
+      i_waste:{x:262,y:445,t:"Mark as waste",s:"Use-older-first guidance",tone:"bad"},
+      i_sched:{x:500,y:55,t:"Tomorrow's schedule",s:"Procedures for the day",tone:"sched"},
+      i_check:{x:500,y:195,t:"Daily checklist",s:"Required vs available",tone:"ai"},
+      i_low:{x:500,y:360,t:"Low-stock check",s:"qty < minimum_threshold",tone:"warn"},
+      i_missing:{x:728,y:120,t:"Missing-item alert",s:"Flagged before the appt",tone:"bad"},
+      i_reorder:{x:728,y:330,t:"Reorder suggestion",s:"Qty · days-to-stockout · PO",tone:"action"}
+    },
+    edges:[
+      ["i_master","i_stock"],["i_recv","i_stock"],["i_stock","i_move","l","r"],["i_move","i_stock","t","b"],
+      ["i_stock","i_expiry","l","r"],["i_expiry","i_waste"],
+      ["i_tmpl","i_check"],["i_stock","i_check"],["i_sched","i_check"],
+      ["i_check","i_missing"],["i_stock","i_low"],["i_low","i_reorder"]
+    ],
+    steps:[
+      {nodes:["i_master"],title:"1 · Item master setup",body:"Admin or Inventory Manager creates a profile for each item — name, category, supplier, SKU/barcode, quantity, storage location, minimum threshold, expiry, and cost. The system builds a searchable record, assigns a storage location, and links the item to the procedure templates that use it.",data:["item_id","SKU","barcode","minimum_threshold","cost_per_unit"]},
+      {nodes:["i_recv"],title:"2 · Receiving new supplies",body:"When stock arrives, the manager scans or searches the item and enters quantity, lot number, expiry date, and storage location. The database updates stock, batch history, cost tracking, and expiry tracking, and warns on overstock.",data:["inventory_batches","lot","expiry_date","storage_location"]},
+      {nodes:["i_move"],title:"3 · Moving supplies to an operatory",body:"An assistant requests an item; the manager scans it out of central storage; the assistant scans it into the operatory. The system updates location counts and logs the user, time, and transfer.",data:["inventory_movements","operatory_id","quantity_on_hand"]},
+      {nodes:["i_sched","i_tmpl","i_check","i_missing"],title:"4 · Daily procedure-based checklist",body:"The system reads tomorrow's schedule, maps each appointment to a procedure template, and compares required items against what's on hand — generating a per-operatory checklist and flagging anything missing before the appointment starts.",data:["procedure_template_id","required_inventory_items"],
+        eg:"Operatory 3 · Dr. Rajat · 9:00 AM Crown Prep. Crown prep kit available, retraction cord low, temp material missing, scanner sleeve available → Alert: temp material missing from Op 3; available in central storage shelf B2."},
+      {nodes:["i_low","i_reorder"],title:"5 · Low-stock & reorder alerts",body:"A daily threshold check fires when quantity drops below minimum, expiry is near, usage is high, or supplier backorder risk is flagged. The system suggests a reorder quantity, projected days until stockout, and a draft purchase order.",data:["reorder_quantity","minimum_threshold","supplier_link"]},
+      {nodes:["i_expiry","i_waste"],title:"6 · Expiry & waste management",body:"The system tracks batches and alerts at 90 / 60 / 30 days before expiry and on the date itself. It suggests moving older stock to high-use operatories, using older batches first, or marking expired stock as waste.",data:["expiry_date","inventory_batches","status"]}
+    ]
+  },
+
+  sterilization:{
+    w:1300, h:560, meta:"7 steps · chain of custody from dirty to verified",
+    nodes:{
+      s_create:{x:24,y:70,t:"Kit creation",s:"Name · type · instruments · QR",tone:"ster"},
+      s_use:{x:24,y:210,t:"Kit used in procedure",s:"Scan sterile kit into op",tone:"ok"},
+      s_dirty:{x:24,y:350,t:"Scanned dirty",s:"Sent to steri queue",tone:"warn"},
+      s_sched:{x:250,y:120,t:"Upcoming schedule",s:"Drives priority",tone:"sched"},
+      s_queue:{x:250,y:300,t:"Sterilization queue",s:"Dirty kits · time since use",tone:"warn"},
+      s_load:{x:476,y:300,t:"Load sterilizer",s:"Scan kits · cycle type",tone:"ster"},
+      s_complete:{x:702,y:300,t:"Cycle completion",s:"Pass/fail · indicators",tone:"ai"},
+      s_fail:{x:702,y:120,t:"Failed cycle",s:"Blocks use · reprocess task",tone:"bad"},
+      s_label:{x:928,y:380,t:"Label generation",s:"Kit · cycle · date · operator",tone:"ster"},
+      s_verify:{x:928,y:150,t:"Chairside verification",s:"Sterile? Expiry? Match?",tone:"ai"},
+      s_ready:{x:1138,y:280,t:"Sterile — ready",s:"Cleared for the chair",tone:"ok"},
+      s_dnu:{x:1138,y:80,t:"Do-not-use alert",s:"Red block at chairside",tone:"bad"}
+    },
+    edges:[
+      ["s_create","s_use"],["s_use","s_dirty","b","t"],["s_dirty","s_queue"],["s_sched","s_queue"],
+      ["s_queue","s_load"],["s_load","s_complete"],["s_complete","s_fail","t","b"],["s_fail","s_queue","l","t"],
+      ["s_complete","s_label","b","l"],["s_label","s_verify","t","b"],["s_verify","s_dnu","t","l"],["s_verify","s_ready","b","l"]
+    ],
+    steps:[
+      {nodes:["s_create"],title:"1 · Kit creation",body:"Admin or the sterilization lead creates an instrument-kit profile — kit name, type, included instruments, a QR/barcode label, and a default storage location. The system mints a kit ID and a tracking record.",data:["kit_id","instrument_list","status","current_location"]},
+      {nodes:["s_use","s_dirty"],title:"2 · Kit used in procedure",body:"The assistant scans a sterile kit into the operatory; the system marks it in-use and links it to the schedule event, provider, and procedure. After the procedure, the kit is scanned dirty and sent to the sterilization queue.",data:["schedule_event_id","provider_id","status: in_use → dirty"]},
+      {nodes:["s_sched","s_queue"],title:"3 · Sterilization queue",body:"The queue shows dirty kits, time since use, upcoming demand, and any kits required later that are missing. The system prioritizes reprocessing based on the upcoming schedule.",data:["last_sterilized_at","kit_type"],
+        eg:"Extraction Kit 2 is required again at 2:30 PM → the system flags it for priority sterilization before noon."},
+      {nodes:["s_load"],title:"4 · Load sterilizer",body:"Staff select a sterilizer, scan the kits/items into the cycle, start it, and enter the cycle type. The system creates a cycle ID, links the kits, and marks them in-sterilization.",data:["cycle_id","sterilizer_id","cycle_type","load_items"]},
+      {nodes:["s_complete","s_fail"],title:"5 · Cycle completion",body:"Staff mark the cycle complete, record pass/fail, upload a printout/photo if needed, and enter the chemical and biological/spore results. Passed cycles mark kits sterile; failed cycles block clinical use and create a reprocessing task that loops back to the queue.",data:["biological_indicator_result","chemical_indicator_result","cycle_status","failure_reason"]},
+      {nodes:["s_label"],title:"6 · Label generation",body:"The system generates kit/pouch labels with the kit ID and name, cycle ID, sterilizer ID, date/time, operator initials, expiry if applicable, and a QR/barcode.",data:["kit_id","cycle_id","operator_user_id","expiry_date"]},
+      {nodes:["s_verify","s_ready","s_dnu"],title:"7 · Chairside verification",body:"Before the procedure the assistant scans the kit; the system verifies sterile status, a passed cycle, valid expiry, and a procedure match. Anything invalid triggers a red do-not-use alert instead of letting it reach the patient.",data:["do_not_use_flag","status: sterile","procedure match"]}
+    ]
+  },
+
+  schedule:{
+    w:980, h:540, meta:"8 steps · learn real timing, raise production",
+    nodes:{
+      sc_import:{x:24,y:60,t:"Daily schedule import",s:"Upload / manual entry",tone:"ai"},
+      sc_timing:{x:24,y:200,t:"Procedure timing capture",s:"Seated → start → finish",tone:"sched"},
+      sc_delay:{x:24,y:340,t:"Delay reason tracking",s:"Why it ran late",tone:"warn"},
+      sc_learn:{x:268,y:120,t:"Provider duration learning",s:"Rolling avg · buffers",tone:"ai"},
+      sc_complex:{x:268,y:300,t:"Complexity flagging",s:"Anxiety · medical · surgical",tone:"warn"},
+      sc_optimize:{x:516,y:200,t:"Daily optimization",s:"Reviews tomorrow's risks",tone:"ai"},
+      sc_analytics:{x:760,y:70,t:"Production analytics",s:"Weekly lost-production",tone:"action"},
+      sc_score:{x:760,y:280,t:"Schedule score",s:"Readiness 0–100",tone:"action"}
+    },
+    edges:[
+      ["sc_import","sc_timing"],["sc_import","sc_complex"],["sc_timing","sc_delay","b","t"],
+      ["sc_timing","sc_learn"],["sc_delay","sc_learn"],["sc_learn","sc_optimize"],["sc_complex","sc_optimize"],
+      ["sc_timing","sc_analytics"],["sc_delay","sc_analytics"],["sc_optimize","sc_score"]
+    ],
+    steps:[
+      {nodes:["sc_import"],title:"1 · Daily schedule import",body:"A user uploads the schedule or enters it manually; the system extracts provider, appointment block, procedure type, planned start/end, operatory, assistant, estimated production, and emergency blocks.",data:["schedule_event_id","planned_start_time","emergency_flag","production_value"]},
+      {nodes:["sc_timing"],title:"2 · Procedure timing capture",body:"Staff record patient-seated time, provider start, provider finish, patient dismissed, and room ready. The system computes waiting time, provider active time, turnover, total chair time, and overrun/underrun.",data:["actual_start_time","actual_end_time","room_turnover_time"]},
+      {nodes:["sc_delay"],title:"3 · Delay reason tracking",body:"When a block runs late, staff pick a reason: patient late, anesthesia delay, complexity, missing instrument/supply, assistant unavailable, provider behind, lab/scanner issue, emergency insertion, consent/financial delay, and more.",data:["delay_reason","delay_logs"]},
+      {nodes:["sc_learn"],title:"4 · Provider-specific duration learning",body:"The system builds rolling averages, variability, a provider-specific booking duration, and risk buffers — so the template reflects how each provider actually works, not a clinic-wide guess.",data:["provider_adjusted_duration","risk_buffer_time"],
+        eg:"Dr. Rajat's MOD composite averages 42 min; the current template is 60 min → suggested 45 min, plus a 10-min buffer when a deep-caries flag is present."},
+      {nodes:["sc_complex"],title:"5 · Complexity flagging",body:"Front desk or provider flags factors that change timing — anxiety, limited opening, difficult anesthesia, complex medical history, multiple quadrants, new emergency, high gag reflex, surgical risk, long financial discussion, child or frail patient.",data:["patient_complexity_flag"]},
+      {nodes:["sc_optimize"],title:"6 · Daily schedule optimization",body:"The system reviews tomorrow for overloaded blocks, no emergency buffer, high-value placement, complex cases back-to-back, hygiene-exam conflicts, assistant mismatch, missing kits/supplies, production gaps, and turnover feasibility.",data:["emergency_flag","assistant_assigned","treatment_status"]},
+      {nodes:["sc_analytics"],title:"7 · Production opportunity analytics",body:"A weekly report highlights unused chair time, estimated lost production, the most common delays, procedures over/underbooked, and recommended template changes.",data:["lost_production","unused_chair_time"]},
+      {nodes:["sc_score"],title:"8 · Schedule score",body:"Each day gets a readiness score from production density, provider workload, emergency buffer, assistant coverage, complexity distribution, turnover feasibility, required supplies/kits, and historical delay risk.",data:["readiness_score"],
+        eg:"Tomorrow: 72/100. Risks: no emergency buffer, two surgical cases back-to-back, extraction-kit shortage. Recs: move crown prep earlier, add a 20-min buffer after lunch, prep Extraction Kit 2 by 1:30 PM, fill a 40-min gap with a limited exam."}
+    ]
+  },
+
+  cross:{
+    w:1060, h:640, meta:"The real value: the three modules talk to each other",
+    nodes:{
+      cx_sched:{x:450,y:40,t:"Tomorrow's schedule",s:"The shared trigger",tone:"sched"},
+      cx_inv:{x:110,y:230,t:"Inventory intelligence",s:"What's needed vs on hand",tone:"inv"},
+      cx_ster:{x:450,y:260,t:"Sterilization intelligence",s:"Which kits · when · how many",tone:"ster"},
+      cx_opt:{x:800,y:230,t:"Schedule optimization",s:"Is the day realistic?",tone:"sched"},
+      cx_delay:{x:450,y:430,t:"Delay analytics",s:"Links cause → fix",tone:"warn"},
+      cx_out:{x:450,y:560,t:"Morning huddle",s:"Fix before patient arrival",tone:"ok"}
+    },
+    edges:[
+      ["cx_sched","cx_inv","l","t","needs tomorrow"],["cx_sched","cx_ster","b","t","kits & times"],["cx_sched","cx_opt","r","t","timing realism"],
+      ["cx_ster","cx_inv","l","r","steri consumables"],
+      ["cx_inv","cx_delay","b","l","missing supply"],["cx_ster","cx_delay","b","t","dirty-kit cause"],["cx_delay","cx_opt","r","b","reprioritize"],
+      ["cx_inv","cx_out","b","l"],["cx_ster","cx_out","b","t"],["cx_opt","cx_out","b","r"]
+    ],
+    steps:[
+      {nodes:["cx_sched","cx_inv"],title:"Inventory + Schedule",body:"The schedule tells inventory what tomorrow needs, so the system checks supplies against the day's procedures before anyone walks in.",data:["required_inventory_items","quantity_on_hand"],
+        eg:"Two crown preps + one surgical extraction + one emergency exam → check crown burs, retraction cord, temp material, surgical handpiece, and hemostatic agent."},
+      {nodes:["cx_sched","cx_ster"],title:"Sterilization + Schedule",body:"The schedule tells sterilization which kits are needed and when, so the system can check how many are sterile, dirty, or processable in time.",data:["kit_type","last_sterilized_at"],
+        eg:"Extraction kit needed at 10:00 AM and 2:30 PM → how many are sterile now, how many dirty, how many can be reprocessed before the afternoon?"},
+      {nodes:["cx_ster","cx_inv"],title:"Inventory + Sterilization",body:"Sterilization consumables — pouches, tape, biological and chemical indicators, labels, printer rolls — are deducted and reordered through inventory, so the steri line never runs dry.",data:["inventory_movements","reorder_quantity"]},
+      {nodes:["cx_delay","cx_ster","cx_opt"],title:"Delay analytics ties it together",body:"If a delay was caused by a missing extraction kit, the system links the cause to dirty-kit status, queue priority, and afternoon demand — then recommends adding another kit or changing sterilization priority. That feedback is what turns three trackers into one operating system.",data:["delay_reason","cycle_status","queue priority"]}
+    ]
+  },
+
+  daily:{
+    w:1180, h:420, meta:"One continuous loop, evening to evening",
+    nodes:{
+      d_eve:{x:24,y:130,w:250,t:"Previous evening",s:"Upload tomorrow's schedule → AI readiness report",tone:"ai"},
+      d_huddle:{x:330,y:130,w:250,t:"Morning huddle",s:"Team reviews missing supplies, kits, complex cases, buffers",tone:"sched"},
+      d_day:{x:636,y:130,w:250,t:"During clinic day",s:"Scan supplies & kits · log delays · steri prioritizes",tone:"ster"},
+      d_eod:{x:942,y:130,w:214,t:"End of day",s:"Summarize production, delays, usage, tomorrow's prep",tone:"ok"}
+    },
+    edges:[
+      ["d_eve","d_huddle"],["d_huddle","d_day"],["d_day","d_eod"],["d_eod","d_eve","b","b","feeds tomorrow"]
+    ],
+    steps:[
+      {nodes:["d_eve"],title:"Previous evening",body:"Front desk uploads tomorrow's Dentrix schedule screenshot. Cognident extracts appointments, maps procedures, checks required supplies and kits, identifies timing risks, and generates a daily readiness report.",data:["readiness_score"],
+        eg:"Readiness 84%: temp material low, extraction kit dirty, no emergency buffer after lunch."},
+      {nodes:["d_huddle"],title:"Morning huddle",body:"The team reviews missing supplies, kits needed, complex cases, high-value appointments, emergency slots, assistant assignments, and timing risks — all from the report, in one short stand-up.",data:["patient_complexity_flag","emergency_flag"]},
+      {nodes:["d_day"],title:"During the clinic day",body:"Assistants scan supplies into operatories, confirm checklists, scan sterile kits, and record missing items or delays. Sterilization prioritizes kits, logs cycles, and prints labels. Front desk uses timing suggestions; providers review actual timing.",data:["inventory_movements","sterilization_cycle","delay_logs"]},
+      {nodes:["d_eod"],title:"End of day",body:"The system summarizes production completed, delays, missing supplies, kits used, sterilization cycles, inventory consumed, unused chair time, and tomorrow's prep — and that data sharpens the next day's recommendations.",data:["lost_production","chair_utilization"]}
+    ]
+  }
+};
+
+const GAPS = [
+  {n:1, sev:"high", view:"inventory", anchor:"i_check", title:"No 'item consumed' event — stock will drift",
+   missing:"The workflow scans items in, between locations, and onto a checklist, but never defines the event that decrements stock when an item is actually used in a procedure.",
+   why:"Scanning into an operatory ≠ consumed. Without a point-of-use deduction, quantity_on_hand slowly diverges from reality and every alert downstream becomes unreliable.",
+   where:"Belongs between 'Move to operatory' and the daily checklist — add a 'Procedure consumption' event (e.g. auto-deduct template items when a procedure is marked complete)."},
+  {n:2, sev:"med", view:"inventory", anchor:"i_master", title:"Pack-size (case → each) conversion is undefined",
+   missing:"Supplies arrive by box/case but are consumed per unit. The model has unit_type but no pack-size / units-per-case conversion.",
+   why:"Receiving 1 box of 50 and consuming 1 unit can't both update the same counter correctly — you get phantom stockouts or silent overstock.",
+   where:"Add units_per_package to Item master and convert on Receiving and at consumption."},
+  {n:3, sev:"med", view:"inventory", anchor:"i_recv", title:"Non-barcoded items have no path",
+   missing:"The flow assumes everything is scannable, but many dental consumables ship without a usable barcode.",
+   why:"'Scanning must be easier than manual entry' breaks if a third of items can't be scanned. Staff fall back to slow manual entry and adoption drops.",
+   where:"Add a clinic-printed-label step at Receiving for non-barcoded items, plus a quick manual fallback."},
+  {n:4, sev:"crit", view:"sterilization", anchor:"s_complete", title:"Spore-test lag + no recall workflow",
+   missing:"Biological (spore) indicators incubate 24–48 h, but the spec records the result at cycle completion and releases kits as sterile right away.",
+   why:"Kits get used before the spore result is known. If that delayed test later fails, there is no defined quarantine/recall flow to trace and pull every kit and patient exposed — the single biggest compliance risk here.",
+   where:"Split release: chemical-indicator + parameters allow conditional release; add a pending-biological state and a recall workflow if it fails."},
+  {n:5, sev:"high", view:"sterilization", anchor:"s_load", title:"Not yet aligned to CSA Z314",
+   missing:"Canada's medical-device reprocessing standard (CSA Z314) governs load records, traceability, and indicator handling, but isn't referenced.",
+   why:"A sterilization-tracking product's legal value depends on matching the standard auditors and public-health inspectors actually use.",
+   where:"Build the cycle log, load records, and indicator fields to Z314; surface it as a selling point."},
+  {n:6, sev:"med", view:"sterilization", anchor:"s_verify", title:"Instrument-level tracking deferred",
+   missing:"Tracking is kit-level; individual-instrument tracking is listed as 'nice-to-have later'.",
+   why:"Kit-level can't catch a single missing or wrong instrument — which is exactly the 'missing-instrument downtime' this module says it solves.",
+   where:"At minimum, capture instrument count at kit assembly and chairside, even before full per-instrument tracking."},
+  {n:7, sev:"med", view:"schedule", anchor:"sc_learn", title:"No cold-start for new providers / rare procedures",
+   missing:"Duration learning relies on rolling averages, but there's no defined behavior when there's little or no history.",
+   why:"A new associate or an uncommon procedure has no average yet, so suggestions are either absent or wildly off until enough data accrues.",
+   where:"Define a minimum sample size and a fallback (template default + wider buffer) until confidence is reached."},
+  {n:8, sev:"med", view:"schedule", anchor:"sc_import", title:"No-shows & cancellations aren't tracked",
+   missing:"The schedule module captures timing and delays but never models cancellations or last-minute holes.",
+   why:"No-shows are usually the largest source of lost production — yet 'lost production' is a core metric. The biggest leak isn't being measured.",
+   where:"Add cancellation/no-show capture at import and fold it into the production-opportunity analytics."},
+  {n:9, sev:"high", view:"overview", anchor:"c_parse", title:"No human review of OCR'd schedules",
+   missing:"Screenshot OCR will misread names, times, and procedure codes, but there's no confirm/correct step before the parsed schedule is trusted.",
+   why:"A misread appointment silently produces the wrong checklist and the wrong kit demand — garbage-in propagates to every module.",
+   where:"Insert a 30-second 'review parsed schedule' confirmation right after schedule parsing."},
+  {n:10, sev:"high", view:"overview", anchor:"in_scan", title:"No offline-first scanning / sync",
+   missing:"Chairside and steri scanning are assumed online; nothing defines behavior when clinic WiFi drops.",
+   why:"Operatories and sterile rooms have spotty connectivity. If a scan fails silently, the audit trail and stock counts develop holes.",
+   where:"Specify offline capture with a conflict-safe sync queue at every scan point."},
+  {n:11, sev:"med", view:"overview", anchor:"in_scan", title:"Shared-device identity is undefined",
+   missing:"Logs record 'user + time', but operatory tablets are shared and the spec doesn't define how each scan is attributed on a shared device.",
+   why:"If everyone scans under one logged-in account, the audit log — the legal backbone of sterilization tracking — loses its meaning.",
+   where:"Add a quick per-scan identity (PIN or badge tap) on shared tablets."},
+  {n:12, sev:"high", view:"overview", anchor:"db", title:"Privacy regime & retention period unspecified",
+   missing:"'Prefer Canadian hosting' is stated, but the governing health-privacy law (e.g. PHIPA in Ontario) and a log-retention period are not.",
+   why:"Appointment-linked operational data can still be PHI, and sterilization/audit records typically must be retained for years — undefined retention is a compliance and storage risk.",
+   where:"Name the applicable provincial regime and set explicit retention for sterilization and audit logs."},
+  {n:13, sev:"med", view:"overview", anchor:"db", title:"No bulk onboarding / data migration",
+   missing:"There's no defined path to load a clinic's initial inventory list and kit definitions.",
+   why:"Hand-entering hundreds of items and dozens of kits before any value appears is the #1 thing that kills pilot adoption.",
+   where:"Add a CSV/template bulk import for items and kits as part of clinic setup."},
+  {n:14, sev:"low", view:"overview", anchor:"c_notify", title:"Notification routing isn't defined",
+   missing:"A 'Notification Engine' exists, but channels (in-app, email, SMS, push) and who-gets-which-alert aren't specified.",
+   why:"An alert nobody sees in time is the same as no alert. Routing by role and urgency is what makes 'fix before the patient arrives' real.",
+   where:"Define channel + recipient role per alert type at the notification engine."}
+];
+
+/* ============ RENDER ENGINE ============ */
+const TONE_HUE = {input:'--input',ai:'--ai',ok:'--ok',warn:'--warn',bad:'--bad',inv:'--blue',ster:'--green',sched:'--gold',action:'--teal',neutral:'--neutral'};
+const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+const el = id => document.getElementById(id);
+const inner=el('inner'), nodesL=el('nodes'), edgesSvg=el('edges'), canvas=el('canvas');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+let curView='overview', curStep=0, playing=false, timer=null, nodeEls={}, edgeEls={};
+
+function anchorPt(nd, side){
+  const w=nd.w||NW, h=NH_of(nd);
+  const x=nd.x, y=nd.y;
+  switch(side){
+    case 'l': return {x:x, y:y+h/2, nx:-1, ny:0};
+    case 'r': return {x:x+w, y:y+h/2, nx:1, ny:0};
+    case 't': return {x:x+w/2, y:y, nx:0, ny:-1};
+    case 'b': return {x:x+w/2, y:y+h, nx:0, ny:1};
+  }
+}
+// node heights vary slightly with content; approximate by measuring after layout
+function NH_of(nd){ return nd._h || NH; }
+
+function buildView(key){
+  const v=VIEWS[key];
+  inner.style.width=v.w+'px'; inner.style.height=v.h+'px';
+  edgesSvg.setAttribute('viewBox',`0 0 ${v.w} ${v.h}`);
+  nodesL.innerHTML=''; edgesSvg.innerHTML=''; nodeEls={}; edgeEls={};
+
+  // nodes
+  for(const [id,nd] of Object.entries(v.nodes)){
+    const d=document.createElement('div');
+    d.className='node t-'+nd.tone;
+    d.style.left=nd.x+'px'; d.style.top=nd.y+'px';
+    if(nd.w) {d.style.width=nd.w+'px'; d.classList.add('wide');}
+    d.innerHTML=`<div class="nid"><b></b>${id}</div><div class="nt">${nd.t}</div><div class="ns">${nd.s}</div>`;
+    nodesL.appendChild(d); nodeEls[id]=d;
+  }
+  // measure heights for anchor accuracy
+  for(const [id,nd] of Object.entries(v.nodes)){ nd._h = nodeEls[id].offsetHeight; }
+
+  // edges
+  v.edges.forEach(e=>{
+    const [a,b,sa='r',sb='l',label]=e;
+    const na=v.nodes[a], nb=v.nodes[b];
+    const p1=anchorPt(na,sa), p2=anchorPt(nb,sb);
+    const k=Math.max(40, Math.abs(p2.x-p1.x)*0.35);
+    const c1={x:p1.x+p1.nx*k, y:p1.y+p1.ny*k};
+    const c2={x:p2.x+p2.nx*k, y:p2.y+p2.ny*k};
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d',`M${p1.x},${p1.y} C${c1.x},${c1.y} ${c2.x},${c2.y} ${p2.x},${p2.y}`);
+    path.setAttribute('class','e');
+    edgesSvg.appendChild(path); edgeEls[a+'__'+b]=path;
+    if(label){
+      const mx=(p1.x+p2.x)/2 + ( (c1.x+c2.x)/2 - (p1.x+p2.x)/2 )*0.4;
+      const my=(p1.y+p2.y)/2 -6;
+      const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x',mx); t.setAttribute('y',my); t.setAttribute('class','elabel'); t.setAttribute('text-anchor','middle');
+      t.textContent=label; edgesSvg.appendChild(t);
+    }
+  });
+
+  // gap chips
+  const gapsHere = GAPS.filter(g=>g.view===key);
+  const perNode={};
+  gapsHere.forEach(g=>{
+    const host=nodeEls[g.anchor]; if(!host) return;
+    perNode[g.anchor]=(perNode[g.anchor]||0);
+    const idx=perNode[g.anchor]++;
+    const nd=v.nodes[g.anchor];
+    const chip=document.createElement('div');
+    chip.className='gchip sev-'+g.sev;
+    chip.style.left=(nd.x + (nd.w||NW) - 12 - idx*20)+'px';
+    chip.style.top=(nd.y - 11)+'px';
+    chip.innerHTML=`<div class="d"><span class="n">${g.n}</span></div>`;
+    chip.title=g.title;
+    chip.addEventListener('click',()=>openGap(g.n));
+    nodesL.appendChild(chip);
+  });
+
+  curStep=0; applyStep();
+}
+
+function clearActive(){
+  Object.values(nodeEls).forEach(n=>n.classList.remove('active','dim'));
+  Object.values(edgeEls).forEach(p=>{p.classList.remove('flow'); p.style.stroke='';});
+}
+
+function applyStep(){
+  const v=VIEWS[curView]; const step=v.steps[curStep];
+  clearActive();
+  const active=new Set(step.nodes);
+  Object.entries(nodeEls).forEach(([id,n])=>{ if(!active.has(id)) n.classList.add('dim'); });
+  step.nodes.forEach(id=>{ if(nodeEls[id]) nodeEls[id].classList.add('active'); });
+
+  // light edges that terminate at active nodes from the flow
+  v.edges.forEach(e=>{
+    const [a,b]=e; const key=a+'__'+b;
+    if(active.has(b)){
+      const p=edgeEls[key]; if(p){ p.classList.add('flow');
+        const hue=cssVar(TONE_HUE[v.nodes[b].tone]); p.style.stroke=hue; }
+    }
+  });
+
+  // detail panel
+  el('dStep').textContent='Step '+String(curStep+1).padStart(2,'0');
+  el('dTitle').textContent=step.title;
+  el('dBody').textContent=step.body;
+  const dd=el('dData'); dd.innerHTML='';
+  (step.data||[]).forEach(x=>{ const s=document.createElement('span'); s.textContent=x; dd.appendChild(s); });
+  const eg=el('dEg');
+  if(step.eg){ eg.style.display='block'; eg.innerHTML='<b>Example</b>'+step.eg; } else eg.style.display='none';
+
+  el('stepCount').textContent=String(curStep+1).padStart(2,'0')+' / '+String(v.steps.length).padStart(2,'0');
+  el('progBar').style.width=((curStep+1)/v.steps.length*100)+'%';
+
+  // scroll active node into horizontal view
+  const first=nodeEls[step.nodes[0]];
+  if(first){
+    const nd=v.nodes[step.nodes[0]];
+    const target=Math.max(0, nd.x + (nd.w||NW)/2 - canvas.clientWidth/2);
+    canvas.scrollTo({left:target, behavior: reduceMotion?'auto':'smooth'});
+  }
+}
+
+function step(dir){
+  const v=VIEWS[curView];
+  curStep=(curStep+dir+v.steps.length)%v.steps.length;
+  applyStep();
+}
+function setPlaying(on){
+  playing=on;
+  el('playIco').innerHTML = on ? '<rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/>' : '<path d="M8 5v14l11-7z"/>';
+  el('playTxt').textContent = on ? 'Pause' : 'Play sequence';
+  el('playBtn').style.background = on ? 'var(--surface)' : 'var(--teal)';
+  el('playBtn').style.color = on ? 'var(--text)' : '#06231f';
+  if(timer){clearInterval(timer); timer=null;}
+  if(on){ timer=setInterval(()=>step(1), 2400); }
+}
+
+/* tabs */
+function switchView(key){
+  if(timer){setPlaying(false);}
+  curView=key;
+  document.querySelectorAll('.cg-tab').forEach(t=>t.classList.toggle('on', t.dataset.view===key));
+  const isGaps = key==='gaps';
+  el('stage').style.display = isGaps?'none':'block';
+  el('legend').style.display = isGaps?'none':'flex';
+  el('hint').style.display = isGaps?'none':'block';
+  el('gapsView').classList.toggle('on', isGaps);
+  el('tabhead').style.display = isGaps?'none':'flex';
+  if(!isGaps){
+    el('viewTitle').textContent = document.querySelector('.cg-tab[data-view="'+key+'"]').textContent.replace(/^[^A-Za-z]+/,'').trim();
+    el('viewMeta').textContent = VIEWS[key].meta;
+    buildView(key);
+  }
+}
+
+/* gaps grid */
+function renderGaps(){
+  const grid=el('gapGrid'); grid.innerHTML='';
+  const sevName={crit:'Critical',high:'High',med:'Medium',low:'Low'};
+  GAPS.forEach(g=>{
+    const c=document.createElement('div');
+    c.className='gcard '+g.sev; c.id='gap-'+g.n;
+    c.innerHTML=`
+      <div class="ghead"><span class="gnum">GAP ${String(g.n).padStart(2,'0')}</span><span class="gsev">${sevName[g.sev]}</span></div>
+      <h4>${g.title}</h4>
+      <div class="grow"><b>What's missing</b>${g.missing}</div>
+      <div class="grow"><b>Why it matters</b>${g.why}</div>
+      <div class="grow"><b>Where to add it</b>${g.where}</div>
+      <div class="gwhere"><span class="pin">◆</span> Pinned on the <strong style="color:var(--text);margin:0 3px">${g.view}</strong> flow</div>`;
+    grid.appendChild(c);
+  });
+  el('gapCount').textContent='('+GAPS.length+')';
+}
+function openGap(n){
+  switchView('gaps');
+  const card=el('gap-'+n);
+  document.querySelectorAll('.gcard').forEach(c=>c.classList.remove('hot'));
+  if(card){ card.classList.add('hot'); card.scrollIntoView({behavior:'smooth',block:'center'}); }
+}
+
+/* wire up */
+document.querySelectorAll('.cg-tab').forEach(t=>t.addEventListener('click',()=>switchView(t.dataset.view)));
+el('prevBtn').addEventListener('click',()=>{ if(playing)setPlaying(false); step(-1); });
+el('nextBtn').addEventListener('click',()=>{ if(playing)setPlaying(false); step(1); });
+el('playBtn').addEventListener('click',()=>setPlaying(!playing));
+el('gapToggle').addEventListener('click',()=>document.body.classList.toggle('gaps-on'));
+window.addEventListener('resize',()=>{ if(curView!=='gaps') applyStep(); });
+
+renderGaps();
+switchView('overview');
+</script>
+</body>
+</html>
