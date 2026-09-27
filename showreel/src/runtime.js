@@ -17,6 +17,7 @@
   if (q.get('hud') === '0') R.showHud = false;
   if (!renderMode) R.hudToneEvery = 4;
   if (q.get('grain') != null) R.grain = +q.get('grain');
+  const doPost = q.get('post') !== '0';
 
   const canvas = document.getElementById('reel');
   canvas.width = Math.round(R.W * R.scale);
@@ -25,7 +26,7 @@
 
   function drawFrameAt(T, frame) {
     R.renderContent(ctx, T);
-    R.post(ctx, T, frame);
+    if (doPost) R.post(ctx, T, frame);
   }
 
   // Motion blur: average `mb` sub-frames across the shutter interval.
@@ -44,7 +45,7 @@
     const out = ctx.createImageData(w, h), o = out.data, half = mb >> 1;
     for (let k = 0; k < n; k++) o[k] = (acc[k] + half) / mb;
     ctx.putImageData(out, 0, 0);
-    R.post(ctx, T0, f);
+    if (doPost) R.post(ctx, T0, f);
   }
 
   const ready = (async () => { await R.init(); })();
@@ -79,6 +80,14 @@
           }
         });
         return c.toDataURL('image/png');
+      },
+      /** Pixel hash of the content at T (no post) — for purity checks. */
+      hashAt(T) {
+        R.renderContent(ctx, T);
+        const d = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        let h = 2166136261;
+        for (let i = 0; i < d.length; i += 3) h = Math.imul(h ^ d[i], 16777619);
+        return h >>> 0;
       },
       bench(times) {
         return times.map((T) => { const t0 = performance.now(); R.renderContent(ctx, T); ctx.getImageData(0, 0, 1, 1); return { T, ms: +(performance.now() - t0).toFixed(1) }; });

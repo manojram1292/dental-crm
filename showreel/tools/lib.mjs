@@ -38,13 +38,14 @@ export function args(argv = process.argv.slice(2)) {
 }
 
 /** Opens the reel in render mode. Returns { browser, pages, info, close, drainErrors }. */
-export async function openReel({ scale = 1, pages: nPages = 1, hud = true, grain } = {}) {
+export async function openReel({ scale = 1, pages: nPages = 1, hud = true, grain, post = true } = {}) {
   const { srv, port } = await serve();
   const browser = await chromium.launch({ args: ['--disable-gpu-vsync', '--disable-frame-rate-limit'] });
   const errors = [];
   const qs = new URLSearchParams({ render: '1', scale: String(scale) });
   if (!hud) qs.set('hud', '0');
   if (grain != null) qs.set('grain', String(grain));
+  if (!post) qs.set('post', '0');
   const pages = [];
   for (let i = 0; i < nPages; i++) {
     const page = await browser.newPage({ viewport: { width: Math.ceil(1920 * scale), height: Math.ceil(1080 * scale) } });

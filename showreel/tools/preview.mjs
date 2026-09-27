@@ -7,8 +7,10 @@
  *   node tools/preview.mjs frames --times 2,2.25,3.1 [--scale 1] [--mb 8] [--outdir dir]
  *   node tools/preview.mjs bench  --from 6 --to 8 [--count 24] [--scale 1]
  *   node tools/preview.mjs clip   --from 6 --to 8 [--scale 0.5] [--out clip.mp4]   low-res video for humans
+ *   node tools/preview.mjs purity --from 6 --to 8 [--count 12]   checks draw() is a pure function of time
  *
- * Options: --hud 0 hides the HUD, --grain 0 disables grain.
+ * Options: --hud 0 hides the HUD, --grain 0 disables grain, --post 0 disables
+ * grain + vignette (use it for exact colour checks on contract frames).
  * Page errors (exceptions inside scenes) are printed at the end — check them.
  */
 import fs from 'node:fs';
@@ -21,6 +23,7 @@ const cmd = a._[0] || 'sheet';
 const scale = +(a.scale || (cmd === 'frames' || cmd === 'bench' ? 1 : 0.5));
 const hud = a.hud !== '0';
 const grain = a.grain != null ? +a.grain : undefined;
+const post = a.post !== '0';
 const stamp = `${Date.now().toString(36)}-${process.pid}`;
 const outDir = path.join(ROOT, '.preview');
 fs.mkdirSync(outDir, { recursive: true });
@@ -31,7 +34,7 @@ const range = (from, to, count) => {
   return Array.from({ length: count }, (_, i) => +(from + ((to - from) * i) / (count - 1)).toFixed(4));
 };
 
-const reel = await openReel({ scale, hud, grain });
+const reel = await openReel({ scale, hud, grain, post });
 const page = reel.pages[0];
 try {
   if (cmd === 'sheet' || cmd === 'strip') {
@@ -69,6 +72,21 @@ try {
     const avg = ms.reduce((s, x) => s + x, 0) / ms.length;
     for (const r of res) console.log(`${r.T.toFixed(3)}s  ${r.ms} ms`);
     console.log(`avg ${avg.toFixed(1)} ms, max ${Math.max(...ms).toFixed(1)} ms at scale ${scale}`);
+  } else if (cmd === 'purity') {
+    // Render each time forward, then again in reverse/shuffled order: hashes must match.
+    const from = +(a.from ?? 0), to = +(a.to ?? 15);
+    const times = range(from, Math.min(to, 15 - 1 / FPS), +(a.count || 12)).map((t) => Math.round(t * FPS) / FPS);
+    const first = [];
+    for (const T of times) first.push(await page.evaluate((T) => window.__reel.hashAt(T), T));
+    const order = times.map((_, i) => i).reverse();
+    for (let k = 0; k < order.length; k += 2) if (k + 1 < order.length) [order[k], order[k + 1]] = [order[k + 1], order[k]];
+    let bad = 0;
+    for (const i of order) {
+      const h = await page.evaluate((T) => window.__reel.hashAt(T), times[i]);
+      if (h !== first[i]) { bad++; console.log(`IMPURE at ${times[i].toFixed(4)}s: ${first[i]} vs ${h}`); }
+    }
+    console.log(bad ? `${bad}/${times.length} times differ — draw() depends on call order/state` : `pure: ${times.length} times re-rendered identically`);
+    if (bad) process.exitCode = 1;
   } else if (cmd === 'clip') {
     const from = +(a.from ?? 0), to = +(a.to ?? 15);
     const out = a.out || path.join(outDir, `clip-${from}-${to}-${stamp}.mp4`);
