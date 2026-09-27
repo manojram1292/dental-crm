@@ -15,6 +15,7 @@ Once GitHub Pages finishes building, the site is available at:
 | `index.html` | The homepage GitHub Pages serves (copy of the workflow map). |
 | `cognident-workflow-map.html` | The original named version of the workflow map. |
 | `.nojekyll` | Tells GitHub Pages to skip Jekyll processing and serve files as-is. |
+| `showreel/` | A 15-second code-generated motion design showreel (`showreel.mp4`, plus a live player at `showreel/index.html`). See [`showreel/README.md`](showreel/README.md). |
 
 ## How it works
 

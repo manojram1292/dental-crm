@@ -5,7 +5,7 @@
  *
  *   node tools/render.mjs [--out showreel.mp4] [--mb 8] [--shutter 0.5] [--scale 1]
  *                         [--workers 3] [--from 0 --to 15] [--audio audio/showreel.wav]
- *                         [--crf 14] [--keep-frames]
+ *                         [--crf 18] [--tune film] [--keep-frames]
  *
  * --mb N      sub-frames averaged per output frame (1 = off)
  * --shutter   fraction of the frame interval the shutter stays open (0.5 = 180°)
@@ -23,7 +23,8 @@ const shutter = +(a.shutter || 0.5);
 const workers = +(a.workers || Math.max(1, Math.min(4, os.cpus().length - 1)));
 const out = path.resolve(ROOT, a.out || 'showreel.mp4');
 const audio = a.audio === 'none' ? null : path.resolve(ROOT, a.audio || 'audio/showreel.wav');
-const crf = String(a.crf || 14);
+const crf = String(a.crf || 18);
+const tune = a.tune || 'film';
 const framesDir = path.join(ROOT, '.frames');
 
 const reel = await openReel({ scale, pages: workers });
@@ -58,7 +59,7 @@ const ffArgs = ['-y', '-loglevel', 'error', '-framerate', String(FPS), '-start_n
 if (audio && fs.existsSync(audio)) ffArgs.push('-ss', String(f0 / FPS), '-t', String((f1 - f0) / FPS), '-i', audio);
 ffArgs.push(
   '-vf', 'scale=in_range=pc:out_range=tv:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p',
-  '-c:v', 'libx264', '-preset', 'slow', '-crf', crf, '-tune', 'animation', '-profile:v', 'high', '-g', '60', '-bf', '2',
+  '-c:v', 'libx264', '-preset', 'slow', '-crf', crf, '-tune', tune, '-profile:v', 'high', '-g', '60', '-bf', '2',
   '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv',
 );
 if (audio && fs.existsSync(audio)) ffArgs.push('-c:a', 'aac', '-b:a', '320k', '-ar', '48000');
