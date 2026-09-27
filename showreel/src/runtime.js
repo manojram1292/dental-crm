@@ -97,9 +97,9 @@
   }
 
   // ─── Live player ───────────────────────────────────────────────────────────
-  const audio = document.getElementById('audio');
-  audio.src = 'audio/showreel.wav';
-  audio.preload = 'auto';
+  // Sound plays through Web Audio: sample-accurate, and seeking works on any
+  // static host (an <audio> element can't seek without HTTP range support).
+  // While sound runs, the audio clock is the master clock.
   const ui = {
     play: document.getElementById('play'),
     scrub: document.getElementById('scrub'),
@@ -109,7 +109,40 @@
     mute: document.getElementById('mute'),
     loop: document.getElementById('loop'),
   };
-  let playing = false, T = +(q.get('t') || 0), lastNow = 0, looping = true;
+  let playing = false, looping = true, muted = false, lastNow = null;
+  let T = R.clamp(+(q.get('t') || 0) || 0, 0, R.DURATION - 1e-4);
+
+  const sound = { ctx: null, gain: null, buffer: null, loading: null, src: null, startedAt: 0 };
+  function loadSound() {
+    if (sound.loading) return sound.loading;
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return (sound.loading = Promise.resolve(null));
+    sound.ctx = new AC();
+    sound.gain = sound.ctx.createGain();
+    sound.gain.gain.value = muted ? 0 : 1;
+    sound.gain.connect(sound.ctx.destination);
+    sound.loading = fetch('audio/showreel.wav')
+      .then((r) => { if (!r.ok) throw new Error(`audio ${r.status}`); return r.arrayBuffer(); })
+      .then((b) => new Promise((res, rej) => sound.ctx.decodeAudioData(b, res, rej)))
+      .then((buf) => { sound.buffer = buf; if (playing) startSound(T); return buf; })
+      .catch(() => null); // no sound: the reel still plays on the wall clock
+    return sound.loading;
+  }
+  function stopSound() {
+    if (sound.src) { try { sound.src.stop(); } catch {} sound.src.disconnect(); sound.src = null; }
+  }
+  function startSound(from) {
+    stopSound();
+    if (!sound.buffer) return;
+    if (sound.ctx.state === 'suspended') sound.ctx.resume();
+    const src = sound.ctx.createBufferSource();
+    src.buffer = sound.buffer;
+    src.connect(sound.gain);
+    src.start(0, R.clamp(from, 0, sound.buffer.duration - 1e-3));
+    sound.src = src;
+    sound.startedAt = sound.ctx.currentTime - from;
+  }
+  const soundClock = () => (sound.src && sound.ctx.state === 'running' ? sound.ctx.currentTime - sound.startedAt : null);
 
   function fit() {
     const bar = 64, vw = window.innerWidth, vh = window.innerHeight - bar;
@@ -125,31 +158,37 @@
     ui.overlay.classList.toggle('hidden', p || T > 0);
     if (p) {
       if (T >= R.DURATION - 1e-3) T = 0;
-      lastNow = performance.now();
-      audio.currentTime = T;
-      audio.play().catch(() => {});
-    } else audio.pause();
+      lastNow = null;
+      loadSound();
+      startSound(T);
+    } else stopSound();
   }
   function seek(t) {
     T = R.clamp(t, 0, R.DURATION - 1e-4);
-    if (!audio.paused || playing) audio.currentTime = T;
+    lastNow = null;
+    if (playing) startSound(T);
   }
 
   function tick(now) {
-    if (playing) {
-      // Audio is the master clock while it plays; wall clock otherwise.
-      if (!audio.paused && !audio.muted && audio.readyState >= 2) T = audio.currentTime;
-      else T += (now - lastNow) / 1000;
-      if (T >= R.DURATION) {
-        if (looping) { T = 0; audio.currentTime = 0; audio.play().catch(() => {}); }
-        else { T = R.DURATION - 1e-4; setPlaying(false); }
+    try {
+      if (playing) {
+        const clock = soundClock();
+        // rAF timestamps can precede the moment play was pressed, so never step backwards.
+        T = clock != null ? clock : T + (lastNow == null ? 0 : Math.max(0, now - lastNow) / 1000);
+        if (T >= R.DURATION) {
+          if (looping) seek(0);
+          else { T = R.DURATION - 1e-4; setPlaying(false); }
+        }
       }
+      lastNow = now;
+      T = R.clamp(T, 0, R.DURATION - 1e-4);
+      const f = Math.floor(T * R.FPS);
+      drawFrameAt(T, f);
+      ui.scrub.value = String(T / R.DURATION * 1000);
+      ui.time.textContent = `${R.timecode(T)}  ·  ${String(f).padStart(3, '0')}/${R.FRAMES}`;
+    } finally {
+      requestAnimationFrame(tick);
     }
-    lastNow = now;
-    drawFrameAt(T, Math.floor(T * R.FPS));
-    ui.scrub.value = String(T / R.DURATION * 1000);
-    ui.time.textContent = `${R.timecode(T)}  ·  ${String(Math.floor(T * R.FPS)).padStart(3, '0')}/${R.FRAMES}`;
-    requestAnimationFrame(tick);
   }
 
   ready.then(() => {
@@ -169,7 +208,11 @@
   ui.play.addEventListener('click', () => setPlaying(!playing));
   ui.overlay.addEventListener('click', () => setPlaying(true));
   ui.scrub.addEventListener('input', () => seek((+ui.scrub.value / 1000) * R.DURATION));
-  ui.mute.addEventListener('click', () => { audio.muted = !audio.muted; ui.mute.textContent = audio.muted ? 'SOUND OFF' : 'SOUND ON'; });
+  ui.mute.addEventListener('click', () => {
+    muted = !muted;
+    if (sound.gain) sound.gain.gain.value = muted ? 0 : 1;
+    ui.mute.textContent = muted ? 'SOUND OFF' : 'SOUND ON';
+  });
   ui.loop.addEventListener('click', () => { looping = !looping; ui.loop.textContent = looping ? 'LOOP ON' : 'LOOP OFF'; });
   window.addEventListener('keydown', (e) => {
     if (e.code === 'Space') { e.preventDefault(); setPlaying(!playing); }

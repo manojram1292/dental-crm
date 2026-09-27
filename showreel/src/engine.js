@@ -617,7 +617,7 @@
     ctx.globalCompositeOperation = 'multiply';
     ctx.fillStyle = vignette.g; ctx.fillRect(0, 0, W, H);
     // grain — tile a noise texture with a per-frame offset, soft-light blend
-    const tile = grainTiles[frame % grainTiles.length];
+    const tile = grainTiles[((frame % grainTiles.length) + grainTiles.length) % grainTiles.length];
     const ox = Math.floor(hash(frame, 3) * 256), oy = Math.floor(hash(frame, 4) * 256);
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.globalCompositeOperation = 'soft-light';

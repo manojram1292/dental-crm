@@ -3,6 +3,8 @@
 A 15-second motion design showreel in which every frame, and every sound, is
 generated from code. Nothing is keyframed in a timeline and nothing is sampled.
 
+[![Final frame of the reel](poster.jpg)](showreel.mp4)
+
 **▶ [`showreel.mp4`](showreel.mp4)**: 1920×1080, 60 fps, H.264 + AAC, with
 8-sample 180° motion blur.
 **▶ [`index.html`](index.html)**: the same reel playing live in the browser,
