@@ -1,29 +1,35 @@
 #!/usr/bin/env python3
 """
-RIBHU LABS — "ONE CUP, MADE FOUR" · score & sound-design synthesiser
-====================================================================
+RIBHU LABS — "ONE CUP, MADE FOUR" · score & sound-design synthesiser (REVISION 2)
+================================================================================
 
 Deterministically synthesises ``audio/film.wav``: 48 kHz, stereo, 16-bit PCM,
-exactly 1 440 000 frames (30.000 s), 96 BPM (beat 0.625 s, bar 2.5 s), D minor
+exactly 1 872 000 frames (39.000 s), 80 BPM (beat 0.75 s, bar 3.0 s), D minor
 with a D-dorian colour. No samples and no network: every sound is numpy/scipy
 maths driven by seeded RNGs, so two runs give bit-identical files.
 
-The cue sheet is STORYBOARD.md §4. CUES in section 4 mirrors it line by line,
-and every timing constant is taken from it (or from the scene files where they
-refine it: the copper tabs at 10.859 / 11.016 / 11.172, the hairline links at
-15.08 / 15.24 / 15.40, the ember merging at 16.25): the picture is timed to the
-same numbers.
+Revision 2 (STORYBOARD.md, the REVISION 2 block): the picture is still authored
+on the 30 s STORY timeline, and the film plays it through REEL.TIMEMAP
+[[0, 0], [21, 17.5], [30, 22.5], [39, 30]] (film s, story s). Every cue outside
+Renew keeps its story time from STORYBOARD §4 and the scene files and is placed
+at film_time(story) (ft() below): film = 1.2 × story up to story 17.5 and
+film = 30 + 1.2 × (story − 22.5) from story 22.5. The score is RE-SYNTHESISED
+at those times, never time-stretched or resampled: pitch and timbre (decays,
+attacks, partials) are unchanged, while the grooves, arpeggios, rolls, echoes
+and 16th grids count in the film's own 80 BPM BEAT/S16/S32 (96 → 80 BPM is the
+same 1.2×, so every story beat lands on a film beat). Renew (film 21.0–30.0,
+bars 8–10) is recomposed in film time for the new slow-motion hand-off.
 
-Departures from §4, on purpose: no kick on the 15.625 lift (the lights rise
-weightless and the 15.65 accent lands clean instead of flamming 25 ms after a
-kick); the groove's last kick is 16.25, with the merge flare; the "four as one"
-bowls ripple 5 ms apart along the row, and the logo chord is rolled over 48 ms.
+Other departures from §4, on purpose: no kick on the lift (the lights rise
+weightless and the accent lands clean instead of flamming after a kick); the
+groove's last kick lands with the merge flare; the "four as one" bowls ripple
+5 ms apart along the row, and the logo chord is rolled over 48 ms.
 
     python3 tools/synth.py               render, print metrics, write previews
     python3 tools/synth.py --no-preview  skip the PNG previews
 
 Layout
-  1. constants & beat helpers
+  1. constants, the time map (film_time) & beat helpers
   2. DSP utilities: envelopes, band-limited oscillators, noise, filters (scipy
      biquads plus a TPT state-variable filter for sweeps), convolution reverb
      with generated impulse responses, stereo tools, dynamics, BS.1770 loudness
@@ -33,7 +39,8 @@ Layout
        3c pads, bass and sub
        3d workshop percussion: felt kick, shaker, anvil, hand-hammer
        3e sound design: servo, sparks, scan, paper, soil, pencil, air …
-  4. cue list (§4) & arrangement
+       3f Renew (rev 2): the sung bowl, the slender servo, breath pad, held glass, seed trail
+  4. cue list (film seconds) & arrangement
   5. mix bus & master chain (low-bus peak control, glue, true-peak limiter)
   6. verification: format, level, LUFS, DC, clicks, stereo/mono, spectral
      balance, the loudness arc, the cup voice's own analysis, PNG previews,
@@ -54,22 +61,50 @@ from scipy import signal as sps
 from scipy.ndimage import minimum_filter1d, uniform_filter1d
 
 # ════════════════════════════════════════════════════════════════════════════
-# 1. Constants & beat helpers
+# 1. Constants, the time map & beat helpers
 # ════════════════════════════════════════════════════════════════════════════
 SR = 48_000
-N = 1_440_000                 # 30.000 s, exactly
+N = 1_872_000                 # 39.000 s, exactly
 DUR = N / SR
-BPM = 96
-BEAT = 60.0 / BPM             # 0.625 s
-BAR = 4 * BEAT                # 2.5 s: scene boundaries sit on bars
+BPM = 80                      # REEL.FILM_BPM: uniform in film time
+BEAT = 60.0 / BPM             # 0.75 s
+BAR = 4 * BEAT                # 3.0 s: film scene boundaries sit on bars
 S8, S16, S32 = BEAT / 2, BEAT / 4, BEAT / 8
+STORY_BPM = 96                # the story timeline the scenes are authored on
+STRETCH = STORY_BPM / BPM     # 1.2: one story second outside Renew lasts 1.2 film seconds
+# REEL.TIMEMAP as (film s, story s) breakpoints, piecewise-linear (src/engine.js)
+TIMEMAP = ((0.0, 0.0), (21.0, 17.5), (30.0, 22.5), (39.0, 30.0))
+
+
+def film_time(T):
+    """Story seconds → film seconds (REEL.filmTime): piecewise-linear through TIMEMAP.
+    Multiplies before it divides, so story beats land exactly (2.5 → 3.0, 3.125 → 3.75)."""
+    for (f0, s0), (f1, s1) in zip(TIMEMAP, TIMEMAP[1:]):
+        if T <= s1 or s1 == TIMEMAP[-1][1]:
+            return round(f0 + (T - s0) * (f1 - f0) / (s1 - s0), 9)
+
+
+ft = film_time
+
+
+def sd(d):
+    """A picture-tied story duration outside Renew (a servo move, a sweep, a slide) → film
+    seconds. Decays, attacks and other timbre stay in absolute seconds and never scale."""
+    return d * STRETCH
+
+
+def ftp(points):
+    """Automation breakpoints [(story s, dB)] → [(film s, dB)]."""
+    return [(ft(t), v) for t, v in points]
+
+
 SEED = 1729
 TARGET_LUFS = -14.0
 CEILING_DBTP = -1.0           # hard spec
 LIMIT_DBTP = -1.3             # limiter target: margin for dither and rounding
 LOW_HEADROOM = 4.5            # the band under 140 Hz peaks at most this far under the ceiling
-SILENT_FROM = 29.9            # the last 0.1 s is digital zero
-TAIL_FADE = (29.1, SILENT_FROM)
+SILENT_FROM = DUR - 0.1       # 38.9: the last 0.1 s is digital zero
+TAIL_FADE = (ft(29.1), SILENT_FROM)
 TALE_DB = -5.0                # mystery: the tale sits well under the groove …
 UNDER_DB = -4.0               # … and Understand a little closer to it (curiosity)
 RENEW_DB = -5.0               # intimacy
@@ -86,7 +121,8 @@ TAU = 2.0 * np.pi
 
 
 def at(bar, beat=1, step=0.0):
-    """Musical time → seconds. Bar 1 beat 1 = 0.0; `step` counts 16ths."""
+    """Musical (film) time → seconds at 80 BPM. Bar 1 beat 1 = 0.0; `step` counts 16ths.
+    Renew is bars 8–10 (21.0 / 24.0 / 27.0); the logo locks on bar 12 (33.0)."""
     return (bar - 1) * BAR + (beat - 1) * BEAT + step * S16
 
 
@@ -1244,125 +1280,302 @@ def lock_click(key=0):
     return x / np.max(np.abs(x))
 
 
+# ── 3f. Renew (REVISION 2): the slow-motion hand-off ───────────────────────
+def sung_bowl(f0, dur, level, release, key=0, width=0.45, ring=4.0, bloom_k=0.6, rub=0.012):
+    """The copper cup's voice *held*: bowl()'s six doublet modes, sustained the way
+    a singing bowl is sung (a leather mallet circling the rim) instead of struck.
+
+    The rubbing feeds the modes continuously, so there is no strike: the tone
+    swells out of silence along `level` [(local s, dB ≤ 0)], and mode k follows
+    that level raised to the power 1 + bloom_k·k, so the upper partials open one
+    after another as it grows (the bloom). The doublets beat as in the struck
+    voice (the same splits, scaled with √f0; members on opposite sides). A sung
+    bowl favours its low modes (×0.85^k). At `release` s the mallet lifts off and
+    every mode rings down with the struck voice's own decay τ_k = ring·ratio^−0.72
+    (continuous, so there is no step). A breath of rim friction pulses with the
+    mallet's circling (≈1.1 rev/s). Returns stereo, peak-normalised."""
+    n = smp(dur)
+    t = tvec(n)
+    r = rng('sung bowl', key, round(float(f0), 3))
+    lv_db = np.interp(t, [p_[0] for p_ in level], [p_[1] for p_ in level])
+    for _ in range(2):                                   # rounded corners: no cusp where the level turns
+        lv_db = uniform_filter1d(lv_db, smp(0.12), mode='nearest')
+    lv = np.minimum(db2lin(lv_db), 1.0)
+    i_rel = smp(release)
+    st = np.zeros((2, n))
+    sc = (f0 / 293.66) ** 0.5
+    for k, (ratio, amp, dsp) in enumerate(zip(BOWL_RATIOS, BOWL_AMPS, BOWL_SPLIT)):
+        fk = f0 * ratio
+        if fk > TOP:
+            break
+        env = lv ** (1.0 + bloom_k * k)
+        env[i_rel:] = env[i_rel - 1] * decay(t[i_rel:] - t[i_rel - 1], ring * ratio ** -0.72)
+        d = dsp * sc
+        rho = r.uniform(0.6, 0.88)
+        p = width * (1.0 if k % 2 == 0 else -1.0) * r.uniform(0.75, 1.0)
+        for df, g, pp in ((-d / 2, 1.0, -p), (d / 2, rho, p)):
+            st += pan_mono(osc_sine(fk + df, n, r.random()) * env * (amp * 0.85 ** k * g), pp)
+    circ = 0.5 + 0.5 * np.sin(TAU * 1.1 * t + r.uniform(0, TAU))
+    fr = bpf(r.standard_normal(n), 1200.0, 4200.0) * lv ** 1.5 * (0.4 + 0.6 * circ) * (1.0 - smoothstep((t - release) / 0.2))
+    st += pan_mono(fr * rub, 0.0)
+    st = fade(st, 0.01, min(0.5, dur * 0.1))
+    return st / (np.max(np.abs(st)) + 1e-12)
+
+
+def servo_shimmer(dur, key=0, f0=420.0, f1=560.0, peak=0.35, shimmer=1.0, glints=('A6', 'D7', 'E7')):
+    """The slender arm (REVISION 2): a small, precise servo, thinner and quieter
+    than S3's hand. A narrow band of motor buzz following the move's speed
+    profile, a pure high gear line (6×) instead of a whine, and a glassy
+    shimmer on top (light running along polished metal) that blooms just after
+    the move peaks. Mono."""
+    n = smp(dur)
+    t = tvec(n)
+    u = t / dur
+    r = rng('servo shimmer', key)
+    sp = smoothstep(u / peak) * (1.0 - smoothstep((u - peak) / (1.0 - peak)))
+    f = f0 + (f1 - f0) * sp
+    motor = bpf(osc_saw(f, n, r.random()), 700.0, 3000.0, 2)
+    motor = motor / (np.max(np.abs(motor)) + 1e-12) * (0.15 + 0.85 * sp)
+    line = osc_sine(np.minimum(6.0 * f, 5000.0), n, r.random()) * sp
+    gl = np.zeros(n)
+    for i, m in enumerate(glints):
+        tr = 0.55 + 0.45 * np.sin(TAU * _wrap(cycles(r.uniform(8.0, 13.0), n, r.random()))) ** 2
+        gl += 0.75 ** i * osc_sine(hz(m) * (1.0 + 0.0015 * np.sin(TAU * r.uniform(3, 6) * t)), n, r.random()) * tr
+    ge = smoothstep((u - 0.1) / 0.35) * (1.0 - smoothstep((u - 0.5) / 0.5)) ** 1.5
+    x = 0.3 * motor + 0.2 * line + shimmer * 0.55 * gl / len(glints) * ge
+    return fade(lpf(x, TOP), 0.03, 0.08)
+
+
+def breath_pad(midis, dur, key, breaths, depth_db=6.0, air=0.12, cut=(360.0, 1250.0), **kw):
+    """The human's pad: warm_pad's voices, breathing. `breaths` [(start, peak, end)]
+    in local seconds: an inhale (smoothstep up), then a longer exhale. The breath
+    opens the filter (a crossfade between a dark and a bright low-pass of the same
+    voices, which is LTI and cannot click), lifts the level by `depth_db`, and
+    carries the breath itself: soft band-passed air with a gentle 'hh' formant."""
+    n = smp(dur)
+    t = tvec(n)
+    b = np.zeros(n)
+    for a, p, e in breaths:
+        b = np.maximum(b, np.where(t < p, smoothstep((t - a) / (p - a)), 1.0 - smoothstep((t - p) / (e - p))))
+    dark = warm_pad(midis, dur, key, cut_lo=cut[0], cut_hi=cut[0] * 1.25, **kw)
+    bright = warm_pad(midis, dur, key, cut_lo=cut[1], cut_hi=cut[1] * 1.25, **kw)
+    x = (dark * (1.0 - b) + bright * b) * db2lin(-depth_db * (1.0 - b))
+    br = np.stack([bpf(pink(n, rng('breath', key, c)), 500.0, 3200.0) for c in range(2)])
+    br = eq(br, 'peak', 1500.0, 4.0, 1.2)
+    br = br / (np.sqrt(np.mean(br ** 2)) + 1e-12) * 0.25 * air * b ** 1.6
+    return x + fade(br, 0.05, 0.1)
+
+
+def glass_hold(dur, key=0, notes_=('A6', 'D7', 'E7'), pan0=0.4, pan1=-0.3, trem=(6.5, 1.1), attack=0.9,
+               release=0.7):
+    """Time held still: a sustained cluster of high glass partials (the seed's
+    light) whose shimmer *slows down* as it goes, tremolo `trem[0]` → `trem[1]` Hz
+    (time stretching), over a thin band of air that settles lower; it drifts
+    across the field with the seed, `pan0` → `pan1`."""
+    n = smp(dur)
+    t = tvec(n)
+    u = t / dur
+    r = rng('glass hold', key)
+    rate = trem[0] * (trem[1] / trem[0]) ** smoothstep(u)
+    x = np.zeros(n)
+    for i, m in enumerate(notes_):
+        tr = 0.5 + 0.5 * np.sin(TAU * _wrap(cycles(rate * r.uniform(0.85, 1.15), n, r.random()))) ** 2
+        vib = 1.0 + 0.0012 * np.sin(TAU * r.uniform(0.3, 0.7) * t + r.uniform(0, TAU))
+        x += 0.8 ** i * osc_sine(hz(m) * vib, n, r.random()) * tr
+    x /= len(notes_)
+    air = svf(pink(n, r), 5200.0 - 1800.0 * u, 2.5, 'bp') * 0.35
+    env = smoothstep(t / attack) * (1.0 - smoothstep((t - (dur - release)) / release))
+    return fade(pan_mono(lpf((x + air) * env, TOP), pan0 + (pan1 - pan0) * smoothstep(u)), 0.01, 0.02)
+
+
+def seed_trail(dur, key=0, pan0=0.4, pan1=-0.3, rate=5.0, notes_=('A6', 'C7', 'D7', 'E7', 'F7', 'A7')):
+    """The seed's fine sparks, in slow motion: sparse tiny glass glints and a faint
+    crackle following the seed across the gap (pan `pan0` → `pan1`), thinning at
+    both ends of the flight."""
+    n = smp(dur)
+    t = tvec(n)
+    r = rng('seed trail', key)
+    mids = notes(' '.join(notes_))
+    out = np.zeros((2, n))
+    tt = 0.1
+    while True:
+        tt += r.exponential(1.0 / rate)
+        if tt > dur - 0.3:
+            break
+        u = tt / dur
+        g = glass(float(mtof(mids[int(r.integers(len(mids)))])), 0.35, r.uniform(0.04, 0.1), index=r.uniform(0.1, 0.3))
+        i = smp(tt)
+        L = min(n - i, g.size)
+        p = float(np.clip(pan0 + (pan1 - pan0) * smoothstep(u) + r.uniform(-0.12, 0.12), -1, 1))
+        out[:, i:i + L] += pan_mono(g[:L] * db2lin(-r.uniform(0, 9)) * np.sin(np.pi * u) ** 0.5, p)
+    cr = crackle(dur, ('seed', key), rate=30.0, dec=100.0, lo=2000.0, hi=6500.0, ignite=0.0)
+    out += pan_mono(cr * 0.3 * np.sin(np.pi * t / dur), pan0 + (pan1 - pan0) * smoothstep(t / dur))
+    return fade(out, 0.05, 0.1)
+
+
 # ════════════════════════════════════════════════════════════════════════════
-# 4. Cue list (STORYBOARD §4) & arrangement
+# 4. Cue list (film seconds) & arrangement
 # ════════════════════════════════════════════════════════════════════════════
-CUP_1 = 1.0                                                  # cup strike #1 (D)
-RIM_LIGHT = 0.35                                             # the glint crosses the lip
-SPARKS = [(2.5, 'A5', -0.6), (3.125, 'D6', 0.6), (3.75, 'F6', 0.0)]    # one per beat: A, D, F · L, R, C
-DIVE = (4.375, 5.0)
-CUP_2 = 5.0                                                  # cup strike #2 (A) + scan
-ANNOTATIONS = [(5.6, 'E6', 0.30), (5.9, 'G6', 0.45), (6.2, 'A6', 0.20)]
-RESOLIDIFY = (7.0, 7.5)
-GROOVE = (7.5, 16.875)                                       # felt kick on every beat …
-LIFT = 15.625                                                # … except the lift: the floor falls away as the lights rise
-GROOVE_KICKS = [round(7.5 + i * BEAT, 6) for i in range(15) if abs(7.5 + i * BEAT - LIFT) > 1e-6]
+# Outside Renew every cue is its STORYBOARD §4 / scene-file story time through ft().
+CUP_1 = ft(1.0)                                              # cup strike #1 (D)
+RIM_LIGHT = ft(0.35)                                         # the glint crosses the lip
+SPARKS = [(ft(2.5), 'A5', -0.6), (ft(3.125), 'D6', 0.6), (ft(3.75), 'F6', 0.0)]   # one per beat: A, D, F · L, R, C
+DIVE = (ft(4.375), ft(5.0))
+CUP_2 = ft(5.0)                                              # cup strike #2 (A) + scan
+SCAN = (CUP_2, ft(5.6))                                      # the scan line sweeps down the cup
+ANNOTATIONS = [(ft(5.6), 'E6', 0.30), (ft(5.9), 'G6', 0.45), (ft(6.2), 'A6', 0.20)]
+QUESTION = ft(6.25)                                          # a mallet question, left open
+RESOLIDIFY = (ft(7.0), ft(7.5))
+GROOVE = (ft(7.5), ft(16.875))                               # felt kick on every beat …
+LIFT = ft(15.625)                                            # … except the lift: the floor falls away as the lights rise
+GROOVE_KICKS = [round(GROOVE[0] + i * BEAT, 6) for i in range(15) if abs(GROOVE[0] + i * BEAT - LIFT) > 1e-6]
+ACCENT_KICKS = (ft(10.0), ft(15.0))
 KICK_BEAT_DB = (0.0, -2.5, -1.0, -2.0)                       # beat 1 leans, 3 answers, 2 and 4 lighter
-SERVO_DESCEND = (7.5, 8.1)
-GRIP = 8.125
+SERVO_DESCEND = (ft(7.5), ft(8.1))
+SERVO_INSPECT = (ft(8.2), ft(8.7))
+SERVO_EXIT = (ft(9.38), ft(9.83))
+GRIP = ft(8.125)
 # The cups multiply. Each new cup is struck where it appears and the earlier ones keep
 # ringing, so the chord *stacks*: D + A (1 → 2), then C and F join (2 → 4: Dm7), then all
 # four are struck as one across the row, with E above (Dm7 add9) and D an octave below.
-MULTIPLY = [(8.75, (('D4', 0.05), ('A4', 0.45))),
-            (9.375, (('C5', -0.45), ('F5', 0.6))),
-            (10.0, (('D4', -0.6), ('A4', -0.2), ('C5', 0.2), ('F5', 0.6)))]
-ADD9 = 'E5'                                                  # Dm7 add9 on 10.0
-WORLDS = [(10.0, 'AUTOMATION'), (11.25, 'OPERATIONS'), (12.5, 'ROBOTICS & VISION'), (13.75, 'AGRONOMY')]
-SORT = [10.625 + i * S32 for i in range(8)]                  # the stacks rise on 10.625; one tick per 32nd …
-SORT_TABS = (3, 5, 7)                                        # … the copper tabs glint on 10.859 / 11.016 / 11.172
-FOUR_CHIME = 15.0
-HAIRLINES = [15.08, 15.24, 15.40]                            # the three links, glow to glow, left to right
-ARCS = (15.3, LIFT)                                          # the arcs climb to the meeting point
-ACCENT = 15.65                                               # "Intelligence. Put to work." lands
-SPIN = (15.95, 16.25)                                        # the ring spins faster and closes …
-MERGE = 16.25                                                # … into one ember, with a soft flare
-SINK = (16.875, 17.5)
-RENEW = (17.5, 22.5)
-SERVO_RISE = (17.5, 18.4)
-SKETCH = (18.4, 19.4)
-HANDOFF = 20.0
-EMBER_RISE = (21.25, 22.5)
-SPLIT_TONES = [(22.9, 'D5', -0.5), (23.2, 'F5', 0.5), (23.5, 'A5', 0.0)]
-HEARTBEATS = [(22.5, -17.0), (23.75, -12.5), (24.375, -13.5), (24.6875, -14.5)]
-LOGO = 25.0
-LINE_TICKS = [(26.25, 'A6'), (27.5, 'D7')]
-SWEEP_2 = (27.65, 29.55)                                     # the second, slow light sweep in the hold
+MULTIPLY = [(ft(8.75), (('D4', 0.05), ('A4', 0.45))),
+            (ft(9.375), (('C5', -0.45), ('F5', 0.6))),
+            (ft(10.0), (('D4', -0.6), ('A4', -0.2), ('C5', 0.2), ('F5', 0.6)))]
+FOUR = MULTIPLY[-1][0]
+ADD9 = 'E5'                                                  # Dm7 add9 on the four
+WORLDS = [(ft(10.0), 'AUTOMATION'), (ft(11.25), 'OPERATIONS'), (ft(12.5), 'ROBOTICS & VISION'), (ft(13.75), 'AGRONOMY')]
+PAPER = [ft(10.0 + d) for d in (0.0, 0.07, 0.16, 0.27, 0.41)]   # the slips fall in
+SORT = [ft(10.625) + i * S32 for i in range(8)]              # the stacks rise; one tick per 32nd …
+SORT_TABS = (3, 5, 7)                                        # … the copper tabs glint (story 10.859 / 11.016 / 11.172)
+RING = ft(11.25)                                             # seven pings a 16th apart, then the ring closes
+FOCUS = (ft(12.5), ft(12.575))
+LENS = (ft(12.65), ft(12.97))
+SHUTTER = ft(13.125)
+SOIL = ft(13.75)
+SPROUT = (ft(14.375), ft(14.975))
+ANVILS = [ft(t) for t in (10.9375, 12.1875, 13.4375, 14.6875, 15.9375)]   # the '&' of 2 and 4
+FOUR_CHIME = ft(15.0)
+HAIRLINES = [ft(15.08), ft(15.24), ft(15.40)]                # the three links, glow to glow, left to right
+ARCS = (ft(15.3), LIFT)                                      # the arcs climb to the meeting point
+ACCENT = ft(15.65)                                           # "Intelligence. Put to work." lands
+SPIN = (ft(15.95), ft(16.25))                                # the ring spins faster and closes …
+MERGE = ft(16.25)                                            # … into one ember, with a soft flare
+SINK = (ft(16.875), ft(17.5))
+
+# Renew is composed in film time (REVISION 2 S6): bars 8–10, beats every 0.75 s.
+RENEW = (at(8), at(11))                                      # 21.0–30.0
+ARM_REVEAL = at(8)                                           # 21.0 the slender arm comes into the light under the ember
+REACH = (21.5, at(9))                                        # 21.5–24.0 the human hand reaches, palm up
+TILT = (at(8, 4, 2), at(9))                                  # 23.625 the robot fingers tilt …
+LIFT_OFF = at(9)                                             # 24.0 … and the seed lifts off the metal
+DRIFT = (at(9), at(10))                                      # 24.0–27.0 it crosses the gap in slow motion
+TOUCH = at(10)                                               # 27.0 THE TOUCH
+WITHDRAW = (at(10, 1, 3), at(10, 4, 3))                      # 27.5625–29.8125 the arm withdraws slowly
+SEED_RISE = (at(10, 3), at(11))                              # 28.5–30.0 the seed rises into the mark
+
+SPLIT_TONES = [(ft(22.9), 'D5', -0.5), (ft(23.2), 'F5', 0.5), (ft(23.5), 'A5', 0.0)]
+HEARTBEATS = [(ft(22.5), -17.0), (ft(23.75), -12.5), (ft(24.375), -13.5), (ft(24.6875), -14.5)]
+LOGO = ft(25.0)                                              # 33.0: bar 12's downbeat
+BREATH = 0.035                                               # every build element lets go this long before the lock
+FINAL_LIFT_T = (ft(25.4), ft(26.1))                          # the room turns ivory: Dm9 → D6/9
+LIFT_BELLS = ft(25.625)
+LINE_TICKS = [(ft(26.25), 'A6'), (ft(27.5), 'D7')]
+SWEEP_2 = (ft(27.65), ft(29.55))                             # the second, slow light sweep in the hold
 
 # Chords (pad voicings; bass notes separate). D dorian's B♮ appears in the
 # final lift, where D minor becomes D major as the film turns to light.
-CHORDS = [
-    # start, end, name, pad voicing
+CHORDS = [(ft(a), ft(b), name, v) for a, b, name, v in (    # story times, S1–S5
     (0.35, 5.02, 'Dm9', 'D3 A3 C5 E5 F5'),
     (4.95, 7.47, 'D9sus', 'D3 A3 E4 G4 C5'),
     (7.50, 12.55, 'Dm9', 'F3 C4 E4 A4'),
     (12.45, 15.05, 'Bbmaj9', 'F3 C4 D4 A4'),
     (14.95, 16.30, 'Gm9', 'F3 Bb3 D4 A4'),
-    (16.25, 17.25, 'C9sus4', 'F3 Bb3 D4 G4'),
-    (17.45, 18.80, 'Fmaj9', 'A3 C4 E4 G4'),
-    (18.70, 20.05, 'C/E', 'G3 C4 E4'),
-    (19.95, 22.55, 'Dm(add9)', 'F3 A3 D4 E4'),
-    (22.45, 23.80, 'Bbmaj7', 'F3 A3 D4'),
-    (23.70, 24.965, 'Cadd9', 'G3 C4 D4 E4'),
-]
-FINAL_MINOR = 'D3 A3 C4 E4 F4'          # 25.0: Dm9 …
-FINAL_LIFT = 'D3 A3 E4 F#4 B4'          # … lifts to D6/9 as the room fills with light (25.4 → 26.1)
-BASS_ROOTS = [(7.5, 'D2'), (12.5, 'Bb1'), (15.0, 'G1'), (16.25, 'C2')]
-BASS_STEPS = {12.1875: 'C2', 14.6875: 'A1', 15.9375: 'Bb1'}    # the last '&' before a change steps into it
-# Mallet line over bars 5–6 (Dm9 → B♭maj9): (16th step from 10.0, note, velocity, length in 16ths)
+    (16.25, 17.25, 'C9sus4', 'F3 Bb3 D4 G4'))]
+RENEW_CHORDS = [  # film time: Fmaj9 (reach) → C/E under the held D (suspension) → Dm(add9) (the touch)
+    (at(8) - 0.06, at(9) + 0.06, 'Fmaj9', 'A3 C4 E4 G4'),
+    (at(9) - 0.06, at(10) + 0.06, 'C/E', 'G3 C4 E4'),
+    (at(10) - 0.06, at(11) + 0.06, 'Dm(add9)', 'F3 A3 D4 E4')]
+BUILD_CHORDS = [(ft(22.5) - 0.06, ft(23.8), 'Bbmaj7', 'F3 A3 D4'), (ft(23.7), LOGO - BREATH, 'Cadd9', 'G3 C4 D4 E4')]
+FINAL_MINOR = 'D3 A3 C4 E4 F4'          # the lock: Dm9 …
+FINAL_LIFT = 'D3 A3 E4 F#4 B4'          # … lifts to D6/9 as the room fills with light
+BASS_ROOTS = [(ft(7.5), 'D2'), (ft(12.5), 'Bb1'), (ft(15.0), 'G1'), (ft(16.25), 'C2')]
+BASS_STEPS = {round(ft(t), 4): n_ for t, n_ in ((12.1875, 'C2'), (14.6875, 'A1'), (15.9375, 'Bb1'))}  # the last '&' steps in
+# Mallet line over the worlds (Dm9 → B♭maj9): (16th step from the four, note, velocity, length in 16ths)
 MELODY = [(2, 'A4', .70, 2), (4, 'D5', .85, 2), (6, 'E5', .72, 1), (7, 'F5', .90, 3), (10, 'E5', .70, 2),
           (12, 'D5', .78, 2), (14, 'C5', .68, 2),
           (18, 'D5', .75, 2), (20, 'F5', .85, 2), (22, 'G5', .72, 1), (23, 'A5', .92, 3), (26, 'G5', .70, 2),
           (28, 'F5', .76, 2), (30, 'E5', .70, 2), (32, 'D5', .80, 4)]
-# Renew: felt piano (time, note, velocity). Pedal changes at 18.75 and 20.0.
-# The bass lands on the beat; the melody note leans in a breath later (18 ms), as a pianist
-# plays it tenderly. The hand-off chord D-A-C-F is the four cups, rolled slowly upward.
-PIANO = [(17.5, 'F2', .44), (17.5, 'C3', .34), (17.518, 'E5', .40), (17.8125, 'A3', .24), (18.125, 'E4', .26),
-         (18.4375, 'G4', .25), (18.455, 'D5', .34),
-         (18.75, 'E2', .40), (18.75, 'C3', .30), (18.768, 'C5', .37), (19.0625, 'G3', .23), (19.375, 'E4', .25),
-         (19.6875, 'G4', .23),
-         (20.0, 'D2', .46), (20.0, 'A2', .34), (20.0, 'D4', .34), (20.078125, 'A4', .35), (20.15625, 'C5', .37),
-         (20.234375, 'F5', .41), (20.625, 'A3', .22), (20.9375, 'E4', .24), (21.25, 'A3', .22), (21.268, 'E5', .37),
-         (21.5625, 'D4', .22), (21.875, 'F4', .21), (21.893, 'D5', .35), (22.1875, 'A4', .22)]
-PEDAL = [17.5, 18.75, 20.0, 23.0]
+# Renew: felt piano (film time, note, velocity), every note on the 80 BPM grid. The human's
+# voice: it enters with the hand (beat 2 of bar 8), reaches, sighs E5 → D5 as the seed lifts,
+# holds its breath through the slow motion (one drop at 25.5), resolves low on the touch with
+# the four cups' chord D-A-C-F rolled on 32nds, and climbs with the seed into the mark.
+PIANO = [(at(8, 2), 'F2', .40), (at(8, 2), 'C3', .30), (at(8, 2, 2), 'A3', .22),          # 21.75 the hand appears
+         (at(8, 3), 'C5', .33), (at(8, 3, 2), 'G4', .21), (at(8, 4), 'E5', .35), (at(8, 4, 2), 'A4', .22),
+         (at(9), 'E2', .36), (at(9), 'C3', .26), (at(9), 'D5', .31),                         # 24.0 the seed lifts
+         (at(9, 3), 'G4', .18),                                                              # 25.5 one drop of time
+         (at(10), 'D2', .42), (at(10), 'A2', .30),                                           # 27.0 the low resolve …
+         (at(10), 'D4', .28), (at(10, 1, 0.5), 'A4', .30), (at(10, 1, 1), 'C5', .32), (at(10, 1, 1.5), 'F5', .35),
+         (at(10, 2), 'A3', .20), (at(10, 2, 2), 'E4', .22),                                  # 27.75 warmth
+         (at(10, 3), 'A4', .25), (at(10, 3, 2), 'D5', .27), (at(10, 4), 'E5', .29), (at(10, 4, 2), 'F5', .31)]  # 28.5 rise
+PEDAL = [at(8, 2), at(9), at(10), ft(23.0)]             # the last pedal lets go inside the build
 
-CUES = [  # STORYBOARD §4 as implemented: (start, end, what) — printed on every run
-    (0.00, 1.00, 'Room tone and air; deep sub drone (D1 under a stronger D2) fades in'),
-    (0.35, 1.30, 'Delicate high shimmer as the light traces the rim (glass partials, L → R)'),
-    (1.00, None, 'CUP STRIKE #1: singing bowl on D4, soft felt mallet, long shimmering tail'),
-    (0.35, 2.40, 'Warm pad Dm9 swells in under the first line (then settles under the tale)'),
-    (2.50, 3.75, 'Three spark ignitions on the beats: crackle + bell pings A5 L · D6 R · F6 C; orbit trails'),
-    (4.375, 5.00, 'Sparks dive: spiralling dive + reverse swell of A-D-F into 5.0'),
-    (5.00, None, 'CUP STRIKE #2 on A4 + glassy scan shimmer sweeping down (5.0–5.6)'),
-    (5.00, 7.00, 'Soft data-tick texture; annotation ticks 5.6 / 5.9 / 6.2; D9sus pad; a mallet question at 6.25'),
-    (7.00, 7.50, 'Reverse swell (bowls D-A) + upward scan into the downbeat'),
-    (7.50, 16.875, 'GROOVE: felt kick every beat (beat 1 leans; none on the 15.625 lift), shaker 16ths, '
-                   'off-beat bass D → B♭ → G → C, stepping into each change'),
-    (7.50, 8.10, 'Servo whir as the hand descends'),
-    (8.125, None, 'Grip clack (two finger contacts + a damped copper tink)'),
-    (8.75, None, 'Multiplication 1→2: the cup (D4) and its reflection (A4) struck; slide'),
-    (9.375, None, 'Multiplication 2→4: C5 and F5 join the still-ringing D and A (the chord stacks: Dm7); slides'),
-    (10.00, None, 'Four as one: all four bowls across the row + E5 (Dm7 add9) + D3 below + kick accent + sub'),
-    (10.00, 15.00, 'Worlds: paper flicks & sorting ticks (copper tabs 10.859 / 11.016 / 11.172) · ping arpeggio, '
-                   'ring 12.344 · focus beeps, lens, shutter 13.125 · soil & sprout 14.375'),
-    (10.00, 15.00, 'Mallet motif carries the melody; anvil taps + hammer ticks; Dm9 → B♭maj9'),
-    (15.00, None, 'The four bowls chime together across the row (Gm9 underneath)'),
-    (15.08, 15.40, 'Copper hairline pings glow to glow, L → R (15.08 / 15.24 / 15.40); the arcs climb 15.3 → 15.625'),
-    (15.625, 16.25, 'The lights lift (the kick holds its breath): ascending glass, outer pair on the beat, inner pair '
-                    'a 64th later; rising swell; accent 15.65; the ring spins'),
-    (16.25, None, 'One ember: a soft flare (bowl D5, A6 glint, bloom) on the last kick'),
-    (16.875, 17.50, 'Groove drops away; descending airy sweep'),
-    (17.50, 22.50, 'RENEW: felt piano Fmaj9 → C/E → Dm, soft pad, no drums'),
-    (17.50, 18.40, 'Quiet servo (the hand rises under the ember)'),
-    (18.40, 19.40, 'Pencil-on-paper sketch texture'),
-    (20.00, None, "THE HAND-OFF: warm bell (the cup's voice) + soft bloom swell; the four-cup chord rolled on piano"),
-    (21.25, 22.50, 'Soft riser as the ember lifts'),
-    (22.90, 23.50, 'Three rising tones as the ember splits (22.9 / 23.2 / 23.5): D5 L · F5 R · A5 C'),
-    (22.50, 25.00, 'Build: swirling whooshes, accelerating heartbeat kicks, bowl roll, B♭maj7 → Cadd9, reverse swell'),
-    (25.00, None, 'THE LOGO LOCKS: lock click + impact kick + sub boom + low-D bowl + Dm9 bell chord, lush long reverb'),
-    (25.40, 26.10, 'The D-major lift: pad Dm9 → D6/9, high bells F#5 A5 D6 as the room turns ivory'),
-    (26.25, 27.50, 'Two gentle ticks for the lines (A6, D7)'),
-    (27.65, 29.55, 'The second slow light sweep: a faint high shimmer crossing the mark'),
-    (25.00, 30.00, 'The tail blooms and decays to near-silence by 29.9; 29.9–30.0 digital zero'),
+CUES = [  # as implemented, in FILM seconds: (start, end, what). Printed on every run.
+    (0.0, ft(1.0), 'Room tone and air; deep sub drone (D1 under a stronger D2) fades in'),
+    (RIM_LIGHT, RIM_LIGHT + sd(0.95), 'Delicate high shimmer as the light traces the rim (glass partials, L → R)'),
+    (CUP_1, None, 'CUP STRIKE #1: singing bowl on D4, soft felt mallet, long shimmering tail'),
+    (ft(0.35), ft(2.4), 'Warm pad Dm9 swells in under the first line (then settles under the tale)'),
+    (SPARKS[0][0], SPARKS[-1][0], 'Three spark ignitions on the beats (%s): crackle + bell pings A5 L · D6 R · F6 C; '
+     'orbit trails' % ' / '.join(f'{s_[0]:.2f}' for s_ in SPARKS)),
+    (DIVE[0], DIVE[1], 'Sparks dive: spiralling dive + reverse swell of A-D-F into the next strike'),
+    (CUP_2, None, f'CUP STRIKE #2 on A4 + glassy scan shimmer sweeping down ({SCAN[0]:.2f}–{SCAN[1]:.2f})'),
+    (CUP_2, RESOLIDIFY[0], 'Soft data-tick texture; annotation ticks %s; D9sus pad; a mallet question at %.2f'
+     % (' / '.join(f'{a_[0]:.2f}' for a_ in ANNOTATIONS), QUESTION)),
+    (RESOLIDIFY[0], RESOLIDIFY[1], 'Reverse swell (bowls D-A) + upward scan into the downbeat'),
+    (GROOVE[0], GROOVE[1], f'GROOVE at 80 BPM: felt kick every beat (beat 1 leans; none on the {LIFT:.2f} lift), shaker '
+                           '16ths, off-beat bass D → B♭ → G → C, stepping into each change'),
+    (SERVO_DESCEND[0], SERVO_DESCEND[1], 'Servo whir as the hand descends'),
+    (GRIP, None, 'Grip clack (two finger contacts + a damped copper tink)'),
+    (MULTIPLY[0][0], None, 'Multiplication 1→2: the cup (D4) and its reflection (A4) struck; slide'),
+    (MULTIPLY[1][0], None, 'Multiplication 2→4: C5 and F5 join the still-ringing D and A (the chord stacks: Dm7); slides'),
+    (FOUR, None, 'Four as one: all four bowls across the row + E5 (Dm7 add9) + D3 below + kick accent + sub'),
+    (FOUR, FOUR_CHIME, 'Worlds: paper flicks & sorting ticks (copper tabs %s) · ping arpeggio, ring %.2f · focus beeps, '
+     'lens, shutter %.2f · soil & sprout %.2f' % (' / '.join(f'{SORT[i]:.2f}' for i in SORT_TABS), RING + 7 * S16,
+                                                  SHUTTER, SPROUT[0])),
+    (FOUR, FOUR_CHIME, 'Mallet motif carries the melody (16ths at 80 BPM, dotted-8th echoes); anvil taps + hammer ticks; '
+                       'Dm9 → B♭maj9'),
+    (FOUR_CHIME, None, 'The four bowls chime together across the row (Gm9 underneath)'),
+    (HAIRLINES[0], HAIRLINES[-1], 'Copper hairline pings glow to glow, L → R (%s); the arcs climb %.2f → %.2f'
+     % (' / '.join(f'{h_:.2f}' for h_ in HAIRLINES), ARCS[0], ARCS[1])),
+    (LIFT, MERGE, f'The lights lift (the kick holds its breath): ascending glass, outer pair on the beat, inner pair a '
+                  f'64th later; rising swell; accent {ACCENT:.2f}; the ring spins'),
+    (MERGE, None, 'One ember: a soft flare (bowl D5, A6 glint, bloom) on the last kick'),
+    (SINK[0], SINK[1], 'Groove drops away; descending airy sweep'),
+    (RENEW[0], RENEW[1], 'RENEW (recomposed, 9 s, bars 8–10): intimate, no drums; felt piano on the 80 BPM grid, '
+                         'Fmaj9 → C/E (under a held D) → Dm(add9)'),
+    (ARM_REVEAL, ARM_REVEAL + 1.6, 'The slender arm is revealed: a quiet servo shimmer (thin motor, pure gear line, '
+                                   'glass glint), right'),
+    (REACH[0], REACH[1], 'The human hand reaches: felt piano enters on beat 2 (21.75) and reaches C5 → E5; the pad '
+                         'breathes (one slow inhale/exhale, filter + air)'),
+    (TILT[0], LIFT_OFF, 'The robot fingers tilt (a tiny servo) → 24.00 the seed lifts off the metal: a glass tink; '
+                        'the piano sighs E5 → D5 over C/E'),
+    (DRIFT[0], DRIFT[1], 'SLOW MOTION: the cup\'s voice SUNG (a held singing bowl on D4 that blooms partial by partial), '
+                         'a sustained glass shimmer whose tremolo slows 6.5 → 1.1 Hz, the seed\'s fine sparks and a slow '
+                         'pass of air drifting R → L, the big hall; the pad holds its breath; one piano drop at 25.50; '
+                         'an inhale from 26.4'),
+    (TOUCH, None, 'THE TOUCH: a warm bell from the cup\'s voice (D5) + soft bloom swell + a gentle low resolve '
+                  '(piano D2-A2, soft low bowl D3, sub) + the four cups\' chord rolled on piano; tender, not loud'),
+    (TOUCH, SEED_RISE[0], 'Warmth: Dm(add9) pad breathing again, piano A3 · E4; the arm withdraws (a descending servo '
+                          'shimmer)'),
+    (SEED_RISE[0], SEED_RISE[1], 'The seed rises into the mark: soft riser + piano climbing A4 D5 E5 F5, landing on '
+                                 'the first heartbeat'),
+    (SPLIT_TONES[0][0], SPLIT_TONES[-1][0], 'Three rising tones as the ember splits (%s): D5 L · F5 R · A5 C'
+     % ' / '.join(f'{s_[0]:.2f}' for s_ in SPLIT_TONES)),
+    (ft(22.5), LOGO, 'Build: swirling whooshes, accelerating heartbeat kicks, bowl roll, B♭maj7 → Cadd9, reverse swell'),
+    (LOGO, None, 'THE LOGO LOCKS: lock click + impact kick + sub boom + low-D bowl + Dm9 bell chord, lush long reverb'),
+    (FINAL_LIFT_T[0], FINAL_LIFT_T[1], 'The D-major lift: pad Dm9 → D6/9, high bells F#5 A5 D6 as the room turns ivory'),
+    (LINE_TICKS[0][0], LINE_TICKS[1][0], 'Two gentle ticks for the lines (A6, D7)'),
+    (SWEEP_2[0], SWEEP_2[1], 'The second slow light sweep: a faint high shimmer crossing the mark'),
+    (LOGO, DUR, f'The tail blooms and decays to near-silence by {SILENT_FROM:.1f}; the last 0.1 s is digital zero'),
 ]
 
 
@@ -1401,11 +1614,14 @@ class Mix:
         return sorted({t for t, _s, lab in self.events if lab in labels})
 
 
-def chord_pad(M, start, end, name, voicing, gain_db, hall=0.25, attack=0.08, release=0.1, env=None, **kw):
+def chord_pad(M, start, end, name, voicing, gain_db, hall=0.25, attack=0.08, release=0.1, env=None, big=0.0,
+              label='pad', dip=0.0, **kw):
     sig = warm_pad(notes(voicing), end - start, (name, start), attack=attack, release=release, **kw)
+    if dip:
+        sig = eq(sig, 'peak', 300.0, -dip, 0.8)
     if env is not None:
         sig = sig * automation(env, sig.shape[1], start)
-    M.add('pad', sig, start, gain_db, hall=hall, label='pad')
+    M.add('pad', sig, start, gain_db, hall=hall, big=big, label=label)
 
 
 def arrange(keep=()):
@@ -1414,44 +1630,46 @@ def arrange(keep=()):
 
     # ── Bed: room tone & air, the whole film ────────────────────────────────
     room = room_tone(DUR)
-    room *= automation([(0.0, -90), (0.8, 0), (7.0, 0), (7.6, -6), (16.9, -6), (17.6, -1), (22.5, -1),
-                        (23.5, -6), (25.0, -8), (28.6, -16), (29.6, -90)], N)
+    room *= automation(ftp([(0.0, -90), (0.8, 0), (7.0, 0), (7.6, -6), (16.9, -6), (17.6, -1), (22.5, -1),
+                            (23.5, -6), (25.0, -8), (28.6, -16), (29.6, -90)]), N)
     M.add('air', room, 0.0, -50.0, label='room tone')
 
-    # ── S1 · THE TALE (0–5): mystery ────────────────────────────────────────
+    # ── S1 · THE TALE (film 0–6): mystery ───────────────────────────────────
     # The drone's weight sits on D2 (heard on small speakers); D1 underneath is felt, not measured.
-    drone = sub_drone(hz('D1'), 7.5, h2=0.9, h3=0.1)
-    drone *= automation([(0.0, -90), (0.15, -30), (1.0, 0), (4.8, 0), (5.0, 1.5), (7.0, 1.5), (7.47, -40)],
+    drone = sub_drone(hz('D1'), RESOLIDIFY[1], h2=0.9, h3=0.1)
+    drone *= automation(ftp([(0.0, -90), (0.15, -30), (1.0, 0), (4.8, 0), (5.0, 1.5), (7.0, 1.5), (7.47, -40)]),
                         drone.size)
     M.add('sub', fade(drone, 0.05, 0.03), 0.0, TALE_DB - 30.0, label='sub drone')
-    M.add('fx', rim_shimmer(1.0, 'rim'), RIM_LIGHT, TALE_DB - 23.0, hall=0.45, label='rim shimmer')
-    M.add('air', dust(4.7, 'tale', notes('A6 D7 E7 F7 C7'), rate=2.2), 0.3, TALE_DB - 32.0, hall=0.5, label='dust')
+    M.add('fx', rim_shimmer(sd(1.0), 'rim'), RIM_LIGHT, TALE_DB - 23.0, hall=0.45, label='rim shimmer')
+    M.add('air', dust(sd(4.7), 'tale', notes('A6 D7 E7 F7 C7'), rate=2.2 / STRETCH), ft(0.3), TALE_DB - 32.0, hall=0.5,
+          label='dust')
     c0, c1, name, v = CHORDS[0]
     chord_pad(M, c0, c1, name, v, TALE_DB - 17.0, hall=0.35, attack=0.3, release=0.05, cut_lo=420.0, cut_hi=1300.0,
-              lfo=0.12, env=[(0.35, -40), (1.9, 0), (2.8, -5), (4.3, -6), (4.9, -14), (5.02, -30)])
+              lfo=0.12, env=ftp([(0.35, -40), (1.9, 0), (2.8, -5), (4.3, -6), (4.9, -14), (5.02, -30)]))
     M.add('cup', cup('D4', 11.0, ring=4.0, key='strike1'), CUP_1, TALE_DB - 15.0, hall=0.35, label='cup strike')
     for i, (tk, note, p) in enumerate(SPARKS):
         M.add('fx', crackle(0.5, ('spark', i)), tk, TALE_DB - 29.0, pan=p, room=0.3, label='spark crackle')
         ping = pan_mono(fm_bell(hz(note), 2.5, ratio=3.5, index=1.2, dec=0.5), p) * 0.7 \
             + balance(bowl(hz(note), 2.5, ring=1.3, hardness=1.2, key=('spark', i), width=0.2), p) * 0.5
         M.add('keys', ping, tk, TALE_DB - 22.0, hall=0.4, label='spark ping')
-        M.add('fx', spark_trail(4.375 - tk + 0.1, i, phase=TAU * i / 3), tk + 0.1, TALE_DB - 33.0, hall=0.3, label='trail')
-    M.add('fx', swirl(0.585, 'dive', 700.0, 3200.0, 1.0, 5.0, peak=0.8, depth=0.6), DIVE[0], TALE_DB - 25.0,
-          hall=0.2, label='dive')
+        M.add('fx', spark_trail(DIVE[0] - tk + sd(0.1), i, phase=TAU * i / 3, rate=0.42 / STRETCH), tk + sd(0.1),
+              TALE_DB - 33.0, hall=0.3, label='trail')
+    M.add('fx', swirl(sd(0.585), 'dive', 700.0, 3200.0, 1.0 / STRETCH, 5.0 / STRETCH, peak=0.8, depth=0.6), DIVE[0],
+          TALE_DB - 25.0, hall=0.2, label='dive')
     rs = reverse_swell(DIVE[1] - DIVE[0], 'dive', [hz('A4'), hz('D5'), hz('F5')], rt=1.6)
     M.add('fx', rs, DIVE[0], TALE_DB - 21.0, label='reverse swell')
 
-    # ── S2 · 01 UNDERSTAND (5–7.5): curiosity ───────────────────────────────
+    # ── S2 · 01 UNDERSTAND (film 6–9): curiosity ────────────────────────────
     M.add('cup', cup('A4', 9.0, ring=4.5, key='strike2'), CUP_2, UNDER_DB - 16.0, hall=0.35, label='cup strike')
-    M.add('fx', scan_shimmer(0.9, 'down'), CUP_2, UNDER_DB - 24.0, hall=0.3, label='scan')
+    M.add('fx', scan_shimmer(sd(0.9), 'down', sweep=SCAN[1] - SCAN[0]), CUP_2, UNDER_DB - 24.0, hall=0.3, label='scan')
     c0, c1, name, v = CHORDS[1]
     chord_pad(M, c0, c1, name, v, UNDER_DB - 19.5, hall=0.3, attack=0.25, release=0.04, cut_lo=450.0, cut_hi=1700.0,
-              lfo=0.3, env=[(4.95, -30), (5.4, 0), (6.9, 0), (7.4, -8)])
+              lfo=0.3 / STRETCH, env=ftp([(4.95, -30), (5.4, 0), (6.9, 0), (7.4, -8)]))
     rt = rng('data ticks')
-    tk = CUP_2 + 0.05
-    while tk < 7.0:
-        tk = round((tk + rt.exponential(1.0 / 11.0)) / (S32 / 4)) * (S32 / 4)   # on a 1/128-note grid
-        if tk >= 7.0:
+    tk = CUP_2 + sd(0.05)
+    while tk < RESOLIDIFY[0]:
+        tk = round((tk + rt.exponential(STRETCH / 11.0)) / (S32 / 4)) * (S32 / 4)   # on a 1/128-note grid
+        if tk >= RESOLIDIFY[0]:
             break
         f = float(rt.choice([2093.0, 2349.3, 2637.0, 3136.0]))
         M.add('fx', data_tick(f, ('data', tk)), tk, UNDER_DB - 38.0 + rt.uniform(-3, 2), pan=rt.uniform(-0.6, 0.6),
@@ -1460,223 +1678,267 @@ def arrange(keep=()):
         M.add('fx', glass(hz(note), 0.5, 0.12, 0.6), tk, UNDER_DB - 27.0, pan=p, hall=0.25, label='annotation tick')
         M.add('fx', data_tick(3520.0, ('anno', tk), tau=0.002), tk, UNDER_DB - 31.0, pan=p, label='annotation tick')
     for i, (st_, note) in enumerate(((4, 'E5'), (6, 'G5'), (8, 'A5'))):           # a question, left open
-        M.add('keys', mallet(hz(note), 1.2, 0.45, key=('q', i)), 6.25 + (st_ - 4) * S16, UNDER_DB - 24.0,
+        M.add('keys', mallet(hz(note), 1.2, 0.45, key=('q', i)), QUESTION + (st_ - 4) * S16, UNDER_DB - 24.0,
               pan=0.3 - 0.2 * i, hall=0.35, label='curious mallet')
     rs = reverse_swell(RESOLIDIFY[1] - RESOLIDIFY[0], 'solid', [hz('D4'), hz('A4')], rt=1.4)
     M.add('fx', rs, RESOLIDIFY[0], UNDER_DB - 19.0, label='reverse swell')
-    M.add('fx', scan_shimmer(0.465, 'up', sweep=0.4, up=True), RESOLIDIFY[0], UNDER_DB - 26.0, hall=0.2, label='scan up')
+    M.add('fx', scan_shimmer(sd(0.465), 'up', sweep=sd(0.4), up=True), RESOLIDIFY[0], UNDER_DB - 26.0, hall=0.2,
+          label='scan up')
 
-    # ── Groove 7.5–16.875 ───────────────────────────────────────────────────
+    # ── Groove (film 9.0–20.25), 80 BPM ─────────────────────────────────────
     for tk in GROOVE_KICKS:
         beat = int(round((tk - GROOVE[0]) / BEAT)) % 4
-        style = 'accent' if tk in (10.0, 15.0) else 'groove'
+        style = 'accent' if any(abs(tk - a_) < 1e-6 for a_ in ACCENT_KICKS) else 'groove'
         g = KICK_BEAT_DB[beat] + (0.5 if tk == GROOVE[0] else 0.0)
         M.add('kick', felt_kick(style), tk, GROOVE_DB - 10.5 + g, label='kick')
     sh = [shaker(k) for k in range(8)]
     rs_ = rng('shaker groove')
     SH_VEL = (0.55, 0.30, 0.85, 0.36)
     for step in range(int(round((GROOVE[1] - GROOVE[0]) / S16))):
-        tk = GROOVE[0] + step * S16 + (0.008 if step % 2 else 0.0) + rs_.uniform(-0.002, 0.002)   # a little swing
+        swing = 0.008 * STRETCH if step % 2 else 0.0                                 # a little swing
+        tk = GROOVE[0] + step * S16 + swing + rs_.uniform(-0.002, 0.002)
         vel = SH_VEL[step % 4] * rs_.uniform(0.85, 1.1)
         M.add('perc', sh[step % 8], max(tk, GROOVE[0]), GROOVE_DB - 22.5 + lin2db(vel), pan=0.28, room=0.08,
               label='shaker')
     for k in range(15):
         tk = GROOVE[0] + S8 + k * BEAT
         root = BASS_STEPS.get(round(tk, 4)) or [nm_ for t0, nm_ in BASS_ROOTS if t0 <= tk][-1]
-        M.add('sub', bass_pulse(hz(root), 0.25, 1.0 if k % 2 == 0 else 0.85), tk, GROOVE_DB - 16.0, label='bass')
+        M.add('sub', bass_pulse(hz(root), 0.8 * S8, 1.0 if k % 2 == 0 else 0.85), tk, GROOVE_DB - 16.0, label='bass')
     anv = [anvil(hz('A5'), k) for k in range(3)]
-    for i, tk in enumerate([10.9375, 12.1875, 13.4375, 14.6875, 15.9375]):       # the '&' of 2 and 4
+    for i, tk in enumerate(ANVILS):
         M.add('perc', anv[i % 3], tk, GROOVE_DB - 27.5, pan=-0.25, room=0.35, label='anvil')
     ticks = [hammer_tick(k) for k in range(6)]
-    HT = {3: -3.0, 7: -8.0, 10: -5.0, 13: -7.0, 15: -10.0}
-    for b0 in np.arange(8.75, 16.875 - 1e-9, BAR / 4):          # from bar 4 beat 3, beat by beat
+    HT = {3: -3.0, 7: -8.0, 10: -5.0, 13: -7.0, 15: -10.0}          # 16th steps within the bar
+    for b0 in np.arange(MULTIPLY[0][0], GROOVE[1] - 1e-9, BEAT):     # from the first multiplication, beat by beat
         for step, g in HT.items():
-            tk = float(7.5 + np.floor((b0 - 7.5) / BAR) * BAR + step * S16)
-            if b0 <= tk < b0 + BEAT and tk < 16.8:
-                M.add('perc', ticks[int(tk * 16) % 6], tk, GROOVE_DB - 28.0 + g, pan=0.4, room=0.2, label='hammer tick')
+            tk = float(GROOVE[0] + np.floor((b0 - GROOVE[0]) / BAR + 1e-9) * BAR + step * S16)
+            if b0 <= tk < b0 + BEAT and tk < ft(16.8):
+                M.add('perc', ticks[int(round(tk / S16)) % 6], tk, GROOVE_DB - 28.0 + g, pan=0.4, room=0.2,
+                      label='hammer tick')
     # groove pads (sidechained under the kick in the mix, gently)
     for c0, c1, name, v in CHORDS[2:6]:
-        env = None
-        if name == 'C9sus4':
-            env = [(16.25, 0), (16.875, 0), (17.25, -30)]
-        chord_pad(M, c0, c1, name, v, GROOVE_DB - 16.5, hall=0.2, attack=0.03 if c0 == 7.5 else 0.1, release=0.1,
-                  cut_lo=500.0, cut_hi=1700.0, env=env)
+        env = ftp([(16.25, 0), (16.875, 0), (17.25, -30)]) if name == 'C9sus4' else None
+        chord_pad(M, c0, c1, name, v, GROOVE_DB - 17.5, hall=0.2, attack=0.03 if c0 == GROOVE[0] else 0.1, release=0.1,
+                  cut_lo=500.0, cut_hi=1700.0, env=env, dip=2.5)   # at 80 BPM the kicks thin out: keep the low mids clear
 
-    # ── S3 · 02 MAKE (7.5–10): the hand, one becomes four ───────────────────
-    M.add('fx', servo(0.6, 170.0, 310.0, 'descend'), SERVO_DESCEND[0], -30.0, pan=0.45, room=0.25, label='servo')
+    # ── S3 · 02 MAKE (film 9–12): the hand, one becomes four ────────────────
+    M.add('fx', servo(SERVO_DESCEND[1] - SERVO_DESCEND[0], 170.0, 310.0, 'descend'), SERVO_DESCEND[0], -30.0, pan=0.45,
+          room=0.25, label='servo')
     M.add('fx', grip_clack(), GRIP, -22.0, pan=0.15, room=0.3, label='grip clack')
-    M.add('fx', servo(0.5, 200.0, 280.0, 'inspect'), 8.2, -36.0, pan=0.2, room=0.25, label='servo')
+    M.add('fx', servo(SERVO_INSPECT[1] - SERVO_INSPECT[0], 200.0, 280.0, 'inspect'), SERVO_INSPECT[0], -36.0, pan=0.2,
+          room=0.25, label='servo')
     for i, (tk, cups_) in enumerate(MULTIPLY):
-        last = tk == 10.0                                         # four as one: a 5 ms ripple along the row, L → R
+        last = tk == FOUR                                         # four as one: a 5 ms ripple along the row, L → R
         for j, (nme, p) in enumerate(cups_):
             M.add('cup', cup(nme, 6.0, ring=2.0 if last else 2.6, key=('mult', i, j), hardness=1.25 if last else 1.0,
-                             width=0.5), tk + (0.005 * j if last else 0.0), GROOVE_DB - (20.5 if last else 18.5), pan=p,
+                             width=0.5), tk + (0.005 * j if last else 0.0), GROOVE_DB - (21.5 if last else 18.5), pan=p,
                   hall=0.3, label='bowl')
-    M.add('fx', slide(0.4, 'one-two', 0.05, 0.45), 8.75, -29.0, hall=0.2, label='slide')
-    M.add('fx', slide(0.4, 'two-four-L', -0.1, -0.5), 9.375, -31.0, hall=0.2, label='slide')
-    M.add('fx', slide(0.4, 'two-four-R', 0.2, 0.65), 9.375, -31.0, hall=0.2, label='slide')
-    M.add('fx', servo(0.45, 210.0, 360.0, 'exit'), 9.38, -34.0, pan=0.5, room=0.25, label='servo')
-    M.add('cup', cup('D3', 6.0, ring=3.2, key='one', hardness=0.9, width=0.3), 10.0, GROOVE_DB - 18.0, hall=0.3,
+    M.add('fx', slide(sd(0.4), 'one-two', 0.05, 0.45), MULTIPLY[0][0], -29.0, hall=0.2, label='slide')
+    M.add('fx', slide(sd(0.4), 'two-four-L', -0.1, -0.5), MULTIPLY[1][0], -31.0, hall=0.2, label='slide')
+    M.add('fx', slide(sd(0.4), 'two-four-R', 0.2, 0.65), MULTIPLY[1][0], -31.0, hall=0.2, label='slide')
+    M.add('fx', servo(SERVO_EXIT[1] - SERVO_EXIT[0], 210.0, 360.0, 'exit'), SERVO_EXIT[0], -34.0, pan=0.5, room=0.25,
+          label='servo')
+    M.add('cup', cup('D3', 6.0, ring=3.2, key='one', hardness=0.9, width=0.3), FOUR, GROOVE_DB - 18.0, hall=0.3,
           label='bowl')                                           # the four sound as one: D an octave below
-    M.add('cup', pan_mono(glass(hz(ADD9), 3.0, 1.3, 0.35, ratio=2.0), 0.1), 10.0, -25.0, hall=0.4, label='add9')
-    M.add('sub', boom(hz('D2') * 1.6, hz('D1'), 1.2, 0.05, 0.35), 10.0, -23.0, label='landing sub')
+    M.add('cup', pan_mono(glass(hz(ADD9), 3.0, 1.3, 0.35, ratio=2.0), 0.1), FOUR, -26.0, hall=0.4, label='add9')
+    M.add('sub', boom(hz('D2') * 1.6, hz('D1'), 1.2, 0.05, 0.35), FOUR, -23.0, label='landing sub')
 
-    # ── S4 · FOUR KINDS OF WORK (10–15) ─────────────────────────────────────
+    # ── S4 · FOUR KINDS OF WORK (film 12–18) ────────────────────────────────
     for i, (st_, note, vel, ln) in enumerate(MELODY):
-        tk = 10.0 + st_ * S16
+        tk = FOUR + st_ * S16
         s = mallet(hz(note), ln * S16 + 0.5, vel, key=('mel', i))
         s = s * np.where(tvec(s.size) < ln * S16 + 0.06, 1.0, decay(tvec(s.size) - ln * S16 - 0.06, 0.08))
         p = 0.15 * np.sin(i * 1.3)
-        M.add('keys', fade(s, 0.0012, 0.02), tk, GROOVE_DB - 16.0, pan=p, room=0.2, hall=0.2, label='mallet')
+        M.add('keys', fade(s, 0.0012, 0.02), tk, GROOVE_DB - 17.0, pan=p, room=0.2, hall=0.2, label='mallet')
         for off, e in echoes(s, 3 * S16, 2, -11.0, (-0.6, 0.6), lp=2600.0):
-            if tk + off < 16.8:
-                M.add('keys', e, tk + off, GROOVE_DB - 16.0, hall=0.15, label='mallet echo')
-    # 10.0 AUTOMATION: paper slips fall in, sorted stacks rise out (copper tabs glint on the accents)
-    for i, dt in enumerate([0.0, 0.07, 0.16, 0.27, 0.41]):
-        M.add('fx', paper_flick(r.uniform(0.09, 0.16), ('flick', i)), 10.0 + dt, -28.0 - 1.2 * i,
+            if tk + off < ft(16.8):
+                M.add('keys', e, tk + off, GROOVE_DB - 17.0, hall=0.15, label='mallet echo')
+    # AUTOMATION: paper slips fall in, sorted stacks rise out (copper tabs glint on the accents)
+    for i, tk in enumerate(PAPER):
+        M.add('fx', paper_flick(r.uniform(0.09, 0.16), ('flick', i)), tk, -28.0 - 1.2 * i,
               pan=r.uniform(-0.6, 0.6), room=0.3, label='paper flick')
     tabs = dict(zip(SORT_TABS, notes('A6 C7 D7')))
     for i, tk in enumerate(SORT):
         tab = float(mtof(tabs[i])) if i in tabs else None
         M.add('fx', sort_tick(('sort', i), tab), tk, -25.0 if tab else -31.0, pan=-0.35 + 0.08 * i, room=0.25,
               label='sort tab' if tab else 'sort tick')
-    # 11.25 OPERATIONS: points of light around the rim connect into one ring
+    # OPERATIONS: points of light around the rim connect into one ring
     ring = notes('D5 F5 A5 C6 E6 F6 A6')
     for i, m in enumerate(ring):
-        tk = 11.25 + i * S16
         ang = TAU * i / len(ring)
-        M.add('fx', glass(float(mtof(m)), 0.8, 0.3, 0.7, ratio=2.0), tk, -28.8 + 0.2 * i, pan=0.7 * np.sin(ang),
-              hall=0.35, label='ping')
+        M.add('fx', glass(float(mtof(m)), 0.8, 0.3, 0.7, ratio=2.0), RING + i * S16, -28.8 + 0.2 * i,
+              pan=0.7 * np.sin(ang), hall=0.35, label='ping')
     M.add('fx', pan_mono(glass(hz('D6'), 1.5, 0.6, 0.3, 2.0) + 0.7 * glass(hz('A6'), 1.5, 0.5, 0.3, 2.0), 0.0),
-          11.25 + 7 * S16, -30.0, hall=0.5, label='ring closes')
-    # 12.5 ROBOTICS & VISION: reticle blinks (focus beeps), lens hunts, shutter on the lock
-    M.add('fx', focus_beep(hz('A6')), 12.5, -30.0, pan=0.1, room=0.2, label='focus beep')
-    M.add('fx', focus_beep(hz('A6')), 12.575, -30.0, pan=0.1, room=0.2, label='focus beep')
-    M.add('fx', servo(0.32, 900.0, 1400.0, 'lens'), 12.65, -33.0, pan=0.1, label='lens')
-    M.add('fx', shutter(), 13.125, -24.0, pan=0.05, room=0.25, label='shutter')
-    # 13.75 AGRONOMY: soil fills the cup, a seedling unfurls
-    M.add('fx', soil_crunch(0.55), 13.75, -26.0, pan=-0.1, room=0.2, label='soil')
-    M.add('fx', sprout(0.6), 14.375, -26.0, hall=0.35, label='sprout')
+          RING + 7 * S16, -30.0, hall=0.5, label='ring closes')
+    # ROBOTICS & VISION: reticle blinks (focus beeps), lens hunts, shutter on the lock
+    for tk in FOCUS:
+        M.add('fx', focus_beep(hz('A6')), tk, -30.0, pan=0.1, room=0.2, label='focus beep')
+    M.add('fx', servo(LENS[1] - LENS[0], 900.0, 1400.0, 'lens'), LENS[0], -33.0, pan=0.1, label='lens')
+    M.add('fx', shutter(), SHUTTER, -24.0, pan=0.05, room=0.25, label='shutter')
+    # AGRONOMY: soil fills the cup, a seedling unfurls
+    M.add('fx', soil_crunch(sd(0.55)), SOIL, -26.0, pan=-0.1, room=0.2, label='soil')
+    M.add('fx', sprout(SPROUT[1] - SPROUT[0]), SPROUT[0], -26.0, hall=0.35, label='sprout')
 
-    # ── S5 · ONE SYSTEM (15–17.5): wonder ───────────────────────────────────
+    # ── S5 · ONE SYSTEM (film 18–21): wonder ────────────────────────────────
     for j, nme in enumerate('D4 A4 C5 F5'.split()):
         M.add('cup', cup(nme, 6.0, ring=3.2, key=('chime', j), hardness=0.95), FOUR_CHIME + 0.006 * j,
-              GROOVE_DB - 18.0, pan=(-0.6 + 0.4 * j) * 0.7, hall=0.4, label='bowl')
+              GROOVE_DB - 19.5, pan=(-0.6 + 0.4 * j) * 0.7, hall=0.4, label='bowl')
     for j, (tk, (a, b)) in enumerate(zip(HAIRLINES, (('D6', 'A6'), ('A6', 'C7'), ('C7', 'F7')))):
-        M.add('fx', hairline(hz(a), hz(b), 0.2, key=j), tk, -27.0, pan=-0.3 + 0.3 * j, hall=0.4, label='hairline')
+        M.add('fx', hairline(hz(a), hz(b), sd(0.2), key=j), tk, -27.0, pan=-0.3 + 0.3 * j, hall=0.4, label='hairline')
     M.add('fx', soft_riser(ARCS[1] - ARCS[0], 'arcs', 700.0, 4200.0, (nm('A5'), nm('D6')), 0.45, curve=1.4),
           ARCS[0], -29.0, hall=0.3, label='arcs')
     lift = [(0.0, 'D6', -0.6), (0.0, 'A6', 0.6), (BEAT / 16, 'F6', -0.25), (BEAT / 16, 'C7', 0.25),
             (2 * S32, 'D7', -0.45), (3 * S32, 'F7', 0.45), (4 * S32, 'G7', -0.2), (5 * S32, 'A7', 0.2)]
     for i, (dt, m, p) in enumerate(lift):
-        M.add('fx', glass(hz(m), 0.9, 0.35, 0.5, 2.0), LIFT + dt, -28.5 - (0.0 if i < 4 else 1.5 * (i - 3)),
+        M.add('fx', glass(hz(m), 0.9, 0.35, 0.5, 2.0), LIFT + dt, -32.0 - (0.0 if i < 4 else 1.5 * (i - 3)),
               pan=p, hall=0.45, label='ascending shimmer')
-    swell = warm_pad(notes('Bb3 D4 F4 A4 D5'), MERGE - LIFT + 0.08, 'lift swell', cut_lo=600.0, cut_hi=2600.0,
-                     lfo=0.5, attack=0.03, release=0.06)
+    swell = warm_pad(notes('Bb3 D4 F4 A4 D5'), MERGE - LIFT + sd(0.08), 'lift swell', cut_lo=600.0, cut_hi=2600.0,
+                     lfo=0.5 / STRETCH, attack=0.03, release=0.06)
     swell *= 0.3 + 0.7 * exp_curve(tvec(swell.shape[1]) / (MERGE - LIFT), 2.0)
-    M.add('pad', swell, LIFT, -22.5, hall=0.35, label='rising swell')
+    M.add('pad', swell, LIFT, -25.0, hall=0.35, label='rising swell')
     acc = sum(mallet(hz(m), 1.5, 0.55, key=('acc', m)) for m in ('G4', 'Bb4', 'D5'))
-    M.add('keys', pan_mono(acc / 3.0, 0.0), ACCENT, -17.0, hall=0.35, label='accent')
-    M.add('keys', pan_mono(fm_bell(hz('D6'), 2.0, ratio=3.5, index=0.8, dec=0.8), 0.0), ACCENT, -26.0,
+    M.add('keys', pan_mono(acc / 3.0, 0.0), ACCENT, -20.5, hall=0.35, label='accent')
+    M.add('keys', pan_mono(fm_bell(hz('D6'), 2.0, ratio=3.5, index=0.8, dec=0.8), 0.0), ACCENT, -28.5,
           hall=0.4, label='accent')
-    M.add('fx', swirl(SPIN[1] - SPIN[0] - 0.02, 'spin', 900.0, 4200.0, 2.0, 9.0, peak=0.9, depth=0.5), SPIN[0],
-          -28.0, hall=0.3, label='spin')
+    M.add('fx', swirl(SPIN[1] - SPIN[0] - sd(0.02), 'spin', 900.0, 4200.0, 2.0 / STRETCH, 9.0 / STRETCH, peak=0.9,
+                      depth=0.5), SPIN[0], -28.0, hall=0.3, label='spin')
     flare = bowl(hz('D5'), 3.0, ring=2.0, hardness=0.9, key='merge', width=0.5) \
         + 0.45 * pan_mono(glass(hz('A6'), 3.0, 0.5, 0.4, 2.0), 0.0)
     M.add('cup', flare, MERGE, -23.0, hall=0.45, label='merge flare')
     M.add('fx', bloom(1.4, 'merge', attack=0.03, dec=0.5, lp=3500.0), MERGE, -24.0, hall=0.3, label='merge flare')
-    M.add('fx', whoosh(0.62, 280.0, 4800.0, 0.5, -0.5, peak=0.12, q=1.2, shape=1.3, key='sink'), SINK[0],
-          -24.0, hall=0.3, label='airy sweep')
+    M.add('fx', whoosh(SINK[1] - SINK[0] - 0.005, 280.0, 4800.0, 0.5, -0.5, peak=0.12, q=1.2, shape=1.3, key='sink'),
+          SINK[0], -24.0, hall=0.3, label='airy sweep')
 
-    # ── S6 · 03 RENEW (17.5–22.5): intimate ─────────────────────────────────
+    # ── S6 · 03 RENEW (film 21–30, recomposed): slow, tender, one breath ────
+    # bar 8 the arm and the reaching hand · bar 9 the seed crosses in slow motion, time
+    # held · bar 10 the touch, warmth, the rise. No drums; everything on the 80 BPM grid.
+    M.add('fx', servo_shimmer(1.6, 'reveal'), ARM_REVEAL, RENEW_DB - 26.0, pan=0.45, room=0.25, hall=0.35,
+          label='servo shimmer')
     for i, (tk, nme, vel) in enumerate(PIANO):
         nxt = [p for p in PEDAL if p > tk + 0.03][0]
         damp = nxt + 0.03 - tk
-        M.add('keys', felt_piano(nm(nme), vel, min(damp + 0.6, 6.0), key=('pno', i), damp=damp), tk, RENEW_DB - 13.0,
-              pan=float(np.clip((nm(nme) - 60) / 40.0, -0.4, 0.4)), room=0.35, hall=0.25, label='piano')
-    for c0, c1, name, v in CHORDS[6:9]:
-        chord_pad(M, c0, c1, name, v, RENEW_DB - 26.0, hall=0.3, attack=0.35 if c0 < 17.6 else 0.12, release=0.12,
-                  cut_lo=380.0, cut_hi=1100.0, lfo=0.07, voices=2)
-    M.add('fx', servo(0.9, 150.0, 260.0, 'rise', whine_x=8.0, whine_amt=0.4), SERVO_RISE[0], RENEW_DB - 27.0, pan=0.1,
-          room=0.3, label='servo')
-    M.add('fx', pencil(SKETCH[1] - SKETCH[0]), SKETCH[0], RENEW_DB - 27.0, room=0.3, label='pencil')
-    for i in range(5):                                            # the ember rolls off the metal palm
-        M.add('fx', glass(hz(['A6', 'F6', 'E6', 'D6', 'A5'][i]), 0.4, 0.08, 0.3), 19.5 + i * 0.09,
-              RENEW_DB - 33.0 - i, pan=0.25 - 0.08 * i, hall=0.3, label='roll')
-    rs = reverse_swell(0.6, 'handoff', [hz('D5'), hz('A5')], rt=1.8, noise_amt=0.2)      # a held breath …
-    M.add('fx', rs, HANDOFF - 0.6, RENEW_DB - 27.0, label='reverse swell')
-    M.add('cup', warm_bell(hz('D5'), 5.0, 'handoff'), HANDOFF, RENEW_DB - 19.5, hall=0.5, label='hand-off bell')
-    M.add('fx', bloom(2.5, 'handoff', attack=0.35, dec=0.9), HANDOFF, RENEW_DB - 25.0, hall=0.3, label='bloom')
-    M.add('fx', servo(1.0, 240.0, 150.0, 'withdraw'), 20.4, RENEW_DB - 37.0, pan=0.35, room=0.3, label='servo')
-    M.add('fx', soft_riser(1.35, 'ember', 380.0, 4800.0, (nm('D5'), nm('A5')), 0.3), EMBER_RISE[0], RENEW_DB - 24.0,
-          hall=0.25, label='riser')
+        slow = DRIFT[0] <= tk < DRIFT[1]                          # the slow motion rings into the big hall
+        M.add('keys', felt_piano(nm(nme), vel, min(damp + 0.6, 6.0), key=('pno', i), damp=damp), tk, RENEW_DB - 12.5,
+              pan=float(np.clip((nm(nme) - 60) / 40.0, -0.4, 0.4)), room=0.35, hall=0.2 if slow else 0.25,
+              big=0.35 if slow else 0.0, label='piano')
+    # pads: the human's breath (bar 8), a held breath through the slow motion (bar 9), breathing again (bar 10)
+    (a0, a1, n0, v0), (b0, b1, n1, v1), (c0, c1, n2, v2) = RENEW_CHORDS
+    reach = breath_pad(notes(v0), a1 - a0, (n0, a0), [(REACH[0] - a0, 22.9 - a0, 24.2 - a0)], depth_db=5.0, air=0.22,
+                       attack=0.5, release=0.12, voices=2, lfo=0.05)
+    reach *= automation([(a0, -30), (a0 + 0.5, -9), (REACH[0], -8), (22.9, 0), (a1 - 0.1, -1), (a1, -12)],
+                        reach.shape[1], a0)
+    M.add('pad', reach, a0, RENEW_DB - 21.0, hall=0.3, label='breath pad')
+    chord_pad(M, b0, b1, n1, v1, RENEW_DB - 26.0, hall=0.3, big=0.3, attack=0.35, release=0.12, cut_lo=380.0,
+              cut_hi=900.0, lfo=0.03, voices=2,
+              env=[(b0, -20), (b0 + 0.6, 0), (26.4, 0), (b1 - 0.1, -4), (b1, -12)])
+    warm = breath_pad(notes(v2), c1 - c0, (n2, c0), [(TOUCH + 0.05 - c0, 28.0 - c0, 29.7 - c0)], depth_db=4.0,
+                      air=0.16, cut=(420.0, 1500.0), attack=0.12, release=0.12, voices=2, lfo=0.05)
+    warm *= automation([(c0, -12), (TOUCH + 0.4, 0), (29.4, -1), (c1 - 0.2, -8), (c1, -20)], warm.shape[1], c0)
+    M.add('pad', warm, c0, RENEW_DB - 21.5, hall=0.3, label='breath pad')
+    # 23.625 the fingers tilt · 24.0 the seed lifts off the metal
+    M.add('fx', servo_shimmer(TILT[1] - TILT[0] + 0.1, 'tilt', f0=480.0, f1=620.0, peak=0.45, shimmer=0.3), TILT[0],
+          RENEW_DB - 31.0, pan=0.4, room=0.3, hall=0.2, label='tilt')
+    tink = pan_mono(glass(hz('D7'), 1.4, 0.5, 0.5, 2.0) + 0.55 * glass(hz('A6'), 1.4, 0.6, 0.3, 2.0), 0.35)
+    M.add('fx', tink, LIFT_OFF, RENEW_DB - 30.0, hall=0.3, big=0.4, label='lift-off')
+    M.add('fx', data_tick(3520.0, 'lift-off', tau=0.0015, noise=0.2), LIFT_OFF, RENEW_DB - 37.0, pan=0.35,
+          label='lift-off')
+    # 24–27 SLOW MOTION: the cup's voice sung and blooming, glass held, time stretching
+    held = sung_bowl(hz('D4'), 7.0, [(0.0, -60), (0.5, -28), (1.5, -10), (2.4, 0), (2.85, -2.5), (3.0, -3)],
+                     release=DRIFT[1] - DRIFT[0], key='drift')
+    M.add('cup', held, DRIFT[0], RENEW_DB - 17.0, hall=0.3, big=0.45, label='sung bowl')
+    M.add('fx', glass_hold(DRIFT[1] - DRIFT[0], 'drift', notes_=('D6', 'A6', 'E7')), DRIFT[0], RENEW_DB - 27.0, hall=0.3,
+          big=0.5,
+          label='glass hold')
+    M.add('fx', seed_trail(DRIFT[1] - DRIFT[0] - 0.1, 'drift'), DRIFT[0] + 0.05, RENEW_DB - 32.0, hall=0.25, big=0.3,
+          label='seed trail')
+    M.add('air', whoosh(DRIFT[1] - DRIFT[0], 220.0, 1500.0, 0.45, -0.35, peak=0.55, q=0.9, shape=1.2, key='slow air',
+                        width=0.35), DRIFT[0], RENEW_DB - 31.0, big=0.4, label='slow air')
+    # 27.0 THE TOUCH: a held breath, then the cup's warm bell, a bloom, the low resolve
+    rs = reverse_swell(0.6, 'touch', [hz('D5'), hz('A5')], rt=1.8, noise_amt=0.2)
+    M.add('fx', rs, TOUCH - 0.6, RENEW_DB - 29.0, label='reverse swell')
+    M.add('cup', warm_bell(hz('D5'), 5.0, 'touch'), TOUCH, RENEW_DB - 20.5, hall=0.45, big=0.25, label='touch bell')
+    M.add('fx', bloom(3.0, 'touch', attack=0.45, dec=1.1, lp=2200.0, hp=180.0), TOUCH, RENEW_DB - 24.0, hall=0.3,
+          label='touch bloom')
+    M.add('cup', cup('D3', 5.0, ring=3.0, key='touch low', hardness=0.55, width=0.3, clang=0.4, thump=0.5), TOUCH,
+          RENEW_DB - 24.5, hall=0.3, label='low resolve')
+    low = sub_drone(hz('D2'), SEED_RISE[1] + 0.3 - TOUCH, h2=0.3, breathe=0.04)
+    low *= automation([(TOUCH, -40), (TOUCH + 0.35, 0), (SEED_RISE[0], -2), (SEED_RISE[1] + 0.3, -30)], low.size, TOUCH)
+    M.add('sub', fade(low, 0.02, 0.05), TOUCH, RENEW_DB - 30.0, label='low resolve')
+    M.add('fx', servo_shimmer(WITHDRAW[1] - WITHDRAW[0], 'withdraw', f0=460.0, f1=330.0, peak=0.4, shimmer=0.5),
+          WITHDRAW[0], RENEW_DB - 32.0, pan=0.5, room=0.3, hall=0.3, label='withdraw')
+    # 28.5–30 the seed rises into the mark
+    M.add('fx', soft_riser(SEED_RISE[1] - SEED_RISE[0] + 0.1, 'ember', 380.0, 4800.0, (nm('D5'), nm('A5')), 0.3),
+          SEED_RISE[0], RENEW_DB - 22.0, hall=0.25, label='riser')
 
-    # ── S7 · THE MARK (22.5–30): release & resolve ──────────────────────────
-    for c0, c1, name, v in CHORDS[9:11]:
-        # the build swells to 24.6, then draws back (an inhale) so the lock lands on contrast
-        env = [(22.45, -16), (23.8, -8)] if name == 'Bbmaj7' else [(23.7, -8), (24.6, -3.5), (24.965, -14)]
+    # ── S7 · THE MARK (film 30–39): release & resolve ───────────────────────
+    for (c0, c1, name, v), env in zip(BUILD_CHORDS, ([(BUILD_CHORDS[0][0], -16), (ft(23.8), -8)],
+                                                      ftp([(23.7, -8), (24.6, -3.5)]) + [(LOGO - BREATH, -14)])):
+        # the build swells, then draws back (an inhale) so the lock lands on contrast
         chord_pad(M, c0, c1, name, v, BUILD_DB - 19.0, hall=0.3, attack=0.15, release=0.03, cut_lo=500.0,
-                  cut_hi=2200.0, lfo=0.4, env=env)
-    for t0, t1, note in ((22.5, 23.8, 'Bb1'), (23.75, 24.965, 'C2')):
+                  cut_hi=2200.0, lfo=0.4 / STRETCH, env=env)
+    peak_t = ft(24.6)
+    for t0, t1, note in ((ft(22.5), ft(23.8), 'Bb1'), (ft(23.75), LOGO - BREATH, 'C2')):
         s = sub_drone(hz(note), t1 - t0, h2=0.6)
-        s *= automation([(t0, -12), (min(t1, 24.6), 0), (t1, -10 if t1 > 24.6 else 0)], s.size, t0)
+        s *= automation([(t0, -12), (min(t1, peak_t), 0), (t1, -10 if t1 > peak_t else 0)], s.size, t0)
         M.add('sub', fade(s, 0.04, 0.03), t0, BUILD_DB - 27.0, label='build sub')
     for tk, g in HEARTBEATS:                                      # every heartbeat has let go before the breath
         k = felt_kick('heart')
-        k = fade(k[:min(k.size, smp(LOGO - 0.035 - tk))], 0.0015, 0.04)
+        k = fade(k[:min(k.size, smp(LOGO - BREATH - tk))], 0.0015, 0.04)
         M.add('kick', k, tk, BUILD_DB + g, label='kick')
     for i, (tk, note, p) in enumerate(SPLIT_TONES):
         M.add('keys', rising_tone(nm(note), 1.5, key=i), tk, BUILD_DB - 22.5, pan=p, hall=0.4, label='rising tone')
     for i, (t0, d) in enumerate(((23.0, 1.0), (23.6, 1.0), (24.1, 0.855))):
-        M.add('fx', swirl(d, ('build', i), 500.0 + 150 * i, 2800.0 + 500 * i, 0.8 + 0.6 * i, 2.5 + i),
-              t0, BUILD_DB - 28.5 + 1.5 * i, hall=0.25, label='swirl')
-    roll_t = [23.75 + k * S16 for k in range(4)] + [24.375 + k * S32 for k in range(7)]
+        M.add('fx', swirl(sd(d), ('build', i), 500.0 + 150 * i, 2800.0 + 500 * i, (0.8 + 0.6 * i) / STRETCH,
+                          (2.5 + i) / STRETCH), ft(t0), BUILD_DB - 28.5 + 1.5 * i, hall=0.25, label='swirl')
+    roll_t = [ft(23.75) + k * S16 for k in range(4)] + [ft(24.375) + k * S32 for k in range(7)]
     for k, tk in enumerate(roll_t):
         u = k / (len(roll_t) - 1)
         M.add('cup', cup(['A4', 'D5'][k % 2], min(1.6, LOGO - tk - 0.03), ring=1.2, key=('roll', k),
                          hardness=0.6 + 0.3 * u, clang=0.5), tk, BUILD_DB - 35.0 + 10.0 * u, pan=0.3 * (-1) ** k,
               hall=0.3, label='bowl roll')
-    rs = reverse_swell(0.7, 'logo', [hz(n_) for n_ in 'D4 A4 C5 E5'.split()], rt=2.2)
-    M.add('fx', rs, LOGO - 0.7, BUILD_DB - 23.5, label='reverse swell')
-    M.add('fx', soft_riser(0.915, 'logo', 500.0, 5200.0, (nm('A4'), nm('D5')), 0.2, curve=2.2),
-          LOGO - 0.95, BUILD_DB - 27.0, label='riser')
+    rs = reverse_swell(sd(0.7), 'logo', [hz(n_) for n_ in 'D4 A4 C5 E5'.split()], rt=2.2)
+    M.add('fx', rs, LOGO - sd(0.7), BUILD_DB - 23.5, label='reverse swell')
+    M.add('fx', soft_riser(sd(0.95) - BREATH, 'logo', 500.0, 5200.0, (nm('A4'), nm('D5')), 0.2, curve=2.2),
+          LOGO - sd(0.95), BUILD_DB - 27.0, label='riser')
 
-    # 25.0 THE LOGO LOCKS
+    # THE LOGO LOCKS (film 33.0)
+    tail = SILENT_FROM - LOGO                                     # 5.9 s to the silence
     M.add('fx', lock_click(), LOGO, LOGO_DB - 24.0, room=0.3, big=0.2, label='logo click')
     M.add('kick', felt_kick('impact'), LOGO, LOGO_DB - 19.5, label='impact kick')
     M.add('sub', boom(95.0, hz('D1'), 3.0, 0.12, 0.6, drive=1.8), LOGO, LOGO_DB - 23.5, label='impact')
-    low = sub_drone(hz('D2'), 4.9, h2=0.2)
-    low *= automation([(25.0, -90), (25.25, -6), (26.0, 0), (29.0, -34)], low.size, LOGO)
+    low = sub_drone(hz('D2'), tail, h2=0.2)
+    low *= automation(ftp([(25.0, -90), (25.25, -6), (26.0, 0), (29.0, -34)]), low.size, LOGO)
     M.add('sub', fade(low, 0.05, 0.05), LOGO, LOGO_DB - 23.0, label='tail sub')
-    M.add('cup', cup('D3', 4.9, ring=3.2, key='logo', hardness=0.95, width=0.55, beat_depth=0.7), LOGO,
-          LOGO_DB - 18.0, hall=0.25, big=0.65, label='logo bowl')
-    for j, (nme, ring_, g) in enumerate((('D4', 2.2, -21.0), ('F4', 0.6, -25.0), ('A4', 2.0, -21.0),
-                                          ('C5', 1.0, -23.0), ('E5', 1.8, -21.5))):
-        M.add('cup', cup(nme, 4.85, ring=ring_, key=('logo chord', j), hardness=1.0, beat_depth=0.7),
+    M.add('cup', cup('D3', tail, ring=3.2, key='logo', hardness=0.95, width=0.55, beat_depth=0.7), LOGO,
+          LOGO_DB - 21.0, hall=0.25, big=0.65, label='logo bowl')
+    for j, (nme, ring_, g) in enumerate((('D4', 2.2, -24.0), ('F4', 0.6, -28.0), ('A4', 2.0, -24.0),
+                                          ('C5', 1.0, -26.0), ('E5', 1.8, -24.5))):
+        M.add('cup', cup(nme, tail - 0.012 * j, ring=ring_, key=('logo chord', j), hardness=1.0, beat_depth=0.7),
               LOGO + 0.012 * j, LOGO_DB + g, pan=-0.5 + 0.25 * j, hall=0.2, big=0.6, label='bell chord')
-    M.add('fx', bloom(4.0, 'logo', attack=0.18, dec=1.0, lp=4200.0, hp=200.0), LOGO, LOGO_DB - 16.0, big=0.4,
+    M.add('fx', bloom(sd(4.0), 'logo', attack=0.18, dec=1.0, lp=4200.0, hp=300.0), LOGO, LOGO_DB - 13.5, big=0.4,
           label='impact bloom')
-    M.add('fx', rim_shimmer(1.0, 'sweep', ('D7', 'F#7', 'A7', 'E7'), -0.6, 0.7, peak=0.3), 25.05, LOGO_DB - 25.0,
-          big=0.5, label='light sweep')
-    minor = warm_pad(notes(FINAL_MINOR), 1.3, 'final minor', cut_lo=600.0, cut_hi=2000.0, attack=0.1,
+    M.add('fx', rim_shimmer(sd(1.0), 'sweep', ('D7', 'F#7', 'A7', 'E7'), -0.6, 0.7, peak=0.3), ft(25.05),
+          LOGO_DB - 21.5, big=0.5, label='light sweep')
+    minor = warm_pad(notes(FINAL_MINOR), sd(1.3), 'final minor', cut_lo=600.0, cut_hi=2000.0, attack=0.1,
                      release=0.6)
-    M.add('pad', minor * automation([(25.0, 0), (25.4, 0), (26.1, -30)], minor.shape[1], LOGO), LOGO,
+    M.add('pad', minor * automation(ftp([(25.0, 0), (25.4, 0), (26.1, -30)]), minor.shape[1], LOGO), LOGO,
           LOGO_DB - 15.0, hall=0.2, big=0.35, label='final pad')
-    lift = warm_pad(notes(FINAL_LIFT), 4.5, 'final lift', cut_lo=600.0, cut_hi=2300.0, attack=0.6, release=1.0,
-                    lfo=0.15)
-    lift *= automation([(25.4, -30), (26.1, 0), (27.5, -1), (29.2, -30)], lift.shape[1], 25.4)
-    M.add('pad', lift, 25.4, LOGO_DB - 16.0, hall=0.2, big=0.35, label='final pad')
+    lift = warm_pad(notes(FINAL_LIFT), sd(4.5), 'final lift', cut_lo=600.0, cut_hi=2300.0, attack=0.6, release=1.0,
+                    lfo=0.15 / STRETCH)
+    lift = eq(lift, 'peak', 300.0, -3.0, 0.8)                     # the long hold stays clear in the low mids
+    lift *= automation(ftp([(25.4, -30), (26.1, 0), (27.5, -1), (29.2, -30)]), lift.shape[1], FINAL_LIFT_T[0])
+    M.add('pad', lift, FINAL_LIFT_T[0], LOGO_DB - 19.0, hall=0.2, big=0.35, label='final pad')
     for j, nme in enumerate(('F#5', 'A5', 'D6')):
-        M.add('keys', pan_mono(fm_bell(hz(nme), 3.5, ratio=3.5, index=0.6, dec=1.4), -0.4 + 0.4 * j), 25.625 + 0.05 * j,
-              LOGO_DB - 27.5, big=0.5, label='lift bell')
+        M.add('keys', pan_mono(fm_bell(hz(nme), 3.5, ratio=3.5, index=0.6, dec=1.4), -0.4 + 0.4 * j),
+              LIFT_BELLS + sd(0.05) * j, LOGO_DB - 25.5, big=0.5, label='lift bell')
     for tk, note in LINE_TICKS:
-        M.add('fx', glass(hz(note), 1.0, 0.25, 0.5), tk, LOGO_DB - 22.5, pan=0.15, hall=0.4, label='line tick')
-        M.add('fx', data_tick(3520.0, ('line', tk), tau=0.0025, noise=0.3), tk, LOGO_DB - 27.0, pan=0.15, room=0.3,
+        M.add('fx', glass(hz(note), 1.0, 0.25, 0.5), tk, LOGO_DB - 27.5, pan=0.15, hall=0.4, label='line tick')
+        M.add('fx', data_tick(3520.0, ('line', tk), tau=0.0025, noise=0.3), tk, LOGO_DB - 32.0, pan=0.15, room=0.3,
               label='line tick transient')
     M.add('fx', rim_shimmer(SWEEP_2[1] - SWEEP_2[0], 'sweep 2', ('A6', 'D7', 'F#7', 'A7'), -0.5, 0.55, peak=0.45),
           SWEEP_2[0], LOGO_DB - 31.0, big=0.5, label='light sweep 2')
-    M.add('air', dust(2.5, 'mark', notes('A6 B6 D7 E7 F#7'), rate=2.0, spread_db=10.0), 27.0, -33.0, big=0.4,
-          label='dust')
+    M.add('air', dust(sd(2.5), 'mark', notes('A6 B6 D7 E7 F#7'), rate=2.0 / STRETCH, spread_db=10.0), ft(27.0), -33.0,
+          big=0.4, label='dust')
     return M
 
 
@@ -1750,8 +2012,8 @@ def mix_bus(M):
 
 def tail_mask():
     """1 until TAIL_FADE[0]; then the gain falls along a curve in dB (−54·u² dB,
-    the bend of a natural decay rather than a fader's cosine) to 29.9, the last
-    20 ms eased to exact zero; digital zero from 29.9 to 30.0. The music has
+    the bend of a natural decay rather than a fader's cosine) to SILENT_FROM (38.9),
+    the last 20 ms eased to exact zero; digital zero from 38.9 to 39.0. The music has
     already let go (every source decays on its own), so this only trims."""
     g = np.ones(N)
     a, b = smp(TAIL_FADE[0]), smp(TAIL_FADE[1])
@@ -1865,38 +2127,48 @@ def read_wav(path):
 # ════════════════════════════════════════════════════════════════════════════
 LOGO_LABELS = ('logo click', 'impact kick', 'impact', 'tail sub', 'logo bowl', 'bell chord', 'impact bloom',
                'light sweep', 'final pad')
+SLOWMO_LABELS = ('sung bowl', 'glass hold', 'seed trail', 'slow air')
+TOUCH_LABELS = ('touch bell', 'touch bloom', 'low resolve', 'piano')
 
 
 def heard_cues():
     """Every picture cue that must be *heard*, in sync: (name, cue time, event labels,
-    (first, last) event time, analysis window or None for a hit's first 80 ms)."""
+    (first, last) event time, analysis window or None for a hit's first 80 ms). Film seconds."""
     def h(name, t, labels, ev=None, win=None):
         return name, t, labels, ev or (t, t), win
-    c = [h('rim light', RIM_LIGHT, ('rim shimmer',), win=(0.35, 1.0)), h('CUP #1', CUP_1, ('cup strike',))]
+    c = [h('rim light', RIM_LIGHT, ('rim shimmer',), win=(RIM_LIGHT, ft(1.0))), h('CUP #1', CUP_1, ('cup strike',))]
     c += [h(f'spark {n}', t, ('spark crackle', 'spark ping')) for t, n, _p in SPARKS]
-    c += [h('dive', DIVE[0], ('dive', 'reverse swell'), win=(4.4, 4.965)), h('CUP #2', CUP_2, ('cup strike',)),
-          h('scan', CUP_2, ('scan',), win=(5.0, 5.6))]
+    c += [h('dive', DIVE[0], ('dive', 'reverse swell'), win=(ft(4.4), ft(4.965))), h('CUP #2', CUP_2, ('cup strike',)),
+          h('scan', CUP_2, ('scan',), win=SCAN)]
     c += [h('annotation', t, ('annotation tick',)) for t, _n, _p in ANNOTATIONS]
-    c += [h('re-solidify', RESOLIDIFY[0], ('reverse swell', 'scan up'), win=(7.07, 7.46))]
+    c += [h('re-solidify', RESOLIDIFY[0], ('reverse swell', 'scan up'), win=(ft(7.07), ft(7.46)))]
     c += [h('kick', t, ('kick',)) for t in GROOVE_KICKS]
-    c += [h('servo down', SERVO_DESCEND[0], ('servo',), win=(7.55, 8.08)), h('grip', GRIP, ('grip clack',))]
-    c += [h('1→2', 8.75, ('bowl', 'slide')), h('2→4', 9.375, ('bowl', 'slide')),
-          h('four as one', 10.0, ('bowl', 'add9', 'landing sub'), (10.0, 10.02))]
-    c += [h('paper', 10.0, ('paper flick',), (10.0, 10.45), (10.0, 10.5))]
+    c += [h('servo down', SERVO_DESCEND[0], ('servo',), win=(ft(7.55), ft(8.08))), h('grip', GRIP, ('grip clack',))]
+    c += [h('1→2', MULTIPLY[0][0], ('bowl', 'slide')), h('2→4', MULTIPLY[1][0], ('bowl', 'slide')),
+          h('four as one', FOUR, ('bowl', 'add9', 'landing sub'), (FOUR, FOUR + 0.02))]
+    c += [h('paper', PAPER[0], ('paper flick',), (PAPER[0], PAPER[-1]), (PAPER[0], ft(10.5)))]
     c += [h('copper tab', SORT[i], ('sort tab',)) for i in SORT_TABS]
-    c += [h('ring closes', 11.25 + 7 * S16, ('ring closes',)), h('focus', 12.5, ('focus beep',)),
-          h('lens', 12.65, ('lens',), win=(12.65, 12.97)), h('shutter', 13.125, ('shutter',)),
-          h('soil', 13.75, ('soil',)), h('sprout', 14.375, ('sprout',), win=(14.375, 14.95))]
+    c += [h('ring closes', RING + 7 * S16, ('ring closes',)), h('focus', FOCUS[0], ('focus beep',)),
+          h('lens', LENS[0], ('lens',), win=LENS), h('shutter', SHUTTER, ('shutter',)),
+          h('soil', SOIL, ('soil',)), h('sprout', SPROUT[0], ('sprout',), win=(SPROUT[0], ft(14.95)))]
     c += [h('four chime', FOUR_CHIME, ('bowl',), (FOUR_CHIME, FOUR_CHIME + 0.02))]
     c += [h('hairline', t, ('hairline',)) for t in HAIRLINES]
-    c += [h('lift', LIFT, ('ascending shimmer', 'rising swell'), (LIFT, LIFT + 0.2)), h('accent', ACCENT, ('accent',)),
-          h('merge flare', MERGE, ('merge flare',)), h('airy sweep', SINK[0], ('airy sweep',), win=(16.9, 17.45))]
-    c += [h('servo rises', SERVO_RISE[0], ('servo',), win=(17.6, 18.35)),
-          h('pencil', SKETCH[0], ('pencil',), win=(18.45, 19.35)),
-          h('hand-off', HANDOFF, ('hand-off bell', 'bloom')), h('ember rises', EMBER_RISE[0], ('riser',), win=(21.6, 22.5))]
+    c += [h('lift', LIFT, ('ascending shimmer', 'rising swell'), (LIFT, LIFT + sd(0.2))), h('accent', ACCENT, ('accent',)),
+          h('merge flare', MERGE, ('merge flare',)), h('airy sweep', SINK[0], ('airy sweep',), win=(ft(16.9), ft(17.45)))]
+    # Renew (recomposed, film time)
+    c += [h('arm reveal', ARM_REVEAL, ('servo shimmer',), win=(ARM_REVEAL + 0.05, ARM_REVEAL + 1.4)),
+          h('hand reaches', PIANO[0][0], ('piano',)),
+          h('breath', REACH[0], ('breath pad',), (RENEW_CHORDS[0][0], RENEW_CHORDS[0][0]), (22.4, 23.7)),
+          h('fingers tilt', TILT[0], ('tilt',), win=(TILT[0] + 0.05, TILT[1])),
+          h('lift-off', LIFT_OFF, ('lift-off',)),
+          h('slow motion', DRIFT[0], SLOWMO_LABELS, (DRIFT[0], DRIFT[0] + 0.1), (DRIFT[0] + 0.6, TOUCH - 0.1)),
+          h('THE TOUCH', TOUCH, TOUCH_LABELS, (TOUCH, TOUCH + 0.3)),
+          h('arm withdraws', WITHDRAW[0], ('withdraw',), win=(WITHDRAW[0] + 0.3, WITHDRAW[1] - 0.4)),
+          h('seed rises', SEED_RISE[0], ('riser',), win=(SEED_RISE[0] + 0.5, SEED_RISE[1]))]
     c += [h(f'ember {n}', t, ('rising tone',)) for t, n, _p in SPLIT_TONES]
     c += [h('heartbeat', t, ('kick',)) for t, _g in HEARTBEATS]
-    c += [h('LOGO', LOGO, LOGO_LABELS, (LOGO, LOGO + 0.1)), h('lift bells', 25.625, ('lift bell',), (25.6, 25.75))]
+    c += [h('LOGO', LOGO, LOGO_LABELS, (LOGO, LOGO + 0.1)),
+          h('lift bells', LIFT_BELLS, ('lift bell',), (LIFT_BELLS - 0.03, LIFT_BELLS + 0.15))]
     c += [h('line tick', t, ('line tick', 'line tick transient')) for t, _n in LINE_TICKS]
     return c
 
@@ -1999,8 +2271,9 @@ def detect_clicks(x, ratio=10.0, floor=0.004):
     return events
 
 
-SECTIONS = [(0.0, 5.0, 'S1 tale'), (5.0, 7.5, 'S2 underst'), (7.5, 10.0, 'S3 make'), (10.0, 15.0, 'S4 worlds'),
-            (15.0, 17.5, 'S5 system'), (17.5, 22.5, 'S6 renew'), (22.5, 25.0, 'S7 build'), (25.0, 29.9, 'S7 mark')]
+SECTIONS = [(0.0, ft(5.0), 'S1 tale'), (ft(5.0), ft(7.5), 'S2 underst'), (ft(7.5), ft(10.0), 'S3 make'),
+            (ft(10.0), ft(15.0), 'S4 worlds'), (ft(15.0), ft(17.5), 'S5 system'), (RENEW[0], RENEW[1], 'S6 renew'),
+            (RENEW[1], LOGO, 'S7 build'), (LOGO, SILENT_FROM, 'S7 mark')]
 BANDS = [(20, 60, 'sub'), (60, 200, 'low'), (200, 400, 'mud'), (400, 2000, 'mid'), (2000, 6000, 'hmid'),
          (6000, 12000, 'high'), (12000, 24000, 'air')]
 
@@ -2222,9 +2495,15 @@ def verify(path, M, stems, ducks, info, preview=True):
         nonlocal ok
         ok &= bool(cond)
         print(f"  [{'ok' if cond else 'FAIL'}] {msg}")
-    print('\n── format')
+    print('\n── format & time map')
     check(fmt[:4] == (2, 2, SR, N) and fmt[4] == 'NONE',
           f'{fmt[0]} ch · {fmt[1] * 8}-bit PCM · {fmt[2]} Hz · {fmt[3]} frames ({fmt[3] / SR:.3f} s)')
+    tm_ok = [(T, F) for T, F in ((0.0, 0.0), (2.5, 3.0), (17.5, 21.0), (22.5, 30.0), (22.9, 30.48), (23.2, 30.84),
+                                 (23.5, 31.2), (25.0, 33.0), (30.0, 39.0)) if abs(ft(T) - F) > 1e-9]
+    check(not tm_ok and abs(BEAT - 0.75) < 1e-12 and abs(sd(60.0 / STORY_BPM) - BEAT) < 1e-12,
+          f'time map {[list(p_) for p_ in TIMEMAP]} (film, story): story 22.9 / 23.2 / 23.5 → '
+          f'{ft(22.9):.2f} / {ft(23.2):.2f} / {ft(23.5):.2f}, lock 25.0 → {LOGO:.2f}; beat {BEAT} s, bar {BAR} s'
+          + (f' · wrong: {tm_ok}' if tm_ok else ''))
     print('\n── level')
     pk = float(lin2db(np.abs(y).max()))
     tp = true_peak_db(y)
@@ -2289,13 +2568,21 @@ def verify(path, M, stems, ducks, info, preview=True):
                     f'emerges from the mix within ±5 ms (max |{max(abs(v["emerge"]) for v in hits if v["emerge"] is not None):.1f}| ms)'
                     + (f' · off: {", ".join(late)}' if late else ''))
     placed = {lab: M.times(lab) for lab in ('kick', 'cup strike', 'bowl', 'spark ping', 'annotation tick', 'line tick',
-                                            'hairline', 'sort tab', 'merge flare')}
+                                            'hairline', 'sort tab', 'merge flare', 'piano', 'lift-off', 'touch bell',
+                                            'rising tone', 'logo click')}
     want = {'kick': sorted(GROOVE_KICKS + [t for t, _g in HEARTBEATS]), 'cup strike': [CUP_1, CUP_2],
             'bowl': sorted({tk for tk, _ in MULTIPLY} | {FOUR_CHIME}), 'spark ping': [s_[0] for s_ in SPARKS],
             'annotation tick': [a_[0] for a_ in ANNOTATIONS], 'line tick': [a_[0] for a_ in LINE_TICKS],
-            'hairline': HAIRLINES, 'sort tab': [SORT[i] for i in SORT_TABS], 'merge flare': [MERGE]}
+            'hairline': HAIRLINES, 'sort tab': [SORT[i] for i in SORT_TABS], 'merge flare': [MERGE],
+            'piano': [p_[0] for p_ in PIANO], 'lift-off': [LIFT_OFF], 'touch bell': [TOUCH],
+            'rising tone': [s_[0] for s_ in SPLIT_TONES], 'logo click': [LOGO]}
     check(all(any(abs(p_ - w_) < 0.5 / SR for p_ in placed[k]) for k in want for w_ in want[k]),
-          'placement: every cue element starts on its exact sample (kicks, strikes, bowls, sparks, ticks, links, tabs)')
+          'placement: every cue element starts on its exact sample (kicks, strikes, bowls, sparks, ticks, links, tabs, '
+          'Renew piano, lift-off, touch, ember tones, lock)')
+    grid = [t_ for t_ in placed['kick'] + [p_[0] for p_ in PIANO] + [m_[0] for m_ in MULTIPLY] + [FOUR_CHIME, LOGO]]
+    off = [t_ for t_ in grid if abs(t_ / S32 - round(t_ / S32)) * S32 > 0.5 / SR]
+    check(not off, f'80 BPM grid: {len(grid)} kicks, bowls, Renew piano notes and the lock sit on the film grid '
+                   f'(32nds of {BEAT:.2f} s beats)' + (f' · off: {off[:6]}' if off else ''))
     print('\n── click detection')
     clicks = detect_clicks(y)
     check(len(clicks) == 0, f'{len(clicks)} abnormal discontinuities in the master' +
@@ -2332,14 +2619,15 @@ def verify(path, M, stems, ducks, info, preview=True):
     fin_st = float(ls3[ts3 - 1.5 >= LOGO - 0.05].max())            # 3 s windows from the lock on
     oth_st = float(ls3[ts3 + 1.5 <= LOGO].max())                   # 3 s windows wholly before it
     fin_m, oth_m = arc[-1][2], max(a[2] for a in arc[:-1])
-    check(fin_st >= oth_st + 0.5 and fin_m >= oth_m and LOGO <= arc[-1][3] <= LOGO + 1.0,
+    check(fin_st >= oth_st + 0.5 and fin_m >= oth_m and LOGO <= arc[-1][3] <= LOGO + sd(1.0),
           f'the logo lock is the climax: short-term {fin_st:.1f} vs {oth_st:.1f} LUFS before it; '
           f'momentary {fin_m:.1f} @ {arc[-1][3]:.2f} vs {oth_m:.1f}')
     tail = y[:, smp(SILENT_FROM):]
-    pre = y[:, smp(29.8):smp(SILENT_FROM)]
+    pre = y[:, smp(SILENT_FROM - 0.1):smp(SILENT_FROM)]
     pre_db = lin2db(np.sqrt(np.mean(pre ** 2)) + 1e-12)
     check(not tail.any() and pre_db < -45.0,
-          f'tail: 29.8–29.9 at {pre_db:.0f} dBFS RMS (near-silence), 29.9–30.0 digital zero ({tail.shape[1]} frames)')
+          f'tail: {SILENT_FROM - 0.1:.1f}–{SILENT_FROM:.1f} at {pre_db:.0f} dBFS RMS (near-silence), '
+          f'{SILENT_FROM:.1f}–{DUR:.1f} digital zero ({tail.shape[1]} frames)')
     print(f'  first sample {np.abs(y[:, 0]).max():.5f} · 0–0.1 s peak {lin2db(np.abs(y[:, :smp(0.1)]).max()):.0f} dBFS')
     print('\n── the cup\'s voice (solo)')
     cup_lines, solo = analyse_cup()
@@ -2351,31 +2639,38 @@ def verify(path, M, stems, ducks, info, preview=True):
             print(f'  {name:<8} {lufs(st):6.1f} LUFS   peak {lin2db(np.abs(st).max()):6.1f}')
     if preview:
         os.makedirs(PREVIEW, exist_ok=True)
-        marks = [(RIM_LIGHT, 'rim'), (CUP_1, 'CUP 1'), (2.5, 'A'), (3.125, 'D'), (3.75, 'F'), (DIVE[0], 'dive'),
-                 (CUP_2, 'CUP 2'), (5.6, 'a1'), (5.9, 'a2'), (6.2, 'a3'), (7.0, 'swell'), (7.5, 'GROOVE'),
-                 (GRIP, 'grip'), (8.75, '1→2'), (9.375, '2→4'), (10.0, 'FOUR'), (SORT[3], 'tabs'), (11.25, 'pings'),
-                 (12.5, 'focus'), (13.125, 'shutter'), (13.75, 'soil'), (14.375, 'sprout'), (15.0, 'CHIME'),
-                 (HAIRLINES[0], 'links'), (LIFT, 'lift'), (ACCENT, 'accent'), (MERGE, 'one'), (16.875, 'sink'),
-                 (17.5, 'RENEW'), (18.4, 'pencil'), (20.0, 'HAND-OFF'), (21.25, 'riser'), (22.9, 'e1'), (23.2, 'e2'),
-                 (23.5, 'e3'), (23.75, 'roll'), (25.0, 'LOGO'), (25.625, 'lift'), (26.25, 'tick'), (27.5, 'tick'),
-                 (SWEEP_2[0], 'sweep'), (29.9, 'zero')]
+        marks = [(RIM_LIGHT, 'rim'), (CUP_1, 'CUP 1')] + [(t_, n_[0]) for t_, n_, _p in SPARKS] + [
+            (DIVE[0], 'dive'), (CUP_2, 'CUP 2')] + [(t_, f'a{i + 1}') for i, (t_, _n, _p) in enumerate(ANNOTATIONS)] + [
+            (RESOLIDIFY[0], 'swell'), (GROOVE[0], 'GROOVE'), (GRIP, 'grip'), (MULTIPLY[0][0], '1→2'),
+            (MULTIPLY[1][0], '2→4'), (FOUR, 'FOUR'), (SORT[3], 'tabs'), (RING, 'pings'), (FOCUS[0], 'focus'),
+            (SHUTTER, 'shutter'), (SOIL, 'soil'), (SPROUT[0], 'sprout'), (FOUR_CHIME, 'CHIME'), (HAIRLINES[0], 'links'),
+            (LIFT, 'lift'), (ACCENT, 'accent'), (MERGE, 'one'), (SINK[0], 'sink'),
+            (ARM_REVEAL, 'RENEW·arm'), (REACH[0], 'reach'), (PIANO[0][0], 'piano'), (TILT[0], 'tilt'),
+            (LIFT_OFF, 'LIFT-OFF'), (25.5, 'slow motion'), (TOUCH, 'THE TOUCH'), (WITHDRAW[0], 'withdraw'),
+            (SEED_RISE[0], 'rise')] + [(t_, f'e{i + 1}') for i, (t_, _n, _p) in enumerate(SPLIT_TONES)] + [
+            (ft(23.75), 'roll'), (LOGO, 'LOGO'), (LIFT_BELLS, 'lift'), (LINE_TICKS[0][0], 'tick'),
+            (LINE_TICKS[1][0], 'tick'), (SWEEP_2[0], 'sweep'), (SILENT_FROM, 'zero')]
         gr = info.get('limiter_gain')
-        render_png(y, os.path.join(PREVIEW, 'audio-overview.png'), 0, DUR,
-                   f'film.wav · {L:.1f} LUFS · TP {tp:.2f} dBTP · 96 BPM D minor/dorian', marks, gr)
-        for fname, a_, b_, ttl in (('audio-1-tale.png', 0.0, 5.3, 'S1 the tale · 0–5 · mystery'),
-                                   ('audio-2-understand-make.png', 4.8, 10.3, 'S2 understand → S3 make'),
-                                   ('audio-3-worlds-system.png', 9.8, 17.6, 'S4 four worlds → S5 one system'),
-                                   ('audio-4-renew.png', 17.3, 22.7, 'S6 renew · intimate'),
-                                   ('audio-5-mark.png', 22.3, 30.0, 'S7 build → logo → tail')):
+        render_png(y, os.path.join(PREVIEW, 'audio-rev2-overview.png'), 0, DUR,
+                   f'film.wav rev 2 · 39 s · {L:.1f} LUFS · TP {tp:.2f} dBTP · 80 BPM D minor/dorian', marks, gr)
+        for fname, a_, b_, ttl in (('audio-rev2-1-tale.png', 0.0, 6.4, 'S1 the tale · film 0–6 · mystery'),
+                                   ('audio-rev2-2-understand-make.png', 5.8, 12.4, 'S2 understand → S3 make · 6–12'),
+                                   ('audio-rev2-3-worlds-system.png', 11.8, 21.2, 'S4 four worlds → S5 one system · 12–21'),
+                                   ('audio-rev2-4-renew.png', 20.6, 30.4, 'S6 renew (recomposed) · 21–30 · slow motion'),
+                                   ('audio-rev2-5-mark.png', 29.8, DUR, 'S7 build → logo 33.0 → tail · 30–39')):
             render_png(y, os.path.join(PREVIEW, fname), a_, b_, ttl, marks, gr)
-        render_png(y, os.path.join(PREVIEW, 'audio-6-impact-zoom.png'), 24.8, 25.3, 'breath → logo impact',
-                   [(25.0, '25.00')], gr)
-        render_png(y, os.path.join(PREVIEW, 'audio-7-strike-zoom.png'), 0.95, 1.2, 'cup strike #1 transient',
-                   [(1.0, '1.00')], gr)
-        render_png(solo, os.path.join(PREVIEW, 'audio-8-cup-voice.png'), 0.0, 6.0,
-                   'the cup\'s voice, solo: struck bowl D4 (partials 1 · 2.745 · 5.21 · 8.37 · 12.2)',
-                   [(0.0, 'strike')], None, fmax=8000.0)
-        print(f'\n  previews → {os.path.relpath(PREVIEW, ROOT)}/audio-*.png')
+        render_png(y, os.path.join(PREVIEW, 'audio-rev2-6-touch-zoom.png'), TOUCH - 0.8, TOUCH + 0.7,
+                   'the held breath → THE TOUCH (27.00)', [(TOUCH - 0.6, 'swell'), (TOUCH, '27.00')], gr)
+        render_png(y, os.path.join(PREVIEW, 'audio-rev2-7-impact-zoom.png'), LOGO - 0.2, LOGO + 0.3,
+                   'breath → logo impact (33.00)', [(LOGO, f'{LOGO:.2f}')], gr)
+        render_png(y, os.path.join(PREVIEW, 'audio-rev2-8-strike-zoom.png'), CUP_1 - 0.05, CUP_1 + 0.2,
+                   'cup strike #1 transient', [(CUP_1, f'{CUP_1:.2f}')], gr)
+        sung = sung_bowl(hz('D4'), 7.0, [(0.0, -60), (0.5, -28), (1.5, -10), (2.4, 0), (2.85, -2.5), (3.0, -3)],
+                         release=3.0, key='drift')
+        render_png(np.concatenate([solo, np.zeros((2, smp(0.5))), sung], 1), os.path.join(PREVIEW, 'audio-rev2-9-cup-voice.png'),
+                   0.0, 13.5, 'the cup\'s voice, solo: struck bowl D4 (0–6 s) · the same voice SUNG and held (6.5–13.5 s)',
+                   [(0.0, 'strike'), (6.5, 'sung'), (9.5, 'release')], None, fmax=8000.0)
+        print(f'\n  previews → {os.path.relpath(PREVIEW, ROOT)}/audio-rev2-*.png')
     return ok
 
 
@@ -2383,10 +2678,10 @@ def verify(path, M, stems, ducks, info, preview=True):
 def main():
     t_start = time.time()
     preview = '--no-preview' not in sys.argv
-    print('RIBHU LABS — "One Cup, Made Four" · score & sound design')
+    print('RIBHU LABS — "One Cup, Made Four" · score & sound design · revision 2 (39 s, 80 BPM)')
     M = arrange(keep=HEARD_LABELS)
     print(f'  arranged {len(M.events)} events in {time.time() - t_start:.1f} s')
-    print('\n── cue sheet (§4, as rendered)')
+    print('\n── cue sheet (film seconds, as rendered; story cues placed with film_time)')
     for a, b, what in CUES:
         print(f"  {a:6.3f}{'–' + format(b, '6.3f') if b is not None else '       '}  {what}")
     bus, stems, ducks = mix_bus(M)

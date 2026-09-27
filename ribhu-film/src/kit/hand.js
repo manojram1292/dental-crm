@@ -1,12 +1,19 @@
 /*
  * RB.hand — the Ribhu robotic hand, the film's second protagonist.
  *
- * An illustrative instrument (a concept, not a product): warm gunmetal shells with crowned
- * backs and crisp fillets, a bead-blasted back plate held by four cap screws, charcoal joint
- * cores, copper pin caps, copper-banded knuckle drums and a copper hairline under the plate,
- * matte grip pads, tendon cables, a Cardan wrist, and the ivory ceramic sensor module with two
- * dark glass lenses — the website's identity. Procedural, deterministic, built once in
- * create(). ~56k triangles, ~106 draw calls.
+ * A slender precision instrument (an illustrative concept, not a product), drawn like a
+ * surgical or prosthetic arm or a jeweller's tool rather than an industrial gripper:
+ *   · a slim, tapered forearm tube in lacquered carbon-graphite (Ø 0.12 at the wrist → 0.18,
+ *     about a third of the palm's width), a satin graphite cuff and fine copper rings;
+ *   · a compact Cardan wrist: a charcoal collar, slim fork cheeks, copper-ringed axle caps;
+ *   · a light palm: a thin crowned graphite plate on a charcoal chassis, a copper hairline
+ *     under its edge, four tiny cap screws and hairline tendon cables to the knuckles;
+ *   · long fine fingers (length/width ≈ 9.5) whose phalanges are waisted along the back like
+ *     bone, joined by slim clevis joints with small, precise copper joint rings;
+ *   · a small ivory ceramic sensor module with two little dark glass lenses — the website's
+ *     identity, now a jewel on the back of the hand rather than a block.
+ * Graphite, copper and ivory only. Procedural, deterministic, built once in create()
+ * (~30 ms + a one-off ~0.1 s grip fit). ~62k triangles, ~100 draw calls.
  *
  * ── Core API ─────────────────────────────────────────────────────────────────
  *   const h = RB.hand.create({ side: 'right', forearm: 2.6 });   // in init() (~30 ms)
@@ -16,8 +23,8 @@
  *                      along +Y (length `forearm`, enough to leave frame). At wrist [0,0,0] the
  *                      hand hangs along −Y, the palm faces −Z, the back of the hand (sensor
  *                      module) faces +Z, the thumb is on +X. side:'left' is a true mirror image.
- *                      Wrist→middle fingertip ≈ 1.18, palm width ≈ 0.55 (the cup is 0.91 tall,
- *                      1.22 across the rim).
+ *                      Wrist→middle fingertip ≈ 1.17, palm width ≈ 0.35, finger width ≈ 0.066,
+ *                      forearm Ø 0.12→0.18 (the cup is 0.91 tall, 1.22 across the rim).
  *   h.setPose(pose)    sets EVERY joint absolutely from `pose` — pure and idempotent: call it in
  *                      every draw, nothing accumulates. Missing fields fall back to neutral.
  *                      A built-in guard stops the thumb at first contact if curled fingers or
@@ -85,30 +92,37 @@
  *          h.cupMatrix(m, { around, tilt }).decompose(cup.group.position, cup.group.quaternion, s)
  *
  * ── Extras ───────────────────────────────────────────────────────────────────
- *   h.materials   { shell, plate, core, pad, copper, ivory, glass, dark, cable } — this hand's own
- *                 materials (fade with transparent/opacity, warm the lenses via emissive, dim the
- *                 ivory for a dark scene, …). They use the scene environment, so
- *                 scene.environmentIntensity applies.
- *   h.triangles   triangle count.  h.parts: the joint groups (read-only, for debugging).
- *   RB.hand.DIMS  key dimensions.  RB.hand.grip.tilt  the default grip tilt.
+ *   h.materials   { shell, plate, core, pad, copper, ivory, glass, dark, cable, carbon } — this
+ *                 hand's own materials (fade with transparent/opacity, warm the lenses via
+ *                 emissive, dim the ivory for a dark scene, …). `carbon` is the forearm tube.
+ *                 They use the scene environment, so scene.environmentIntensity applies.
+ *   h.triangles   triangle count.  h.parts: the joint groups (read-only, for debugging; the
+ *                 groups are named 'index.0' … 'thumb.2', 'palm', 'wrist.pitch', 'wrist.roll').
+ *   RB.hand.DIMS  key dimensions { handLength, palmWidth, wristToKnuckles, forearm,
+ *                 forearmDiameter: [wrist, far end], fingerWidth }.
+ *   RB.hand.grip.tilt  the default grip tilt.
  *
  * ── Presets ──────────────────────────────────────────────────────────────────
  *   open      flat and fanned, thumb out in the palm plane — "reveal", ready to receive.
  *   relaxed   the natural resting cascade: index least curled, pinky most, thumb soft.
  *   cupReady  pre-grasp for the cup: fingers open, thumb already lifted to reach over the rim.
  *   cupGrip   the fitted rim pinch for graspCup() at the default tilt.
- *   palmUp    wrist slightly extended, fingers in a shallow cradle, thumb low — holds an ember.
- *   offer     palmUp with the wrist extended a further 0.55 rad and the fingers opened. Keep
+ *   palmUp    wrist slightly extended, the fingers softly curved into a shallow cradle (PIP/DIP
+ *             bends on light curls, a cascade from index to pinky), thumb low — holds an ember.
+ *   offer     palmUp with the wrist extended a further 0.55 rad and the fingers opened, still
+ *             softly bent (never flat). Keep
  *             the group where place() put it for palmUp and blend toward offer: the palm
  *             tips ~30° toward the fingertips and pours/hands off in the fingers' direction
  *             (fingers pointing screen-left ⇒ it hands off to the left).
  *
- * ── The cup move (S3), tested penetration-free on every frame in the lab ──────
+ * ── The cup move (S3), tested penetration-free on every frame (lab and S3) ──────
  *   init:  const open = RB.hand.poses.open, ready = RB.hand.poses.cupReady, grip = RB.hand.poses.cupGrip;
  *   draw:  h.setPose(RB.hand.blend(RB.hand.blend(open, ready, shape), grip, close));
  *          h.graspCup(cup.group, { around, away });
  *   shape 0→1 while the hand is high (away ≥ 0.5), then away → 0 (descend), then close 0→1
- *   (contact at close 1). Release in reverse: close → 0 first, then away up, then shape → 0.
+ *   (contact at close 1). Release in reverse: close → 0 first, then away up, then shape → 0
+ *   (open only once the thumb is back out over the rim: away ≳ 0.2). The long fingers of this
+ *   rig must be open (shape ≈ 1) before the hand comes within ~0.3 of the rim.
  */
 (function () {
   'use strict';
@@ -310,17 +324,17 @@
     return out;
   }
   /** Per-rigid-body geometry buckets, one mesh per material. */
-  const bucket = () => ({ shell: [], plate: [], core: [], pad: [], copper: [], ivory: [], glass: [], dark: [], cable: [] });
+  const bucket = () => ({ shell: [], plate: [], core: [], pad: [], copper: [], ivory: [], glass: [], dark: [], cable: [], carbon: [] });
   /**
    * Merge each bucket into one mesh on `parent`. `glow` bakes the per-vertex palm-glow mask
-   * (see setGlow): 1 on the palm side of the part (local z < −0.02, where the pads are), fading
-   * to 0 by z = +0.03 — a light cupped in the palm can't reach the backs, the module or the arm.
+   * (see setGlow): 1 on the palm side of the part (local z < −0.016, where the pads are), fading
+   * to 0 by z = +0.018 — a light cupped in the palm can't reach the backs, the module or the arm.
    */
   function commit(B, parent, M, glow = true) {
     for (const key of Object.keys(B)) {
       if (!B[key].length) continue;
       const g = merge(B[key]), pos = g.attributes.position, mask = new Float32Array(pos.count);
-      if (glow) for (let i = 0; i < pos.count; i++) { const t = clamp((0.03 - pos.getZ(i)) / 0.05); mask[i] = t * t * (3 - 2 * t); }
+      if (glow) for (let i = 0; i < pos.count; i++) { const t = clamp((0.018 - pos.getZ(i)) / 0.034); mask[i] = t * t * (3 - 2 * t); }
       g.setAttribute('rbGlowMask', new THREE.BufferAttribute(mask, 1));
       const mesh = new THREE.Mesh(g, M[key]);
       mesh.name = key;
@@ -331,21 +345,24 @@
   // ─── Dimensions ───────────────────────────────────────────────────────────────
   // Hand frame (the wrist's yaw group): origin at the wrist centre, fingers along −Y,
   // palm facing −Z, thumb on +X.
-  const CHEEK = 0.016, GAP = 0.005, CH = 0.018;
-  // Proportions: fingers ≈ 1.1× the wrist→knuckle length and a touch stocky (length/width ≈ 5.3
-  // for the middle finger) — an instrument, not a skeleton. The phalanges step 1 : 0.63 : 0.49.
+  // CHEEK: clevis cheek thickness · GAP: joint clearance · CH: palm-side relief step at the ends
+  // of a phalanx · PAD: how far a grip pad stands proud of the phalanx's palm face.
+  const CHEEK = 0.0085, GAP = 0.004, CH = 0.008, PAD = 0.004;
+  // Proportions: long, fine digits — the middle finger is ≈ 9.5× as long as it is wide (a human
+  // finger is ≈ 5×), the palm a slim 0.35 across the knuckles. The phalanges step
+  // 1 : 0.63 : 0.49 and taper a little from knuckle to tip.
   const FINGERS = [
     // MCP position, spread angle at spread=1, segments [length, width, thickness]
-    { name: 'index',  x: 0.195,  y: -0.55,  spread: 0.2,   seg: [[0.261, 0.109, 0.097], [0.167, 0.104, 0.091], [0.135, 0.099, 0.086]] },
-    { name: 'middle', x: 0.065,  y: -0.56,  spread: 0.04,  seg: [[0.293, 0.113, 0.1], [0.185, 0.108, 0.095], [0.144, 0.103, 0.089]] },
-    { name: 'ring',   x: -0.065, y: -0.555, spread: -0.1,  seg: [[0.275, 0.107, 0.095], [0.176, 0.102, 0.089], [0.137, 0.097, 0.084]] },
-    { name: 'pinky',  x: -0.19,  y: -0.545, spread: -0.24, seg: [[0.22, 0.0945, 0.084], [0.14, 0.09, 0.08], [0.115, 0.086, 0.076]] },
+    { name: 'index',  x: 0.146,  y: -0.515, spread: 0.19,  seg: [[0.27, 0.066, 0.058], [0.172, 0.062, 0.054], [0.14, 0.058, 0.05]] },
+    { name: 'middle', x: 0.049,  y: -0.528, spread: 0.04,  seg: [[0.3, 0.068, 0.06], [0.19, 0.064, 0.056], [0.148, 0.06, 0.052]] },
+    { name: 'ring',   x: -0.049, y: -0.523, spread: -0.1,  seg: [[0.282, 0.065, 0.058], [0.18, 0.061, 0.054], [0.14, 0.057, 0.05]] },
+    { name: 'pinky',  x: -0.144, y: -0.508, spread: -0.23, seg: [[0.228, 0.058, 0.052], [0.146, 0.055, 0.049], [0.118, 0.052, 0.046]] },
   ];
   // The thumb's ball joint sits just outside the palm's radial-palmar corner, so opposition
   // (a swing about the palm's long axis) carries the thumb round the outside of the palm.
-  const THUMB = { root: [0.25, -0.29, -0.06], seg: [[0.157, 0.106, 0.097], [0.158, 0.104, 0.094], [0.134, 0.099, 0.088]] };
-  const PALM_END = -0.495;               // distal edge of the palm chassis
-  const PALM_PT = [-0.01, -0.35, -0.09]; // palm hollow between heel and knuckle pads, just off their surface
+  const THUMB = { root: [0.172, -0.265, -0.036], seg: [[0.15, 0.066, 0.06], [0.15, 0.064, 0.058], [0.128, 0.06, 0.054]] };
+  const PALM_END = -0.47;                 // distal edge of the palm chassis
+  const PALM_PT = [-0.01, -0.32, -0.056]; // palm hollow between heel and knuckle pads, just off their surface
   // Curl → joint angles. MCP leads (a real grasp wraps from the knuckles), PIP/DIP follow,
   // so a partial curl hugs a large round object and curl 1 is a tight fist.
   const COUPLE = {
@@ -365,7 +382,7 @@
   // opp: swing about the palm's long axis per unit thumbOpp; beyond 1 the thumb also abducts
   // (abd per unit) — it lifts out in front of the palm, as a thumb does to reach over a rim.
   const THUMB_K = { base: 0.5, spread: 0.32, opp: 1.2, abd: 1.6, pron0: 0.45, pron1: 0.75 };
-  const DIMS = { handLength: +(-FINGERS[1].y + FINGERS[1].seg.reduce((a, g) => a + g[0], 0)).toFixed(3), palmWidth: 0.55, wristToKnuckles: 0.56, forearm: 2.6 };
+  const DIMS = { handLength: +(-FINGERS[1].y + FINGERS[1].seg.reduce((a, g) => a + g[0], 0)).toFixed(3), palmWidth: 0.35, wristToKnuckles: 0.52, forearm: 2.6, forearmDiameter: [0.116, 0.176], fingerWidth: 0.066 };
 
   // Cup grip — a rim pinch, the way a maker lifts a wide bowl one-handed: the rim sits in the web
   // of the hand, the four fingers wrap down the outside of the bowl and the thumb reaches over the
@@ -379,27 +396,30 @@
   // `wrist` is the grip's default wrist pose: it only steers the forearm (up and to the right,
   // leaning a little toward a front camera); tilts outside ~1.1–1.7 can't reach over the rim and
   // fall back to a thumb laid along the outside of the bowl.
-  const GRIP = { hc: 0.87, contact: [0.1, -0.45, -0.078], tilt: 1.68, spread: 0.26, clearance: 0.003, opp: [0.8, 1.4], approach: [0, 1, 0.2], wrist: [0.25, 0.38, 0] };
+  const GRIP = { hc: 0.87, contact: [0.075, -0.43, -0.046], tilt: 1.68, spread: 0.26, clearance: 0.003, opp: [0.8, 1.4], approach: [0, 1, 0.2], wrist: [0.25, 0.38, 0] };
 
   // ─── Materials ────────────────────────────────────────────────────────────────
   function materials() {
     const M = RB.mat;
     return {
       // shells: warm gunmetal, satin — bright enough to reflect the workshop, so the crowns and
-      // fillets draw highlight lines instead of reading as black plastic. No clear coat: it looked
-      // the same here and cost ~14% of a frame-filling close-up in the software renderer.
-      shell: M.graphite({ color: '#57534b', metalness: 0.92, roughness: 0.34, clearcoat: 0 }),
-      // the big plates (back of the hand, forearm): the same metal bead-blasted — a rougher,
-      // broader sheen that still takes the key light when the plate faces away from it
-      plate: M.graphite({ color: '#4b4741', metalness: 0.86, roughness: 0.5, clearcoat: 0 }),
+      // fillets of the slim parts draw fine highlight lines instead of reading as black plastic.
+      // No clear coat on the small parts: it cost ~14% of a close-up in the software renderer.
+      shell: M.graphite({ color: '#68625a', metalness: 0.88, roughness: 0.3, clearcoat: 0 }),
+      // the back plate: the same metal bead-blasted — a broader sheen that still takes the key
+      // light when the plate faces away from it
+      plate: M.graphite({ color: '#58534b', metalness: 0.62, roughness: 0.36, clearcoat: 0 }),
       // charcoal cores: deeper, rougher metal — joints, chassis, axles
       core: M.charcoal({ color: '#1c1b19', metalness: 0.8, roughness: 0.46 }),
       pad: M.charcoal({ color: '#151513', metalness: 0.1, roughness: 0.78 }),
-      copper: M.copper(),
+      copper: M.copper({ roughness: 0.24 }),
       ivory: M.ivory(),
       glass: new THREE.MeshPhysicalMaterial({ color: '#0a0a09', metalness: 0, roughness: 0.04, clearcoat: 1, clearcoatRoughness: 0.02, ior: 1.6, transparent: true, opacity: 0.84 }),
       dark: M.charcoal({ color: '#0c0c0b', metalness: 0.5, roughness: 0.5 }),
       cable: M.charcoal({ color: '#2b2a26', metalness: 0.7, roughness: 0.4 }),
+      // the forearm tube: lacquered carbon-graphite — a near-black body under a glossy clear coat,
+      // so the long tube reads as a few crisp reflections of the workshop against the dark
+      carbon: new THREE.MeshPhysicalMaterial({ color: '#242422', metalness: 0.35, roughness: 0.42, clearcoat: 1, clearcoatRoughness: 0.09 }),
     };
   }
 
@@ -447,28 +467,29 @@
     const mirror = new THREE.Group(); group.add(mirror);
     const roll = new THREE.Group(), pitch = new THREE.Group(), yaw = new THREE.Group();
     mirror.add(roll); roll.add(pitch); pitch.add(yaw);
+    roll.name = 'wrist.roll'; pitch.name = 'wrist.pitch'; yaw.name = 'palm';
     const samples = (g, [L, w, t], distal) => {
       const fr = distal ? [0.18, 0.32, 0.46, 0.6, 0.72, 0.82] : [0.2, 0.35, 0.5, 0.65, 0.8, 0.92];
       // centre line + both pad edges (a finger meets a curved wall edge-first when it isn't square to it)
       const pts = [];
-      for (const f of fr) for (const x of [-0.3 * w, 0, 0.3 * w]) { const o = new THREE.Object3D(); o.position.set(x, -L * f, -t / 2 - 0.009); g.add(o); pts.push(o); }
+      for (const f of fr) for (const x of [-0.3 * w, 0, 0.3 * w]) { const o = new THREE.Object3D(); o.position.set(x, -L * f, -t / 2 - PAD - 0.002); g.add(o); pts.push(o); }
       if (distal) { const o = new THREE.Object3D(); o.position.set(0, -L + 0.01, -t * 0.28); g.add(o); pts.push(o); }
       return pts;
     };
-    const chain = (parent, seg) => {
-      const g0 = new THREE.Group(); parent.add(g0);
-      const g1 = new THREE.Group(); g1.position.y = -seg[0][0]; g0.add(g1);
-      const g2 = new THREE.Group(); g2.position.y = -seg[1][0]; g1.add(g2);
+    const chain = (parent, seg, name) => {
+      const g0 = new THREE.Group(); g0.name = name + '.0'; parent.add(g0);
+      const g1 = new THREE.Group(); g1.name = name + '.1'; g1.position.y = -seg[0][0]; g0.add(g1);
+      const g2 = new THREE.Group(); g2.name = name + '.2'; g2.position.y = -seg[1][0]; g1.add(g2);
       const tip = new THREE.Object3D(); tip.position.set(0, -seg[2][0] + 0.004, -seg[2][2] * 0.14); g2.add(tip);
       const pads = [samples(g0, seg[0]), samples(g1, seg[1]), samples(g2, seg[2], true)].flat();
       return { j: [g0, g1, g2], tip, pads };
     };
     const fingers = FINGERS.map((f) => {
-      const abd = new THREE.Group(); abd.position.set(f.x, f.y, 0); yaw.add(abd);
-      return { abd, ...chain(abd, f.seg) };
+      const abd = new THREE.Group(); abd.name = f.name + '.mcp'; abd.position.set(f.x, f.y, 0); yaw.add(abd);
+      return { abd, ...chain(abd, f.seg, f.name) };
     });
-    const troot = new THREE.Group(); troot.position.set(...THUMB.root); yaw.add(troot);
-    const thumb = { root: troot, ...chain(troot, THUMB.seg) };
+    const troot = new THREE.Group(); troot.name = 'thumb.root'; troot.position.set(...THUMB.root); yaw.add(troot);
+    const thumb = { root: troot, ...chain(troot, THUMB.seg, 'thumb') };
     const palmMark = new THREE.Object3D(); palmMark.position.set(...PALM_PT); yaw.add(palmMark);
     return { group, mirror, roll, pitch, yaw, fingers, thumb, palmMark };
   }
@@ -510,7 +531,7 @@
     const m = 0.012; // margin: the thumb's samples are sparse, the boxes are not
     return { f, i, min: new V3(-w / 2 - m, (i < 2 ? -(L - nrc - GAP) : -L) - m, -t / 2 - 0.012 - m), max: new V3(w / 2 + m, -(rc + GAP) + m, t / 2 + m) };
   }));
-  const PALM_BOX = { min: new V3(-0.24, -0.49, -0.085), max: new V3(0.19, -0.12, 0.06) };
+  const PALM_BOX = { min: new V3(-0.185, -0.475, -0.05), max: new V3(0.13, -0.11, 0.04) };
   function thumbHits(sk) {
     const th = sk.thumb;
     th.root.updateMatrix(); th.j.forEach((g) => g.updateMatrix());
@@ -581,206 +602,242 @@
   /**
    * One phalanx in its joint frame (origin on its proximal axle, extending along −Y).
    * s = [L, w, t]; next = the following segment (null for the distal).
+   * A slim clevis: at its proximal end two thin cheeks embrace the previous segment's charcoal
+   * barrel, each with a small copper joint ring round a dark pin; the body is waisted along the
+   * back and sides like a bone (the palm face stays straight, so the grip pads meet a curve
+   * evenly); its distal end carries the next joint's barrel and tongue.
    */
-  function phalanx(B, s, next, { cheeks = true, distal = false, dome = 0, tendon = false } = {}) {
+  const WAIST = 0.1;
+  function phalanx(B, s, next, { cheeks = true, distal = false, dome = 0 } = {}) {
     const [L, w, t] = s, rc = 0.46 * t, nrc = next ? 0.46 * next[2] : 0;
-    const yA = cheeks ? -(rc + GAP) : -0.012;
-    const RT = 0.014, RBt = 0.02, CT = t * 0.07;
+    const yA = cheeks ? -(rc + GAP) : -0.006;
+    const RT = 0.011, RBt = 0.015, CT = t * 0.07;
     // Rounded shoulders at the body ends; stations are pulled in by SH so the rounded extremes
     // land exactly on the joint-clearance lines (yA proximal, yB distal).
-    const SH = 0.014, a0 = yA - SH;
+    const SH = 0.01, a0 = yA - SH;
     if (cheeks) {
       for (const sd of [-1, 1]) {
         const xo = sd > 0 ? w / 2 - CHEEK : -w / 2;
-        B.shell.push(X(alongX(disc(rc, CHEEK, 0.004, 20)), [xo, 0, 0]));
-        B.shell.push(loft([{ y: 0, w: CHEEK, d: 2 * rc * 0.9, rt: 0.004, x: sd * (w / 2 - CHEEK / 2) }, { y: yA - 0.03, w: CHEEK, d: 2 * rc * 0.9, rt: 0.004, x: sd * (w / 2 - CHEEK / 2) }], { k: 2, m: 0 }));
+        B.shell.push(X(alongX(disc(rc, CHEEK, 0.0025, 22)), [xo, 0, 0]));
+        B.shell.push(loft([{ y: 0, w: CHEEK, d: 2 * rc * 0.9, rt: 0.003, x: sd * (w / 2 - CHEEK / 2) }, { y: yA - 0.022, w: CHEEK, d: 2 * rc * 0.9, rt: 0.003, x: sd * (w / 2 - CHEEK / 2) }], { k: 2, m: 0 }));
         const ax = sd > 0 ? alongX : alongNX;
-        B.copper.push(X(ax(capRing(rc * 0.32, rc * 0.68, 0.0065)), [sd * (w / 2 - 0.001), 0, 0]));
-        B.dark.push(X(ax(pinHead(rc * 0.33, 0.0055)), [sd * (w / 2 - 0.001), 0, 0]));
+        B.copper.push(X(ax(capRing(rc * 0.47, rc * 0.76, 0.0034, 0.001, 22)), [sd * (w / 2 - 0.0008), 0, 0]));
+        B.dark.push(X(ax(pinHead(rc * 0.48, 0.0024, 0.0008, 16)), [sd * (w / 2 - 0.0008), 0, 0]));
       }
     }
     const st = [];
+    const faceZ = (d) => -(t - d) / 2; // centre that keeps the palm face at −t/2 for a depth d
     if (distal) {
-      const re = Math.min(w * 0.9, t * 0.84) / 2 * 0.94;
-      st.push({ y: a0, w, d: t - CH, z: CH / 2, rt: RT, rb: RBt * 0.6, ct: CT * 0.8 });
-      st.push({ y: a0 - CH, w: w * 0.995, d: t, z: 0, rt: RT, rb: RBt, ct: CT });
-      st.push({ y: Math.min(-L * 0.6, a0 - CH - 0.006), w: w * 0.96, d: t * 0.96, z: -t * 0.01, rt: RT * 1.3, rb: RBt, ct: CT });
-      st.push({ y: -(L - re), w: w * 0.9, d: t * 0.84, z: -t * 0.05, rt: re * 0.8, rb: re * 0.9, ct: CT * 0.5 });
-      B.shell.push(loft(st, { k: 4, cap0: SH, cap1: re, steps: 6 }));
+      // a long, tapering tip: the back falls toward the palm face, which stays straight
+      const re = Math.min(w * 0.84, t * 0.78) / 2 * 0.95;
+      st.push({ y: a0, w: w * 0.97, d: t - CH, z: CH / 2, rt: RT, rb: RBt * 0.6, ct: CT });
+      st.push({ y: a0 - CH, w, d: t, rt: RT, rb: RBt, ct: CT });
+      st.push({ y: lerp(a0 - CH, -(L - re), 0.5), w: w * 0.93, d: t * 0.9, z: faceZ(t * 0.9), rt: RT * 1.2, rb: RBt, ct: CT });
+      st.push({ y: -(L - re), w: w * 0.84, d: t * 0.78, z: faceZ(t * 0.78), rt: re * 0.8, rb: re * 0.9, ct: CT * 0.5 });
+      B.shell.push(loft(st, { k: 4, m: 2, cap0: SH, cap1: re, steps: 6 }));
       B.pad.push(loft([
-        { y: a0 - CH - 0.006, w: w * 0.7, d: 0.02, z: -t / 2 + 0.004, rt: 0.008 },
-        { y: -L * 0.6, w: w * 0.68, d: 0.02, z: -t * 0.49 + 0.004, rt: 0.008 },
-        { y: -(L - re * 1.05), w: w * 0.6, d: 0.02, z: -t * 0.47 + 0.004, rt: 0.008 },
-      ], { k: 2, m: 2, cap0: 0.008, cap1: 0.009 }));
+        { y: a0 - CH - 0.004, w: w * 0.68, d: 0.012, z: -t / 2 + 0.002, rt: 0.005 },
+        { y: -L * 0.6, w: w * 0.64, d: 0.012, z: -t / 2 + 0.002, rt: 0.005 },
+        { y: -(L - re * 1.15), w: w * 0.56, d: 0.012, z: -t / 2 + 0.002, rt: 0.005 },
+      ], { k: 2, m: 2, cap0: 0.005, cap1: 0.006 }));
     } else {
       const yB = -(L - nrc - GAP), b0 = yB + SH;
       if (dome) {
-        st.push({ y: -0.004, w: w * 0.96, d: t * 0.96, rt: 0.036, rb: 0.036 });
-        st.push({ y: -0.05, w, d: t, rt: RT * 1.6, rb: RBt, ct: CT });
+        st.push({ y: -0.003, w: w * 0.94, d: t * 0.94, rt: dome * 0.85, rb: dome * 0.85 });
+        st.push({ y: -dome * 1.15, w, d: t, rt: RT * 1.4, rb: RBt, ct: CT });
       } else {
-        st.push({ y: a0, w, d: t - CH, z: CH / 2, rt: RT, rb: RBt * 0.6, ct: CT });
-        st.push({ y: a0 - CH, w: w * 0.995, d: t, z: 0, rt: RT, rb: RBt, ct: CT });
+        st.push({ y: a0, w: w * 0.97, d: t - CH, z: CH / 2, rt: RT, rb: RBt * 0.6, ct: CT });
+        st.push({ y: a0 - CH, w, d: t, rt: RT, rb: RBt, ct: CT });
       }
-      st.push({ y: b0 + CH, w: w * 0.965, d: t * 0.985, z: 0, rt: RT, rb: RBt, ct: CT });
-      st.push({ y: b0, w: w * 0.96, d: t * 0.985 - CH, z: CH / 2, rt: RT, rb: RBt * 0.6, ct: CT });
-      B.shell.push(loft(st, { k: 4, cap0: dome || SH, cap1: SH, steps: dome ? 5 : 4 }));
-      const p0 = (dome ? -0.06 : a0 - CH) - 0.004, p1 = b0 + CH + 0.004;
-      B.pad.push(loft([{ y: p0, w: w * 0.72, d: 0.02, z: -t / 2 + 0.003, rt: 0.008 }, { y: p1, w: w * 0.7, d: 0.02, z: -t * 0.4925 + 0.003, rt: 0.008 }], { k: 2, m: 2, cap0: 0.008, cap1: 0.008 }));
+      // the waist: the back dips and the sides draw in toward the middle, like a finger bone
+      const ys = st[st.length - 1].y, ye = b0 + CH;
+      for (const u of [0.2, 0.4, 0.6, 0.8]) {
+        const k = WAIST * Math.sin(PI * u) ** 2, d = t * (1 - k);
+        st.push({ y: lerp(ys, ye, u), w: w * (1 - 0.75 * k) * (1 - 0.03 * u), d, z: faceZ(d), rt: RT, rb: RBt, ct: CT });
+      }
+      st.push({ y: b0 + CH, w: w * 0.965, d: t * 0.985, z: faceZ(t * 0.985), rt: RT, rb: RBt, ct: CT });
+      st.push({ y: b0, w: w * 0.96, d: t * 0.985 - CH, z: faceZ(t * 0.985) + CH / 2, rt: RT, rb: RBt * 0.6, ct: CT });
+      B.shell.push(loft(st, { k: 4, m: 2, cap0: dome || SH, cap1: SH, steps: dome ? 5 : 4 }));
+      const p0 = (dome ? -dome * 1.3 : a0 - CH) - 0.003, p1 = b0 + CH + 0.003;
+      B.pad.push(loft([{ y: p0, w: w * 0.7, d: 0.012, z: -t / 2 + 0.002, rt: 0.005 }, { y: p1, w: w * 0.68, d: 0.012, z: -t / 2 + 0.002, rt: 0.005 }], { k: 2, m: 2, cap0: 0.005, cap1: 0.005 }));
       // core of the next joint: barrel between the next segment's cheeks + a tongue into this body
-      const bw = next[1] - 2 * CHEEK - 0.008, rbar = 0.36 * t;
-      B.core.push(X(alongX(disc(rbar, bw, 0.004, 22)), [-bw / 2, -L, 0]));
-      B.core.push(loft([{ y: yB + 0.03, w: bw * 0.86, d: 2 * rbar * 0.92, rt: 0.012 }, { y: -L, w: bw * 0.86, d: 2 * rbar * 0.92, rt: 0.012 }], { k: 3, m: 0 }));
-      if (tendon) {
-        const zt = t / 2 + CT + 0.005, y0 = (dome ? -0.075 : a0 - CH) - 0.004, y1 = b0 + CH + 0.006;
-        B.cable.push(rod([0, y0, zt - 0.005], [0, y1, zt - 0.005], 0.0066)); // half-sunk: an inlay, not a nub
-      }
+      const bw = next[1] - 2 * CHEEK - 0.006, rbar = 0.36 * t;
+      B.core.push(X(alongX(disc(rbar, bw, 0.0025, 20)), [-bw / 2, -L, 0]));
+      B.core.push(loft([{ y: yB + 0.022, w: bw * 0.86, d: 2 * rbar * 0.92, rt: 0.008 }, { y: -L, w: bw * 0.86, d: 2 * rbar * 0.92, rt: 0.008 }], { k: 3, m: 0 }));
     }
   }
 
   function fingerMeshes(spec, f, M) {
     const [s0, s1, s2] = spec.seg;
-    // MCP core (static in the abduction frame): barrel + tongue back into the palm
+    // MCP core (static in the abduction frame): a slim knuckle drum with a fine copper band, and
+    // a tongue back into the palm
     const B0 = bucket();
-    const bw = s0[1] - 2 * CHEEK - 0.008, rbar = 0.36 * s0[2];
+    const bw = s0[1] - 2 * CHEEK - 0.006, rbar = 0.36 * s0[2];
     const rk = 0.9 * (0.46 * s0[2] + GAP); // knuckle drum: just inside the proximal phalanx's swing
-    B0.shell.push(X(alongX(disc(rk, bw, 0.005, 26)), [-bw / 2, 0, 0]));
-    B0.copper.push(X(alongX(lathe([[rk - 0.001, 0], [rk + 0.0035, 0.002], [rk + 0.0035, 0.012], [rk - 0.001, 0.014]], 26)), [-0.007, 0, 0]));
-    B0.core.push(loft([{ y: 0, w: bw * 0.8, d: 2 * rbar * 0.95, rt: 0.012 }, { y: PALM_END - spec.y + 0.045, w: bw * 0.8, d: 2 * rbar * 0.95, rt: 0.012 }], { k: 3, m: 0 }));
+    B0.shell.push(X(alongX(disc(rk, bw, 0.004, 26)), [-bw / 2, 0, 0]));
+    B0.copper.push(X(alongX(lathe([[rk - 0.001, 0], [rk + 0.0022, 0.0014], [rk + 0.0022, 0.0066], [rk - 0.001, 0.008]], 26)), [-0.004, 0, 0]));
+    B0.core.push(loft([{ y: 0, w: bw * 0.8, d: 2 * rbar * 0.95, rt: 0.008 }, { y: PALM_END - spec.y + 0.04, w: bw * 0.8, d: 2 * rbar * 0.95, rt: 0.008 }], { k: 3, m: 0 }));
     commit(B0, f.abd, M);
-    let B = bucket(); phalanx(B, s0, s1, { tendon: true }); commit(B, f.j[0], M);
+    let B = bucket(); phalanx(B, s0, s1); commit(B, f.j[0], M);
     B = bucket(); phalanx(B, s1, s2); commit(B, f.j[1], M);
     B = bucket(); phalanx(B, s2, null, { distal: true }); commit(B, f.j[2], M);
   }
   function thumbMeshes(th, M) {
     const [s0, s1, s2] = THUMB.seg;
-    let B = bucket(); phalanx(B, s0, s1, { cheeks: false, dome: 0.044 }); commit(B, th.j[0], M);
-    B = bucket(); phalanx(B, s1, s2, { tendon: true }); commit(B, th.j[1], M);
+    let B = bucket(); phalanx(B, s0, s1, { cheeks: false, dome: 0.028 }); commit(B, th.j[0], M);
+    B = bucket(); phalanx(B, s1, s2); commit(B, th.j[1], M);
     B = bucket(); phalanx(B, s2, null, { distal: true }); commit(B, th.j[2], M);
   }
 
-  // Dorsal shell stations [y, w, zCentre, depth, crown]; plateTop() lets cables and the module sit on it.
-  const PLATE = [[-0.15, 0.33, 0.055, 0.034, 0.01], [-0.19, 0.41, 0.057, 0.038, 0.012], [-0.25, 0.465, 0.057, 0.038, 0.014], [-0.33, 0.52, 0.057, 0.038, 0.016], [-0.41, 0.55, 0.057, 0.038, 0.017], [-0.462, 0.552, 0.056, 0.036, 0.017]];
+  // Dorsal shell stations [y, w, zCentre, depth, crown]: a thin sculpted shell, crowned across
+  // the back like the back of a hand and rolled over the edges; its lower half is buried in the
+  // chassis, so only a slim graphite cover shows above a charcoal palm.
+  // plateTop() lets the cables, screws and the module sit on it.
+  const PLATE_R = 0.018;
+  // Outline: narrow at the wrist, flaring on a smooth curve to the knuckles (a leaf, not a shovel).
+  const PLATE = Array.from({ length: 11 }, (_, i) => {
+    const u = i / 10, y = lerp(-0.07, -0.45, u), f = 1 - Math.pow(1 - u, 1.8);
+    return [y, lerp(0.1, 0.356, f), lerp(0.015, 0.02, Math.min(1, u * 2.5)), lerp(0.044, 0.056, Math.min(1, u * 2.5)), lerp(0.008, 0.014, Math.min(1, u * 2))];
+  });
   function plateTop(x, y) {
     let i = 0; while (i < PLATE.length - 2 && y < PLATE[i + 1][0]) i++;
     const A = PLATE[i], B = PLATE[i + 1], u = clamp((y - A[0]) / (B[0] - A[0]));
     const w = lerp(A[1], B[1], u), z = lerp(A[2], B[2], u), d = lerp(A[3], B[3], u), c = lerp(A[4], B[4], u);
-    const xe = w / 2 - 0.017;
-    return z + d / 2 + c * Math.max(0, 1 - (x / xe) ** 2);
+    const xe = w / 2 - PLATE_R;
+    return z + d / 2 - c * Math.min(1, (x / xe) ** 2);
   }
 
-  /** Palm: chassis, dorsal shell, pads, thenar housing + ball, sensor module, cables, wrist fork. */
+  /** Palm: chassis, dorsal plate, pads, thenar housing + ball, sensor module, cables, wrist fork. */
   function palmMeshes(M, hand) {
     const B = bucket();
     // chassis (charcoal core), pulled in on the radial side under the thumb's ball joint
     B.core.push(loft([
-      { y: -0.15, w: 0.29, d: 0.1, rt: 0.03, rb: 0.03 },
-      { y: -0.2, w: 0.38, d: 0.116, x: -0.02, rt: 0.03, rb: 0.03 },
-      { y: -0.3, w: 0.44, d: 0.12, x: -0.022, rt: 0.03, rb: 0.03 },
-      { y: -0.4, w: 0.505, d: 0.12, x: -0.006, rt: 0.03, rb: 0.03 },
-      { y: PALM_END, w: 0.515, d: 0.114, rt: 0.028, rb: 0.028 },
-    ], { k: 4, m: 2, cap0: 0.03, cap1: 0.012 }));
-    // dorsal shell (graphite, crowned, flaring to the knuckles) + a stepped knuckle plate
-    B.plate.push(loft(PLATE.map(([y, w, z, d, ct]) => ({ y, w, d, z, rt: 0.017, rb: 0.006, ct })), { k: 4, m: 6, cap0: 0.03, cap1: 0.014, steps: 5 }));
-    // copper hairline: a thin shim under the plate, 3 mm proud of its edge — outlines the shell
-    B.copper.push(loft(PLATE.map(([y, w, z, d]) => ({ y, w: w + 0.006, d: 0.006, z: z - d / 2 + 0.004, rt: 0.003 })), { k: 2, m: 0, cap0: 0.03, cap1: 0.017, steps: 3 }));
-    // palmar pads (heel + knuckle) — matte
-    // heel pad (ulnar side) and one pad under each knuckle, like a palm's own pads
-    B.pad.push(loft([{ y: -0.17, w: 0.21, d: 0.03, z: -0.058, x: -0.07, rt: 0.014, cb: 0.005 }, { y: -0.33, w: 0.25, d: 0.032, z: -0.06, x: -0.075, rt: 0.014, cb: 0.007 }], { k: 3, m: 4, cap0: 0.016, cap1: 0.016 }));
-    for (const f of FINGERS) {
-      const pw = f.seg[0][1] * 0.86;
-      B.pad.push(loft([{ y: -0.37, w: pw, d: 0.03, z: -0.06, x: f.x * 0.94, rt: 0.012, cb: 0.006 }, { y: -0.475, w: pw, d: 0.03, z: -0.059, x: f.x, rt: 0.012, cb: 0.006 }], { k: 3, m: 3, cap0: 0.014, cap1: 0.012 }));
-    }
+      { y: -0.115, w: 0.13, d: 0.05, rt: 0.016, rb: 0.016 },
+      { y: -0.17, w: 0.19, d: 0.058, x: -0.005, rt: 0.02, rb: 0.02 },
+      { y: -0.26, w: 0.275, d: 0.062, x: -0.014, rt: 0.02, rb: 0.02 },
+      { y: -0.37, w: 0.335, d: 0.062, x: -0.006, rt: 0.02, rb: 0.02 },
+      { y: PALM_END, w: 0.35, d: 0.058, rt: 0.018, rb: 0.018 },
+    ], { k: 4, m: 2, cap0: 0.018, cap1: 0.008 }));
+    // dorsal plate (graphite, thin and lightly crowned, flaring to the knuckles)
+    B.plate.push(loft(PLATE.map(([y, w, z, d, ct]) => ({ y, w, d, z, rt: PLATE_R, rb: 0.004, ct })), { k: 5, m: 8, cap0: 0.02, cap1: 0.014, steps: 5 }));
+    // copper hairline: a thin shim under the shell, 2 mm proud of its edge — outlines the shell
+    // where it meets the charcoal palm
+    B.copper.push(loft(PLATE.map(([y, w, z, d]) => ({ y, w: w + 0.004, d: 0.004, z: z - d / 2 + 0.004, rt: 0.002 })), { k: 2, m: 0, cap0: 0.022, cap1: 0.016, steps: 3 }));
+    // palmar cushions — matte: a heel cushion (ulnar side) and one cushion across the knuckles,
+    // softly crowned and parted by a crease where the palm point sits; they catch the ember's light
+    // as one smooth surface rather than as blocks
+    B.pad.push(loft([
+      { y: -0.16, w: 0.12, d: 0.018, z: -0.034, x: -0.035, rt: 0.009, cb: 0.0045 },
+      { y: -0.24, w: 0.18, d: 0.018, z: -0.034, x: -0.04, rt: 0.009, cb: 0.0045 },
+      { y: -0.3, w: 0.21, d: 0.018, z: -0.034, x: -0.035, rt: 0.009, cb: 0.0045 },
+    ], { k: 3, m: 6, cap0: 0.012, cap1: 0.009 }));
+    B.pad.push(loft([
+      { y: -0.35, w: 0.29, d: 0.018, z: -0.034, x: 0.002, rt: 0.009, cb: 0.0045 },
+      { y: -0.41, w: 0.318, d: 0.018, z: -0.034, x: 0.001, rt: 0.009, cb: 0.0045 },
+      { y: -0.455, w: 0.32, d: 0.018, z: -0.034, rt: 0.009, cb: 0.0045 },
+    ], { k: 3, m: 8, cap0: 0.009, cap1: 0.009 }));
     // thenar housing: graphite, from the heel of the palm out to the thumb's ball joint
-    const tr = new V3(...THUMB.root), from = new V3(0.085, -0.19, -0.062), dir = tr.clone().sub(from), wl = dir.length() - 0.076;
+    const tr = new V3(...THUMB.root), from = new V3(0.055, -0.17, -0.034), dir = tr.clone().sub(from), wl = dir.length() - 0.046;
     B.shell.push(aim(loft([
-      { y: 0, w: 0.15, d: 0.1, rt: 0.03, rb: 0.036, cb: 0.01 },
-      { y: -wl * 0.55, w: 0.14, d: 0.1, rt: 0.03, rb: 0.034, cb: 0.012 },
-      { y: -wl, w: 0.116, d: 0.094, rt: 0.026, rb: 0.03, cb: 0.008 },
-    ], { k: 4, m: 3, cap0: 0.03, cap1: 0.01 }), from.toArray(), dir.toArray()));
-    B.pad.push(aim(loft([{ y: -0.03, w: 0.1, d: 0.02, z: -0.05, rt: 0.008, cb: 0.004 }, { y: -wl * 0.8, w: 0.09, d: 0.02, z: -0.046, rt: 0.008, cb: 0.004 }], { k: 2, m: 3, cap0: 0.01, cap1: 0.01 }), from.toArray(), dir.toArray()));
+      { y: 0, w: 0.088, d: 0.058, rt: 0.018, rb: 0.022, cb: 0.006 },
+      { y: -wl * 0.55, w: 0.082, d: 0.058, rt: 0.018, rb: 0.02, cb: 0.006 },
+      { y: -wl, w: 0.068, d: 0.054, rt: 0.016, rb: 0.018, cb: 0.004 },
+    ], { k: 4, m: 3, cap0: 0.018, cap1: 0.006 }), from.toArray(), dir.toArray()));
+    B.pad.push(aim(loft([{ y: -0.02, w: 0.058, d: 0.012, z: -0.028, rt: 0.005, cb: 0.003 }, { y: -wl * 0.8, w: 0.052, d: 0.012, z: -0.026, rt: 0.005, cb: 0.003 }], { k: 2, m: 3, cap0: 0.006, cap1: 0.006 }), from.toArray(), dir.toArray()));
     dir.normalize();
-    B.copper.push(sleeve(from.clone().addScaledVector(dir, wl - 0.003).toArray(), dir.toArray(), 0.045, 0.011, 0.002));
-    B.core.push(X(sphere(0.05, 26), THUMB.root));
+    B.copper.push(sleeve(from.clone().addScaledVector(dir, wl - 0.002).toArray(), dir.toArray(), 0.029, 0.007, 0.0015));
+    B.core.push(X(sphere(0.032, 26), THUMB.root));
 
-    // wrist fork on the hand side (yaw axle along Z): charcoal plugs with a thin copper ring
+    // wrist fork on the hand side (yaw axle along Z): slim cheeks, charcoal plugs, copper rings
     for (const sd of [-1, 1]) {
       const az = sd > 0 ? alongZ : alongNZ;
-      B.shell.push(X(alongZ(disc(0.058, 0.026, 0.004, 26)), [0, 0, sd > 0 ? 0.057 : -0.083]));
-      B.shell.push(loft([{ y: 0, w: 0.12, d: 0.026, z: sd * 0.07, rt: 0.006 }, { y: -0.16, w: 0.17, d: 0.026, z: sd * 0.07, rt: 0.006 }], { k: 2, m: 0, cap1: 0.004 }));
-      B.core.push(X(az(pinHead(0.03, 0.007, 0.002, 22)), [0, 0, sd * 0.082]));
-      B.copper.push(X(az(capRing(0.03, 0.037, 0.006, 0.0012, 26)), [0, 0, sd * 0.082]));
+      B.shell.push(X(alongZ(disc(0.034, 0.013, 0.003, 26)), [0, 0, sd > 0 ? 0.03 : -0.043]));
+      B.shell.push(loft([{ y: 0.004, w: 0.04, d: 0.013, z: sd * 0.0365, rt: 0.006 }, { y: -0.06, w: 0.046, d: 0.013, z: sd * 0.0365, rt: 0.006 }, { y: -0.125, w: 0.072, d: 0.013, z: sd * 0.0365, rt: 0.006 }], { k: 3, m: 0, cap1: 0.004 }));
+      B.core.push(X(az(pinHead(0.016, 0.004, 0.0012, 20)), [0, 0, sd * 0.043]));
+      B.copper.push(X(az(capRing(0.016, 0.022, 0.0042, 0.001, 26)), [0, 0, sd * 0.043]));
     }
 
-    // sensor module: ivory ceramic block with two dark glass lenses, on the back of the hand
-    const mod = new THREE.Group(); mod.position.set(0.0, -0.285, 0.122); mod.rotation.x = 0.3; hand.add(mod);
+    // sensor module: a small ivory ceramic lozenge with two little dark glass lenses
+    const mod = new THREE.Group(); mod.position.set(0.0, -0.268, 0.073); mod.rotation.x = 0.26; hand.add(mod);
     const MB = bucket();
-    const MW = 0.25, MH = 0.155, MD = 0.092, MR = 0.03;
-    MB.ivory.push(loft([{ y: -(MH / 2 - MR), w: MW, d: MD, rt: MR, rb: MR, ct: 0.004 }, { y: MH / 2 - MR, w: MW, d: MD, rt: MR, rb: MR, ct: 0.004 }], { k: 5, m: 4, cap0: MR, cap1: MR, steps: 5 }));
-    MB.copper.push(alongZ(loft([{ y: -0.004, w: MW + 0.004, d: MH + 0.004, rt: MR + 0.002 }, { y: 0.004, w: MW + 0.004, d: MH + 0.004, rt: MR + 0.002 }], { k: 5, m: 0 })).translate(0, 0, -0.016));
-    MB.core.push(alongZ(loft([{ y: -0.024, w: 0.2, d: 0.12, rt: 0.02 }, { y: 0.024, w: 0.2, d: 0.12, rt: 0.02 }], { k: 3, m: 0, cap0: 0.008, cap1: 0.008 })).translate(0, 0.01, -MD / 2 - 0.014));
+    const MW = 0.128, MH = 0.082, MD = 0.04, MR = 0.017;
+    MB.ivory.push(loft([{ y: -(MH / 2 - MR), w: MW, d: MD, rt: MR, rb: MR, ct: 0.003 }, { y: MH / 2 - MR, w: MW, d: MD, rt: MR, rb: MR, ct: 0.003 }], { k: 5, m: 4, cap0: MR, cap1: MR, steps: 5 }));
+    MB.copper.push(alongZ(loft([{ y: -0.0025, w: MW + 0.003, d: MH + 0.003, rt: MR + 0.0015 }, { y: 0.0025, w: MW + 0.003, d: MH + 0.003, rt: MR + 0.0015 }], { k: 5, m: 0 })).translate(0, 0, -0.008));
+    MB.core.push(alongZ(loft([{ y: -0.02, w: 0.1, d: 0.058, rt: 0.012 }, { y: 0.02, w: 0.1, d: 0.058, rt: 0.012 }], { k: 3, m: 0, cap0: 0.005, cap1: 0.005 })).translate(0, 0.004, -MD / 2 - 0.012));
     for (const sx of [-1, 1]) {
-      const lx = sx * 0.058, ly = -0.006, fz = MD / 2 + 0.004;
-      MB.shell.push(X(alongZ(annulus(0.026, 0.038, 0.011, 0.0028, 32)), [lx, ly, fz - 0.006]));
-      MB.dark.push(X(alongZ(pinHead(0.027, 0.004, 0.001, 28)), [lx, ly, fz - 0.002]));
-      MB.copper.push(X(alongZ(capRing(0.009, 0.0165, 0.003, 0.0008, 28)), [lx, ly, fz + 0.001]));
-      MB.dark.push(X(alongZ(pinHead(0.0095, 0.002, 0.0006, 20)), [lx, ly, fz + 0.001]));
-      const dome = lathe(Array.from({ length: 9 }, (_, i) => { const a = (i / 8) * HP; return [Math.cos(a) * 0.027, Math.sin(a) * 0.009]; }), 32, { smooth: true });
-      MB.glass.push(X(alongZ(dome), [lx, ly, fz + 0.001]));
+      const lx = sx * 0.03, ly = -0.004, fz = MD / 2;
+      MB.shell.push(X(alongZ(annulus(0.0125, 0.0185, 0.0065, 0.0016, 32)), [lx, ly, fz - 0.0035]));
+      MB.dark.push(X(alongZ(pinHead(0.013, 0.003, 0.0008, 28)), [lx, ly, fz - 0.001]));
+      MB.copper.push(X(alongZ(capRing(0.0048, 0.0085, 0.002, 0.0005, 28)), [lx, ly, fz + 0.0015]));
+      MB.dark.push(X(alongZ(pinHead(0.005, 0.0014, 0.0004, 20)), [lx, ly, fz + 0.0015]));
+      const dome = lathe(Array.from({ length: 9 }, (_, i) => { const a = (i / 8) * HP; return [Math.cos(a) * 0.0132, Math.sin(a) * 0.0045]; }), 32, { smooth: true });
+      MB.glass.push(X(alongZ(dome), [lx, ly, fz + 0.0018]));
     }
-    MB.dark.push(X(alongZ(pinHead(0.0045, 0.003, 0.001, 14)), [0, 0.048, MD / 2 + 0.001])); // pin-hole mic
+    MB.dark.push(X(alongZ(pinHead(0.0026, 0.002, 0.0006, 14)), [0, 0.025, MD / 2 - 0.0012])); // pin-hole mic
     commit(MB, mod, M, false);
 
-    // four cap screws hold the plate down: gunmetal heads with a dark socket, set on the crown
-    for (const [x, y] of [[-0.13, -0.19], [0.13, -0.19], [-0.228, -0.432], [0.228, -0.432]]) {
-      const z = plateTop(x, y) - 0.0008, tilt = [-Math.atan(0.5 * (plateTop(x, y + 0.01) - plateTop(x, y - 0.01)) / 0.01), 0, 0];
+    // four tiny cap screws hold the plate down: gunmetal heads with a dark socket, set on the crown
+    for (const [x, y] of [[-0.058, -0.175], [0.058, -0.175], [-0.145, -0.415], [0.145, -0.415]]) {
+      const z = plateTop(x, y) - 0.0006, tilt = -Math.atan(0.5 * (plateTop(x, y + 0.01) - plateTop(x, y - 0.01)) / 0.01);
       const lean = Math.atan((plateTop(x + 0.005, y) - plateTop(x - 0.005, y)) / 0.01);
-      B.shell.push(X(alongZ(pinHead(0.0095, 0.0036, 0.0014, 16)), [x, y, z], [tilt[0], -lean, 0]));
-      B.dark.push(X(alongZ(pinHead(0.0042, 0.0042, 0.0006, 6)), [x, y, z], [tilt[0], -lean, 0]));
+      B.shell.push(X(alongZ(pinHead(0.0062, 0.0024, 0.001, 16)), [x, y, z], [tilt, -lean, 0]));
+      B.dark.push(X(alongZ(pinHead(0.0028, 0.0028, 0.0005, 6)), [x, y, z], [tilt, -lean, 0]));
     }
-    // tendon cables on the back: from under the module to each knuckle, copper ferrules
+    // hairline tendon cables on the back: from under the module to each knuckle, copper ferrules
     for (const f of FINGERS) {
-      const ax = f.x * 0.6, ay = -0.33, bx = f.x, by = -0.43;
-      const a = [ax, ay, plateTop(ax, ay) + 0.004], b = [bx, by, plateTop(bx, by) + 0.004];
-      B.cable.push(rod(a, b, 0.0072));
+      const ax = f.x * 0.55, ay = -0.3, bx = f.x, by = -0.415;
+      const a = [ax, ay, plateTop(ax, ay) + 0.0025], b = [bx, by, plateTop(bx, by) + 0.0025];
+      B.cable.push(rod(a, b, 0.0038));
       const d = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
-      B.copper.push(sleeve([lerp(a[0], b[0], 0.84), lerp(a[1], b[1], 0.84), lerp(a[2], b[2], 0.84)], d, 0.0102, 0.016));
+      B.copper.push(sleeve([lerp(a[0], b[0], 0.84), lerp(a[1], b[1], 0.84), lerp(a[2], b[2], 0.84)], d, 0.0056, 0.01, 0.001));
     }
     commit(B, hand, M);
   }
 
-  /** Forearm + roll bearing (static) and the wrist fork (roll group) + cross block (pitch group). */
+  /**
+   * Forearm + roll collar (static), the wrist fork (roll group) and the cross block (pitch group).
+   * The forearm is a slim tapered tube: charcoal collar → copper ring → satin graphite cuff →
+   * copper hairline → lacquered carbon tube (r 0.058 → 0.088) with a few fine copper rings.
+   */
+  const TUBE = { y0: 0.37, r0: 0.058, r1: 0.088 };
+  const tubeR = (y, len) => lerp(TUBE.r0, TUBE.r1, clamp((y - TUBE.y0) / (len - TUBE.y0)));
   function wristMeshes(M, sk, len) {
     const F = bucket();
-    F.plate.push(loft([
-      { y: 0.33, w: 0.28, d: 0.25, rt: 0.075, rb: 0.075 },
-      { y: 0.7, w: 0.3, d: 0.27, rt: 0.08, rb: 0.08, ct: 0.01, cb: 0.008 },
-      { y: len, w: 0.36, d: 0.32, rt: 0.09, rb: 0.09, ct: 0.012, cb: 0.01 },
-    ], { k: 5, m: 4, cap0: 0.03, cap1: 0.04 }));
-    F.core.push(disc(0.118, 0.19, 0.006, 40).translate(0, 0.165, 0));
-    F.copper.push(annulus(0.11, 0.128, 0.02, 0.003, 44).translate(0, 0.29, 0));
-    F.core.push(loft([{ y: 0.98, w: 0.302, d: 0.272, rt: 0.082, ct: 0.01, cb: 0.008 }, { y: 1.04, w: 0.302, d: 0.272, rt: 0.082, ct: 0.01, cb: 0.008 }], { k: 5, m: 4, cap0: 0.006, cap1: 0.006 }));
-    for (const sx of [-1, 1]) {
-      F.cable.push(rod([sx * 0.062, 0.31, 0.13], [sx * 0.07, len, 0.152], 0.011));
-      F.copper.push(sleeve([sx * 0.0625, 0.335, 0.131], [0, 1, 0.02], 0.0145, 0.022));
+    // roll collar: the bearing the hand turns in
+    F.core.push(lathe([[0.05, 0.1], [0.062, 0.1], [0.067, 0.105], [0.067, 0.195], [0.062, 0.2], [0.05, 0.2]], 40));
+    F.copper.push(annulus(0.05, 0.0695, 0.008, 0.0015, 48).translate(0, 0.2, 0));
+    // satin graphite cuff
+    F.shell.push(lathe([[0.05, 0.208], [0.06, 0.208], [0.0635, 0.212], [0.0625, 0.29], [0.061, 0.356], [0.058, 0.36], [0.05, 0.36]], 40, { smooth: false }));
+    F.copper.push(annulus(0.05, 0.0625, 0.005, 0.001, 48).translate(0, 0.36, 0));
+    // the carbon tube: a smooth taper, open end hidden in the ring, rounded far end
+    const prof = [];
+    const yEnd = len - TUBE.r1;
+    for (let i = 0; i <= 24; i++) { const y = lerp(TUBE.y0 + 0.002, yEnd, i / 24); prof.push([tubeR(y, len), y]); }
+    for (let i = 1; i <= 8; i++) { const a = (i / 8) * HP; prof.push([TUBE.r1 * Math.cos(a), yEnd + TUBE.r1 * 0.6 * Math.sin(a)]); }
+    F.carbon.push(lathe(prof, 44, { smooth: true }));
+    // fine copper rings along the tube: one near the cuff, a close pair at mid-forearm, one far up
+    for (const y of [0.62, 1.12, 1.142, 1.86]) {
+      const r = tubeR(y, len);
+      F.copper.push(annulus(r - 0.004, r + 0.0032, 0.005, 0.0012, 52).translate(0, y, 0));
     }
     commit(F, sk.mirror, M, false);
 
-    // roll group: a round yoke under the drum + fork cheeks + axle caps (pitch axis = X)
+    // roll group: a round yoke under the collar + slim fork cheeks + axle caps (pitch axis = X)
     const Rb = bucket();
-    Rb.core.push(lathe([[0, 0.112], [0.118, 0.112], [0.128, 0.122], [0.128, 0.158], [0.118, 0.168], [0, 0.168]], 40));
-    Rb.copper.push(annulus(0.108, 0.13, 0.006, 0.0015, 44).translate(0, 0.158, 0));
+    Rb.core.push(lathe([[0, 0.06], [0.062, 0.06], [0.067, 0.065], [0.067, 0.095], [0.062, 0.1], [0, 0.1]], 40));
+    Rb.copper.push(annulus(0.058, 0.0685, 0.0035, 0.0008, 48).translate(0, 0.088, 0));
     for (const sd of [-1, 1]) {
       const ax = sd > 0 ? alongX : alongNX;
-      Rb.shell.push(X(alongX(disc(0.07, 0.032, 0.005, 28)), [sd > 0 ? 0.128 : -0.16, 0, 0]));
-      Rb.shell.push(loft([{ y: 0, w: 0.032, d: 0.12, x: sd * 0.144, rt: 0.008 }, { y: 0.125, w: 0.032, d: 0.13, x: sd * 0.144, rt: 0.008 }], { k: 2, m: 0, cap1: 0.004 }));
-      Rb.core.push(X(ax(pinHead(0.036, 0.008, 0.002, 22)), [sd * 0.159, 0, 0]));
-      Rb.copper.push(X(ax(capRing(0.036, 0.044, 0.007, 0.0014, 28)), [sd * 0.159, 0, 0]));
+      Rb.shell.push(X(alongX(disc(0.034, 0.014, 0.003, 28)), [sd > 0 ? 0.058 : -0.072, 0, 0]));
+      Rb.shell.push(loft([{ y: 0, w: 0.014, d: 0.058, x: sd * 0.065, rt: 0.005 }, { y: 0.066, w: 0.014, d: 0.068, x: sd * 0.065, rt: 0.005 }], { k: 2, m: 0, cap1: 0.003 }));
+      Rb.core.push(X(ax(pinHead(0.016, 0.004, 0.0012, 20)), [sd * 0.072, 0, 0]));
+      Rb.copper.push(X(ax(capRing(0.016, 0.022, 0.0042, 0.001, 28)), [sd * 0.072, 0, 0]));
     }
     commit(Rb, sk.roll, M, false);
     const Pb = bucket();
-    Pb.core.push(loft([{ y: -0.03, w: 0.1, d: 0.1, rt: 0.02 }, { y: 0.03, w: 0.1, d: 0.1, rt: 0.02 }], { k: 3, m: 0, cap0: 0.02, cap1: 0.02 }));
-    Pb.core.push(X(alongX(disc(0.022, 0.29, 0.003, 16)), [-0.145, 0, 0]));
-    Pb.core.push(X(alongZ(disc(0.02, 0.15, 0.003, 16)), [0, 0, -0.075]));
+    Pb.core.push(loft([{ y: -0.026, w: 0.054, d: 0.054, rt: 0.012 }, { y: 0.026, w: 0.054, d: 0.054, rt: 0.012 }], { k: 3, m: 0, cap0: 0.012, cap1: 0.012 }));
+    Pb.core.push(X(alongX(disc(0.011, 0.144, 0.002, 16)), [-0.072, 0, 0]));
+    Pb.core.push(X(alongZ(disc(0.011, 0.09, 0.002, 16)), [0, 0, -0.045]));
     commit(Pb, sk.pitch, M, false);
   }
 
@@ -907,7 +964,7 @@
     // each finger: for a few extra distal bends, curl to first contact; keep the best hug
     const fitDigit = (j, pads, gapFn, thumb, ok = () => true) => {
       let best = { score: Infinity, c: 0, b: 0 };
-      for (const b of [-0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.45]) {
+      for (const b of [-0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.45, 0.6, 0.75, 0.9]) {
         const set = (c) => setDigit(j, c, b, thumb);
         set(0); SK.group.updateMatrixWorld(true);
         if (gapFn() <= GRIP.clearance) continue;
@@ -947,13 +1004,16 @@
     return { curl: curl.map((v) => +v.toFixed(4)), bend, spread: GRIP.spread, thumbOpp: +bestT.opp.toFixed(4), thumbFit: bestT.score < Infinity ? +bestT.score.toFixed(4) : null, thumbInside: !bestT.outside };
   }
 
+  // Softly curved, never flat: PIP/DIP bends (bend) on top of the curls give every preset the
+  // gentle cascade of a relaxed hand — index least curled, pinky most.
   const PRESETS = {
-    open:    { curl: [0.03, 0.02, 0.02, 0.03, 0.04], spread: 0.75, thumbOpp: 0.05, wrist: [0, 0, 0] },
-    relaxed: { curl: [0.16, 0.18, 0.24, 0.3, 0.36], spread: 0.3, thumbOpp: 0.3, wrist: [0.12, 0, 0] },
-    palmUp:  { curl: [0.2, 0.24, 0.28, 0.32, 0.38], spread: 0.32, thumbOpp: 0.22, wrist: [-0.25, 0, 0] },
-    // offer = palmUp with the wrist extended a further 0.55 rad and the fingers opened: keep the
-    // group placed from palmUp and blend toward offer — the palm tips ~30° toward the fingertips.
-    offer:   { curl: [0.1, 0.06, 0.06, 0.08, 0.11], spread: 0.42, thumbOpp: 0.1, wrist: [-0.8, 0, 0] },
+    open:    { curl: [0.03, 0.02, 0.02, 0.03, 0.04], bend: [0, 0.04, 0.05, 0.06, 0.08], spread: 0.75, thumbOpp: 0.05, wrist: [0, 0, 0] },
+    relaxed: { curl: [0.16, 0.14, 0.2, 0.26, 0.32], bend: [0.05, 0.12, 0.14, 0.16, 0.2], spread: 0.3, thumbOpp: 0.3, wrist: [0.12, 0, 0] },
+    // a shallow cradle: the palm open to the sky, the fingers lifting softly at their tips
+    palmUp:  { curl: [0.16, 0.1, 0.12, 0.15, 0.2], bend: [0.08, 0.17, 0.2, 0.24, 0.28], spread: 0.34, thumbOpp: 0.22, wrist: [-0.22, 0, 0] },
+    // offer = palmUp with the wrist extended a further 0.55 rad and the fingers opened (still soft):
+    // keep the group placed from palmUp and blend toward offer — the palm tips ~30° toward the tips.
+    offer:   { curl: [0.08, 0.04, 0.05, 0.07, 0.1], bend: [0.06, 0.1, 0.12, 0.15, 0.2], spread: 0.42, thumbOpp: 0.1, wrist: [-0.77, 0, 0] },
   };
   // Every read returns a fresh copy, so a scene can tweak its pose without touching others'.
   const poses = {};

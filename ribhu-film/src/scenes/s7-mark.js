@@ -20,7 +20,7 @@
  *           through amber and peach while ivory pours out of the mark, fully ivory by 25.600.
  *   25.625  "Ribhu Labs" rises out of its mask under the mark (RB.wordmark, ink on ivory).
  *   26.250  "World-renewing craftsmanship." (RB.type.line, Manrope, ink).
- *   27.500  "ribhulabs.ai" types on in copper mono (the annotation voice, set larger).
+ *   27.500  "ribhulabs.ai" types on in copper mono (the annotation voice, set at 32 px).
  *   27.5–30 Living hold: a slow push, the mark turns its last degrees to face-on, a second
  *           slow light sweep along the bevels, gilded motes glinting in the key light; the
  *           motes settle out with the music's tail. Frame 899 is the hero still: the whole
@@ -60,9 +60,10 @@
     cx: 960,
     markY: 386, markH: 292,          // mark centre and height on screen at the lock
     wordY: 668, wordSize: 100,       // wordmark baseline and size
-    lineY: 756, lineSize: 44,        // tagline baseline and size
-    urlY: 846, urlScale: 1.85,       // url centre line; annotation type scaled up from 12 px
+    lineY: 766, lineSize: 52,        // tagline baseline and size (story lines are ≥ 52 px; was 756 / 44)
+    urlY: 854, urlSize: 32,          // url centre line and size (≥ 30 px; was 846 / 12 px × 1.85 ≈ 22 px)
   };
+  const URL_TRACK = (L.urlSize * 0.18).toFixed(1) + 'px'; // the address's open tracking (0.18 em, as before)
   const INK = '#141514';          // wordmark ink (storyboard)
   const INK_SOFT = '#34322d';     // tagline: the same ink, a step back in the hierarchy
   const RISE = RB.shots.riseSpark;   // S6 hands over the ember here (r 12), rising at 120 px/s
@@ -539,8 +540,8 @@
   }
 
   /**
-   * The address, in the annotation voice (JetBrains Mono 500, 2.2 px tracking at 12 px, typed on
-   * character by character), set at 1.85× and in full-strength copper so it holds on ivory.
+   * The address, in the annotation voice (JetBrains Mono 500, open 0.18 em tracking, typed on
+   * character by character), set at 32 px and in full-strength copper so it holds on ivory.
    */
   function drawUrl(ctx, T) {
     const tIn = T0 + K.url, text = 'ribhulabs.ai';
@@ -549,8 +550,7 @@
     const a = clamp(seg(T, tIn, tIn + 0.12));
     ctx.save();
     ctx.translate(L.cx, L.urlY);
-    ctx.scale(L.urlScale, L.urlScale);
-    ctx.font = R.font(12, 'mono', 500); ctx.letterSpacing = '2.2px'; ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
+    ctx.font = R.font(L.urlSize, 'mono', 500); ctx.letterSpacing = URL_TRACK; ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
     ctx.fillStyle = PAL.copper; ctx.globalAlpha = a;
     ctx.fillText(text.slice(0, n), -S.urlW / 2, 0);
     ctx.restore();
@@ -792,8 +792,8 @@
     c.font = R.font(L.lineSize, 'body', 500); c.letterSpacing = `${-0.018 * L.lineSize}px`; c.textAlign = 'center';
     m = c.measureText('World-renewing craftsmanship.');
     S.lineInkOffset = (m.actualBoundingBoxRight - m.actualBoundingBoxLeft) / 2;
-    c.font = R.font(12, 'mono', 500); c.letterSpacing = '2.2px'; c.textAlign = 'left';
-    S.urlW = c.measureText('ribhulabs.ai').width - 2.2;
+    c.font = R.font(L.urlSize, 'mono', 500); c.letterSpacing = URL_TRACK; c.textAlign = 'left';
+    S.urlW = c.measureText('ribhulabs.ai').width - parseFloat(URL_TRACK); // centre the ink, not the trailing track
   }
 
   // ─── Draw ───────────────────────────────────────────────────────────────────────────────

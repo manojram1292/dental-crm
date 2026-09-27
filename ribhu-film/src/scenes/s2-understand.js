@@ -82,13 +82,16 @@
   // Each observation is anchored on a contour ring (height in world y) at an azimuth to the
   // right of the camera's view (rad); that ring and the dust around it catch the light as
   // the note ticks in, as if the eye were measuring that part of the work.
+  // Layout at the kit's 20 px labels: the column sits close enough to the cup that the widest
+  // label ends inside the safe area (x ≤ 1800), so the lip's note is anchored on the back of
+  // the lip, where its level leader and label clear the rim's widest point.
   const NOTES = [
-    { text: 'FORM · HAND-RAISED', tIn: 5.6, tOut: 6.86, y: RING_Y(14), az: 0.95 },
+    { text: 'FORM · HAND-RAISED', tIn: 5.6, tOut: 6.86, y: RING_Y(14), az: 0.72 },
     { text: 'MATERIAL · COPPER', tIn: 5.9, tOut: 6.9, y: RING_Y(7), az: 0.8 },
-    { text: 'USE · SHARED BY MANY', tIn: 6.2, tOut: 6.94, y: RIM_RING_Y, az: 1.1 },
+    { text: 'USE · SHARED BY MANY', tIn: 6.2, tOut: 6.94, y: RIM_RING_Y, az: 2.5 },
   ];
   const NOTE_QUICK = 1.6;                   // the notes' draw-on runs this much quicker than the kit's default
-  const NOTE_OFF = 0.74;                    // the label column, in world units right of the cup's axis
+  const NOTE_OFF = 0.62;                    // the label column, in world units right of the cup's axis
   const TYPE_PARALLAX = 0.3;                // how much of the final glide the exiting type drifts with
   const TYPE_GONE = 7.17;                   // the type has cleared before the cup reaches its column
   const TYPE_BOX = { x: 0, y: 440, w: 1000, h: 170 }; // covers the kicker and the line's mask band

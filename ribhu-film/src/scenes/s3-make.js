@@ -27,8 +27,9 @@
  *   8.750  (beat) 1 → 2 (the bowl strikes D + A). The touch-down rings the cup: the seam
  *          lights and flares; the child slides left, away from the hand, parts from its
  *          parent at ≈9.19, and both rock once on their feet (the child more as it stops).
- *   8.77–9.32  The fingers open first, then the hand lifts straight off the rim, opening flat,
- *          and without a pause turns into the departure …
+ *   8.77–9.32  The fingers open first, then the hand lifts straight off the rim, opening flat
+ *          once the thumb is out over the rim (8.95–9.3), and without a pause turns into the
+ *          departure …
  *   8.62–9.967  The camera draws back to shots.row4: its peak comes early, while one becomes
  *          two, and it settles long and soft, landing with zero velocity on frame 299.
  *   8.88–9.80  … up and away to the upper right, gathering speed the whole way (servo
@@ -281,10 +282,10 @@
   const EXIT = { lift: [8.8, 9.32], h: 0.46, go: [8.88, 9.8], len: 3.6, dir: [0.5, 1, 0.2] };
   const exitEase = (u) => 0.5 * E.inQuad(u) + 0.5 * E.inCubic(u);
   const HAND_T = {
-    shape: [7.56, 7.98],     // relaxed → open pre-grasp as it slows (the aperture opens before the close)
+    shape: [7.5, 7.8],       // relaxed → open pre-grasp as it slows (the aperture opens before the close)
     close: [7.98, GRIP_T],   // contact on the beat
     release: [8.77, 8.9],    // set down on 8.75; the fingers open first …
-    open: [8.82, 9.22],      // … the hand opens fully as it lifts off
+    open: [8.95, 9.3],       // … the hand opens fully as it lifts off, once the thumb is out over the rim
     relax: [9.25, 9.7],
   };
   const _v = new THREE.Vector3();

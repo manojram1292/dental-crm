@@ -34,7 +34,7 @@
  * feathers into RB.shots.row4Wide at frame 449, the lens holding on the seedling
  * until it racks out to the whole row: four lights, which S5 joins into one.
  *
- * Titles are the kit's annotation voice (×1.5), pinned to their worlds by a
+ * Titles are the kit's annotation voice (at 26 px), pinned to their worlds by a
  * leader of constant length. They land as the camera settles on their cup and
  * fade quickly as it moves on, so they are only ever read on a still frame.
  *
@@ -57,7 +57,13 @@
   const CUP_H = RB.CUP.height;
   const MOUTH_Y = CUP_H * 0.9;            // the contract's "mouth centre" height
   const EMBER_R = 26 / 6, EMBER_I = 0.5;  // contract glow: halo ≈ 26 px, intensity 0.5
-  const LABEL_SCALE = 1.5;                // the kit's annotation voice, enlarged: these are the scene's titles
+  // The titles: the kit's annotation voice set a step up from its 20 px labels (these are the
+  // scene's only words), so they read on a phone without shouting. JetBrains Mono 500, the
+  // kit's 0.16 em tracking, 26 px (was 12 px × 1.5 = 18 px).
+  const LABEL_SIZE = 26;
+  const LABEL_TRACK = (LABEL_SIZE * 0.16).toFixed(1) + 'px'; // exactly the kit's tracking at this size
+  const LABEL_GAP = 16;                   // leader end → title's right edge (the kit then insets 10)
+  const SAFE = { x0: 120, x1: 1800, y0: 150, y1: 900 };
   const B = (n) => 10 + n * R.BEAT;       // beat n of this scene: B(0) = 10.0 … B(8) = 15.0
   const S16 = R.BEAT / 4, S32 = R.BEAT / 8; // the score's 16th and 32nd notes
   const LAND = 449 / R.FPS;               // frame 449: the camera lands on row4Wide exactly here (zero velocity)
@@ -858,11 +864,17 @@
    */
   function layoutLabels() {
     const cam = RB.camera(30);
+    const m = document.createElement('canvas').getContext('2d');
+    m.font = R.font(LABEL_SIZE, 'mono', 500); m.letterSpacing = LABEL_TRACK;
     LABELS.forEach((L, i) => {
+      L.w = m.measureText(L.text).width;
+      // the leader's end sits at the title's right edge, so the whole title stays in the safe area
+      // while the leader end stays inside [xMin, SAFE.x1]
+      L.xMin = SAFE.x0 + L.w + LABEL_GAP - 10;
       RB.setCam(cam, camShot(L.keyT));
       const a = WORLDS[i].anchor(cam, L.keyT);
       const rimTop = proj(cam, XS[i], CUP_H, -RB.CUP.rimRadius)[1];
-      const x = clamp(a[0] - 150, 400, 1800), y = clamp(Math.min(a[1] - 104, rimTop - 44), 150, 900);
+      const x = clamp(a[0] - 150, L.xMin, SAFE.x1), y = clamp(Math.min(a[1] - 104, rimTop - 44), SAFE.y0, SAFE.y1);
       L.dx = x - a[0]; L.dy = y - a[1];  // the title's offset from its anchor, as framed on the settled shot
     });
   }
@@ -875,17 +887,17 @@
     const L = LABELS[i];
     const out = 1 - E.inOutSine(seg(T, L.tOut, L.tOut + 0.22));   // a quick, even fade: gone before the camera is at speed
     if (T < L.tIn || out <= 0) return;
-    const s = LABEL_SCALE, sc = R.scale;
+    const sc = R.scale;
     // (x, y): the leader's end, at the title's right edge. The title is set left-aligned so it
     // types on left to right in place; right-aligned typing would slide the word as it grows.
-    const x = clamp(anchor[0] + L.dx, 400, 1800), y = clamp(anchor[1] + L.dy, 150, 900);
-    // The leader, drawn exactly as RB.type.annotation draws it (1 px ×1.5, ivory 0.45, ember dot).
+    const x = clamp(anchor[0] + L.dx, L.xMin, SAFE.x1), y = clamp(anchor[1] + L.dy, SAFE.y0, SAFE.y1);
+    // The leader, drawn exactly as RB.type.annotation draws it (1.5 px, ivory 0.55, ember dot).
     const pl = E.outExpo(seg(T, L.tIn, L.tIn + 0.45));
     ctx.save();
     ctx.globalAlpha = out;
-    ctx.strokeStyle = R.rgba(PAL.ivory, 0.45); ctx.lineWidth = s;
+    ctx.strokeStyle = R.rgba(PAL.ivory, 0.55); ctx.lineWidth = 1.5;
     ctx.beginPath(); ctx.moveTo(anchor[0], anchor[1]); ctx.lineTo(lerp(anchor[0], x, pl), lerp(anchor[1], y, pl)); ctx.stroke();
-    R.fillCircle(ctx, anchor[0], anchor[1], 3 * s * pl, PAL.ember);
+    R.fillCircle(ctx, anchor[0], anchor[1], 4.5 * pl, PAL.ember);
     ctx.restore();
     // The title itself goes through a small buffer, so it can take this fade (the kit's own
     // fade-out is set in stone and too slow here). The buffer is placed on whole backing pixels
@@ -894,9 +906,8 @@
     const X = x * sc, Y = y * sc, ix = Math.floor(X), iy = Math.floor(Y);
     const b = R.buffer('s4-title', BW, BH);
     b.clear();
-    b.ctx.translate(bx + (X - ix) / sc, by + (Y - iy) / sc); b.ctx.scale(s, s);
-    if (L.w == null) { b.ctx.font = R.font(12, 'mono', 500); b.ctx.letterSpacing = '2.2px'; L.w = b.ctx.measureText(L.text).width; }
-    RB.type.annotation(b.ctx, T, { text: L.text, x: -L.w - 16, y: 0, tIn: L.tIn, align: 'left' });
+    b.ctx.translate(bx + (X - ix) / sc, by + (Y - iy) / sc);
+    RB.type.annotation(b.ctx, T, { text: L.text, x: -L.w - LABEL_GAP, y: 0, tIn: L.tIn, align: 'left', size: LABEL_SIZE });
     ctx.save();
     ctx.globalAlpha = out;
     ctx.drawImage(b.canvas, ix / sc - bx, iy / sc - by, BW, BH);
