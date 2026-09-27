@@ -31,7 +31,6 @@
     display: "'Inter Tight'",       // variable 100–900 (+ italic 900)
     serif: "'Instrument Serif'",    // 400, normal + italic
     mono: "'JetBrains Mono'",       // variable 100–800
-    syne: "'Syne'",                 // variable 400–800
   };
 
   /** CSS font string. weight may be any number 1–1000 (variable fonts). */
@@ -42,7 +41,7 @@
   const FONT_FACES = [
     "100 64px 'Inter Tight'", "900 64px 'Inter Tight'", "italic 900 64px 'Inter Tight'",
     "400 64px 'Instrument Serif'", "italic 400 64px 'Instrument Serif'",
-    "400 64px 'JetBrains Mono'", "700 64px 'JetBrains Mono'", "800 64px 'Syne'",
+    "400 64px 'JetBrains Mono'", "700 64px 'JetBrains Mono'",
   ];
 
   // ─── Math & timing ──────────────────────────────────────────────────────────

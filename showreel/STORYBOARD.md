@@ -66,8 +66,7 @@ first frame of the next must match exactly, so every cut is a seamless match cut
 ### Engine cheat-sheet (`REEL.*`)
 `PAL` colours · `font(size, family, weight, style)`, where families are
 `display` (Inter Tight, variable 100–900, italic 900), `serif` (Instrument
-Serif, regular and italic), `mono` (JetBrains Mono 100–800) and `syne` (Syne
-400–800). Variable weights animate: `font(300, 'display', lerp(100, 900, p))`.
+Serif, regular and italic) and `mono` (JetBrains Mono 100–800). Variable weights animate: `font(300, 'display', lerp(100, 900, p))`.
 `ctx.letterSpacing = '12px'` works.
 Timing: `seg(t,a,b)`, `ease(t,a,b,fn)`, `tween(t, keys)`, `stagger(t, i, n, {start, spread, dur, fn})`, `clamp/lerp/remap/smoothstep`.
 Easing: `E.outExpo, E.inOutQuint, E.outBack, E.backOut(s), E.spring(bounces, damping), E.bezier(x1,y1,x2,y2), E.reel` (the signature S1 curve), `E.snap`, `E.whip`, plus the standard families.
@@ -107,7 +106,7 @@ No random rainbow gradients: gradients stay inside the palette
 
 **Type.** Inter Tight 800–900 for impact, tight tracking, huge sizes. Instrument
 Serif Italic for elegant contrast words. JetBrains Mono for small technical
-labels (uppercase, letter-spaced 2–4 px). Syne 800 only if you have a reason.
+labels (uppercase, letter-spaced 2–4 px).
 
 **Motion principles.** This is what we're being judged on.
 - Nothing moves linearly unless it's mechanical on purpose. Default to strong
