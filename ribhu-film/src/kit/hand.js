@@ -1,21 +1,23 @@
 /*
  * RB.hand — the Ribhu robotic hand, the film's second protagonist.
  *
- * An illustrative instrument (a concept, not a product): gunmetal-graphite shells with
- * crowned backs and crisp fillets, charcoal joint cores, copper pin caps, copper-banded
- * knuckle drums and a copper hairline under the back plate, matte grip pads, tendon cables,
- * a Cardan wrist, and the ivory ceramic sensor module with two dark glass lenses — the
- * website's identity. Procedural, deterministic, built once in create(). ~55k triangles.
+ * An illustrative instrument (a concept, not a product): warm gunmetal shells with crowned
+ * backs and crisp fillets, a bead-blasted back plate held by four cap screws, charcoal joint
+ * cores, copper pin caps, copper-banded knuckle drums and a copper hairline under the plate,
+ * matte grip pads, tendon cables, a Cardan wrist, and the ivory ceramic sensor module with two
+ * dark glass lenses — the website's identity. Procedural, deterministic, built once in
+ * create(). ~56k triangles, ~106 draw calls.
  *
  * ── Core API ─────────────────────────────────────────────────────────────────
- *   const h = RB.hand.create({ side: 'right', forearm: 2.6 });   // in init() (~20 ms)
+ *   const h = RB.hand.create({ side: 'right', forearm: 2.6 });   // in init() (~30 ms)
  *   stage.scene.add(h.group);
  *
  *   h.group            THREE.Group whose origin is the wrist joint centre. The forearm extends
  *                      along +Y (length `forearm`, enough to leave frame). At wrist [0,0,0] the
  *                      hand hangs along −Y, the palm faces −Z, the back of the hand (sensor
  *                      module) faces +Z, the thumb is on +X. side:'left' is a true mirror image.
- *                      Wrist→middle fingertip ≈ 1.25, palm width ≈ 0.55 (the cup is 0.91 tall).
+ *                      Wrist→middle fingertip ≈ 1.18, palm width ≈ 0.55 (the cup is 0.91 tall,
+ *                      1.22 across the rim).
  *   h.setPose(pose)    sets EVERY joint absolutely from `pose` — pure and idempotent: call it in
  *                      every draw, nothing accumulates. Missing fields fall back to neutral.
  *                      A built-in guard stops the thumb at first contact if curled fingers or
@@ -25,25 +27,35 @@
  *   h.palmNormal(out?) world unit vector pointing out of the palm.
  *   h.fingertips()     world points [thumb, index, middle, ring, pinky] at the rounded tip of
  *                      each digit, on the pad side.
+ *   h.setGlow(g)       the ember's light on this hand, palm side only (it can't leak through the
+ *                      metal onto the back plate, the module or the forearm the way a shadowless
+ *                      scene PointLight does). g = { at: world point (default palmPoint + 3 cm
+ *                      along palmNormal), intensity, color = ember, range = 2 } in PointLight units
+ *                      (decay 2); null / intensity 0 = off. Absolute like setPose: set it every
+ *                      draw. Lights only the hand (not the cup, not other hands).
  *
  *   pose = { curl: [thumb, index, middle, ring, pinky]   0 = straight … 1 = closed fist
  *                                                         (one number = all five)
  *            spread: 0..1       fingers parallel … fanned (the thumb abducts with it)
- *            thumbOpp: 0..1     thumb beside the palm … swung round in front of the palm
- *                               (down to −0.3 lays it back, to lie along a large surface)
+ *            thumbOpp: −0.3..1.4  thumb beside the palm (0) … swung round in front of the palm
+ *                               (1); beyond 1 it also lifts out of the palm — how it reaches
+ *                               over a rim. Down to −0.3 lays it back along a large surface.
  *            wrist: [pitch, yaw, roll] radians — pitch > 0 flexes toward the palm, yaw > 0
  *                   deviates toward the thumb, roll turns about the forearm axis.
  *                   Collision-free range: pitch ±1.1, yaw ±0.4, roll any.
  *            bend?: [5]         optional extra PIP/DIP flexion (radians) on top of curl; the
  *                               fitted grips use it so a digit hugs a curve. Default 0. }
  *
- *   RB.hand.poses          { open, relaxed, cupGrip, palmUp, offer } (fresh copies each read)
+ *   RB.hand.poses          { open, relaxed, cupReady, cupGrip, palmUp, offer } (fresh copies)
  *   RB.hand.blend(a, b, p) component-wise interpolation of two poses (p clamped to 0..1)
  *   RB.hand.gripPose(tilt = RB.hand.grip.tilt, { wrist, thumbOpp })
- *                          a cup grip whose digits are fitted to the real RB.cup() profile for
- *                          that grip tilt: every pad on first contact (3 mm), no penetration.
- *                          Cached per tilt; the first call for a new tilt costs ~0.2 s, so make
- *                          it in init(). poses.cupGrip === gripPose(RB.hand.grip.tilt).
+ *                          the rim-pinch cup grip for that tilt, fitted to the real RB.cup()
+ *                          profile: fingers to first contact down the outside of the bowl, the
+ *                          thumb over the rim to first contact with the inside wall (3 mm
+ *                          clearance; checked penetration-free on every triangle). Cached per
+ *                          tilt; a new tilt costs ~0.1 s, so make it in init().
+ *                          poses.cupGrip === gripPose(RB.hand.grip.tilt).
+ *   RB.hand.gripReady(tilt) the matching pre-grasp: same thumb, every digit open (poses.cupReady).
  *
  * ── Placement helpers (absolute; call after setPose, every draw) ──────────────
  *   Coordinates are in h.group's parent space (normally the scene). Keep h.group.scale at 1.
@@ -55,13 +67,17 @@
  *          h.place({ palm: [0, 1, 0], forearm: [0.85, -0.5, 0.35], palmAt: [0, 0.3, 0] });
  *   h.graspCup(cup, { around = 0, tilt = RB.hand.grip.tilt, away = 0 })
  *        places h.group so the hand holds `cup` (RB.cup().group, or any Object3D / Matrix4 in
- *        the same parent space: foot at its origin, axis +Y). `around` = radians about the cup
- *        axis: 0 = the hand on the cup's +Z side (toward a front camera), +π/2 = its +X side.
- *        `tilt` spins the hand about the contact normal: 0 = thumb up, forearm level off to
- *        the left; π/2 = forearm straight up; the default 2.2 is an overhand grip — forearm
- *        rising up and to the right, fingers wrapping across the front of the bowl, thumb
- *        down its flank. `away` backs the hand off along the outward contact normal: arrive
- *        and leave along it with the fingers open and nothing ever cuts the bowl.
+ *        the same parent space: foot at its origin, axis +Y) in a rim pinch: the rim in the web
+ *        of the hand, fingers down the outside, thumb over the rim inside — the wall is held
+ *        between opposed pads, so a lift reads as held, not glued. `around` = radians about the
+ *        cup axis: 0 = the hand on the cup's +Z side (toward a front camera), +π/2 = its +X
+ *        side; the back of the hand and the module face outward. `tilt` spins the hand about
+ *        the contact normal: π/2 = fingers straight down, less tips the thumb side up and the
+ *        forearm left; clamped to 1.1–1.8 (outside that the hand can't seat on the rim). The
+ *        default 1.68 hangs the fingers down the bowl a touch to the left, and the grip's wrist
+ *        [0.25, 0.38, 0] brings the forearm in from above-right, leaning toward a front camera.
+ *        `away` backs the hand off up the cup axis (and a little outward): with the digits
+ *        open (cupReady) nothing cuts the bowl on the way in or out.
  *        Pair with gripPose(tilt) (or a blend toward it). The wrist pose only steers the
  *        forearm; the palm stays on the cup. A left hand grips the mirror image.
  *   h.cupMatrix(out?, { around, tilt })  the exact inverse: the cup transform the current
@@ -70,21 +86,29 @@
  *
  * ── Extras ───────────────────────────────────────────────────────────────────
  *   h.materials   { shell, plate, core, pad, copper, ivory, glass, dark, cable } — this hand's own
- *                 materials (fade with transparent/opacity, warm the lenses via emissive, …).
- *                 They use the scene environment, so scene.environmentIntensity applies.
+ *                 materials (fade with transparent/opacity, warm the lenses via emissive, dim the
+ *                 ivory for a dark scene, …). They use the scene environment, so
+ *                 scene.environmentIntensity applies.
  *   h.triangles   triangle count.  h.parts: the joint groups (read-only, for debugging).
  *   RB.hand.DIMS  key dimensions.  RB.hand.grip.tilt  the default grip tilt.
  *
  * ── Presets ──────────────────────────────────────────────────────────────────
  *   open      flat and fanned, thumb out in the palm plane — "reveal", ready to receive.
  *   relaxed   the natural resting cascade: index least curled, pinky most, thumb soft.
- *   cupGrip   fitted overhand grip for graspCup() at the default tilt: fingers wrapped round
- *             the upper bowl (radius ≈0.6), thumb laid along its flank.
+ *   cupReady  pre-grasp for the cup: fingers open, thumb already lifted to reach over the rim.
+ *   cupGrip   the fitted rim pinch for graspCup() at the default tilt.
  *   palmUp    wrist slightly extended, fingers in a shallow cradle, thumb low — holds an ember.
  *   offer     palmUp with the wrist extended a further 0.55 rad and the fingers opened. Keep
  *             the group where place() put it for palmUp and blend toward offer: the palm
  *             tips ~30° toward the fingertips and pours/hands off in the fingers' direction
  *             (fingers pointing screen-left ⇒ it hands off to the left).
+ *
+ * ── The cup move (S3), tested penetration-free on every frame in the lab ──────
+ *   init:  const open = RB.hand.poses.open, ready = RB.hand.poses.cupReady, grip = RB.hand.poses.cupGrip;
+ *   draw:  h.setPose(RB.hand.blend(RB.hand.blend(open, ready, shape), grip, close));
+ *          h.graspCup(cup.group, { around, away });
+ *   shape 0→1 while the hand is high (away ≥ 0.5), then away → 0 (descend), then close 0→1
+ *   (contact at close 1). Release in reverse: close → 0 first, then away up, then shape → 0.
  */
 (function () {
   'use strict';
@@ -384,20 +408,25 @@
    * (per-vertex rbGlowMask), so an ember cupped in the palm lights the pads and the insides of the
    * fingers without leaking through the metal onto the back plate, the module or the forearm (a
    * scene PointLight has no shadows, and would). Same units as THREE.PointLight(color, intensity,
-   * distance, decay 2). The uniforms are shared by all of this hand's materials.
+   * distance, decay 2). The uniforms are shared by all of this hand's materials. The shader code
+   * is compiled in only while the glow is on (state.on): the software renderer runs both sides of
+   * a branch, so a dormant light would still cost ~10% of a close-up.
    */
-  function addGlow(M, U) {
+  function addGlow(M, U, state) {
     for (const m of Object.values(M)) {
       m.onBeforeCompile = (sh) => {
+        // both variants carry the uniforms: three keeps the uniforms of the last-compiled variant
+        // when it swaps back to a cached program
         Object.assign(sh.uniforms, U);
+        if (!state.on) return;
         sh.vertexShader = sh.vertexShader
           .replace('#include <common>', '#include <common>\nattribute float rbGlowMask;\nvarying float vRbGlow;')
           .replace('#include <begin_vertex>', '#include <begin_vertex>\n\tvRbGlow = rbGlowMask;');
         sh.fragmentShader = sh.fragmentShader
-          .replace('#include <common>', '#include <common>\nuniform float rbGlowOn;\nuniform vec3 rbGlowPos;\nuniform vec3 rbGlowColor;\nuniform float rbGlowRange;\nvarying float vRbGlow;')
+          .replace('#include <common>', '#include <common>\nuniform vec3 rbGlowPos;\nuniform vec3 rbGlowColor;\nuniform float rbGlowRange;\nvarying float vRbGlow;')
           .replace('#include <lights_fragment_begin>', [
             '#include <lights_fragment_begin>',
-            'if ( rbGlowOn > 0.5 && vRbGlow > 0.004 ) {',
+            'if ( vRbGlow > 0.004 ) {',
             '\tvec3 rbL = ( viewMatrix * vec4( rbGlowPos, 1.0 ) ).xyz - geometryPosition;',
             '\tfloat rbD = max( length( rbL ), 1e-4 );',
             '\tIncidentLight rbLight;',
@@ -408,7 +437,7 @@
             '}',
           ].join('\n'));
       };
-      m.customProgramCacheKey = () => 'rb-hand-glow-1';
+      m.customProgramCacheKey = () => (state.on ? 'rb-hand-glow-1' : 'rb-hand');
     }
   }
 
@@ -514,7 +543,10 @@
     return out.copy(sk.mirror.matrix).multiply(sk.roll.matrix).multiply(sk.pitch.matrix).multiply(sk.yaw.matrix);
   }
   /** Hand frame expressed in the cup's frame (cup foot at origin, axis +Y), hand on the cup's +Z side. */
+  /** Grip tilts outside this range can't seat the hand on the rim without cutting it. */
+  const TILT = [1.1, 1.8];
   function gripFrame(tilt, out = new THREE.Matrix4()) {
+    tilt = clamp(tilt, TILT[0], TILT[1]);
     const { r, delta } = wallAt(GRIP.hc);
     const s = Math.sin(delta), c = Math.cos(delta);
     const n = new V3(0, -s, c), up = new V3(0, c, s), side = new V3(1, 0, 0);
@@ -853,6 +885,7 @@
    * Deterministic; cached per tilt. `thumbOpp` caps the opposition search (default GRIP.opp[1]).
    */
   function gripPose(tilt = GRIP.tilt, { wrist = GRIP.wrist, thumbOpp = GRIP.opp[1] } = {}) {
+    tilt = clamp(tilt, TILT[0], TILT[1]);
     const key = tilt.toFixed(4) + '|' + thumbOpp.toFixed(3);
     if (!GRIP_CACHE.has(key)) GRIP_CACHE.set(key, fitGrip(tilt, thumbOpp));
     const g = GRIP_CACHE.get(key);
@@ -932,8 +965,8 @@
   // ─── Create ───────────────────────────────────────────────────────────────────
   function create({ side = 'right', forearm = DIMS.forearm } = {}) {
     const M = materials();
-    const GLOW = { rbGlowOn: { value: 0 }, rbGlowPos: { value: new V3() }, rbGlowColor: { value: new THREE.Color() }, rbGlowRange: { value: 2 } };
-    addGlow(M, GLOW);
+    const GLOW = { rbGlowPos: { value: new V3() }, rbGlowColor: { value: new THREE.Color() }, rbGlowRange: { value: 2 } }, glow = { on: false };
+    addGlow(M, GLOW, glow);
     const sk = skeleton();
     sk.mirror.scale.x = side === 'left' ? -1 : 1;
     wristMeshes(M, sk, forearm);
@@ -943,6 +976,20 @@
     const group = sk.group;
 
     gripPose(GRIP.tilt); // fit (and cache) the default grip here, in init, not in a draw
+    // Compile the palm-glow shader variant now (under the standard RB.stage() lighting), so the
+    // first frame that lights the ember doesn't pay a ~0.3 s shader compile inside a draw.
+    const st = RB.stage();
+    st.scene.add(group); glow.on = true;
+    for (const m of Object.values(M)) m.needsUpdate = true;
+    try {
+      // compile, then one scissored 2×2 draw so the software rasteriser JITs its routines too
+      const r = RB.gl.renderer();
+      RB.setCam(st.camera, { pos: [0, -0.3, 3], look: [0, -0.4, 0], fov: 30 });
+      r.compile(st.scene, st.camera);
+      r.setScissorTest(true); r.setScissor(0, 0, 2, 2); r.render(st.scene, st.camera); r.setScissorTest(false);
+    } catch (e) { /* it compiles on first use instead */ }
+    st.scene.remove(group); glow.on = false;
+    for (const m of Object.values(M)) m.needsUpdate = true;
     let triangles = 0;
     group.traverse((o) => { if (o.isMesh) triangles += o.geometry.index.count / 3; });
 
@@ -1003,7 +1050,7 @@
      */
     function setGlow(g) {
       const on = !!g && (g.intensity || 0) > 0;
-      GLOW.rbGlowOn.value = on ? 1 : 0;
+      if (on !== glow.on) { glow.on = on; for (const m of Object.values(M)) m.needsUpdate = true; } // swaps cached programs
       if (!on) return api;
       const at = g.at ? (g.at.isVector3 ? g.at : new V3(...g.at)) : palmPoint().addScaledVector(palmNormal(), 0.03);
       GLOW.rbGlowPos.value.copy(at);

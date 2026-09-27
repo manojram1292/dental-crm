@@ -82,7 +82,7 @@
       } else if (T < 21.5) {
         // ── cup grip test: the rim pinch — fingers down the outside, thumb over the rim inside
         cup.group.visible = true; shadow.visible = true;
-        const around = 0.55;
+        const around = 0.8;
         if (T < 16.75) {
           hA.setPose(P().cupGrip).graspCup(cup.group, { around });
           cam = RB.shots.cupMake;

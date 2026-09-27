@@ -12,20 +12,26 @@
  *          scan shimmer in the score). Where it passes, the copper opens along a
  *          glowing section line and lets go of its surface as a fine point cloud
  *          (RB.cupPoints) of warm, key-lit dust; ivory contour rings of the lathe
- *          profile draw on around it, each from the front, both ways round.
+ *          profile draw on around it, each from the front, both ways round. Each mote
+ *          keeps the hammered facet it came from, so the copper's highlight survives in
+ *          the dust as a scatter of glints: the hand-raised surface is seen, not stated.
  *   5.00–5.95  The camera floats off the hero framing, rising a little and easing the
  *          cup right of centre, clear of the story column before the line lands.
  *   5.150  Kicker "01 ── UNDERSTAND".  5.350 → 6.950  "See the work as it is."
- *   5.40–7.05  The cloud turns ~30° on its axis while the camera drifts in (together a
- *          ~35° orbit around the form); the cloud breathes out as the scan lands (5.625).
+ *   5.40–7.05  The cloud turns ~33° on its axis while the camera drifts in (together a
+ *          ~35° orbit around the form); the glints travel over the hammer marks as it
+ *          turns, and the cloud breathes out as the scan lands (5.625).
  *          A macro depth of field keeps the near wall crisp and softens the far one.
- *   5.6 / 5.9 / 6.2  Three observations draw on with leader lines, one data tick each in
+ *   5.6 / 5.9 / 6.2  Three observations draw on (a touch quicker than the kit's default, so the
+ *          last one holds long enough to read) with leader lines, one data tick each in
  *          the score: FORM · HAND-RAISED, MATERIAL · COPPER, USE · SHARED BY MANY. Each is
  *          anchored on a contour ring, and that ring and its dust catch the light on the tick.
+ *   6.72–7.467  One decisive move: the camera leans off the study framing just before the
+ *          beat and glides and pushes in to cupMake, landing with zero velocity on f224
+ *          (peak ≈35 px/frame, so the re-forming copper reads instead of smearing).
  *   6.875  (beat) The notes let go (6.86–6.94) and the points are drawn back onto the skin.
- *   6.90–7.467  One decisive move: the camera glides and pushes in to cupMake. The labels
- *          fade where they were made; the line lifts out and has cleared by 7.22, before
- *          the cup arrives in its column.
+ *          The labels fade where they were made; the line lifts out, drifting a little with
+ *          the move, and has cleared by 7.17, before the cup arrives in its column.
  *   7.065–7.43  The scan runs back up (the reverse swell): the cloud is absorbed and the
  *          copper re-forms behind a warm section line, landing solid for the downbeat 7.5.
  *
@@ -83,8 +89,8 @@
   ];
   const NOTE_QUICK = 1.6;                   // the notes' draw-on runs this much quicker than the kit's default
   const NOTE_OFF = 0.74;                    // the label column, in world units right of the cup's axis
-  const TYPE_PARALLAX = 0.22;               // how much of the final glide the exiting type drifts with
-  const TYPE_GONE = 7.22;                   // the type has cleared before the cup reaches its column
+  const TYPE_PARALLAX = 0.3;                // how much of the final glide the exiting type drifts with
+  const TYPE_GONE = 7.17;                   // the type has cleared before the cup reaches its column
   const TYPE_BOX = { x: 0, y: 440, w: 1000, h: 170 }; // covers the kicker and the line's mask band
   const CUP_MID = 0.45;                     // the cup's visual centre height
   const MOUTH = [0, 0.93, 0], RIM_R = 0.607, RIM_Y = 0.908; // as S1 uses them for its inner glow

@@ -179,6 +179,14 @@
         }
       }
       g.computeVertexNormals();
+      // Weld the φ=0 / φ=2π seam normals, or a hairline shows where the lathe closes
+      // (it faces the camera at rotation 0). Idempotent, so scenes that weld too are unaffected.
+      const nrm = g.attributes.normal, n = pts.length;
+      for (let j = 0; j < n; j++) {
+        const a = j, b = segments * n + j;
+        const v = new THREE.Vector3(nrm.getX(a) + nrm.getX(b), nrm.getY(a) + nrm.getY(b), nrm.getZ(a) + nrm.getZ(b)).normalize();
+        nrm.setXYZ(a, v.x, v.y, v.z); nrm.setXYZ(b, v.x, v.y, v.z);
+      }
       return g;
     };
     const group = new THREE.Group();
