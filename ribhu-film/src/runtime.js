@@ -61,7 +61,7 @@
     document.body.classList.add('render');
     window.__reel = {
       ready,
-      info: () => ({ W: R.W, H: R.H, FPS: R.FPS, DURATION: R.DURATION, FRAMES: R.FRAMES, scale: R.scale, scenes: R.scenes.map((s) => ({ id: s.id, index: s.index, label: s.label, start: s.start, end: s.end })) }),
+      info: () => ({ W: R.W, H: R.H, FPS: R.FPS, DURATION: R.DURATION, FRAMES: R.FRAMES, scale: R.scale, scenes: R.scenes.map((s) => ({ id: s.id, index: s.index, label: s.label, start: s.start, end: s.end, filmStart: R.filmTime(s.start), filmEnd: R.filmTime(s.end) })) }),
       errors: () => R.errors.splice(0),
       frame(f, { mb = 1, shutter = 0.5, type = 'image/png', quality } = {}) {
         drawFrameMB(f, mb, shutter);
@@ -81,9 +81,9 @@
           const x = pad + (i % cols) * (cellW + pad), y = pad + Math.floor(i / cols) * (cellH + lab + pad);
           g.drawImage(canvas, x, y + lab, cellW, cellH);
           if (label) {
-            const s = R.sceneAt(T);
+            const s = R.sceneAt(R.storyTime(T));
             g.fillStyle = '#ddd'; g.font = "600 15px 'JetBrains Mono'"; g.textBaseline = 'middle';
-            g.fillText(`${T.toFixed(3)}s  f${Math.floor(T * R.FPS + 1e-6)}  ${s ? s.id + ' t=' + (T - s.start).toFixed(3) : ''}`, x + 2, y + lab / 2);
+            g.fillText(`${T.toFixed(3)}s  f${Math.floor(T * R.FPS + 1e-6)}  ${s ? s.id + ' story=' + R.storyTime(T).toFixed(2) : ''}`, x + 2, y + lab / 2);
           }
         });
         return c.toDataURL('image/png');
@@ -202,10 +202,10 @@
     for (const s of R.scenes) {
       const m = document.createElement('button');
       m.className = 'mark';
-      m.style.left = `${(s.start / R.DURATION) * 100}%`;
+      m.style.left = `${(R.filmTime(s.start) / R.DURATION) * 100}%`;
       m.title = `${String(s.index).padStart(2, '0')} — ${s.label}`;
       m.textContent = String(s.index).padStart(2, '0');
-      m.addEventListener('click', () => seek(s.start));
+      m.addEventListener('click', () => seek(R.filmTime(s.start)));
       ui.marks.appendChild(m);
     }
     document.body.classList.add('ready');
@@ -225,7 +225,7 @@
     if (e.code === 'Space') { e.preventDefault(); setPlaying(!playing); }
     else if (e.code === 'ArrowRight') { seek(T + (e.shiftKey ? 1 : 1 / R.FPS)); }
     else if (e.code === 'ArrowLeft') { seek(T - (e.shiftKey ? 1 : 1 / R.FPS)); }
-    else if (/^Digit[1-9]$/.test(e.code)) { const s = R.scenes[+e.code.slice(5) - 1]; if (s) seek(s.start); }
+    else if (/^Digit[1-9]$/.test(e.code)) { const s = R.scenes[+e.code.slice(5) - 1]; if (s) seek(R.filmTime(s.start)); }
     else if (e.code === 'KeyM') ui.mute.click();
     else if (e.code === 'KeyH') R.showHud = !R.showHud;
   });

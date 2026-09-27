@@ -16,8 +16,26 @@
 (function () {
   'use strict';
 
-  const W = 1920, H = 1080, FPS = 30, DURATION = 30, BPM = 96, BEAT = 60 / BPM; // one bar = 2.5 s
+  // Scenes are authored on the STORY timeline (30 s at 96 BPM; one bar = 2.5 s).
+  // The FILM plays that story slower (39 s at 80 BPM), with the Renew hand-off in deeper
+  // slow motion. TIMEMAP maps film seconds → story seconds, piecewise-linear. Render tools,
+  // the player and audio all run on film time.
+  const W = 1920, H = 1080, FPS = 30, BPM = 96, BEAT = 60 / BPM;
+  const STORY_DURATION = 30, FILM_BPM = 80;
+  const TIMEMAP = [[0, 0], [21, 17.5], [30, 22.5], [39, 30]];
+  const DURATION = TIMEMAP[TIMEMAP.length - 1][0];
   const FRAMES = FPS * DURATION;
+  function mapTime(x, from, to) {
+    for (let i = 1; i < TIMEMAP.length; i++) {
+      const a = TIMEMAP[i - 1], b = TIMEMAP[i];
+      if (x <= b[from] || i === TIMEMAP.length - 1) return a[to] + (b[to] - a[to]) * (x - a[from]) / (b[from] - a[from]);
+    }
+    return x;
+  }
+  /** Film seconds → story seconds. */
+  const storyTime = (F) => mapTime(F, 0, 1);
+  /** Story seconds → film seconds. */
+  const filmTime = (T) => mapTime(T, 1, 0);
 
   // ─── Palette & type ─────────────────────────────────────────────────────────
   const PAL = {
@@ -465,7 +483,7 @@
   /** A chapter (HUD index) may span several scene files, e.g. the two montage halves. */
   const chapterCount = () => scenes.reduce((m, s) => Math.max(m, s.index || 0), 0);
   const chapterStarts = () => scenes.filter((s, i) => i === 0 || scenes[i - 1].index !== s.index);
-  const sceneAt = (T) => scenes.find((s) => T >= s.start && T < s.end) || (T >= DURATION ? scenes[scenes.length - 1] : null);
+  const sceneAt = (T) => scenes.find((s) => T >= s.start && T < s.end) || (T >= STORY_DURATION ? scenes[scenes.length - 1] : null);
 
   function resetCtx(ctx) {
     const s = REEL.scale;
@@ -476,15 +494,19 @@
   }
 
   /** Draw scene content + HUD for absolute time T (no grain/vignette). */
-  function renderContent(ctx, T) {
-    T = clamp(T, 0, DURATION - 1e-6);
+  /** Draw the frame at FILM time F (seconds). Scenes receive story time plus film time. */
+  function renderContent(ctx, F) {
+    F = clamp(F, 0, DURATION - 1e-6);
+    const T = storyTime(F);
     resetCtx(ctx);
     ctx.fillStyle = PAL.graphite; ctx.fillRect(0, 0, W, H);
     const s = sceneAt(T);
     let railOpts = null;
     if (s) {
       const t = T - s.start;
-      const env = { T, t, dur: s.end - s.start, p: (T - s.start) / (s.end - s.start), W, H, scene: s, scale: REEL.scale };
+      const f0 = filmTime(s.start), f1 = filmTime(s.end);
+      // T/t/dur/p: story time (existing scenes). F/tf/fdur: film time (for scenes authored in real seconds).
+      const env = { T, t, dur: s.end - s.start, p: (T - s.start) / (s.end - s.start), F, tf: F - f0, fdur: f1 - f0, W, H, scene: s, scale: REEL.scale };
       ctx.save();
       try { s.draw(ctx, t, env); } catch (e) { REEL.errors.push(`${s.id}@${T.toFixed(3)}: ${e && e.stack || e}`); }
       ctx.restore();
@@ -505,27 +527,27 @@
   function drawRail(ctx, T, o) {
     const alpha = clamp(o.alpha == null ? 1 : o.alpha);
     if (alpha <= 0.001) return;
-    const x0 = 96, y = H - 70, step = 190;
+    const x0 = 96, y = H - 74, step = 250;
     ctx.save();
     ctx.textBaseline = 'middle';
-    ctx.letterSpacing = '2.2px';
-    ctx.globalAlpha = alpha * 0.22;
+    ctx.letterSpacing = '3px';
+    ctx.globalAlpha = alpha * 0.25;
     ctx.fillStyle = PAL.ivory;
-    ctx.fillRect(x0, y + 20, step * 3 - 30, 1);
+    ctx.fillRect(x0, y + 24, step * 3 - 40, 1);
     RAIL.forEach(([n, label], i) => {
       const on = o.active === i + 1;
       const x = x0 + i * step;
-      ctx.globalAlpha = alpha * (on ? 1 : 0.38);
-      ctx.font = font(12, 'mono', 700);
+      ctx.globalAlpha = alpha * (on ? 1 : 0.45);
+      ctx.font = font(17, 'mono', 700);
       ctx.fillStyle = on ? PAL.ember : PAL.ivory;
       ctx.fillText(n, x, y);
-      ctx.font = font(12, 'mono', 400);
+      ctx.font = font(17, 'mono', 400);
       ctx.fillStyle = PAL.ivory;
-      ctx.fillText(label, x + 30, y);
+      ctx.fillText(label, x + 40, y);
       if (on) {
         ctx.globalAlpha = alpha;
         ctx.fillStyle = PAL.copperHot;
-        ctx.fillRect(x, y + 19, (step - 30) * clamp(o.progress == null ? 1 : o.progress), 3);
+        ctx.fillRect(x, y + 23, (step - 40) * clamp(o.progress == null ? 1 : o.progress), 3);
       }
     });
     ctx.restore();
@@ -549,11 +571,12 @@
     vignette = null;
   }
   /** Scene-controlled post settings at time T: { bloom, vignette, grain }. */
-  function postOpts(T) {
+  function postOpts(F) {
     const o = { bloom: 0.35, vignette: 0.42, grain: REEL.grain };
-    const s = sceneAt(clamp(T, 0, DURATION - 1e-6));
+    const T = storyTime(clamp(F, 0, DURATION - 1e-6));
+    const s = sceneAt(T);
     if (s && s.post) {
-      try { Object.assign(o, s.post(T - s.start, { T, t: T - s.start, dur: s.end - s.start, W, H, scene: s }) || {}); }
+      try { Object.assign(o, s.post(T - s.start, { T, t: T - s.start, dur: s.end - s.start, F, tf: F - filmTime(s.start), W, H, scene: s }) || {}); }
       catch (e) { REEL.errors.push(`${s.id}.post: ${e}`); }
     }
     return o;
@@ -621,7 +644,7 @@
   }
 
   const REEL = {
-    W, H, FPS, DURATION, FRAMES, BPM, BEAT, TAU, PAL, FAMILY,
+    W, H, FPS, DURATION, FRAMES, BPM, BEAT, TAU, PAL, FAMILY, STORY_DURATION, FILM_BPM, TIMEMAP, storyTime, filmTime,
     scale: 1, grain: 0.16, showHud: true, errors: [],
     /** Sub-pixel camera jitter [x, y] in backing px, set per motion-blur sub-sample by the runtime. */
     jitter: [0, 0], live: false,

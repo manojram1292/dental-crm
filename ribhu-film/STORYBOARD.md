@@ -1,5 +1,28 @@
 # RIBHU LABS — "ONE CUP, MADE FOUR" · Director's storyboard
 
+> ## REVISION 2 (owner feedback). This section overrides anything below it.
+> 1. **Slower film: 39 s at 80 BPM** (it was 30 s at 96 BPM). Scenes are still
+>    authored on the 30 s **story** timeline below. The engine maps film time
+>    to story time with `REEL.TIMEMAP` `[[0,0],[21,17.5],[30,22.5],[39,30]]`, so:
+>    - S1–S5 and S7 play 1.2× slower, with no code change;
+>    - Renew (story 17.5–22.5) now fills **film 21.0–30.0 (9 s)**.
+>
+>    `env.T`/`env.t` are story time; `env.F`/`env.tf`/`env.fdur` are film time.
+>    Preview tools take **film** seconds (`--from/--to/--times`). The beat grid
+>    is uniform in film time: one beat every **0.75 s**, one bar every **3.0 s**.
+> 2. **Renew is rebuilt** in film time (see the new S6 section): a
+>    **slender, elegant robot arm**, a **realistic 3D human hand** (no line
+>    drawing), and the seed/ember crossing between them **in slow motion**.
+> 3. **Small text must be readable on a phone** (1080p viewed at about a third
+>    of its size):
+>    - mono labels, kickers and annotations ≥ 20 px (the kit defaults are now 20);
+>    - the chapter rail is 17 px;
+>    - the URL is ≥ 30 px;
+>    - story lines are ≥ 52 px.
+> 4. **Film frame numbers.** 1170 frames at 30 fps. The scene boundaries in film
+>    time are: S1 0–6, S2 6–9, S3 9–12, S4 12–18, S5 18–21, S6 21–30, S7 30–39.
+
+
 A 30-second brand film for Ribhu Labs (ribhulabs.ai). Every frame and every
 sound is generated from code. It's text on screen, not voiceover, with a
 composed and sound-designed score. It has to feel like a premium studio brand
@@ -252,29 +275,49 @@ into it. Inside or above each cup, a small, elegant world plays out, a mix of
   intensity 1) on `RB.atmos.backdrop({ gx: 960, gy: 540, gr: 900, lift: 0.7 })`.
   No cups visible.
 
-### S6 · 03 RENEW · 17.5–22.5 · `s6-renew.js`
-Renew the people, not just the tools.
-- **Contract in:** S5's out frame (the ember alone at 960, 500).
-- **17.5–18.4.** The robotic hand rises into the light *under* the ember,
-  palm up, so the ember rests in its palm (the hand was always there, and
-  now we see it).
-- **Kicker** `03 · RENEW` at 17.7. **Line** `Renew the people,\nnot just
-  the tools.` (tIn 18.0, tOut 21.8), left column.
-- **18.4–19.4.** From the left, a **human hand draws itself** in one
-  continuous ivory line, like a maker's sketch: open, palm up, reaching.
-  It's drawn, not rendered. The contrast is deliberate: the person is the
-  craft.
-- **19.4–20.3.** The robotic hand tilts, and the ember rolls from the metal
-  palm into the drawn hand. The hit is at **20.0 (beat)**. On contact, the
-  line drawing fills with warm light from the palm outward: the person is
-  now carrying the flame. The robotic hand withdraws slowly (it's a
-  hand-off, not a takeover).
-- **21.25–22.5.** The ember lifts from the drawn palm and rises. The drawing
-  fades to a faint glow. The ember arrives at `RB.shots.riseSpark`
-  (960, 430) at 22.5, still rising.
-- **Rail:** active 3, progress = (T−17.5)/5. The rail fades out 22.0–22.5.
-- **Contract out:** the ember at riseSpark (r=12, intensity 1) on the dark
-  backdrop, rising (velocity ≈ −120 px/s). Nothing else.
+### S6 · 03 RENEW · film 21.0–30.0 (9 s) · `s6-renew.js` (REVISION 2)
+*Renew the people, not just the tools.* Authored in **film-local time
+`env.tf` ∈ [0, 9)**. Beats fall every 0.75 s (tf = 0, 0.75, 1.5 …), and bars at
+tf 0 / 3 / 6. It's slow, tender and cinematic, with the feel of a high-speed
+camera.
+- **Contract in (tf 0):** only the ember at `RB.shots.palmSpark` (960, 500),
+  r = 13, on `RB.atmos.backdrop({ gx: 960, gy: 540, gr: 900, lift: 0.7 })`,
+  exactly S5's last frame.
+- **tf 0–1.5.** The **slender robot arm** (`RB.hand`, redesigned to be slim
+  and elegant) is revealed in the light *under* the ember, reaching in from the
+  upper right. The ember rests at its fingertips/palm.
+- **tf 0.5–3.0.** From the lower left, a **realistic human hand** reaches
+  slowly up toward it, open and palm up. The two hands reach toward each other
+  across a small gap, a quiet echo of Michelangelo's *Creation of Adam* without
+  copying its poses. The hand is a real 3D hand: `assets/left.glb` /
+  `assets/right.glb`, the MIT-licensed WebXR generic hand (a skinned mesh with
+  25 joints you can pose), loaded with `THREE_ADDONS.GLTFLoader`. Make it read
+  as a *real* human hand:
+  - subdivide or smooth the low-poly mesh (for example, skin it on the CPU into
+    a static geometry and Loop-subdivide it, or at least use smooth normals and
+    keep silhouettes soft);
+  - realistic skin: warm, slightly desaturated, with subsurface-style
+    translucency, sheen and fine roughness variation;
+  - a natural relaxed pose with slightly curled fingers;
+  - low-key cinematic lighting: warm rim, a soft key, deep shadow. Never
+    plastic or mannequin-like.
+- **Kicker** `03 · RENEW` at tf 0.4. **Line** `Renew the people,\nnot just
+  the tools.`, left column, tIn tf 1.2, tOut tf 7.4. Pass `env.F` and film
+  times to `RB.type.*`.
+- **tf 3.0–6.0 (slow motion).** The robot fingers tilt, and the ember (a
+  glowing seed of light) lifts off the metal and drifts across the gap in
+  slow motion, trailing fine sparks. Its warm light plays over both hands.
+- **tf 6.0 (downbeat).** The seed touches the human palm. The skin glows warm
+  from within, with light bleeding through the fingers, and the fingers close
+  gently around it. The robot arm withdraws slowly: a hand-off, not a
+  takeover.
+- **tf 7.5–9.0.** The ember lifts out of the human hand and rises. The hands
+  sink into darkness by about tf 8.6. The rail fades out from tf 8.4 to 9.0.
+- **Rail:** active 3, progress = tf / 9.
+- **Contract out (tf → 9, frame 899 → S7 frame 900):** only the ember at
+  `RB.shots.riseSpark` (960, 430), r = 12, intensity 1, rising at about
+  **−100 px per film second** (S7 expects −120 px per story second, and S7
+  plays 1.2× slower), on the dark backdrop. No hands, no text.
 
 ### S7 · THE MARK · 22.5–30.0 · `s7-mark.js`
 Darkness to light. The three makers become the mark.

@@ -394,28 +394,28 @@
    * Chapter kicker: "01 ── UNDERSTAND". Index in ember, a copper rule that draws on,
    * the label typing on. spec: { index, label, x, y, tIn, tOut }
    */
-  function kicker(ctx, T, { index, label, x, y, tIn, tOut, align = 'left' }) {
+  function kicker(ctx, T, { index, label, x, y, tIn, tOut, align = 'left', size = 20 }) {
     if (T < tIn || (tOut != null && T > tOut + 0.5)) return;
     const pOut = tOut == null ? 0 : E.inCubic(seg(T, tOut, tOut + 0.4));
     const a = (1 - pOut) * clamp(seg(T, tIn, tIn + 0.15));
     ctx.save();
-    ctx.font = font(14, 'mono', 700);
-    ctx.letterSpacing = '3px';
+    ctx.font = font(size, 'mono', 700);
+    ctx.letterSpacing = `${(size * 0.2).toFixed(1)}px`;
     ctx.textBaseline = 'middle';
     const idxW = ctx.measureText(index).width;
-    ctx.font = font(14, 'mono', 400);
+    ctx.font = font(size, 'mono', 400);
     const labW = ctx.measureText(label).width;
-    const rule = 34, gap = 14;
+    const rule = size * 2.3, gap = size * 0.9;
     const total = idxW + gap + rule + gap + labW;
     let x0 = align === 'center' ? x - total / 2 : x;
     ctx.globalAlpha = a;
-    ctx.font = font(14, 'mono', 700); ctx.fillStyle = PAL.ember;
+    ctx.font = font(size, 'mono', 700); ctx.fillStyle = PAL.ember;
     ctx.fillText(index, x0, y);
     const pr = E.outExpo(seg(T, tIn + 0.08, tIn + 0.6));
     ctx.fillStyle = PAL.copperHot;
-    ctx.fillRect(x0 + idxW + gap, y - 0.75, rule * pr, 1.5);
+    ctx.fillRect(x0 + idxW + gap, y - 1, rule * pr, 2);
     const n = Math.floor(label.length * clamp(seg(T, tIn + 0.2, tIn + 0.2 + label.length * 0.028)));
-    ctx.font = font(14, 'mono', 400); ctx.fillStyle = PAL.ivory; ctx.globalAlpha = a * 0.78;
+    ctx.font = font(size, 'mono', 400); ctx.fillStyle = PAL.ivory; ctx.globalAlpha = a * 0.78;
     ctx.fillText(label.slice(0, n), x0 + idxW + gap + rule + gap, y);
     ctx.restore();
   }
@@ -424,22 +424,22 @@
    * Annotation label with a leader line from an anchor point: small mono caps.
    * spec: { text, x, y (label pos), ax, ay (anchor), tIn, tOut, align }
    */
-  function annotation(ctx, T, { text, x, y, ax, ay, tIn, tOut, align = 'left', color = PAL.ivory }) {
+  function annotation(ctx, T, { text, x, y, ax, ay, tIn, tOut, align = 'left', color = PAL.ivory, size = 20 }) {
     if (T < tIn || (tOut != null && T > tOut + 0.4)) return;
     const pOut = tOut == null ? 0 : E.inCubic(seg(T, tOut, tOut + 0.3));
     const pl = E.outExpo(seg(T, tIn, tIn + 0.45));
     ctx.save();
     ctx.globalAlpha = 1 - pOut;
     if (ax != null) {
-      ctx.strokeStyle = R.rgba(PAL.ivory, 0.45); ctx.lineWidth = 1;
+      ctx.strokeStyle = R.rgba(PAL.ivory, 0.55); ctx.lineWidth = 1.5;
       ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(lerp(ax, x, pl), lerp(ay, y, pl)); ctx.stroke();
-      R.fillCircle(ctx, ax, ay, 3 * pl, PAL.ember);
+      R.fillCircle(ctx, ax, ay, 4 * pl, PAL.ember);
     }
-    ctx.font = font(12, 'mono', 500); ctx.letterSpacing = '2.2px'; ctx.textBaseline = 'middle';
+    ctx.font = font(size, 'mono', 500); ctx.letterSpacing = `${(size * 0.16).toFixed(1)}px`; ctx.textBaseline = 'middle';
     ctx.textAlign = align; ctx.fillStyle = color;
     const n = Math.floor(text.length * clamp(seg(T, tIn + 0.15, tIn + 0.15 + text.length * 0.022)));
-    ctx.globalAlpha = (1 - pOut) * 0.85;
-    ctx.fillText(text.slice(0, n), x + (align === 'left' ? 8 : align === 'right' ? -8 : 0), y);
+    ctx.globalAlpha = (1 - pOut) * 0.92;
+    ctx.fillText(text.slice(0, n), x + (align === 'left' ? 10 : align === 'right' ? -10 : 0), y);
     ctx.restore();
   }
 

@@ -4,5 +4,6 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
 import { mergeGeometries, mergeVertices } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 window.THREE = THREE;
-window.THREE_ADDONS = { RoomEnvironment, RoundedBoxGeometry, mergeGeometries, mergeVertices, SVGLoader };
+window.THREE_ADDONS = { RoomEnvironment, RoundedBoxGeometry, mergeGeometries, mergeVertices, SVGLoader, GLTFLoader };
