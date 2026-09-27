@@ -42,8 +42,8 @@
       const d = ctx.getImageData(0, 0, w, h).data;
       for (let k = 0; k < n; k++) acc[k] += d[k];
     }
-    const out = ctx.createImageData(w, h), o = out.data, half = mb >> 1;
-    for (let k = 0; k < n; k++) o[k] = (acc[k] + half) / mb;
+    const out = ctx.createImageData(w, h), o = out.data;
+    for (let k = 0; k < n; k++) o[k] = acc[k] / mb; // Uint8ClampedArray rounds to nearest
     ctx.putImageData(out, 0, 0);
     if (doPost) R.post(ctx, T0, f);
   }
