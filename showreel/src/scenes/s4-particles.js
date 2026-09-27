@@ -38,7 +38,7 @@
     ramp: 0.42 };                                        // house-ramp direction across the word (rad)
   const BURST = {
     drag: 6.5,                                           // 1/s; a shell coasts to reach = v0 / drag
-    stretch: [1.22, 0.68],                               // widen the burst to the 16:9 stage
+    stretch: [1.22, 0.72],                               // widen the burst to the 16:9 stage
     shells: [                                            // outer → inner
       { reach: 610, share: 0.23, color: 0 },
       { reach: 500, share: 0.21, color: 1 },
@@ -57,11 +57,10 @@
       push: 0, pulse: 0.4 },                             // ring shoves the ribbons outward (px); beat brightening
     grid: { x0: -520, y0: -520, cell: 40, nx: 76, ny: 55, dt: 0.1, nt: 13 },
   };
-  // The flow lives on an elliptical stage inside the safe area. The curl field is
-  // windowed so its rim is a streamline (see buildField); the global swirl orbits
-  // on the same ellipses; a leash reels in anything the burst throws past it.
-  const STAGE = { ax: 850, ay: 405, inner: 0.62, leash: 0.97, pull: 9 };
-  const SWIRL_K = Math.sqrt(STAGE.ax / STAGE.ay);
+  // The flow lives on an elliptical stage inside the safe area: ribbons that reach
+  // its rim are turned along it (in the swirl direction) instead of leaving frame.
+  const STAGE = { ax: 860, ay: 425, soft: 0.6, hard: 1.1, turn: 0.5, pull: 3 };
+  const SWIRL_K = STAGE.ax / STAGE.ay;                   // orbits = the stage ellipses (ψ ∝ re²)
   const SIM = { dt: 1 / 240, every: 2, end: 1.1 };        // stored at 120 Hz
   const FORM = { match: 0.75, lock: 1.0, cascade: 0.012, spread: 0.012, dur: [0.26, 0.34], arc: 0.2,
     hit: 0.8, speed: 0.65,                               // hit at 80% of the move, then a small slam
@@ -134,21 +133,10 @@
       const z = s * g.dt;
       for (let j = 0; j < g.ny; j++) for (let i = 0; i < g.nx; i++) {
         const x = g.x0 + i * g.cell, y = g.y0 + j * g.cell, o = s * n + j * g.nx + i;
-        const B = FIELD.big, F = FIELD.fine;
-        const bx = x / B.scale, by = y / B.scale, bz = B.z + z * B.dz;
-        const fx = x / F.scale + 19.7, fy = y / F.scale - 7.3, fz = F.z + z * F.dz;
-        const a = noise.curl2(bx, by, bz), b = noise.curl2(fx, fy, fz);
-        // Stream function ψ of the same field (v = (∂ψ/∂y, -∂ψ/∂x)), windowed to
-        // zero on the stage rim: the rim becomes a streamline, so ribbons glide
-        // along it instead of leaving frame, and the flow stays divergence-free
-        // (nothing piles up into hot spots).
-        const psi = B.amp * B.scale * noise.n3(bx, by, bz) + F.amp * F.scale * noise.n3(fx, fy, fz);
-        const ex = (x - ORIGIN.x) / STAGE.ax, ey = (y - ORIGIN.y) / STAGE.ay, re = Math.hypot(ex, ey) || 1e-6;
-        const k = clamp((re - STAGE.inner) / (1 - STAGE.inner)), m = 1 - k * k * (3 - 2 * k);
-        const dm = k > 0 && k < 1 ? -6 * k * (1 - k) / (1 - STAGE.inner) : 0;   // dm/dre
-        const mx = dm * ex / (STAGE.ax * re), my = dm * ey / (STAGE.ay * re);   // ∇m
-        vx[o] = m * (B.amp * a[0] + F.amp * b[0]) + psi * my;
-        vy[o] = m * (B.amp * a[1] + F.amp * b[1]) - psi * mx;
+        const a = noise.curl2(x / FIELD.big.scale, y / FIELD.big.scale, FIELD.big.z + z * FIELD.big.dz);
+        const b = noise.curl2(x / FIELD.fine.scale + 19.7, y / FIELD.fine.scale - 7.3, FIELD.fine.z + z * FIELD.fine.dz);
+        vx[o] = FIELD.big.amp * a[0] + FIELD.fine.amp * b[0];
+        vy[o] = FIELD.big.amp * a[1] + FIELD.fine.amp * b[1];
       }
     }
     const out = [0, 0];
@@ -169,13 +157,19 @@
     };
   }
 
-  /** Reels in anything the burst threw past the stage rim (the field itself never crosses it). */
+  /** Soft stage wall: bends outward motion along the rim and reels in strays. */
   function contain(x, y, out) {
     const ex = (x - ORIGIN.x) / STAGE.ax, ey = (y - ORIGIN.y) / STAGE.ay, re = Math.hypot(ex, ey);
-    if (re <= STAGE.leash) return;
+    if (re <= STAGE.soft) return;
     let nx = ex / STAGE.ax, ny = ey / STAGE.ay;
-    const nl = Math.hypot(nx, ny), k = STAGE.pull * (re - STAGE.leash) * STAGE.ay;
-    out[0] -= k * nx / nl; out[1] -= k * ny / nl;
+    const nl = Math.hypot(nx, ny); nx /= nl; ny /= nl;
+    const f = smoothstep(STAGE.soft, STAGE.hard, re), vn = out[0] * nx + out[1] * ny;
+    if (vn > 0) {
+      // (-ny, nx) is the swirl's own direction, so rim currents never meet head-on
+      out[0] += f * vn * (-STAGE.turn * ny - nx);
+      out[1] += f * vn * (STAGE.turn * nx - ny);
+    }
+    if (re > 1) { const k = STAGE.pull * (re - 1) * STAGE.ay; out[0] -= k * nx; out[1] -= k * ny; }
   }
 
   /** The 6.5 pressure ring at (x, y): 0..1 band strength, plus its outward unit normal. */
@@ -595,7 +589,7 @@
     for (const [lagK, gain] of [[0, 1], [0.1, 0.4]]) {
       const q = pk - lagK;
       if (q < 0) continue;
-      const r = lerp(G.r0, G.r1, E.outExpo(q)), fade = Math.pow(1 - q, 4);
+      const e = E.outExpo(q), r = lerp(G.r0, G.r1, e), fade = Math.pow(1 - e, 1.2);   // gone once it slows
       ctx.beginPath();
       ctx.ellipse(ORIGIN.x, ORIGIN.y, STAGE.ax * r, STAGE.ay * r, 0, 0, TAU);
       ctx.lineWidth = lerp(3.2, 0.8, q);
