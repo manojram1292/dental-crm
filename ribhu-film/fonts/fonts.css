@@ -1,0 +1,4 @@
+/* Latin subsets of Google Fonts (SIL Open Font License), vendored so renders are deterministic. */
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 300 700; font-display: block; src: url(./SpaceGrotesk.woff2) format('woff2'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 200 800; font-display: block; src: url(./Manrope.woff2) format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 100 800; font-display: block; src: url(./JetBrainsMono.woff2) format('woff2'); }
