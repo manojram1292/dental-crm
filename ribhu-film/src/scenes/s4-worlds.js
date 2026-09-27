@@ -2,12 +2,14 @@
  * S4 · FOUR KINDS OF WORK · 10.0–15.0 s (frames 300–449) · rail: 02 MAKE
  *
  * The shot. The four cups S3 made stand in a row (RB.shots.row4). The camera
- * cranes up out of that wide frame and glides along the row, a little from
- * above and a little from the left, so the row recedes to the right and we
- * look down into each cup. A shallow depth of field racks from cup to cup.
- * Each cup holds one kind of Ribhu work for two beats (1.25 s):
+ * cranes up out of that wide frame and travels the row a little from above and
+ * a little from the left, so the row recedes to the right and we look down into
+ * each cup. It glides between cups and breathes (a slow drift) on each one, so
+ * every world pays off, and its title reads, on a nearly still frame. A shallow
+ * depth of field racks from cup to cup. Each cup holds one kind of Ribhu work
+ * for two beats (1.25 s):
  *
- *   10.000  AUTOMATION         loose paper slips and message cards tumble into
+ *   10.000  AUTOMATION         loose paper slips and message cards flutter into
  *                              the cup (the paper flicks); on 10.625 they rise
  *                              back out as three sorted stacks with staggered
  *                              copper index tabs, which glint on the accented
@@ -15,28 +17,32 @@
  *   11.250  OPERATIONS         eight scattered points of light (people, teams)
  *                              are linked by copper hairlines, one per 16th-note
  *                              ping, and the ring closes on the chord at 12.344.
- *   12.500  ROBOTICS & VISION  a reticle blinks on the two focus beeps, hunts
- *                              while the lens is soft, and locks onto a small
- *                              stone on the shutter at 13.125: bounding box,
- *                              depth contours, focus snaps sharp.
- *   13.750  AGRONOMY           dark soil pours in (the crunch); a thin moisture
- *                              line draws across it; from 14.375 a seedling
- *                              rises with the sprout's glide and blooms open.
+ *   12.500  ROBOTICS & VISION  a viewfinder opens on the two focus beeps; the
+ *                              stone glides into it while the lens is soft; it
+ *                              corrects and locks onto the stone on the shutter
+ *                              at 13.125: brackets warm to ember, depth contours,
+ *                              focus snaps sharp.
+ *   13.750  AGRONOMY           dark soil pours in (the crunch) and heaps, then
+ *                              slumps level; a thin moisture line draws across
+ *                              it; from 14.375 a seedling rises with the
+ *                              sprout's glide and opens.
  *
  * As the camera moves on, each world condenses into a small ember at its cup's
- * mouth: the work becomes a light. The camera breathes on the seedling, then
- * from 14.46 makes one decisive pull back, feathered into RB.shots.row4Wide by
- * 14.93: the row holds four lights, which S5 joins into one.
+ * mouth: the work becomes a light. The seedling's cup is framed from the right,
+ * with the rest of the row receding behind it; as the seedling rises the camera
+ * backs away along its line of sight, then swings across to the row's centre and
+ * feathers into RB.shots.row4Wide at frame 449, the lens holding on the seedling
+ * until it racks out to the whole row: four lights, which S5 joins into one.
  *
- * Titles are the kit's annotation voice (×1.5). Each is set once, where it reads
- * best from its cup's key camera, so the type holds still (crisp under motion
- * blur) while its leader line tracks the living world; on exit it rides along.
+ * Titles are the kit's annotation voice (×1.5), pinned to their worlds by a
+ * leader of constant length. They land as the camera settles on their cup and
+ * fade quickly as it moves on, so they are only ever read on a still frame.
  *
  * Contracts.
  *   IN  (frame 300): four cups at rowX, camera exactly RB.shots.row4, no text,
  *       nothing else in frame (cards start above the frame).
- *   OUT (frame 449): four cups at rowX, camera exactly RB.shots.row4Wide (still
- *       from 14.93), RB.fx.ember(r = 26/6, intensity 0.5) at each mouth centre
+ *   OUT (frame 449): four cups at rowX, camera exactly RB.shots.row4Wide (it lands
+ *       there with zero velocity), RB.fx.ember(r = 26/6, intensity 0.5) at each mouth centre
  *       (y = 0.9 × cup height), no labels, no world objects, no depth of field,
  *       standard backdrop. Rail: 02 active.
  */
@@ -59,10 +65,10 @@
   // Titles land as the camera arrives at their cup and leave as it moves on (keyT: the
   // settled camera the title is laid out from).
   const LABELS = [
-    { text: 'AUTOMATION', tIn: 10.56, tOut: 11.36, keyT: 10.95 },
-    { text: 'OPERATIONS', tIn: 11.66, tOut: 12.5, keyT: 12.1 },
-    { text: 'ROBOTICS & VISION', tIn: 12.68, tOut: 13.56, keyT: 13.12 },
-    { text: 'AGRONOMY', tIn: 13.78, tOut: 14.5, keyT: 14.12 },
+    { text: 'AUTOMATION', tIn: 10.6, tOut: 11.38, keyT: 10.95 },
+    { text: 'OPERATIONS', tIn: 11.7, tOut: 12.44, keyT: 12.1 },
+    { text: 'ROBOTICS & VISION', tIn: 12.74, tOut: 13.58, keyT: 13.12 },
+    { text: 'AGRONOMY', tIn: 13.84, tOut: 14.28, keyT: 14.12 },
   ];
 
   // Inner lathe profile of the cup (mirrors RB.cup) — used to fit the soil to the wall.
@@ -103,19 +109,21 @@
   const HOLD = (o = {}) => ({ lx: DRIFT, ...o });
   const CAM_KEYS = [
     [B(0), shotToParams(RB.shots.row4)],
-    [10.86, { lx: -2.2, ly: 0.9, lz: 0, yaw: -0.2, elev: 0.54, dist: 4.3, fov: 30 }, HOLD()],
-    [11.3, { lx: -2.11, ly: 0.9, lz: 0, yaw: -0.19, elev: 0.55, dist: 4.3, fov: 30 }, HOLD()],
-    [11.95, { lx: -0.8, ly: 0.88, lz: 0, yaw: -0.17, elev: 0.6, dist: 4.25, fov: 30 }, HOLD()],
-    [12.45, { lx: -0.7, ly: 0.88, lz: 0, yaw: -0.16, elev: 0.61, dist: 4.25, fov: 30 }, HOLD()],
-    [13.02, { lx: 0.6, ly: 0.64, lz: 0, yaw: -0.14, elev: 0.84, dist: 3.9, fov: 30 }, HOLD()],
-    [13.5, { lx: 0.7, ly: 0.65, lz: 0, yaw: -0.13, elev: 0.83, dist: 3.9, fov: 30 }, HOLD()],
-    [14.02, { lx: 1.99, ly: 0.86, lz: 0, yaw: -0.12, elev: 0.6, dist: 4.2, fov: 30 }, HOLD({ lx: 0.08 })],
-    [14.3, { lx: 2.02, ly: 0.9, lz: 0, yaw: -0.11, elev: 0.6, dist: 4.12, fov: 30 }, { lx: 0, ly: 0, lz: 0, yaw: 0, elev: 0, dist: 0, fov: 0 }],
+    [10.84, { lx: -2.2, ly: 0.9, lz: 0, yaw: -0.2, elev: 0.54, dist: 4.3, fov: 30 }, HOLD()],
+    [11.4, { lx: -2.09, ly: 0.9, lz: 0, yaw: -0.19, elev: 0.55, dist: 4.3, fov: 30 }, HOLD()],
+    [11.96, { lx: -0.8, ly: 0.88, lz: 0, yaw: -0.17, elev: 0.6, dist: 4.25, fov: 30 }, HOLD()],
+    [12.46, { lx: -0.7, ly: 0.88, lz: 0, yaw: -0.16, elev: 0.61, dist: 4.25, fov: 30 }, HOLD()],
+    [13.04, { lx: 0.6, ly: 0.64, lz: 0, yaw: -0.14, elev: 0.84, dist: 3.9, fov: 30 }, HOLD()],
+    [13.58, { lx: 0.71, ly: 0.65, lz: 0, yaw: -0.13, elev: 0.83, dist: 3.9, fov: 30 }, HOLD()],
+    [14.08, { lx: 1.7, ly: 0.86, lz: 0, yaw: 0.2, elev: 0.6, dist: 4.5, fov: 30 }, HOLD({ lx: 0.1 })],
+    [14.2, { lx: 1.71, ly: 0.87, lz: 0, yaw: 0.2, elev: 0.6, dist: 4.46, fov: 30 }, { lx: 0, ly: 0, lz: 0, yaw: 0, elev: 0, dist: 0, fov: 0 }],
     [LAND, shotToParams(RB.shots.row4Wide)],
   ];
-  // The last move is the reveal: the camera lifts with the rising seedling, then pulls
-  // back in one long feathered move that lands exactly on the contract shot at frame 449.
-  const PULL_EASE = E.bezier(0.42, 0, 0.1, 1);
+  // The last move is the reveal. The seedling's cup is framed from the right, so the rest
+  // of the row already recedes behind it; the camera backs away along its line of sight
+  // (log distance: an even zoom rate) and swings across a beat later, when a sideways move
+  // costs few pixels. It lands on the contract shot at frame 449 with zero velocity.
+  const PULL = { back: E.bezier(0.35, 0, 0.35, 1), across: E.bezier(0.45, 0, 0.3, 1) };
   function camTangent(i, key) {
     const K = CAM_KEYS;
     if (i === 0 || i === K.length - 1) return 0;
@@ -138,8 +146,10 @@
     const h = t1 - t0, u = clamp((T - t0) / h), u2 = u * u, u3 = u2 * u;
     const p = {};
     if (i === n - 2) {
-      const e = PULL_EASE(u);
-      for (const k of CAM_PARAMS) p[k] = lerp(a[k], b[k], e);
+      const eb = PULL.back(u), ea = PULL.across(u);
+      p.dist = Math.exp(lerp(Math.log(a.dist), Math.log(b.dist), eb));
+      p.elev = lerp(a.elev, b.elev, eb); p.fov = lerp(a.fov, b.fov, eb);
+      for (const k of ['lx', 'ly', 'lz', 'yaw']) p[k] = lerp(a[k], b[k], ea);
     } else {
       for (const k of CAM_PARAMS) {
         p[k] = (2 * u3 - 3 * u2 + 1) * a[k] + (u3 - 2 * u2 + u) * h * camTangent(i, k)
@@ -152,10 +162,24 @@
       look: [p.lx, p.ly, p.lz], fov: p.fov,
     };
   }
+  /**
+   * Where the lens is focused: the hero cup's world. The camera frames the seedling's cup
+   * from the right, so the focus is handed to that cup as the camera arrives, and it stays
+   * on it through the pull back.
+   */
+  function focusPoint(T, shot) {
+    const w = E.inOutSine(seg(T, 13.62, 14.08));
+    return [lerp(shot.look[0], XS[3], w), lerp(shot.look[1] + 0.12, MOUTH_Y + 0.1, w), lerp(shot.look[2], 0, w)];
+  }
+  /** Depth of field: shallow in the close-ups; it holds on the seedling's cup through the pull back
+   *  (softening the row as it streams in) and racks out to the whole row as the camera lands. */
+  function lensAmount(T, close) {
+    return Math.max(close, T > 14 ? 1 - E.inOutSine(seg(T, 14.64, 14.9)) : 0);
+  }
   /** 0 on the wide contract shots → 1 in the cup close-ups (drives DOF, atmosphere, shadows). */
   function closeness(cam) {
     const d = Math.hypot(cam.pos[0] - cam.look[0], cam.pos[1] - cam.look[1], cam.pos[2] - cam.look[2]);
-    return R.smoothstep(6.3, 3.9, d);
+    return R.smoothstep(6.4, 4.35, d);
   }
 
   // ─── Build: textures and shared materials ───────────────────────────────────
@@ -213,12 +237,12 @@
     stackY: 1.3, gapY: 0.026, stackYaw: -0.16,
     build(S) {
       const g = new THREE.Group(); g.position.set(XS[0], 0, 0);
-      const edge = new THREE.MeshStandardMaterial({ color: '#9f9784', roughness: 0.8 });
-      const under = new THREE.MeshStandardMaterial({ color: '#8f8676', roughness: 0.85 });
+      const edge = new THREE.MeshStandardMaterial({ color: '#8c8471', roughness: 0.85 });
+      const under = new THREE.MeshStandardMaterial({ color: '#80786a', roughness: 0.9 });
       const tabMat = RB.mat.copperPolished({ roughness: 0.22, emissive: new THREE.Color(PAL.copperHot), emissiveIntensity: 0.45 });
       this.cards = [];
       this.kinds.forEach((k, ki) => {
-        const top = new THREE.MeshStandardMaterial({ map: paperTexture(ki, k.w, k.d, 40 + ki), color: '#bdb5a2', roughness: 0.8 });
+        const top = new THREE.MeshStandardMaterial({ map: paperTexture(ki, k.w, k.d, 40 + ki), color: '#ada48f', roughness: 0.85 });
         const geo = new THREE.BoxGeometry(k.w, 0.006, k.d);
         const tabGeo = new THREE.BoxGeometry(0.04, 0.0066, 0.04);
         for (let n = 0; n < this.perStack; n++) {
@@ -244,7 +268,7 @@
       return [x * cy, y, -x * sy];
     },
     times(c) {
-      const fall0 = 10.02 + c.rank * 0.015, fall1 = fall0 + 0.3 + c.h[6] * 0.05;   // all in by 10.58, before any rise
+      const fall0 = 10.02 + c.rank * 0.009, fall1 = fall0 + 0.4 + c.h[6] * 0.04;   // all in by 10.59, before any rise
       const rise0 = B(1) - 0.03 + c.kind * 0.06 + c.n * 0.012, rise1 = rise0 + 0.5;
       const back0 = 11.36 + c.kind * 0.07, back1 = back0 + 0.36;
       return { fall0, fall1, rise0, rise1, back0, back1 };
@@ -257,10 +281,11 @@
         pivot.visible = true;
         if (T < tm.fall1) {
           // Tumble in: a loose flurry converging on the mouth, gravity-eased.
-          const u = seg(T, tm.fall0, tm.fall1), uy = 0.4 * u + 0.6 * u * u, uc = E.inOutSine(u);
+          // paper doesn't drop like a stone: near its terminal speed from the start, swaying as it falls
+          const u = seg(T, tm.fall0, tm.fall1), uy = 0.75 * u + 0.25 * u * u, uc = E.inOutSine(u);
           const x0 = (h[0] - 0.5) * 1.9, z0 = (h[1] - 0.5) * 1.1, y0 = 2.45 + h[2] * 0.55;
           pivot.position.set(lerp(x0, (h[0] - 0.5) * 0.16, uc), lerp(y0, 0.4, uy), lerp(z0, (h[1] - 0.5) * 0.1, uc));
-          const spin = 1 + u * 1.4;
+          const spin = 1 + u * 1.1;
           pivot.rotation.set(h[3] * TAU + spin * (h[4] - 0.5) * 5, h[4] * TAU + spin * 1.5, h[5] * TAU + spin * (h[3] - 0.5) * 4);
           pivot.scale.setScalar(1);
         } else {
@@ -367,7 +392,7 @@
       const closed = seg(T, this.closeT - 0.05, this.closeT + 0.1);
       const on = seg(T, this.igniteAt(0), this.igniteAt(0) + 0.25);
       // The ring lights the bowl from within; it goes out as the ring condenses.
-      this.lightI = on * (0.35 + 0.9 * closed) * (1 - this.condense(T));
+      this.lightI = on * (0.22 + 0.5 * closed) * (1 - this.condense(T));
       this.lightPos = [XS[1], lerp(this.ringY - 0.08, MOUTH_Y - 0.1, this.condense(T)), 0];
     },
     overlay(ctx, T, cam) {
@@ -445,14 +470,22 @@
         pos.setXYZ(i, x * k * 0.19, y * k * 0.1, z * k * 0.15);
       }
       g.computeVertexNormals(); g.computeBoundingBox();
-      this.stone = new THREE.Mesh(g, new THREE.MeshPhysicalMaterial({ color: '#3b342f', roughness: 0.6, clearcoat: 0.3, clearcoatRoughness: 0.45 }));
+      // A river stone, not a potato: fine mineral speckle and a darker, weathered band.
+      const col = new Float32Array(pos.count * 3), base = new THREE.Color('#3b342f');
+      for (let i = 0; i < pos.count; i++) {
+        const x = pos.getX(i) * 30, y = pos.getY(i) * 30, z = pos.getZ(i) * 30;
+        const v = 0.78 + 0.3 * (R.noise.fbm3(x * 0.4, y * 0.4, z * 0.4, 3) * 0.5 + 0.5) + 0.22 * Math.max(0, R.noise.n3(x * 3.1, y * 3.1, z * 3.1) - 0.45);
+        col[i * 3] = base.r * v; col[i * 3 + 1] = base.g * v; col[i * 3 + 2] = base.b * v;
+      }
+      g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+      this.stone = new THREE.Mesh(g, new THREE.MeshPhysicalMaterial({ color: '#ffffff', vertexColors: true, roughness: 0.6, clearcoat: 0.3, clearcoatRoughness: 0.45 }));
       this.stone.position.set(XS[2] + this.stonePos[0], this.stonePos[1], this.stonePos[2]);
       this.stone.rotation.set(0.05, 0.6, -0.04);
       this.stone.updateMatrixWorld(true);
       S.scene.add(this.stone);
-      const box = g.boundingBox;
-      this.corners = [];
-      for (const x of [box.min.x, box.max.x]) for (const y of [box.min.y, box.max.y]) for (const z of [box.min.z, box.max.z]) this.corners.push(new THREE.Vector3(x, y, z));
+      // Points on the stone's surface (not its bounding box), so the reticle frames its silhouette.
+      this.silhouette = [];
+      for (let i = 0; i < pos.count; i += 7) this.silhouette.push(new THREE.Vector3(pos.getX(i), pos.getY(i), pos.getZ(i)));
     },
     condense: (T) => E.inOutCubic(seg(T, 13.66, 14.02)),
     pose(T) {
@@ -463,30 +496,42 @@
     /** Projected bounding rect of the stone: [x0, y0, x1, y1]. */
     targetRect(cam) {
       let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
-      for (const c of this.corners) {
-        const w = c.clone().applyMatrix4(this.stone.matrixWorld), s = proj(cam, w.x, w.y, w.z);
+      const w = this._w || (this._w = new THREE.Vector3());
+      for (const c of this.silhouette) {
+        w.copy(c).applyMatrix4(this.stone.matrixWorld); const s = proj(cam, w.x, w.y, w.z);
         x0 = Math.min(x0, s[0]); y0 = Math.min(y0, s[1]); x1 = Math.max(x1, s[0]); y1 = Math.max(y1, s[1]);
       }
       return [x0, y0, x1, y1];
     },
-    /** Reticle state at T: centre, half-size, rotation, lock amount, alpha. */
+    /** The stone's rect on the settled shot: where the viewfinder waits for it. */
+    layout() {
+      const cam = RB.camera(30);
+      RB.setCam(cam, camShot(this.lockT));
+      this.waitRect = this.targetRect(cam);
+    },
+    /**
+     * Reticle state at T: centre, half-size, rotation, lock amount, alpha. While it hunts the
+     * reticle belongs to the lens (screen space): the camera glides in, the stone slides into
+     * the brackets, they guess past it, correct, and on the shutter they lock onto the stone
+     * and from then on ride with it.
+     */
     reticle(T, cam) {
-      const [x0, y0, x1, y1] = this.targetRect(cam);
-      const pad = 16, cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, hw = (x1 - x0) / 2 + pad, hh = (y1 - y0) / 2 + pad;
-      // The hunt: a first guess past the stone, a correction, then the lock on the beat.
+      const rect = (r) => { const cx = (r[0] + r[2]) / 2, cy = (r[1] + r[3]) / 2; return [cx, cy, (r[2] - r[0]) / 2 + 14, (r[3] - r[1]) / 2 + 14]; };
+      const live = rect(this.targetRect(cam)), wait = rect(this.waitRect);
+      const follow = E.inOutSine(seg(T, 12.92, this.lockT));
       const key = R.tween(T, [
-        [B(4), [2.2, 130, -80, 0.2]],
-        [12.8, [1.32, -52, 26, -0.06], E.inOutCubic],
-        [13.04, [1.07, 6, -3, 0.012], E.inOutCubic],
-        [this.lockT, [1, 0, 0, 0], E.outCubic],
+        [B(4), [1.6, 260, -10, 0.08]],                     // it opens ahead of the stone gliding in…
+        [12.84, [1.35, 130, 14, -0.04], E.inOutSine],     // …drifts, searching; the stone slides through it
+        [13.0, [1.1, -12, 4, 0.01], E.inOutCubic],        // a quick correction, a touch past
+        [this.lockT, [1, 0, 0, 0], E.outCubic],           // and locks on the shutter
       ]);
-      const lock = E.snap(seg(T, this.lockT, this.lockT + 0.22));
+      const lock = E.snap(seg(T, this.lockT, this.lockT + 0.2));
       const c = this.condense(T);
-      const k = key[0] * (1 - 0.07 * lock) * (1 - c);
+      const k = key[0] * (1 - 0.06 * lock) * (1 - c);
       return {
-        x: cx + key[1], y: cy + key[2],
-        hw: hw * k, hh: hh * k, rot: key[3], lock, c,
-        alpha: seg(T, B(4), B(4) + 0.08) * (1 - seg(T, 13.8, 14.02)),
+        x: lerp(wait[0], live[0], follow) + key[1], y: lerp(wait[1], live[1], follow) + key[2],
+        hw: lerp(wait[2], live[2], follow) * k, hh: lerp(wait[3], live[3], follow) * k, rot: key[3], lock, c,
+        alpha: seg(T, B(4), B(4) + 0.06) * (1 - seg(T, 13.8, 14.02)),
       };
     },
     /** Hero blur for the focus pull: soft while hunting, sharp on the lock. */
@@ -532,16 +577,24 @@
       }
       // The reticle: four corner brackets and a centre cross.
       ctx.translate(r.x, r.y); ctx.rotate(r.rot);
-      const col = R.mix(PAL.ivory, PAL.ember, r.lock);
       const L = Math.min(r.hw, r.hh) * 0.42;
       const beep = Math.max(bump(T, B(4), B(4) + 0.07), bump(T, 12.575, 12.645));   // the score's two focus beeps
-      ctx.strokeStyle = col.replace(/,1\)$/, `,${Math.min(1, 0.9 * r.alpha + 0.3 * beep).toFixed(3)})`);
-      ctx.lineWidth = 1.6 + 1.1 * beep; ctx.lineJoin = 'miter';
-      for (const [sx, sy] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) {
+      const brackets = () => {
         ctx.beginPath();
-        ctx.moveTo(sx * r.hw, sy * (r.hh - L)); ctx.lineTo(sx * r.hw, sy * r.hh); ctx.lineTo(sx * (r.hw - L), sy * r.hh);
+        for (const [sx, sy] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) {
+          ctx.moveTo(sx * r.hw, sy * (r.hh - L)); ctx.lineTo(sx * r.hw, sy * r.hh); ctx.lineTo(sx * (r.hw - L), sy * r.hh);
+        }
+      };
+      ctx.lineJoin = 'miter'; ctx.lineCap = 'square';
+      brackets();
+      if (r.lock > 0) { // locked: the brackets warm to ember and glow
+        ctx.strokeStyle = R.rgba(PAL.ember, 0.2 * r.lock * r.alpha * (1 - r.c)); ctx.lineWidth = 7;
         ctx.stroke();
       }
+      ctx.strokeStyle = R.mix(PAL.ivory, PAL.ember, r.lock).replace(/,1\)$/, `,${Math.min(1, 0.85 * r.alpha + 0.3 * beep).toFixed(3)})`);
+      ctx.lineWidth = 1.7 + 1.1 * beep + 0.6 * r.lock;
+      ctx.stroke();
+      ctx.lineCap = 'butt';
       ctx.lineWidth = 1;
       ctx.strokeStyle = R.rgba(PAL.ivory, 0.55 * r.alpha);
       const cs = 7 + 5 * (1 - r.lock);
@@ -568,7 +621,7 @@
 
   // ─── World 3 · AGRONOMY ─────────────────────────────────────────────────────
   const W3 = {
-    crumbs: 44,
+    crumbs: 90,
     build(S) {
       const g = new THREE.Group(); g.position.set(XS[3], 0, 0);
       // Soil: a clumpy disc that rises inside the cup, fitted to the wall.
@@ -581,20 +634,22 @@
         pos.setY(i, (0.02 * n + 0.009 * Math.max(0, clump)) * (1 - r ** 6) + 0.02 * R.smoothstep(0.84, 1, r));
       }
       geo.computeVertexNormals();
+      this.soilBaseY = Float32Array.from({ length: pos.count }, (_, i) => pos.getY(i));
       const soilTex = soilTexture(77);
       const soilMat = new THREE.MeshStandardMaterial({ map: soilTex, bumpMap: soilTex, bumpScale: 3, roughness: 0.96, metalness: 0 });
       this.soil = new THREE.Mesh(geo, soilMat);
       g.add(this.soil);
       // Crumbs pouring in.
-      this.crumbMesh = new THREE.InstancedMesh(new THREE.DodecahedronGeometry(1, 0), new THREE.MeshStandardMaterial({ color: '#3a2b20', roughness: 0.95 }), this.crumbs);
+      this.crumbMesh = new THREE.InstancedMesh(new THREE.DodecahedronGeometry(1, 1), new THREE.MeshStandardMaterial({ color: '#5a412f', roughness: 0.85 }), this.crumbs);
       this.crumbMesh.frustumCulled = false;
       g.add(this.crumbMesh);
       // Seedling: an ivory stem and two cotyledons.
-      this.seedMat = RB.mat.ivory({ side: THREE.DoubleSide, emissive: new THREE.Color(PAL.ember), emissiveIntensity: 0, roughness: 0.5 });
+      // warm ivory, softly translucent-looking (a little ember from within), never bleached white
+      this.seedMat = RB.mat.ivory({ color: '#d9cdb0', side: THREE.DoubleSide, emissive: new THREE.Color(PAL.ember), emissiveIntensity: 0, roughness: 0.6, clearcoat: 0.12, clearcoatRoughness: 0.5 });
       this.seed = new THREE.Group();
       const stemCurve = new THREE.CatmullRomCurve3([[0, 0, 0], [0.018, 0.12, 0.006], [-0.014, 0.26, 0], [0.006, 0.38, -0.006]].map((p) => new THREE.Vector3(...p)));
       this.stemTop = new THREE.Vector3(0.006, 0.38, -0.006);
-      this.stem = new THREE.Mesh(new THREE.TubeGeometry(stemCurve, 48, 0.011, 12), this.seedMat);
+      this.stem = new THREE.Mesh(new THREE.TubeGeometry(stemCurve, 48, 0.0085, 12), this.seedMat);
       this.seed.add(this.stem);
       const L = 0.22, Wd = 0.14;
       const shape = new THREE.Shape();
@@ -615,6 +670,8 @@
       S.scene.add(g);
       this.group = g;
     },
+    /** The pour builds a soft heap where the stream lands; it slumps flat as the cup fills. */
+    heap(T) { return 0.17 * Math.sin(Math.PI * seg(T, 13.72, 14.26)) ** 1.5; },
     level(T) {
       const fill = E.outCubic(seg(T, 13.75, 14.15));
       const drain = E.inCubic(seg(T, 14.62, 14.9));
@@ -624,25 +681,37 @@
     unfurl: (T) => E.backOut(1.5)(seg(T, 14.44, 14.72)),           // and blooms open
     condense: (T) => E.inCubic(seg(T, 14.76, 14.92)),
     pose(T) {
-      const lv = this.level(T), on = T > 13.72 && T < 14.92;
+      const lv = this.level(T), on = T > 13.7 && T < 14.92;
       this.soil.visible = on;
       const rS = innerRadiusAt(lv) * 1.025;
       this.soil.position.y = lv; this.soil.scale.set(rS, 1, rS);
+      if (on) {
+        // (the disc is a unit disc scaled by rS in x/z: the heap is placed and sized in world units)
+        const hp = this.heap(T), g = this.soil.geometry, pos = g.attributes.position, sig = (0.2 / rS) ** 2;
+        for (let i = 0; i < pos.count; i++) {
+          const dx = pos.getX(i) + 0.12 / rS, dz = pos.getZ(i) - 0.05 / rS;
+          pos.setY(i, this.soilBaseY[i] + hp * Math.exp(-(dx * dx + dz * dz) / sig));
+        }
+        pos.needsUpdate = true; g.computeVertexNormals();
+      }
       // Crumbs: a loose stream from above, landing on the rising surface.
       const m = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler(), sc = new THREE.Vector3(), p = new THREE.Vector3();
       for (let i = 0; i < this.crumbs; i++) {
-        const t0 = 13.72 + hash(i, 300) * 0.3, t1 = t0 + 0.24 + hash(i, 301) * 0.07;
+        const t0 = 13.42 + (i / this.crumbs) * 0.46 + hash(i, 300) * 0.05, t1 = t0 + 0.33 + hash(i, 301) * 0.06;   // first clods land on the crunch
         const u = seg(T, t0, t1);
         if (u <= 0 || u >= 1) { m.makeScale(0, 0, 0); this.crumbMesh.setMatrixAt(i, m); continue; }
-        const x0 = -0.08 + (hash(i, 302) - 0.5) * 0.14, z0 = (hash(i, 303) - 0.5) * 0.12;
-        const xe = (hash(i, 304) - 0.5) * 0.7, ze = (hash(i, 305) - 0.5) * 0.5;
-        p.set(lerp(x0, xe, E.inQuad(u)), lerp(2.3 + hash(i, 306) * 0.3, this.level(t1) + 0.01, E.inQuad(u)), lerp(z0, ze, E.inQuad(u)));
-        e.set(hash(i, 307) * 6 + u * 5, hash(i, 308) * 6 + u * 4, 0); q.setFromEuler(e);
-        sc.setScalar(0.011 + hash(i, 309) * 0.016);
+        const x0 = -0.12 + (hash(i, 302) - 0.5) * 0.07, z0 = 0.05 + (hash(i, 303) - 0.5) * 0.06;   // a narrow stream…
+        const spread = 0.12 + 0.35 * hash(i, 310);                                                  // …that splashes on landing
+        const xe = -0.12 + (hash(i, 304) - 0.5) * spread, ze = 0.05 + (hash(i, 305) - 0.5) * spread;
+        const land = this.level(t1) + this.heap(t1) * 0.8;
+        const fy = 0.3 * u + 0.7 * u * u;   // falling, a little air resistance
+        p.set(lerp(x0, xe, fy), lerp(1.95 + hash(i, 306) * 0.35, land, fy), lerp(z0, ze, fy));
+        e.set(hash(i, 307) * 6 + u * 3, hash(i, 308) * 6 + u * 2.5, 0); q.setFromEuler(e);
+        const cs = 0.008 + hash(i, 309) * 0.013; sc.set(cs * (0.8 + 0.5 * hash(i, 311)), cs * 0.7, cs * (0.8 + 0.5 * hash(i, 312)));   // clods, not beads
         m.compose(p, q, sc); this.crumbMesh.setMatrixAt(i, m);
       }
       this.crumbMesh.instanceMatrix.needsUpdate = true;
-      this.crumbMesh.visible = T > 13.72 && T < 14.2;
+      this.crumbMesh.visible = T > 13.42 && T < 14.3;
       // Seedling.
       const gr = this.grow(T), uf = this.unfurl(T), c = this.condense(T);
       this.seed.visible = gr > 0.001 && c < 0.999;
@@ -656,7 +725,7 @@
         L.pivot.scale.setScalar(lerp(0.35, 1, E.outCubic(seg(T, 14.4, 14.7))));
       }
       this.seedMat.emissiveIntensity = 0.12 * uf + 1.4 * c;
-      this.lightI = 0.5 * seg(T, 14.38, 14.6) * (1 - seg(T, 14.7, 14.9));
+      this.lightI = 0.28 * seg(T, 14.38, 14.6) * (1 - seg(T, 14.7, 14.9));
       this.lightPos = [XS[3], 1.05, 0.05];
     },
     overlay(ctx, T, cam) {
@@ -749,34 +818,37 @@
    */
   function compositeLens(ctx, gl, focus) {
     if (focus.bg < 0.05 && focus.hero < 0.05) { ctx.drawImage(gl, 0, 0, R.W, R.H); return; }
-    const bg = R.buffer('s4-lens-bg'), fg = R.buffer('s4-lens-fg');
-    const grad = (g) => {
-      const gr = g.createRadialGradient(focus.x, focus.y, focus.r0, focus.x, focus.y, focus.r1);
+    const W2_ = R.W / 2, H2_ = R.H / 2;
+    const grad = (g, k) => {
+      const gr = g.createRadialGradient(focus.x * k, focus.y * k, focus.r0 * k, focus.x * k, focus.y * k, focus.r1 * k);
       gr.addColorStop(0, 'rgba(0,0,0,1)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
       return gr;
     };
     // Soft copy at half resolution (a blur this size loses nothing there), dimmed a little.
     const soft = (key, px, dim) => {
-      const b = R.buffer(key, R.W / 2, R.H / 2);
+      const b = R.buffer(key, W2_, H2_);
       b.clear();
       b.ctx.filter = `${R.blur(px / 2)} brightness(${dim.toFixed(3)})`;
-      b.ctx.drawImage(gl, 0, 0, R.W / 2, R.H / 2);
+      b.ctx.drawImage(gl, 0, 0, W2_, H2_);
       b.ctx.filter = 'none';
-      return b.canvas;
+      return b;
     };
-    bg.clear();
-    bg.ctx.drawImage(soft('s4-lens-soft', focus.bg, focus.dim), 0, 0, R.W, R.H);
+    // The soft layer, masked outside the focus at half resolution (the mask is smooth, so this is
+    // the same as masking after the upscale, at a quarter of the cost) …
+    const bg = soft('s4-lens-soft', focus.bg, focus.dim);
     bg.ctx.globalCompositeOperation = 'destination-out';
-    bg.ctx.fillStyle = grad(bg.ctx); bg.ctx.fillRect(0, 0, R.W, R.H);
-    fg.clear();
-    fg.ctx.drawImage(focus.hero > 0.05 ? soft('s4-lens-hero', focus.hero, 1) : gl, 0, 0, R.W, R.H);
-    fg.ctx.globalCompositeOperation = 'destination-in';
-    fg.ctx.fillStyle = grad(fg.ctx); fg.ctx.fillRect(0, 0, R.W, R.H);
-    // premultiplied sum of complementary masks = a clean crossfade
-    bg.ctx.globalCompositeOperation = 'lighter';
-    bg.ctx.drawImage(fg.canvas, 0, 0, R.W, R.H);
+    bg.ctx.fillStyle = grad(bg.ctx, 0.5); bg.ctx.fillRect(0, 0, W2_, H2_);
     bg.ctx.globalCompositeOperation = 'source-over';
-    ctx.drawImage(bg.canvas, 0, 0, R.W, R.H);
+    // … the sharp (or focus-pulled) layer masked inside it, and their premultiplied sum: a clean crossfade.
+    const fg = R.buffer('s4-lens-fg');
+    fg.clear();
+    fg.ctx.drawImage(focus.hero > 0.05 ? soft('s4-lens-hero', focus.hero, 1).canvas : gl, 0, 0, R.W, R.H);
+    fg.ctx.globalCompositeOperation = 'destination-in';
+    fg.ctx.fillStyle = grad(fg.ctx, 1); fg.ctx.fillRect(0, 0, R.W, R.H);
+    fg.ctx.globalCompositeOperation = 'lighter';
+    fg.ctx.drawImage(bg.canvas, 0, 0, R.W, R.H);
+    fg.ctx.globalCompositeOperation = 'source-over';
+    ctx.drawImage(fg.canvas, 0, 0, R.W, R.H);
   }
 
   // ─── Labels ─────────────────────────────────────────────────────────────────
@@ -801,16 +873,35 @@
    */
   function worldLabel(ctx, T, i, anchor) {
     const L = LABELS[i];
-    if (T < L.tIn || T > L.tOut + 0.4) return;
-    const s = LABEL_SCALE;
+    const out = 1 - E.inOutSine(seg(T, L.tOut, L.tOut + 0.22));   // a quick, even fade: gone before the camera is at speed
+    if (T < L.tIn || out <= 0) return;
+    const s = LABEL_SCALE, sc = R.scale;
+    // (x, y): the leader's end, at the title's right edge. The title is set left-aligned so it
+    // types on left to right in place; right-aligned typing would slide the word as it grows.
     const x = clamp(anchor[0] + L.dx, 400, 1800), y = clamp(anchor[1] + L.dy, 150, 900);
+    // The leader, drawn exactly as RB.type.annotation draws it (1 px ×1.5, ivory 0.45, ember dot).
+    const pl = E.outExpo(seg(T, L.tIn, L.tIn + 0.45));
     ctx.save();
-    ctx.translate(x, y); ctx.scale(s, s);
-    RB.type.annotation(ctx, T, { text: L.text, x: 0, y: 0, ax: (anchor[0] - x) / s, ay: (anchor[1] - y) / s, tIn: L.tIn, tOut: L.tOut, align: 'right' });
+    ctx.globalAlpha = out;
+    ctx.strokeStyle = R.rgba(PAL.ivory, 0.45); ctx.lineWidth = s;
+    ctx.beginPath(); ctx.moveTo(anchor[0], anchor[1]); ctx.lineTo(lerp(anchor[0], x, pl), lerp(anchor[1], y, pl)); ctx.stroke();
+    R.fillCircle(ctx, anchor[0], anchor[1], 3 * s * pl, PAL.ember);
+    ctx.restore();
+    // The title itself goes through a small buffer, so it can take this fade (the kit's own
+    // fade-out is set in stone and too slow here). The buffer is placed on whole backing pixels
+    // and the text keeps its sub-pixel offset inside it: identical to drawing it directly.
+    const BW = 640, BH = 64, bx = BW - 20, by = BH / 2;
+    const X = x * sc, Y = y * sc, ix = Math.floor(X), iy = Math.floor(Y);
+    const b = R.buffer('s4-title', BW, BH);
+    b.clear();
+    b.ctx.translate(bx + (X - ix) / sc, by + (Y - iy) / sc); b.ctx.scale(s, s);
+    if (L.w == null) { b.ctx.font = R.font(12, 'mono', 500); b.ctx.letterSpacing = '2.2px'; L.w = b.ctx.measureText(L.text).width; }
+    RB.type.annotation(b.ctx, T, { text: L.text, x: -L.w - 16, y: 0, tIn: L.tIn, align: 'left' });
+    ctx.save();
+    ctx.globalAlpha = out;
+    ctx.drawImage(b.canvas, ix / sc - bx, iy / sc - by, BW, BH);
     ctx.restore();
   }
-
-  window.__s4dbg = { camShot, closeness, LABELS, CAM_KEYS, WORLDS, get S() { return S; } }; // DEBUG-REMOVE
 
   // ─── Scene ──────────────────────────────────────────────────────────────────
   R.scene({
@@ -820,7 +911,7 @@
       INNER_PTS = curve.getSpacedPoints(240).map((v) => [Math.max(0, v.x), v.y]);
       S = RB.stage();
       S.innerBase = new THREE.Color('#8a4f2d'); // RB.mat.copperInner
-      S.innerDark = new THREE.Color('#3b2014');
+      S.innerDark = new THREE.Color('#553624');
       S.cups = XS.map((x) => {
         const c = RB.cup();
         c.group.position.set(x, 0, 0);
@@ -836,6 +927,7 @@
       S.light = new THREE.PointLight('#ffb48e', 0, 1.6, 2);
       S.scene.add(S.light);
       RB.gl.renderer().compile(S.scene, S.camera); // no first-use shader stalls mid-scene
+      W2.layout();
       layoutLabels();
     },
 
@@ -852,10 +944,11 @@
       // Pose the row and every world from T.
       for (const c of S.cups) {
         c.group.rotation.set(0, 0, 0);
-        // Look into a dark bowl: the world inside is the light. Exact kit values on the wide contract shots.
+        // Look into a darker, golden bowl (a plain darkening turns the copper red): the world inside is
+        // the light. Exact kit values on the wide contract shots.
         c.inner.material.color.copy(S.innerBase).lerp(S.innerDark, close);
-        c.inner.material.roughness = lerp(0.42, 0.5, close);
-        c.inner.material.envMapIntensity = lerp(1, 0.5, close);
+        c.inner.material.roughness = lerp(0.42, 0.4, close);
+        c.inner.material.envMapIntensity = lerp(1, 0.42, close);
         c.shadow.material.opacity = 0.42 * close; c.shadow.visible = close > 0.001;
       }
       WORLDS.forEach((w) => w.pose(T));
@@ -866,9 +959,9 @@
 
       // 3D, once, through the lens.
       const gl = RB.gl.render3D(S.scene, cam, { exposure: 1 });
-      const ppu = pxPerUnit(cam, shot.look[0], shot.look[1], shot.look[2]);
-      const fc = proj(cam, shot.look[0], shot.look[1] + 0.12, shot.look[2]);
-      compositeLens(ctx, gl, { x: fc[0], y: fc[1], r0: ppu * 0.95, r1: ppu * 1.8, bg: 4.2 * close, dim: 1 - 0.3 * close, hero: W2.heroBlur(T) });
+      const f = focusPoint(T, shot), lens = lensAmount(T, close);
+      const ppu = pxPerUnit(cam, f[0], f[1], f[2]), fc = proj(cam, f[0], f[1], f[2]);
+      compositeLens(ctx, gl, { x: fc[0], y: fc[1], r0: ppu * 0.95, r1: ppu * 1.8, bg: 4.2 * lens, dim: 1 - 0.3 * lens, hero: W2.heroBlur(T) });
 
       // 2D line work, lights, titles.
       RB.atmos.dust(ctx, T, { count: 70, alpha: 0.4 * close, rect: [0, 0, R.W, 900] });

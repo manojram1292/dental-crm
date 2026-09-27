@@ -6,15 +6,16 @@
  *   0.0– 6.0  turntable, relaxed pose
  *   6.0–13.0  preset parade (right hand from the back, left hand from the palm side)
  *  13.0–16.0  close-up: sensor module, knuckles, wrist
- *  16.0–21.5  cup grip: hold in shots.cupMake, a two-handed hold, then approach / lift / release
- *  21.5–26.0  palm up with an ember, then offer (pour to the left)
+ *  16.0–21.5  cup grip (rim pinch): hold in shots.cupMake, a two-handed hold, then
+ *              approach / lift / release (penetration-free at every frame)
+ *  21.5–26.0  palm up with an ember (setGlow), then offer (pour to the left)
  *  26.0–30.0  stress: closed fist, wrist extremes
  */
 (function () {
   'use strict';
   const R = window.REEL, RB = window.RB, THREE = window.THREE;
   const { E, seg, lerp, PAL } = R;
-  let S, hA, hB, cup, shadow, lamp;
+  let S, hA, hB, cup, shadow;
 
   const P = () => RB.hand.poses;
   const cyc = (list, t, hold, fade) => {
@@ -42,15 +43,14 @@
       cup = RB.cup();
       shadow = RB.contactShadow(0.95, 0.6);
       S.scene.add(cup.group, shadow);
-      lamp = new THREE.PointLight('#ffb48e', 0, 2.2, 2);
-      S.scene.add(lamp);
       window.__handLab = { hA, hB, cup, S };
     },
     draw(ctx, t, env) {
       const T = env.T;
       RB.atmos.backdrop(ctx, { gx: 960, gy: 540, gr: 1000 });
       hA.group.visible = true; hB.group.visible = false;
-      cup.group.visible = false; shadow.visible = false; lamp.intensity = 0;
+      cup.group.visible = false; shadow.visible = false; shadow.material.opacity = 0.6;
+      hA.setGlow(null); hB.setGlow(null);
       hA.group.scale.setScalar(1); hB.group.scale.setScalar(1);
       cup.group.position.set(0, 0, 0); cup.group.rotation.set(0, 0, 0);
       let cam, title = '', sub = '', ember = null;
@@ -80,37 +80,37 @@
         cam = { pos: [lerp(0.75, -0.35, E.inOutSine(u)), 0.55, 1.45], look: [0, 0.1, 0.05], fov: 30 };
         title = 'CLOSE-UP · MODULE / KNUCKLES';
       } else if (T < 21.5) {
-        // ── cup grip test
+        // ── cup grip test: the rim pinch — fingers down the outside, thumb over the rim inside
         cup.group.visible = true; shadow.visible = true;
-        const around = 0.55, tilt = RB.hand.grip.tilt;
+        const around = 0.55;
         if (T < 16.75) {
-          hA.setPose(P().cupGrip).graspCup(cup.group, { around, tilt });
+          hA.setPose(P().cupGrip).graspCup(cup.group, { around });
           cam = RB.shots.cupMake;
-          title = 'CUP GRIP · HOLD'; sub = `graspCup(cup, { around: ${around}, tilt: ${tilt} }) · shots.cupMake`;
+          title = 'CUP GRIP · HOLD'; sub = `graspCup(cup, { around: ${around} }) · shots.cupMake · thumb inside the rim`;
         } else if (T < 17.5) {
           hB.group.visible = true;
-          hA.setPose(P().cupGrip).graspCup(cup.group, { around: 1.6, tilt });
-          hB.setPose(P().cupGrip).graspCup(cup.group, { around: -1.6, tilt });
-          cam = { pos: [0, 1.25, 3.6], look: [0, 0.62, 0], fov: 34 };
+          hA.setPose(P().cupGrip).graspCup(cup.group, { around: 1.45 });
+          hB.setPose(P().cupGrip).graspCup(cup.group, { around: -1.45 });
+          cam = { pos: [0, 1.7, 3.5], look: [0, 0.7, 0], fov: 34 };
           title = 'CUP GRIP · TWO HANDS'; sub = 'left hand = mirrored grip, same `around` convention';
         } else {
           const u = T - 17.5;
-          // arrive: descend while far out (0–0.6), glide in along the contact normal (0.3–1.0),
-          // close (0.55–1.05) → contact ≈1.05; lift & turn 1.3–2.2; set down 2.5–3.2;
-          // open (3.25–3.65) *before* backing off along the normal (3.55–4.0)
-          const close = E.inOutCubic(seg(u, 0.55, 1.05)) * (1 - E.inOutCubic(seg(u, 3.25, 3.65)));
-          hA.setPose(RB.hand.blend(P().open, P().cupGrip, close));
-          const lift = E.inOutCubic(seg(u, 1.3, 2.2)) * (1 - E.inOutCubic(seg(u, 2.5, 3.2)));
-          cup.group.position.set(0, 0.24 * lift, 0);
-          cup.group.rotation.set(0, 0.45 * lift, -0.14 * lift);
-          const away = 0.55 * (1 - E.outCubic(seg(u, 0.3, 1.05))) + 0.55 * E.inCubic(seg(u, 3.55, 4.0));
-          hA.graspCup(cup.group, { around, tilt, away });
-          const rise = 1 - E.outCubic(seg(u, 0, 0.6));
-          hA.group.position.y += 0.9 * rise;
+          // open → cupReady while high (0–0.4); descend along the approach (0.15–0.85); close
+          // (0.85–1.25) → contact at 1.25; lift & turn 1.35–2.0; set down 2.2–2.75; open (2.85–3.2)
+          // *before* rising (3.2–3.75); back to open 3.6–4.0
+          const shape = E.inOutSine(seg(u, 0, 0.4)) * (1 - E.inOutSine(seg(u, 3.6, 4.0)));
+          const close = E.inOutCubic(seg(u, 0.85, 1.25)) * (1 - E.inOutCubic(seg(u, 2.85, 3.2)));
+          hA.setPose(RB.hand.blend(RB.hand.blend(P().open, P().cupReady, shape), P().cupGrip, close));
+          const lift = E.inOutCubic(seg(u, 1.35, 2.0)) * (1 - E.inOutCubic(seg(u, 2.2, 2.75)));
+          cup.group.position.set(0, 0.22 * lift, 0);
+          cup.group.rotation.set(0, 0.35 * lift, -0.1 * lift);
+          const away = 0.8 * (1 - E.outCubic(seg(u, 0.15, 0.85))) + 0.8 * E.inCubic(seg(u, 3.2, 3.75));
+          hA.graspCup(cup.group, { around, away });
           cam = RB.shots.cupMake;
-          title = 'CUP GRIP · APPROACH / LIFT / RELEASE'; sub = `close ${close.toFixed(2)}  lift ${lift.toFixed(2)}`;
+          title = 'CUP GRIP · APPROACH / LIFT / RELEASE'; sub = `close ${close.toFixed(2)}  lift ${lift.toFixed(2)}  away ${away.toFixed(2)}`;
         }
         shadow.position.set(cup.group.position.x, 0.002, cup.group.position.z);
+        shadow.material.opacity = 0.6 * (1 - Math.min(1, cup.group.position.y / 0.25) * 0.6);
       } else if (T < 26) {
         // ── palm up with ember → offer
         const u = T - 21.5;
@@ -123,11 +123,12 @@
         const roll = E.inQuad(seg(u, 2.9, 3.9));
         const ep = pp.clone().addScaledVector(pn, 0.018).lerp(lip, roll);
         ep.y -= 0.6 * Math.max(0, u - 3.9) ** 2; // … and off the fingertips
-        lamp.position.copy(ep).addScaledVector(pn, 0.05); lamp.intensity = 2.2 * (1 - seg(u, 4.0, 4.4));
+        // the ember's light: palm-side only, so nothing leaks through onto the module or the arm
+        hA.setGlow({ at: ep.clone().addScaledVector(pn, 0.05), intensity: 2.2 * (1 - seg(u, 4.0, 4.4)), range: 2.2 });
         cam = { pos: [0.1, 1.05, 2.7], look: [0, 0.22, 0], fov: 30 };
         ember = ep;
         title = k < 0.5 ? 'PALM UP · EMBER CRADLE' : 'OFFER · POUR LEFT';
-        sub = 'place() from palmUp, then blend toward offer';
+        sub = 'place() from palmUp, blend toward offer · setGlow() at the ember';
       } else {
         // ── stress tests
         const u = T - 26;

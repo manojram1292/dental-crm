@@ -3,7 +3,10 @@
  *
  * A museum reveal of a precious object, then the tale in three sparks.
  *
- *   0.00–0.35  Black. Room tone. The camera is already creeping in.
+ *   0.00–4.97  One unbroken dolly: a slow push-in and quarter orbit from front-left that
+ *              decelerates onto hero scale; from 4.2 a weighted lateral glide re-centres
+ *              the cup as the sparks dive, landing softly on cupHero at frame 149.
+ *   0.00–0.35  Black. Room tone. The camera is already moving.
  *   0.35–1.00  A thin warm line of light runs along the lip of the unseen cup, left to
  *              right: a copper glint with a comet tail, lighting the real rim as it goes.
  *   1.00       Cup strike #1. The traced lip flares; the rim light catches the silhouette,
@@ -12,12 +15,15 @@
  *   0.35–2.40  "One of the oldest stories / is about makers."
  *   2.50 · 3.125 · 3.75   Three sparks ignite, one per beat, as the lines land: a dark ember
  *              with a copper rim (left), a second dark ember (right), and the copper ember
- *              above the mouth: the logo's three flames. They circle the cup like makers at
- *              work, leaving faint trails and lighting the copper as they pass.
+ *              above the mouth: the logo's three flames. The dark two weave across the front
+ *              of the bowl and rise up opposite flanks to ride the lip, like makers at work,
+ *              leaving faint trails and lighting the copper as they pass.
  *   2.55 / 3.15 → 4.25   "Three brothers." / "One cup."
- *   4.375      Last beat of the bar: the sparks spiral into one braided vortex over the
- *              mouth and dive into the cup (lip crossed ≈ 4.7). The cup glows from within
- *              for a moment. The plinth, beam and dust go dark, and the camera settles.
+ *   4.375      Last beat of the bar: the sparks swirl in and brake into the mark's own
+ *              arrangement over the mouth (copper high, the dark two low left and right),
+ *              hang for an instant, then plunge into the cup, braiding and turning to light
+ *              (lip crossed ≈ 4.65–4.72). The cup glows from within for a moment. The
+ *              plinth, beam and dust go dark.
  *   4.967      (frame 149) Hand-off: exactly RB.shots.cupHero.
  *
  * Contracts
@@ -25,7 +31,8 @@
  *   OUT  frame 149 → S2: cup at the world origin with rotation 0; camera exactly
  *        RB.shots.cupHero; RB.atmos.backdrop() defaults; stage-default key/rim/env;
  *        no text, no plinth (fully faded by 4.9), no shaft or dust; inner glow ≤ 0.2
- *        (0.064 at frame 149).
+ *        (0.064 at frame 149, carried by the copper's emissive only: S2 continues that
+ *        exact curve, so the glow's light spill is faded out before the cut).
  */
 (function () {
   'use strict';
@@ -38,10 +45,11 @@
   const TRACE = [0.35, 1.0];           // the glint crosses the lip; it lands on cup strike #1
   const STRIKE = 1.0;
   const IGNITE = [2.5, 3.125, 3.75];   // one spark per beat
-  const SPIRAL = 4.375;                // the last beat of the bar
-  const BRAID = 4.62;                  // the three are braided over the mouth
-  const SPIN = 34;                     // rad/s of extra spin once braided
-  const DIVE = [4.6, 4.76];            // plunge window (staggered per spark)
+  const RISE = [3.55, 4.25];           // the two dark makers circle up to ride the lip
+  const SPIRAL = 4.375;                // the last beat of the bar: the swirl in begins
+  const PLUNGE = 0.13;                 // apex → inside the bowl (per spark, staggered apexes)
+  const TWIST = 1.3;                   // rad: the three braid round each other as they plunge
+  // The glow's timing is shared with S2 (it continues this exact curve across the cut).
   const GLOW = { rise: [4.68, 4.76], tau: 0.075 };
   const FADE_WORLD = [4.3, 4.9];       // plinth, beam and dust go dark
 
@@ -54,17 +62,35 @@
   // ─── Stage geometry constants ───────────────────────────────────────────────
   const RIM_R = 0.607, RIM_Y = 0.908;  // the lip the glint runs along
   const MOUTH = [0, 0.93, 0];
-  const PLINTH = { w: 1.5, h: 3.4, d: 1.5 };
+  // A lit stone slab (the top a hand's width, where the museum light falls) on a black
+  // base: below the falloff the stone is black anyway, and an unlit base costs far less
+  // to render than lit stone running out of frame.
+  const PLINTH = { w: 1.5, h: 0.42, d: 1.5, base: 3.0 };
   const KEY_RAKE = [-4.6, 2.6, 1.9];    // tale key: low, raking across the hammered bowl
                                        // (RB.stage()'s own key position is restored for the hand-off)
   const CUP_SEGMENTS = 160;            // RB.cup()'s default lathe segments
 
   // The three makers. Orbits are tilted circles around the cup (world units, cup at origin).
-  // θ decreases over time: in front of the cup they travel left → right.
+  //   ignite   left (2.5) · right (3.125) · above the mouth (3.75), as the score pans them;
+  //            the two dark ones catch light on the copper as they ignite in front of it
+  //   orbit    slow, tilted circles. The dark ones weave: one travels left → right across
+  //            the front, the other right → left, passing each other in front of the bowl,
+  //            then they rise up opposite flanks to ride the lip (RISE)
+  //   swirl    on the last beat each sweeps ≈1.2–1.3 rad inward (speeding up as the circle
+  //            tightens) and brakes into its place in the mark's own arrangement over the
+  //            mouth: copper high and in front, the two dark flames low left and low right
+  //   plunge   from that apex (zero velocity: the moment of anticipation) they fall into the
+  //            bowl, braiding round one another, turning to light
+  // Phases, speeds and apexes are tuned together: each swirl is ≈1.2–1.3 rad (no frantic
+  // spinning), and every spark lands in its slot with zero velocity.
+  // slot: [cylindrical angle, radius, height] of its place in the mark over the mouth.
   const SPARKS = [
-    { kind: 'dark', tIgn: IGNITE[0], r: 0.84, cy: 0.6, tilt: 0.26, yaw: 0.28, w: -0.95, th0: Math.PI + 0.18, size: 0.028, light: 0.006, bob: 0.0 },
-    { kind: 'dark', tIgn: IGNITE[1], r: 0.84, cy: 0.74, tilt: 0.36, yaw: -0.5, w: -1.1, th0: 0.05, size: 0.028, light: 0.006, bob: 2.1 },
-    { kind: 'copper', tIgn: IGNITE[2], r: 0.32, cy: 1.24, tilt: 0.14, yaw: 0.0, w: -1.55, th0: Math.PI / 2, size: 0.025, light: 0.014, bob: 4.2 },
+    { kind: 'dark', tIgn: IGNITE[0], r: 0.74, cy: 0.62, tilt: 0.24, yaw: 0.28, w: -1.18, th0: 2.9, size: 0.026, light: 0.006, bob: 0.0,
+      rA: 0.52, yA: 0.97, slot: [-Math.PI / 6, 0.2, 1.0], apex: 4.59 },
+    { kind: 'dark', tIgn: IGNITE[1], r: 0.74, cy: 0.74, tilt: 0.34, yaw: -0.5, w: 1.4, th0: 0.72, size: 0.026, light: 0.006, bob: 2.1,
+      rA: 0.52, yA: 0.97, slot: [(7 * Math.PI) / 6, 0.2, 1.0], apex: 4.61 },
+    { kind: 'copper', tIgn: IGNITE[2], r: 0.3, cy: 1.12, tilt: 0.14, yaw: 0.0, w: -1.5, th0: 3.81, size: 0.024, light: 0.014, bob: 4.2,
+      rA: 0.3, yA: 1.12, slot: [Math.PI / 2, 0.1, 1.15], apex: 4.63 },
   ];
 
   let S = null; // everything built once in init()
@@ -134,31 +160,57 @@
     if (T < GLOW.rise[0]) return 0;
     return E.outCubic(seg(T, GLOW.rise[0], GLOW.rise[1])) * Math.exp(-Math.max(0, T - GLOW.rise[1]) / GLOW.tau);
   }
+  /** The light the glow throws (FX light, 2D spill over the lip) is gone by frame 149, so the
+   *  hand-off frame carries only the copper's own emissive glow, which S2 continues. */
+  const spillAt = (T) => 1 - smooth(4.83, T_END, T);
 
   // ─── Spark paths (pure functions of T) ─────────────────────────────────────
   /** World position of spark i at time T (valid for T ≥ its ignition), plus whether it is inside the cup. */
+  /** Orbit phase: a tilted circle that flattens, rises over the lip and tightens (RISE). */
+  function orbitPos(s, T) {
+    const fy = E.inOutSine(seg(T, RISE[0], RISE[1]));
+    const ft = E.inOutSine(seg(T, RISE[0], SPIRAL));
+    const fr = E.inOutSine(seg(T, 4.1, SPIRAL)); // only once it is above the lip
+    const th = s.th0 + s.w * (T - s.tIgn), r = lerp(s.r, s.rA, fr);
+    const cy = lerp(s.cy + 0.035 * Math.sin(T * 1.9 + s.bob) * (1 - ft), s.yA, fy);
+    let p = [r * Math.cos(th), 0, r * Math.sin(th)];
+    p = rotY(rotX(p, lerp(s.tilt, 0, ft)), lerp(s.yaw, 0, ft));
+    p[1] += cy;
+    return p;
+  }
+  /** Where each swirl starts (cylindrical coords + angular velocity at SPIRAL) and ends. */
+  function planSwirls() {
+    const cyl = (p) => [Math.atan2(p[2], p[0]), Math.hypot(p[0], p[2]), p[1]];
+    for (const s of SPARKS) {
+      const a = cyl(orbitPos(s, SPIRAL)), b = cyl(orbitPos(s, SPIRAL - 1e-3));
+      const dth = ((a[0] - b[0] + Math.PI) % TAU + TAU) % TAU - Math.PI;
+      const om = dth / 1e-3, dir = Math.sign(om) || -1;
+      let thEnd = s.slot[0];                           // keep travelling the same way round
+      while (dir * (thEnd - a[0]) < 0.6) thEnd += dir * TAU;
+      while (dir * (thEnd - a[0]) > 0.6 + TAU) thEnd -= dir * TAU;
+      s.swirl = { th: a[0], r: a[1], y: a[2], om, thEnd };
+    }
+  }
+  /** World position of spark i at time T (valid for T ≥ its ignition), plus whether it is inside the cup. */
   function sparkPos(i, T) {
     const s = SPARKS[i];
-    const pS = seg(T, SPIRAL, BRAID), q = E.inOutSine(pS);
-    // Circling, then spun up as the orbit tightens (extra angular velocity SPIN·p², held
-    // through the plunge): one continuous angle, so the trails stay smooth curves.
-    const spin = SPIN * ((BRAID - SPIRAL) * pS * pS * pS / 3 + Math.max(0, T - BRAID));
-    const th = s.th0 + s.w * (T - s.tIgn) - spin;
-    const r = lerp(s.r, 0.085, q);
-    const cy = lerp(s.cy + 0.035 * Math.sin(T * 1.9 + s.bob), 1.12, q); // gather above the mouth (anticipation)
-    const tilt = lerp(s.tilt, 0, q), yaw = lerp(s.yaw, 0, q);
-    let p = [r * Math.cos(th), 0, r * Math.sin(th)];
-    p = rotY(rotX(p, tilt), yaw);
-    p[1] += cy;
-    // the plunge: accelerate down through the mouth, the braid closing
-    const d0 = DIVE[0] + i * 0.03, d1 = DIVE[1] + i * 0.03;
-    const pd = E.inCubic(seg(T, d0, d1));
-    if (pd > 0) {
-      const k = 1 - pd * 0.8;
-      p = [p[0] * k, lerp(p[1], 0.42, pd), p[2] * k];
+    if (T <= SPIRAL) return { p: orbitPos(s, T), inside: false };
+    const W = s.swirl;
+    if (T <= s.apex) {
+      // the swirl: angle is a Hermite curve (orbit's own angular velocity in, zero out),
+      // radius and height ease in, so the spark brakes into its slot at the apex
+      const D = s.apex - SPIRAL, u = (T - SPIRAL) / D, u2 = u * u, u3 = u2 * u;
+      const th = (2 * u3 - 3 * u2 + 1) * W.th + (u3 - 2 * u2 + u) * D * W.om + (3 * u2 - 2 * u3) * W.thEnd;
+      const k = smooth(0, 1, u), r = lerp(W.r, s.slot[1], k), y = lerp(W.y, s.slot[2], k);
+      return { p: [r * Math.cos(th), y, r * Math.sin(th)], inside: false };
     }
-    return { p, inside: T > d1 };
+    // the plunge: falls from rest, accelerating; the three braid round one another as they close
+    const u = seg(T, s.apex, s.apex + PLUNGE);
+    const th = W.thEnd - TWIST * u * u, r = lerp(s.slot[1], 0.02, u * u), y = lerp(s.slot[2], 0.42, u * u * u);
+    return { p: [r * Math.cos(th), y, r * Math.sin(th)], inside: T > s.apex + PLUNGE };
   }
+  /** When spark i's plunge begins (its apex) — it heats to white as it falls. */
+  const plungeAt = (i) => SPARKS[i].apex;
 
   // ─── Cup solid (for spark occlusion) ───────────────────────────────────────
   /** Build radius-at-height tables from the cup's own lathe geometry (column φ = 0). */
@@ -252,16 +304,34 @@
       col.setXYZ(i, col.getX(i) * f, col.getY(i) * f, col.getZ(i) * f);
     }
     col.needsUpdate = true;
-    // Museum light: the stone falls off to black a hand's width below the lit top edge.
+    // Museum light: the stone falls off to black a hand's width below the lit top edge, and
+    // carries a fine honed-stone grain (two octaves of value noise in world space) so the
+    // lit top reads as stone, not as a flat painted box.
     m.material.onBeforeCompile = (sh) => {
       sh.vertexShader = sh.vertexShader
-        .replace('#include <common>', '#include <common>\nvarying float vTaleY;')
-        .replace('#include <begin_vertex>', '#include <begin_vertex>\nvTaleY = (modelMatrix * vec4(transformed, 1.0)).y;');
+        .replace('#include <common>', '#include <common>\nvarying vec3 vTaleP;')
+        .replace('#include <begin_vertex>', '#include <begin_vertex>\nvTaleP = (modelMatrix * vec4(transformed, 1.0)).xyz;');
       sh.fragmentShader = sh.fragmentShader
-        .replace('#include <common>', '#include <common>\nvarying float vTaleY;')
-        .replace('#include <color_fragment>', '#include <color_fragment>\ndiffuseColor.rgb *= mix(0.02, 1.0, pow(smoothstep(-0.62, -0.004, vTaleY), 2.2));');
+        .replace('#include <common>', `#include <common>
+varying vec3 vTaleP;
+float taleHash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+float taleNoise(vec2 p) {
+  vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(taleHash(i), taleHash(i + vec2(1.0, 0.0)), f.x), mix(taleHash(i + vec2(0.0, 1.0)), taleHash(i + vec2(1.0, 1.0)), f.x), f.y);
+}`)
+        .replace('#include <color_fragment>', `#include <color_fragment>
+vec2 taleQ = vTaleP.xz + vec2(vTaleP.y * 0.8, -vTaleP.y * 0.6);
+diffuseColor.rgb *= 0.8 + 0.4 * (0.6 * taleNoise(taleQ * 13.0) + 0.4 * taleNoise(taleQ * 47.0 + 17.0));`)
+        // The falloff applies to all the light the stone returns, reflections included; the
+        // spot's pool (centred where its axis meets the top, just right of the cup) keeps the
+        // stone warm under the cup while its corners fall away into the dark.
+        .replace('#include <opaque_fragment>', `float talePool = 1.0 - smoothstep(0.22, 0.95, length(vTaleP.xz - vec2(0.14, -0.05)));
+outgoingLight *= pow(smoothstep(-0.34, -0.006, vTaleP.y), 1.8) * mix(0.28, 1.2, talePool);
+#include <opaque_fragment>`);
     };
-    m.material.customProgramCacheKey = () => 'tale-plinth-falloff';
+    m.material.customProgramCacheKey = () => 'tale-plinth-stone';
+    // The stone mostly sees the museum spot, not the room: a pool of light on its top.
+    m.material.envMapIntensity = 0.3;
     m.material.transparent = true;
     m.renderOrder = 0;
     return m;
@@ -279,15 +349,22 @@
     S.cup.inner.material.emissive = new THREE.Color(PAL.copperHot);
     S.scene.add(S.cup.group);
     S.profile = cupProfile(S.cup);
+    planSwirls();
 
     S.plinth = buildPlinth();
-    S.scene.add(S.plinth);
+    S.plinthBase = new THREE.Mesh(
+      new RB.ADD.RoundedBoxGeometry(PLINTH.w, PLINTH.base, PLINTH.d, 2, 0.035),
+      new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true }));
+    S.plinthBase.position.y = -PLINTH.h - PLINTH.base / 2 + 0.03; // tucked into the slab's black zone
+    S.scene.add(S.plinth, S.plinthBase);
     S.shadow = RB.contactShadow(0.78, 0.62);
     S.shadow.renderOrder = 1;
     S.scene.add(S.shadow);
 
     // The shaft's light on the stage: a soft museum spot from the upper left.
-    S.spot = new THREE.SpotLight('#ffd6ad', 0, 0, 0.26, 0.9, 2);
+    // A tight cone: a pool of light on the plinth top around the cup, the stone's corners
+    // falling away into the dark (as in a museum case).
+    S.spot = new THREE.SpotLight('#ffd6ad', 0, 0, 0.15, 0.85, 2);
     S.spot.position.set(-1.3, 6.2, 1.3);
     S.spot.target.position.set(0.08, 0.25, 0);
     S.scene.add(S.spot, S.spot.target);
@@ -402,19 +479,26 @@
       const tailW = smooth(tail - 0.15, head, u);
       pts.push([s.x, s.y, 0.16 + 0.84 * tailW * tailW]);
     }
+    // The front lip runs left → right on screen, so brightness along the arc becomes a
+    // gradient in x, and each glow pass is ONE continuous stroke: separate segments with
+    // round caps double up at every joint in 'lighter' mode and bead the line into dots.
+    let x0 = Infinity, x1 = -Infinity;
+    for (const p of pts) { x0 = Math.min(x0, p[0]); x1 = Math.max(x1, p[0]); }
+    if (x1 - x0 < 1) x1 = x0 + 1;
+    const stops = []; let lastX = -Infinity;
+    for (const p of pts) if (p[0] > lastX + 0.5) { stops.push([(p[0] - x0) / (x1 - x0), p[2]]); lastX = p[0]; }
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
-    ctx.lineCap = 'round';
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.beginPath();
+    pts.forEach((p, k) => (k ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])));
     // glow built from stacked strokes (no filters: per-stroke blur is ruinously slow)
     const passes = [[11, PAL.copperHot, 0.09], [6, PAL.copperHot, 0.16], [3, PAL.ember, 0.42], [1.1, '#fff1e0', 0.9]];
     for (const [width, color, alpha] of passes) {
-      ctx.lineWidth = width;
-      for (let k = 1; k < pts.length; k++) {
-        const a = alpha * L.trace * Math.min(1, pts[k][2] + flare * 0.9);
-        if (a < 0.01) continue;
-        ctx.strokeStyle = R.rgba(color, a);
-        ctx.beginPath(); ctx.moveTo(pts[k - 1][0], pts[k - 1][1]); ctx.lineTo(pts[k][0], pts[k][1]); ctx.stroke();
-      }
+      const g = ctx.createLinearGradient(x0, 0, x1, 0);
+      for (const [o, w] of stops) g.addColorStop(clamp(o), R.rgba(color, alpha * L.trace * Math.min(1, w + flare * 0.9)));
+      ctx.strokeStyle = g; ctx.lineWidth = width;
+      ctx.stroke();
     }
     ctx.restore();
     // the glint itself, riding the lip
@@ -467,7 +551,7 @@
    * A dark ember: a charcoal body inside a copper corona, like the logo's dark flames.
    * `heat` (1 → 0 after ignition) makes the body flare white-hot and cool to charcoal.
    */
-  function drawDarkEmber(ctx, x, y, r, a, heat, fl, dir, stretch, T, seed) {
+  function drawDarkEmber(ctx, x, y, r, a, heat, fl, dir, stretch, T, seed, speed) {
     if (a <= 0.003) return;
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
@@ -479,26 +563,37 @@
     halo.addColorStop(1, R.rgba(PAL.copper, 0));
     ctx.fillStyle = halo; ctx.fillRect(x - hr, y - hr, hr * 2, hr * 2);
     ctx.restore();
-    // copper rim: the ember's own outline, glowing softly around the dark body
+    // copper rim: the ember's own outline, glowing around the dark body (the logo's dark
+    // flames, edged in copper light)
+    const soft = clamp(speed / 450, 0, 6); // px: fast moves soften every edge (no strobing rings)
     emberGlow(ctx, 's' + seed, x, y, r, dir, stretch, T, seed, [
-      [1.22, r * 0.32, PAL.copperHot, 0.9 * a * fl],
-      [1.02, r * 0.12, PAL.ember, 0.75 * a * fl],
+      [1.24, r * 0.34 + soft, PAL.copperHot, 0.95 * a * fl],
+      [1.04, r * 0.12 + soft, PAL.ember, 0.8 * a * fl],
     ]);
+    // The charcoal body (the logo's #292925), white-hot at ignition, cooling to charcoal.
+    // Its edge softens with speed: a hard dark edge repeated across the motion-blur
+    // sub-samples would strobe into a stack of rings.
+    const B = 144, b = R.buffer('tale-body-' + seed, B, B), c = b.ctx;
+    b.clear();
+    c.globalCompositeOperation = 'source-over'; c.globalAlpha = 1;
+    const bx = B / 2 - dir[0] * r * 0.1, by = B / 2 - dir[1] * r * 0.1;
+    const body = c.createRadialGradient(bx + r * 0.2, by + r * 0.25, 0, bx, by, r * 1.2);
+    body.addColorStop(0, R.mix('#191815', '#fff1e2', heat, 1));
+    body.addColorStop(0.6, R.mix(PAL.charcoal, '#ffc8a0', heat, 1));
+    body.addColorStop(1, R.mix('#3d2619', '#ffb48e', heat, 1));
+    c.filter = R.blur(0.5 + soft);
+    c.fillStyle = body;
+    emberPath(c, bx, by, r, dir, stretch * 0.85, T, seed, 0.78); c.fill();
+    c.filter = 'none';
+    // a faint warm catch on the leading edge (copper, never grey)
+    c.globalCompositeOperation = 'lighter';
+    const hx = B / 2 + dir[0] * r * 0.5 - r * 0.12, hy = B / 2 + dir[1] * r * 0.5 - r * 0.18;
+    const hot = c.createRadialGradient(hx, hy, 0, hx, hy, r * 0.55);
+    hot.addColorStop(0, R.rgba(PAL.ember, 0.28 * fl)); hot.addColorStop(1, R.rgba(PAL.copperHot, 0));
+    c.fillStyle = hot; c.fillRect(hx - r, hy - r, r * 2, r * 2);
     ctx.save();
-    // the dark body, white-hot at ignition, cooling to a warm charcoal
-    const bx = x - dir[0] * r * 0.1, by = y - dir[1] * r * 0.1;
-    const body = ctx.createRadialGradient(bx + r * 0.25, by + r * 0.3, 0, bx, by, r * 1.3);
-    body.addColorStop(0, R.mix('#141312', '#fff1e2', heat, a));
-    body.addColorStop(0.55, R.mix('#211d1a', '#ffc8a0', heat, a));
-    body.addColorStop(1, R.mix('#4a2f22', '#ffb48e', heat, a));
-    ctx.fillStyle = body;
-    emberPath(ctx, bx, by, r, dir, stretch * 0.85, T, seed, 0.78); ctx.fill();
-    // a hot catch-light on the leading edge
-    ctx.globalCompositeOperation = 'lighter';
-    const hx = x + dir[0] * r * 0.55 - r * 0.15, hy = y + dir[1] * r * 0.55 - r * 0.2;
-    const hot = ctx.createRadialGradient(hx, hy, 0, hx, hy, r * 0.6);
-    hot.addColorStop(0, R.rgba('#ffe2c6', 0.7 * a * fl)); hot.addColorStop(1, R.rgba(PAL.ember, 0));
-    ctx.fillStyle = hot; ctx.fillRect(hx - r, hy - r, r * 2, r * 2);
+    ctx.globalAlpha = a;
+    ctx.drawImage(b.canvas, x - B / 2, y - B / 2, B, B);
     ctx.restore();
   }
 
@@ -543,11 +638,11 @@
   }
 
   /** Faint trail behind a spark: its own recent path, occluded by the cup where it passes behind. */
-  function drawTrail(ctx, T, i, camPos) {
+  function drawTrail(ctx, T, i, camPos, speed) {
     const s = SPARKS[i], n = 44;
-    // about 1.6 rad of arc: long, lazy trails while circling, short ones once the vortex spins
-    const pS = seg(T, SPIRAL, BRAID), omega = Math.abs(s.w) + SPIN * (T < BRAID ? pS * pS : 1);
-    const span = clamp(1.6 / omega, 0.05, 0.62);
+    // a trail of roughly constant length on screen: long and lazy while circling, a short
+    // bright streak through the swirl and the plunge
+    const span = clamp(230 / Math.max(1, speed), 0.07, 0.55);
     const pts = [];
     for (let k = 0; k <= n; k++) {
       const tk = T - (span * k) / n;
@@ -555,21 +650,32 @@
       const sp = sparkPos(i, tk);
       if (sp.inside) { pts.push(null); continue; }
       const pr = project(sp.p);
-      pts.push(visible(camPos, sp.p) ? [pr.x, pr.y, 1 - k / n] : null);
+      pts.push(visible(camPos, sp.p) ? [pr.x, pr.y] : null);
     }
+    if (pts.length < 3 || !pts[0]) return;
+    const tail = pts[pts.length - 1] || pts[0], head = pts[0];
+    if (Math.hypot(tail[0] - head[0], tail[1] - head[1]) < 2) return;
+    // Each pass is ONE path (no joints: overlapping segment caps in 'lighter' mode bead
+    // into dots) faded head → tail along the chord. The passes stop at different lengths,
+    // so the streak tapers: a soft wide glow near the spark, a fine thread all the way.
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
-    ctx.lineCap = 'round';
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     const col = s.kind === 'copper' ? PAL.ember : PAL.copperHot;
-    for (const [wMul, aMul] of [[4.2, 0.07], [2.2, 0.14], [1, 0.4]]) {
-      for (let k = 1; k < pts.length; k++) {
-        const a = pts[k - 1], b = pts[k];
-        if (!a || !b) continue;
-        const w = b[2];
-        ctx.strokeStyle = R.rgba(col, aMul * w * w);
-        ctx.lineWidth = (0.5 + 1.7 * w) * wMul;
-        ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+    for (const [width, alpha, reach] of [[7.5, 0.07, 0.4], [3.6, 0.13, 0.7], [1.4, 0.42, 1]]) {
+      const last = Math.max(1, Math.round((pts.length - 1) * reach));
+      const end = pts[last] || tail;
+      const g = ctx.createLinearGradient(head[0], head[1], end[0] === head[0] && end[1] === head[1] ? head[0] + 1 : end[0], end[1]);
+      g.addColorStop(0, R.rgba(col, alpha)); g.addColorStop(0.45, R.rgba(col, alpha * 0.4)); g.addColorStop(1, R.rgba(col, 0));
+      ctx.strokeStyle = g; ctx.lineWidth = width;
+      ctx.beginPath();
+      let pen = false;
+      for (let k = 0; k <= last; k++) {
+        const p = pts[k];
+        if (!p) { pen = false; continue; }
+        if (pen) ctx.lineTo(p[0], p[1]); else { ctx.moveTo(p[0], p[1]); pen = true; }
       }
+      ctx.stroke();
     }
     ctx.restore();
   }
@@ -587,16 +693,20 @@
     let vis = 0;
     for (const o of taps) vis += visible(camPos, [sp.p[0] + o[0], sp.p[1] + o[1], sp.p[2] + o[2]]) ? 0.2 : 0;
     const dt = T - s.tIgn;
-    // hot on ignition; and all three turn to light as they plunge into the cup
-    const heat = Math.max(Math.exp(-dt / 0.16), E.inQuad(seg(T, DIVE[0] + i * 0.03, DIVE[0] + i * 0.03 + 0.09)));
-    const pop = 1 + 0.9 * Math.exp(-dt / 0.09) * seg(dt, 0, 0.02);
-    // screen velocity → the ember's tail
-    const prev = project(sparkPos(i, T - 0.04).p);
-    const vx = (pr.x - prev.x) / 0.04, vy = (pr.y - prev.y) / 0.04, sp2 = Math.hypot(vx, vy);
+    // screen velocity (central difference, clamped to the spark's own life) → tail and heat
+    const h = 0.008, ta = Math.max(s.tIgn, T - h), tb = T + h;
+    const pa = project(sparkPos(i, ta).p), pb = project(sparkPos(i, tb).p);
+    const vx = (pb.x - pa.x) / (tb - ta), vy = (pb.y - pa.y) / (tb - ta), sp2 = Math.hypot(vx, vy);
     const dir = sp2 > 1e-3 ? [vx / sp2, vy / sp2] : [0, -1];
+    // White-hot on ignition, cooling to its own colour; fast moves heat it up again (the
+    // swirl reads as streaks of light, and it cools back to dark as it brakes into its
+    // place in the mark); all three turn to light as they plunge.
+    const plunge = E.inQuad(seg(T, plungeAt(i) - 0.01, plungeAt(i) + 0.08));
+    const heat = Math.max(Math.exp(-dt / 0.16), 0.85 * smooth(900, 2600, sp2), plunge);
+    const pop = 1 + 0.9 * Math.exp(-dt / 0.09);
     const r = s.size * pr.ppu * pop;
-    const stretch = clamp(0.25 + sp2 / 1400, 0.25, 1.1);
-    return { p: sp.p, x: pr.x, y: pr.y, r, vis, heat, dir, stretch };
+    const stretch = clamp(0.25 + sp2 / 1400, 0.25, 1.6);
+    return { p: sp.p, x: pr.x, y: pr.y, r, vis, heat, dir, stretch, speed: sp2 };
   }
 
   /** The bowl's visible outline (front lip, then down the two silhouette edges), as a path. */
@@ -657,24 +767,30 @@
   function poseFxLight(T, az, sparks, g) {
     const fx = S.fx; // (its target is in the scene graph, so the render updates its matrix)
     if (T < IGNITE[0]) {
-      // the glint's own light, riding just outside the lip
+      // the glint's own light, riding just outside the lip. Short range: it kisses the lip
+      // around the glint and nothing else (no stray glints on the foot or the far wall
+      // while the cup is still meant to be unseen).
       const hp = lipPoint(az, traceHead(T));
       const on = seg(T, TRACE[0], TRACE[0] + 0.1) * (1 - E.inOutSine(seg(T, TRACE[1], TRACE[1] + 0.5)));
       fx.position.set(hp[0] * 1.12, hp[1] + 0.07, hp[2] * 1.12);
       fx.target.position.set(0, 0.5, 0); fx.angle = Math.PI / 2;
+      fx.distance = 0.5;
       fx.intensity = 0.55 * on;
-    } else if (T < 4.6) {
+    } else if (T < 4.62) {
       // the newest spark: its ignition flashes on the copper; the copper ember keeps a glow
       const i = T < IGNITE[1] ? 0 : T < IGNITE[2] ? 1 : 2, st = sparks[i];
+      fx.distance = 0;
       if (!st) { fx.intensity = 0; return; }
       fx.position.set(st.p[0], st.p[1], st.p[2]);
       fx.target.position.set(0, 0.5, 0); fx.angle = Math.PI / 2;
       fx.intensity = SPARKS[i].light * (0.55 + 0.45 * st.vis) + 0.22 * st.heat * st.heat;
     } else {
-      // inside the cup once the sparks have gone in
+      // inside the cup once the sparks have gone in (S2 carries only the emissive part of
+      // the glow across the cut, so this light is gone by frame 149)
       fx.position.set(0, 0.34, 0);
       fx.target.position.set(0, 2, 0); fx.angle = 1.25;
-      fx.intensity = 3.2 * g + SPARKS[2].light * (1 - seg(T, 4.6, 4.68));
+      fx.distance = 0;
+      fx.intensity = 3.2 * g * spillAt(T) + SPARKS[2].light * (1 - seg(T, 4.62, 4.68));
     }
   }
 
@@ -704,8 +820,8 @@
     S.spot.intensity = 95 * L.spot;
     S.scene.environmentRotation.set(L.envPitch, 0, 0);
     const plinthA = 1 - E.inOutSine(seg(T, 4.35, 4.9));
-    S.plinth.visible = plinthA > 0.001;
-    S.plinth.material.opacity = plinthA;
+    S.plinth.visible = S.plinthBase.visible = plinthA > 0.001;
+    S.plinth.material.opacity = S.plinthBase.material.opacity = plinthA;
     S.plinth.material.color.setScalar(lerp(1, 0.35, E.inOutSine(seg(T, 4.2, 4.8))));
     S.shadow.visible = plinthA > 0.001;
     S.shadow.material.opacity = 0.62 * plinthA;
@@ -724,14 +840,14 @@
     RB.draw3D(ctx, S.scene, S.camera);
 
     drawRimTrace(ctx, T, az, L);
-    drawInnerGlow(ctx, g, az);
-    sparks.forEach((st, i) => { if (st) drawTrail(ctx, T, i, camPos); });
+    drawInnerGlow(ctx, g * spillAt(T), az);
+    sparks.forEach((st, i) => { if (st) drawTrail(ctx, T, i, camPos, st.speed); });
     sparks.forEach((st, i) => {
       if (!st) return;
       drawIgnition(ctx, T, i, sparkPos(i, SPARKS[i].tIgn).p);
-      const a = st.vis * seg(T, SPARKS[i].tIgn, SPARKS[i].tIgn + 0.02), fl = flicker(T, i);
+      const a = st.vis, fl = flicker(T, i); // full strength on the beat frame itself
       const paint = SPARKS[i].kind === 'copper' ? drawCopperEmber : drawDarkEmber;
-      paint(ctx, st.x, st.y, st.r, a, st.heat, fl, st.dir, st.stretch, T, i * 5.7);
+      paint(ctx, st.x, st.y, st.r, a, st.heat, fl, st.dir, st.stretch, T, i * 5.7, st.speed);
     });
     drawBeamDust(ctx, T, beam, L.beam);
 

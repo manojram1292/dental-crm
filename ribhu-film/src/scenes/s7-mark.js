@@ -4,30 +4,35 @@
  * Darkness to light. The three makers become the mark.
  *
  *   22.500  IN. S6's ember, alone at riseSpark (960, 430) on the dark backdrop, still rising
- *           at 120 px/s. It slows to a hover where the mark's centre will be.
- *   22.900  First rising tone: the ember divides. A dark sibling (charcoal with a copper rim)
- *           buds off and the pair begins to circle.
- *   23.200  Second tone: the second dark sibling buds off the copper one. Three makers.
- *   23.500  Third tone: the three open into a wide, tilted orbit and swirl, trailing light,
- *           like three makers circling one work.
- *   23.750  Beat. Each spark is forged into its flame. The extruded flames of RB.mark3D grow
- *           out of the sparks white-hot and edge-on. The orbit tilts up to face us and spirals
- *           in while the flames turn to face camera and cool (copper and charcoal) as they fly.
- *           The room warms behind them.
- *   25.000  Downbeat. The flames lock into the exact logo with a small click, and a warm light
- *           sweeps the bevels. The light floods outward from the mark: the dark workshop
- *           becomes ivory by 25.600.
+ *           at 120 px/s. It slows to a hover where the mark's centre will be; the camera
+ *           begins a slow dolly in and the room's glow drifts up to meet it.
+ *   22.900  First rising tone: the ember divides with a small shower of sparks. A dark sibling
+ *           (a charcoal coal, lit on the side that faces the copper) buds off; the pair circles.
+ *   23.200  Second tone: the second dark sibling buds off, another shower. Three makers.
+ *   23.500  Third tone: the three open into a wide, tilted orbit and swirl, trailing light.
+ *           Each tone lifts the dark a notch: darkness to light begins here.
+ *   23.750  Beat. Each spark is forged into its flame. The extruded flames grow out of the
+ *           sparks white-hot, then cool to metal as they fly: the heat runs to their edges, the
+ *           charcoal ones go dark with copper-red rims, and a moving softbox keeps the tumbling
+ *           metal catching glints. The orbit tilts up to face us and spirals in.
+ *   25.000  Downbeat. The flames seat into the exact logo with a small inward click against a
+ *           burst of light; a warm light sweep runs along the bevels. Dawn: the room lifts
+ *           through amber and peach while ivory pours out of the mark, fully ivory by 25.600.
  *   25.625  "Ribhu Labs" rises out of its mask under the mark (RB.wordmark, ink on ivory).
  *   26.250  "World-renewing craftsmanship." (RB.type.line, Manrope, ink).
- *   27.500  "ribhulabs.ai" types on in copper mono (RB.type.annotation).
+ *   27.500  "ribhulabs.ai" types on in copper mono (the annotation voice, set larger).
  *   27.5–30 Living hold: a slow push, the mark turns its last degrees to face-on, a second
- *           slow light sweep across the bevels, and warm motes drifting in the light.
- *           Frame 899 is the hero still: the whole lockup on ivory, the logo exact and face-on.
+ *           slow light sweep along the bevels, gilded motes glinting in the key light; the
+ *           motes settle out with the music's tail. Frame 899 is the hero still: the whole
+ *           lockup on ivory, the logo exact and face-on, nothing else.
  *
  * One draw3D per frame. The camera glides from a low three-quarter view onto the lockup
  * camera, which looks straight down −z, so the logo's front face is an undistorted copy of
- * the SVG. The sparks are 2D and are placed by projecting the same 3D formation the flames
- * fly in, so the hand-off from spark to flame lands on the same pixel.
+ * the SVG. The flames use RB.mark3D's pivots, homes and materials; their geometry is rebuilt
+ * from the same paths with the bevel turned inward, so the outline is the SVG outline exactly
+ * (the kit's outward bevel fattens it ~2.5 px and closes the logo's gaps). The sparks are 2D
+ * and are placed by projecting the same 3D formation the flames fly in, so the hand-off from
+ * spark to flame lands on the same pixel.
  */
 (function () {
   'use strict';
@@ -78,7 +83,7 @@
   // heat colour runs white-hot → forge orange → deep copper-red as a flame cools
   const HEAT_HOT = new THREE.Color('#ffc58f'), HEAT_MID = new THREE.Color('#ee6f34'), HEAT_LOW = new THREE.Color('#a8401c');
   // reflection strength per flame: copper is tuned so its face reads as brand copper on ivory
-  const ENV_DARK = [0.95, 1.1, 1.1], ENV_LIT = [0.5, 1.0, 1.0];
+  const ENV_DARK = [1.55, 1.1, 1.1], ENV_LIT = [0.5, 1.0, 1.0];
   const RIM_HEAT = [0.8, 1, 1];      // how much of each flame's heat sits on its edges
 
   let S = null;
@@ -103,7 +108,8 @@
     const p = E.inOutCubic(seg(t, 0.3, K.lock));
     const yaw = lerp(13, 0, p) * DEG, pitch = lerp(-6, 0, p) * DEG;
     // close in on the makers, then pull back as they lock (decelerating onto the lockup camera)
-    const dist = DIST * lerp(0.66, 1, E.inOutCubic(seg(t, 1.1, K.lock)));
+    // a slow dolly in on the makers as they divide, then the pull back that lands on the lockup camera
+    const dist = DIST * (t < 1.15 ? lerp(0.62, 0.52, E.inOutSine(seg(t, 0.25, 1.15))) : lerp(0.52, 1, E.inOutCubic(seg(t, 1.15, K.lock))));
     const fov0 = lerp(30, FOV, p);
     const fov = (2 * Math.atan(Math.tan((fov0 * DEG) / 2) / pushAt(t))) / DEG;
     return {
@@ -134,8 +140,8 @@
   /** Exploded-logo spread: wide, then drawn in, arriving with speed; a small click inward at the lock. */
   function spreadAt(t) {
     if (t < K.lock) return 1 + 1.25 * (1 - E.inQuad(seg(t, K.forge, K.lock)));
-    const u = seg(t, K.lock, K.lock + 0.4);
-    return 1 - 0.016 * Math.sin(Math.PI * u) * (1 - u);
+    const u = seg(t, K.lock, K.lock + 0.5);
+    return 1 - 0.028 * Math.sin(Math.PI * u) * (1 - u); // the pieces seat: a small inward click
   }
   function orbitRadius(t) {
     // the pair parts, holds close through the second division, then the orbit opens on the third tone
@@ -169,20 +175,25 @@
 
   // ─── Timelines for light and material ───────────────────────────────────────────────────
   const warmAt = (t) => E.inOutSine(seg(t, 1.2, K.lock));            // the room warms behind the makers
+  /** Each rising tone lifts the dark a notch (a breath of light per maker), before the forge warms it. */
+  const toneWarm = (t) => [K.split1, K.split2, K.open].reduce((acc, tk) =>
+    acc + 0.15 * E.outCubic(seg(t, tk, tk + 0.55)) + (t > tk ? 0.1 * Math.exp(-(t - tk) * 7) : 0), 0);
+  const glowAt = (t) => { const w = warmAt(t); return w + (1 - w) * toneWarm(t); };
   /** Ivory floods out of the mark from the lock: a quick first breath, then it pours to the edges. */
   const floodAt = (t) => { const u = seg(t, K.lock - 0.04, K.ivory); return 0.45 * E.outCubic(u) + 0.55 * E.inOutSine(u); };
   const ivoryAt = (t) => E.inOutSine(seg(t, 2.2, K.ivory));          // lighting towards the finale
+  const envMixAt = (t) => E.inOutSine(seg(t, K.lock - 0.1, K.ivory));  // night studio → ivory studio reflections
   const flameScaleAt = (i, t) => E.outCubic(seg(t, K.forge + 0.07 * i, 2.28));
   /** The copper maker is the ember itself: it glows from within until the lock. The dark ones cool at the edges. */
   const heatAt = (i, t) => i === 0
-    ? 1.15 * Math.pow(1 - seg(t, 1.3, 2.25), 1.7)
+    ? 1.15 * Math.pow(1 - seg(t, 1.3, 2.35), 1.6)
     : 1.25 * Math.pow(1 - seg(t, K.forge + 0.05, 2.1), 2.2);
   const sparkFadeAt = (t) => 1 - E.inOutSine(seg(t, 1.32, 1.95));
 
   /** Light sweeps (0..1 progress, amplitude): the lock sweep, then a slow one in the hold. */
   function sweepAt(t) {
-    if (t < 4) return { p: seg(t, 2.38, 3.2), a: bump(t, 2.38, 3.2) };
-    return { p: seg(t, 5.15, 7.05), a: 0.75 * bump(t, 5.15, 7.05) };
+    if (t < 4) return { p: seg(t, K.lock, 3.3), a: bump(t, K.lock, 3.3) };
+    return { p: seg(t, 5.15, 7.05), a: 0.7 * bump(t, 5.15, 7.05) };
   }
 
   // ─── Posing the 3D mark ─────────────────────────────────────────────────────────────────
@@ -216,7 +227,8 @@
       else m.emissive.copy(HEAT_LOW).lerp(HEAT_MID, hc * 2);
       m.emissiveIntensity = hq;
       m.userData.rimHeat.value = RIM_HEAT[i];
-      m.envMapIntensity = lerp(ENV_DARK[i], ENV_LIT[i], E.inOutSine(seg(t, 1.9, K.lock + 0.2)));
+      m.envMapIntensity = lerp(ENV_DARK[i], ENV_LIT[i], E.inOutSine(seg(t, 1.75, 2.3)));
+      m.userData.envMix.value = envMixAt(t);
     }
     g.updateMatrixWorld(true);
 
@@ -230,7 +242,7 @@
     S.makerLight.intensity = 3.2 * glow;
     const sw = sweepAt(t);
     // the reflections turn a little with the sheen, so the bevels catch light as it passes
-    const envTurn = 0.45 * Math.sin(Math.PI * 2 * E.inOutSine(sw.p)) * sw.a;
+    const envTurn = 0.24 * Math.sin(Math.PI * 2 * E.inOutSine(sw.p)) * sw.a;
     // during the flight the studio light wheels round the makers (a moving softbox), so the
     // tumbling metal keeps catching glints; it comes to rest exactly at the lock
     const wheel = 1 - E.inOutSine(seg(t, K.forge, K.lock));
@@ -255,16 +267,18 @@
   }
 
   function drawGround(ctx, t) {
-    const warm = warmAt(t), flood = floodAt(t);
+    const warm = warmAt(t), flood = floodAt(t), glow = glowAt(t);
     if (flood >= 1) {
       ctx.fillStyle = PAL.ivory; ctx.fillRect(0, 0, R.W, R.H);
       return;
     }
-    RB.atmos.backdrop(ctx, { gx: 960, gy: lerp(540, 470, warm), gr: lerp(900, 1150, warm), lift: lerp(0.7, 1, warm) });
+    // the glow of the room drifts up with the rising ember, so the makers work in its heart
+    const lift = E.inOutSine(seg(t, 0, 1.2));
+    RB.atmos.backdrop(ctx, { gx: 960, gy: lerp(lerp(540, 450, lift), 440, warm), gr: lerp(900, 1150, warm), lift: lerp(0.7, 1, warm) });
     const cx = L.cx, cy = L.markY + 30;
     // pre-dawn: the makers' heat warms the room from the centre out (amber, the edges kept deep)
-    softGlow(ctx, cx, cy, lerp(420, 1180, warm), '#7c4e31', 0.62 * warm, 'screen', 0.8);
-    softGlow(ctx, cx, cy, lerp(240, 660, warm), '#f0bf8f', 0.42 * warm * warm, 'screen', 0.88);
+    softGlow(ctx, cx, cy, lerp(420, 1180, glow), '#7c4e31', 0.62 * glow, 'screen', 0.8);
+    softGlow(ctx, cx, cy, lerp(240, 660, glow), '#f0bf8f', 0.42 * glow * glow, 'screen', 0.88);
     if (flood > 0) {
       // dawn: the whole room lifts through amber and peach (never through grey) ...
       const wash = R.ramp(['#6e4630', '#b27b53', '#dfbb96', '#ebdcc0'], flood);
@@ -295,29 +309,80 @@
     g.addColorStop(0.55, R.rgba('#f6f2e2', 0.22 * a));
     g.addColorStop(1, R.rgba('#f6f2e2', 0));
     ctx.fillStyle = g; ctx.fillRect(0, 0, R.W, R.H);
+    // the room falls off warm towards its edges, so the vignette settles on sand, never olive-grey
+    const e = ctx.createRadialGradient(960, 500, 560, 960, 500, 1240);
+    e.addColorStop(0, R.rgba('#e2c6a0', 0)); e.addColorStop(1, R.rgba('#e2c6a0', 0.4 * a));
+    ctx.fillStyle = e; ctx.fillRect(-200, -200, R.W + 400, R.H + 400);
     ctx.restore();
   }
 
-  /** A dark maker: charcoal bead with a glowing copper rim and a copper halo. */
-  function darkEmber(ctx, x, y, r, a, lightX) {
+  /**
+   * A dark maker: a charcoal coal lit by the copper maker. Its body is dark; the side that faces
+   * the copper ember burns as a hot crescent, and a thin copper rim closes the silhouette.
+   */
+  function darkEmber(ctx, x, y, r, a, lx, ly) {
     if (a <= 0.001 || r <= 0.05) return;
+    let dx = lx - x, dy = ly - y; const dl = Math.hypot(dx, dy);
+    if (dl < 1e-3) { dx = 1; dy = 0; } else { dx /= dl; dy /= dl; }
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
-    const h = ctx.createRadialGradient(x, y, 0, x, y, r * 5.5);
-    h.addColorStop(0, R.rgba(PAL.copperHot, 0.4 * a)); h.addColorStop(0.3, R.rgba(PAL.copper, 0.16 * a)); h.addColorStop(1, R.rgba(PAL.copper, 0));
+    const h = ctx.createRadialGradient(x + dx * r * 0.6, y + dy * r * 0.6, 0, x, y, r * 5.5);
+    h.addColorStop(0, R.rgba(PAL.copperHot, 0.42 * a)); h.addColorStop(0.3, R.rgba(PAL.copper, 0.15 * a)); h.addColorStop(1, R.rgba(PAL.copper, 0));
     ctx.fillStyle = h; ctx.fillRect(x - r * 5.5, y - r * 5.5, r * 11, r * 11);
     ctx.globalCompositeOperation = 'source-over';
-    ctx.globalAlpha = a;
-    const body = ctx.createRadialGradient(x - r * 0.25, y - r * 0.3, 0, x, y, r);
-    body.addColorStop(0, '#3a3530'); body.addColorStop(0.7, PAL.charcoal); body.addColorStop(1, '#1b1b18');
-    ctx.fillStyle = body; ctx.beginPath(); ctx.arc(x, y, r * 0.86, 0, Math.PI * 2); ctx.fill();
-    // copper rim, brightest on the side facing the copper maker
-    const dir = Math.sign(lightX - x) || 1;
-    const rim = ctx.createLinearGradient(x - dir * r, y, x + dir * r, y);
-    rim.addColorStop(0, R.rgba(PAL.copper, 0.35 * a)); rim.addColorStop(1, R.rgba(PAL.ember, 0.95 * a));
+    ctx.globalAlpha = Math.min(1, a);
+    const rb = r * 0.88;
+    const body = ctx.createRadialGradient(x - dx * r * 0.3, y - dy * r * 0.3, 0, x, y, rb);
+    body.addColorStop(0, '#2f2b27'); body.addColorStop(0.75, '#22211d'); body.addColorStop(1, '#171614');
+    ctx.fillStyle = body; ctx.beginPath(); ctx.arc(x, y, rb, 0, Math.PI * 2); ctx.fill();
+    // the lit crescent: a hot glow from the copper maker's side, clipped to the bead
+    ctx.save();
+    ctx.clip();
+    ctx.globalCompositeOperation = 'lighter';
+    const cx = x + dx * rb * 1.25, cy = y + dy * rb * 1.25;
+    const c = ctx.createRadialGradient(cx, cy, rb * 0.55, cx, cy, rb * 1.35);
+    c.addColorStop(0, R.rgba('#ffd2a8', 0.95 * a)); c.addColorStop(0.35, R.rgba(PAL.copperHot, 0.7 * a)); c.addColorStop(1, R.rgba(PAL.copperHot, 0));
+    ctx.fillStyle = c; ctx.fillRect(x - rb, y - rb, rb * 2, rb * 2);
+    ctx.restore();
+    // a thin copper rim all round, so the dark side still reads against the dark room
     ctx.globalAlpha = 1;
-    ctx.strokeStyle = rim; ctx.lineWidth = Math.max(1, r * 0.3);
-    ctx.beginPath(); ctx.arc(x, y, r * 0.86, 0, Math.PI * 2); ctx.stroke();
+    ctx.strokeStyle = R.rgba(PAL.copper, 0.45 * Math.min(1, a)); ctx.lineWidth = Math.max(0.8, r * 0.12);
+    ctx.beginPath(); ctx.arc(x, y, rb, 0, Math.PI * 2); ctx.stroke();
+    ctx.restore();
+  }
+
+  /**
+   * Sparks thrown off as the ember divides (one small shower per rising tone), like a struck coal.
+   * Deterministic: each shower is a fixed set of hashed sparks, integrated analytically.
+   */
+  const SHOWERS = [{ t: 0.4, from: 1, n: 10 }, { t: 0.7, from: 2, n: 10 }];
+  function drawShowers(ctx, t) {
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.lineCap = 'round';
+    SHOWERS.forEach((sh, si) => {
+      const age = t - sh.t;
+      if (age < 0 || age > 0.75) return;
+      const o = toScreenLocal(formation(sh.t).pts[sh.from]);
+      for (let k = 0; k < sh.n; k++) {
+        const h1 = R.hash(k, 300 + si * 7), h2 = R.hash(k, 301 + si * 7), h3 = R.hash(k, 302 + si * 7);
+        const life = 0.32 + 0.4 * h3;
+        const u = age / life;
+        if (u >= 1) continue;
+        const ang = h1 * Math.PI * 2, v0 = 150 + 230 * h2, drag = 5.5;
+        // x(t) = v0/drag (1 − e^(−drag t)), with a little gravity pulling the arc down
+        const d = (v0 / drag) * (1 - Math.exp(-drag * age));
+        const g = 90 * age * age;
+        const x = o[0] + Math.cos(ang) * d, y = o[1] + Math.sin(ang) * d + g;
+        const sp = v0 * Math.exp(-drag * age);
+        const tail = Math.min(12, sp * 0.028 + 1);
+        const vx = Math.cos(ang) * sp, vy = Math.sin(ang) * sp + 180 * age, vl = Math.hypot(vx, vy) || 1;
+        const al = (1 - u) * (1 - u) * (0.55 + 0.45 * h2);
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - (vx / vl) * tail, y - (vy / vl) * tail);
+        ctx.strokeStyle = R.rgba(PAL.copperHot, al * 0.3); ctx.lineWidth = 3.6; ctx.stroke();   // glow
+        ctx.strokeStyle = R.rgba(u < 0.35 ? '#ffe6cc' : PAL.ember, al * 0.85); ctx.lineWidth = 1; ctx.stroke(); // core
+      }
+    });
     ctx.restore();
   }
 
@@ -329,7 +394,7 @@
     for (let i = 0; i < 3; i++) {
       if (t < born[i]) { out.push(null); continue; }
       const grow = i === 0 ? 1 : E.outCubic(seg(t, born[i], born[i] + 0.22));
-      let r = i === 0 ? 12 - 2.5 * E.outCubic(seg(t, K.split1, K.split1 + 0.2)) - 1 * E.outCubic(seg(t, K.split2, K.split2 + 0.2)) : 9.5 * grow;
+      let r = i === 0 ? 12 - 1.8 * E.outCubic(seg(t, K.split1, K.split1 + 0.2)) - 0.8 * E.outCubic(seg(t, K.split2, K.split2 + 0.2)) : 10.5 * grow;
       // anticipation: the copper ember swells just before each division
       if (i === 0) r += 1.6 * bump(t, K.split1 - 0.14, K.split1 + 0.04) + 1.3 * bump(t, K.split2 - 0.14, K.split2 + 0.04);
       const flash = 0.55 * Math.exp(-Math.max(0, t - born[i]) * 9) * (i > 0 ? 1 : 0);
@@ -342,7 +407,7 @@
   function drawTrails(ctx, t) {
     const amt = seg(t, K.split1 + 0.1, 0.9) * (1 - E.inOutSine(seg(t, 1.25, 1.7)));
     if (amt <= 0.001) return;
-    const N = 16, dt = 0.014;
+    const N = 22, dt = 0.015;
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
     ctx.lineCap = 'round';
@@ -388,29 +453,54 @@
   }
 
   /**
-   * The sheen: a narrow band of warm light crossing the mark, masked by the rendered mark's own
-   * alpha (the GL canvas still holds this frame's render), so it lives only on the metal.
+   * A flame's front face on screen, as a 2D transform from SVG units: built from the real
+   * camera and the flame's own pose, so 2D light sits exactly on the rendered logo (the push,
+   * the seating click and the settle turn included). Meaningful once the flames face us.
+   */
+  function markFrontTransform(i) {
+    const b = RB.MARK.bounds, s0 = 1 / (b.y1 - b.y0), cxS = (b.x0 + b.x1) / 2, cyS = (b.y0 + b.y1) / 2, zf = 0.057, d = 0.2;
+    const fl = S.mark.flames[i], h = S.home[i];
+    const P = (x, y) => { tmpV.set(x - h.x, y - h.y, zf).applyMatrix4(fl.matrixWorld); return RB.toScreen(S.camera, tmpV.x, tmpV.y, tmpV.z); };
+    const O = P(0, 0), X = P(d, 0), Y = P(0, d);
+    const ex = [(X[0] - O[0]) / d, (X[1] - O[1]) / d], ey = [(Y[0] - O[0]) / d, (Y[1] - O[1]) / d];
+    return [s0 * ex[0], s0 * ex[1], -s0 * ey[0], -s0 * ey[1],
+      O[0] - cxS * s0 * ex[0] + cyS * s0 * ey[0], O[1] - cxS * s0 * ex[1] + cyS * s0 * ey[1]];
+  }
+
+  /**
+   * The light sweep: a narrow band of warm light that travels across the mark and lives on its
+   * bevels (a thin ring just inside each flame's outline), with only a breath of it on the faces.
    */
   function drawSheen(ctx, t) {
     const sw = sweepAt(t);
-    if (sw.a <= 0.01) return;
+    if (sw.a <= 0.01 || t < K.lock) return;
+    const m = R.buffer('s7-sheen-mask', R.W, R.H);
+    m.clear();
+    const mg = m.ctx;
+    S.paths.forEach((P, i) => {
+      const M = markFrontTransform(i), unit = Math.hypot(M[0], M[1]); // px per SVG unit
+      mg.save(); mg.transform(...M); mg.clip(P);
+      mg.fillStyle = 'rgba(0,0,0,0.13)'; mg.fill(P);     // a breath on the face
+      mg.lineWidth = 4.4 / unit; mg.strokeStyle = '#000'; mg.stroke(P); // the bevel ring
+      mg.restore();
+    });
     const b = R.buffer('s7-sheen', R.W, R.H);
     b.clear();
     const g = b.ctx, p = E.inOutSine(sw.p), h = L.markH * pushAt(t);
     const cx = lerp(L.cx - h * 0.95, L.cx + h * 0.95, p), cy = 540 - (540 - L.markY) * pushAt(t);
     g.save();
     g.translate(cx, cy); g.rotate(0.38);
-    const bw = h * 0.28, gr = g.createLinearGradient(-bw, 0, bw, 0);
-    gr.addColorStop(0, 'rgba(255,244,228,0)'); gr.addColorStop(0.42, 'rgba(255,244,228,0.55)');
-    gr.addColorStop(0.5, 'rgba(255,250,240,1)'); gr.addColorStop(0.58, 'rgba(255,244,228,0.55)'); gr.addColorStop(1, 'rgba(255,244,228,0)');
+    const bw = h * 0.24, gr = g.createLinearGradient(-bw, 0, bw, 0);
+    gr.addColorStop(0, 'rgba(255,242,222,0)'); gr.addColorStop(0.4, 'rgba(255,242,222,0.5)');
+    gr.addColorStop(0.5, 'rgba(255,250,238,1)'); gr.addColorStop(0.6, 'rgba(255,242,222,0.5)'); gr.addColorStop(1, 'rgba(255,242,222,0)');
     g.fillStyle = gr; g.fillRect(-bw, -h, bw * 2, h * 2);
     g.restore();
     g.globalCompositeOperation = 'destination-in';
     g.setTransform(1, 0, 0, 1, 0, 0);
-    g.drawImage(RB.gl.renderer().domElement, 0, 0, b.canvas.width, b.canvas.height);
+    g.drawImage(m.canvas, 0, 0);
     ctx.save();
     ctx.globalCompositeOperation = 'screen';
-    ctx.globalAlpha = 0.5 * sw.a;
+    ctx.globalAlpha = 0.9 * sw.a;
     ctx.drawImage(b.canvas, 0, 0, R.W, R.H);
     ctx.restore();
   }
@@ -448,12 +538,21 @@
     });
   }
 
+  /**
+   * The address, in the annotation voice (JetBrains Mono 500, 2.2 px tracking at 12 px, typed on
+   * character by character), set at 1.85× and in full-strength copper so it holds on ivory.
+   */
   function drawUrl(ctx, T) {
+    const tIn = T0 + K.url, text = 'ribhulabs.ai';
+    if (T < tIn - 0.001) return;
+    const n = Math.min(text.length, Math.floor(text.length * clamp(seg(T, tIn, tIn + text.length * 0.03))) + 1);
+    const a = clamp(seg(T, tIn, tIn + 0.12));
     ctx.save();
     ctx.translate(L.cx, L.urlY);
     ctx.scale(L.urlScale, L.urlScale);
-    // annotation types on 0.15 s after tIn: the first letter lands on the 27.5 tick
-    RB.type.annotation(ctx, T, { text: 'ribhulabs.ai', x: -S.urlW / 2 - 8, y: 0, tIn: T0 + K.url - 0.15, align: 'left', color: PAL.copper });
+    ctx.font = R.font(12, 'mono', 500); ctx.letterSpacing = '2.2px'; ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
+    ctx.fillStyle = PAL.copper; ctx.globalAlpha = a;
+    ctx.fillText(text.slice(0, n), -S.urlW / 2, 0);
     ctx.restore();
   }
 
@@ -469,7 +568,11 @@
     return (1 - R.smoothstep(0.35, 1.05, Math.abs(lx) / hw)) * (1 - R.smoothstep(0.55, 1, ly / SHAFT.length));
   }
 
-  /** Warm motes glinting in the finale's light (deterministic in absolute time; kept off the type). */
+  /**
+   * Warm motes glinting in the finale's light (deterministic in absolute time; kept off the type).
+   * On ivory a mote must be *light*, not a speck: a bright point with a faint warm glow around
+   * it that twinkles as it turns in the beam; a few larger ones drift out of focus near the lens.
+   */
   function drawMotes(ctx, T, a) {
     if (a <= 0.001) return;
     ctx.save();
@@ -479,46 +582,58 @@
       const depth = 0.5 + h3;
       const x = -100 + ((h1 * W2 + T * (6 + 10 * h4) * depth + R.noise.n2(i * 1.31, T * 0.16) * 34) % W2 + W2) % W2;
       const y = -100 + ((h2 * H2 + T * (3 + 6 * h3) * depth + R.noise.n2(i * 2.17 + 5, T * 0.13) * 26) % H2 + H2) % H2;
-      const offType = R.smoothstep(0, 60, Math.max(560 - x, x - 1360, 560 - y, y - 890)); // 0 over the type
+      const offType = R.smoothstep(0, 60, Math.max(560 - x, x - 1360, 560 - y, y - 890)); // 0 over the lockup
       const w = inShaft(x, y) * offType;
       if (w <= 0.01) continue;
-      const tw = 0.5 + 0.5 * Math.sin(T * (0.9 + h3 * 1.4) + h4 * 6.28);
-      const soft = h4 > 0.8;                       // a few out-of-focus motes nearer the lens
-      const r = soft ? 7 + 8 * h1 : 1.1 + 1.3 * h3;
-      const al = a * w * (soft ? 0.1 : (0.55 + 0.45 * tw));
-      // gilded dust: a warm gold point with a soft halo of its own colour (no ring, no dark speck)
-      const col = soft ? '#e7b88c' : '#d99a5c', rr = r * (soft ? 1 : 3);
-      const g = ctx.createRadialGradient(x, y, 0, x, y, rr);
+      const tw = Math.pow(0.5 + 0.5 * Math.sin(T * (1.1 + h3 * 1.6) + h4 * 6.28), 2);
+      const soft = h4 > 0.82;
       if (soft) {
-        g.addColorStop(0, R.rgba(col, al)); g.addColorStop(0.7, R.rgba(col, al * 0.75)); g.addColorStop(1, R.rgba(col, 0));
-      } else {
-        g.addColorStop(0, R.rgba(col, al * 0.8)); g.addColorStop(0.28, R.rgba(col, al * 0.5)); g.addColorStop(1, R.rgba(col, 0));
+        // out of focus: a pale disc of light with a warm edge
+        const r = 8 + 9 * h1, al = a * w * 0.32;
+        const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+        g.addColorStop(0, R.rgba('#fffaf0', al)); g.addColorStop(0.75, R.rgba('#fff4e2', al * 0.8));
+        g.addColorStop(0.92, R.rgba('#f1d2ae', al * 0.45)); g.addColorStop(1, R.rgba('#f1d2ae', 0));
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+        continue;
       }
-      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, rr, 0, Math.PI * 2); ctx.fill();
+      // in focus: a gilded glint (warm glow, bright core) that flares as it turns in the beam
+      const r = 0.9 + 0.9 * h3, al = a * w * (0.3 + 0.7 * tw);
+      const gl = ctx.createRadialGradient(x, y, 0, x, y, r * 4.5);
+      gl.addColorStop(0, R.rgba('#e3a868', 0.5 * al)); gl.addColorStop(0.35, R.rgba('#eab57c', 0.2 * al)); gl.addColorStop(1, R.rgba('#eab57c', 0));
+      ctx.fillStyle = gl; ctx.beginPath(); ctx.arc(x, y, r * 4.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = R.rgba('#fff8ec', al); ctx.beginPath(); ctx.arc(x, y, r * 0.8, 0, Math.PI * 2); ctx.fill();
     }
     ctx.restore();
   }
 
   // ─── Build (once) ───────────────────────────────────────────────────────────────────────
   /**
-   * Reflections for the finale: the workshop's softbox layout, re-lit as the ivory room
-   * (neutral-warm light), so the copper face reads as the brand copper and the charcoal
-   * stays charcoal instead of taking on the workshop's orange cast.
+   * Two studios for the flames' reflections, blended in the shader as the room turns to ivory.
+   * Both keep the workshop's softbox layout, lit neutral-warm (not the workshop's orange cast),
+   * so the copper face reads as the brand copper and the charcoal stays charcoal.
+   *   night: a dark umber room; the metal lives on its glints (the flight).
+   *   ivory: the finale's bright room; the extrusion's walls and the lower bevels reflect lit
+   *          ivory, so the edges read as a crafted object and never as a dark outline.
+   * The face reflects the front fill, which is the same in both, so the face colour holds.
    */
-  function ivoryStudioEnv() {
+  function studioEnv(ivory) {
     const scene = new THREE.Scene();
-    scene.add(new THREE.Mesh(new THREE.BoxGeometry(24, 14, 24), new THREE.MeshBasicMaterial({ color: new THREE.Color('#5c4f44'), side: THREE.BackSide })));
+    scene.add(new THREE.Mesh(new THREE.BoxGeometry(24, 14, 24), new THREE.MeshBasicMaterial({ color: new THREE.Color(ivory ? '#b8ad98' : '#4a3d33'), side: THREE.BackSide })));
     const panel = (w, h, color, k, pos) => {
       const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(color).multiplyScalar(k), side: THREE.DoubleSide }));
       m.position.set(pos[0], pos[1], pos[2]); m.lookAt(0, 0, 0); scene.add(m);
     };
-    panel(7, 5, '#fff6ea', 7.0, [-6, 6, 5]);      // key softbox, high front-left
+    panel(8, 6, '#fff6ea', 7.0, [-6, 6, 5]);      // key softbox, high front-left (the upper-left bevels catch it)
     panel(1.4, 9, '#ffe2c6', 5.0, [7, 2.5, -4]);  // copper-warm rim strip, right-back
     panel(9, 1.2, '#fff4e6', 2.2, [0, 6.5, -7]);  // top-back strip
-    panel(24, 3, '#b9b19d', 0.9, [0, -6.5, 0]);   // ivory floor bounce
-    panel(12, 7, '#f1eee3', 1.45, [1, 2.5, 10]);  // broad front fill (what the face reflects)
+    panel(24, 3, '#b9b19d', 0.9, [0, -6.5, 0]);   // floor bounce
+    panel(12, 7, ivory ? '#eeefec' : '#f1eee3', 1.45, [1, 2.5, 10]);  // broad front fill (what the face reflects)
     panel(18, 0.5, '#fffaf0', 6.0, [0, 1.6, 9]);  // horizon strip: the product-shot line
     panel(4, 2.5, '#fff1e2', 3.0, [5, 4, 7]);     // front-right accent
+    if (ivory) {
+      panel(22, 12, '#eee6d2', 1.15, [0, 0, -11]); // the ivory wall behind the mark (the walls and edges see it)
+      panel(7, 4, '#f3dcc2', 1.3, [5.5, -5, 5]);   // low warm bounce card: the lower-right bevels stay copper
+    }
     const pm = new THREE.PMREMGenerator(RB.gl.renderer());
     const tex = pm.fromScene(scene, 0.035).texture;
     pm.dispose();
@@ -526,19 +641,31 @@
   }
 
   /**
-   * Heat that lives on the edges: scales the flame's emissive by a view-angle (fresnel) term,
-   * so a cooling flame glows at its bevels and sides while its face turns to metal. With the
-   * emissive at 0 (from 25.0 on) the material renders exactly as RB.mark3D made it.
+   * Shader additions for the flames (the lit result is unchanged when both are at rest):
+   *  · heat that lives on the edges: the emissive is scaled by a view-angle (fresnel) term, so a
+   *    cooling flame glows at its bevels while its face turns to metal (emissive is 0 from the lock);
+   *  · the reflection blends from the night studio to the ivory studio (uEnvMix).
    */
-  function addRimHeat(mat) {
+  function addShaderMods(mat, envIvory) {
     mat.userData.rimHeat = { value: 0 };
+    mat.userData.envMix = { value: 0 };
     mat.onBeforeCompile = (sh) => {
       sh.uniforms.uRimHeat = mat.userData.rimHeat;
-      sh.fragmentShader = 'uniform float uRimHeat;\n' + sh.fragmentShader.replace('#include <emissivemap_fragment>',
-        '#include <emissivemap_fragment>\n\t{ float fr = 1.0 - saturate( abs( dot( normal, normalize( vViewPosition ) ) ) );\n' +
-        '\t  totalEmissiveRadiance *= mix( 1.0, 0.03 + 3.4 * pow( fr, 3.2 ), uRimHeat ); }');
+      sh.uniforms.uEnvMix = mat.userData.envMix;
+      sh.uniforms.envMap2 = { value: envIvory };
+      const pars = THREE.ShaderChunk.envmap_physical_pars_fragment
+        .replace('vec4 envMapColor = textureCubeUV( envMap, envMapRotation * worldNormal, 1.0 );',
+          'vec4 envMapColor = mix( textureCubeUV( envMap, envMapRotation * worldNormal, 1.0 ), textureCubeUV( envMap2, envMapRotation * worldNormal, 1.0 ), uEnvMix );')
+        .replace('vec4 envMapColor = textureCubeUV( envMap, envMapRotation * reflectVec, roughness );',
+          'vec4 envMapColor = mix( textureCubeUV( envMap, envMapRotation * reflectVec, roughness ), textureCubeUV( envMap2, envMapRotation * reflectVec, roughness ), uEnvMix );');
+      if (!/envMap2/.test(pars)) throw new Error('s7: env blend patch did not apply');
+      sh.fragmentShader = 'uniform float uRimHeat;\nuniform float uEnvMix;\nuniform sampler2D envMap2;\n' + sh.fragmentShader
+        .replace('#include <envmap_physical_pars_fragment>', pars)
+        .replace('#include <emissivemap_fragment>',
+          '#include <emissivemap_fragment>\n\t{ float fr = 1.0 - saturate( abs( dot( normal, normalize( vViewPosition ) ) ) );\n' +
+          '\t  totalEmissiveRadiance *= mix( 1.0, 0.03 + 3.4 * pow( fr, 3.2 ), uRimHeat ); }');
     };
-    mat.customProgramCacheKey = () => 'ribhu-rim-heat';
+    mat.customProgramCacheKey = () => 'ribhu-s7-flame';
   }
 
   /**
@@ -685,8 +812,8 @@
     ctx.restore();
 
     // dust in the warming light (screen motes read on the dark; they hand over to warm motes on ivory)
-    const dustA = warmAt(t) * (1 - floodAt(t));
-    if (dustA > 0.01) RB.atmos.dust(ctx, T, { count: 60, seed: 77, alpha: 0.5 * dustA, rect: [360, 80, 1200, 760] });
+    const dustA = glowAt(t) * (1 - floodAt(t));
+    if (dustA > 0.01) RB.atmos.dust(ctx, T, { count: 60, seed: 77, alpha: 0.5 * dustA, rect: [360, 60, 1200, 760] });
 
     // sparks, trails and forge glows (behind the flames)
     const flameScreens = S.mark.flames.map((fl) => {
@@ -694,6 +821,7 @@
       return RB.toScreen(S.camera, tmpV.x, tmpV.y, tmpV.z);
     });
     drawTrails(ctx, t);
+    drawShowers(ctx, t);
     drawForgeGlow(ctx, t, flameScreens);
     const sparks = sparkStates(t, f).filter(Boolean)
       .map((s) => ({ ...s, scr: toScreenLocal(s.p) }))
@@ -703,7 +831,7 @@
       const depth = 1 + 0.45 * clamp(s.p[2] / 0.6, -1, 1);
       if (s.a <= 0.001) continue;
       if (s.i === 0) RB.fx.ember(ctx, s.scr[0], s.scr[1], s.r * depth, { intensity: Math.min(1.4, s.a) });
-      else darkEmber(ctx, s.scr[0], s.scr[1], s.r * depth, Math.min(1.3, s.a), lead ? lead.scr[0] : 960);
+      else darkEmber(ctx, s.scr[0], s.scr[1], s.r * depth, Math.min(1.3, s.a), lead ? lead.scr[0] : 960, lead ? lead.scr[1] : 386);
     }
 
     // the mark
@@ -719,7 +847,9 @@
     drawUrl(ctx, T);
     ctx.restore();
 
-    drawMotes(ctx, T, E.inOutSine(seg(t, 2.8, 3.8)));
+    // motes drift in the light through the hold and settle out with the music's tail, so the
+    // last frame (the hero still) is clean
+    drawMotes(ctx, T, E.inOutSine(seg(t, 2.8, 3.8)) * (1 - E.inOutSine(seg(t, 6.8, 7.4))));
   }
 
   R.scene({
@@ -729,15 +859,17 @@
       S.mark = RB.mark3D();
       S.scene.add(S.mark.group);
       S.home = S.mark.home.map((v) => v.clone());
+      S.paths = RB.MARK.paths.map((p) => new Path2D(p.d));
       exactFlames();
       S.flameMats = S.mark.flames.map((fl) => fl.children[0].material);
-      const env = ivoryStudioEnv();
-      S.flameMats.forEach((m) => { m.envMap = env; addRimHeat(m); });
+      const night = studioEnv(false), ivory = studioEnv(true);
+      S.flameMats.forEach((m) => { m.envMap = night; addShaderMods(m, ivory); });
       S.makerLight = new THREE.PointLight('#ffae78', 0, 0, 2);
       S.scene.add(S.makerLight);
       S.shadow = buildShadow();
       RB.setCam(S.camera, shotAt(K.lock));
-      RB.gl.renderer().compile(S.scene, S.camera); // compile the rim-heat programs now, not mid-shot
+      RB.gl.renderer().compile(S.scene, S.camera); // compile the flame programs now, not mid-shot
+      RB.gl.render3D(S.scene, S.camera);           // and upload the geometry and both studios
       measureType();
     },
     draw,

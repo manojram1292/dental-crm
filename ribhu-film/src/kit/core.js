@@ -48,6 +48,8 @@
     if (jx || jy) camera.setViewOffset(gl.w, gl.h, jx, jy, gl.w, gl.h);
     else camera.clearViewOffset();
     r.render(scene, camera);
+    // Don't let the jitter leak into later toScreen()/project() calls for 2D placement.
+    if (jx || jy) camera.clearViewOffset();
     return gl.canvas;
   }
   /** Render and composite into the 2D frame. opts: { exposure, alpha, blend, filter } */

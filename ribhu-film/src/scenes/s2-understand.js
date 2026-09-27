@@ -6,25 +6,28 @@
  * the same warm dust that hangs in the workshop air, holding its exact shape, and
  * the lathe's own contour lines are drawn over it like a draughtsman's study.
  *
- *   5.000  Cup strike #2. Frame 150 is S1's out frame: the solid cup in cupHero.
+ *   5.000  Cup strike #2. Frame 150 is S1's out frame: the solid cup in cupHero, S1's
+ *          glow from within still fading on its own curve.
  *   5.00–5.60  A thin ember scan plane runs down the cup (in step with the glassy
  *          scan shimmer in the score). Where it passes, the copper opens along a
  *          glowing section line and lets go of its surface as a fine point cloud
- *          (RB.cupPoints); ivory contour rings of the lathe profile draw on around it.
- *   5.00–6.20  The camera floats off the hero framing, rising a little and easing the
- *          cup right of centre to make room for the story column on the left.
+ *          (RB.cupPoints) of warm, key-lit dust; ivory contour rings of the lathe
+ *          profile draw on around it, each from the front, both ways round.
+ *   5.00–5.95  The camera floats off the hero framing, rising a little and easing the
+ *          cup right of centre, clear of the story column before the line lands.
  *   5.150  Kicker "01 ── UNDERSTAND".  5.350 → 6.950  "See the work as it is."
- *   5.40–7.05  The cloud turns ~30° on its axis while the camera keeps drifting
- *          (together a ~35° orbit around the form); the cloud breathes out on the
- *          beat the scan lands (5.625) and hangs, lit by the key like dust in light.
- *   5.6 / 5.9 / 6.2  Three observations draw on with leader lines (one data tick
- *          each in the score): FORM · HAND-RAISED, MATERIAL · COPPER,
- *          USE · SHARED BY MANY.
- *   6.875  (beat) The notes leave; the points are drawn back onto the surface.
- *   6.90–7.467  One decisive move: the camera glides and pushes in to cupMake.
- *   7.065–7.43  The scan runs back up (the reverse swell): the cloud is absorbed and
- *          the copper re-forms behind a warm section line, landing solid for the
- *          downbeat at 7.5.
+ *   5.40–7.05  The cloud turns ~30° on its axis while the camera drifts in (together a
+ *          ~35° orbit around the form); the cloud breathes out as the scan lands (5.625).
+ *          A macro depth of field keeps the near wall crisp and softens the far one.
+ *   5.6 / 5.9 / 6.2  Three observations draw on with leader lines, one data tick each in
+ *          the score: FORM · HAND-RAISED, MATERIAL · COPPER, USE · SHARED BY MANY. Each is
+ *          anchored on a contour ring, and that ring and its dust catch the light on the tick.
+ *   6.875  (beat) The notes let go (6.86–6.94) and the points are drawn back onto the skin.
+ *   6.90–7.467  One decisive move: the camera glides and pushes in to cupMake. The labels
+ *          fade where they were made; the line lifts out and has cleared by 7.22, before
+ *          the cup arrives in its column.
+ *   7.065–7.43  The scan runs back up (the reverse swell): the cloud is absorbed and the
+ *          copper re-forms behind a warm section line, landing solid for the downbeat 7.5.
  *
  * Contracts
  *   IN   frame 150 = S1's out: cup at the origin, rotation 0, camera exactly
@@ -34,6 +37,9 @@
  *   OUT  frame 224 (→ S3 at 7.5): solid cup at the origin, rotation.y 0, camera
  *        exactly RB.shots.cupMake, backdrop defaults, stage-default lights, no scan
  *        light, no points, no rings, no annotations, no text. Rail 01, progress (T−5)/2.5.
+ *        Frame 224 is pixel-identical to a fresh kit cup at cupMake on the default
+ *        backdrop, with the lathe seam normals welded as S1 does (the kit leaves a seam
+ *        facing the camera at rotation 0; S3 should weld it too).
  *
  * One draw3D per frame: the kit cup (with a scan-dissolve patch on its three
  * materials) and one THREE.Points cloud with its own small shader.
@@ -51,32 +57,37 @@
   const SCAN_UP = [7.065, 7.43];           // the score's upward sweep runs 7.065 → 7.465
   const SOLID_AGAIN = 7.43;                // from here the copper is whole again
   const TURN = [5.4, 7.05];                // the cloud's slow turn on its axis
-  const TURN_ANGLE = -0.52;                // ≈ −30°: front points travel right → left
+  const TURN_ANGLE = -0.58;                // ≈ −33°: front points travel right → left (with the camera's own
+                                           // ~2° drift, the ~35° orbit of the storyboard)
   const BREATHE_OUT = [5.45, 6.2];         // the cloud exhales after the scan lands (5.625)
   const DRAW_BACK = [6.875, 7.12];         // (beat) points drawn back onto the surface
   const CAM_OUT = [5.0, 5.95];             // hero → study framing (clear of the line before it lands)
   const CAM_DRIFT = [5.6, 6.95];           // slow push while the notes are up
-  const CAM_MAKE = [6.9, T_END];           // the decisive glide into cupMake
+  const CAM_MAKE = [6.72, T_END];          // the decisive glide into cupMake: it leans in before the 6.875
+                                           // beat and carries through it, so its peak (~35 px/frame) stays
+                                           // gentle enough for the re-forming copper to be seen, not smeared
 
   // ─── Copy (verbatim from the storyboard) ────────────────────────────────────
   const KICKER = { index: '01', label: 'UNDERSTAND', x: 150, y: 470, tIn: 5.15, tOut: 6.95 };
   const LINE = { text: 'See the work as it is.', x: 150, y: 560, size: 60, tIn: 5.35, tOut: 6.95, stagger: 0.04, dur: 0.6 };
-  // Contour rings are level cuts every RING_STEP; the rim ring sits on the lip.
+  // Contour rings are level cuts every 0.042 up the form; the rim ring sits on the lip.
   const RING_Y = (k) => 0.03 + k * 0.042;
   const RIM_RING_Y = 0.906;
   // Each observation is anchored on a contour ring (height in world y) at an azimuth to the
   // right of the camera's view (rad); that ring and the dust around it catch the light as
   // the note ticks in, as if the eye were measuring that part of the work.
   const NOTES = [
-    { text: 'FORM · HAND-RAISED', tIn: 5.6, tOut: 7.0, y: RING_Y(14), az: 0.95 },
-    { text: 'MATERIAL · COPPER', tIn: 5.9, tOut: 7.06, y: RING_Y(7), az: 0.8 },
-    { text: 'USE · SHARED BY MANY', tIn: 6.2, tOut: 7.12, y: RIM_RING_Y, az: 1.1 },
+    { text: 'FORM · HAND-RAISED', tIn: 5.6, tOut: 6.86, y: RING_Y(14), az: 0.95 },
+    { text: 'MATERIAL · COPPER', tIn: 5.9, tOut: 6.9, y: RING_Y(7), az: 0.8 },
+    { text: 'USE · SHARED BY MANY', tIn: 6.2, tOut: 6.94, y: RIM_RING_Y, az: 1.1 },
   ];
+  const NOTE_QUICK = 1.6;                   // the notes' draw-on runs this much quicker than the kit's default
   const NOTE_OFF = 0.74;                    // the label column, in world units right of the cup's axis
-  const TYPE_PARALLAX = 0.35;               // how much of the final glide the exiting type drifts with
+  const TYPE_PARALLAX = 0.22;               // how much of the final glide the exiting type drifts with
   const TYPE_GONE = 7.22;                   // the type has cleared before the cup reaches its column
   const TYPE_BOX = { x: 0, y: 440, w: 1000, h: 170 }; // covers the kicker and the line's mask band
   const CUP_MID = 0.45;                     // the cup's visual centre height
+  const MOUTH = [0, 0.93, 0], RIM_R = 0.607, RIM_Y = 0.908; // as S1 uses them for its inner glow
 
   // ─── Shots ──────────────────────────────────────────────────────────────────
   const HERO = RB.shots.cupHero, MAKE = RB.shots.cupMake;
@@ -96,6 +107,9 @@
 
   // ─── Small maths ────────────────────────────────────────────────────────────
   const smooth01 = (x) => { const u = clamp(x); return u * u * (3 - 2 * u); };
+  /** The final glide: half sine, half cubic. Weighted like a dolly (soft take-up, long settle),
+   *  zero velocity at both ends, peak speed 2.3× the average instead of the cubic's 3×. */
+  const glideEase = (u) => 0.5 * E.inOutSine(u) + 0.5 * E.inOutCubic(u);
   const mixOrbit = (a, b, p) => ({
     L: [lerp(a.L[0], b.L[0], p), lerp(a.L[1], b.L[1], p), lerp(a.L[2], b.L[2], p)],
     D: lerp(a.D, b.D, p), az: lerp(a.az, b.az, p), el: lerp(a.el, b.el, p), fov: lerp(a.fov, b.fov, p),
@@ -116,7 +130,7 @@
     if (T >= T_END - 1e-6) return { pos: MAKE.pos.slice(), look: MAKE.look.slice(), fov: MAKE.fov };
     const pOut = E.inOutSine(seg(T, CAM_OUT[0], CAM_OUT[1]));
     const pDrift = E.inOutSine(seg(T, CAM_DRIFT[0], CAM_DRIFT[1]));
-    const pMake = E.inOutCubic(seg(T, CAM_MAKE[0], CAM_MAKE[1]));
+    const pMake = glideEase(seg(T, CAM_MAKE[0], CAM_MAKE[1]));
     const study = mixOrbit(O_STUDY, O_DRIFT, pDrift);
     return shotOf(mixOrbit(mixOrbit(O_HERO, study, pOut), O_MAKE, pMake));
   }
@@ -136,8 +150,8 @@
   }
   /** Intensity of the scan light (0 when no plane is running). */
   function bandAt(T) {
-    const down = seg(T, SCAN_DOWN[0], SCAN_DOWN[0] + 0.035) * (1 - E.inOutSine(seg(T, 5.44, 5.62)));
-    const up = seg(T, SCAN_UP[0], SCAN_UP[0] + 0.04) * (1 - E.inOutSine(seg(T, 7.385, T_END)));
+    const down = seg(T, SCAN_DOWN[0], SCAN_DOWN[0] + 0.035) * (1 - E.inOutSine(seg(T, 5.42, 5.6)));
+    const up = E.inOutSine(seg(T, SCAN_UP[0], SCAN_UP[0] + 0.12)) * (1 - E.inOutSine(seg(T, 7.385, T_END)));
     return Math.max(down, up);
   }
   /** How far the cloud has breathed off the surface (0 = on the copper's skin). */
@@ -193,6 +207,30 @@
     return [nr, ny];
   }
 
+  // ─── The hammer marks (RB.cup's own dimple field, replicated) ───────────────
+  // The dust carries the real hammered facets of the cup, so as the cloud turns the
+  // highlight breaks into the same scatter of glints the copper had: the hand-raised
+  // surface is *seen*, not labelled. Verbatim from the kit (seed 11, hammer 1).
+  const HAMMER_SEED = 11, HAMMER_DEPTH = 0.0055;
+  const smoothstepAB = (a, b, x) => { const u = clamp((x - a) / (b - a)); return u * u * (3 - 2 * u); };
+  function hammerField(a, y, seed) {
+    const u = a * 9.5, v = y * 30;
+    const iu = Math.floor(u), iv = Math.floor(v);
+    let best = 9;
+    for (let du = -1; du <= 1; du++) for (let dv = -1; dv <= 1; dv++) {
+      const cu = iu + du, cv = iv + dv;
+      const ju = cu + R.hash(cu * 131 + cv * 71, seed), jv = cv + R.hash(cu * 17 + cv * 331, seed + 1);
+      const uu = (((u - ju) % 9.5) + 9.5) % 9.5, dd = Math.min(uu, 9.5 - uu);
+      best = Math.min(best, Math.hypot(dd, v - jv));
+    }
+    return -(Math.max(0, 1 - best * 1.25) ** 2);
+  }
+  /** Radial hammer displacement at lathe angle a (rad, [0, 2π)) and height y, as RB.cup() applies it. */
+  function hammerAt(a, y) {
+    const w = smoothstepAB(0.24, 0.34, y) * (1 - smoothstepAB(0.8, 0.88, y));
+    return w <= 0 ? 0 : hammerField(a, y, HAMMER_SEED) * HAMMER_DEPTH * w;
+  }
+
   /** Average the normals on the lathe's φ=0 / φ=2π seam, exactly as S1 does (the seam faces the camera). */
   function weldLatheSeam(mesh, segments = CUP_SEGMENTS) {
     const nrm = mesh.geometry.attributes.normal, n = nrm.count / (segments + 1);
@@ -233,11 +271,20 @@
           '#include <clipping_planes_fragment>',
           'float scanD = uScanCut - vScanP.y + (scanGrain(floor(vScanP * 220.0)) - 0.5) * 0.014;',
           'if (scanD < 0.0) discard;',
+          // the inside face of the foot's base disc: never seen on the whole cup, and through the
+          // opened foot it would read as a dark hole in the stone; let the eye pass through it
+          'if (!gl_FrontFacing && vScanP.y < 0.006) discard;',
+          // the wall's inside is only ever seen near the open section; elsewhere it is hidden
+          // or in deep shadow, so skip the lighting there (the dark of the hollow stem)
+          'if (!gl_FrontFacing && scanD > 0.07) { gl_FragColor = vec4(0.012, 0.007, 0.005, 1.0); return; }',
         ].join('\n'))
         .replace('#include <emissivemap_fragment>', [
           '#include <emissivemap_fragment>',
-          'float scanEdge = uScanHeat * exp(-scanD / (gl_FrontFacing ? 0.008 : 0.016));',
-          'totalEmissiveRadiance += uScanEmber * scanEdge * (gl_FrontFacing ? 1.5 : 2.2);',
+          // (the flat underside of the foot, y = 0, would light up whole: keep it dark)
+          // (the open section glows like warm metal just worked, not molten: a tight band on the
+          // inside of the wall, dimmer than the hairline on the outside)
+          'float scanEdge = uScanHeat * exp(-scanD / (gl_FrontFacing ? 0.008 : 0.011)) * smoothstep(0.0, 0.03, vScanP.y);',
+          'totalEmissiveRadiance += uScanEmber * scanEdge * (gl_FrontFacing ? 1.5 : 1.35);',
         ].join('\n'));
     };
     material.customProgramCacheKey = () => `s2-scan-${kind}`;
@@ -247,17 +294,21 @@
   const POINTS = 36000;
   const POINT_VS = /* glsl */ `
     attribute vec3 aNormal;
+    attribute vec3 aFacet;
     attribute vec4 aRand;
-    uniform float uCut, uBand, uLift, uTime, uSize, uAlpha, uFocus;
-    uniform vec3 uKeyDir, uRimDir, uShadow, uCopper, uLit, uHot, uGlintY, uGlintA;
+    uniform float uCut, uBand, uLift, uTime, uSize, uAlpha, uFocus, uSpec;
+    uniform vec3 uKeyDir, uFormDir, uRimDir, uStripDir, uShadow, uCopper, uLit, uHot, uSpark, uGlintY, uGlintA;
     varying vec3 vCol;
     varying float vA;
     void main() {
-      // height above the scan plane (a little scatter so the edge is soft)
-      float d = position.y - uCut + (aRand.z - 0.5) * 0.035;
+      // height above the scan plane, with a little scatter so the edge is soft (more on level
+      // faces, which would otherwise all cross the plane in the same instant)
+      float d = position.y - uCut + (aRand.z - 0.5) * (0.035 + 0.07 * abs(aNormal.y));
       float on = smoothstep(0.0, 0.015, d);
       float dd = max(d, 0.0);
-      float fresh = uBand * exp(-dd / 0.045);                                  // just let go / about to be taken back
+      // just let go / about to be taken back; level faces (foot top, lip) all sit at one
+      // height and would flare at once, so they only warm
+      float fresh = uBand * exp(-dd / 0.045) * (1.0 - 0.8 * abs(aNormal.y));
       float pop = uBand * 0.022 * (1.0 - exp(-dd / 0.025)) * exp(-dd / 0.16);  // a small outward breath at the plane
       float stray = step(0.945, aRand.x);                                      // a few motes wander further off
       float breathe = uLift * (0.003 + 0.013 * aRand.x + stray * 0.085 * aRand.w)
@@ -267,13 +318,24 @@
       gl_Position = projectionMatrix * mv;
       // lit like the copper was: the workshop key from the upper left, a copper rim from the right
       vec3 wn = normalize(mat3(modelMatrix) * aNormal);
-      float L = 0.16 + 0.84 * max(dot(wn, uKeyDir), 0.0) + 0.4 * pow(max(dot(wn, uRimDir), 0.0), 2.0);
+      // (the dust is modelled by the key brought down toward the lens, wrapped, so the form turns
+      // from a lit front-left flank into shadow on the right, where the copper rim picks it out)
+      float kw = clamp((dot(wn, uFormDir) + 0.35) / 1.35, 0.0, 1.0);
+      float L = 0.12 + 0.98 * kw * kw + 0.5 * pow(max(dot(wn, uRimDir), 0.0), 2.0);
       vec3 col = mix(uShadow, uCopper, smoothstep(0.05, 0.6, L));
-      col = mix(col, uLit, smoothstep(0.6, 1.15, L));
+      col = mix(col, uLit, smoothstep(0.62, 1.25, L));
       vCol = mix(col, uHot, clamp(fresh, 0.0, 1.0));
       float facing = normalize(normalMatrix * aNormal).z;                      // + toward the camera
       float back = mix(0.36, 1.0, smoothstep(-0.5, 0.35, facing));
-      float lit = mix(0.55, 1.0, smoothstep(0.1, 0.9, L));                     // the lit side reads denser
+      // the copper's highlights, carried by the dust: each mote keeps its hammered facet, so the
+      // key and the workshop's long front strip glint off the hand-raised surface as it turns
+      vec3 wf = normalize(mat3(modelMatrix) * aFacet);
+      vec3 V = normalize(cameraPosition - (modelMatrix * vec4(p, 1.0)).xyz);
+      float sKey = pow(max(dot(wf, normalize(uKeyDir + V)), 0.0), 30.0);
+      float sStrip = pow(max(dot(wf, normalize(uStripDir + V)), 0.0), 40.0);
+      float spark = uSpec * (sKey * 1.1 + sStrip * 0.8) * smoothstep(-0.1, 0.3, facing);
+      vCol = mix(vCol, uSpark, clamp(spark, 0.0, 1.0));
+      float lit = mix(0.62, 1.0, smoothstep(0.1, 0.9, L));                     // the lit side reads denser
       float fall = mix(0.42, 1.0, smoothstep(0.02, 0.42, position.y));         // museum light: the foot falls away
       vCol *= mix(0.72, 1.0, fall);
       // the observed contours catch the light
@@ -284,8 +346,9 @@
       float coc = clamp(abs(-mv.z - uFocus) / 1.3, 0.0, 1.0);
       float bokeh = 1.0 + 1.3 * coc;
       vA = on * uAlpha * back * lit * fall * (0.75 + 0.25 * aRand.y) * (1.0 - stray * 0.4)
-         * (1.0 + 0.9 * glint) / (bokeh * bokeh);
-      gl_PointSize = uSize * bokeh * (0.85 + 0.3 * aRand.y) * (1.0 + 0.4 * fresh + 0.25 * glint) / -mv.z;
+         * (1.0 + 0.9 * glint + 1.6 * spark) / (bokeh * bokeh);
+      gl_PointSize = uSize * bokeh * (0.85 + 0.3 * aRand.y) * (1.0 + 0.4 * fresh + 0.25 * glint + 0.35 * min(spark, 1.5)) / -mv.z;
+      if (vA < 0.002) { gl_PointSize = 0.0; gl_Position = vec4(2.0, 2.0, 2.0, 1.0); } // still copper: skip it
     }`;
   const POINT_FS = /* glsl */ `
     varying vec3 vCol;
@@ -309,27 +372,44 @@
     const keep = [];
     for (let i = 0; i < POINTS; i++) if (all[i * 3 + 1] > 0.004) keep.push(i);
     const n = keep.length;
-    const pos = new Float32Array(n * 3), nrm = new Float32Array(n * 3), rnd = new Float32Array(n * 4);
+    const pos = new Float32Array(n * 3), nrm = new Float32Array(n * 3), fac = new Float32Array(n * 3), rnd = new Float32Array(n * 4);
+    const EPS = 0.0025;
     keep.forEach((src, i) => {
       const x = all[src * 3], y = all[src * 3 + 1], z = all[src * 3 + 2], r = Math.hypot(x, z) || 1e-6;
       pos[i * 3] = x; pos[i * 3 + 1] = y; pos[i * 3 + 2] = z;
       const [nr, ny] = profileNormal(prof, r, y);
-      nrm[i * 3] = (x / r) * nr; nrm[i * 3 + 1] = ny; nrm[i * 3 + 2] = (z / r) * nr;
+      const sx = x / r, sz = z / r;
+      nrm[i * 3] = sx * nr; nrm[i * 3 + 1] = ny; nrm[i * 3 + 2] = sz * nr;
+      // the hammered facet normal: tilt the smooth normal against the dimple's slope, along the
+      // circumference (t_a) and along the profile (t_p); the kit displaces radially, so the
+      // slope seen along the normal is scaled by nr
+      const a = (Math.atan2(x, z) + TAU) % TAU;
+      const dA = (hammerAt((a + EPS / r + TAU) % TAU, y) - hammerAt((a - EPS / r + TAU) % TAU, y)) / (2 * EPS);
+      const tr = -ny, ty = nr;                                           // unit profile tangent (r, y)
+      const dP = (hammerAt(a, y + ty * EPS) - hammerAt(a, y - ty * EPS)) / (2 * EPS);
+      const fx = nrm[i * 3] - nr * (dA * sz + dP * tr * sx), fy = ny - nr * dP * ty, fz = nrm[i * 3 + 2] - nr * (-dA * sx + dP * tr * sz);
+      const fl = Math.hypot(fx, fy, fz) || 1;
+      fac[i * 3] = fx / fl; fac[i * 3 + 1] = fy / fl; fac[i * 3 + 2] = fz / fl;
       for (let k = 0; k < 4; k++) rnd[i * 4 + k] = R.hash(i, 71 + k * 13);
     });
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
     geo.setAttribute('aNormal', new THREE.BufferAttribute(nrm, 3));
+    geo.setAttribute('aFacet', new THREE.BufferAttribute(fac, 3));
     geo.setAttribute('aRand', new THREE.BufferAttribute(rnd, 4));
     geo.boundingSphere = new THREE.Sphere(new THREE.Vector3(0, 0.45, 0), 1.2);
+    // the stage's key light, its rim, and the environment's long horizon strip in front (RB.workshopEnv)
     const key = new THREE.Vector3(-3.5, 5, 4).normalize(), rim = new THREE.Vector3(4, 2.5, -4).normalize();
+    const strip = new THREE.Vector3(0, 1.6, 9).normalize();
     const mat = new THREE.ShaderMaterial({
       uniforms: {
         uCut: { value: 99 }, uBand: { value: 0 }, uLift: { value: 0 }, uTime: { value: 0 }, uSize: { value: 8 }, uAlpha: { value: 1 },
-        uFocus: { value: 3.5 }, uGlintY: { value: new THREE.Vector3(NOTES[0].y, NOTES[1].y, NOTES[2].y) }, uGlintA: { value: new THREE.Vector3() },
-        uKeyDir: { value: key }, uRimDir: { value: rim },
-        uShadow: { value: new THREE.Color('#3b2518') }, uCopper: { value: new THREE.Color('#cb8454') },
-        uLit: { value: new THREE.Color('#fbeedb') }, uHot: { value: new THREE.Color('#ffc39a') },
+        uFocus: { value: 3.5 }, uSpec: { value: 1 },
+        uGlintY: { value: new THREE.Vector3(NOTES[0].y, NOTES[1].y, NOTES[2].y) }, uGlintA: { value: new THREE.Vector3() },
+        uKeyDir: { value: key }, uFormDir: { value: new THREE.Vector3(-0.7, 0.35, 0.62).normalize() }, uRimDir: { value: rim }, uStripDir: { value: strip },
+        uShadow: { value: new THREE.Color('#4a2d1c') }, uCopper: { value: new THREE.Color('#d8925f') },
+        uLit: { value: new THREE.Color('#f8dcbd') }, uHot: { value: new THREE.Color('#ffc39a') },
+        uSpark: { value: new THREE.Color('#fff0dc') },
       },
       vertexShader: POINT_VS, fragmentShader: POINT_FS,
       transparent: true, premultipliedAlpha: true, depthWrite: false, depthTest: true, toneMapped: false,
@@ -382,10 +462,19 @@
     });
     S.v = new THREE.Vector3();
 
+    // Compile both copper states (and the cloud) now, so no frame pays for a shader build.
+    RB.setCam(S.camera, HERO);
+    for (const set of [S.scanMat, S.plainMat]) {
+      for (const k of S.parts) S.cup[k].material = set[k];
+      RB.gl.renderer().compile(S.scene, S.camera);
+    }
+
     // Where the cup sits on screen when the final glide begins (the type exits with the move).
     RB.setCam(S.camera, shotAt(CAM_MAKE[0]));
     S.camera.clearViewOffset();
     S.cupXRef = project(0, CUP_MID, 0)[0];
+    const holdShot = shotAt(CAM_MAKE[0]), holdAz = Math.atan2(holdShot.pos[0], holdShot.pos[2]);
+    S.noteHold = NOTES.map((_, i) => [S.cupXRef + NOTE_OFF * pxPerUnit(holdShot), noteAnchor(i, holdAz)[1]]);
   }
 
   // ─── Projection ─────────────────────────────────────────────────────────────
@@ -399,9 +488,9 @@
     const d = Math.hypot(shot.pos[0], shot.pos[1] - CUP_MID, shot.pos[2]);
     return d - 0.45;
   }
-  /** Logical px per world unit at the cup's axis for a shot. */
-  function pxPerUnit(shot) {
-    const d = [-shot.pos[0], CUP_MID - shot.pos[1], -shot.pos[2]];
+  /** Logical px per world unit at a world point (default: the cup's axis at mid height) for a shot. */
+  function pxPerUnit(shot, p = [0, CUP_MID, 0]) {
+    const d = [p[0] - shot.pos[0], p[1] - shot.pos[1], p[2] - shot.pos[2]];
     const f = [shot.look[0] - shot.pos[0], shot.look[1] - shot.pos[1], shot.look[2] - shot.pos[2]];
     const depth = (d[0] * f[0] + d[1] * f[1] + d[2] * f[2]) / Math.hypot(f[0], f[1], f[2]);
     return R.H / 2 / Math.tan((shot.fov * Math.PI) / 360) / depth;
@@ -416,9 +505,50 @@
   /** Backdrop: the umber glow follows the cup a little, and the room dims a touch while
    *  the cloud is up (so the dust reads); exact defaults at both hand-offs. */
   function drawBackdrop(ctx, T, cupX) {
-    const away = E.inOutSine(seg(T, 5.0, 5.9)) * (1 - E.inOutSine(seg(T, 6.95, T_END - 0.02)));
+    const away = E.inOutSine(seg(T, 5.0, 5.9)) * (1 - E.inOutSine(seg(T, CAM_MAKE[0] + 0.1, T_END - 0.02)));
     if (away <= 0) { RB.atmos.backdrop(ctx); return; }
     RB.atmos.backdrop(ctx, { gx: lerp(1060, cupX + 60, away), gy: lerp(520, 500, away), gr: 900, warmth: 1, lift: lerp(1, 0.82, away) });
+  }
+
+  /**
+   * S1's glow from within, carried across the cut on S1's own decay curve and drawn the way
+   * S1 draws it: warm light spilling up out of the mouth, everywhere except over the bowl in
+   * front of it. 0.041 at frame 150, below visibility by 5.2.
+   */
+  function drawTaleGlow(ctx, g, camAz, shot) {
+    if (g <= 0.002) return;
+    const [mx, my] = project(MOUTH[0], MOUTH[1], MOUTH[2]), rw = RIM_R * pxPerUnit(shot, MOUTH);
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(0, 0, R.W, R.H);
+    bowlOutline(ctx, camAz);
+    ctx.clip('evenodd');
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.translate(mx, my - rw * 0.08);
+    ctx.scale(1, 0.5);
+    const halo = ctx.createRadialGradient(0, 0, 0, 0, 0, rw * 1.3);
+    halo.addColorStop(0, R.rgba('#ffe3c6', 0.6 * g));
+    halo.addColorStop(0.4, R.rgba(PAL.ember, 0.32 * g));
+    halo.addColorStop(1, R.rgba(PAL.copperHot, 0));
+    ctx.fillStyle = halo;
+    ctx.beginPath(); ctx.arc(0, 0, rw * 1.3, 0, TAU); ctx.fill();
+    ctx.restore();
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    const col = ctx.createRadialGradient(mx, my - rw * 0.45, 0, mx, my - rw * 0.45, rw * 0.95);
+    col.addColorStop(0, R.rgba(PAL.ember, 0.2 * g)); col.addColorStop(1, R.rgba(PAL.ember, 0));
+    ctx.fillStyle = col; ctx.fillRect(mx - rw, my - rw * 1.4, rw * 2, rw * 2);
+    ctx.restore();
+  }
+  /** The bowl's outline from the camera: the near half of the lip, then down both flanks. */
+  function bowlOutline(ctx, camAz) {
+    for (let k = 0; k <= 24; k++) {
+      const [x, y] = ringPoint(RIM_R, RIM_Y, lerp(-Math.PI / 2, Math.PI / 2, k / 24), camAz);
+      if (k) ctx.lineTo(x, y); else ctx.moveTo(x, y);
+    }
+    for (let k = 0; k <= 12; k++) { const y = lerp(0.9, 0.2, k / 12); const [x, sy] = ringPoint(radiusAt(S.prof, y), y, Math.PI / 2, camAz); ctx.lineTo(x, sy); }
+    for (let k = 0; k <= 12; k++) { const y = lerp(0.2, 0.9, k / 12); const [x, sy] = ringPoint(radiusAt(S.prof, y), y, -Math.PI / 2, camAz); ctx.lineTo(x, sy); }
+    ctx.closePath();
   }
 
   /** An arc of a level ring from angle a0 to a1 (relative to the camera azimuth). */
@@ -485,8 +615,9 @@
     ctx.translate((lx + rx) / 2, (fy + by) / 2);
     ctx.scale(1, rh / rw);
     const sheet = ctx.createRadialGradient(0, 0, 0, 0, 0, rw);
-    sheet.addColorStop(0, R.rgba(PAL.ember, 0.06 * b));
-    sheet.addColorStop(0.55, R.rgba(PAL.copperHot, 0.03 * b));
+    const sb = b * smooth01((cut - 0.02) / 0.2); // no pool of light on the ground plane
+    sheet.addColorStop(0, R.rgba(PAL.ember, 0.06 * sb));
+    sheet.addColorStop(0.55, R.rgba(PAL.copperHot, 0.03 * sb));
     sheet.addColorStop(1, R.rgba(PAL.copperHot, 0));
     ctx.fillStyle = sheet;
     ctx.beginPath(); ctx.arc(0, 0, rw, 0, TAU); ctx.fill();
@@ -505,18 +636,39 @@
     ctx.restore();
   }
 
+  /** Anchor (on the form) of note i for the current camera. */
+  function noteAnchor(i, camAz) {
+    const n = NOTES[i];
+    return ringPoint(radiusAt(S.prof, n.y), n.y, n.az, camAz);
+  }
   /**
    * The three observations, anchored on the form, leaders running level into one label
-   * column that travels with the cup (it sits a fixed distance off the rim).
+   * column that travels with the cup (a fixed distance off the rim) while it drifts. When
+   * the final glide begins, the labels let go of the object and fade where the observation
+   * was made (small type must not smear across the frame); only the leaders follow the cup.
    */
   function drawNotes(ctx, T, camAz, cupX, ppu) {
     const colX = cupX + NOTE_OFF * ppu;
-    for (const n of NOTES) {
-      if (T < n.tIn || T > n.tOut + 0.4) continue;
-      const r = radiusAt(S.prof, n.y);
-      const [ax, ay] = ringPoint(r, n.y, n.az, camAz);
-      RB.type.annotation(ctx, T, { text: n.text, x: colX, y: ay, ax, ay, tIn: n.tIn, tOut: n.tOut });
-    }
+    NOTES.forEach((n, i) => {
+      if (T < n.tIn || T > n.tOut + 0.4) return;
+      const [ax, ay] = noteAnchor(i, camAz);
+      const held = T >= CAM_MAKE[0];
+      const x = held ? S.noteHold[i][0] : colX, y = held ? S.noteHold[i][1] : ay;
+      const c = noteClock(T, n);
+      RB.type.annotation(ctx, c.T, { text: n.text, x, y, ax, ay, tIn: n.tIn, tOut: c.tOut });
+    });
+  }
+  /**
+   * The kit's annotation types at a fixed 0.022 s per character after a 0.15 s wait, which
+   * would leave the last note (cued 6.2, out on the 6.875 beat) fully legible for only ~0.15 s.
+   * Its draw-on is played on a quicker clock (NOTE_QUICK×) so each observation lands crisply
+   * and then holds; from the moment it has landed the clock runs at 1× again, so the hold and
+   * the kit's exit are untouched (tOut is shifted by exactly the time saved).
+   */
+  function noteClock(T, n) {
+    const din = Math.max(0.45, 0.15 + n.text.length * 0.022);      // the kit's draw-on length
+    const u = T - n.tIn, saved = din * (1 - 1 / NOTE_QUICK);
+    return { T: n.tIn + (u < din / NOTE_QUICK ? u * NOTE_QUICK : u + saved), tOut: n.tOut + saved };
   }
 
   /**
@@ -575,8 +727,9 @@
     pu.uBand.value = band;
     pu.uLift.value = liftAt(T);
     pu.uTime.value = T;
-    pu.uSize.value = 6.8 * R.scale;
+    pu.uSize.value = 7.2 * R.scale;
     pu.uAlpha.value = 1;
+    pu.uSpec.value = 1;
     pu.uFocus.value = focusAt(shot);
     pu.uGlintA.value.set(glintAt(T, 0), glintAt(T, 1), glintAt(T, 2));
 
@@ -585,6 +738,7 @@
     const ppu = pxPerUnit(shot);
     drawBackdrop(ctx, T, cupX);
     RB.draw3D(ctx, S.scene, S.camera);
+    drawTaleGlow(ctx, g, camAz, shot);
     if (!solid) {
       drawRings(ctx, T, camAz, camY);
       drawBand(ctx, T, camAz, camY);
