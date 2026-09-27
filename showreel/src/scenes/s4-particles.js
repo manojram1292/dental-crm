@@ -6,14 +6,19 @@
  *         particles burst from the centre (house ramp, outer → inner: signal →
  *         lilac → cobalt) with a few acid sparks that burn out.
  *   6.10  A curl-noise field takes over and folds the shells into silky,
- *         luminous ribbons. 6.50 beat: a gust and a pressure ring race through.
- *   6.62  The swarm peels off the field and swoops into the word FLOW, hitting
- *         on the 7.00 beat (a 36 ms left → right cascade), slamming a touch past
- *         and settling with a white-hot flash; then shimmer, glint and a slow push.
+ *         luminous ribbons, held on an elliptical stage inside the safe area.
+ *         6.50 beat: the field flares, a gust surges and a hairline shockwave
+ *         (the stage's own ellipse) races out through the ribbons.
+ *   6.67  The swarm peels off the field and swoops into the word FLOW, hitting
+ *         on the 7.00 beat (a 36 ms left → right cascade). Tails shorten as each
+ *         particle closes on its glyph, it flares on contact, slams ≤ 7 px past
+ *         and cools into a designed signal → lilac → cobalt gradient across the
+ *         word; the beat frame is a white-hot flash. Then shimmer, glint, push.
  *   7.38  The word is eaten from the centre outward: each patch condenses into
  *         one of 196 beads and winds up (pull-back) before launching.
- *   7.50  Beat: the lattice targets switch on and the first beads are
- *         magnetised in. Arrivals ripple centre-out 7.70 → 7.84, each a pop and
+ *   7.50  Beat: the lattice targets switch on centre-out (bright on their first
+ *         frame, then faint until their bead closes in) and the first beads are
+ *         magnetised in, a few members of each drawing its comet tail. Arrivals ripple centre-out 7.70 → 7.84, each a pop and
  *         a hairline ping; everything is settled by 7.91.
  *   7.92+ Exactly the flat S5 lattice: paper dots on ink, nothing else.
  *
@@ -67,9 +72,11 @@
     over: 7,                                             // slam overshoot never exceeds this (px)
     focus: [2.5, 0.22] };                                // streak cap = a + b · distance still to go
   const HOLD = { glint: [1.06, 1.36], glintW: 48, glintGain: 1.1, breathe: 0.012,
-    contact: 22, flash: 0.6, flashDecay: 11 };           // per-particle contact flare, beat flash
+    contact: 22, flash: 0.6, flashDecay: 11,             // per-particle contact flare, beat flash
+    level: 1.0, sparkle: 0.3 };                          // stipple brightness; share of particles that glitter
   const GATHER = { field: 1.5, condense: 0.12, flight: 0.2, lag: 0.025, first: 1.7, last: 1.84,
-    pull: 0.07, arc: 0.1, spread: 7, beadR: 5.5, pop: 0.065, ring: 0.07, marks: 0.1 };
+    pull: 0.07, arc: 0.1, spread: 7, beadR: 5.5, pop: 0.065, ring: 0.07, marks: 0.1,
+    comet: 0.35 };                                       // share of a bead's members that draw its tail
   const LOCK = 1.92;                                     // from here on: the exact lattice
 
   /**
@@ -415,7 +422,6 @@
     trail = new Float32Array(N * (TRAIL + 1) * 2);
     keyOf = new Uint16Array(N); order = new Int32Array(N); counts = new Int32Array(BUCKETS + 1);
     ready = true;
-    R.__s4 = () => ({ flowX, flowY, S, N, wordX, wordY, formA, formB, colorOf, arrive, condenseAt, group, gcx, gcy, latX, latY }); // DEBUG-TEMP
   }
 
   // ─── Choreography as closed-form functions of time ─────────────────────────
@@ -490,7 +496,7 @@
       const mid = Math.sin(Math.PI * clamp(s / FORM.hit));
       a *= 1 - 0.2 * mid;                                 // thin out while the swarm packs in...
       if (mid > 0.35) bold = 0;                           // ...as hairlines, so the swoop reads as silk, not fur
-      const twinkle = 0.8 + 0.2 * Math.sin(t * 31 + phase[i] * TAU);
+      const tw = Math.sin(t * 31 + phase[i] * TAU), twinkle = HOLD.level + 0.2 * tw;
       // Each particle flares as it makes contact; the whole word flashes on the beat frame.
       const dh = t - hitAt[i], contact = dh >= 0 ? Math.exp(-HOLD.contact * dh) : 0;
       const lockFlash = t >= FORM.lock ? HOLD.flash * Math.exp(-HOLD.flashDecay * (t - FORM.lock)) : 0;
@@ -503,12 +509,16 @@
       // Whiten stochastically (whole buckets only), so flashes decay particle by particle.
       const hot = Math.max(contact, 2 * lockFlash);
       mix = hot > 0.55 + 0.45 * dither[i] ? 2 : glint > 0.4 || hot > dither[i] ? 1 : 0;
+      // Shimmer: a sparse subset catches the light at the crest of its twinkle.
+      if (dh > 0.08 && lag[i] < HOLD.sparkle && tw > 0.8) mix = Math.max(mix, 1);
       if (dh >= 0) col = wordCol[i];                      // ...and cools into the designed ramp
     }
     const g = group[i];
     if (t > condenseAt[g]) {
       const c = condenseOf(g, t), s = flightOf(g, t, GATHER.lag * lag[i]);
       a *= (1 - 0.85 * c) * (1 - smoothstep(0.7, 1, s));
+      // Only a few members stay lit as the bead's comet tail; the rest go dark at launch.
+      if (phase[i] > GATHER.comet) a *= 1 - smoothstep(0, 0.25, s);
       dot *= 1 - c;
       mix = s >= 0.8 ? 1 : c > dither[i] ? 0 : mix;
     }
@@ -517,7 +527,9 @@
   }
 
   /** Seconds between trail samples: crisp burst, long silky ribbons, dots at rest. */
-  const trailStep = (t) => R.tween(t, [[0, 1 / 420], [0.3, 1 / 100], [0.6, 1 / 100], [0.95, 1 / 300], [1.5, 1 / 300], [1.6, 1 / 160]]);
+  // (Short while the burst hands over to the field, so trails don't hook back
+  // through that sharp turn; long once the ribbons are established.)
+  const trailStep = (t) => R.tween(t, [[0, 1 / 420], [0.2, 1 / 320], [0.42, 1 / 100], [0.6, 1 / 100], [0.95, 1 / 300], [1.5, 1 / 300], [1.6, 1 / 160]]);
   /** Longest streak allowed (px): tight in the flow, longer comets in the lattice flight. */
   const trailCap = (t) => R.tween(t, [[1.45, 56], [1.6, 110]]);
   /** 0 → 1 as the particles settle into the word's stipple (each crumbles back on its own). */

@@ -8,26 +8,35 @@
  *   8.01  The hit (frame 481): every dot extrudes into a square column, centre
  *         first, the rise rippling out over 0.18 s. Each column shoots past
  *         its rest height and settles on a damped spring; tops cool from paper
- *         into the height ramp. The camera dollies in on the impact, then
+ *         into the ramp. The city settles on a stepped skyline (2×2 blocks,
+ *         towers on top), so neighbours never sit flush and the volume reads
+ *         in every frame. The camera dollies in on the impact, then
  *         orbits slowly (yaw 45° → 72°) and creeps in. The lattice carries on
  *         past the city as a faint floor, revealed outward; a viewport gizmo
  *         and live camera readout draw on bottom-left, on the HUD's column.
  *   8.36  Anticipation: the centre sinks, then snaps up with a white-hot flash
  *         on the 8.50 kick and a decelerating shock ring punches out across the
  *         city, a trough riding behind the crest. Again on 9.00 and 9.50, each
- *         kick harder (lilac → signal → signal with acid rim-lit tips). A
- *         hairline ring leaves the city along the floor, lighting the floor
- *         dots as it passes; the camera bumps. A slow sine keeps the field alive.
+ *         kick harder (lilac → signal → signal with acid rim-lit tips); the
+ *         crown is held white through the beat frame's shutter, a strobe. A
+ *         hairline ring of light leaves the city along the floor (near arc
+ *         bright, far arc dim, gone before the HUD bands), lighting the floor
+ *         dots as it passes; the camera bumps. Between kicks a tempo-locked
+ *         swell (one crest per beat) keeps rolling outward.
  *   9.70  The signal corrupts, in lockstep with the audio's buffer-repeat
  *         stutter: every stutter slice replays the picture from the 9.50 kick
- *         (a touch faster each time) while a signal/cobalt channel split,
- *         quantised slice displacement, macroblocks, smear streaks and
- *         scanlines ramp up. HUD jitter and label corruption ramp with it.
- *   9.98  Peak corruption on frame 599 (the audio's breath): a few slices
- *         already invert to ink on lilac, S6a's opening palette. Hard cut.
+ *         (a touch faster each time) while a flat signal/cobalt silhouette
+ *         split (S6a's own glitch language), quantised slice displacement,
+ *         macroblocks, smear streaks and scanlines ramp up. HUD jitter and
+ *         label corruption ramp with it. From frame 595 slices tear into
+ *         S6a's world, ink city on lilac, a larger share every frame.
+ *   9.98  Peak corruption on frame 599 (the audio's breath): ~45% of the
+ *         picture band is already S6a's palette. Hard cut.
  *
- * Shading: top faces carry the height ramp (deep cobalt → cobalt → lilac →
- * signal, acid only on the tallest tips at the kick peaks), the left (+z) face
+ * Shading: top faces carry an energy ramp (night navy → deep cobalt → cobalt
+ * → lilac, held, → signal, acid only on the tallest tips at the 9.50 peak;
+ * energy = height minus the static skyline, so each ring is one clean colour
+ * band), the left (+z) face
  * is mid, the right (+x) face darkest. Side faces fade to ink toward the floor
  * (drawn in each face's own affine frame, so the fade follows true height),
  * back rows sit in a little atmosphere, and each top catches a bevel light on
@@ -49,7 +58,7 @@
     yaw: [45 * DEG, 72 * DEG], orbit: [0, 1.95],        // slow orbit over the whole shot
     dolly: 4.5, dollyDur: 0.7,                          // push on the hit (outExpo) …
     drift: 2.5,                                         // … then a slow creep
-    lift: -12, settle: 14,                              // cy: rise with the dolly, sink with the orbit
+    lift: -12, settle: 20,                              // cy: rise with the dolly, sink with the orbit
     bump: 0.014,                                        // scale kick on each beat
   };
   const COLUMN = { size: 0.72, dotSize: 0.05 };         // footprint, in lattice spacings
@@ -58,13 +67,18 @@
     launch: 1.9, launchPeak: 0.07,                      // each column shoots past its rest height, then settles
   };
   const FIELD = {
-    base: 0.32, dome: 0.95, domeR: 4.4,                 // resting skyline
-    ripple: 0.6, k: TAU / 5.6, w: TAU, fadeIn: [0.12, 0.55], // travelling sine, 1 Hz outward
-    calm: [5.6, 9.4, 0.85],                             // motion fades past the inscribed circle (no corner spikes)
+    base: 0.34, dome: 1.1, domeR: 4.2,                  // resting massing
+    // Travelling swell locked to the tempo: one crest leaves the centre per beat
+    // (2 Hz, phase = crest at the core on the beat), so every kick meets the same swell.
+    ripple: 1.0, k: TAU / 4.2, w: 2 * TAU, phase: 0.125, fadeIn: [0.1, 0.42], sharp: 1.8,
+    calm: [6.0, 9.4, 0.8],                              // motion fades past the inscribed circle (no corner spikes)
   };
+  // Skyline: 2×2 blocks share a stepped podium, each tower adds a little on top,
+  // so neighbours never sit flush and side faces read in every frame.
+  const SKY = { step: 0.2, levels: 3, tower: 0.26, edge: [4.5, 9.2, 0.45], tint: 0.85 };
   // Each kick's snap is launched LEAD s early so the crown peaks on the beat frame itself.
   const LEAD = 0.025;
-  const KICKS = [{ t: 0.5 - LEAD, amp: 3.0 }, { t: 1.0 - LEAD, amp: 3.6 }, { t: 1.5 - LEAD, amp: 4.3 }];
+  const KICKS = [{ t: 0.5 - LEAD, amp: 2.8 }, { t: 1.0 - LEAD, amp: 3.9 }, { t: 1.5 - LEAD, amp: 4.6 }];
   const WAVE = {
     reach: 11.5, tau: 0.3,              // front = reach·(1 − e^(−τ/tau)): a decelerating shock
     width: 0.95, spread: 1.2,           // crest width grows as it travels
@@ -72,13 +86,13 @@
     antic: 0.14, dip: 0.3, coreR2: 5,   // wind-up: the centre sinks before the kick
   };
   // The shock leaves the city as a hairline ring on the floor and sweeps the frame.
-  const FLOOR_RING = { reach: 15.5, tau: 0.36, life: 0.62, width: 1.6 };
+  const FLOOR_RING = { reach: 15.5, tau: 0.36, life: 0.62, width: 1.8, far: 0.3, glow: 0.14, band: [140, 250, 860, 950] };
   // S4's lattice carries on past the city as a faint floor, revealed outward on the hit.
   const FLOOR_DOTS = { reach: 14, r: 1.7, alpha: 0.2, fade: [8, 14], reveal: [0.04, 0.034], litR: 0.75, steps: 8 };
   // Viewport overlay, stacked on the HUD's x = 80 column above the chapter label.
-  const GIZMO = { x: 112, y: 862, len: 26, at: 0.14, stagger: 0.05, textX: 80, textY: [910, 931], textW: 440 };
-  const HEAT = { lo: 0.3, hi: 4.6, acid: [4.75, 5.1], flash: 0.03 };   // acid: rim-light on the tallest tips at kick peaks
-  const SHADE = { left: 0.42, right: 0.68, fogH: 2.4, fog: 0.9, haze: 0.22, bevel: 0.55 };
+  const GIZMO = { x: 122, y: 862, len: 26, at: 0.14, stagger: 0.05, textX: 80, textY: [910, 931], textW: 440 };
+  const HEAT = { lo: 0.6, hi: 5.0, acid: [4.75, 5.1], hold: 0.5 / FPS, flash: 0.005, core: [1.65, 2.3] };   // acid: rim-light on the tallest tips at kick peaks
+  const SHADE = { left: 0.46, right: 0.72, fogH: 2.4, fog: 0.9, haze: 0.22, bevel: 0.55 };
 
   // Stutter slices of the audio (tools/synth.py: 9.70 → 9.98, source = the 9.50 kick).
   const S16 = 0.125;
@@ -94,12 +108,15 @@
   const mixA = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
   const css = (c) => `rgb(${c[0] | 0},${c[1] | 0},${c[2] | 0})`;
   // Resting columns stay deep and quiet; only energy (height) earns light.
+  // Stops sit in pure house colours; the lilac → signal hand-over is kept short so
+  // no column lingers in the dusty pink between them.
   const RAMP = [
-    [0.0, mixA(INK, rgb(PAL.lilac), 0.26)],             // slate
-    [0.24, mixA(rgb(PAL.cobalt), INK, 0.5)],            // deep cobalt
-    [0.46, rgb(PAL.cobalt)],
-    [0.7, rgb(PAL.lilac)],
-    [0.93, rgb(PAL.signal)],
+    [0.0, mixA(mixA(INK, rgb(PAL.cobalt), 0.22), rgb(PAL.lilac), 0.07)],   // night navy
+    [0.18, mixA(rgb(PAL.cobalt), INK, 0.46)],           // deep cobalt
+    [0.34, rgb(PAL.cobalt)],
+    [0.52, rgb(PAL.lilac)],
+    [0.68, rgb(PAL.lilac)],                             // lilac holds, then hands over fast
+    [0.75, rgb(PAL.signal)],
     [1.0, rgb(PAL.signal)],
   ];
   // Shadows lean cool: side faces sink toward a deep indigo, not grey.
@@ -119,7 +136,9 @@
   const COLS = [];
   for (let j = 0; j < LAT.N; j++) for (let i = 0; i < LAT.N; i++) {
     const x = (i - HALF) * LAT.spacing, z = (j - HALF) * LAT.spacing, r = Math.hypot(x, z);
-    COLS.push({ i, j, x, z, r, delay: RISE.spread * Math.pow((r - R_MIN) / (R_MAX - R_MIN), 0.85) });
+    const block = Math.floor(hash(Math.floor(i / 2) + 31 * Math.floor(j / 2), 57) * SKY.levels);
+    const sky = (SKY.step * block + SKY.tower * hash(i + 97 * j, 58)) * (1 - SKY.edge[2] * smoothstep(SKY.edge[0], SKY.edge[1], r));
+    COLS.push({ i, j, x, z, r, sky, delay: RISE.spread * Math.pow((r - R_MIN) / (R_MAX - R_MIN), 0.85) });
   }
   // The floor lattice around it (same half-integer grid); `edge` = distance out from the city's footprint.
   const FLOOR_GRID = [];
@@ -189,16 +208,20 @@
     let fl = 0;
     for (const k of KICKS) {
       const tau = t - (k.t + LEAD);
-      if (tau >= -0.004 && tau < 0.2) fl = Math.max(fl, Math.exp(-Math.max(0, tau) / HEAT.flash) * Math.exp(-(r * r) / 3));
+      // Held white through the beat frame's shutter, then gone within a frame:
+      // a strobe, not a slow cool through peach.
+      if (tau >= -0.004 && tau < 0.1) fl = Math.max(fl, (tau < HEAT.hold ? 1 : Math.exp(-(tau - HEAT.hold) / HEAT.flash)) * (1 - smoothstep(HEAT.core[0], HEAT.core[1], r)));
     }
     return fl;
   }
 
-  function fieldHeight(r, t) {
-    let live = FIELD.ripple * smoothstep(FIELD.fadeIn[0], FIELD.fadeIn[1], t) * (0.5 + 0.5 * Math.sin(FIELD.k * r - FIELD.w * (t - 0.25)));
+  function fieldHeight(col, t) {
+    const r = col.r;
+    const swell = Math.pow(0.5 + 0.5 * Math.sin(FIELD.k * r - FIELD.w * (t - FIELD.phase)), FIELD.sharp);
+    let live = FIELD.ripple * smoothstep(FIELD.fadeIn[0], FIELD.fadeIn[1], t) * swell;
     for (const k of KICKS) live += kickHeight(r, t - k.t, k.amp);
     live *= 1 - FIELD.calm[2] * smoothstep(FIELD.calm[0], FIELD.calm[1], r);
-    return Math.max(0.04, FIELD.base + FIELD.dome * Math.exp(-(r * r) / (FIELD.domeR * FIELD.domeR)) + live);
+    return Math.max(0.04, FIELD.base + col.sky + FIELD.dome * Math.exp(-(r * r) / (FIELD.domeR * FIELD.domeR)) + live);
   }
 
   // ─── Drawing ───────────────────────────────────────────────────────────────
@@ -233,11 +256,24 @@
       const tau = t - k.t;
       if (tau < 0 || tau > FLOOR_RING.life) continue;
       const rr = FLOOR_RING.reach * (1 - Math.exp(-tau / FLOOR_RING.tau)) * cam.scale;
-      const alpha = (1 - E.inQuad(tau / FLOOR_RING.life)) * (0.45 + 0.4 * k.amp / 4.3);
-      ctx.strokeStyle = R.rgba(PAL.signal, alpha);
-      ctx.lineWidth = FLOOR_RING.width * (1 - 0.5 * tau / FLOOR_RING.life);
+      const alpha = (1 - E.inQuad(tau / FLOOR_RING.life)) * (0.5 + 0.45 * k.amp / 4.6);
+      // Light on a floor, not a UI outline: the near arc is brightest, the far arc
+      // recedes, and the ring dissolves before it can cross the HUD bands.
+      const yb = cam.cy - rr * sinP, yf = cam.cy + rr * sinP;
+      const grad = ctx.createLinearGradient(0, yb, 0, yf);
+      for (let s = 0; s <= 8; s++) {
+        const y = lerp(yb, yf, s / 8);
+        const band = smoothstep(FLOOR_RING.band[0], FLOOR_RING.band[1], y) * (1 - smoothstep(FLOOR_RING.band[2], FLOOR_RING.band[3], y));
+        grad.addColorStop(s / 8, R.rgba(PAL.signal, alpha * band * lerp(FLOOR_RING.far, 1, s / 8)));
+      }
+      ctx.strokeStyle = grad;
       ctx.beginPath();
       ctx.ellipse(cam.cx, cam.cy, rr, rr * sinP, 0, 0, TAU);
+      ctx.globalAlpha = FLOOR_RING.glow;
+      ctx.lineWidth = FLOOR_RING.width * 4;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+      ctx.lineWidth = FLOOR_RING.width * (1 - 0.45 * tau / FLOOR_RING.life);
       ctx.stroke();
     }
   }
@@ -289,13 +325,13 @@
   }
 
   /** The city at city-time t (may be a replayed time during the stutter). */
-  function drawCity(ctx, t) {
+  function drawCity(ctx, t, clear = false) {
     ctx.globalAlpha = 1;
     ctx.globalCompositeOperation = 'source-over';
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
-    ctx.fillStyle = PAL.ink;
-    ctx.fillRect(0, 0, W, H);
+    if (clear) ctx.clearRect(0, 0, W, H);                // glitch: city on transparent, so its silhouette is its alpha
+    else { ctx.fillStyle = PAL.ink; ctx.fillRect(0, 0, W, H); }
     const cam = camera(t);
     const m = ctx.getTransform();
     const base = [m.a, m.b, m.c, m.d, m.e, m.f];
@@ -321,14 +357,17 @@
 
       const grow = E.outExpo(seg(tau, 0, RISE.grow));
       const rise = springRise(tau), launch = launchBump(tau);
-      const h = fieldHeight(col.r, t) * rise + RISE.launch * (1 - 0.45 * col.r / R_MAX) * launch;
+      const h = fieldHeight(col, t) * rise + RISE.launch * (1 - 0.45 * col.r / R_MAX) * launch;
       const half = lerp(COLUMN.dotSize, COLUMN.size, grow) / 2 * (1 - 0.1 * launch);  // stretch thins it a hair
 
-      // Colour: height ramp, cooled in from paper, hazed toward ink at the back.
-      let top = heatColor((h - HEAT.lo) / (HEAT.hi - HEAT.lo));
-      const acid = smoothstep(HEAT.acid[0], HEAT.acid[1], h) * acidGate;
+      // Colour: energy ramp, cooled in from paper, hazed toward ink at the back.
+      // Energy is height minus the static skyline, so a ring carries one clean
+      // colour band instead of a salt-and-pepper of neighbours either side of a stop.
+      const energy = h - SKY.tint * col.sky * rise;
+      let top = heatColor((energy - HEAT.lo) / (HEAT.hi - HEAT.lo));
+      const acid = smoothstep(HEAT.acid[0], HEAT.acid[1], energy) * acidGate;
       top = mixA(top, ACID, 0.1 * acid);
-      top = mixA(top, PAPER, 0.7 * kickFlash(col.r, t));
+      top = mixA(top, PAPER, 0.94 * kickFlash(col.r, t));
       top = mixA(PAPER, top, E.outCubic(seg(tau, RISE.cool[0], RISE.cool[1])));
       const haze = SHADE.haze * clamp(0.5 - depth / (2 * R_MAX));
       top = mixA(top, INK, haze);
@@ -406,8 +445,10 @@
     // Readout: revealed left → right behind a moving edge, values live.
     const reveal = E.outExpo(seg(t, GIZMO.at + 0.1, GIZMO.at + 0.5));
     if (reveal <= 0) return;
-    const yawDeg = (cam.yaw / DEG).toFixed(1).padStart(5, '0');
-    const zoom = (cam.scale / LAT.scale).toFixed(2);
+    // Digits sample the camera once per frame, so they stay crisp under motion blur.
+    const camF = camera(Math.floor(t * FPS + 1e-6) / FPS);
+    const yawDeg = (camF.yaw / DEG).toFixed(1).padStart(5, '0');
+    const zoom = (camF.scale / LAT.scale).toFixed(2);
     ctx.save();
     ctx.beginPath();
     const [y0, y1] = GIZMO.textY;
@@ -435,16 +476,16 @@
     if (k < 0) return 0;
     if (t >= LAST - 1e-6) return 1;
     const since = k < STUTTER.lens.length ? t - SLICE_AT[k] : 1;
-    return clamp(0.1 + 0.72 * Math.pow(seg(t, STUTTER.from, LAST), 1.5) + 0.22 * Math.exp(-since / 0.022));
+    return clamp(0.12 + 0.7 * Math.pow(seg(t, STUTTER.from, LAST), 1.25) + 0.26 * Math.exp(-since / 0.022));
   }
 
   const GLITCH = {
     bands: [4, 8, 12, 20, 32, 48, 72, 104, 144],   // px; drawn by weighted hash, snapped to a 4 px grid
     shove: [24, 380], quant: 8,                     // band displacement, quantised
-    split: [5, 34],                                 // signal / cobalt channel offset
+    split: [4, 24],                                 // signal / cobalt channel offset (snapped to 4 px)
     block: 16,                                      // macroblock grid
     area: [420, 1500, 230, 880],                    // blocks stay on the city (x0, x1, y0, y1)
-    future: 0.3,                                    // share of lilac slices at the peak (on the city only)
+    future: [150, 940, 0.45, 594],                  // lilac slices (y0, y1, share on 599, from frame): S6a tearing in
   };
 
   /**
@@ -482,67 +523,68 @@
   }
 
   /**
-   * The picture split into two "channels" in house colours: a signal and a
-   * cobalt copy of its luminance. Screened back over the image with opposite
-   * offsets they read as chromatic fringes, the same pair S6a's glitch-in uses.
+   * The picture split into "channels" the way S6a's glitch-in splits its blobs:
+   * flat, opaque silhouettes of the city (its alpha, filled signal / cobalt /
+   * ink). Laid under the city with opposite offsets they read as crisp chromatic
+   * fringes on every edge and in every gap between columns, never as a haze.
    */
-  function channelGhosts(city) {
-    // Luminance, contrast-shaped as 2·L²: white, then the city as 'luminosity', squared, doubled.
-    const luma = cpuBuffer('s5-luma'), g = luma.ctx, cw = luma.canvas.width, ch = luma.canvas.height;
-    g.fillStyle = '#fff';
-    g.fillRect(0, 0, cw, ch);
-    g.globalCompositeOperation = 'luminosity';
-    g.drawImage(city.canvas, 0, 0);
-    g.globalCompositeOperation = 'multiply';
-    g.drawImage(luma.canvas, 0, 0);
-    g.globalCompositeOperation = 'lighter';
-    g.drawImage(luma.canvas, 0, 0);
-    return [PAL.signal, PAL.cobalt].map((tint, i) => {
-      const b = cpuBuffer(`s5-ghost${i}`);
-      b.ctx.drawImage(luma.canvas, 0, 0);
-      b.ctx.globalCompositeOperation = 'multiply';
-      b.ctx.fillStyle = tint;
-      b.ctx.fillRect(0, 0, cw, ch);
-      b.ctx.globalCompositeOperation = 'source-over';
-      return b;
-    });
+  function silhouette(city, key, tint) {
+    const b = cpuBuffer(key), cw = b.canvas.width, ch = b.canvas.height;
+    b.ctx.clearRect(0, 0, cw, ch);
+    b.ctx.drawImage(city.canvas, 0, 0);
+    b.ctx.globalCompositeOperation = 'source-in';
+    b.ctx.fillStyle = tint;
+    b.ctx.fillRect(0, 0, cw, ch);
+    b.ctx.globalCompositeOperation = 'source-over';
+    return b;
   }
 
   function drawGlitch(ctx, t, g) {
     const f = frameOf(t), seed = f * 131 + 7;
     const city = cpuBuffer('s5-city');
     city.ctx.setTransform(R.scale, 0, 0, R.scale, 0, 0);
-    drawCity(city.ctx, cityTime(t));                   // paints its own full background
-    const [sig, cob] = channelGhosts(city);
+    drawCity(city.ctx, cityTime(t), true);             // on transparent: its alpha is the silhouette
+    const sig = silhouette(city, 's5-sig', PAL.signal), cob = silhouette(city, 's5-cob', PAL.cobalt);
+    let inkSil = null;
 
     ctx.fillStyle = PAL.ink;
     ctx.fillRect(0, 0, W, H);
 
-    // 1 · Slices: chunky bands shoved sideways on a quantised grid, each with
-    //     its own channel split. A few lose colour sync and survive as one channel.
-    const quant = GLITCH.quant;
+    // 1 · Slices: chunky bands shoved sideways on a quantised grid, each with its
+    //     own channel split. A few drop sync and survive as a flat signal channel;
+    //     toward the peak more and more tear into S6a's world: ink city on lilac.
+    const quant = GLITCH.quant, bands = [];
     for (let y = 0, band = 0; y < H; band++) {
       const pick = Math.floor(Math.pow(hash(band, seed), 0.8 + 0.8 * g) * GLITCH.bands.length);
       const bh = Math.min(H - y, GLITCH.bands[GLITCH.bands.length - 1 - pick]);
       const moved = hash(band, seed + 1) < 0.15 + 0.55 * g;
       const reach = lerp(GLITCH.shove[0], GLITCH.shove[1], g * g * hash(band, seed + 2));
       const dx = moved ? quant * Math.round(((hash(band, seed + 3) < 0.5 ? -1 : 1) * reach) / quant) : 0;
-      const s = lerp(GLITCH.split[0], GLITCH.split[1], g) * (0.4 + 1.2 * hash(band, seed + 4));
-      const roll = hash(band, seed + 5);
-      const mono = roll < 0.1 * g;
-      const future = !mono && bh <= 72 && y > GLITCH.area[2] && y < GLITCH.area[3] && roll < 0.1 * g + GLITCH.future * smoothstep(0.7, 1, g);
-      if (!mono) bandShift(ctx, city, y, bh, dx);
-      ctx.globalCompositeOperation = 'screen';
-      bandShift(ctx, sig, y, bh, dx + s);
-      if (!mono) bandShift(ctx, cob, y, bh, dx - s);
+      const s = quant / 2 * Math.round(lerp(GLITCH.split[0], GLITCH.split[1], g) * (0.4 + 1.2 * hash(band, seed + 4)) / (quant / 2));
+      const mono = bh <= 48 && hash(band, seed + 5) < 0.3 * smoothstep(0.4, 1, g);   // thin streaks only
+      bands.push({ y, bh, dx, s, mono, future: false, rank: hash(band, seed + 6) });
+      y += bh;
+    }
+    // Lilac share of the picture area climbs frame by frame over the last five,
+    // peaking on 599: bands are claimed in hash order until the share is covered.
+    const [fy0, fy1, fPeak, fFrom] = GLITCH.future;
+    let want = (fy1 - fy0) * fPeak * Math.pow(clamp((f - fFrom) / (599 - fFrom)), 2);
+    for (const b of bands.filter((b) => !b.mono && b.y >= fy0 && b.y + b.bh <= fy1).sort((p, q) => p.rank - q.rank)) {
+      if (want <= 0) break;
+      b.future = true;
+      want -= b.bh;
+    }
+    for (const { y, bh, dx, s, mono, future } of bands) {
       if (future) {
-        // S6a bleeding in: the slice inverts to ink columns on lilac, the next shot's palette.
-        ctx.globalCompositeOperation = 'difference';
         ctx.fillStyle = PAL.lilac;
         ctx.fillRect(0, y, W, bh);
+        inkSil = inkSil || silhouette(city, 's5-ink', PAL.ink);
       }
-      ctx.globalCompositeOperation = 'source-over';
-      y += bh;
+      bandShift(ctx, sig, y, bh, dx + s);
+      if (!mono) {
+        bandShift(ctx, cob, y, bh, dx - s);
+        bandShift(ctx, future ? inkSil : city, y, bh, dx);
+      }
     }
 
     // 2 · Macroblocks: grid-snapped chunks of the picture from somewhere else; a rare few decode flat.
@@ -554,6 +596,8 @@
       const y = B * Math.floor(lerp(ay0, ay1 - bh, hash(k, seed + 23)) / B);
       const sx = clamp(x + B * Math.round((hash(k, seed + 24) - 0.5) * 20), 0, W - bw);
       const sy = clamp(y + B * Math.round((hash(k, seed + 25) - 0.5) * 6), 0, H - bh);
+      ctx.fillStyle = PAL.ink;
+      ctx.fillRect(x, y, bw, bh);
       blit(ctx, city, sx, sy, bw, bh, x, y, bw, bh);
       const flat = hash(k, seed + 26);
       if (flat < 0.16 * g) {
@@ -570,16 +614,17 @@
       blit(ctx, city, sx, y, 2, sh, sx - dw * hash(k, seed + 44), y, dw, sh);
     }
 
-    // 4 · Scanlines, and on the peak frames a bright tear.
-    ctx.fillStyle = `rgba(0,0,0,${0.08 + 0.24 * g})`;
+    // 4 · Scanlines, and hairline tears in the channel colours (as S6a opens with).
+    ctx.fillStyle = `rgba(0,0,0,${0.08 + 0.2 * g})`;
     ctx.beginPath();
     for (let y = 0; y < H; y += 4) ctx.rect(0, y, W, 2);
     ctx.fill();
-    for (let k = 0; k < 2; k++) {
+    const tearCols = [PAL.paper, PAL.signal, PAL.cobalt];
+    for (let k = 0; k < 3; k++) {
       if (hash(k, seed + 60) > g * g) continue;
-      ctx.globalAlpha = 0.35 + 0.4 * hash(k, seed + 61);
-      ctx.fillStyle = PAL.paper;
-      ctx.fillRect(0, 4 * Math.floor(lerp(0.2, 0.85, hash(k, seed + 62)) * H / 4), W, 2);
+      ctx.globalAlpha = 0.45 + 0.45 * hash(k, seed + 61);
+      ctx.fillStyle = tearCols[k];
+      ctx.fillRect(0, 2 * Math.floor(lerp(0.18, 0.86, hash(k, seed + 62)) * H / 2), W, 1 + Math.floor(2 * hash(k, seed + 63)));
     }
     ctx.globalAlpha = 1;
   }
