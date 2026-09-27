@@ -410,7 +410,9 @@
   /**
    * Handles and knobs. While the dot reels the curve in, the handles shown are
    * those of the remaining sub-curve (exactly what splitting a path gives), so
-   * they shorten with it and fold into the dot.
+   * they shorten with it and fold into the dot. This is editor chrome, so the
+   * scene draws it at frame time (qt): under the final 8-sample motion blur the
+   * thin lines and knob outlines stay crisp instead of fanning into stepped copies.
    */
   function drawHandles(ctx, t, hs) {
     const [a] = curveRange(t);
@@ -427,11 +429,8 @@
       for (const [A, B] of handles) { ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); ctx.stroke(); }
     }
     textStyle(ctx, 12, 500, 0.5, 'center', 'middle');
-    // Readouts wait until the knobs have swung clear of the stroke. They are UI,
-    // so they update once per frame (value and position) and stay legible under blur.
+    // Readouts wait until the knobs have swung clear of the stroke.
     const lp = seg(t, TL.swing + 0.05, TL.swing + 0.14) * (1 - seg(t, TL.land, TL.land + 0.06));
-    const tq = qt(t), hq = handlesAt(tq), [aq] = curveRange(tq);
-    const cq = aq > 0 ? subCubic([P0, hq.p1, hq.p2, P3], aq, 1) : [P0, hq.p1, hq.p2, P3];
     for (const [, B, t0, ni] of handles) {
       const s = E.outBack(seg(t, t0 + 0.01, t0 + 0.2)) * fold;
       if (s <= 0) continue;
@@ -442,7 +441,7 @@
       ctx.lineWidth = 1.5;
       ctx.strokeRect(B[0] - h, B[1] - h, 2 * h, 2 * h);
       if (lp <= 0) continue;                                  // h1 reads above its knob, h2 below
-      const L = cq[ni === 0 ? 1 : 2], txt = `${fix2(hq.n[ni])}, ${fix2(hq.n[ni + 1])}`;
+      const L = B, txt = `${fix2(hs.n[ni])}, ${fix2(hs.n[ni + 1])}`;
       let tx = L[0], ty = L[1] + (ni === 0 ? -24 : 24);
       if (ni === 0 && L[1] > GY1 + 4) {
         // While h1 overshoots below the time axis its readout flips to the right
@@ -775,7 +774,7 @@
       drawLinearRef(ctx, t);
       drawSpacing(ctx, t);
       drawCaption(ctx, t, env.T);
-      drawHandles(ctx, t, hs);
+      drawHandles(ctx, qt(t), handlesAt(qt(t)));            // editor chrome steps per frame
       drawCurve(ctx, t, hs);
       drawKeys(ctx, t);
       drawPlayhead(ctx, t, seg(qt(t), TL.play, TL.land));     // the playhead steps per frame
