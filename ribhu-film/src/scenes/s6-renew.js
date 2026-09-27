@@ -7,17 +7,22 @@
  *           robotic hand is already there, below it in the dark. The ember's own pool of light
  *           brightens and widens (17.58–18.75) while the workshop key comes up, so the whole
  *           hand emerges from the dark as it rises, palm up, straight along its palm normal
- *           (nothing crosses the ember), decelerating under it (servo cue). The camera starts
- *           its one continuous move: a slow glide from the machine toward the person.
+ *           (nothing crosses the ember), decelerating under it (servo cue). Until the key has
+ *           caught it, it is composited additively: it appears by its highlights, never as a
+ *           dark cut-out. The camera starts its one continuous move: a slow glide from the
+ *           machine toward the person.
  *   17.700  Kicker "03 · RENEW" (upper-left column).
  *   18.000  "Renew the people,\nnot just the tools." rises in under it.
  *   18.280  Contact: the ember settles into the palm (by 18.46, with the piano's D5) and lights
  *           the pads and the insides of the fingers (RB.hand setGlow, palm side only).
  *   18.400  From the left, a human hand draws itself in one continuous ivory line (the pencil
- *           cue, 18.4–19.4): the forearm's underside reaching in, the heel, four fingers traced
- *           tip by tip, the thumb, back along the arm. A hot nib leads; fresh ink cools to ivory.
+ *           cue, 18.4–19.4): an open left hand, palm up, reaching — the forearm's underside,
+ *           the heel, out and back along each finger (pinky first), the web, the thumb swung
+ *           wide, back along the arm. A hot nib leads; fresh ink cools to ivory.
  *   19.160  The robotic hand tips its palm toward its fingertips, which come to rest on the
  *           drawn fingertips: a bridge between the two hands.
+ *   19.200  The camera starts to follow the ember from the machine to the person, lagging it
+ *           like an operator, and settles by 21.4 with the drawn palm near the centre of frame.
  *   19.300  The ember rolls down the metal fingers (glass roll 19.5–19.86), crosses the touching
  *           fingertips at 19.72 without a seam (the drawing is placed in init() so its middle
  *           finger pad sits exactly where the ember leaves the metal, and the roll keeps its
@@ -26,10 +31,12 @@
  *           (bell + bloom, and a breath of post bloom); the drawing fills with warm light from
  *           the palm outward and its line warms from ivory to ember.
  *   20.300  The robotic hand un-tips, folds its fingers a little and withdraws slowly, back
- *           along its forearm, out of the ember's light (a hand-off, not a takeover). Gone ≈ 21.6.
- *   21.250  Beat: the ember gathers itself and lifts straight up out of the palm (riser), then
- *           drifts to centre; the camera tilts up after it; the drawing settles to a faint glow
- *           and is gone by 22.4. The kicker and the line leave from 21.72 / 21.8.
+ *           along its forearm, and goes back into the dark by its highlights (a hand-off, not a
+ *           takeover). Gone by 21.55.
+ *   21.250  Beat: the ember gathers itself and lifts straight up out of the palm (riser),
+ *           through the open V between thumb and index, to the centre of frame; the camera tilts
+ *           up after it; the drawing settles to a faint glow and is gone by 22.4. The kicker and
+ *           the line leave from 21.72 / 21.8.
  *   22.500  OUT. Only the ember at riseSpark (960, 430), r = 12, intensity 1, rising at 120 px/s
  *           and decelerating at S7's rate (a quintic lands position, velocity and acceleration),
  *           on RB.atmos.backdrop({ gx: 960, gy: 540, gr: 900, lift: 0.7 }). No hands, no text,
@@ -80,7 +87,7 @@
   // at the end a tilt up after it.
   const CAM_A = { pos: [0.62, 1.52, 6.0], look: [0.34, 0.38, 0] };   // 17.5
   const GLIDE = [-0.5, -0.02, 0.3];        // the slow glide over the whole shot (pos; look moves in x, y)
-  const FOLLOW = [19.25, 21.75, -0.9];    // the follow: window, and how far it trucks (world x)
+  const FOLLOW = [19.2, 21.4, -0.78];    // the follow: window, and how far it trucks (world x)
   const FOV = 28, TILT_UP = 0.2;
   const PALM_DIR = [-0.05, 1, 0.3];        // robot palm normal: up, a little toward the lens
   const ARM_DIR = [0.96, -0.26, 0.1];      // robot forearm: out to the right, a little down
@@ -91,7 +98,8 @@
   // ─── Drawn hand (design units = px at the 20.0 framing) ──────────────────────
   const SKETCH_SCALE = 0.86;
   const SKETCH_TILT = -10;                 // degrees: fingers reaching up and to the right
-  const PALM_IN_SKETCH = [24, 4];          // where the ember comes to rest (the hollow of the palm), in contour units
+  const PALM_IN_SKETCH = [44, 6];          // where the ember rests: the hollow of the palm, placed so it
+                                           // rises out through the open V between thumb and index
 
   let S = null;
 
@@ -243,7 +251,7 @@
    * the heel of the hand → out and back along each finger, pinky first, over the rounded tips and
    * into softly rounded crotches → the index back to its knuckle → the palm's edge into the web →
    * out along the thumb and back → the thenar → the forearm's upper edge (off to the left).
-   * Returns points in design units (y down, palm hollow near 0,0) and the middle finger's pad,
+   * Returns points in design units (y down; the palm hollow at PALM_IN_SKETCH) and the middle finger's pad,
    * where the ember crosses over.
    */
   function sketchContour() {
@@ -322,7 +330,7 @@
       { base: [102, -18], a0: -4, segs: [76, 50, 40], bends: [-3, -8, -7], r0: 16.5, r1: 13 },    // middle
       { base: [96, -46], a0: -11, segs: [68, 44, 36], bends: [-3, -8, -7], r0: 16, r1: 12.5 },    // index (far)
     ].map(digit);
-    const thumb = digit({ base: [-78, -38], a0: -52, segs: [62, 44, 36], bends: [8, 12, 10], r0: 25, r1: 12 });
+    const thumb = digit({ base: [-74, -40], a0: -60, segs: [62, 46, 37], bends: [9, 13, 11], r0: 25, r1: 12 });
     // forearm's underside (from the far left), the wrist, the heel of the hand, into the pinky
     let cur = [[-420, 116], [-340, 96], [-270, 79], [-210, 67], [-160, 61], [-110, 65], [-60, 68], [-10, 67], [36, 62], [70, 54]].concat(F[0].lower.slice(2));
     // each finger out and back, over the tips, the crotches rounded
@@ -334,7 +342,7 @@
       push(c.keep); push(c.join); cur = c.rest;
     }
     // the index back to its knuckle, the palm's edge to the web, the thumb out and back
-    const web = cur.concat(F[3].upper.slice().reverse(), [[74, -64], [44, -70], [14, -75], [-16, -80], [-46, -86]]);
+    const web = cur.concat(F[3].upper.slice().reverse(), [[74, -63], [46, -66], [18, -70], [-10, -76], [-38, -86], [-62, -98]]);
     const cw = corner(web, thumb.lower, 12);
     push(cw.keep); push(cw.join); push(cw.rest);
     push(thumb.tip);
@@ -631,7 +639,6 @@
 
       poseRobot(18.5);
       RB.gl.renderer().compile(S.scene, poseCamera(18.5));
-      window.__s6dbg = { S, camAt, poseCamera, poseRobot, emberAt, proj, sketchWorld }; // DEBUG-REMOVE
     },
 
     draw(ctx, t, env) {

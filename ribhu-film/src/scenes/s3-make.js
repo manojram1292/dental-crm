@@ -2,33 +2,39 @@
  * S3 · 02 MAKE · 7.5–10.0 s (frames 225–299) · rail: 02 MAKE
  *
  * Make one thing into four. The workshop's instrument, the robotic hand, comes down out of
- * the dark at the upper right, takes the cup by the rim the way a maker lifts a wide bowl,
- * raises it, tips it toward us in the light and sets it down one step to the right — its
- * place in the row. It lets go, and on the beat the cup divides like a living thing: a seam
- * of warm light opens down its middle, the one bowl stretches into two joined at the seam,
- * the feet part first, the rims pinch off last, and the second cup slides away on its own
- * weight, born a little warm and cooling to copper. On the next beat both divide again, and
- * the four settle into the row as the camera draws back.
+ * the dark at the upper right as the workshop light comes up on the work, takes the cup by
+ * the rim the way a maker lifts a wide bowl, raises it, tips it toward us in the light and
+ * sets it down one step to the right — its place in the row — on the beat. The touch-down
+ * rings the cup, and it divides: a seam of warm light opens down its middle and flares, the
+ * one bowl stretches into two joined at the seam like a cup and its reflection, the feet part
+ * first, the rims pinch off last, and the second cup slides away on its own weight, born a
+ * little warm and cooling to copper. On the next beat both divide again, and the four settle
+ * into the row as the camera draws back and the working light goes down.
  *
  *   7.500  S2's out frame: the solid cup at the origin in shots.cupMake, no hand.
- *   7.50–8.35  The camera eases back and up from rest (room for the hand and the title).
- *          The hand arrives from off frame upper right on a falling arc (servo whir
- *          7.5–8.1), turned a little about the wrist and aligning as it slows; its
- *          fingers open to the pre-grasp (the aperture opens before the close), and it
- *          settles straight down the cup's axis onto the rim.
+ *   7.50–8.35  The camera eases back and up from rest (room for the hand and the title); the
+ *          shaft, its warm spot on the work and a low front card fade up (7.5–8.1).
+ *          The hand is already travelling as it enters from just past the upper-right edge:
+ *          one long deceleration on an arc that bends into a short straight descent down
+ *          the cup's axis onto the rim (servo whir 7.5–8.1), turned a little about the
+ *          wrist and aligning as it slows; the fingers open to the pre-grasp on the way.
  *   7.600  Kicker "02 ── MAKE".  7.800 → 9.550  "Make one thing into four." — top left,
- *          in the dark above the work; neither the lifted cup nor the row reaches that band.
+ *          in the shaft above the work; neither the lifted cup nor the row reaches that band.
  *   8.125  (beat) Contact: the fingers close on the bowl, thumb over the rim (the clack).
- *   8.17–8.70  Lift, tip toward the lens, a small turn, carried one step right (the camera
- *          follows about half of it) and set down softly at x = rowX[2] (inspect servo 8.2).
- *   8.70–8.80  The fingers open first; 8.72 the hand rises off the rim, opening flat.
- *   8.750  (beat) 1 → 2 (the bowl strikes D + A). The division seam lights down the cup; the
- *          child slides left, away from the hand, parts from its parent at ≈9.19, and
- *          both rock once on their feet (the child a little more as it stops).
+ *   8.15–8.75  Lift (0.24), a breath at the top tipped toward the lens and turned a little,
+ *          carried one step right (the camera follows about half of it) and set straight
+ *          down at x = rowX[2], touching down ON the 8.75 beat (inspect servo 8.2).
+ *   8.750  (beat) 1 → 2 (the bowl strikes D + A). The touch-down rings the cup: the seam
+ *          lights and flares; the child slides left, away from the hand, parts from its
+ *          parent at ≈9.19, and both rock once on their feet (the child more as it stops).
+ *   8.77–9.32  The fingers open first, then the hand lifts straight off the rim, opening flat,
+ *          and without a pause turns into the departure …
  *   8.62–9.967  The camera draws back to shots.row4: its peak comes early, while one becomes
  *          two, and it settles long and soft, landing with zero velocity on frame 299.
- *   8.98–9.55  The hand leaves upward, accelerating (servo 9.38); out of frame by ≈9.55.
+ *   8.88–9.80  … up and away to the upper right, gathering speed the whole way (servo
+ *          9.38); out of frame by ≈9.53.
  *   9.375  (beat) 2 → 4 (C + F join): both cups divide outward at once, mirror images.
+ *   9.45–9.93  The working light goes down (to S4's standard look) as the four land.
  *   9.79–9.963  The last two part, stop and rock; every cup is still from frame 299, in
  *          the row, for the 10.0 chord.
  *
@@ -38,13 +44,17 @@
  *        lathe seam normals welded exactly as S1/S2 weld them.
  *   OUT  frame 299 = S4's frame 300: four plain kit cups at x = shots.rowX, y 0, rotation 0,
  *        camera exactly shots.row4, no hand, no text, no shaft, dust or contact shadows,
- *        backdrop defaults. The seam weld is released gradually during the draw-back
- *        (8.95–9.65), so the cups end as S4's plain kit cups.
+ *        the working spot and card at exactly 0, backdrop defaults. The seam re-weld eases
+ *        to the kit's own normals during the draw-back (8.95–9.65), as S4 builds them.
+ *   Frame 225 with --mb 8 differs from its single sample only along the cup's edges (AA):
+ *        the hand's fingertips are still above the frame at the last sub-sample.
  *   Rail: 02 active, progress (T − 7.5) / 10.
  *
  * One draw3D per frame (≤ ~225k triangles): the hand, four cups (each with its plain kit
  * materials and a patched "making" set used only while it is divided or still warm),
- * their contact shadows. Everything is built in init() and posed from T in draw().
+ * their contact shadows, the stage lights plus a working spot and card (always present,
+ * dimmed to 0 at both hand-offs, so no program swaps). 2D after the render: the seam's
+ * glow, dust and type. Everything is built in init() and posed from T in draw().
  */
 (function () {
   'use strict';
@@ -265,10 +275,11 @@
   const ENTRY = [0.72, 0.86, 0.17];         // added to the grip at β = 1: just off frame, upper right
   const REACH = { t: [7.5, 8.1], a: [0.34, 0.34, 0.26, 0], b: [1, 0.5, 0.06, 0] };
   const reachEase = E.bezier(0.3, 0.45, 0.35, 1);
-  // The exit, the same way round: straight up off the rim (the thumb lifts out of the bowl), then
-  // bending up and away to the upper right, gathering speed the whole way (servo 9.38).
-  const EXIT = { t: [8.8, 9.78], a: [0, 0.3, 0.45, 0.45], g: [0, 0, 0.9, 3.6], dir: [0.5, 1, 0.2] };
-  const exitEase = (u) => 0.35 * E.inQuad(u) + 0.65 * E.inCubic(u);
+  // The exit, the same way round: straight up off the rim until the fingers clear it (the thumb
+  // lifts out of the bowl), handing over, without a pause, to a departure up and away to the
+  // upper right that gathers speed the whole way (servo 9.38).
+  const EXIT = { lift: [8.8, 9.32], h: 0.46, go: [8.88, 9.8], len: 3.6, dir: [0.5, 1, 0.2] };
+  const exitEase = (u) => 0.5 * E.inQuad(u) + 0.5 * E.inCubic(u);
   const HAND_T = {
     shape: [7.56, 7.98],     // relaxed → open pre-grasp as it slows (the aperture opens before the close)
     close: [7.98, GRIP_T],   // contact on the beat
@@ -279,7 +290,7 @@
   const _v = new THREE.Vector3();
   function poseHand(T) {
     const h = S.hand, P = S.poses, HT = HAND_T;
-    const visible = T < EXIT.t[1] + 0.05;
+    const visible = T < EXIT.go[1] + 0.05;
     h.group.visible = visible;
     if (!visible) return;
     const shape = E.inOutSine(seg(T, HT.shape[0], HT.shape[1])) * (1 - E.inOutSine(seg(T, HT.open[0], HT.open[1])));
@@ -290,9 +301,9 @@
     const base = reach ? RB.hand.blend(P.relaxed, P.ready, E.inOutSine(seg(T, HT.shape[0], HT.shape[1])))
       : RB.hand.blend(RB.hand.blend(P.open, P.ready, shape), P.relaxed, E.inOutSine(seg(T, HT.relax[0], HT.relax[1])));
     h.setPose(RB.hand.blend(base, P.grip, close));
-    const r = reachEase(seg(T, REACH.t[0], REACH.t[1])), x = exitEase(seg(T, EXIT.t[0], EXIT.t[1]));
-    const away = bez(...REACH.a, r) + bez(...EXIT.a, x);
-    const arc = bez(...REACH.b, r), ex = bez(...EXIT.g, x);
+    const r = reachEase(seg(T, REACH.t[0], REACH.t[1]));
+    const away = bez(...REACH.a, r) + EXIT.h * E.inOutSine(seg(T, EXIT.lift[0], EXIT.lift[1]));
+    const arc = bez(...REACH.b, r), ex = EXIT.len * exitEase(seg(T, EXIT.go[0], EXIT.go[1]));
     // while it holds the cup the hand follows it; once it has let go it works from the cup's
     // resting place, so the cup's later rocking doesn't shake the departing hand
     h.graspCup(T < HT.release[1] ? S.cups[0].group : S.homeMatrix, { around: AROUND, away });
@@ -341,9 +352,11 @@ totalEmissiveRadiance += uMkSeam * (uMkHot * exp(-mkD / 0.0042) + uMkColor * (0.
   // ─── Build (once) ───────────────────────────────────────────────────────────
   let S = null;
   /**
-   * The lathe seam (φ = 0 / 2π, facing the lens at rotation 0). S1 and S2 weld its normals;
-   * S4 shows the plain kit cup. We start welded exactly as S2 does and release the weld
-   * gradually while the camera draws back, ending on the plain kit normals.
+   * The lathe seam (φ = 0 / 2π, facing the lens at rotation 0). RB.cup() now welds it itself;
+   * S1 and S2 weld it once more on top (normalize(n + n), which can differ from the kit's
+   * normals in the last bit) while S4 shows the kit cup as built. To stay bit-exact at both
+   * hand-offs we start with S2's re-weld and ease to the kit's own normals during the
+   * draw-back — a change far below anything visible, but it keeps both contracts at 0 diff.
    */
   function seamNormals(mesh, segments = 160) {
     const nrm = mesh.geometry.attributes.normal, n = nrm.count / (segments + 1);
@@ -411,6 +424,12 @@ totalEmissiveRadiance += uMkSeam * (uMkHot * exp(-mkD / 0.0042) + uMkColor * (0.
     S.spot.position.set(-1.7, 6.0, 1.9);
     S.spot.target.position.set(0.4, 0.45, 0);
     S.scene.add(S.spot, S.spot.target);
+    // … and a low warm card from the front left, the product-shot kicker: the bowl's front,
+    // which otherwise mirrors the dark floor, takes a soft highlight that shows the hammering.
+    S.card = new THREE.DirectionalLight('#ffd2a6', 0);
+    S.card.position.set(-3.0, 1.0, 4.0);
+    S.card.target.position.set(0.3, 0.45, 0);
+    S.scene.add(S.card, S.card.target);
 
     // Compile both material sets now, and draw each once into a 2×2 scissor so the software
     // rasteriser also builds its routines here: no frame pays for a shader build or a JIT.
@@ -432,6 +451,7 @@ totalEmissiveRadiance += uMkSeam * (uMkHot * exp(-mkD / 0.0042) + uMkColor * (0.
   /** How much the working light (shaft, dust, contact shadows, warm pool) is up: 0 at both hand-offs. */
   const workLight = (T) => E.inOutSine(seg(T, T0, 8.1)) * (1 - E.inOutSine(seg(T, 9.45, 9.93)));
   const SPOT_I = 70;                       // the shaft's light on the work, at full working light
+  const CARD_I = 2.8;                      // the low front card on the copper
   const WELD_OFF = [8.95, 9.65];           // the seam welding is released here, while everything moves
 
   function poseCups(T) {
@@ -447,7 +467,7 @@ totalEmissiveRadiance += uMkSeam * (uMkHot * exp(-mkD / 0.0042) + uMkColor * (0.
       S.m.decompose(c.group.position, c.group.quaternion, _s);
       c.group.scale.set(1, 1, 1);
       // the making materials only while it is cut by a division or still warm
-      const cut = st.cut, making = window.__s3plain ? false : st.heat > 0.002 || !!cut;
+      const cut = st.cut, making = st.heat > 0.002 || !!cut;
       for (const k of ['outer', 'rim', 'inner']) c[k].material = making ? c.makeMat[k] : c.plainMat[k];
       c.U.uMkHeat.value = st.heat || 0;
       c.U.uMkSide.value = cut ? cut.side : 0;
@@ -476,6 +496,57 @@ totalEmissiveRadiance += uMkSeam * (uMkHot * exp(-mkD / 0.0042) + uMkColor * (0.
     ctx.drawImage(b.canvas, 0, 0, R.W, R.H);
     ctx.restore();
   }
+  /**
+   * The light in the seam, as the lens sees it: on each split beat the division line flares —
+   * light spilling out of the plane where the cup meets its reflection — and settles to a glow
+   * that fades as the two pinch apart. Traced along the real outer profile (RB.cup()'s lathe
+   * points, foot to rim) where it crosses the division plane, on the side facing the lens.
+   */
+  const PROFILE = [[0.27, 0.0], [0.305, 0.012], [0.3, 0.05], [0.2, 0.085], [0.125, 0.13], [0.115, 0.19], [0.17, 0.25], [0.33, 0.33], [0.47, 0.45], [0.555, 0.6], [0.595, 0.75], [0.612, 0.87], [0.61, 0.9]];
+  const _p3 = new THREE.Vector3();
+  function drawSeamGlow(ctx, T) {
+    CUPS.forEach((c, i) => {
+      const d = divisionOf(i, T);
+      if (!d) return;
+      const tau = T - c.born, flare = clamp(tau / 0.035) * Math.exp(-Math.max(0, tau) / 0.22);
+      const k = 0.9 * flare + 0.4 * d.seam;
+      if (k < 0.01) return;
+      const par = S.cups[c.parent].group, lx = d.x - par.position.x, ax = Math.abs(lx);   // the plane, off the parent's axis
+      // the seam is the profile's crossing of the plane: where the feet (then the stems) have
+      // already parted it breaks into separate runs — never a line drawn across the gap
+      const runs = [];
+      let run = null;
+      const at = (r, y) => {
+        _p3.set(lx, y, Math.sqrt(Math.max(0, r * r - ax * ax))).applyMatrix4(par.matrixWorld);
+        return RB.toScreen(S.camera, _p3.x, _p3.y, _p3.z);
+      };
+      PROFILE.forEach(([r, y], j) => {
+        const inside = r > ax;
+        if (j > 0) {
+          const [r0, y0] = PROFILE[j - 1];
+          if (inside !== (r0 > ax)) {   // the plane grazes the profile here: end or start a run at the silhouette
+            const f = (ax - r0) / (r - r0), yc = lerp(y0, y, f);
+            if (inside) run = [at(ax, yc)];
+            else if (run) { run.push(at(ax, yc)); runs.push(run); run = null; }
+          }
+        }
+        if (inside) (run || (run = [])).push(at(r, y));
+      });
+      if (run) runs.push(run);
+      if (!runs.length) return;
+      ctx.save();
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      for (const [w, a, col] of [[64, 0.06, PAL.copperHot], [28, 0.11, PAL.ember], [9, 0.2, '#ffe9d2']]) {
+        ctx.strokeStyle = R.rgba(col, a * k);
+        ctx.lineWidth = w;
+        ctx.beginPath();
+        for (const pts of runs) pts.forEach(([x, y], j) => (j ? ctx.lineTo(x, y) : ctx.moveTo(x, y)));
+        ctx.stroke();
+      }
+      ctx.restore();
+    });
+  }
   /** Kicker and line through the kit, into a buffer so their exit can finish before the cut. */
   function drawType(ctx, T) {
     if (T < KICKER.tIn || T > TYPE_GONE) return;
@@ -501,22 +572,15 @@ totalEmissiveRadiance += uMkSeam * (uMkHot * exp(-mkD / 0.0042) + uMkColor * (0.
 
     const wl = workLight(T);
     S.spot.intensity = SPOT_I * wl;
+    S.card.intensity = CARD_I * wl;
     RB.atmos.backdrop(ctx, { gx: lerp(1060, 1120, wl), gy: lerp(520, 470, wl), gr: 900 });
     drawShaft(ctx, 0.11 * wl);
     RB.draw3D(ctx, S.scene, S.camera);
+    drawSeamGlow(ctx, T);
     RB.atmos.dust(ctx, T, { count: 70, alpha: 0.4 * wl, rect: [0, 0, R.W, 900] });
     drawType(ctx, T);
   }
 
-  // DEBUG-PROBE (temporary)
-  window.__s3probe = (T) => {
-    RB.setCam(S.camera, camShot(T)); poseCups(T); poseHand(T);
-    S.scene.updateMatrixWorld(true);
-    const pp = S.hand.palmPoint(new THREE.Vector3()), ft = S.hand.fingertips();
-    const sc = (v) => RB.toScreen(S.camera, v.x, v.y, v.z).slice(0, 2).map((x) => +x.toFixed(1));
-    return { T, palm: sc(pp), tips: ft.map(sc), wrist: sc(S.hand.group.getWorldPosition(new THREE.Vector3())),
-      cups: S.cups.map((c) => c.group.visible ? [...sc(c.group.position), +c.group.position.y.toFixed(3)] : null), cam: camShot(T) };
-  };
   R.scene({
     id: 'make', index: 3, label: 'Make', start: 7.5, end: 10,
     init,
