@@ -1,0 +1,7 @@
+/* Latin subsets of Google Fonts (SIL Open Font License), vendored so renders are deterministic. */
+@font-face { font-family: 'Inter Tight'; font-style: normal; font-weight: 100 900; font-display: block; src: url(./InterTight.woff2) format('woff2'); }
+@font-face { font-family: 'Inter Tight'; font-style: italic; font-weight: 900; font-display: block; src: url(./InterTight-Italic.woff2) format('woff2'); }
+@font-face { font-family: 'Instrument Serif'; font-style: normal; font-weight: 400; font-display: block; src: url(./InstrumentSerif.woff2) format('woff2'); }
+@font-face { font-family: 'Instrument Serif'; font-style: italic; font-weight: 400; font-display: block; src: url(./InstrumentSerif-Italic.woff2) format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 100 800; font-display: block; src: url(./JetBrainsMono.woff2) format('woff2'); }
+@font-face { font-family: 'Syne'; font-style: normal; font-weight: 400 800; font-display: block; src: url(./Syne.woff2) format('woff2'); }
