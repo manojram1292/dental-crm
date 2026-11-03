@@ -1,0 +1,105 @@
+{
+  "lang": "en",
+  "episode": 1,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, adhyaya 1",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 1",
+    "episodeTitle": "The Storyteller Arrives",
+    "episodeSeparator": " · ",
+    "storytellerName": "Ugrashravas",
+    "storytellerEpithet": "son of Lomaharshana",
+    "epicTitle": "Mahabharatam",
+    "epicAuthor": "composed by Vyasa"
+  },
+  "timing": {
+    "wordsPerSecond": 2.6,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 1.0
+  },
+  "lines": [
+    {
+      "id": "before",
+      "text": "Before the war. Before the dice. Before any throne was fought for…",
+      "est": 5.2,
+      "beats": [
+        0,
+        3,
+        6
+      ],
+      "note": "beats = word indices of the three 'Before's: ghost flashes + drum hits land on them"
+    },
+    {
+      "id": "forest",
+      "text": "…a storyteller walked into the Naimisha forest.",
+      "est": 3.4,
+      "emphasis": [
+        "Naimisha"
+      ]
+    },
+    {
+      "id": "name",
+      "text": "His name was Ugrashravas, son of Lomaharshana.",
+      "est": 3.8,
+      "beats": [
+        3
+      ],
+      "display": [
+        "storytellerName",
+        "storytellerEpithet"
+      ],
+      "note": "beats[0] = word index of the name: the gold lettering lands on it",
+      "emphasis": [
+        "Ugrashravas",
+        "Lomaharshana"
+      ]
+    },
+    {
+      "id": "fire",
+      "text": "There, for twelve years, sages had tended a sacred fire.",
+      "est": 4.3
+    },
+    {
+      "id": "asked",
+      "text": "They asked him for one story — the one he heard at King Janamejaya's great sacrifice.",
+      "est": 6.1,
+      "beats": [
+        8
+      ],
+      "note": "beats[0] = word index where the court vision begins to form in the smoke",
+      "emphasis": [
+        "Janamejaya"
+      ]
+    },
+    {
+      "id": "vyasa",
+      "text": "The story composed by Vyasa. The Mahabharatam.",
+      "est": 3.9,
+      "hold": 0.6,
+      "beats": [
+        6
+      ],
+      "display": [
+        "epicTitle"
+      ],
+      "note": "beats[0] = word index of the title word: the gold title blooms on it; hold = extra seconds after the voice",
+      "emphasis": [
+        "Vyasa",
+        "Mahabharatam"
+      ]
+    },
+    {
+      "id": "episode",
+      "text": "Episode one. The storyteller arrives.",
+      "est": 2.4,
+      "caption": false,
+      "note": "spoken over the end card, which shows strings.episodeLabel / episodeTitle instead of a caption"
+    }
+  ]
+}

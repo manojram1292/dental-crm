@@ -1,0 +1,4 @@
+/* Latin subsets of Google Fonts (SIL Open Font License), vendored so renders are deterministic. */
+@font-face { font-family: 'Cinzel'; font-style: normal; font-weight: 400 900; font-display: block; src: url(./Cinzel.woff2) format('woff2'); }
+@font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 400 800; font-display: block; src: url(./EBGaramond.woff2) format('woff2'); }
+@font-face { font-family: 'EB Garamond'; font-style: italic; font-weight: 400 800; font-display: block; src: url(./EBGaramond-Italic.woff2) format('woff2'); }

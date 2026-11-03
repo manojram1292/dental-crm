@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mahabharatam — Episode 1</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Mahabharatam — As Vyasa Told It. Episode 1: The Storyteller Arrives. Every frame and sound is generated from code.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root { --ink: #0f0b09; --paper: #f4e4c4; --signal: #e7b54a; --mute: #9a8f7d; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #070605; color: var(--paper); font-family: 'EB Garamond', Georgia, serif; }
+  body { display: flex; flex-direction: column; overflow: hidden; }
+  .stage { flex: 1; display: grid; place-items: center; position: relative; min-height: 0; }
+  canvas { display: block; background: var(--ink); box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+  #overlay { position: absolute; inset: 0; display: grid; place-items: center; cursor: pointer; transition: opacity .3s; }
+  #overlay.hidden { opacity: 0; pointer-events: none; }
+  #overlay span { font: 600 16px/1 'Cinzel', serif; letter-spacing: .25em; padding: 18px 26px; border: 1.5px solid var(--signal); color: var(--paper); background: rgba(11,8,6,.4); backdrop-filter: blur(6px); }
+  #overlay span::before { content: '▶'; margin-right: 14px; color: var(--signal); }
+  .bar { height: 64px; display: flex; align-items: center; gap: 14px; padding: 0 18px; border-top: 1px solid #1d1914; font-size: 13px; }
+  .bar button { background: none; border: 1px solid #3a3227; color: var(--paper); font: inherit; padding: 6px 10px; cursor: pointer; border-radius: 2px; }
+  .bar button:hover { border-color: var(--signal); }
+  #play { width: 44px; color: var(--signal); }
+  .track { position: relative; flex: 1; height: 30px; display: flex; align-items: center; }
+  #scrub { width: 100%; accent-color: var(--signal); margin: 0; }
+  #marks { position: absolute; left: 0; right: 0; top: -2px; height: 0; pointer-events: none; }
+  .mark { position: absolute; transform: translate(-1px, -100%); pointer-events: auto; border: none !important; border-left: 1px solid var(--mute) !important; padding: 0 0 0 4px !important; font-size: 10px; color: var(--mute) !important; }
+  #time { color: var(--mute); min-width: 150px; text-align: right; font-variant-numeric: tabular-nums; font-family: ui-monospace, monospace; font-size: 11px; }
+  body.render { background: var(--ink); }
+  body.render .bar, body.render #overlay { display: none; }
+  body.render canvas { box-shadow: none; }
+  @media (max-width: 720px) { #loop { display: none; } #time { min-width: 0; } .bar { gap: 8px; padding: 0 10px; } }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <canvas id="reel" aria-label="Mahabharatam, episode 1"></canvas>
+    <div id="overlay"><span>PLAY</span></div>
+  </div>
+  <div class="bar">
+    <button id="play" aria-label="Play or pause">▶</button>
+    <div class="track"><div id="marks"></div><input id="scrub" type="range" min="0" max="1000" step="0.1" value="0" aria-label="Scrub"></div>
+    <span id="time">00:00:00:00</span>
+    <button id="mute">SOUND ON</button>
+    <button id="loop">LOOP ON</button>
+  </div>
+
+  <script src="src/engine.js"></script>
+  <script src="src/kit/core.js"></script>
+  <script src="src/kit/fire.js"></script>
+  <script src="src/kit/figures.js"></script>
+  <script src="src/kit/forest.js"></script>
+  <script src="src/kit/smoke.js"></script>
+  <script src="src/kit/captions.js"></script>
+  <script src="src/kit/endcard.js"></script>
+  <script src="src/kit/ashram.js"></script>
+  <script src="src/kit/manuscript.js"></script>
+  <script src="src/scenes/s1-before.js"></script>
+  <script src="src/scenes/s2-forest.js"></script>
+  <script src="src/scenes/s3-name.js"></script>
+  <script src="src/scenes/s4-fire.js"></script>
+  <script src="src/scenes/s5-asked.js"></script>
+  <script src="src/scenes/s6-vyasa.js"></script>
+  <script src="src/scenes/s7-episode.js"></script>
+  <script src="src/runtime.js"></script>
+</body>
+</html>
