@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.0243,
+   "words": 4,
+   "speed": 0.81,
+   "text": "His name was Ugrashravas,"
+  },
+  {
+   "t0": 2.1043,
+   "t1": 3.7471,
+   "words": 3,
+   "speed": 0.81,
+   "text": "son of Lomaharshana."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

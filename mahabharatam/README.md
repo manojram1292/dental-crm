@@ -4,8 +4,9 @@ Vertical YouTube Shorts (1080×1920, 30 fps). Every frame and every sound is gen
 
 | Episode | Title | Source | Output |
 |---|---|---|---|
-| 1 | The Storyteller Arrives | Adi Parva 1 | `episode01.mp4` (+ `episode01-share.mp4`), 32.4 s |
-| 2 | The Field of Five Lakes | Adi Parva 2 (Samantapanchaka) | `episode02.mp4` (+ `episode02-share.mp4`), 39.1 s |
+| 1 | The Storyteller Arrives | Adi Parva 1 | `episode01.mp4` (+ `episode01-share.mp4`), 36.2 s |
+| 2 | The Field of Five Lakes | Adi Parva 2 (Samantapanchaka) | `episode02.mp4` (+ `episode02-share.mp4`), 44.6 s |
+| 3 | Eighteen Armies | Adi Parva 2 (the akshauhini) | `episode03.mp4` (+ `episode03-share.mp4`), 50.7 s |
 
 The characters are fixed in a **character bible**: see `CHARACTERS.md` and `CHARACTERS.png`.
 
@@ -35,7 +36,7 @@ Each line's duration works like this:
 The end card then holds for `timing.tail` seconds.
 
 - `beats` are **word indices**. The timeline turns them into times in the speech, and the pictures and drums land on them.
-- `ticks: {count, from, to, curve}` spreads `count` hits between two words, accelerating when `curve < 1`. In episode 2, the 21 crowns, the tally marks and the drums all read `line.ticks`.
+- `ticks: {count, from, to, curve}` spreads `count` hits between two words, accelerating when `curve < 1`. `to: "end"` runs them to the line's end (minus `endPad` s, default 0.5), through its `post` and `hold`. In episode 2, the 21 crowns, the tally marks and the drums all read `line.ticks`; in episode 3, the 18 army blocks and the 18 days do.
 - When `tools/voice.py` has written a chunk sidecar (`<id>.json`), caption words are placed inside the chunk they were spoken in. Pauses therefore line up exactly.
 
 ## Voices and modulation (`tools/voice.py`)
@@ -44,17 +45,29 @@ The end card then holds for `timing.tail` seconds.
 python3 -I tools/voice.py --model <kokoro dir> --ep 2 [--lang en] [--only ask,answer] [--dry]
 ```
 
-- `speaker` (the default is `narrator`) → `script/cast.json`: `{voice, speed, pitch (semitones), g2p}`. Narrator: am_michael at 0.9× (episode 1's voice). Sauti: bm_fable at 0.92×. The elder sage: bm_lewis at 0.8×, −0.5 semitone.
+- `speaker` (the default is `narrator`) → `script/cast.json`: `{voice, speed, pitch (semitones), g2p}`. Narrator: am_michael at 0.81× (episode 1's voice). Sauti: bm_fable at 0.83×. The elder sage: bm_lewis at 0.77×, unshifted. These are about 10 % slower than the first cut (0.9 / 0.92 / 0.8 and −0.5 st). Because Kokoro's speed is not linear, the speech runs about 12–15 % longer.
 - Per line, `speed` multiplies the speaker's speed.
 - `say` (which defaults to `text`) is what gets spoken, with inline marks:
-  - `…` pauses 350 ms.
-  - `—` pauses 240 ms.
-  - `[p:400]` pauses 400 ms.
+  - `…` pauses 420 ms.
+  - `—` pauses 280 ms.
+  - `,` `;` `:` split the line there and add 80 ms (on top of the chunk's own breath).
+  - `.` `?` `!` in mid-line add 250 ms.
+  - `[p:400]` pauses 400 ms. Right after punctuation it replaces that pause (the longer wins).
   - `{s:0.85}` speaks what follows at 0.85× (`{s}` resets).
 
   The line is synthesised in chunks and joined with exact silences.
 - `pitch` is applied by synthesising at `speed / f` and resampling by `f = 2^(st/12)`, so the tempo stays where the cast sets it.
-- Each line is levelled to −21 dBFS active RMS. Sanskrit names are spoken from the IPA in `NAMES` (Samantapanchaka, Parashurama, Suta, Kshatriya, …).
+- Each line is levelled to −21 dBFS active RMS.
+- Sanskrit names, and a few English words that espeak gets wrong, are spoken from the IPA in `NAMES`. An entry is one string, or `{en-us, en-gb}` when the American and British voices need different vowels. The conventions are:
+  - short a → ʌ/ə
+  - ā → ɑː
+  - aspirated bh → bʰ
+  - r between vowels → the tap ɾ
+  - ṇ → ɳ
+  - ś/ṣ → ʃ
+  - c → ʧ
+- A segment-final article "a" before a name is spoken weak. espeak would otherwise read it as the letter A.
+- `tools/mix.py` lightens the voice stem before levelling it. It applies a 90 Hz high-pass, a −4 dB low shelf at 170 Hz and a −1.5 dB shelf at 7.5 kHz. There is no compressor.
 - `--dry` prints the chunks and phonemes without synthesising.
 
 ## Add a language (example: Tamil)
@@ -94,11 +107,12 @@ The share copy is made with `ffmpeg -i episodeNN.mp4 -c:v libx264 -crf 23 -prese
 | `manuscript.js` | Palm-leaf pages |
 | `captions.js` | Captions |
 | `endcard.js` | The series end card |
+| `army.js` | The four arms of the army as mural puppets: `KIT.army.draw(ctx, 'chariot' \| 'elephant' \| 'horse' \| 'soldier', o)` (chariot with two horses and a banner, elephant with howdah, horse with rider and lance, foot soldier with spear and shield), plus the patti tile and its mip-mapped pattern for massed armies |
 
-Episode-specific helpers live with their scenes. For example, `src/scenes/ep02/_common.js` holds the storm, the lakes, crowns and lotuses.
+Episode-specific helpers live with their scenes. For example, `src/scenes/ep02/_common.js` holds the storm, the lakes, crowns, lotuses and the field seen from above (`EP2.mandala`). Episode 3 reuses it: in `src/episodes.js`, an entry with a slash (`'ep02/_common'`) loads another episode's file. `src/scenes/ep03/_common.js` holds the multiplying patti grid, the gold counters and the marching friezes.
 
 `lab/model-sheet.html` is the character model sheet. Open it over HTTP to view it, or render it with `tools/modelsheet.mjs`.
 
 The engine (`src/engine.js`, `src/runtime.js`) and the tools are forked from `../ribhu-film`. Fonts are Cinzel and EB Garamond, under the SIL Open Font License (see `fonts/`).
 
-Episode 1 is unchanged in story and timing: its script, voice and score are byte-identical; its music re-scores bit-for-bit. Its scenes now draw through the character modules. Sauti matches the old frames closely. The circle's sages now carry their per-index variations, so a re-render of episode 1 shows them less uniform than the existing `episode01.mp4`.
+Episode 1 is unchanged in story. Its voice was regenerated with the slower, lighter settings, so its timeline re-flowed and its music was re-scored to match. Its scenes now draw through the character modules. Sauti matches the old frames closely. The circle's sages now carry their per-index variations, so a re-render of episode 1 shows them less uniform than the existing `episode01.mp4`.

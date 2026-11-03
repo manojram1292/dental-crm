@@ -22,7 +22,7 @@ voice band (1–4 kHz) kept gentle. tools/mix.py adds the voice and ducks this.
 
     python3 tools/score.py [--ep 1] [--lang en] [--force]
 
-Each episode has its own cue sheet: build() is episode 1, build_ep2() episode 2
+Each episode has its own cue sheet: build() is episode 1, build_ep2() episode 2, build_ep3() episode 3
 (chosen by the timeline's `episode`). Instruments and the mix stage are shared.
 Writes audio/epNN/music.wav (+ music.json, its stamp).
 """
@@ -708,6 +708,137 @@ def build_ep2(tl):
     return out
 
 
+
+# ─── episode 3: Eighteen Armies ──────────────────────────────────────────────
+def ep3_steps(L):
+    """The grid's step times, as src/scenes/ep03/_common.js schedules them."""
+    m, c = L['multiply'], L['chariots']
+    s0, s1 = m['beats'][0] + 0.55, c['beats'][0] - 0.6
+    sp = (s1 - s0) / 7
+    return [s0 + i * sp for i in range(7)] + [c['beats'][0] - 0.2]
+
+
+def build_ep3(tl):
+    """Marching drums that build from the patti to the eighteen armies, conchs on the
+    armies, the eighteen days counted on the drum, then a solemn close."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry = np.zeros((2, N))
+    bus_wet = np.zeros((2, N))
+    bed = np.zeros((2, N))
+
+    def bell(t0, f, vel, p, key):
+        x = ghanta(f, 5.0, key, vel)
+        add(bus_dry, pan(x * 0.4, p), t0)
+        add(bus_wet, pan(x * 0.8, p), t0)
+
+    def hit(t0, key, vel, din=True, boom=0.0, p=-0.05):
+        add(bus_dry, pan(mridangam('thom', key, vel), p), t0)
+        if din:
+            add(bus_dry, pan(mridangam('din', key, vel * 0.55), p + 0.15), t0 + 0.004)
+        add(bus_wet, pan(mridangam('thom', key, vel * 0.5), 0.0), t0)
+        if boom:
+            n = smp(1.8)
+            tt = tvec(n)
+            b = np.sin(2 * np.pi * (42 + 22 * np.exp(-tt / 0.09)) * tt) * np.exp(-tt / 0.7) * boom
+            add(bus_dry, pan(b, 0.0), t0)
+            add(bus_wet, pan(b * 0.4, 0.0), t0)
+
+    # ── the frame: tanpura at the fire (ask, patti), returning for the close
+    tan = tanpura_bed(N, D, 'ep3')
+    calm = env_curve([(0, 0.5), (1.5, 1.0), (st('multiply'), 0.9), (st('chariots'), 0.45), (st('units'), 0.25),
+                      (st('armies'), 0.1), (beat('days', 1), 0.1), (en('days') - 1.0, 0.8), (D, 1.0)], N)
+    bed += tan * calm
+    fire = crackle(N, 'fire3')
+    fa = env_curve([(0, 0.0), (0.4, 0.6), (st('patti'), 0.8), (st('multiply') + 0.5, 0.25), (st('units'), 0.15), (st('armies'), 0.0),
+                    (st('episode'), 0.0), (st('episode') + 0.6, 0.45), (D - 0.5, 0.45), (D, 0)], N)
+    add(bus_dry, np.stack([fire * fa * 0.09, np.roll(fire, 777) * fa * 0.09]), 0)
+    bell(st('ask') + 0.2, 587.33, 0.18, 0.2, 'e3a')
+    # ── the patti: a soft tham as each unit steps into the frieze, a bell on "patti"
+    add(bus_dry, pan(mridangam('ki', 800, 0.3), -0.15), st('patti') - 0.14)
+    hit(st('patti'), 800, 0.45)
+    for j in range(4):
+        hit(beat('patti', j), 810 + j, 0.35 + 0.05 * j, din=(j % 2 == 0), p=0.2)
+        add(bus_dry, pan(mridangam('ta', 820 + j, 0.2), 0.3), beat('patti', j) + 0.12)
+    bell(beat('patti', 4), 880.0, 0.26, -0.2, 'patti')
+    # ── the grid: a hit on every step, heavier as it grows; a low drone rising under it
+    steps = ep3_steps(L)
+    for i, t0 in enumerate(steps[:7]):
+        hit(t0, 900 + i, 0.4 + 0.06 * i, din=(i % 2 == 1), boom=0.05 * i)
+        add(bus_dry, pan(mridangam('ki', 910 + i, 0.25), 0.25), t0 + 0.12)
+    tx = steps[7]
+    hit(tx, 999, 1.05, boom=0.6)
+    m = manjira('x10', 0.45)
+    add(bus_dry, pan(m * 0.4, -0.2), tx + 0.05)
+    add(bus_wet, pan(m * 0.6, -0.2), tx + 0.05)
+    bell(beat('chariots', 1), 587.33, 0.22, 0.3, 'c21870')
+    dr = reed_drone(N, (SA / 2, SA / 2 * 1.5, SA), 'march')
+    da = env_curve([(0, 0), (st('multiply'), 0), (tx, 0.25), (st('units'), 0.3), (st('armies'), 0.42), (beat('days', 1), 0.45),
+                    (beat('days', 1) + 1.5, 0.15), (en('days'), 0.0), (D, 0)], N)
+    bed += pan(lpf(dr, 900) * da * 0.8, -0.15) + pan(lpf(np.roll(dr, 2000), 900) * da * 0.8, 0.15)
+    # ── the march: from the akshauhini to the field, a steady mridangam march that builds
+    bpm = 104.0
+    t0, k = tx + 0.9, 0
+    m_end = beat('days', 0) - 0.2
+    while t0 < m_end:
+        grow = clamp01((t0 - tx) / (m_end - tx))
+        strong = k % 4 == 0
+        hit(t0, 1000 + k, (0.28 + 0.35 * grow) * (1.0 if strong else 0.7), din=strong, boom=0.1 * grow * strong)
+        if k % 2 == 1:
+            add(bus_dry, pan(mridangam('ta', 1100 + k, 0.18 + 0.12 * grow), 0.3), t0 + 30 / bpm)
+        t0 += 60 / bpm
+        k += 1
+    for j in range(3):
+        hit(beat('units', j), 1200 + j, 0.7, boom=0.25)
+    # ── the armies: a light hit for each block, conchs from both sides on "Eighteen" and on "field"
+    for i, t0 in enumerate(L['armies'].get('ticks', [])):
+        add(bus_dry, pan(mridangam('ta', 1300 + i, 0.3), -0.5 if i < 11 else 0.5), t0)
+    for j, (pp, f, b) in enumerate(((-0.7, 233.08, 0), (0.7, 220.0, 0), (-0.4, 233.08, 1), (0.4, 220.0, 1))):
+        c = conch(('c3', j), f, 2.6, 0.95)
+        dt = beat('armies', b) + (0.0 if j % 2 == 0 else 0.35)
+        add(bus_dry, pan(c * 0.5, pp), dt)
+        add(bus_wet, pan(c * 0.9, pp), dt)
+    hit(beat('armies', 1), 1399, 0.9, boom=0.45)
+    # ── the eighteen days: a drum for each day, dust rising (filtered noise), a great hit on "fought"
+    for i, t0 in enumerate(L['days'].get('ticks', [])):
+        hit(t0, 1400 + i, 0.32 + 0.3 * i / 17, din=(i % 5 == 4), p=0.2 if i % 2 else -0.2)
+    d0 = st('days')
+    n = smp(en('days') - d0)
+    dust = bpf(rng('dust3').standard_normal((2, n)), 200, 1800) * env_curve([(0, 0), (1.0, 0.01), (beat('days', 1) - d0, 0.03), (beat('days', 1) - d0 + 0.3, 0.05), (n / SR, 0)], n)
+    add(bus_dry, dust, d0)
+    hit(beat('days', 1), 1499, 1.1, boom=0.7)
+    # ── the solemn close: low bells as the dust settles, then the end card
+    for i, (f, pp) in enumerate(((293.66, -0.3), (220.0, 0.3))):
+        bell(en('days') - 1.6 + i * 0.7, f, 0.22, pp, ('close', i))
+    e0 = st('episode')
+    add(bus_dry, pan(mridangam('ki', 1700, 0.3), -0.15), e0 - 0.14)
+    hit(e0, 1700, 0.5)
+    bell(e0 + 0.15, 587.33, 0.3, 0.0, 'e31')
+    bell(e0 + 0.95, 880.0, 0.2, 0.3, 'e32')
+
+    # ── mix (as episodes 1 and 2)
+    hall = make_ir(3.2, 4.0, 'hall')
+    room = make_ir(1.4, 2.0, 'room')
+    out = bus_dry + reverb(bus_wet, hall) * 0.55 + bus_wet * 0.25 + bed * 0.6 + reverb(bed, room) * 0.25
+    b, a = sps.iirpeak(2600, 1.2, fs=SR)
+    out = out - 0.25 * sps.lfilter(b, a, out, axis=-1)
+    out = hpf(out, 30)
+    out *= env_curve([(0, 0), (0.05, 1), (D - 0.7, 1), (D - 0.02, 0), (D, 0)], N)
+    out *= db(TARGET_LUFS - lufs(out))
+    tp = true_peak_db(out)
+    if tp > CEIL_DBTP:
+        k = db(CEIL_DBTP - 0.3)
+        out = np.tanh(out / k) * k
+    return out
+
+
+def clamp01(x):
+    return min(1.0, max(0.0, x))
+
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
     r = rng('dither')
@@ -745,7 +876,7 @@ def main():
                 return
         except Exception:
             pass
-    x = {1: build, 2: build_ep2}[ep](tl)
+    x = {1: build, 2: build_ep2, 3: build_ep3}[ep](tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],
             'note': 'music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)'}

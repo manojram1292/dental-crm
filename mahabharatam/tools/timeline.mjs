@@ -17,7 +17,7 @@
  * any language and any voice. When tools/voice.py left a sidecar
  * voice/epNN/<lang>/<id>.json with chunk times (a line spoken in pieces, with
  * pauses between), words are placed inside their own chunk instead.
- * `ticks` ({ count, from, to, curve }: word indices) spreads `count` evenly
+ * `ticks` ({ count, from, to, curve }: word indices; to may be "end": the line's end − endPad s) spreads `count` evenly
  * accelerating hits from word `from` to word `to` (t_k = a + (b−a)·(k/(n−1))^curve);
  * pictures and drums both read line.ticks.
  * Pictures, captions, the score (tools/score.py) and the mix (tools/mix.py)
@@ -118,8 +118,10 @@ export function buildTimeline(lang = 'en', { quiet = false, ep = 1 } = {}) {
     const beats = (line.beats || []).map((k) => wt[Math.min(k, wt.length - 1)].t0);
     let ticks = [];
     if (line.ticks) {
-      const { count = 1, from = 0, to = words.length - 1, curve = 1 } = line.ticks;
-      const a = wt[Math.min(from, wt.length - 1)].t0, b = wt[Math.min(to, wt.length - 1)].t0;
+      const { count = 1, from = 0, to = words.length - 1, curve = 1, endPad = 0.5 } = line.ticks;
+      const a = wt[Math.min(from, wt.length - 1)].t0;
+      // to: a word index, or "end" = the line's end (incl. post and hold) minus endPad
+      const b = to === 'end' ? t + dur - endPad : wt[Math.min(to, wt.length - 1)].t0;
       ticks = Array.from({ length: count }, (_, k) => +(a + (b - a) * Math.pow(count > 1 ? k / (count - 1) : 1, curve)).toFixed(4));
     }
     out.push({

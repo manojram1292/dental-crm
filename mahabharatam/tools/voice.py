@@ -12,34 +12,57 @@ Who speaks how:
   · per line: `speed` multiplies the speaker's speed; `pre` / `post` (ms) are the
     silences before / after the voice (tools/timeline.mjs uses them)
   · `say` (default: `text`) is what is spoken, with inline modulation:
-      …  or ...      a pause (script voice.pauses.ellipsis, default 350 ms)
-      —              a pause (voice.pauses.dash, default 240 ms)
+      …  or ...      a pause (script voice.pauses.ellipsis, default 420 ms)
+      —              a pause (voice.pauses.dash, default 280 ms)
+      ,  ;  :        a short pause (voice.pauses.comma, default 80 ms, on top of the chunk's own breath)
+      .  ?  !        mid-line, a sentence pause (voice.pauses.stop, default 250 ms)
       [p:400]        a 400 ms pause
       {s:0.8}        what follows is spoken at 0.8 × (until the next {s:…}; {s} resets)
+    An explicit [p:N] right after punctuation replaces its automatic pause (the longer wins).
     A line is synthesised chunk by chunk (split at pauses and speed changes) and
     joined with exact silences. voice/epNN/<lang>/<id>.json records each chunk's
     time and word count, so the timeline can place caption words inside their chunk.
   · pitch: synthesised at speed/f then resampled by f = 2^(pitch/12): the pitch moves,
     the tempo stays where the cast says.
-Sanskrit names are spoken from the hand-written phonemes in NAMES, not English spelling.
+Sanskrit names (and a few English words espeak gets wrong) are spoken from the hand-written
+phonemes in NAMES, not English spelling. An entry is one IPA string, or {g2p: IPA} when the
+American and British voices need different vowels. Conventions (Sanskrit in English): short a →
+ʌ (stressed) / ə, long ā → ɑː, aspirated bh → bʰ, r between vowels → the tap ɾ, retroflex ṇ → ɳ
+(ṭ ḍ approximated by t d), ś / ṣ → ʃ, c → ʧ, e → eɪ, o → oʊ (GB əʊ), au → aʊ.
 --dry prints the chunks and phonemes without synthesising.
 """
 import argparse, glob, json, os, re
 import numpy as np
 
-NAMES = {  # IPA, as Kokoro's phoneme set spells it
-    "Naimisha": "nˈaɪmɪʃə",
-    "Ugrashravas": "ˈʊɡɹəʃɹəvəs",
-    "Lomaharshana": "lˌoʊməhˈɑːɹʃənə",
+NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
+    # the epic, its author and its tellers
+    "Mahabharatam": "məhˌɑːbʰˈɑːɾətəm",                 # mə-HAA-bhaa-ra-tam
+    "Mahabharata": "məhˌɑːbʰˈɑːɾətə",
+    "Vyasa": "vjˈɑːsə",                                  # VYAA-sa
+    "Vyasa's": "vjˈɑːsəz",
+    "Sauti": "sˈaʊti",                                   # SOW-tee
+    "Suta": "sˈuːtə",                                    # SOO-ta
+    "Ugrashravas": "ˌʊɡɹəʃɹˈʌvəs",                       # oo-gra-SHRA-vas
+    "Lomaharshana": {"en-us": "lˌoʊməhˈʌɹʃəɳə", "en-gb": "lˌəʊməhˈʌɹʃəɳə"},   # lo-ma-HAR-sha-na
+    "Naimisha": "nˈaɪmɪʃə",                              # NAI-mi-sha
+    "Shaunaka": "ʃˈaʊnəkə",                              # SHOW-na-ka
+    "Janamejaya": "dʒˌʌnəmˈeɪdʒəjə",                     # ja-na-MAY-ja-ya
     "Janamejaya's": "dʒˌʌnəmˈeɪdʒəjəz",
-    "Vyasa": "vjˈɑːsə",
-    "Mahabharatam": "məhˌɑːbˈɑːɹətəm",
+    "Vaishampayana": "vˌaɪʃəmpˈɑːjənə",
     # episode 2
-    "Samantapanchaka": "sˌʌməntəpˈʌnʧəkə",
-    "Parashurama": "pˌʌɹəʃʊɹˈɑːmə",
-    "Suta": "sˈuːtə",
+    "Samantapanchaka": "sˌʌməntəpˈʌnʧəkə",               # sa-man-ta-PAN-cha-ka
+    "Parashurama": "pˌʌɾəʃʊɾˈɑːmə",                      # pa-ra-shu-RAA-ma
     "Kshatriya": "kʃˈʌtɹɪjə",
     "Kshatriyas": "kʃˈʌtɹɪjəz",
+    "Kurukshetra": "kˌʊɾʊkʃˈeɪtɹə",
+    # episode 3
+    "akshauhini": {"en-us": "ˈʌkʃoʊhɪɳiː", "en-gb": "ˈʌkʃəʊhɪɳiː"},          # UK-show-hi-nee
+    "akshauhinis": {"en-us": "ˈʌkʃoʊhɪɳiːz", "en-gb": "ˈʌkʃəʊhɪɳiːz"},
+    "patti": "pˈʌtiː",                                   # PUT-tee
+    # English words espeak gets wrong for these voices (audited with --dry)
+    "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
+    "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"
+    "heard": {"en-us": "hˈɜɹd", "en-gb": "hˈɜːd"},       # espeak en-us gives the British "hˈɜːd"
 }
 
 ap = argparse.ArgumentParser()
@@ -53,7 +76,7 @@ root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 tag = f'ep{a.ep:02d}'
 script = json.load(open(f'{root}/script/{tag}.{a.lang}.json'))
 cast = json.load(open(f'{root}/script/cast.json'))
-pauses = {'ellipsis': 350, 'dash': 240, **script.get('voice', {}).get('pauses', {})}
+pauses = {'ellipsis': 420, 'dash': 280, 'comma': 80, 'stop': 250, **script.get('voice', {}).get('pauses', {})}
 out_dir = f'{root}/voice/{tag}/{a.lang}'
 only = set(filter(None, a.only.split(',')))
 
@@ -64,26 +87,37 @@ def chunks_of(say):
     """→ [{words: [...], mult, pause (ms after)}]. Words are whitespace tokens, like the captions'."""
     s = MARK.sub(lambda m: f' ⟦p{m.group(1)}⟧ ' if m.group(1) else f' ⟦s{m.group(2) or "1"}⟧ ', say)
     out, cur, mult = [], [], 1.0
+    auto = [False]   # the last chunk's pause was automatic (punctuation), not written
 
-    def close(pause):
+    def close(pause, explicit=False):
         nonlocal cur
         if cur:
             out.append({'words': cur, 'mult': mult, 'pause': pause})
+            auto[0] = not explicit
         elif out:
-            out[-1]['pause'] += pause
+            if explicit and auto[0]:
+                out[-1]['pause'] = max(out[-1]['pause'], pause)   # [p:N] after punctuation: the longer wins
+                auto[0] = False
+            else:
+                out[-1]['pause'] += pause
         cur = []
     for tk in s.split():
         if tk.startswith('⟦p'):
-            close(int(tk[2:-1]))
+            close(int(tk[2:-1]), explicit=True)
         elif tk.startswith('⟦s'):
             close(0)
             mult = float(tk[2:-1])
         else:
             cur.append(tk)
+            core = tk.rstrip('"”’)')
             if tk in ('—', '–') or tk.endswith('—'):
                 close(pauses['dash'])
-            elif (tk.endswith('…') or tk.endswith('...')) and tk.strip('….') :
+            elif (tk.endswith('…') or tk.endswith('...')) and tk.strip('….'):
                 close(pauses['ellipsis'])
+            elif core.endswith(('.', '?', '!')):
+                close(pauses['stop'])
+            elif core.endswith((',', ';', ':')):
+                close(pauses['comma'])
     close(0)
     if out:
         out[-1]['pause'] = 0
@@ -115,10 +149,17 @@ pat = re.compile(r'(?<![\w])(' + '|'.join(sorted(map(re.escape, NAMES), key=len,
 def phonemes(text, g2p):
     def seg(p):
         if p in NAMES:
-            return NAMES[p]
+            v = NAMES[p]
+            return v[g2p] if isinstance(v, dict) else v
         if not p.strip():
             return p
-        return (' ' if p[0] == ' ' else '') + tok.phonemize(p.strip(), g2p) + (' ' if p[-1] == ' ' else '')
+        body, tail = p.strip(), ''
+        # espeak reads a segment-final article "a" (just before a name) as the letter "A": say it weak
+        m = re.search(r'(?:^|\s)([aA])$', body)
+        if m and p[-1] == ' ':
+            body, tail = body[:m.start(1)].strip(), ('ɐ' if g2p == 'en-us' else 'ə')
+        ph = tok.phonemize(body, g2p) if body else ''
+        return (' ' if p[0] == ' ' else '') + ' '.join(x for x in (ph, tail) if x) + (' ' if p[-1] == ' ' else '')
     return ''.join(seg(p) for p in pat.split(text))
 
 

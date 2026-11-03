@@ -6,7 +6,9 @@ Mix whatever stems exist into audio/epNN/mix.<lang>.wav (what tools/render.mjs m
   voice  voice/epNN/<lang>/<line id>.wav (optional, any sample rate / channels / PCM16/24/32/float32)
 
 Each voice line is placed at its line's speechStart from build/timeline.<lang>.json,
-the narration stem is normalised to −16 LUFS, and the music is ducked under
+the narration stem is lightened (VOICE_EQ: a gentle 90 Hz high-pass, a −4 dB low shelf
+at 170 Hz and a −1.5 dB air shelf at 7.5 kHz: less boom, softer edges; no compressor),
+then normalised to −16 LUFS, and the music is ducked under
 it (−8 dB, 60 ms attack / 400 ms release, keyed by the voice's own envelope).
 With no voice files the mix is the music stem as-is (≈ −22 LUFS, a bed).
 Ceiling −1 dBTP.
@@ -27,6 +29,36 @@ from score import SR, ROOT, lufs, true_peak_db, write_wav, db, ep_tag  # noqa: E
 
 VOICE_LUFS = -16.0
 DUCK_DB = 8.0
+# Voice-stem EQ ("lighter, less heavy and boomy, softer"): (kind, freq Hz, gain dB, Q or slope)
+VOICE_EQ = [('hp', 90.0, 0.0, 0.707), ('lowshelf', 170.0, -4.0, 0.8), ('highshelf', 7500.0, -1.5, 0.7)]
+
+
+def biquad(kind, f0, gain_db, q):
+    """RBJ audio-EQ-cookbook biquad → (b, a). Shelves take q as the slope S."""
+    A = 10 ** (gain_db / 40)
+    w = 2 * np.pi * f0 / SR
+    c, s = np.cos(w), np.sin(w)
+    if kind == 'hp':
+        al = s / (2 * q)
+        b = [(1 + c) / 2, -(1 + c), (1 + c) / 2]
+        a = [1 + al, -2 * c, 1 - al]
+    else:
+        al = s / 2 * np.sqrt((A + 1 / A) * (1 / q - 1) + 2)
+        sq = 2 * np.sqrt(A) * al
+        if kind == 'lowshelf':
+            b = [A * ((A + 1) - (A - 1) * c + sq), 2 * A * ((A - 1) - (A + 1) * c), A * ((A + 1) - (A - 1) * c - sq)]
+            a = [(A + 1) + (A - 1) * c + sq, -2 * ((A - 1) + (A + 1) * c), (A + 1) + (A - 1) * c - sq]
+        else:
+            b = [A * ((A + 1) + (A - 1) * c + sq), -2 * A * ((A - 1) + (A + 1) * c), A * ((A + 1) + (A - 1) * c - sq)]
+            a = [(A + 1) - (A - 1) * c + sq, 2 * ((A - 1) - (A + 1) * c), (A + 1) - (A - 1) * c - sq]
+    b, a = np.array(b), np.array(a)
+    return b / a[0], a / a[0]
+
+
+def voice_eq(x):
+    for kind, f0, g, q in VOICE_EQ:
+        x = sps.lfilter(*biquad(kind, f0, g, q), x, axis=-1)
+    return x
 
 
 def read_wav(path):
@@ -96,6 +128,7 @@ def main():
             placed.append(l['id'])
 
     if placed:
+        voice = voice_eq(voice)
         voice *= db(VOICE_LUFS - lufs(voice))
         # duck the music under the voice
         e = np.abs(voice).max(0)

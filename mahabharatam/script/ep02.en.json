@@ -23,7 +23,7 @@
     "tail": 1.0
   },
   "voice": {
-    "pauses": { "ellipsis": 350, "dash": 240 },
+    "pauses": { "ellipsis": 420, "dash": 280, "comma": 80, "stop": 250 },
     "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice, used by the timeline), say (what is spoken, if not `text`): '…' and '—' pause, [p:400] pauses 400 ms, {s:0.8} speaks what follows at 0.8× until the next {s:…} ({s} resets)."
   },
   "lines": [

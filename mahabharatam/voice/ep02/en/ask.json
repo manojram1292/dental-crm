@@ -1,21 +1,28 @@
 {
  "speaker": "elder_sage",
  "voice": "bm_lewis",
- "speed": 0.8,
- "pitch": -0.5,
+ "speed": 0.77,
+ "pitch": 0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.9293,
-   "words": 6,
-   "speed": 0.8,
-   "text": "Tell us, son of the Suta"
+   "t1": 0.8915,
+   "words": 2,
+   "speed": 0.77,
+   "text": "Tell us,"
   },
   {
-   "t0": 2.2793,
-   "t1": 4.4396,
+   "t0": 0.9715,
+   "t1": 2.6165,
+   "words": 4,
+   "speed": 0.77,
+   "text": "son of the Suta"
+  },
+  {
+   "t0": 3.0365,
+   "t1": 5.5842,
    "words": 6,
-   "speed": 0.8,
+   "speed": 0.77,
    "text": "where was that great war fought?"
   }
  ],

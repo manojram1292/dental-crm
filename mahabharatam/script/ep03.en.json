@@ -1,0 +1,129 @@
+{
+  "lang": "en",
+  "episode": 3,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, adhyaya 2 (the measure of an akshauhini, told right after Samantapanchaka)",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 3",
+    "episodeTitle": "Eighteen Armies",
+    "episodeSeparator": " · ",
+    "numberLocale": "en-US",
+    "pattiName": "Patti",
+    "pattiParts": "1 chariot · 1 elephant · 3 horses · 5 on foot",
+    "times": "×",
+    "akshauhiniName": "One Akshauhini",
+    "chariots": "chariots",
+    "elephants": "elephants",
+    "horses": "horses",
+    "foot": "foot soldiers",
+    "sideA": "Kauravas",
+    "sideB": "Pandavas",
+    "armies": "18 akshauhinis",
+    "dayLabel": "Day"
+  },
+  "figures": {
+    "note": "Adi Parva 2: a patti (1 chariot, 1 elephant, 3 horses, 5 foot) ×3 senamukha ×3 gulma ×3 gana ×3 vahini ×3 pritana ×3 chamu ×3 anikini ×10 akshauhini. The narration rounds the horses and men; the numerals show the exact figures.",
+    "steps": [3, 3, 3, 3, 3, 3, 3, 10],
+    "chariots": 21870,
+    "elephants": 21870,
+    "horses": 65610,
+    "foot": 109350,
+    "sideA": 11,
+    "sideB": 7,
+    "days": 18
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 1.0
+  },
+  "voice": {
+    "pauses": { "ellipsis": 420, "dash": 280, "comma": 80, "stop": 250 },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice, used by the timeline), say (what is spoken, if not `text`): '…' and '—' pause, ',' and '.' pause a little, [p:400] pauses 400 ms, {s:0.8} speaks what follows at 0.8× until the next {s:…} ({s} resets)."
+  },
+  "lines": [
+    {
+      "id": "ask",
+      "speaker": "elder_sage",
+      "text": "And what is an akshauhini, the army you speak of?",
+      "est": 4.4,
+      "pre": 450,
+      "post": 350,
+      "beats": [4],
+      "emphasis": ["akshauhini"],
+      "note": "beats[0] = 'akshauhini': the elder leans in and his hand opens toward Sauti"
+    },
+    {
+      "id": "patti",
+      "speaker": "sauti",
+      "text": "Listen. One chariot, one elephant, three horses, five soldiers on foot… that is a patti.",
+      "est": 7.0,
+      "post": 450,
+      "beats": [2, 4, 6, 8, 14],
+      "emphasis": ["patti"],
+      "note": "beats = 'chariot', 'elephant', 'horses', 'soldiers' (each unit steps into the fire-lit frieze), 'patti' (the frieze is framed and named)"
+    },
+    {
+      "id": "multiply",
+      "text": "Multiply it, step by step…",
+      "est": 3.0,
+      "pre": 150,
+      "post": 150,
+      "beats": [0, 2, 4],
+      "note": "the patti shrinks into one block, then copies of the block triple it, again and again (the steps are spread from beats[0] to the next line's 'akshauhini')"
+    },
+    {
+      "id": "chariots",
+      "text": "…until one akshauhini stands: twenty-one thousand, eight hundred and seventy chariots.",
+      "est": 6.4,
+      "pre": 100,
+      "post": 800,
+      "beats": [2, 4, 10],
+      "emphasis": ["akshauhini"],
+      "note": "beats = 'akshauhini' (×10: the last step; its name in gold), 'twenty-one' (the chariot counter reaches 21,870), 'chariots'"
+    },
+    {
+      "id": "units",
+      "text": "As many elephants. Sixty-five thousand horses. A hundred and nine thousand soldiers on foot.",
+      "est": 7.0,
+      "post": 1000,
+      "beats": [0, 3, 6],
+      "note": "beats = the elephant row (21,870), the horse row (65,610), the foot-soldier row (109,350): each frieze row slides in and its gold counter rolls up"
+    },
+    {
+      "id": "armies",
+      "text": "Eighteen such armies gathered on that field.",
+      "est": 4.0,
+      "pre": 200,
+      "post": 700,
+      "beats": [0, 6],
+      "ticks": { "count": 18, "from": 0, "to": 6, "curve": 1 },
+      "note": "ticks = the 18 army blocks slide into place (11 Kaurava, then 7 Pandava); a conch on beats[0] and on beats[1] ('field')"
+    },
+    {
+      "id": "days",
+      "text": "And for eighteen days… they fought.",
+      "say": "And for eighteen days… [p:700] they fought.",
+      "est": 6.0,
+      "post": 300,
+      "hold": 2.4,
+      "beats": [2, 5],
+      "ticks": { "count": 18, "from": 3, "to": "end", "endPad": 0.5, "curve": 1 },
+      "note": "ticks = 18 days: day/night flickers, a tally mark cut for each (from 'days' to near the line's end, through the hold); beats = 'eighteen', 'fought'"
+    },
+    {
+      "id": "episode",
+      "text": "Episode three. Eighteen armies.",
+      "say": "Episode three. [p:200] Eighteen armies.",
+      "est": 2.6,
+      "caption": false,
+      "note": "spoken over the end card, which shows strings.episodeLabel / episodeTitle instead of a caption"
+    }
+  ]
+}

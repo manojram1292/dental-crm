@@ -56,7 +56,7 @@ behind him. This is episode 1's storyteller, unchanged.
 | Props | staff (danda) with a round finial and three gold bands, always in the **near** hand · kamandalu water pot in the far hand (set down when that hand speaks) · rudraksha mala · kundala earring · gold armband |
 | Signature light | **Warm fire rim, gold.** Rim width ×1.0, inner 0.88 (0.35 when front-lit), glow 0.8, ornaments 0.45–0.8. |
 | Poses | `stand` · `walk` (phase, stride) · `sit` · `speak` (k; base stand/sit: the far hand opens) · `bless` (abhaya) · `bow` (k) |
-| Voice | `sauti` → **bm_fable**, 0.92×, pitch 0 (median F0 ≈ 128 Hz). A lighter British voice with a bard's lilt, set apart from the American narrator. |
+| Voice | `sauti` → **bm_fable**, 0.83× (was 0.92×), pitch 0 (median F0 ≈ 128 Hz). A lighter British voice with a bard's lilt, set apart from the American narrator. |
 
 ## The elder sage (Shaunaka, kulapati of Naimisha) · `elder`
 
@@ -74,7 +74,7 @@ rudraksha band; a deer-skin (krishnajina) over his shoulders with two hoof-flaps
 | Props | **crook-topped staff** (near hand) · japa mala (far hand) · deer-skin with hoof-flaps and pale spots · jata band |
 | Signature light | **Ivory, never gold.** The rim is the pale ivory of ash and white hair. Inner 0.85 (0.4 front-lit), glow 0.6. |
 | Poses | `stand` · `walk` (slow: stride ×0.65) · `sit` · `speak` (k: leans in +0.16 rad, looks up, the far hand opens to the listener; base stand/sit) · `bless` · `bow` |
-| Voice | `elder_sage` → **bm_lewis**, 0.8×, −0.5 semitone (median F0 ≈ 95 Hz before the shift). The deepest British voice, slower than anyone. |
+| Voice | `elder_sage` → **bm_lewis**, 0.77×, unshifted (was 0.8×, −0.5 st; the shift was removed to keep him light). Median F0 ≈ 95 Hz. The deepest British voice, slower than anyone. |
 
 ## The sages of Naimisha · `sage`
 
@@ -102,7 +102,7 @@ circle never looks cloned:
 | Props | rudraksha mala (some) · sacred thread / shawl border · gold border on the crossed legs |
 | Signature light | **The fire circle.** Facing the fire (`front ≈ 0.55`), their fronts glow terracotta with an ember inner light. From behind, they are soot-black with an amber rim. |
 | Poses | `sit` (pose.lean nudges the torso) · `stand` · `walk` (frontal step) · `speak` (right hand opens) · `bless` · listen (`expression.look` turns the head −1..1) |
-| Voice | `sages` → am_onyx, 0.88×, −1 st (reserved for a group line). |
+| Voice | `sages` → am_onyx, 0.79×, −1 st (reserved for a group line). |
 
 ## Parashurama (Rama of the axe, son of Jamadagni) · `parashurama`
 
@@ -122,7 +122,7 @@ deer-skin loincloth.
 | Props | **parashu**: an 800-unit haft with a crescent blade (×1.35) and a back spike, in the near hand · **great bow** slung diagonally across his back · rudraksha at the throat · armband |
 | Signature light | **Blood-red rim.** Rim width ×1.1, glow 1.0, inner 0.9. The blade's edge always catches the light. `mood: 'wrath'` lights an ember in his eye. |
 | Poses | `stand` (axe planted) · `walk` (axe shouldered) · `sit` · `speak` · `bless` · **`raise-axe`** (k: planted → overhead, the blade high, his arm ahead of his face) · **`strike`** (k: overhead → down and forward) · **`lower-axe`** (k: raised → blade turned to the earth, head bowed: renunciation) |
-| Voice | `parashurama` → am_onyx, 0.86×, −1 st (median F0 ≈ 88 Hz). Reserved: he does not speak in episode 2. |
+| Voice | `parashurama` → am_onyx, 0.77×, −1 st (median F0 ≈ 88 Hz). Reserved: he does not speak in episode 2. |
 
 ## The Pitrs (Parashurama's ancestors) · `pitr`
 
@@ -140,7 +140,7 @@ fixed variations (beard long / forked / short, bun / tall knot, height ±5 %).
 | Props | shawl panels · silver robe folds · mala · closed eyes and beard strands drawn as silver lines |
 | Signature light | **Cool silver glow.** Drawn translucent (screen blend at 78 %) with a halo rim all the way round (brightest toward the light), a cool aura behind, and the lower 42 % fading out. |
 | Poses | `stand` (hovering, a slow bob) · `walk` (a glide) · `sit` (hovering, cross-legged) · `speak` · `bless` (both hands) · **`plead`** (both palms out: "stop") · **`descend`** (k: the robe trails upward while falling and settles at 1) |
-| Voice | `pitrs` → bm_daniel, 0.82×, −2 st (reserved; in episode 2 they speak through the narrator). |
+| Voice | `pitrs` → bm_daniel, 0.74×, −2 st (reserved; in episode 2 they speak through the narrator). |
 
 ## Vyasa (Krishna Dvaipayana) · `vyasa` (for future episodes)
 
@@ -158,7 +158,7 @@ with the sacred thread; an ankle-length bark-cloth (valkala) with a ragged hem.
 | Props | palm-leaf **manuscript** (pothi) with boards and a cord, in the far hand (on his lap when seated) · japa mala in the near hand |
 | Signature light | **Soft gold halo.** A wide warm-gold aura behind the head and a faint prabhavali ring (two thin circles), a soft rim (width ×0.85), and a cool inner glow. |
 | Poses | `stand` · `walk` · `sit` · `speak` · **`dictate`** (near hand raised, one finger up) · `bless` · `bow` |
-| Voice | `vyasa` → bm_george, 0.84×, −2.5 st (median ≈ 127 Hz after the shift). Grave and measured. |
+| Voice | `vyasa` → bm_george, 0.76×, −2.5 st (median ≈ 127 Hz after the shift). Grave and measured. |
 
 ## King Janamejaya (son of Parikshit) · `janamejaya` (for future episodes)
 
@@ -177,11 +177,11 @@ flying behind him. A sword in its scabbard at the hip.
 | Props | crown · makara earrings · necklaces · armlets · belt + tassels · sash · sword · **simhasana** throne (sit pose) · **sruk** ladle (offer pose) |
 | Signature light | **The sacrificial fire's saffron with gold glints.** A deeper, more orange rim than Sauti's. His ornaments are the brightest in the series (0.6–1.0). |
 | Poses | `stand` (hand on the sword hilt) · `walk` · `sit` (enthroned) · `speak` (command: the near hand points) · `bless` · **`offer`** (pours ghee from the ladle) |
-| Voice | `janamejaya` → am_michael, 1.0×, +1 st. Younger and brighter than the narrator, who uses the same voice at 0.9×, unshifted. |
+| Voice | `janamejaya` → am_michael, 0.9×, +1 st. Younger and brighter than the narrator, who uses the same voice at 0.81×, unshifted. |
 
 ## Narrator · `narrator`
 
-**Voice:** am_michael, 0.9×, pitch 0 (median F0 ≈ 129 Hz). This is episode 1's voice. The narrator has
+**Voice:** am_michael, 0.81× (was 0.9×), pitch 0 (median F0 ≈ 129 Hz). This is episode 1's voice. The narrator has
 no figure.
 
 ---
@@ -202,3 +202,8 @@ no figure.
   - The verse itself says "again and again" (asakṛt). "Twenty-one times" (triḥ-sapta-kṛtvaḥ) is the
     count the epic gives elsewhere (for example in the Adi Parva's account of the kshatriyas' rebirth),
     and it is the traditional figure.
+- **Adhyaya 2, the akshauhini** (episode 3): asked what an akshauhini is, Sauti defines it. A patti is
+  1 chariot, 1 elephant, 3 horses and 5 foot soldiers. Each of the next seven units (senamukha, gulma,
+  gana, vahini, pritana, chamu, anikini) is three times the one before, and ten anikinis make an
+  akshauhini: 21,870 chariots, 21,870 elephants, 65,610 horses, 109,350 foot soldiers. Eighteen
+  akshauhinis (eleven Kaurava, seven Pandava) met at Samantapanchaka and fought for eighteen days.

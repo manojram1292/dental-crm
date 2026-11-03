@@ -1,11 +1,11 @@
 {
-  "note": "Who speaks with which voice. tools/voice.py reads this; each line's `speaker` (default: narrator) picks an entry. Kokoro-82M v1.0 voice ids; speed is Kokoro's speed; pitch is in semitones (resampled after synthesis, speed kept). Mirrors CHARACTERS.md.",
-  "narrator":   { "voice": "am_michael", "speed": 0.9,  "pitch": 0,    "g2p": "en-us", "notes": "Episode 1's voice: warm, even, American." },
-  "sauti":      { "voice": "bm_fable",   "speed": 0.92, "pitch": 0,    "g2p": "en-gb", "notes": "The storyteller: a lighter British voice with a bard's lilt, distinct from the narrator." },
-  "elder_sage": { "voice": "bm_lewis",   "speed": 0.8,  "pitch": -0.5, "g2p": "en-gb", "notes": "Shaunaka: older and slower; the deepest British voice (median F0 ≈ 95 Hz vs the narrator's ≈ 129), lowered half a semitone, at 0.8×." },
-  "vyasa":      { "voice": "bm_george",  "speed": 0.84, "pitch": -2.5, "g2p": "en-gb", "notes": "Reserved for future episodes: a grave, measured voice (bm_george lowered 2.5 st)." },
-  "janamejaya": { "voice": "am_michael", "speed": 1.0,  "pitch": 1,    "g2p": "en-us", "notes": "Reserved: younger and brighter than the narrator." },
-  "parashurama":{ "voice": "am_onyx",    "speed": 0.86, "pitch": -1,   "g2p": "en-us", "notes": "Reserved." },
-  "pitrs":      { "voice": "bm_daniel",  "speed": 0.82, "pitch": -2,   "g2p": "en-gb", "notes": "Reserved." },
-  "sages":      { "voice": "am_onyx",    "speed": 0.88, "pitch": -1,   "g2p": "en-us", "notes": "Reserved: a group line." }
+  "note": "All speeds were lowered ≈ 10 % (≈ 12 % longer speech: Kokoro is not linear in speed) (and the elder's pitch shift removed) after the owner asked for slower, lighter voices. Who speaks with which voice. tools/voice.py reads this; each line's `speaker` (default: narrator) picks an entry. Kokoro-82M v1.0 voice ids; speed is Kokoro's speed; pitch is in semitones (resampled after synthesis, speed kept). Mirrors CHARACTERS.md.",
+  "narrator":   { "voice": "am_michael", "speed": 0.81, "pitch": 0,    "g2p": "en-us", "notes": "Episode 1's voice: warm, even, American. Was 0.9×, until the owner asked for slower, lighter narration (about 12 % longer speech)." },
+  "sauti":      { "voice": "bm_fable",   "speed": 0.83, "pitch": 0,    "g2p": "en-gb", "notes": "The storyteller: a lighter British voice with a bard's lilt, distinct from the narrator. Was 0.92× (about 12 % longer speech)." },
+  "elder_sage": { "voice": "bm_lewis",   "speed": 0.77, "pitch": 0,    "g2p": "en-gb", "notes": "Shaunaka: older and slower; the deepest British voice (median F0 ≈ 95 Hz vs the narrator's ≈ 129), unshifted (the −0.5 st shift was removed to keep him light), at 0.77× (was 0.8×; with the new comma pause his lines run ≈ 25 % longer)." },
+  "vyasa":      { "voice": "bm_george",  "speed": 0.76, "pitch": -2.5, "g2p": "en-gb", "notes": "Reserved for future episodes: a grave, measured voice (bm_george lowered 2.5 st)." },
+  "janamejaya": { "voice": "am_michael", "speed": 0.9,  "pitch": 1,    "g2p": "en-us", "notes": "Reserved: younger and brighter than the narrator." },
+  "parashurama":{ "voice": "am_onyx",    "speed": 0.77, "pitch": -1,   "g2p": "en-us", "notes": "Reserved." },
+  "pitrs":      { "voice": "bm_daniel",  "speed": 0.74, "pitch": -2,   "g2p": "en-gb", "notes": "Reserved." },
+  "sages":      { "voice": "am_onyx",    "speed": 0.79, "pitch": -1,   "g2p": "en-us", "notes": "Reserved: a group line." }
 }

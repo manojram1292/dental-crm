@@ -1,28 +1,35 @@
 {
  "speaker": "narrator",
  "voice": "am_michael",
- "speed": 0.9,
+ "speed": 0.81,
  "pitch": 0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 3.1515,
-   "words": 8,
-   "speed": 0.9,
-   "text": "His ancestors appeared, and asked him to stop."
+   "t1": 1.7838,
+   "words": 3,
+   "speed": 0.81,
+   "text": "His ancestors appeared,"
   },
   {
-   "t0": 3.4315,
-   "t1": 4.2325,
+   "t0": 1.8638,
+   "t1": 3.4901,
+   "words": 5,
+   "speed": 0.81,
+   "text": "and asked him to stop."
+  },
+  {
+   "t0": 3.7701,
+   "t1": 4.6527,
    "words": 3,
-   "speed": 0.9,
+   "speed": 0.81,
    "text": "He did"
   },
   {
-   "t0": 4.4725,
-   "t1": 6.548,
+   "t0": 4.9327,
+   "t1": 7.3032,
    "words": 5,
-   "speed": 0.774,
+   "speed": 0.697,
    "text": "and the land became holy."
   }
  ],

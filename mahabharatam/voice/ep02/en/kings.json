@@ -1,21 +1,21 @@
 {
  "speaker": "narrator",
  "voice": "am_michael",
- "speed": 0.9,
+ "speed": 0.81,
  "pitch": 0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.7806,
+   "t1": 1.9414,
    "words": 5,
-   "speed": 0.9,
+   "speed": 0.81,
    "text": "struck down the warrior kings."
   },
   {
-   "t0": 2.0006,
-   "t1": 3.7315,
+   "t0": 2.1914,
+   "t1": 4.1777,
    "words": 2,
-   "speed": 0.756,
+   "speed": 0.68,
    "text": "Twenty-one times."
   }
  ],

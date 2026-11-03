@@ -1,21 +1,21 @@
 {
  "speaker": "sauti",
  "voice": "bm_fable",
- "speed": 0.92,
+ "speed": 0.83,
  "pitch": 0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.5245,
+   "t1": 1.6074,
    "words": 4,
-   "speed": 0.92,
+   "speed": 0.83,
    "text": "In a sacred land"
   },
   {
-   "t0": 1.8745,
-   "t1": 4.582,
+   "t0": 2.0274,
+   "t1": 5.1531,
    "words": 2,
-   "speed": 0.81,
+   "speed": 0.73,
    "text": "called Samantapanchaka."
   }
  ],
