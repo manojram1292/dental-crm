@@ -1,5 +1,5 @@
 /*
- * Line "forest" · "…a storyteller walked into the Naimisha forest."
+ * Line "arrived" · "One day, a storyteller arrived."
  *
  * Dawn. The camera flies forward between tall mural trees (vector, layered by
  * depth: near ones soot-black with a rose rim of dawn, far ones melting into
@@ -7,7 +7,7 @@
  * cross-path, a lone figure with a staff walks left in profile, small against
  * the bright mist: toward a thin column of smoke and a warm point of fire on
  * the horizon, the ashram he is heading for.
- * Dissolves in from the hook's black (fadeIn).
+ * Dissolves in from the clearing's racing nights (fadeIn).
  */
 (function () {
   'use strict';
@@ -25,7 +25,7 @@
   const pathX = (z) => 0.35 * Math.sin(z * 0.28);
 
   R.scene({
-    id: 'forest',
+    id: 'arrived',
     fadeIn: 0.75,
     init() {
       TREES = F.build(77, { count: 64, z0: 1.2, z1: 40, gapMin: 1.15, gapMax: 5.5, pathX, hMin: 13, hMax: 21, palms: 0.18 })

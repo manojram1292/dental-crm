@@ -6,24 +6,24 @@
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.201,
+   "t1": 1.2554,
+   "words": 3,
+   "speed": 0.81,
+   "text": "On that ground,"
+  },
+  {
+   "t0": 1.3354,
+   "t1": 2.608,
    "words": 2,
    "speed": 0.81,
-   "text": "Ages later,"
+   "text": "ages later"
   },
   {
-   "t0": 1.281,
-   "t1": 2.7252,
-   "words": 4,
-   "speed": 0.81,
-   "text": "on that same ground"
-  },
-  {
-   "t0": 3.1452,
-   "t1": 5.0993,
+   "t0": 3.028,
+   "t1": 5.3492,
    "words": 5,
    "speed": 0.81,
-   "text": "two great armies would meet."
+   "text": "eighteen vast armies would meet."
   }
  ],
  "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"

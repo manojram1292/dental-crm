@@ -6,24 +6,24 @@
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 0.6389,
-   "words": 1,
+   "t1": 1.7244,
+   "words": 4,
    "speed": 0.81,
-   "text": "There,"
+   "text": "In the Naimisha forest,"
   },
   {
-   "t0": 0.7189,
-   "t1": 2.0542,
-   "words": 3,
-   "speed": 0.81,
-   "text": "for twelve years,"
-  },
-  {
-   "t0": 2.1342,
-   "t1": 4.896,
+   "t0": 1.8044,
+   "t1": 4.3945,
    "words": 6,
    "speed": 0.81,
-   "text": "sages had tended a sacred fire."
+   "text": "sages kept a sacred fire burning"
+  },
+  {
+   "t0": 4.8145,
+   "t1": 6.2237,
+   "words": 3,
+   "speed": 0.81,
+   "text": "for twelve years."
   }
  ],
  "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"

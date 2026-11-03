@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1405,
+   "words": 3,
+   "speed": 0.81,
+   "text": "In the forest,"
+  },
+  {
+   "t0": 1.2205,
+   "t1": 4.3878,
+   "words": 8,
+   "speed": 0.81,
+   "text": "the sages asked Sauti for the great story."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

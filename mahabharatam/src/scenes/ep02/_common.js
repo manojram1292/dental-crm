@@ -10,6 +10,9 @@
  *   EP2.mandala(ctx, T, fills, o)              the field seen from above, in plan coordinates (0..1000):
  *                                              bhupura, lotus ring, the five lakes (fills[i] 0..1; o.red, o.clear)
  *                                              (also episode 3's battlefield)
+ *   EP2.armiesField(ctx, T, o)                 the field seen from above, tilted, with the eighteen army blocks
+ *                                              (11 Kaurava terracotta, 7 Pandava indigo) and their banners: episode 3's
+ *                                              key image (episode 2's teaser card, episode 4's recap). o = { n (blocks shown, 18) }
  */
 (function () {
   'use strict';
@@ -222,6 +225,35 @@
       }
       ctx.restore();
       if (f > 0) KIT.glow(ctx, cx, cy, r * 2.4, clear > 0.5 ? '#8fd8d0' : '#d0201a', (0.35 + 0.25 * Math.sin(T * 2 + i)) * f * (red * (1 - clear) + clear * 0.6));
+    });
+  };
+
+  EP2.armiesField = (ctx, T, o = {}) => {
+    const n = o.n ?? 18, A = KIT.army;
+    const V = { cx: 540, cy: 900, s: 0.9, tilt: 0.6 };
+    ctx.fillStyle = '#1a1009'; ctx.fillRect(0, 0, R.W, R.H);
+    ctx.save();
+    ctx.translate(V.cx, V.cy); ctx.scale(V.s, V.s * V.tilt); ctx.translate(-500, -500);
+    EP2.mandala(ctx, T, [1, 1, 1, 1, 1], { red: 0, clear: 1 });
+    const slots = [];
+    for (let i = 0; i < 6; i++) slots.push([60 + i * 160, -270, 0]);
+    for (let i = 0; i < 5; i++) slots.push([140 + i * 160, -160, 0]);
+    for (let i = 0; i < 4; i++) slots.push([140 + i * 200, 1080, 1]);
+    for (let i = 0; i < 3; i++) slots.push([240 + i * 200, 1190, 1]);
+    slots.slice(0, n).forEach(([x, y, si]) => {
+      ctx.fillStyle = si ? '#2c3c78' : '#9a3a1c'; ctx.fillRect(x, y, 128, 92);
+      if (A && A.pattern) {
+        ctx.save(); ctx.globalAlpha = 0.55; ctx.globalCompositeOperation = 'multiply';
+        ctx.fillStyle = A.pattern(ctx, x, y, 16, 16 / A.TILE.aspect, 16 * V.s); ctx.fillRect(x, y, 128, 92); ctx.restore();
+      }
+      ctx.strokeStyle = PAL.gold; ctx.lineWidth = 4; ctx.strokeRect(x, y, 128, 92);
+    });
+    ctx.restore();
+    slots.slice(0, n).forEach(([x, y, si], i) => {
+      const X = V.cx + (x + 16 - 500) * V.s, Y = V.cy + (y + 46 - 500) * V.s * V.tilt, wave = Math.sin(T * 4 + i) * 4;
+      ctx.fillStyle = '#120806'; ctx.fillRect(X - 2, Y - 70, 4, 70);
+      ctx.fillStyle = si ? '#7a8ad8' : '#d0602a';
+      ctx.beginPath(); ctx.moveTo(X + 2, Y - 70); ctx.lineTo(X + 34, Y - 62 + wave); ctx.lineTo(X + 2, Y - 50); ctx.fill();
     });
   };
 })();

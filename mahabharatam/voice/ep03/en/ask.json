@@ -1,22 +1,22 @@
 {
  "speaker": "elder_sage",
  "voice": "bm_lewis",
- "speed": 0.77,
+ "speed": 0.8316000000000001,
  "pitch": 0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 2.4866,
-   "words": 5,
-   "speed": 0.77,
-   "text": "And what is an akshauhini,"
+   "t1": 2.004,
+   "words": 4,
+   "speed": 0.832,
+   "text": "You said eighteen armies."
   },
   {
-   "t0": 2.5666,
-   "t1": 4.7563,
-   "words": 5,
-   "speed": 0.77,
-   "text": "the army you speak of?"
+   "t0": 2.254,
+   "t1": 3.8893,
+   "words": 4,
+   "speed": 0.832,
+   "text": "How large was one?"
   }
  ],
  "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"

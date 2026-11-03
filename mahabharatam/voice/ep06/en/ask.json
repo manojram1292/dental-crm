@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.7437,
+   "words": 7,
+   "speed": 0.81,
+   "text": "His teacher's wife asked for one gift:"
+  },
+  {
+   "t0": 2.9438,
+   "t1": 5.3496,
+   "words": 6,
+   "speed": 0.81,
+   "text": "the earrings of King Paushya's queen."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

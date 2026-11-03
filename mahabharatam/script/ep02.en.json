@@ -1,107 +1,169 @@
 {
-  "lang": "en",
-  "episode": 2,
-  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, adhyaya 2 (Samantapanchaka), vv. 1–9",
-  "fonts": {
-    "caption": "'EB Garamond'",
-    "display": "'Cinzel'"
+ "lang": "en",
+ "episode": 2,
+ "source": "Mahabharata, Critical Edition (BORI), Adi Parva, adhyaya 2 (Samantapanchaka), vv. 1–9",
+ "structure": "Every episode: RECAP (≈3 s, not in episode 1; KIT.series.recapStrip) → HOOK (one question; the episode title follows it: KIT.series.episodeTitle) → STORY → NEXT (a cliffhanger line, then the teaser card: KIT.series.nextTeaser).",
+ "fonts": {
+  "caption": "'EB Garamond'",
+  "display": "'Cinzel'"
+ },
+ "strings": {
+  "seriesTitle": "Mahabharatam",
+  "seriesSubtitle": "As Vyasa Told It",
+  "episodeSeparator": " · ",
+  "previouslyLabel": "Previously",
+  "nextLabel": "Next",
+  "traditionNote": "As tradition tells it",
+  "episodeLabel": "Episode 2",
+  "episodeTitle": "The Field of Five Lakes",
+  "prevEpisodeLabel": "Episode 1",
+  "prevEpisodeTitle": "The Storyteller Arrives",
+  "landName": "Samantapanchaka",
+  "landEpithet": "the field of five lakes",
+  "tallyLabel": "XXI",
+  "nextEpisodeLabel": "Episode 3",
+  "nextTitle": "Eighteen Armies"
+ },
+ "timing": {
+  "wordsPerSecond": 2.5,
+  "voiceGap": 0.35,
+  "voiceLead": 0.12,
+  "tail": 1.0
+ },
+ "voice": {
+  "pauses": {
+   "ellipsis": 420,
+   "dash": 280,
+   "comma": 80,
+   "stop": 250
   },
-  "strings": {
-    "seriesTitle": "Mahabharatam",
-    "seriesSubtitle": "As Vyasa Told It",
-    "episodeLabel": "Episode 2",
-    "episodeTitle": "The Field of Five Lakes",
-    "episodeSeparator": " · ",
-    "landName": "Samantapanchaka",
-    "landEpithet": "the field of five lakes",
-    "tallyLabel": "XXI"
+  "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice, used by the timeline), say (what is spoken, if not `text`): '…' and '—' pause, ',' and '.' pause a little, [p:400] pauses 400 ms, {s:0.8} speaks what follows at 0.8× until the next {s:…} ({s} resets)."
+ },
+ "lines": [
+  {
+   "id": "recap",
+   "role": "recap",
+   "text": "In the forest, the sages asked Sauti for the great story.",
+   "est": 3.6,
+   "pre": 200,
+   "post": 250,
+   "emphasis": [
+    "Sauti"
+   ],
+   "note": "RECAP: episode 1's clearing as a memory (KIT.series.recapStrip)"
   },
-  "timing": {
-    "wordsPerSecond": 2.6,
-    "voiceGap": 0.35,
-    "voiceLead": 0.12,
-    "tail": 1.0
+  {
+   "id": "ask",
+   "role": "hook",
+   "speaker": "elder_sage",
+   "text": "Tell us, son of the Suta… where was that great war fought?",
+   "est": 4.6,
+   "pre": 350,
+   "post": 1300,
+   "beats": [
+    6
+   ],
+   "emphasis": [
+    "Suta"
+   ],
+   "note": "HOOK. beats[0] = 'where': the elder leans in; the episode title shows in the post"
   },
-  "voice": {
-    "pauses": { "ellipsis": 420, "dash": 280, "comma": 80, "stop": 250 },
-    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice, used by the timeline), say (what is spoken, if not `text`): '…' and '—' pause, [p:400] pauses 400 ms, {s:0.8} speaks what follows at 0.8× until the next {s:…} ({s} resets)."
+  {
+   "id": "answer",
+   "speaker": "sauti",
+   "text": "In a sacred land… called Samantapanchaka.",
+   "say": "In a sacred land… {s:0.88}called Samantapanchaka.",
+   "est": 3.6,
+   "post": 450,
+   "beats": [
+    3,
+    5
+   ],
+   "display": [
+    "landName",
+    "landEpithet"
+   ],
+   "emphasis": [
+    "Samantapanchaka"
+   ]
   },
-  "lines": [
-    {
-      "id": "ask",
-      "speaker": "elder_sage",
-      "text": "Tell us, son of the Suta… where was that great war fought?",
-      "est": 4.6,
-      "pre": 450,
-      "post": 300,
-      "beats": [6],
-      "emphasis": ["Suta"],
-      "note": "beats[0] = 'where': the elder leans in and his hand opens"
-    },
-    {
-      "id": "answer",
-      "speaker": "sauti",
-      "text": "In a sacred land… called Samantapanchaka.",
-      "say": "In a sacred land… {s:0.88}called Samantapanchaka.",
-      "est": 3.6,
-      "post": 450,
-      "beats": [3, 5],
-      "display": ["landName", "landEpithet"],
-      "emphasis": ["Samantapanchaka"],
-      "note": "beats = 'land' (the fire flares), the name (the map of the land settles; the name is written in gold)"
-    },
-    {
-      "id": "parashurama",
-      "text": "Long before, the warrior-sage Parashurama, axe in hand…",
-      "est": 4.0,
-      "pre": 250,
-      "beats": [4, 5],
-      "emphasis": ["Parashurama"],
-      "note": "beats = the name (lightning reveals him), 'axe' (the axe reaches the top of its raise; thunder)"
-    },
-    {
-      "id": "kings",
-      "text": "…struck down the warrior kings. Twenty-one times.",
-      "say": "…struck down the warrior kings. [p:220] {s:0.84}Twenty-one times.",
-      "est": 3.8,
-      "post": 250,
-      "beats": [5],
-      "ticks": { "count": 21, "from": 0, "to": 5, "curve": 0.8 },
-      "emphasis": ["Twenty-one"],
-      "note": "ticks = 21 hits from 'struck' to 'Twenty-one', accelerating: a crown falls and a tally mark is cut on each; the 21st lands on 'Twenty-one' with XXI (beats[0])"
-    },
-    {
-      "id": "lakes",
-      "text": "With their blood, he filled five great lakes.",
-      "est": 3.6,
-      "post": 550,
-      "beats": [4, 5, 7],
-      "note": "beats = 'filled' (the first lake fills), 'five' (all five are filling), 'lakes' (the mandala glows)"
-    },
-    {
-      "id": "pitrs",
-      "text": "His ancestors appeared, and asked him to stop. He did — and the land became holy.",
-      "say": "His ancestors appeared, and asked him to stop. [p:280] He did — {s:0.86}and the land became holy.",
-      "est": 6.0,
-      "post": 450,
-      "beats": [2, 7, 9, 15],
-      "note": "beats = 'appeared' (the Pitrs are down), 'stop' (palms out), 'did' (the axe is lowered), 'holy' (the water is clear, lotuses open)"
-    },
-    {
-      "id": "dawn",
-      "text": "Ages later, on that same ground… two great armies would meet.",
-      "est": 4.4,
-      "post": 600,
-      "beats": [6, 10],
-      "note": "beats = 'two' (the standards rise on both horizons), 'meet' (a conch)"
-    },
-    {
-      "id": "episode",
-      "text": "Episode two. The field of five lakes.",
-      "say": "Episode two. [p:200] The field of five lakes.",
-      "est": 2.6,
-      "caption": false,
-      "note": "spoken over the end card, which shows strings.episodeLabel / episodeTitle instead of a caption"
-    }
-  ]
+  {
+   "id": "parashurama",
+   "text": "Long before, the warrior-sage Parashurama, axe in hand…",
+   "est": 4.0,
+   "pre": 250,
+   "beats": [
+    4,
+    5
+   ],
+   "emphasis": [
+    "Parashurama"
+   ]
+  },
+  {
+   "id": "kings",
+   "text": "…struck down the warrior kings. Twenty-one times.",
+   "say": "…struck down the warrior kings. [p:220] {s:0.84}Twenty-one times.",
+   "est": 3.8,
+   "post": 250,
+   "beats": [
+    5
+   ],
+   "ticks": {
+    "count": 21,
+    "from": 0,
+    "to": 5,
+    "curve": 0.8
+   },
+   "emphasis": [
+    "Twenty-one"
+   ]
+  },
+  {
+   "id": "lakes",
+   "text": "With their blood, he filled five great lakes.",
+   "est": 3.6,
+   "post": 550,
+   "beats": [
+    4,
+    5,
+    7
+   ]
+  },
+  {
+   "id": "pitrs",
+   "text": "His ancestors appeared, and asked him to stop. He did — and the land became holy.",
+   "say": "His ancestors appeared, and asked him to stop. [p:280] He did — {s:0.86}and the land became holy.",
+   "est": 6.0,
+   "post": 450,
+   "beats": [
+    2,
+    7,
+    9,
+    15
+   ]
+  },
+  {
+   "id": "dawn",
+   "role": "next",
+   "text": "On that ground, ages later… eighteen vast armies would meet.",
+   "est": 4.6,
+   "post": 500,
+   "beats": [
+    5,
+    9
+   ],
+   "note": "NEXT (cliffhanger). beats = 'eighteen' (standards rise on both horizons), 'meet' (a conch)"
+  },
+  {
+   "id": "next",
+   "role": "next",
+   "text": "Next: Eighteen Armies.",
+   "say": "Next: [p:200] Eighteen Armies.",
+   "est": 2.6,
+   "post": 500,
+   "caption": false,
+   "note": "the teaser card, with a glimpse of episode 3's army blocks on the field"
+  }
+ ]
 }

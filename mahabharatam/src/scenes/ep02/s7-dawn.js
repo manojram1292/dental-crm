@@ -1,9 +1,9 @@
 /*
- * Ep 2 · line "dawn" · "Ages later, on that same ground… two great armies would meet."
+ * Ep 2 · line "dawn" · NEXT (the cliffhanger) · "On that ground, ages later… eighteen vast armies would meet."
  *
  * Dissolve: the same land at dawn, ages later. A wide flat plain; the five
  * lakes lie on it as long mirrors of the sunrise; mist; the sun lifts out of
- * the haze. On "two" (beats[0]) faint shapes form on both horizons, left and
+ * the haze. On "eighteen" (beats[0]) faint shapes form on both horizons, left and
  * right: tall standards with pennants, parasols, chariots with their horses,
  * like a premonition in the mist. On "meet" (beats[1]) they lean in, a shade
  * nearer, and the light on the field cools.

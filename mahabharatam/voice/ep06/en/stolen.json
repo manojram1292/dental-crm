@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.2441,
+   "words": 4,
+   "speed": 0.81,
+   "text": "On the way back,"
+  },
+  {
+   "t0": 1.3441,
+   "t1": 2.7562,
+   "words": 3,
+   "speed": 0.81,
+   "text": "Takshaka stole them"
+  },
+  {
+   "t0": 3.1762,
+   "t1": 5.0575,
+   "words": 3,
+   "speed": 0.81,
+   "text": "and vanished underground."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

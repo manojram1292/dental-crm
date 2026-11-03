@@ -1,105 +1,169 @@
 {
-  "lang": "en",
-  "episode": 1,
-  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, adhyaya 1",
-  "fonts": {
-    "caption": "'EB Garamond'",
-    "display": "'Cinzel'"
+ "lang": "en",
+ "episode": 1,
+ "source": "Mahabharata, Critical Edition (BORI), Adi Parva, adhyaya 1",
+ "structure": "Every episode: RECAP (≈3 s, not in episode 1; KIT.series.recapStrip) → HOOK (one question; the episode title follows it: KIT.series.episodeTitle) → STORY → NEXT (a cliffhanger line, then the teaser card: KIT.series.nextTeaser).",
+ "fonts": {
+  "caption": "'EB Garamond'",
+  "display": "'Cinzel'"
+ },
+ "strings": {
+  "seriesTitle": "Mahabharatam",
+  "seriesSubtitle": "As Vyasa Told It",
+  "episodeSeparator": " · ",
+  "previouslyLabel": "Previously",
+  "nextLabel": "Next",
+  "traditionNote": "As tradition tells it",
+  "episodeLabel": "Episode 1",
+  "episodeTitle": "The Storyteller Arrives",
+  "placeName": "Naimisha",
+  "placeEpithet": "the forest of the sages",
+  "storytellerName": "Ugrashravas",
+  "storytellerEpithet": "called Sauti · son of Lomaharshana",
+  "epicTitle": "Mahabharatam",
+  "epicAuthor": "composed by Vyasa",
+  "nextEpisodeLabel": "Episode 2",
+  "nextTitle": "The Field of Five Lakes"
+ },
+ "timing": {
+  "wordsPerSecond": 2.5,
+  "voiceGap": 0.35,
+  "voiceLead": 0.12,
+  "tail": 1.0
+ },
+ "voice": {
+  "pauses": {
+   "ellipsis": 420,
+   "dash": 280,
+   "comma": 80,
+   "stop": 250
   },
-  "strings": {
-    "seriesTitle": "Mahabharatam",
-    "seriesSubtitle": "As Vyasa Told It",
-    "episodeLabel": "Episode 1",
-    "episodeTitle": "The Storyteller Arrives",
-    "episodeSeparator": " · ",
-    "storytellerName": "Ugrashravas",
-    "storytellerEpithet": "son of Lomaharshana",
-    "epicTitle": "Mahabharatam",
-    "epicAuthor": "composed by Vyasa"
+  "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice, used by the timeline), say (what is spoken, if not `text`): '…' and '—' pause, ',' and '.' pause a little, [p:400] pauses 400 ms, {s:0.8} speaks what follows at 0.8× until the next {s:…} ({s} resets)."
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "role": "hook",
+   "text": "Where did the greatest story ever told begin?",
+   "est": 4.0,
+   "pre": 300,
+   "post": 200,
+   "beats": [
+    3,
+    6
+   ],
+   "note": "HOOK. beats = 'greatest' (an empty throne flares in gold), 'told' (the dice tumble)"
   },
-  "timing": {
-    "wordsPerSecond": 2.6,
-    "voiceGap": 0.35,
-    "voiceLead": 0.12,
-    "tail": 1.0
+  {
+   "id": "notwar",
+   "role": "hook",
+   "text": "Not on a battlefield… but in a quiet forest.",
+   "est": 4.0,
+   "post": 1500,
+   "beats": [
+    3,
+    7
+   ],
+   "note": "beats = 'battlefield' (crossed arrows flare and burn away), 'quiet' (the last ember rises); the episode title shows in the post (KIT.series.episodeTitle)"
   },
-  "lines": [
-    {
-      "id": "before",
-      "text": "Before the war. Before the dice. Before any throne was fought for…",
-      "est": 5.2,
-      "beats": [
-        0,
-        3,
-        6
-      ],
-      "note": "beats = word indices of the three 'Before's: ghost flashes + drum hits land on them"
-    },
-    {
-      "id": "forest",
-      "text": "…a storyteller walked into the Naimisha forest.",
-      "est": 3.4,
-      "emphasis": [
-        "Naimisha"
-      ]
-    },
-    {
-      "id": "name",
-      "text": "His name was Ugrashravas, son of Lomaharshana.",
-      "est": 3.8,
-      "beats": [
-        3
-      ],
-      "display": [
-        "storytellerName",
-        "storytellerEpithet"
-      ],
-      "note": "beats[0] = word index of the name: the gold lettering lands on it",
-      "emphasis": [
-        "Ugrashravas",
-        "Lomaharshana"
-      ]
-    },
-    {
-      "id": "fire",
-      "text": "There, for twelve years, sages had tended a sacred fire.",
-      "est": 4.3
-    },
-    {
-      "id": "asked",
-      "text": "They asked him for one story — the one he heard at King Janamejaya's great sacrifice.",
-      "est": 6.1,
-      "beats": [
-        8
-      ],
-      "note": "beats[0] = word index where the court vision begins to form in the smoke",
-      "emphasis": [
-        "Janamejaya"
-      ]
-    },
-    {
-      "id": "vyasa",
-      "text": "The story composed by Vyasa. The Mahabharatam.",
-      "est": 3.9,
-      "hold": 0.6,
-      "beats": [
-        6
-      ],
-      "display": [
-        "epicTitle"
-      ],
-      "note": "beats[0] = word index of the title word: the gold title blooms on it; hold = extra seconds after the voice",
-      "emphasis": [
-        "Vyasa",
-        "Mahabharatam"
-      ]
-    },
-    {
-      "id": "episode",
-      "text": "Episode one. The storyteller arrives.",
-      "est": 2.4,
-      "caption": false,
-      "note": "spoken over the end card, which shows strings.episodeLabel / episodeTitle instead of a caption"
-    }
-  ]
+  {
+   "id": "fire",
+   "text": "In the Naimisha forest, sages kept a sacred fire burning… for twelve years.",
+   "est": 5.5,
+   "post": 450,
+   "beats": [
+    2,
+    11
+   ],
+   "display": [
+    "placeName",
+    "placeEpithet"
+   ],
+   "emphasis": [
+    "Naimisha"
+   ],
+   "note": "the clearing; beats = 'Naimisha' (the place name in gold), 'twelve' (the days and nights race)"
+  },
+  {
+   "id": "arrived",
+   "text": "One day, a storyteller arrived.",
+   "est": 3.0,
+   "post": 450,
+   "note": "the forest at dawn: a lone walker with a staff, heading for the smoke of the ashram"
+  },
+  {
+   "id": "name",
+   "text": "His name was Ugrashravas — called Sauti.",
+   "est": 4.0,
+   "post": 500,
+   "beats": [
+    3
+   ],
+   "display": [
+    "storytellerName",
+    "storytellerEpithet"
+   ],
+   "emphasis": [
+    "Ugrashravas",
+    "Sauti"
+   ],
+   "note": "beats[0] = the name: gold lettering lands on it; the epithet carries 'called Sauti' (the name the series uses)"
+  },
+  {
+   "id": "asked",
+   "text": "The sages asked him for the story he heard at King Janamejaya's great sacrifice…",
+   "est": 6.0,
+   "post": 200,
+   "beats": [
+    10
+   ],
+   "emphasis": [
+    "Janamejaya"
+   ],
+   "note": "beats[0] = 'King': the court vision forms in the smoke"
+  },
+  {
+   "id": "vyasa",
+   "text": "…the story composed by Vyasa. The Mahabharatam.",
+   "est": 4.5,
+   "hold": 0.5,
+   "beats": [
+    6
+   ],
+   "display": [
+    "epicTitle"
+   ],
+   "emphasis": [
+    "Vyasa",
+    "Mahabharatam"
+   ],
+   "note": "beats[0] = the title word: it blooms in gold"
+  },
+  {
+   "id": "tease",
+   "role": "next",
+   "text": "And Sauti began — with a field of blood.",
+   "say": "And Sauti began — {s:0.9}with a field of blood.",
+   "est": 4.0,
+   "post": 1100,
+   "beats": [
+    2,
+    8
+   ],
+   "emphasis": [
+    "Sauti"
+   ],
+   "note": "NEXT (cliffhanger). beats = 'began' (he raises his hand to the fire), 'blood' (the fire and smoke turn red)"
+  },
+  {
+   "id": "next",
+   "role": "next",
+   "text": "Next: The Field of Five Lakes.",
+   "say": "Next: [p:200] The Field of Five Lakes.",
+   "est": 3.0,
+   "post": 600,
+   "caption": false,
+   "note": "the teaser card (KIT.series.nextTeaser) shows strings.nextLabel / nextEpisodeLabel / nextTitle and a glimpse of episode 2's red lakes"
+  }
+ ]
 }

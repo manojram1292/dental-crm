@@ -120,7 +120,7 @@
 
   R.scene({
     id: 'asked',
-    fadeIn: 0,
+    fadeIn: 0.45,
     draw(ctx, t, env) {
       const T = env.T, p = clamp(t / env.dur, 0, 1.3), dur = env.dur;
       // he walks in from the left and stops at the edge of the circle

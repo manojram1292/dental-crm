@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8424,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9692,
+   "words": 4,
+   "speed": 0.842,
+   "text": "Sauti named the battlefield:"
+  },
+  {
+   "t0": 2.0492,
+   "t1": 3.9091,
+   "words": 5,
+   "speed": 0.842,
+   "text": "the field of five lakes."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

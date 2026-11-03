@@ -6,17 +6,10 @@
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.8989,
-   "words": 7,
+   "t1": 6.3039,
+   "words": 14,
    "speed": 0.81,
-   "text": "They asked him for one story"
-  },
-  {
-   "t0": 2.1789,
-   "t1": 6.3143,
-   "words": 9,
-   "speed": 0.81,
-   "text": "the one he heard at King Janamejaya's great sacrifice."
+   "text": "The sages asked him for the story he heard at King Janamejaya's great sacrifice"
   }
  ],
  "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"

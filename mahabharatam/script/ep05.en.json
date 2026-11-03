@@ -1,0 +1,205 @@
+{
+  "lang": "en",
+  "episode": 5,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, adhyaya 3 (Paushya parva: Janamejaya's long sacrifice at Kurukshetra, the son of Sarama, Sarama's curse)",
+  "structure": "Every episode: RECAP (≈3 s; KIT.series.recapStrip) → HOOK (one question, Sauti at the Naimisha fire; the episode title follows it: KIT.series.episodeTitle) → STORY → NEXT (a cliffhanger line, then the teaser card: KIT.series.nextTeaser).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 5",
+    "episodeTitle": "The Curse of Sarama",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 4",
+    "prevEpisodeTitle": "The Story Is Born",
+    "nextEpisodeLabel": "Episode 6",
+    "placeKurukshetra": "Kurukshetra",
+    "placeHastinapura": "Hastinapura",
+    "saramaName": "Sarama",
+    "saramaEpithet": "the dog of the gods",
+    "brothers": "Shrutasena · Ugrasena · Bhimasena",
+    "nextTitle": "The Stolen Earrings"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.6
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice, used by the timeline), say (what is spoken, if not `text`): '…' and '—' pause, ',' and '.' pause a little, [p:400] pauses 400 ms, {s:0.8} speaks what follows at 0.8× until the next {s:…} ({s} resets)."
+  },
+  "lines": [
+    {
+      "id": "recap",
+      "text": "The story was first told at King Janamejaya's sacrifice.",
+      "est": 3.6,
+      "pre": 150,
+      "post": 200,
+      "beats": [
+        7
+      ],
+      "emphasis": [
+        "Janamejaya's"
+      ],
+      "note": "RECAP. The Naimisha fire at night, Sauti seated by it; the series 'Previously' strip; in the smoke above the fire, a vision of Janamejaya pouring ghee (beats[0] = 'Janamejaya's': the vision glows)",
+      "speed": 1.1,
+      "role": "recap"
+    },
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "text": "But before that… this king was cursed. By a dog.",
+      "say": "But before that… this king was cursed. [p:300] By a dog.",
+      "est": 4.4,
+      "pre": 120,
+      "post": 1000,
+      "beats": [
+        6,
+        9
+      ],
+      "emphasis": [
+        "cursed"
+      ],
+      "note": "HOOK (Sauti, at the fire). beats = 'cursed' (the king's vision darkens, a low drum), 'dog' (the smoke turns into the luminous profile of a great dog, head high); the episode title shows in the post",
+      "role": "hook"
+    },
+    {
+      "id": "rite",
+      "text": "At Kurukshetra, Janamejaya and his brothers were performing a long ritual.",
+      "est": 5.4,
+      "pre": 150,
+      "post": 300,
+      "beats": [
+        1,
+        5,
+        10
+      ],
+      "emphasis": [
+        "Kurukshetra"
+      ],
+      "display": [
+        "placeKurukshetra"
+      ],
+      "note": "STORY 1. The sacrificial enclosure at Kurukshetra by day: sacrificial posts, the pavilion, the fire; Janamejaya pours ghee; his three brothers behind him. The episode title rises in the first seconds. beats = 'Kurukshetra' (the place name), 'brothers' (they are named), 'ritual'"
+    },
+    {
+      "id": "pup",
+      "text": "A small dog came near: the son of Sarama, the divine dog.",
+      "say": "A small dog came near: [p:150] the son of Sarama, the divine dog.",
+      "est": 4.6,
+      "post": 300,
+      "beats": [
+        2,
+        8
+      ],
+      "emphasis": [
+        "Sarama"
+      ],
+      "note": "STORY 2. The pup trots in, curious, sniffing; on 'Sarama' (beats[1]) her luminous profile glows in the sky above him"
+    },
+    {
+      "id": "beaten",
+      "text": "The king's brothers beat him, though he had done nothing wrong.",
+      "say": "The king's brothers beat him, [p:300] though he had done nothing wrong.",
+      "est": 4.6,
+      "post": 250,
+      "beats": [
+        3,
+        9
+      ],
+      "ticks": {
+        "count": 3,
+        "from": 3,
+        "to": 5,
+        "curve": 1
+      },
+      "note": "STORY 3. The brothers rise with their staffs; ticks = the three blows (drum hits), never shown landing: the shadows fall across the pup; beats[2] = 'nothing': the untouched offerings beside him"
+    },
+    {
+      "id": "mother",
+      "text": "He ran crying to his mother. And Sarama came to the king.",
+      "say": "He ran crying to his mother. [p:300] And Sarama came to the king.",
+      "est": 4.8,
+      "post": 250,
+      "beats": [
+        1,
+        7,
+        11
+      ],
+      "emphasis": [
+        "Sarama"
+      ],
+      "note": "STORY 4. The pup runs across the plain to his mother in her dawn-pearl light; on 'Sarama' (beats[1]) she lifts her head; on 'king' she strides into the enclosure and the daylight dims"
+    },
+    {
+      "id": "curse",
+      "speaker": "sarama",
+      "text": "My son did no wrong. So an unseen danger will fall upon you.",
+      "say": "My son did no wrong. [p:400] So an unseen danger… [p:150] will fall upon you.",
+      "est": 5.4,
+      "pre": 200,
+      "post": 500,
+      "beats": [
+        4,
+        7,
+        12
+      ],
+      "emphasis": [
+        "unseen",
+        "danger"
+      ],
+      "note": "STORY 5 (the turn). Sarama towers over the king, head high; ominous low drums. beats = 'wrong', 'unseen' (the sky darkens, the fire gutters), 'you' (a shadow falls over the king)"
+    },
+    {
+      "id": "afraid",
+      "text": "Afraid, Janamejaya searched for a priest to protect him.",
+      "say": "Afraid, [p:250] Janamejaya searched for a priest to protect him.",
+      "est": 4.6,
+      "post": 300,
+      "beats": [
+        0,
+        5
+      ],
+      "display": [
+        "placeHastinapura"
+      ],
+      "note": "STORY 6 (resolution of this arc). Night in the palace at Hastinapura: the king walks past lamps and seated priests, looking from face to face. beats = 'Afraid', 'priest'"
+    },
+    {
+      "id": "tease",
+      "role": "next",
+      "text": "Far away, a young student was about to face the serpent king.",
+      "say": "Far away, [p:250] a young student was about to face the serpent king.",
+      "est": 4.6,
+      "post": 350,
+      "beats": [
+        4,
+        11
+      ],
+      "note": "NEXT (cliffhanger). A forest road at dusk: a young student walks toward us; behind the hills a vast cold-green hood rises. beats = 'student', 'king' (the hood flares, its eyes open)"
+    },
+    {
+      "id": "next",
+      "role": "next",
+      "text": "Next: The Stolen Earrings.",
+      "say": "Next: [p:200] The Stolen Earrings.",
+      "est": 2.6,
+      "post": 500,
+      "caption": false,
+      "note": "the teaser card (KIT.series.nextTeaser), with a glimpse of episode 6: Takshaka's hooded shadow over the two earrings"
+    }
+  ]
+}

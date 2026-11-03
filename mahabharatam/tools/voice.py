@@ -59,6 +59,25 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "akshauhini": {"en-us": "ˈʌkʃoʊhɪɳiː", "en-gb": "ˈʌkʃəʊhɪɳiː"},          # UK-show-hi-nee
     "akshauhinis": {"en-us": "ˈʌkʃoʊhɪɳiːz", "en-gb": "ˈʌkʃəʊhɪɳiːz"},
     "patti": "pˈʌtiː",                                   # PUT-tee
+    # episode 4 (Team A)
+    "Ganesha": "ɡʌnˈeɪʃə",                               # ga-NAY-sha
+    "Ganesha's": "ɡʌnˈeɪʃəz",
+    "Dvaipayana": "dvˌaɪpˈɑːjənə",                       # dvai-PAA-ya-na
+    "arrived": "əɹˈaɪvd",                                # espeak: "ɚɹˈaɪvd" after "storyteller"
+    # episodes 5–6 (Paushya parva)
+    "Sarama": "sˈʌɾəmˌɑː",                               # SA-ra-maa
+    "Sarama's": "sˈʌɾəmˌɑːz",
+    "Shrutasena": "ʃɾˌʊtəsˈeɪnə",                        # shru-ta-SAY-na
+    "Ugrasena": "ˌʊɡɹəsˈeɪnə",                           # oo-gra-SAY-na
+    "Bhimasena": "bʰˌiːməsˈeɪnə",                        # bhee-ma-SAY-na
+    "Hastinapura": "hˌʌstɪnˈɑːpʊɾə",                     # has-ti-NAA-pu-ra
+    "Uttanka": "ʊtˈʌŋkə",                                # ut-TUNG-ka
+    "Paushya": "pˈaʊʃjə",                                # POW-shya
+    "Paushya's": "pˈaʊʃjəz",
+    "Takshaka": "tˈʌkʃəkə",                              # TUCK-sha-ka
+    "Naga": "nˈɑːɡə",                                    # NAA-ga
+    "Nagas": "nˈɑːɡəz",
+    "Parikshit": "pˈʌɾɪkʃɪt",                            # PA-rik-shit
     # English words espeak gets wrong for these voices (audited with --dry)
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
     "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"

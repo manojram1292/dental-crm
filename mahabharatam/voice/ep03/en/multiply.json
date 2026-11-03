@@ -6,17 +6,24 @@
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.2536,
+   "t1": 0.9426,
    "words": 2,
    "speed": 0.81,
-   "text": "Multiply it,"
+   "text": "Triple it"
   },
   {
-   "t0": 1.3336,
-   "t1": 2.5592,
+   "t0": 1.3626,
+   "t1": 2.5945,
    "words": 3,
    "speed": 0.81,
-   "text": "step by step"
+   "text": "then triple that"
+  },
+  {
+   "t0": 3.0145,
+   "t1": 4.5864,
+   "words": 3,
+   "speed": 0.81,
+   "text": "seven times over."
   }
  ],
  "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"

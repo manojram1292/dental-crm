@@ -13,10 +13,14 @@
   'use strict';
   const R = window.REEL;
   const EPISODES = {
-    1: ['s1-before', 's2-forest', 's3-name', 's4-fire', 's5-asked', 's6-vyasa', 's7-episode'],
-    2: ['_common', 's1-ask', 's2-answer', 's3-parashurama', 's4-kings', 's5-lakes', 's6-pitrs', 's7-dawn', 's8-episode'],
+    1: ['ep02/_common', 's1-before', 's2-forest', 's3-name', 's4-fire', 's5-asked', 's6-vyasa', 's7-tease', 's8-next'],
+    2: ['_common', 's0-recap', 's1-ask', 's2-answer', 's3-parashurama', 's4-kings', 's5-lakes', 's6-pitrs', 's7-dawn', 's8-next'],
     // 'ep02/_common': another episode's helpers (EP2.mouth, EP2.mandala: the field of five lakes)
-    3: ['ep02/_common', '_common', 's1-ask', 's2-patti', 's3-grid', 's5-units', 's6-armies', 's7-days', 's8-episode'],
+    3: ['ep02/_common', 'ep04/_common', '_common', 's0-recap', 's1-ask', 's2-patti', 's3-grid', 's5-units', 's6-armies', 's7-days', 's8-tease', 's9-next'],
+    // episode 4 (Team A): Vyasa's hermitage, Ganesha the scribe; recap uses episode 2's field and the army tiles
+    4: ['ep02/_common', '_common', 's0-recap', 's1-hook', 's2-vyasa', 's3-scribe', 's4-dialogue', 's5-pause', 's6-tusk', 's7-disciple', 's8-next'],
+    // episodes 5–6 (Team B): Kurukshetra by day, Sarama; Uttanka, Paushya's palace, the Naga world (episode 6's recap reuses episode 5's helpers)
+    5: ['_common', 's0-recap', 's1-hook', 's2-rite', 's3-pup', 's4-beaten', 's5-mother', 's6-curse', 's7-afraid', 's8-tease', 's9-next'],
   };
   const q = new URLSearchParams(location.search);
   const ep = +(q.get('ep') || 1);

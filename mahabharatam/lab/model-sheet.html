@@ -33,6 +33,15 @@
 <script src="../src/kit/characters/pitrs.js"></script>
 <script src="../src/kit/characters/vyasa.js"></script>
 <script src="../src/kit/characters/janamejaya.js"></script>
+<script src="../src/kit/characters/ganesha.js"></script>
+<script src="../src/kit/characters/vaishampayana.js"></script>
+<script src="../src/kit/characters/sarama.js"></script>
+<script src="../src/kit/characters/pup.js"></script>
+<script src="../src/kit/characters/kuru-princes.js"></script>
+<script src="../src/kit/characters/uttanka.js"></script>
+<script src="../src/kit/characters/paushya-queen.js"></script>
+<script src="../src/kit/characters/guru-patni.js"></script>
+<script src="../src/kit/characters/takshaka.js"></script>
 <script>
 (async function () {
   'use strict';
@@ -72,6 +81,8 @@
     { id: 'pitr', frontal: true, poses: [['stand · 0', 'stand', null, 'front', 0], ['walk · 1', { name: 'walk', phase: 1 }, null, 'front', 1], ['sit · 2', 'sit', null, 'front', 2], ['speak · 3', { name: 'speak', k: 1 }, null, 'front', 3], ['bless · 4', { name: 'bless', k: 1 }, null, 'front', 4], ['plead · 0', { name: 'plead', k: 1 }, null, 'front', 0], ['descend · 1', { name: 'descend', k: 0.3 }, null, 'front', 1]], lightPose: 'bless', lightFront: 0.3 },
     { id: 'vyasa', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit', 'sit'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['dictate · seated', { name: 'dictate', base: 'sit', k: 1 }], ['bless', { name: 'bless', k: 1 }]], lightPose: 'stand' },
     { id: 'janamejaya', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit · throne', 'sit'], ['speak · command', { name: 'speak', k: 1 }], ['offer', { name: 'offer', k: 1 }], ['bless', { name: 'bless', k: 1 }]], lightPose: 'stand' },
+    { id: 'ganesha', poses: [['stand', 'stand'], ['sit', 'sit'], ['write', { name: 'write', k: 1, phase: 1.1 }], ['pause', { name: 'pause', k: 1 }], ['speak · one finger', { name: 'speak', k: 1 }], ['break-tusk', { name: 'break-tusk', k: 0.42 }], ['write · one tusk', { name: 'write', k: 1, phase: 2, tusk: 'broken' }]], lightPose: { name: 'write', k: 1 } },
+    { id: 'vaishampayana', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit', 'sit'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['receive', { name: 'receive', k: 0.9 }], ['receive · holds', { name: 'receive', k: 1 }], ['bow', { name: 'bow', k: 1 }]], lightPose: 'stand' },
   ];
   const LIGHTS = [['key · fire left', CH.LIGHTS.key], ['back · rim from behind', CH.LIGHTS.back], ['low · dim fire in front', CH.LIGHTS.low]];
   const NPOSE = Math.max(...ROWS.map((r) => r.poses.length));

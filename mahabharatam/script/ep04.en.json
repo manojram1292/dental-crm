@@ -1,0 +1,200 @@
+{
+ "lang": "en",
+ "episode": 4,
+ "source": "Vyasa and Vaishampayana: Critical Edition (BORI), Adi Parva 1.1.52–57 (Vyasa composed it and taught it to Vaishampayana, who recited it at Janamejaya's sacrifice). Ganesha as scribe: later tradition (the vulgate's Adi Parva 1, excluded from the Critical Edition), marked on screen.",
+ "structure": "Every episode: RECAP (≈3 s, not in episode 1; KIT.series.recapStrip) → HOOK (one question; the episode title follows it: KIT.series.episodeTitle) → STORY → NEXT (a cliffhanger line, then the teaser card: KIT.series.nextTeaser).",
+ "fonts": {
+  "caption": "'EB Garamond'",
+  "display": "'Cinzel'"
+ },
+ "strings": {
+  "seriesTitle": "Mahabharatam",
+  "seriesSubtitle": "As Vyasa Told It",
+  "episodeSeparator": " · ",
+  "previouslyLabel": "Previously",
+  "nextLabel": "Next",
+  "traditionNote": "As tradition tells it",
+  "episodeLabel": "Episode 4",
+  "episodeTitle": "The Story Is Born",
+  "prevEpisodeLabel": "Episode 3",
+  "prevEpisodeTitle": "Eighteen Armies",
+  "sideA": "Kauravas",
+  "sideB": "Pandavas",
+  "dayLabel": "Day",
+  "vyasaName": "Vyasa",
+  "vyasaEpithet": "Krishna Dvaipayana",
+  "ganeshaName": "Ganesha",
+  "ganeshaEpithet": "the scribe",
+  "discipleName": "Vaishampayana",
+  "discipleEpithet": "Vyasa's disciple",
+  "nextEpisodeLabel": "Episode 5",
+  "nextTitle": "The Curse of Sarama"
+ },
+ "timing": {
+  "wordsPerSecond": 2.5,
+  "voiceGap": 0.35,
+  "voiceLead": 0.12,
+  "tail": 1.0
+ },
+ "voice": {
+  "pauses": {
+   "ellipsis": 420,
+   "dash": 280,
+   "comma": 80,
+   "stop": 250
+  },
+  "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice, used by the timeline), say (what is spoken, if not `text`): '…' and '—' pause, ',' and '.' pause a little, [p:400] pauses 400 ms, {s:0.8} speaks what follows at 0.8× until the next {s:…} ({s} resets)."
+ },
+ "lines": [
+  {
+   "id": "recap",
+   "role": "recap",
+   "text": "Eighteen armies fought for eighteen days.",
+   "est": 3.2,
+   "pre": 200,
+   "post": 300,
+   "note": "RECAP: episode 3's eighteen army blocks on the field as a memory"
+  },
+  {
+   "id": "hook",
+   "role": "hook",
+   "text": "But who first gave this war its words?",
+   "est": 3.2,
+   "pre": 150,
+   "post": 1100,
+   "beats": [
+    1,
+    6
+   ],
+   "note": "HOOK at the Naimisha fire: beats = 'who' (Sauti's hand opens to the smoke), 'words' (a palm leaf glimmers in it); the episode title shows in the post"
+  },
+  {
+   "id": "vyasa",
+   "text": "The sage Vyasa held the whole epic… in his mind.",
+   "est": 4.5,
+   "post": 450,
+   "beats": [
+    2,
+    6
+   ],
+   "display": [
+    "vyasaName",
+    "vyasaEpithet"
+   ],
+   "emphasis": [
+    "Vyasa"
+   ],
+   "note": "Vyasa's hermitage in the Himalayan foothills, morning. beats = 'Vyasa' (his name in gold), 'epic' (the verses kindle as lights around him)"
+  },
+  {
+   "id": "scribe",
+   "text": "He needed a scribe. Ganesha agreed to write it — on one condition.",
+   "est": 5.0,
+   "post": 350,
+   "beats": [
+    4,
+    11
+   ],
+   "display": [
+    "ganeshaName",
+    "ganeshaEpithet"
+   ],
+   "emphasis": [
+    "Ganesha"
+   ],
+   "note": "traditionNote shows from here to the tusk (later tradition, not the Critical Edition). beats = 'Ganesha' (he is revealed, name in gold), 'one' (he raises one finger)"
+  },
+  {
+   "id": "condition",
+   "speaker": "ganesha",
+   "text": "“Never stop speaking.”",
+   "say": "Never stop speaking.",
+   "est": 2.2,
+   "pre": 200,
+   "post": 400,
+   "note": "Ganesha, close"
+  },
+  {
+   "id": "reply",
+   "speaker": "vyasa",
+   "text": "“Then write nothing you don't understand.”",
+   "say": "Then write nothing… you don't understand.",
+   "est": 3.0,
+   "pre": 200,
+   "post": 400,
+   "note": "Vyasa, close, the dictate pose"
+  },
+  {
+   "id": "pause",
+   "text": "Whenever Ganesha paused to grasp a verse, Vyasa composed more.",
+   "est": 5.0,
+   "post": 300,
+   "beats": [
+    2,
+    7
+   ],
+   "emphasis": [
+    "Ganesha",
+    "Vyasa"
+   ],
+   "note": "beats = 'paused' (the stylus lifts, he ponders), 'Vyasa' (new verses kindle above Vyasa)"
+  },
+  {
+   "id": "tusk",
+   "text": "When his pen broke, Ganesha broke his own tusk… and kept writing.",
+   "est": 5.5,
+   "post": 450,
+   "beats": [
+    3,
+    5,
+    10
+   ],
+   "emphasis": [
+    "Ganesha"
+   ],
+   "note": "beats = 'broke' (the stylus snaps), 'broke' (he breaks off his tusk), 'kept' (he writes with it)"
+  },
+  {
+   "id": "disciple",
+   "role": "next",
+   "text": "Vyasa taught it to his disciple Vaishampayana, who first told it aloud at King Janamejaya's sacrifice.",
+   "est": 7.0,
+   "post": 300,
+   "beats": [
+    6,
+    13
+   ],
+   "display": [
+    "discipleName",
+    "discipleEpithet"
+   ],
+   "emphasis": [
+    "Vaishampayana",
+    "Janamejaya"
+   ],
+   "note": "beats = 'Vaishampayana' (Vyasa gives him the bound manuscript; his name), 'King' (dissolve to the sacrificial fire of the king)"
+  },
+  {
+   "id": "why",
+   "role": "next",
+   "text": "But why was that sacrifice held?",
+   "est": 2.8,
+   "post": 500,
+   "beats": [
+    1,
+    5
+   ],
+   "note": "NEXT (cliffhanger). beats = 'why' (the smoke over the great fire coils like serpents), 'held' (the fire flares)"
+  },
+  {
+   "id": "next",
+   "role": "next",
+   "text": "Next: The Curse of Sarama.",
+   "say": "Next: [p:200] The Curse of Sarama.",
+   "est": 2.6,
+   "post": 500,
+   "caption": false,
+   "note": "the teaser card, with a glimpse of episode 5 (Sarama)"
+  }
+ ]
+}

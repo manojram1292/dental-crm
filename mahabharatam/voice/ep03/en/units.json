@@ -1,28 +1,28 @@
 {
  "speaker": "narrator",
  "voice": "am_michael",
- "speed": 0.81,
+ "speed": 0.8748000000000001,
  "pitch": 0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.6038,
+   "t1": 1.4052,
    "words": 3,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "As many elephants."
   },
   {
-   "t0": 1.8538,
-   "t1": 4.0219,
+   "t0": 1.6552,
+   "t1": 3.6364,
    "words": 3,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "Sixty-five thousand horses."
   },
   {
-   "t0": 4.2719,
-   "t1": 7.7767,
+   "t0": 3.8864,
+   "t1": 6.9671,
    "words": 8,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "A hundred and nine thousand soldiers on foot."
   }
  ],

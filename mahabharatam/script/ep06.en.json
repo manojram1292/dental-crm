@@ -1,0 +1,234 @@
+{
+  "lang": "en",
+  "episode": 6,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, adhyaya 3 (Paushya parva: Uttanka, the earrings of King Paushya's queen, Takshaka, the Naga world, Uttanka at Janamejaya's court)",
+  "structure": "Every episode: RECAP (≈3 s; KIT.series.recapStrip) → HOOK (one question, Sauti at the Naimisha fire; the episode title follows it: KIT.series.episodeTitle) → STORY → NEXT (a cliffhanger line, then the teaser card: KIT.series.nextTeaser).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 6",
+    "episodeTitle": "The Stolen Earrings",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 5",
+    "prevEpisodeTitle": "The Curse of Sarama",
+    "nextEpisodeLabel": "Episode 7",
+    "uttankaName": "Uttanka",
+    "uttankaEpithet": "a student",
+    "placePaushya": "King Paushya's palace",
+    "placeNaga": "The world of the Nagas",
+    "placeHastinapura": "Hastinapura",
+    "takshakaName": "Takshaka",
+    "takshakaEpithet": "king of the serpents",
+    "nextTitle": "The Snake Sacrifice"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.6
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice, used by the timeline), say (what is spoken, if not `text`): '…' and '—' pause, ',' and '.' pause a little, [p:400] pauses 400 ms, {s:0.8} speaks what follows at 0.8× until the next {s:…} ({s} resets)."
+  },
+  "lines": [
+    {
+      "id": "recap",
+      "text": "A curse fell on King Janamejaya.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        1
+      ],
+      "emphasis": [
+        "Janamejaya"
+      ],
+      "note": "RECAP. The Naimisha fire at night, Sauti seated by it; the series 'Previously' strip; in the smoke, Sarama's luminous profile over the king (beats[0] = 'curse')",
+      "role": "recap"
+    },
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "text": "Meanwhile, a student named Uttanka set out on a quest.",
+      "say": "Meanwhile… [p:100] a student named Uttanka set out on a quest.",
+      "est": 4.2,
+      "pre": 200,
+      "post": 1000,
+      "beats": [
+        4,
+        9
+      ],
+      "emphasis": [
+        "Uttanka"
+      ],
+      "note": "HOOK (Sauti, at the fire). The smoke becomes a road; a young student walks it. beats = 'Uttanka' (his name in gold), 'quest'; the episode title shows in the post",
+      "role": "hook"
+    },
+    {
+      "id": "ask",
+      "text": "His teacher's wife asked for one gift: the earrings of King Paushya's queen.",
+      "say": "His teacher's wife asked for one gift: [p:200] the earrings of King Paushya's queen.",
+      "est": 5.4,
+      "post": 300,
+      "beats": [
+        2,
+        8,
+        11
+      ],
+      "emphasis": [
+        "Paushya's"
+      ],
+      "note": "STORY 1. The teacher's hermitage at morning; the episode title rises. beats = 'wife' (she asks, hand open), 'earrings' (a vision of two glowing earrings between them), 'Paushya's'"
+    },
+    {
+      "id": "gave",
+      "text": "The queen gave them, but warned:",
+      "est": 2.8,
+      "post": 150,
+      "beats": [
+        2,
+        5
+      ],
+      "display": [
+        "placePaushya"
+      ],
+      "note": "STORY 2. King Paushya's palace in warm lamp-gold: the queen places the earrings in Uttanka's hands. beats = 'gave', 'warned' (she raises a finger)"
+    },
+    {
+      "id": "warn",
+      "speaker": "queen",
+      "text": "Takshaka, the serpent king, wants these.",
+      "say": "Takshaka, [p:200] the serpent king, [p:150] wants these.",
+      "est": 3.4,
+      "pre": 150,
+      "post": 450,
+      "beats": [
+        0,
+        5
+      ],
+      "emphasis": [
+        "Takshaka"
+      ],
+      "note": "STORY 3 (the queen speaks). beats = 'Takshaka' (a cold green glint behind the lattice: a hooded shadow), 'these' (the earrings flash)"
+    },
+    {
+      "id": "stolen",
+      "text": "On the way back, Takshaka stole them… and vanished underground.",
+      "say": "On the way back, [p:100] Takshaka stole them… [p:200] and vanished underground.",
+      "est": 5.0,
+      "post": 350,
+      "beats": [
+        4,
+        5,
+        8
+      ],
+      "emphasis": [
+        "Takshaka"
+      ],
+      "note": "STORY 4. The forest road at dusk: the earrings set down by a stream; a shimmering beggar snatches them, runs, and becomes the serpent king, who dives into a cleft in the earth. beats = 'Takshaka' (the beggar appears), 'stole' (the snatch), 'vanished' (the dive)"
+    },
+    {
+      "id": "naga",
+      "text": "Uttanka followed him into the serpent world, and won them back.",
+      "say": "Uttanka followed him into the serpent world… [p:200] and won them back.",
+      "est": 5.0,
+      "post": 350,
+      "beats": [
+        1,
+        6,
+        8
+      ],
+      "emphasis": [
+        "Uttanka"
+      ],
+      "display": [
+        "placeNaga"
+      ],
+      "note": "STORY 5. Down through the cleft into the Naga world: deep blue-green bioluminescence, hooded domes, glowing jewels. beats = 'followed' (he descends), 'world' (it opens out), 'won' (fire and smoke pour through the halls; Takshaka recoils and yields the earrings; gold flares against the green)"
+    },
+    {
+      "id": "anger",
+      "text": "But his anger burned on.",
+      "est": 2.6,
+      "pre": 200,
+      "post": 500,
+      "beats": [
+        2,
+        3
+      ],
+      "note": "STORY 6. Uttanka climbs out, earrings in hand, and looks back down: his rim burns from coral to red. beats = 'anger', 'burned'"
+    },
+    {
+      "id": "court",
+      "text": "He went to King Janamejaya:",
+      "est": 2.4,
+      "post": 100,
+      "beats": [
+        4
+      ],
+      "emphasis": [
+        "Janamejaya"
+      ],
+      "display": [
+        "placeHastinapura"
+      ],
+      "note": "NEXT 1. Janamejaya's court at Hastinapura, the king enthroned in saffron lamplight; Uttanka strides in",
+      "role": "next"
+    },
+    {
+      "id": "avenge",
+      "speaker": "uttanka",
+      "text": "Takshaka killed your father. Avenge him.",
+      "say": "Takshaka killed your father. [p:350] Avenge him.",
+      "est": 3.4,
+      "pre": 150,
+      "post": 400,
+      "beats": [
+        1,
+        3,
+        4
+      ],
+      "emphasis": [
+        "Takshaka"
+      ],
+      "note": "NEXT 2 (Uttanka speaks). beats = 'killed' (a cold green hood rises in the lamp smoke over a fallen crown: Parikshit's), 'father', 'Avenge' (Uttanka points)",
+      "role": "next"
+    },
+    {
+      "id": "vow",
+      "text": "The king vowed a sacrifice to burn every serpent.",
+      "est": 3.8,
+      "post": 450,
+      "beats": [
+        2,
+        6,
+        8
+      ],
+      "note": "NEXT 3. The king rises and raises his hand; behind him a great fire roars up and serpent shadows writhe in it. beats = 'vowed', 'burn', 'serpent'",
+      "role": "next"
+    },
+    {
+      "id": "next",
+      "text": "Next: The Snake Sacrifice.",
+      "say": "Next: [p:200] The Snake Sacrifice.",
+      "est": 2.8,
+      "post": 500,
+      "note": "the teaser card (KIT.series.nextTeaser), with a glimpse of episode 7: the great fire of the snake sacrifice",
+      "role": "next",
+      "caption": false
+    }
+  ]
+}

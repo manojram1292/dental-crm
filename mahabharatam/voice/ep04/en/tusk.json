@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4932,
+   "words": 4,
+   "speed": 0.81,
+   "text": "When his pen broke,"
+  },
+  {
+   "t0": 1.5732,
+   "t1": 3.624,
+   "words": 5,
+   "speed": 0.81,
+   "text": "Ganesha broke his own tusk"
+  },
+  {
+   "t0": 4.044,
+   "t1": 5.37,
+   "words": 3,
+   "speed": 0.81,
+   "text": "and kept writing."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

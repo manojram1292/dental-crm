@@ -91,21 +91,26 @@
   // Levels (cols × rows of patti cells): ×3 alternately down and across, then ×10 as 5 × 2 blocks.
   const DIMS = [[1, 1], [1, 3], [3, 3], [3, 9], [9, 9], [9, 27], [27, 27], [27, 81]];
   const COUNT = [1, 3, 9, 27, 81, 243, 729, 2187, 21870];
-  const BOX = { cx: 540, cy: 900, w: 840, h: 620 };
+  const BOX = { cx: 540, cy: 880, w: 840, h: 560 };
   EP3.GRID = { DIMS, COUNT, BOX };
 
-  /** Step schedule in absolute seconds, from the timeline: [{ t0, d }] for steps 1..8. */
+  /**
+   * Step schedule in absolute seconds, from the timeline: [{ t0, d }] for steps 1..8.
+   * Steps 1–7 (×3) sit on the "multiply" line's ticks (slow and readable first, quicker
+   * later: the script's ticks curve); step 8 (×10) lands on the "chariots" line's first
+   * beat ("ten"). Each step's tween fills most of its gap, so the eye can follow it.
+   */
   function schedule() {
     const L = Object.fromEntries(R.lines.map((l) => [l.id, l]));
     const m = L.multiply, c = L.chariots;
-    const s0 = m.beats[0] + 0.55, s1 = c.beats[0] - 0.6;
-    const out = [];
-    for (let i = 0; i < 7; i++) {
-      const sp = (s1 - s0) / 7;
-      out.push({ t0: s0 + i * sp, d: Math.min(0.62, sp * 0.92) });
-    }
-    out.push({ t0: c.beats[0] - 0.2, d: 1.0 });
-    out.pre = [m.start, s0 - 0.05];      // the panel shrinks into the box before the first step
+    let tk = (m.ticks && m.ticks.length >= 7) ? m.ticks.slice(0, 7) : null;
+    if (!tk) { const s0 = m.beats[0] + 0.3, s1 = m.end - 0.4; tk = Array.from({ length: 7 }, (_, i) => s0 + (s1 - s0) * i / 6); }
+    const out = tk.map((t0, i) => {
+      const gap = (i < 6 ? tk[i + 1] : c.beats[0] ?? t0 + 1) - t0;
+      return { t0, d: Math.max(0.3, Math.min(0.9, gap * 0.82)) };
+    });
+    out.push({ t0: (c.beats[0] ?? c.start + 0.4) - 0.1, d: 1.0 });
+    out.pre = [m.start, tk[0] - 0.05];      // the panel shrinks into the box before the first step
     return out;
   }
   EP3.schedule = schedule;

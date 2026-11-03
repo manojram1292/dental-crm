@@ -1,0 +1,30 @@
+{
+ "speaker": "queen",
+ "voice": "bf_emma",
+ "speed": 0.82,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.8197,
+   "words": 1,
+   "speed": 0.82,
+   "text": "Takshaka,"
+  },
+  {
+   "t0": 1.0197,
+   "t1": 2.418,
+   "words": 3,
+   "speed": 0.82,
+   "text": "the serpent king,"
+  },
+  {
+   "t0": 2.568,
+   "t1": 3.8832,
+   "words": 2,
+   "speed": 0.82,
+   "text": "wants these."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

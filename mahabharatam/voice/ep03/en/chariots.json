@@ -1,28 +1,35 @@
 {
  "speaker": "narrator",
  "voice": "am_michael",
- "speed": 0.81,
+ "speed": 0.8667000000000001,
  "pitch": 0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 2.2898,
+   "t1": 1.478,
    "words": 4,
-   "speed": 0.81,
-   "text": "until one akshauhini stands:"
+   "speed": 0.867,
+   "text": "Then ten times that:"
   },
   {
-   "t0": 2.3698,
-   "t1": 3.994,
+   "t0": 1.558,
+   "t1": 2.9825,
    "words": 2,
-   "speed": 0.81,
-   "text": "twenty-one thousand,"
+   "speed": 0.867,
+   "text": "one akshauhini."
   },
   {
-   "t0": 4.074,
-   "t1": 6.5,
+   "t0": 3.2325,
+   "t1": 4.6286,
+   "words": 2,
+   "speed": 0.867,
+   "text": "Twenty-one thousand,"
+  },
+  {
+   "t0": 4.7086,
+   "t1": 7.0161,
    "words": 5,
-   "speed": 0.81,
+   "speed": 0.867,
    "text": "eight hundred and seventy chariots."
   }
  ],

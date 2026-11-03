@@ -179,6 +179,58 @@ flying behind him. A sword in its scabbard at the hip.
 | Poses | `stand` (hand on the sword hilt) · `walk` · `sit` (enthroned) · `speak` (command: the near hand points) · `bless` · **`offer`** (pours ghee from the ladle) |
 | Voice | `janamejaya` → am_michael, 0.9×, +1 st. Younger and brighter than the narrator, who uses the same voice at 0.81×, unshifted. |
 
+## Ganesha (Ekadanta), the scribe · `ganesha` (episode 4)
+
+**Who.** As tradition tells it (the vulgate's Adi Parva 1; the Critical Edition excludes the
+passage, so the episode marks it on screen with `KIT.series.traditionTag`): Vyasa needed a scribe;
+Ganesha agreed on condition that Vyasa never stop dictating; Vyasa asked that he write nothing he
+did not understand, and composed more whenever Ganesha paused over a verse. When his pen broke,
+Ganesha broke off his own tusk and wrote on.
+
+**Look.** Drawn reverently, as a temple-mural / shadow-puppet profile. An elephant head with a high
+double-domed cranium, a great fan ear (gold border), a trunk that curls out and back at chest height
+(gold contour so it reads against the body), a gold almond eye and a vermilion tilak; a tall tiered
+**karanda-mukuta** crown with a lotus-bud finial and side flares. A full round belly bound with a
+serpent belt (Vasuki); necklaces; armlets. **Four arms**: the front pair writes (iron stylus in the
+near hand, palm leaf on the far hand over the knee); the raised back pair holds the **ankusha** goad
+and a lotus bud. Ankle-length dhoti. Seated cross-legged to write.
+
+| | |
+|---|---|
+| Palette | fill `#120806` · lit `#3a1408` · inner `#5a1a0a` · rim `#c8401a` → `#ffb070` · aura `#ff7a3a` · tusk `#f2e6c8` · leaf `#d9b878` · ornaments `#a8741f` → `#ffd27a` |
+| Proportions | ≈ 1000 units to the crown tip standing (crown ≈ 230), ≈ 760 seated. Hip 430, thigh 226, shin 206. Head ≈ 300 across with the ear; trunk ≈ 310; belly 296 × 264. Stout arms (60 → 32). |
+| Props | palm leaf · iron stylus (lekhani), later **the broken tusk** · ankusha and lotus bud · crown · serpent belt · tilak |
+| **Tusk state** | Whole until he breaks it. `pose: { …, tusk: 'broken' }` (or the `break-tusk` pose past k = 0.5) draws the right tusk as a stub, and he writes with the broken tusk from then on. Tusks are painted ivory over the silhouette. |
+| Signature light | **Warm saffron-vermilion.** Rim × 1.05, glow 0.9, inner 0.9 (0.45 front-lit); a soft vermilion aura and a faint ring behind the head (the sindhura he is worshipped with). |
+| Poses | `stand` · `sit` · **`write`** (k; `phase` drives the stroke along the leaf) · **`pause`** (k: the stylus lifts, the head bows, the trunk curls: grasping a verse) · `speak` (k: one finger raised: "one condition") · **`break-tusk`** (k: hand to the tusk 0 → 0.45, snap at 0.5, down to the leaf with it at 1) · `bless` |
+| Voice | `ganesha` → **am_echo**, 0.82×, unshifted (median F0 ≈ 114 Hz: between the narrator and the elder). Warm and unhurried; no other cast member uses it. |
+
+## Vaishampayana, Vyasa's disciple · `vaishampayana` (episode 4)
+
+**Who.** Vyasa taught him the epic; he first recited it, at King Janamejaya's sacrifice, where Sauti
+heard it (CE 1.1.57). A sage variant built on Vyasa's frame (`src/kit/characters/vaishampayana.js`).
+
+**Look.** Young and upright: a short trimmed beard, a high bun bound with a cord, hair to the nape;
+bare chest with the sacred thread and an uttariya over the shoulder; bark-cloth valkala. No halo
+(that is his teacher's).
+
+| | |
+|---|---|
+| Palette | fill `#0d0a0c` · lit `#2e2024` · inner `#2a1a20` · rim `#a8706a` → `#ffd6c4` · ornaments `#9a7a5a` → `#f2dcc0` |
+| Proportions | ≈ 1010 units (Vyasa's frame): hip 490, thigh 246, shin 232. |
+| Props | the bound manuscript he receives (far hand) · japa mala · uttariya |
+| Signature light | **Dawn-rose.** Rim × 0.9, glow 0.6, a plum inner glow. |
+| Poses | `stand` · `walk` · `sit` · `speak` · **`receive`** (k: both hands forward; he holds the manuscript at k = 1) · `bless` · `bow` |
+| Voice | `vaishampayana` → bm_fable, 0.86×, +1.5 st (reserved: he does not speak in episode 4). |
+
+### Locations and light
+
+Characters keep their signature light everywhere; the **environment and its key light change per
+location**. The Naimisha clearing (`KIT.ashram`) is night and firelight: the frame every episode
+returns to. Vyasa's hermitage (`src/scenes/ep04/_common.js`, `EP4.hermitage`) is the Himalayan
+foothills at morning: snow peaks, misty valleys, deodars, a thatched hut and a stream, a low sun on
+the left (`EP4.sunLight` points each character's rim toward it, with a little front light).
+
 ## Narrator · `narrator`
 
 **Voice:** am_michael, 0.81× (was 0.9×), pitch 0 (median F0 ≈ 129 Hz). This is episode 1's voice. The narrator has
@@ -207,3 +259,7 @@ no figure.
   gana, vahini, pritana, chamu, anikini) is three times the one before, and ten anikinis make an
   akshauhini: 21,870 chariots, 21,870 elephants, 65,610 horses, 109,350 foot soldiers. Eighteen
   akshauhinis (eleven Kaurava, seven Pandava) met at Samantapanchaka and fought for eighteen days.
+- **Episode 4**: Vyasa composed the epic and taught it to Vaishampayana, who recited it at
+  Janamejaya's sacrifice (CE 1.1.52–1.1.57). The Ganesha-as-scribe episode is later tradition (the
+  vulgate's Adi Parva 1, relegated to the apparatus of the Critical Edition); it is marked on screen
+  "As tradition tells it".

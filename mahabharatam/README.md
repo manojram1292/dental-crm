@@ -4,9 +4,27 @@ Vertical YouTube Shorts (1080×1920, 30 fps). Every frame and every sound is gen
 
 | Episode | Title | Source | Output |
 |---|---|---|---|
-| 1 | The Storyteller Arrives | Adi Parva 1 | `episode01.mp4` (+ `episode01-share.mp4`), 36.2 s |
-| 2 | The Field of Five Lakes | Adi Parva 2 (Samantapanchaka) | `episode02.mp4` (+ `episode02-share.mp4`), 44.6 s |
-| 3 | Eighteen Armies | Adi Parva 2 (the akshauhini) | `episode03.mp4` (+ `episode03-share.mp4`), 50.7 s |
+| 1 | The Storyteller Arrives | Adi Parva 1 | `episode01.mp4` (+ `episode01-share.mp4`), 44.8 s |
+| 2 | The Field of Five Lakes | Adi Parva 2 (Samantapanchaka) | `episode02.mp4` (+ `episode02-share.mp4`), 49.6 s |
+| 3 | Eighteen Armies | Adi Parva 2 (the akshauhini) | `episode03.mp4` (+ `episode03-share.mp4`), 56.4 s |
+| 4 | The Story Is Born | Adi Parva 1 (Vyasa, Vaishampayana); Ganesha as scribe from later tradition, marked on screen | `episode04.mp4` (+ `episode04-share.mp4`), 51.9 s |
+
+## Continuity: one structure for every episode
+
+1. **RECAP** (≈ 3–4 s; not in episode 1). Line id `recap`, spoken by the narrator. `KIT.series.recapScene`
+   shows the "Previously" strip and the last episode's key image as a sepia memory in a temple niche;
+   `series_recap_sting` in `tools/score.py` plays under it.
+2. **HOOK**: one clear question (`role: "hook"`). Sauti and the Naimisha sages by the fire are the anchor
+   framing: every episode opens or returns there. The episode title (`KIT.series.episodeTitle`) is set
+   in the hook line's tail (`post`).
+3. **STORY**: a complete mini-arc.
+4. **NEXT**: a cliffhanger line, then line `next` ("Next: <title>", `caption: false`) over the teaser card
+   (`KIT.series.nextScene`: NEXT, a niche opening on a glimpse of the next episode's key image, its
+   number and title) with `series_next_sting`.
+
+Card words come from the script's `strings` (`previouslyLabel`, `prevEpisodeLabel`, `prevEpisodeTitle`,
+`nextLabel`, `nextEpisodeLabel`, `nextTitle`, `traditionNote`), so dubbing changes only the script.
+The API is documented at the top of `src/kit/series.js`.
 
 The characters are fixed in a **character bible**: see `CHARACTERS.md` and `CHARACTERS.png`.
 
@@ -107,6 +125,7 @@ The share copy is made with `ffmpeg -i episodeNN.mp4 -c:v libx264 -crf 23 -prese
 | `manuscript.js` | Palm-leaf pages |
 | `captions.js` | Captions |
 | `endcard.js` | The series end card |
+| `series.js` | The continuity grammar every episode follows (RECAP → HOOK → STORY → NEXT): `KIT.series.recapStrip` ("Previously…" strip + the last episode as a sepia memory in a temple niche), `episodeTitle` (the title lockup after the hook), `nextTeaser` (the "Next" card with a glimpse of the next episode), `traditionTag` ("As tradition tells it"), and `recapScene` / `nextScene` to register the standard scenes. All words come from script `strings` (API at the top of the file). Score: `series_recap_sting` / `series_next_sting` in `tools/score.py`. |
 | `army.js` | The four arms of the army as mural puppets: `KIT.army.draw(ctx, 'chariot' \| 'elephant' \| 'horse' \| 'soldier', o)` (chariot with two horses and a banner, elephant with howdah, horse with rider and lance, foot soldier with spear and shield), plus the patti tile and its mip-mapped pattern for massed armies |
 
 Episode-specific helpers live with their scenes. For example, `src/scenes/ep02/_common.js` holds the storm, the lakes, crowns, lotuses and the field seen from above (`EP2.mandala`). Episode 3 reuses it: in `src/episodes.js`, an entry with a slash (`'ep02/_common'`) loads another episode's file. `src/scenes/ep03/_common.js` holds the multiplying patti grid, the gold counters and the marching friezes.
@@ -115,4 +134,4 @@ Episode-specific helpers live with their scenes. For example, `src/scenes/ep02/_
 
 The engine (`src/engine.js`, `src/runtime.js`) and the tools are forked from `../ribhu-film`. Fonts are Cinzel and EB Garamond, under the SIL Open Font License (see `fonts/`).
 
-Episode 1 is unchanged in story. Its voice was regenerated with the slower, lighter settings, so its timeline re-flowed and its music was re-scored to match. Its scenes now draw through the character modules. Sauti matches the old frames closely. The circle's sages now carry their per-index variations, so a re-render of episode 1 shows them less uniform than the existing `episode01.mp4`.
+Episodes 1–3 were re-cut to the continuity structure above (episode 1 has no recap: its hook is "Where did the greatest story ever told begin?"). Episode 3's seven ×3 steps now sit on the `multiply` line's `ticks` (slow first, quicker later) with a row of ×3…×10 badges that light as each step happens; `tools/score.py`'s `ep3_steps` reads the same ticks. Episode 4 adds Ganesha (`ganesha.js`) and Vaishampayana (`vaishampayana.js`), and a new location with its own light: Vyasa's hermitage in the Himalayan foothills at morning (`src/scenes/ep04/_common.js`).

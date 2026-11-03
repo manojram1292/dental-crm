@@ -1,16 +1,14 @@
 /*
- * Line "before" · THE HOOK
- * "Before the war. Before the dice. Before any throne was fought for…"
+ * Lines "hook" + "notwar" · THE HOOK (one continuous shot over two lines)
+ * "Where did the greatest story ever told begin?" / "Not on a battlefield… but in a quiet forest."
  *
- * Black. Three ghost images flare up in gold, each on a drum hit (env.beats =
- * the three "Before"s, from the timeline), and burn away into embers:
- *   1. crossed arrows over a drawn bow   (the war)
- *   2. long pasa dice tumbling down      (the dice)
- *   3. an empty throne under a parasol   (the throne)
- * A faint fire-glow breathes at the bottom of frame, the source of every light.
- * After the third flash a single ember lingers and rises (it becomes the dawn
- * of the next shot, which dissolves in over it).
- * All motion is in local time relative to the beats, so it works for any voice.
+ * Black. Ghost images of the story flare up in gold, each on a drum hit, and burn away
+ * into embers: an empty throne under a parasol ('greatest'), long pasa dice tumbling
+ * ('told'), then crossed arrows over a drawn bow ('battlefield'), which burns away the
+ * fastest: not there. A faint fire-glow breathes at the bottom of frame, the source of
+ * every light. On 'quiet' a single ember rises (it becomes the clearing of the next shot),
+ * and in the line's tail the episode title is set (KIT.series.episodeTitle).
+ * All times come from the two lines' beats (absolute), so it works for any voice.
  */
 (function () {
   'use strict';
@@ -149,11 +147,13 @@
     return atk * dec;
   }
 
-  R.scene({
-    id: 'before',
-    draw(ctx, t, env) {
+  function draw(ctx, _t, env) {
       const T = env.T;
-      const beats = env.beats.length >= 3 ? env.beats : [0.05, env.dur * 0.27, env.dur * 0.52];
+      const L = Object.fromEntries(R.lines.map((l) => [l.id, l]));
+      const H = L.hook, N = L.notwar, t0 = H.start;
+      const t = T - t0;
+      const beats = [H.beats[0] ?? H.start + 1, H.beats[1] ?? H.start + 2.4, N.beats[0] ?? N.start + 1].map((b) => b - t0);
+      const quiet = (N.beats[1] ?? N.start + 2) - t0, span = N.end - t0;
       ctx.fillStyle = '#050304'; ctx.fillRect(0, 0, R.W, R.H);
       // the unseen fire below, breathing (stronger on each hit)
       let hit = 0;
@@ -165,9 +165,9 @@
       KIT.smoke.draw(ctx, 540, 1900, T, { h: 1900, w: 220, strands: 4, alpha: 0.16 + 0.1 * hit, color: '#6e5a66', speed: 0.5, seed: 9, curls: 0.4 });
 
       const arts = [
-        { art: ARROWS, hold: 0.22, decay: 0.32, seed: 11 },
-        { art: null, hold: 0.25, decay: 0.34, seed: 12 },
-        { art: THRONE, hold: 0.5, decay: 0.55, seed: 13 },
+        { art: THRONE, hold: 0.4, decay: 0.45, seed: 13 },
+        { art: null, hold: 0.3, decay: 0.36, seed: 12 },
+        { art: ARROWS, hold: 0.18, decay: 0.26, seed: 11 },
       ];
       arts.forEach((A, k) => {
         const b = beats[k];
@@ -175,7 +175,7 @@
         const d = t - b;
         if (d < -0.03 || d > 3.2) return;
         const art = A.art || diceArt(clamp(d / 1.1));
-        const zoom = 0.92 + 0.12 * E.outCubic(clamp(d / 1.4)) + (k === 2 ? 0.05 * clamp(d / 2) : 0);
+        const zoom = 0.92 + 0.12 * E.outCubic(clamp(d / 1.4)) + (k === 0 ? 0.05 * clamp(d / 2) : 0);
         ctx.save();
         ctx.translate(CX, CY);
         ctx.scale(zoom, zoom);
@@ -206,8 +206,8 @@
       });
 
       // the lingering ember: rises toward the next shot
-      const last = beats[2] + 0.9;
-      const u = clamp((t - last) / Math.max(0.6, env.dur - last + 0.8));
+      const last = quiet - 0.1;
+      const u = clamp((t - last) / Math.max(0.6, span - last + 0.6));
       if (u > 0) {
         const x = CX + Math.sin(u * 5) * 26, y = lerp(CY + 120, CY - 260, E.inOutSine(u));
         const a = Math.sin(Math.PI * Math.min(1, u * 1.6 + 0.1)) * KIT.flicker(T, 4);
@@ -216,7 +216,12 @@
         ctx.beginPath(); ctx.arc(x, y, 4.5, 0, TAU); ctx.fill();
         ctx.globalAlpha = 1;
       }
-    },
+      // the episode title, in the line's tail
+      const tk = clamp((T - (N.speechEnd + 0.05)) / 1.1);
+      if (tk > 0) KIT.series.episodeTitle(ctx, T, tk, env.strings, { y: 860, scrim: false, key: 'ep1-title' });
+  }
+
+  for (const id of ['hook', 'notwar']) R.scene({ id, draw,
     post: () => ({ bloom: 0.45, vignette: 0.55, paper: 0.18 }),
   });
 })();

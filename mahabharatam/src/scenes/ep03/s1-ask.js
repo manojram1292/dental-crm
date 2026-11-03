@@ -1,5 +1,5 @@
 /*
- * Ep 3 · line "ask" · elder_sage: "And what is an akshauhini, the army you speak of?"
+ * Ep 3 · line "ask" · elder_sage: "You said eighteen armies. How large was one?"
  *
  * The same framing as episode 2's question, for continuity: the Naimisha fire
  * circle at night, Sauti seated on the left facing the fire, the elder sage
@@ -16,6 +16,7 @@
 
   R.scene({
     id: 'ask',
+    fadeIn: 0.5,
     draw(ctx, t, env) {
       const T = env.T, dur = env.dur, p = clamp(t / dur, 0, 1.3);
       const fl = KIT.flicker(T, 0);
@@ -42,6 +43,9 @@
           });
         },
       });
+      // the episode title, once the question has been asked
+      const tk = clamp((t - (env.speech[1] + 0.05)) / 1.1);
+      if (tk > 0) KIT.series.episodeTitle(ctx, T, tk, env.strings, { y: 340, key: 'ep3-title' });
     },
     post: () => ({ bloom: 0.34, vignette: 0.5, paper: 0.32 }),
   });

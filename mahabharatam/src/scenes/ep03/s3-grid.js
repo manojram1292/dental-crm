@@ -30,7 +30,7 @@
     const ca = E.outCubic(clamp((T - S[0].t0 + 0.2) / 0.5));
     const done = clamp((T - last.t0 - last.d) / 0.6);
     const L = R.lines.find((l) => l.id === 'chariots');
-    const cb = L.beats[2] ?? L.end - 1;
+    const cb = L.beats[2] ?? L.end - 1;   // 'chariots'
     const hi = Math.exp(-Math.max(0, T - cb) / 0.6) * (T > cb - 0.05 ? 1 : 0);
     // a dark field behind the numerals so they read over the grid
     KIT.vgrad(ctx, 150, 520, [[0, 'rgba(8,8,26,0)'], [0.25, 'rgba(8,8,26,0.72)'], [0.75, 'rgba(8,8,26,0.72)'], [1, 'rgba(8,8,26,0)']]);
@@ -45,8 +45,28 @@
       const big = g.step === 8;
       KIT.goldText(ctx, `${env.strings.times || '×'}${g.mult}`, big ? 880 : 865, 318, { size: big ? 84 : 70, spacing: 2, weight: 700, alpha: k * ca, glow: 0.5, key: 'ctr-mult' });
     }
+    // the step badges: ×3 seven times, then ×10; each lights as its step happens (the eye can count them)
+    // (they retire once the ×10 has landed: the akshauhini's name and the long caption take over)
+    const ba = E.outCubic(clamp((T - S[0].t0 + 0.6) / 0.5)) * (1 - clamp((T - S[7].t0 - 0.7) / 0.4));
+    if (ba > 0.003) {
+      const n = S.length, bw = 88, gap = 12, x0 = KIT.CX - (n * bw + (n - 1) * gap) / 2, by = 1222;
+      ctx.save();
+      ctx.font = R.font(36, 'display', 700); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      for (let i = 0; i < n; i++) {
+        const st = S[i], x = x0 + i * (bw + gap), big = i === n - 1;
+        const on = clamp((T - st.t0) / 0.15), hot = on * Math.exp(-Math.max(0, T - st.t0) / 0.6);
+        ctx.globalAlpha = ba;
+        ctx.fillStyle = on > 0 ? R.mix('#3a2410', '#8a5a1c', on) : 'rgba(30,20,14,0.85)';
+        ctx.beginPath(); R.roundRectPath(ctx, x, by - 34, bw, 68, 12); ctx.fill();
+        ctx.lineWidth = 2.5; ctx.strokeStyle = on > 0 ? PAL.gold : 'rgba(231,181,74,0.35)'; ctx.stroke();
+        if (hot > 0.02) KIT.glow(ctx, x + bw / 2, by, 90, '#ffb04a', 0.7 * hot);
+        ctx.fillStyle = on > 0 ? R.mix(PAL.goldPale, '#ffffff', hot) : 'rgba(231,181,74,0.45)';
+        ctx.fillText(`${env.strings.times || '×'}${big ? 10 : 3}`, x + bw / 2, by + 2);
+      }
+      ctx.restore();
+    }
     // "1 Akshauhini" on its word
-    const a = E.outCubic(clamp((T - (last.t0 + 0.55)) / 0.6));
+    const a = E.outCubic(clamp((T - ((L.beats[1] ?? last.t0 + 0.8) - 0.15)) / 0.6));
     if (a > 0) {
       KIT.ornament(ctx, KIT.CX, 468, 380, a, a);
       KIT.goldText(ctx, (env.strings.akshauhiniName || '').toUpperCase(), KIT.CX, 528, { size: 52, spacing: 8, weight: 600, alpha: a, reveal: E.inOutSine(a), glow: 0.3, key: 'aksh-name' });

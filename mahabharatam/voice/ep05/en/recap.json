@@ -1,0 +1,16 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 3.9884,
+   "words": 9,
+   "speed": 0.891,
+   "text": "The story was first told at King Janamejaya's sacrifice."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

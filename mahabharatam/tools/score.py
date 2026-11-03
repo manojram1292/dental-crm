@@ -324,8 +324,9 @@ def build(tl):
         t += cyc
         k += 1
     # the drone breathes in under the hook rather than starting full
-    first = g('before')
-    hook_end = g('forest')['start'] if g('forest') else 4.0
+    # (the hook's ghost flashes: 'hook' beats + 'notwar' beat 0; older cuts had one 'before' line)
+    first = g('before') or ({'beats': list(g('hook')['beats']) + list(g('notwar')['beats'][:1])} if g('hook') and g('notwar') else None)
+    hook_end = g('fire')['start'] if g('fire') else (g('forest')['start'] if g('forest') else 4.0)
     bed *= env_curve([(0, 0.35), (hook_end * 0.6, 0.55), (hook_end, 1.0), (D, 1.0)], N)
 
     # ── shruti-box reeds: swell under the clearing (fire → end) ──
@@ -340,6 +341,8 @@ def build(tl):
         t0 = l['start']
         if i == 0:
             continue    # the hook's own beats carry line 1
+        if l['id'] in ('notwar', 'next'):
+            continue    # the hook is one shot; the Next card has its own sting
         vel = 0.62 if l['id'] != 'episode' else 0.55
         add(bus_dry, pan(mridangam('ki', i, 0.35), -0.15), t0 - 0.16)
         add(bus_dry, pan(mridangam('ta', i, 0.4), 0.15), t0 - 0.08)
@@ -363,8 +366,9 @@ def build(tl):
         x = ghanta(f, 5.0, key, vel)
         add(bus_dry, pan(x * 0.4, p), t0)
         add(bus_wet, pan(x * 0.8, p), t0)
-    if g('forest'):
-        bell(g('forest')['start'] + 0.25, 1174.7, 0.22, 0.4, 'f')          # D6, distant: dawn
+    walk = g('arrived') or g('forest')
+    if walk:
+        bell(walk['start'] + 0.25, 1174.7, 0.22, 0.4, 'f')          # D6, distant: dawn
     if g('name'):
         bell(g('name')['beats'][0] if g('name')['beats'] else g('name')['start'] + 1, 880.0, 0.3, -0.25, 'n')   # A5 on the name
     if g('fire'):
@@ -397,21 +401,31 @@ def build(tl):
     # ── fire: under the hook (unseen), the clearing, the title and the card ──
     fire = crackle(N, 'fire')
     fire_aut = [(0, 0.18)]
-    if g('forest'):
-        fire_aut += [(g('forest')['start'] - 0.2, 0.18), (g('forest')['start'] + 0.6, 0.0)]
-    if g('fire'):
-        fire_aut += [(g('fire')['start'] - 0.1, 0.0), (g('fire')['start'] + 0.4, 0.7)]
+    if g('fire') and g('arrived'):
+        # the clearing (fire) → the forest walk (no fire) → the name → the clearing again (asked)
+        fire_aut += [(g('fire')['start'] - 0.2, 0.18), (g('fire')['start'] + 0.5, 0.7), (g('arrived')['start'] - 0.1, 0.7), (g('arrived')['start'] + 0.5, 0.0),
+                     (g('asked')['start'] - 0.1, 0.0), (g('asked')['start'] + 0.4, 0.6)]
+    else:
+        if g('forest'):
+            fire_aut += [(g('forest')['start'] - 0.2, 0.18), (g('forest')['start'] + 0.6, 0.0)]
+        if g('fire'):
+            fire_aut += [(g('fire')['start'] - 0.1, 0.0), (g('fire')['start'] + 0.4, 0.7)]
     if g('vyasa'):
         fire_aut += [(g('vyasa')['start'], 0.7), (g('vyasa')['start'] + 0.6, 0.45)]
+    if g('tease'):
+        fire_aut += [(g('tease')['start'] + 0.3, 0.8)]
     if g('episode'):
         fire_aut += [(g('episode')['start'] + 0.5, 0.5)]
+    if g('next'):
+        fire_aut += [(g('next')['start'] + 0.5, 0.35)]
     fire_aut += [(D - 0.6, 0.45), (D, 0.0)]
     fa = env_curve(fire_aut, N)
     add(bus_dry, np.stack([fire * fa * 0.09, np.roll(fire, 911) * fa * 0.09]), 0)
 
     # ── dawn birds in the forest (and faintly under the name) ──
-    if g('forest'):
-        f0t, f1t = g('forest')['start'], (g('fire')['start'] if g('fire') else D)
+    if walk:
+        f0t = walk['start']
+        f1t = g('asked')['start'] if g('arrived') and g('asked') else (g('fire')['start'] if g('fire') else D)
         r = rng('birds')
         tt = f0t + 0.3
         while tt < f1t - 0.3:
@@ -459,6 +473,21 @@ def build(tl):
         shim = sum(np.sin(2 * np.pi * f * tt + i) * (0.5 + 0.5 * np.sin(2 * np.pi * (0.3 + 0.17 * i) * tt)) for i, f in enumerate((SA * 4, SA * 6, SA * 8, SA * 12)))
         shim *= np.minimum(1, tt / 1.2) * 0.02
         add(bus_wet, fade(np.stack([shim, np.roll(shim, 333)]), 0.2, 0.8), tb - 0.2)
+
+    # ── the tease: "with a field of blood" — a low omen under the red, a distant thunder ──
+    if g('tease'):
+        tz = g('tease')
+        b1 = tz['beats'][1] if len(tz['beats']) > 1 else tz['start'] + 2.5
+        b0 = tz['beats'][0] if tz['beats'] else tz['start'] + 0.6
+        add(bus_dry, pan(mridangam('thom', 'tz0', 0.5), -0.05), b0)
+        dr = reed_drone(smp(tz['end'] - b1 + 1.5), (SA / 2, SA / 2 * 16 / 15), 'omen1')
+        dr = lpf(dr, 600) * env_curve([(0, 0), (0.6, 0.3), (tz['end'] - b1, 0.3), (tz['end'] - b1 + 1.4, 0)], len(dr))
+        add(bed, np.stack([dr, np.roll(dr, 900)]) * 0.9, b1 - 0.4)
+        th = thunder('tz', 3.5, 0.6)
+        add(bus_wet, pan(th * 0.5, -0.3), b1)
+        add(bus_dry, pan(mridangam('thom', 'tz1', 0.9), 0.0), b1)
+    if g('next'):
+        series_next_sting(bus_dry, bus_wet, g('next'))
 
     # ── mix ──
     hall = make_ir(3.2, 4.0, 'hall')
@@ -574,8 +603,9 @@ def build_ep2(tl):
     bed += tan * calm
     # ── fire crackle under the fire circle and the answer, again faint under the end card
     fire = crackle(N, 'fire2')
+    endl = 'next' if 'next' in L else 'episode'
     fa = env_curve([(0, 0.0), (0.4, 0.6), (st('answer'), 0.7), (beat('answer', 0), 1.0), (st('parashurama') + 0.3, 0.0),
-                    (st('episode'), 0.0), (st('episode') + 0.6, 0.45), (D - 0.5, 0.45), (D, 0)], N)
+                    (st(endl), 0.0), (st(endl) + 0.6, 0.35), (D - 0.5, 0.35), (D, 0)], N)
     add(bus_dry, np.stack([fire * fa * 0.09, np.roll(fire, 777) * fa * 0.09]), 0)
     # ── line starts: soft tham at the fire; the answer's flare: a rising whoosh + shimmer of the map
     for i, lid in enumerate(('answer',)):
@@ -684,12 +714,19 @@ def build_ep2(tl):
         add(bus_wet, pan(c * 0.9, pp), mb + dt)
     hit(mb, 600, 0.7, boom=0.35)
 
-    # ── the end card: bells as in episode 1
-    e0 = st('episode')
-    add(bus_dry, pan(mridangam('ki', 700, 0.3), -0.15), e0 - 0.14)
-    hit(e0, 700, 0.5)
-    bell(e0 + 0.15, 587.33, 0.3, 0.0, 'e21')
-    bell(e0 + 0.95, 880.0, 0.2, 0.3, 'e22')
+    # ── the series stings: the recap at the top, the "Next" card at the end
+    if 'recap' in L:
+        series_recap_sting(bus_dry, bus_wet, L['recap'])
+        add(bus_dry, pan(mridangam('ki', 690, 0.3), -0.15), st('ask') - 0.14)
+        hit(st('ask'), 690, 0.45)
+    if 'next' in L:
+        series_next_sting(bus_dry, bus_wet, L['next'])
+    else:
+        e0 = st('episode')
+        add(bus_dry, pan(mridangam('ki', 700, 0.3), -0.15), e0 - 0.14)
+        hit(e0, 700, 0.5)
+        bell(e0 + 0.15, 587.33, 0.3, 0.0, 'e21')
+        bell(e0 + 0.95, 880.0, 0.2, 0.3, 'e22')
 
     # ── mix (as episode 1)
     hall = make_ir(3.2, 4.0, 'hall')
@@ -711,11 +748,14 @@ def build_ep2(tl):
 
 # ─── episode 3: Eighteen Armies ──────────────────────────────────────────────
 def ep3_steps(L):
-    """The grid's step times, as src/scenes/ep03/_common.js schedules them."""
+    """The grid's step times, as src/scenes/ep03/_common.js schedules them: the seven ×3 steps on
+    the "multiply" line's ticks, the ×10 on the "chariots" line's first beat ("ten")."""
     m, c = L['multiply'], L['chariots']
-    s0, s1 = m['beats'][0] + 0.55, c['beats'][0] - 0.6
-    sp = (s1 - s0) / 7
-    return [s0 + i * sp for i in range(7)] + [c['beats'][0] - 0.2]
+    tk = list(m.get('ticks', []))[:7]
+    if len(tk) < 7:
+        s0, s1 = m['beats'][0] + 0.3, m['end'] - 0.4
+        tk = [s0 + (s1 - s0) * i / 6 for i in range(7)]
+    return tk + [c['beats'][0] - 0.1]
 
 
 def build_ep3(tl):
@@ -753,9 +793,10 @@ def build_ep3(tl):
     calm = env_curve([(0, 0.5), (1.5, 1.0), (st('multiply'), 0.9), (st('chariots'), 0.45), (st('units'), 0.25),
                       (st('armies'), 0.1), (beat('days', 1), 0.1), (en('days') - 1.0, 0.8), (D, 1.0)], N)
     bed += tan * calm
+    endl = 'next' if 'next' in L else 'episode'
     fire = crackle(N, 'fire3')
     fa = env_curve([(0, 0.0), (0.4, 0.6), (st('patti'), 0.8), (st('multiply') + 0.5, 0.25), (st('units'), 0.15), (st('armies'), 0.0),
-                    (st('episode'), 0.0), (st('episode') + 0.6, 0.45), (D - 0.5, 0.45), (D, 0)], N)
+                    (st(endl), 0.0), (st(endl) + 0.6, 0.35), (D - 0.5, 0.35), (D, 0)], N)
     add(bus_dry, np.stack([fire * fa * 0.09, np.roll(fire, 777) * fa * 0.09]), 0)
     bell(st('ask') + 0.2, 587.33, 0.18, 0.2, 'e3a')
     # ── the patti: a soft tham as each unit steps into the frieze, a bell on "patti"
@@ -814,11 +855,28 @@ def build_ep3(tl):
     # ── the solemn close: low bells as the dust settles, then the end card
     for i, (f, pp) in enumerate(((293.66, -0.3), (220.0, 0.3))):
         bell(en('days') - 1.6 + i * 0.7, f, 0.22, pp, ('close', i))
-    e0 = st('episode')
-    add(bus_dry, pan(mridangam('ki', 1700, 0.3), -0.15), e0 - 0.14)
-    hit(e0, 1700, 0.5)
-    bell(e0 + 0.15, 587.33, 0.3, 0.0, 'e31')
-    bell(e0 + 0.95, 880.0, 0.2, 0.3, 'e32')
+    # ── the tease: leaves rise out of the dust (a soft shimmer and air), a bell on "Who"
+    if 'tease' in L:
+        tz = L['tease']
+        n = smp(tz['end'] - beat('tease', 0) + 0.8)
+        tt = tvec(n)
+        shim = sum(np.sin(2 * np.pi * f * tt + i) * (0.5 + 0.5 * np.sin(2 * np.pi * (0.3 + 0.2 * i) * tt)) for i, f in enumerate((SA * 4, SA * 6, SA * 8)))
+        add(bus_wet, fade(np.stack([shim, np.roll(shim, 500)]) * np.minimum(1, tt / 1.0) * 0.02, 0.3, 0.6), beat('tease', 0))
+        air = bpf(rng('tease3').standard_normal(n), 400, 4000) * np.minimum(1, tt / 1.5) * 0.03
+        add(bus_wet, fade(np.stack([air, air[::-1]]), 0.5, 0.6), beat('tease', 0))
+        bell(beat('tease', 1), 440.0, 0.24, -0.1, 'who')
+    if 'recap' in L:
+        series_recap_sting(bus_dry, bus_wet, L['recap'])
+        add(bus_dry, pan(mridangam('ki', 1690, 0.3), -0.15), st('ask') - 0.14)
+        hit(st('ask'), 1690, 0.45)
+    if 'next' in L:
+        series_next_sting(bus_dry, bus_wet, L['next'])
+    else:
+        e0 = st('episode')
+        add(bus_dry, pan(mridangam('ki', 1700, 0.3), -0.15), e0 - 0.14)
+        hit(e0, 1700, 0.5)
+        bell(e0 + 0.15, 587.33, 0.3, 0.0, 'e31')
+        bell(e0 + 0.95, 880.0, 0.2, 0.3, 'e32')
 
     # ── mix (as episodes 1 and 2)
     hall = make_ir(3.2, 4.0, 'hall')
@@ -836,8 +894,225 @@ def build_ep3(tl):
     return out
 
 
+# ─── episode 4: The Story Is Born (Team A) ───────────────────────────────────
+def bansuri(f0s, durs, key, vel=1.0):
+    """A bamboo flute phrase: a breathy sine with a slow vibrato that blooms on each held note,
+    small glides between notes (meend)."""
+    r = rng('bansuri', key)
+    total = sum(durs)
+    n = smp(total)
+    t = tvec(n)
+    f = np.zeros(n)
+    i0 = 0
+    for k, (fr, d) in enumerate(zip(f0s, durs)):
+        i1 = min(n, i0 + smp(d))
+        f[i0:i1] = fr
+        i0 = i1
+    # meend: smooth the steps (a ~70 ms glide)
+    f = sps.sosfiltfilt(sps.butter(1, 6, 'low', fs=SR, output='sos'), f)
+    vib = 1 + 0.006 * np.sin(2 * np.pi * 5.0 * t) * np.minimum(1, t / 0.8)
+    ph = 2 * np.pi * np.cumsum(f * vib) / SR
+    x = np.sin(ph) + 0.22 * np.sin(2 * ph + 0.3) + 0.06 * np.sin(3 * ph)
+    breath = bpf(r.standard_normal(n), 900, 5000) * 0.05
+    env = np.minimum(1, t / 0.25) * np.minimum(1, (total - t) / 0.6)
+    return fade((x + breath) * env * vel * 0.12, 0.02, 0.3)
+
+
+def build_ep4(tl):
+    """Recap sting; the Naimisha fire (hook); then a new place: a morning raga in the
+    Himalayan hermitage (bansuri over the tanpura, stream, birds); the scribe's writing
+    rhythm that stops when he pauses and when the pen breaks; the tusk; then night and the
+    king's fire, serpent hiss in the smoke; the Next sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry = np.zeros((2, N))
+    bus_wet = np.zeros((2, N))
+    bed = np.zeros((2, N))
+
+    def bell(t0, f, vel, p, key):
+        x = ghanta(f, 5.0, key, vel)
+        add(bus_dry, pan(x * 0.4, p), t0)
+        add(bus_wet, pan(x * 0.8, p), t0)
+
+    def hit(t0, key, vel, din=True, boom=0.0, p=-0.05):
+        add(bus_dry, pan(mridangam('thom', key, vel), p), t0)
+        if din:
+            add(bus_dry, pan(mridangam('din', key, vel * 0.55), p + 0.15), t0 + 0.004)
+        add(bus_wet, pan(mridangam('thom', key, vel * 0.5), 0.0), t0)
+        if boom:
+            n = smp(1.8)
+            tt = tvec(n)
+            b = np.sin(2 * np.pi * (42 + 22 * np.exp(-tt / 0.09)) * tt) * np.exp(-tt / 0.7) * boom
+            add(bus_dry, pan(b, 0.0), t0)
+            add(bus_wet, pan(b * 0.4, 0.0), t0)
+
+    h0, v0, d0 = st('hook'), st('vyasa'), st('disciple')
+    king = beat('disciple', 1)
+    # ── the tanpura throughout; the hermitage gets a brighter Sa–Pa tuning and a soft reed
+    tan = tanpura_bed(N, D, 'ep4')
+    bed += tan * env_curve([(0, 0.5), (1.5, 0.9), (v0 - 0.2, 0.9), (v0 + 1.0, 1.0), (king, 1.0), (king + 1.0, 0.7), (D, 0.9)], N)
+    reeds = reed_drone(N, (SA, SA * 1.5), 'morning')
+    ra = env_curve([(0, 0), (v0, 0), (v0 + 1.5, 0.18), (king - 0.3, 0.18), (king + 0.5, 0.0), (D, 0)], N)
+    bed += pan(reeds * ra * 0.6, -0.2) + pan(np.roll(reeds, 1500) * ra * 0.6, 0.2)
+    # ── fire: the Naimisha fire under the hook; the king's fire from "King" on
+    fire = crackle(N, 'fire4')
+    fa = env_curve([(0, 0), (h0, 0), (h0 + 0.4, 0.6), (v0 - 0.2, 0.6), (v0 + 0.5, 0.0), (king - 0.3, 0.0), (king + 0.6, 0.8), (st('next'), 0.8), (st('next') + 0.6, 0.3), (D - 0.5, 0.3), (D, 0)], N)
+    add(bus_dry, np.stack([fire * fa * 0.09, np.roll(fire, 777) * fa * 0.09]), 0)
+    # ── recap, hook
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    add(bus_dry, pan(mridangam('ki', 2000, 0.3), -0.15), h0 - 0.14)
+    hit(h0, 2000, 0.5)
+    bell(beat('hook', 1), 880.0, 0.22, 0.25, 'words')
+    # ── the hermitage: stream, birds, a morning bansuri phrase (Bhairav colours: komal re, komal dha)
+    w = water(smp(king - v0 + 1.0), 'w4')
+    wa = env_curve([(0, 0), (1.0, 1.0), (king - v0 - 0.5, 1.0), (king - v0 + 0.8, 0)], len(w))
+    add(bus_dry, np.stack([w * wa, np.roll(w, 999) * wa]) * 0.35, v0)
+    r = rng('birds4')
+    tb = v0 + 0.4
+    while tb < king - 0.6:
+        k = r.integers(0, 3)
+        x = koel(int(tb * 100)) if k == 0 else twitter(int(tb * 100))
+        vol = (0.045 if k == 0 else 0.03) * (0.5 if st('scribe') < tb < st('tusk') else 1.0)
+        pp = r.uniform(-0.8, 0.8)
+        add(bus_dry, pan(x * vol * 0.4, pp), tb)
+        add(bus_wet, pan(x * vol, pp), tb)
+        tb += r.uniform(0.7, 1.6)
+    Sa, re_, Ga, Ma, Pa, dha, Ni = SA * 2, SA * 2 * 16 / 15, SA * 2 * 5 / 4, SA * 2 * 4 / 3, SA * 3, SA * 2 * 8 / 5, SA * 2 * 15 / 8
+    ph1 = bansuri([Sa, re_, Ga, Ma, Pa, dha, Pa], [0.9, 0.35, 0.5, 0.35, 0.9, 0.45, 1.3], 'p1', 1.0)
+    add(bus_wet, pan(ph1 * 0.8, 0.25), v0 + 0.3)
+    add(bus_dry, pan(ph1 * 0.35, 0.25), v0 + 0.3)
+    ph2 = bansuri([Pa, Ma, Ga, re_, Sa], [0.6, 0.35, 0.5, 0.45, 1.6], 'p2', 0.8)
+    add(bus_wet, pan(ph2 * 0.8, -0.2), st('disciple') + 0.2)
+    # verses kindling around Vyasa: a shimmer
+    n = smp(en('vyasa') - beat('vyasa', 1) + 0.8)
+    tt = tvec(n)
+    shim = sum(np.sin(2 * np.pi * f * tt + i) * (0.5 + 0.5 * np.sin(2 * np.pi * (0.4 + 0.13 * i) * tt)) for i, f in enumerate((SA * 4, SA * 6, SA * 8, SA * 10)))
+    add(bus_wet, fade(np.stack([shim, np.roll(shim, 411)]) * np.minimum(1, tt / 1.0) * 0.018, 0.3, 0.6), beat('vyasa', 1))
+    bell(beat('vyasa', 0), 587.33, 0.24, -0.2, 'vy')
+    # ── Ganesha appears: a bell peal, manjira, a low bloom; "one": a single din
+    g0 = beat('scribe', 0)
+    for i, (f, pp) in enumerate(((880.0, -0.3), (1174.66, 0.3), (1318.5, 0.0))):
+        bell(g0 + i * 0.06, f, 0.26 - 0.04 * i, pp, ('gan', i))
+    m = manjira('gan', 0.4)
+    add(bus_dry, pan(m * 0.4, 0.2), g0)
+    add(bus_wet, pan(m * 0.6, 0.2), g0)
+    hit(g0, 2100, 0.6, boom=0.4)
+    add(bus_dry, pan(mridangam('din', 2101, 0.5), 0.1), beat('scribe', 1))
+    hit(st('condition'), 2110, 0.35, din=False)
+    bell(st('reply') + 0.1, 293.66, 0.22, -0.2, 'reply')
+    # ── the writing rhythm: ki-ta taps while he writes; silent while he pauses; on through the tusk
+    def writing(t0, t1, key, vel=0.22):
+        tt0, k = t0, 0
+        while tt0 < t1:
+            add(bus_dry, pan(mridangam('ki' if k % 2 == 0 else 'ta', (key, k), vel * (1.0 if k % 4 == 0 else 0.7)), 0.3 if k % 2 else 0.15), tt0)
+            if k % 8 == 0:
+                hit(tt0, (key, 'h', k), 0.25, din=False, p=0.2)
+            tt0 += 0.25
+            k += 1
+    pz0, pz1 = beat('pause', 0), beat('pause', 1)
+    writing(st('pause') + 0.1, pz0 - 0.15, 'w1')
+    n = smp(1.6)
+    tt = tvec(n)
+    shim = sum(np.sin(2 * np.pi * f * tt + i) for i, f in enumerate((SA * 6, SA * 8, SA * 9))) * np.exp(-tt / 0.9) * 0.02
+    add(bus_wet, np.stack([shim, shim]), pz1)
+    bell(pz1, 1174.66, 0.18, -0.3, 'more')
+    writing(pz1 + 1.3, st('tusk') + 0.05, 'w2')
+    tk0, tk1, tk2 = beat('tusk', 0), beat('tusk', 1), beat('tusk', 2)
+    writing(st('tusk') + 0.05, tk0 - 0.1, 'w3')
+    # the stylus snaps: a dry crack
+    n = smp(0.25)
+    crack = hpf(rng('snap').standard_normal(n), 2500) * np.exp(-tvec(n) / 0.012) * 0.5
+    add(bus_dry, pan(crack, -0.2), tk0)
+    add(bus_dry, pan(mridangam('ta', 'snap', 0.6), -0.2), tk0)
+    # the tusk: a great hit, a bell, a bloom
+    hit(tk1, 2200, 1.0, boom=0.6)
+    bell(tk1 + 0.02, 587.33, 0.3, 0.0, 'tusk1')
+    bell(tk1 + 0.08, 880.0, 0.24, 0.3, 'tusk2')
+    m = manjira('tusk', 0.5)
+    add(bus_wet, pan(m * 0.6, 0.1), tk1)
+    writing(tk2, en('tusk') - 0.2, 'w4', 0.26)
+    # ── the king's sacrifice: a low reed omen; serpent hiss in the smoke; the flare on "held"
+    dr = reed_drone(N, (SA / 2, SA / 2 * 16 / 15, SA / 2 * 1.5), 'omen4')
+    da = env_curve([(0, 0), (king - 0.2, 0), (king + 1.0, 0.25), (st('why'), 0.35), (en('why'), 0.4), (en('why') + 0.6, 0.0), (D, 0)], N)
+    bed += pan(lpf(dr, 700) * da * 0.8, -0.15) + pan(lpf(np.roll(dr, 2000), 700) * da * 0.8, 0.15)
+    hit(king, 2300, 0.55, boom=0.25)
+    y0 = beat('why', 0)
+    n = smp(en('why') - y0 + 0.5)
+    tt = tvec(n)
+    hiss = bpf(rng('hiss').standard_normal(n), 3500, 9000) * (0.4 + 0.6 * np.abs(np.sin(2 * np.pi * 0.9 * tt))) * np.minimum(1, tt / 0.8) * 0.02
+    add(bus_wet, fade(np.stack([hiss, np.roll(hiss, 2000)]), 0.3, 0.4), y0)
+    hit(beat('why', 1), 2310, 0.95, boom=0.6)
+    series_next_sting(bus_dry, bus_wet, L['next'])
+
+    hall = make_ir(3.2, 4.0, 'hall')
+    room = make_ir(1.4, 2.0, 'room')
+    out = bus_dry + reverb(bus_wet, hall) * 0.55 + bus_wet * 0.25 + bed * 0.6 + reverb(bed, room) * 0.25
+    b, a = sps.iirpeak(2600, 1.2, fs=SR)
+    out = out - 0.25 * sps.lfilter(b, a, out, axis=-1)
+    out = hpf(out, 30)
+    out *= env_curve([(0, 0), (0.05, 1), (D - 0.7, 1), (D - 0.02, 0), (D, 0)], N)
+    out *= db(TARGET_LUFS - lufs(out))
+    tp = true_peak_db(out)
+    if tp > CEIL_DBTP:
+        k = db(CEIL_DBTP - 0.3)
+        out = np.tanh(out / k) * k
+    return out
+
+
 def clamp01(x):
     return min(1.0, max(0.0, x))
+
+
+# ─── series stings (shared by every episode: the recap and the "Next" card) ─────
+def series_recap_sting(bus_dry, bus_wet, line):
+    """'Previously…': a reversed bell swelling into a soft low bell and a din, as the memory
+    niche fades up (KIT.series.recapStrip). Call with the timeline's recap line."""
+    t0 = line['start']
+    land = t0 + 0.85
+    b = ghanta(587.33, 1.6, 'recap-rev', 0.5)[::-1].copy()
+    b *= np.linspace(0, 1, len(b)) ** 2
+    add(bus_wet, pan(b * 0.55, -0.2), land - len(b) / SR)
+    n = smp(0.9)
+    tt = tvec(n)
+    air = bpf(rng('recap-air').standard_normal(n), 500, 6000) * (tt / tt[-1]) ** 2.5 * 0.05
+    add(bus_wet, np.stack([air, air[::-1] * 0.4 + air * 0.6]), land - 0.9)
+    x = ghanta(293.66, 5.0, 'recap-low', 0.3)
+    add(bus_dry, pan(x * 0.4, 0.1), land)
+    add(bus_wet, pan(x * 0.8, 0.1), land)
+    add(bus_dry, pan(mridangam('din', 'recap', 0.3), 0.05), land)
+    m = manjira('recap', 0.22)
+    add(bus_wet, pan(m * 0.5, 0.3), land + 0.02)
+
+
+def series_next_sting(bus_dry, bus_wet, line):
+    """'Next': a ki-ta-tham, then a rising bell figure Sa–Pa–Sa' as the teaser niche opens,
+    a shimmer over the glimpse, and a low bloom under the next episode's title."""
+    t0 = line['start']
+    add(bus_dry, pan(mridangam('ki', 'next', 0.32), -0.15), t0 - 0.16)
+    add(bus_dry, pan(mridangam('ta', 'next', 0.36), 0.15), t0 - 0.08)
+    add(bus_dry, pan(mridangam('thom', 'next', 0.62), -0.05), t0)
+    add(bus_dry, pan(mridangam('din', 'next', 0.4), 0.1), t0 + 0.004)
+    add(bus_wet, pan(mridangam('thom', 'next', 0.3), 0.0), t0)
+    for i, (f, p) in enumerate(((587.33, -0.35), (880.0, 0.3), (1174.66, 0.0))):
+        x = ghanta(f, 5.0, ('next', i), 0.26 - 0.04 * i)
+        add(bus_dry, pan(x * 0.4, p), t0 + 0.3 + 0.32 * i)
+        add(bus_wet, pan(x * 0.8, p), t0 + 0.3 + 0.32 * i)
+    dur = max(1.5, line['end'] - t0)
+    n = smp(dur)
+    tt = tvec(n)
+    shim = sum(np.sin(2 * np.pi * f * tt + i) * (0.5 + 0.5 * np.sin(2 * np.pi * (0.35 + 0.15 * i) * tt)) for i, f in enumerate((SA * 4, SA * 6, SA * 8)))
+    shim = shim * np.minimum(1, tt / 0.9) * 0.018
+    add(bus_wet, fade(np.stack([shim, np.roll(shim, 377)]), 0.3, 0.8), t0 + 0.3)
+    n = smp(3.0)
+    tt = tvec(n)
+    bloom = np.sin(2 * np.pi * SA / 2 * tt) * np.exp(-tt / 1.3) * np.minimum(1, tt / 0.03) * 0.4
+    add(bus_dry, pan(bloom, 0), t0 + 1.0)
+    add(bus_wet, pan(bloom * 0.5, 0), t0 + 1.0)
+
 
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
@@ -876,7 +1151,7 @@ def main():
                 return
         except Exception:
             pass
-    x = {1: build, 2: build_ep2, 3: build_ep3}[ep](tl)
+    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4}[ep](tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],
             'note': 'music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)'}
