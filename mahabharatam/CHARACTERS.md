@@ -223,6 +223,140 @@ bare chest with the sacred thread and an uttariya over the shoulder; bark-cloth 
 | Poses | `stand` · `walk` · `sit` · `speak` · **`receive`** (k: both hands forward; he holds the manuscript at k = 1) · `bless` · `bow` |
 | Voice | `vaishampayana` → bm_fable, 0.86×, +1.5 st (reserved: he does not speak in episode 4). |
 
+## Sarama (devashuni, the dog of the gods) · `sarama` (episode 5)
+
+**Who.** The divine dog. Her son is beaten at Janamejaya's long sacrifice at Kurukshetra though he
+did no wrong; she comes to the king and curses him: "an unseen danger will fall upon you" (CE 1.3.1–8).
+
+**Look.** A great, dignified hound, never a pet: a sighthound's deep chest and tucked waist, long
+legs, a long arched neck with a mane of flame-like tufts, a wedge head with tall pointed ears, a
+sickle plume of a tail. A four-point **star on her brow**, a collar of pearls with a pendant jewel,
+gold anklets, mural swirl lines on shoulder and haunch. Built on `CH.canine` (the shared dog rig in
+`sarama.js`).
+
+| | |
+|---|---|
+| Palette | fill `#221a36` · inner `#9a6a7c` · rim `#d9a88c` → `#fff4e8` · aura `#ffd2b8` · ornaments `#e8c48c` → `#fff6dc` |
+| Proportions | ≈ 560 units at the shoulder, ≈ 1000 to the ear tips (Janamejaya with his crown: 1230), ≈ 1140 nose to tail. Seated: ears ≈ 900. |
+| Props | brow star · pearl collar + pendant · flame-tufted mane · plume tail · anklets · swirl lines |
+| Signature light | **Dawn-pearl, luminous.** A halo rim all the way round (rose-pearl), a rose aura behind her that flares when she curses; eye and brow-star glint (mood `wrath`: the eye burns rose). Never gold (Vyasa), never silver-blue (the Pitrs). |
+| Poses | `stand` · `walk` (stately trot) · `run` · `sit` (upright on her haunches, like a temple guardian) · `speak` (jaw with `expression.speak`) · **`curse`** (k: head high and forward, near forepaw lifted, aura flares) · **`comfort`** (k: head lowered to her son) |
+| Voice | `sarama` → **af_heart**, 0.8×, −1.5 st: calm, grave, a mother's dignity, never shrill. |
+
+## Sarama's son (the pup) · `pup` (episode 5)
+
+**Who.** The small dog who came near the sacrifice, was beaten by the king's brothers though he did
+nothing wrong (he neither looked at nor licked the offerings), and ran crying to his mother (CE 1.3.1–4).
+
+**Look.** Unmistakably her son, unmistakably young: her wedge head and arched neck on a short body
+with short legs and a big head; soft ears whose tips fold forward; a thin whip of a tail (tucked
+when afraid); a faint star on his brow; no mane, no collar.
+
+| | |
+|---|---|
+| Palette | fill `#1a1424` · inner `#7a5a6a` · rim `#c89a80` → `#ffe8d8` · ornaments `#d8b890` → `#f8e4c8` |
+| Proportions | ≈ 230 units at the shoulder, ≈ 480 to the ear tips (a little under half his mother). |
+| Signature light | **His mother's dawn-pearl, smaller and dimmer:** the same halo rim (×0.9), no aura, a faint warm glow round his head. |
+| Poses | `stand` · `walk` · `run` · **`sniff`** (k) · **`cower`** (k: crouched, ears back, tail tucked) · `sit` · **`cry`** (k: seated, head thrown back, mouth open) |
+| Voice | `sarama_pup` → af_sky, 0.9×, +3 st (reserved: he only whimpers, in the score). |
+
+## Janamejaya's brothers: Shrutasena · Ugrasena · Bhimasena · `prince` (episode 5)
+
+**Who.** The king's brothers, who sat with him at the sacrifice at Kurukshetra and beat Sarama's
+son (CE 1.3.1–2).
+
+**Look.** Princes of the king's house: crowns, earrings, necklace, sacred thread, a jewelled belt, a
+knee-length pleated dhoti, a sash; never the king's tall kirita-mukuta. Each carries a staff of
+office. `index` picks the brother (a fixed design):
+
+| index | name | build | crown | face / hair | staff |
+|---|---|---|---|---|---|
+| 0 | Shrutasena | slim, tall (×0.94 wide, ×1.03 tall) | conical karanda crown | long locks down the back | slender cane |
+| 1 | Ugrasena | stocky (×1.10, ×0.98) | low band, three points | curled moustache, short beard | knobbed staff |
+| 2 | Bhimasena | the biggest (×1.18, ×1.06) | jewelled fillet round a high topknot | heavy shoulders | long banded bamboo |
+
+| | |
+|---|---|
+| Palette | fill `#0d0806` · inner `#3e1a0a` · rim `#a8501c` → `#f2a05a` · ornaments `#a87a2a` → `#e8c070` |
+| Signature light | **Kuru copper-saffron, a shade duller than the king's.** Ornaments at 0.45–0.85 (never as bright as his). |
+| Poses | `stand` (staff planted) · `walk` · `run` · `sit` · **`raise`** (k: staff overhead) · **`strike`** (k: overhead → down and forward) · **`point`** (k) |
+| Voice | `kuru_princes` → am_onyx, 0.86× (reserved: they do not speak). |
+
+## Uttanka, the student · `uttanka` (episode 6)
+
+**Who.** Disciple of the teacher Veda. Sent for the earrings of King Paushya's queen as his gift to
+his teacher's wife, robbed by Takshaka, he follows him into the Naga world and wins them back; still
+angry, he urges Janamejaya to avenge his father (CE 1.3, the Paushya parva).
+
+**Look.** A young brahmacharin: lean and quick, beardless, a **shaven head with one knotted shikha
+tuft**; a black antelope skin over the far shoulder (hoof-flaps behind); the sacred thread; a triple
+munja-grass girdle; a short loincloth with a white edge. A palasha **staff with a three-leaf sprig**,
+always in the FAR hand (the near hand acts).
+
+| | |
+|---|---|
+| Palette | fill `#0e0808` · inner `#4a1c14` · rim `#d0704e` → `#ffd2b4` · ornaments `#a8783a` → `#f0d090` · wrath `#ff5a2a` |
+| Proportions | ≈ 1000 units (a little under Sauti): hip 485, thigh 244, shin 230. |
+| Signature light | **Dawn coral**, rosier than Sauti's gold, so he burns warm in the Naga world's green. Mood `wrath`: a red under-glow and an ember in his eye. |
+| Poses | `stand` · `walk` · `run` · `sit` · `bow` (k) · `speak` (k) · `point` (k) · **`hold`** (k: cupped hand forward, the earrings) · **`raise`** (k: held high) · **`crouch`** (k: one knee down, near hand to the ground) |
+| Voice | `uttanka` → **am_puck**, 0.84×, +0.5 st: bright and young, apart from the narrator and Janamejaya (both am_michael). |
+
+## King Paushya's queen · `queen` (episode 6)
+
+**Who.** She gives Uttanka her earrings and warns him: "Takshaka, the serpent king, wants these" (CE 1.3).
+
+**Look.** Tall and composed: a high crown-bun ringed with jasmine and a chudamani jewel, a forehead
+pendant, the great **kundala earrings** (until she gives them: `pose.earrings: false`), layered
+necklaces, stacked bangles, a jewelled girdle, an ankle-length pleated sari whose pallu crosses the
+chest and streams behind. Built on `CH.female` (the shared female figure in `paushya-queen.js`).
+The earrings themselves are a prop, `KIT.kundala.draw / .pair` (gold ring, ruby boss, three pearl
+drops, a travelling glint), drawn the same wherever they go.
+
+| | |
+|---|---|
+| Palette | fill `#120a08` · inner `#5a2a14` · rim `#d89a48` → `#fff0c0` · ornaments `#d8a848` → `#fff4b0` · ruby `#c0182a` |
+| Proportions | ≈ 1000 units to the top of the bun: hip 480, thigh 240, shin 226. |
+| Signature light | **Palace lamp-gold with rose**; ornaments 0.55–1.0 (as bright as the king's). |
+| Poses | `stand` · `walk` · `sit` · `speak` · **`give`** (k: both hands forward, cupped) · **`warn`** (k: a raised forefinger) · `bless` |
+| Voice | `queen` → **bf_emma**, 0.82×: clear and composed, the warning quiet. |
+
+## The teacher's wife · `gurupatni` (episode 6)
+
+**Who.** Wife of Uttanka's teacher; she asks for the queen's earrings as her gift (CE 1.3). Minimal:
+she appears once.
+
+**Look.** A hermitage householder: the end of her plain sari over her head and shoulders (a hood, never
+a crown), a low knot of hair under it, a mangala-sutra, two plain bangles, a small clay **oil lamp**
+in her far hand. Built on `CH.female`.
+
+| | |
+|---|---|
+| Palette | fill `#100a08` · inner `#3a1e10` · rim `#c08050` → `#f8d8a8` · ornaments `#a07838` → `#e8c888` |
+| Signature light | **Hearth amber, soft**; ornaments only 0.3–0.6; her lamp flame is her one bright point. |
+| Poses | `stand` · `walk` · `sit` · `speak` · **`ask`** (k: near hand opens, palm up) · `bless` |
+| Voice | `guru_patni` → bf_isabella, 0.82×, −0.5 st (reserved: her request is narrated). |
+
+## Takshaka, king of the Nagas · `takshaka` (episodes 5–6 and on)
+
+**Who.** The serpent king. He covets the queen's earrings, steals them from Uttanka in a beggar's
+guise, vanishes underground and, overwhelmed by fire and smoke in his own world, gives them back. He
+killed King Parikshit, Janamejaya's father (CE 1.3).
+
+**Look.** **Naga form:** a crowned king from the waist up (broad chest, armlets, layered necklaces, a
+jewelled band where the man becomes the serpent) rising from a great serpent body that falls in an S,
+loops once into a coil and runs out into a long tail; behind his head a **canopy of five cobra
+hoods** fans up like a halo (spectacle marks, flickering tongues); a tall crown with a serpent-jewel
+(mani). **Disguise** (`guise…` poses): a thin, stooped beggar with a shaven head, a sparse beard, a
+loincloth and a begging bowl, wavering with a cold green double image.
+
+| | |
+|---|---|
+| Palette | fill `#06100c` · inner `#0c3a28` · rim `#1f9a64` → `#a8ffd0` · ornaments `#3aa878` → `#d8ffe8` · aura `#20c880` · eyes `#b8ffe0` |
+| Proportions | ≈ 1430 units to the hood tops (×1.15 Janamejaya's crown), ≈ 1450 long; serpent body 130 thick, a 10-unit tail tip. Disguised: ≈ 940. |
+| Signature light | **Cold green.** Rim ×1.1, glow 1.1; eyes, the cobras' eyes and the mani burn green-white; a cold aura behind the hoods that flares with them. Disguised: the same cold rim betrays him, plus the shimmer. |
+| Poses | `stand` · `speak` · **`strike`** (k: lunge, hoods flare) · **`recoil`** (k) · **`give`** (k: yields) · **`dive`** (k: pours forward into the earth) · **`guise`** · **`guise-walk`** · **`guise-run`** · **`guise-grab`** (k) |
+| Voice | `takshaka` → am_fenrir, 0.74×, −3 st (reserved: cold and slow). |
+
 ### Locations and light
 
 Characters keep their signature light everywhere; the **environment and its key light change per
@@ -230,6 +364,14 @@ location**. The Naimisha clearing (`KIT.ashram`) is night and firelight: the fra
 returns to. Vyasa's hermitage (`src/scenes/ep04/_common.js`, `EP4.hermitage`) is the Himalayan
 foothills at morning: snow peaks, misty valleys, deodars, a thatched hut and a stream, a low sun on
 the left (`EP4.sunLight` points each character's rim toward it, with a little front light).
+Episodes 5–6 (`src/scenes/ep05/_common.js`, `src/scenes/ep06/_common.js`): the sacrificial enclosure at
+**Kurukshetra by day** (`EP5.enclosure`: teal-and-ochre sky, the sun to the right, `EP5.sunLight`; the
+curse darkens it to violet and eclipses the sun); Sarama's **ridge above the clouds** at a rose-pearl
+dawn (`EP5.heaven`); **Hastinapura at night**, a colonnade of oil lamps (`EP5.palace`); a **forest road
+at dusk** (`EP5.duskRoad`, `EP6.road`, with a stream and the cleft); the teacher's **hermitage at
+morning** (`EP6.hermitage`); **King Paushya's palace in warm gold** with its stone lattice
+(`EP6.palace`); the **Naga world** underground in deep blue-green bioluminescence (`EP6.naga`); and
+**Janamejaya's court** in saffron lamplight (`EP6.court`, with the vow's fire).
 
 ## Narrator · `narrator`
 
@@ -263,3 +405,19 @@ no figure.
   Janamejaya's sacrifice (CE 1.1.52–1.1.57). The Ganesha-as-scribe episode is later tradition (the
   vulgate's Adi Parva 1, relegated to the apparatus of the Critical Edition); it is marked on screen
   "As tradition tells it".
+- **Adhyaya 3, the Paushya parva** (episodes 5–6): Janamejaya, son of Parikshit, with his brothers
+  Shrutasena, Ugrasena and Bhimasena, sits at a long sacrifice at Kurukshetra. A dog, the son of Sarama,
+  comes near; the brothers beat him. He runs crying to his mother; he had done nothing wrong (neither
+  looked at nor licked the offerings). Sarama comes to the sacrifice and tells the king that, since her
+  son was beaten without fault, an unseen danger will fall upon him. Alarmed, Janamejaya returns to
+  Hastinapura and searches for a priest to undo the curse (he will find Somashravas). Later in the same
+  adhyaya: Uttanka, disciple of Veda, asks his teacher's wife what gift to bring; she asks for the
+  earrings of King Paushya's queen. The queen gives them and warns him that Takshaka, king of the
+  serpents, covets them. On the way back Uttanka sets them down to wash; a naked beggar (a kshapanaka,
+  shown here as a beggar in a loincloth) snatches them; caught, he takes his own form as Takshaka and
+  goes down a hole in the earth to the Naga world. Uttanka follows; with a divine horse that breathes
+  fire and smoke through the Naga world he forces Takshaka to give them back (shown as fire and smoke
+  pouring in), and brings them to his teacher's wife in time. Still angry, he goes to Janamejaya at
+  Hastinapura and urges him to avenge his father Parikshit, whom Takshaka killed, with a sacrifice of
+  serpents. (The king's formal vow of the sarpa-satra is told later, in the Astika parva; episode 6
+  compresses it into his answer, as the owner's approved script does.)

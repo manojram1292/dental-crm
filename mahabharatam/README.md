@@ -8,6 +8,8 @@ Vertical YouTube Shorts (1080×1920, 30 fps). Every frame and every sound is gen
 | 2 | The Field of Five Lakes | Adi Parva 2 (Samantapanchaka) | `episode02.mp4` (+ `episode02-share.mp4`), 49.6 s |
 | 3 | Eighteen Armies | Adi Parva 2 (the akshauhini) | `episode03.mp4` (+ `episode03-share.mp4`), 56.4 s |
 | 4 | The Story Is Born | Adi Parva 1 (Vyasa, Vaishampayana); Ganesha as scribe from later tradition, marked on screen | `episode04.mp4` (+ `episode04-share.mp4`), 51.9 s |
+| 5 | The Curse of Sarama | Adi Parva 3 (Paushya parva: Janamejaya's sacrifice at Kurukshetra, Sarama's curse) | `episode05.mp4` (+ `episode05-share.mp4`), 51.9 s |
+| 6 | The Stolen Earrings | Adi Parva 3 (Paushya parva: Uttanka, the queen's earrings, Takshaka, the Naga world) | `episode06.mp4` (+ `episode06-share.mp4`), 50.3 s |
 
 ## Continuity: one structure for every episode
 
@@ -135,3 +137,4 @@ Episode-specific helpers live with their scenes. For example, `src/scenes/ep02/_
 The engine (`src/engine.js`, `src/runtime.js`) and the tools are forked from `../ribhu-film`. Fonts are Cinzel and EB Garamond, under the SIL Open Font License (see `fonts/`).
 
 Episodes 1–3 were re-cut to the continuity structure above (episode 1 has no recap: its hook is "Where did the greatest story ever told begin?"). Episode 3's seven ×3 steps now sit on the `multiply` line's `ticks` (slow first, quicker later) with a row of ×3…×10 badges that light as each step happens; `tools/score.py`'s `ep3_steps` reads the same ticks. Episode 4 adds Ganesha (`ganesha.js`) and Vaishampayana (`vaishampayana.js`), and a new location with its own light: Vyasa's hermitage in the Himalayan foothills at morning (`src/scenes/ep04/_common.js`).
+Episodes 5–6 add Sarama and her son (`sarama.js` with the shared dog rig `CH.canine`, `pup.js`), Janamejaya's brothers (`kuru-princes.js`, three fixed variants by `index`), Uttanka (`uttanka.js`), King Paushya's queen (`paushya-queen.js`, with the shared female figure `CH.female` and the earrings prop `KIT.kundala`), the teacher's wife (`guru-patni.js`) and Takshaka (`takshaka.js`: naga form and a shimmering beggar's disguise). Their locations, each with its own light, are in `src/scenes/ep05/_common.js` (Kurukshetra by day, Sarama's ridge at dawn, Hastinapura at night, a dusk road) and `src/scenes/ep06/_common.js` (the hermitage at morning, Paushya's palace in gold, the road and the cleft, the Naga world, Janamejaya's court); episode 6 loads `ep05/_common` for its recap. Their score cues are `build_ep5` / `build_ep6` in `tools/score.py` (ominous low drums for the curse; `naga_shimmer` for the serpent world). The new speakers' voices (af_heart, bf_emma, am_puck) come from the same Kokoro release (`voices/<id>.bin`).

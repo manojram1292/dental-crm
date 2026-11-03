@@ -127,7 +127,7 @@
 
   // ─── the forest road at dusk, the stream, the cleft ─────────────────────────
   let RTREES = null;
-  EP6.CLEFT = { x: 170, y: 1560 };
+  EP6.CLEFT = { x: 330, y: 1560 };
   EP6.road = (ctx, T, o = {}) => {
     if (!RTREES) { RTREES = []; for (let i = 0; i < 9; i++) RTREES.push({ tree: KIT.forest.makeTree(520 + i, { kind: i % 3 === 1 ? 'palm' : 'tall' }), x: -60 + i * 150 + hash(i, 3) * 40, h: 800 + hash(i, 5) * 600 }); }
     ctx.save();
@@ -176,7 +176,11 @@
     ctx.save();
     const cam = o.cam || {};
     KIT.camera(ctx, { x: 540, y: 1100, zoom: cam.zoom || 1, dx: cam.dx || 0, dy: cam.dy || 0 });
-    KIT.vgrad(ctx, -400, R.H + 400, [[0, '#010806'], [0.35, '#04241e'], [0.6, '#06342a'], [1, '#010604']], -300, R.W + 300);
+    KIT.vgrad(ctx, -1400, R.H + 400, [[0, '#000302'], [0.3, '#021410'], [0.5, '#04241e'], [0.7, '#06342a'], [1, '#010604']], -300, R.W + 300);
+    // the shaft from the world above: rough rock walls narrowing down to the cavern roof
+    ctx.fillStyle = '#020a08';
+    for (const s of [-1, 1]) { ctx.beginPath(); ctx.moveTo(540 + s * 900, -1400); for (let y = -1400; y <= 200; y += 80) ctx.lineTo(540 + s * (180 + 60 * hash(y, 7) + Math.max(0, y + 200) * 2), y); ctx.lineTo(540 + s * 900, 200); ctx.closePath(); ctx.fill(); }
+    KIT.glow(ctx, 540, -300, 500, '#20c880', 0.2);
     // far cavern arches
     for (let L = 0; L < 3; L++) {
       ctx.fillStyle = hex('#0a3a30', '#020c0a', L / 2);

@@ -196,8 +196,7 @@
       const a2 = Math.atan2(h.c[1] - h.base[1], h.c[0] - h.base[0]);
       g.save(); g.translate(h.c[0], h.c[1]); g.rotate(a2 + Math.PI / 2);
       // the spectacle mark: two loops joined by a bridge, high on the hood
-      g.beginPath(); g.ellipse(-15, -h.l * 0.3, 10, 14, 0.3, 0, TAU); g.moveTo(25, -h.l * 0.3); g.ellipse(15, -h.l * 0.3, 10, 14, -0.3, 0, TAU); g.lineWidth = 3; g.stroke();
-      g.beginPath(); g.moveTo(-6, -h.l * 0.38); g.lineTo(6, -h.l * 0.38); g.stroke();
+      g.beginPath(); g.moveTo(-26, -h.l * 0.36); g.quadraticCurveTo(-20, -h.l * 0.16, 0, -h.l * 0.2); g.quadraticCurveTo(20, -h.l * 0.16, 26, -h.l * 0.36); g.lineWidth = 3; g.stroke();
       g.beginPath(); g.moveTo(0, -h.l * 0.1); g.lineTo(0, h.l * 0.2); g.lineWidth = 2; g.stroke();
       g.restore();
       const top = [h.c[0] + Math.cos(a2) * h.l * 0.55, h.c[1] + Math.sin(a2) * h.l * 0.55];

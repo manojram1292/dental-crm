@@ -21,6 +21,7 @@
     4: ['ep02/_common', '_common', 's0-recap', 's1-hook', 's2-vyasa', 's3-scribe', 's4-dialogue', 's5-pause', 's6-tusk', 's7-disciple', 's8-next'],
     // episodes 5–6 (Team B): Kurukshetra by day, Sarama; Uttanka, Paushya's palace, the Naga world (episode 6's recap reuses episode 5's helpers)
     5: ['_common', 's0-recap', 's1-hook', 's2-rite', 's3-pup', 's4-beaten', 's5-mother', 's6-curse', 's7-afraid', 's8-tease', 's9-next'],
+    6: ['ep05/_common', '_common', 's0-recap', 's1-hook', 's2-ask', 's3-gave', 's4-warn', 's5-stolen', 's6-naga', 's7-anger', 's8-court', 's9-avenge', 's10-vow', 's11-next'],
   };
   const q = new URLSearchParams(location.search);
   const ep = +(q.get('ep') || 1);

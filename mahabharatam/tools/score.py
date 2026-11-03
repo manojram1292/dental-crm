@@ -1114,6 +1114,344 @@ def series_next_sting(bus_dry, bus_wet, line):
     add(bus_wet, pan(bloom * 0.5, 0), t0 + 1.0)
 
 
+# ─── episodes 5–6 (Team B): the curse of Sarama; the stolen earrings ─────────
+def howl(key, dur=1.8, f0=520.0, vel=1.0):
+    """A distant dog's cry: a voiced glide up and down with a vibrato, band-limited."""
+    n = smp(dur)
+    t = tvec(n)
+    r = rng('howl', key)
+    f = f0 * (1 + 0.32 * np.sin(np.pi * np.minimum(1, t / (dur * 0.8)))) * (1 + 0.012 * np.sin(2 * np.pi * 5.5 * t))
+    ph = 2 * np.pi * np.cumsum(f) / SR
+    x = np.sin(ph) + 0.35 * np.sin(2 * ph + 0.4) + 0.12 * np.sin(3 * ph + 1.1)
+    x = bpf(x + 0.04 * r.standard_normal(n), 350, 2600)
+    env = np.minimum(1, t / 0.25) ** 1.5 * np.minimum(1, (dur - t) / 0.5)
+    return fade(x * env * vel * 0.18, 0.02, 0.2)
+
+
+def yelp(key, vel=1.0):
+    """A pup's short cry of pain: a fast upward glide that breaks off."""
+    n = smp(0.32)
+    t = tvec(n)
+    f = 820 + 700 * (t / 0.32) ** 0.6
+    ph = 2 * np.pi * np.cumsum(f) / SR
+    x = np.sin(ph) + 0.3 * np.sin(2 * ph)
+    x = bpf(x + 0.05 * rng('yelp', key).standard_normal(n), 500, 4000)
+    return fade(x * np.exp(-t / 0.12) * np.minimum(1, t / 0.01) * vel * 0.2, 0.002, 0.05)
+
+
+def naga_shimmer(n, key, vel=1.0):
+    """The serpent world's colour: glassy high partials that waver and beat (slow tremolo,
+    small pitch wobble), over a hiss that breathes in and out."""
+    t = tvec(n)
+    r = rng('naga', key)
+    x = np.zeros(n)
+    for i, f in enumerate((SA * 4 * 16 / 15, SA * 6, SA * 8 * 16 / 15, SA * 9, SA * 12)):
+        wob = 1 + 0.004 * np.sin(2 * np.pi * r.uniform(0.15, 0.4) * t + r.uniform(0, 6))
+        trem = 0.5 + 0.5 * np.sin(2 * np.pi * r.uniform(0.2, 0.7) * t + r.uniform(0, 6))
+        x += np.sin(2 * np.pi * np.cumsum(f * wob) / SR + i) * trem ** 2 / (1 + i * 0.3)
+    hiss = bpf(r.standard_normal(n), 4000, 10000) * (0.3 + 0.7 * (0.5 + 0.5 * np.sin(2 * np.pi * 0.6 * t)) ** 3) * 0.6
+    return (x * 0.02 + hiss * 0.02) * vel
+
+
+def wind(n, key, vel=1.0):
+    """Rising wind: noise through a slowly wandering band."""
+    r = rng('wind', key)
+    x = r.standard_normal(n)
+    lo = lpf(x, 500, 2)
+    hi = bpf(x, 700, 2200)
+    lfo = 0.5 + 0.5 * np.sin(2 * np.pi * 0.23 * tvec(n) + r.uniform(0, 6))
+    return (lo * 0.6 + hi * 0.25 * lfo) * vel
+
+
+def roar(n, key, vel=1.0):
+    """A great fire roaring up: low rumble + crackle."""
+    r = rng('roar', key)
+    return (lpf(r.standard_normal(n), 180, 2) * 1.4 + crackle(n, ('roar', key), 14.0) * 0.6) * vel
+
+
+def _tb_buses(N):
+    bus_dry, bus_wet, bed = np.zeros((2, N)), np.zeros((2, N)), np.zeros((2, N))
+
+    def bell(t0, f, vel, p, key):
+        x = ghanta(f, 5.0, key, vel)
+        add(bus_dry, pan(x * 0.4, p), t0)
+        add(bus_wet, pan(x * 0.8, p), t0)
+
+    def hit(t0, key, vel, din=True, boom=0.0, p=-0.05):
+        add(bus_dry, pan(mridangam('thom', key, vel), p), t0)
+        if din:
+            add(bus_dry, pan(mridangam('din', key, vel * 0.55), p + 0.15), t0 + 0.004)
+        add(bus_wet, pan(mridangam('thom', key, vel * 0.5), 0.0), t0)
+        if boom:
+            n = smp(2.2)
+            tt = tvec(n)
+            b = np.sin(2 * np.pi * (38 + 22 * np.exp(-tt / 0.09)) * tt) * np.exp(-tt / 0.8) * boom
+            add(bus_dry, pan(b, 0.0), t0)
+            add(bus_wet, pan(b * 0.4, 0.0), t0)
+
+    def stereo(x, t0, vel=1.0, bus=None, roll=1777):
+        add(bus if bus is not None else bus_dry, np.stack([x * vel, np.roll(x, roll) * vel]), t0)
+
+    return bus_dry, bus_wet, bed, bell, hit, stereo
+
+
+def _tb_master(bus_dry, bus_wet, bed, D, N):
+    hall = make_ir(3.2, 4.0, 'hall')
+    room = make_ir(1.4, 2.0, 'room')
+    out = bus_dry + reverb(bus_wet, hall) * 0.55 + bus_wet * 0.25 + bed * 0.6 + reverb(bed, room) * 0.25
+    b, a = sps.iirpeak(2600, 1.2, fs=SR)
+    out = out - 0.25 * sps.lfilter(b, a, out, axis=-1)
+    out = hpf(out, 30)
+    out *= env_curve([(0, 0), (0.05, 1), (D - 0.7, 1), (D - 0.02, 0), (D, 0)], N)
+    out *= db(TARGET_LUFS - lufs(out))
+    tp = true_peak_db(out)
+    if tp > CEIL_DBTP:
+        k = db(CEIL_DBTP - 0.3)
+        out = np.tanh(out / k) * k
+    return out
+
+
+def build_ep5(tl):
+    """Recap sting; the Naimisha fire (hook: a low drum on "cursed", a distant howl on "dog");
+    a bright day raga at Kurukshetra (tanpura, reeds, birds, temple bells at the rite); the
+    pup's trot; three dull blows and his yelps; a whimper and a shimmer at his mother's; then
+    the curse: ominous low drums, a dark drone and rising wind, great hits on "unseen" and
+    "you"; a nervous heartbeat in the night palace; the serpent shimmer rising under the
+    tease; the Next sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    h0, r0, c0, a0, t0 = st('hook'), st('rite'), st('curse'), st('afraid'), st('tease')
+    # ── tanpura through the frame and the day; it thins under the curse and the night
+    tan = tanpura_bed(N, D, 'ep5')
+    bed += tan * env_curve([(0, 0.5), (1.5, 0.9), (r0, 0.9), (r0 + 0.8, 1.0), (st('mother'), 0.9), (c0, 0.35), (en('curse'), 0.2), (a0 + 0.5, 0.45), (t0, 0.35), (D, 0.5)], N)
+    reeds = reed_drone(N, (SA, SA * 1.5, SA * 2), 'day5')
+    ra = env_curve([(0, 0), (r0, 0), (r0 + 1.2, 0.2), (st('beaten'), 0.16), (st('beaten') + 0.3, 0.05), (st('mother'), 0.0), (D, 0)], N)
+    bed += pan(reeds * ra * 0.6, -0.2) + pan(np.roll(reeds, 1500) * ra * 0.6, 0.2)
+    # ── fire: the Naimisha fire under the hook; the day fire, quieter, at Kurukshetra
+    fire = crackle(N, 'fire5')
+    fa = env_curve([(0, 0), (h0, 0), (h0 + 0.4, 0.6), (r0 - 0.2, 0.6), (r0 + 0.4, 0.25), (st('mother'), 0.2), (c0, 0.3), (en('curse'), 0.05), (a0 + 0.5, 0.0), (D, 0)], N)
+    stereo(fire * fa * 0.09, 0, roll=777)
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    # ── the hook: "cursed" — a low, dull drum; "dog" — a far howl and a dark bell
+    add(bus_dry, pan(mridangam('ki', 5000, 0.3), -0.15), h0 - 0.14)
+    hit(h0, 5000, 0.45)
+    hit(beat('hook', 0), 5001, 0.8, din=False, boom=0.7)
+    hw = howl('hook', 1.9, 470.0, 0.9)
+    add(bus_wet, pan(hw * 0.9, 0.35), beat('hook', 1) + 0.15)
+    add(bus_dry, pan(hw * 0.25, 0.35), beat('hook', 1) + 0.15)
+    bell(beat('hook', 1) + 0.1, 220.0, 0.22, -0.2, 'dog5')
+    # ── Kurukshetra by day: birds, bells at the rite, a soft ritual pulse
+    r = rng('birds5')
+    tb = r0 + 0.3
+    while tb < c0 - 0.5:
+        x = koel(int(tb * 100)) if r.integers(0, 3) == 0 else twitter(int(tb * 100))
+        pp = r.uniform(-0.8, 0.8)
+        add(bus_wet, pan(x * 0.035, pp), tb)
+        add(bus_dry, pan(x * 0.012, pp), tb)
+        tb += r.uniform(0.9, 1.8)
+    for j, (f, pp) in enumerate(((587.33, -0.3), (880.0, 0.25), (440.0, 0.0))):
+        bell(beat('rite', j), f, 0.22, pp, ('rite', j))
+    k, tp = 0, r0 + 0.5
+    while tp < st('beaten') - 0.2:
+        hit(tp, (5100, k), 0.18 if k % 4 else 0.26, din=(k % 4 == 0), p=0.15)
+        tp += 0.75
+        k += 1
+    # ── the pup: light trotting taps; a high shimmer and bell on "Sarama"
+    p0 = st('pup')
+    for i in range(8):
+        add(bus_dry, pan(mridangam('ta' if i % 2 else 'ki', (5200, i), 0.12), 0.4 - i * 0.05), p0 + 0.15 + i * 0.26)
+    bell(beat('pup', 1), 1174.66, 0.16, 0.3, 'sarama1')
+    n = smp(2.2)
+    tt = tvec(n)
+    shim = sum(np.sin(2 * np.pi * f * tt + i) * (0.5 + 0.5 * np.sin(2 * np.pi * (0.5 + 0.2 * i) * tt)) for i, f in enumerate((SA * 4, SA * 6, SA * 8))) * np.minimum(1, tt / 0.5) * np.exp(-tt / 1.4) * 0.03
+    add(bus_wet, np.stack([shim, np.roll(shim, 333)]), beat('pup', 1) - 0.1)
+    # ── the beating: the brothers rise (a tense ta-ta), three dull blows, three yelps
+    for i in range(4):
+        add(bus_dry, pan(mridangam('ta', (5300, i), 0.2 + 0.05 * i), 0.2), st('beaten') + 0.1 + i * 0.18)
+    for i, tk in enumerate(L['beaten'].get('ticks', [])):
+        hit(tk, (5310, i), 0.85, din=False, boom=0.35, p=0.2 - 0.15 * i)
+        add(bus_dry, pan(yelp((5320, i), 0.9 - 0.15 * i), -0.25), tk + 0.06)
+    bell(beat('beaten', 1), 293.66, 0.18, -0.25, 'innocent')
+    # ── his mother's ridge: a whimper, a soft rising shimmer; then her stride into the enclosure
+    m0 = st('mother')
+    add(bus_wet, pan(howl('whimper', 0.9, 760.0, 0.5), -0.3), m0 + 0.6)
+    add(bus_wet, pan(howl('whimper2', 0.7, 820.0, 0.4), -0.2), m0 + 1.7)
+    n = smp(beat('mother', 1) - m0)
+    tt = tvec(n)
+    shim = sum(np.sin(2 * np.pi * f * tt + i) for i, f in enumerate((SA * 3, SA * 4, SA * 5))) * np.minimum(1, tt / 0.6) * 0.015
+    add(bus_wet, fade(np.stack([shim, np.roll(shim, 222)]), 0.3, 0.4), m0)
+    for i in range(3):
+        hit(beat('mother', 1) + i * 0.62, (5400, i), 0.42 + 0.12 * i, din=False, boom=0.15 * i, p=0.3)
+    # ── the curse: a dark drone (Sa, komal re, Pa low), rising wind, slow heavy drums, great hits
+    dr = reed_drone(N, (SA / 4, SA / 2, SA / 2 * 16 / 15, SA / 2 * 1.5), 'curse5')
+    da = env_curve([(0, 0), (beat('mother', 1), 0), (c0, 0.3), (beat('curse', 1), 0.55), (en('curse'), 0.5), (a0 + 0.8, 0.12), (en('afraid'), 0.08), (t0, 0.0), (D, 0)], N)
+    bed += pan(lpf(dr, 600) * da, -0.15) + pan(lpf(np.roll(dr, 2000), 600) * da, 0.15)
+    wn = wind(N, 'curse5')
+    wa = env_curve([(0, 0), (beat('mother', 1), 0), (c0 + 0.5, 0.04), (beat('curse', 1), 0.12), (en('curse'), 0.1), (a0 + 0.6, 0.0), (D, 0)], N)
+    stereo(wn * wa, 0, roll=2400)
+    bpm = 64.0
+    tc, k = c0 + 0.1, 0
+    while tc < en('curse') - 0.3:
+        heavy = k % 2 == 0
+        hit(tc, (5500, k), 0.55 if heavy else 0.35, din=False, boom=0.45 if heavy else 0.15, p=-0.1 if heavy else 0.1)
+        tc += 60 / bpm
+        k += 1
+    hit(beat('curse', 1), 5600, 1.1, din=False, boom=0.9)
+    bell(beat('curse', 1) + 0.02, 155.56, 0.3, 0.0, 'unseen')
+    hit(beat('curse', 2), 5601, 1.2, din=False, boom=1.0)
+    bell(beat('curse', 2) + 0.05, 146.83, 0.3, -0.1, 'you')
+    # ── the palace at night: a nervous heartbeat; a warmer bell on "priest"
+    tc, k = a0 + 0.3, 0
+    while tc < en('afraid') - 0.2:
+        hit(tc, (5700, k), 0.24, din=False, boom=0.08, p=0.0)
+        hit(tc + 0.24, (5710, k), 0.16, din=False, p=0.0)
+        tc += 0.92
+        k += 1
+    bell(beat('afraid', 1), 587.33, 0.2, 0.25, 'priest')
+    # ── the tease: the serpent world's shimmer rises; a deep hit when the hood flares on "king"
+    n = smp(en('tease') - t0 + 0.4)
+    sh = naga_shimmer(n, 'tease5', 1.0) * np.minimum(1, tvec(n) / 2.0)
+    add(bus_wet, fade(np.stack([sh, np.roll(sh, 999)]), 0.4, 0.6), t0)
+    hit(beat('tease', 1), 5800, 0.95, din=False, boom=0.7)
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
+def build_ep6(tl):
+    """Recap sting; the Naimisha fire (hook); a morning raga at the hermitage (bansuri, birds);
+    gold chimes in Paushya's palace and the serpent shimmer behind the lattice; the stream
+    and the theft (a running ki-ta, a falling boom into the earth); the eerie, glassy Naga
+    world, flooded by fire on "won"; a low heartbeat of anger; a conch at the court, the
+    vow's roaring fire and drums; the Next sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    h0, a0, g0, w0, s0, n0, an0, c0, v0 = (st(i) for i in ('hook', 'ask', 'gave', 'warn', 'stolen', 'naga', 'anger', 'court', 'vow'))
+    tan = tanpura_bed(N, D, 'ep6')
+    bed += tan * env_curve([(0, 0.5), (1.5, 0.9), (a0, 0.9), (a0 + 0.8, 1.0), (s0, 0.8), (n0, 0.25), (an0, 0.3), (c0, 0.7), (v0, 0.5), (en('vow'), 0.3), (D, 0.5)], N)
+    fire = crackle(N, 'fire6')
+    fa = env_curve([(0, 0), (h0, 0), (h0 + 0.4, 0.6), (a0 - 0.2, 0.6), (a0 + 0.5, 0.0), (c0, 0.0), (c0 + 0.5, 0.35), (v0, 0.35), (D, 0.2)], N)
+    stereo(fire * fa * 0.09, 0, roll=777)
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    add(bus_dry, pan(mridangam('ki', 6000, 0.3), -0.15), h0 - 0.14)
+    hit(h0, 6000, 0.45)
+    bell(beat('hook', 0), 880.0, 0.22, 0.25, 'uttanka')
+    # ── the hermitage at morning: birds and a bansuri phrase; the earrings' chime
+    r = rng('birds6')
+    tb = a0 + 0.3
+    while tb < g0 - 0.3:
+        x = koel(int(tb * 100)) if r.integers(0, 3) == 0 else twitter(int(tb * 100))
+        pp = r.uniform(-0.8, 0.8)
+        add(bus_wet, pan(x * 0.035, pp), tb)
+        tb += r.uniform(0.8, 1.6)
+    Sa, re_, Ga, Ma, Pa, dha = SA * 2, SA * 2 * 16 / 15, SA * 2 * 5 / 4, SA * 2 * 4 / 3, SA * 3, SA * 2 * 8 / 5
+    ph1 = bansuri([Pa, Ma, Ga, re_, Ga, Sa], [0.6, 0.35, 0.5, 0.35, 0.6, 1.4], 'u1', 0.9)
+    add(bus_wet, pan(ph1 * 0.8, 0.25), a0 + 0.3)
+    add(bus_dry, pan(ph1 * 0.3, 0.25), a0 + 0.3)
+    for i, (f, pp) in enumerate(((1174.66, -0.2), (1318.5, 0.25))):
+        bell(beat('ask', 1) + i * 0.12, f, 0.16, pp, ('earrings', i))
+    # ── Paushya's palace: gold chimes, a soft court rhythm
+    for i, (f, pp) in enumerate(((880.0, -0.3), (1174.66, 0.3), (1318.5, 0.0))):
+        bell(beat('gave', 0) + i * 0.08, f, 0.2 - 0.03 * i, pp, ('gave', i))
+    m = manjira('gave6', 0.35)
+    add(bus_wet, pan(m * 0.5, 0.2), beat('gave', 0))
+    k, tp = 0, g0 + 0.2
+    while tp < w0:
+        add(bus_dry, pan(mridangam('ki' if k % 2 else 'ta', (6100, k), 0.14), 0.25), tp)
+        tp += 0.36
+        k += 1
+    # ── the warning: the serpent shimmer behind the lattice; a dark low bell on "Takshaka"
+    n = smp(en('warn') - w0 + 0.3)
+    sh = naga_shimmer(n, 'warn6', 0.8) * np.minimum(1, tvec(n) / 0.8)
+    add(bus_wet, fade(np.stack([sh, np.roll(sh, 811)]), 0.2, 0.5), w0)
+    bell(beat('warn', 0), 155.56, 0.26, 0.0, 'takshaka6')
+    bell(beat('warn', 1), 1318.5, 0.2, 0.3, 'these')
+    # ── the road at dusk: the stream; the theft; the run; the plunge into the earth
+    w = water(smp(en('stolen') - s0 + 0.5), 'w6')
+    stereo(w * env_curve([(0, 0), (0.5, 0.35), (beat('stolen', 1) - s0, 0.35), (beat('stolen', 1) - s0 + 1.2, 0.1), (en('stolen') - s0 + 0.5, 0)], len(w)), s0, roll=999)
+    n = smp(beat('stolen', 1) - beat('stolen', 0) + 0.6)
+    sh = naga_shimmer(n, 'guise6', 0.9)
+    add(bus_wet, fade(np.stack([sh, np.roll(sh, 555)]), 0.2, 0.3), beat('stolen', 0))
+    hit(beat('stolen', 1), 6200, 0.8, din=False, boom=0.3)
+    tr, k = beat('stolen', 1) + 0.2, 0
+    while tr < beat('stolen', 2) - 0.1:
+        add(bus_dry, pan(mridangam('ki' if k % 2 else 'ta', (6210, k), 0.22 + 0.02 * k), 0.2 if k % 2 else -0.2), tr)
+        tr += 0.14
+        k += 1
+    n = smp(1.6)
+    tt = tvec(n)
+    fall = np.sin(2 * np.pi * np.cumsum(220 * np.exp(-tt / 0.5) + 40) / SR) * np.exp(-tt / 0.9) * 0.3
+    add(bus_wet, pan(fall, -0.3), beat('stolen', 2))
+    hit(beat('stolen', 2) + 0.3, 6220, 1.0, din=False, boom=0.9)
+    # ── the Naga world: eerie and shimmering, a sub drone, glassy bells; flooded by fire on "won"
+    n = smp(en('naga') - n0 + 0.4)
+    sh = naga_shimmer(n, 'naga6', 1.6)
+    add(bus_wet, fade(np.stack([sh, np.roll(sh, 1234)]), 0.6, 0.6), n0)
+    add(bus_dry, fade(np.stack([sh, np.roll(sh, 321)]) * 0.5, 0.6, 0.6), n0)
+    dr = reed_drone(N, (SA / 4, SA / 4 * 16 / 15, SA / 2 * 8 / 5), 'naga6')
+    da = env_curve([(0, 0), (n0, 0), (n0 + 1.0, 0.35), (beat('naga', 2), 0.35), (en('naga'), 0.2), (an0 + 0.5, 0.15), (c0, 0.0), (D, 0)], N)
+    bed += pan(lpf(dr, 500) * da, -0.2) + pan(lpf(np.roll(dr, 3000), 500) * da, 0.2)
+    rb = rng('glass6')
+    for i in range(9):
+        tg = n0 + 0.4 + i * 0.45 + rb.uniform(0, 0.2)
+        if tg > beat('naga', 2) - 0.2:
+            break
+        f = SA * 4 * [1, 16 / 15, 5 / 4, 3 / 2, 8 / 5][rb.integers(0, 5)]
+        bell(tg, f, 0.08, rb.uniform(-0.8, 0.8), ('glass6', i))
+    n = smp(en('naga') - beat('naga', 2) + 0.6)
+    ro = roar(n, 'won6') * env_curve([(0, 0), (0.4, 0.25), (n / SR - 0.5, 0.2), (n / SR, 0)], n)
+    stereo(ro, beat('naga', 2) - 0.2, roll=1500)
+    hit(beat('naga', 2), 6300, 1.0, din=False, boom=0.7)
+    for i, (f, pp) in enumerate(((587.33, -0.3), (880.0, 0.3), (1174.66, 0.0))):
+        bell(beat('naga', 2) + 0.6 + i * 0.12, f, 0.24, pp, ('won6', i))
+    # ── anger: a slow heartbeat
+    tc, k = an0 + 0.2, 0
+    while tc < c0:
+        hit(tc, (6400, k), 0.4, din=False, boom=0.25)
+        hit(tc + 0.26, (6410, k), 0.25, din=False)
+        tc += 0.95
+        k += 1
+    # ── the court: a conch, the court drum; the hiss on "killed"; "Avenge"
+    c = conch('court6', 233.08, 2.4, 0.8)
+    add(bus_dry, pan(c * 0.4, -0.4), c0 + 0.1)
+    add(bus_wet, pan(c * 0.8, -0.4), c0 + 0.1)
+    hit(c0 + 0.1, 6500, 0.6, boom=0.2)
+    n = smp(1.6)
+    hs = bpf(rng('hiss6').standard_normal(n), 3500, 9000) * np.minimum(1, tvec(n) / 0.15) * np.exp(-tvec(n) / 0.8) * 0.05
+    add(bus_wet, fade(np.stack([hs, np.roll(hs, 900)]), 0.05, 0.3), beat('avenge', 0))
+    sh = naga_shimmer(smp(1.8), 'avenge6', 0.8)
+    add(bus_wet, fade(np.stack([sh, sh]), 0.2, 0.5), beat('avenge', 0))
+    hit(beat('avenge', 2), 6510, 0.95, boom=0.5)
+    # ── the vow: the fire roars up, drums build, conchs on "vowed", booms on "burn" and "serpent"
+    n = smp(en('vow') - v0 + 0.5)
+    ro = roar(n, 'vow6') * env_curve([(0, 0.02), (beat('vow', 1) - v0 - 0.8, 0.12), (beat('vow', 1) - v0 + 0.2, 0.3), (n / SR - 0.4, 0.25), (n / SR, 0)], n)
+    stereo(ro, v0, roll=1800)
+    for j, (pp, f) in enumerate(((-0.6, 233.08), (0.6, 220.0))):
+        c = conch(('vow6', j), f, 2.4, 0.9)
+        add(bus_dry, pan(c * 0.45, pp), beat('vow', 0) + 0.25 * j)
+        add(bus_wet, pan(c * 0.85, pp), beat('vow', 0) + 0.25 * j)
+    tv, k = v0 + 0.2, 0
+    while tv < en('vow') - 0.2:
+        g = clamp01((tv - v0) / (en('vow') - v0))
+        hit(tv, (6600, k), 0.3 + 0.4 * g, din=(k % 2 == 0), boom=0.15 * g)
+        tv += 0.42 - 0.1 * g
+        k += 1
+    hit(beat('vow', 1), 6700, 1.1, din=False, boom=0.9)
+    hit(beat('vow', 2), 6701, 1.0, din=False, boom=0.8)
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
+
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
     r = rng('dither')
@@ -1151,7 +1489,7 @@ def main():
                 return
         except Exception:
             pass
-    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4}[ep](tl)
+    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6}[ep](tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],
             'note': 'music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)'}

@@ -45,7 +45,7 @@
     // the staff: [hand, direction angle] — planted by default
     let hnd = [-60, -560], ang = Math.PI / 2, nearKind = 'fist';
     let far = [44, -560], farKind = 'fist', farA = Math.PI / 2;
-    if (r.sitting) { hnd = [-150, -470]; ang = Math.PI / 2 + 0.25; far = [40, -470]; }
+    if (r.sitting) { hnd = [-150, -470]; ang = -Math.PI / 2 + 0.3; far = [40, -470]; }
     if (raw.name === 'walk' || run) { hnd = [-80 - 30 * Math.sin(raw.phase || 0), -600]; ang = Math.PI / 2 - 0.5; far = [40 + 40 * Math.sin((raw.phase || 0) + Math.PI), -580]; }
     if (raw.name === 'raise' || raw.name === 'strike') {
       const up = raw.name === 'raise' ? k : 1, down = raw.name === 'strike' ? k : 0;

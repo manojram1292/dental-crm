@@ -38,9 +38,9 @@
       EP5.label(ctx, (env.strings.placeKurukshetra || 'Kurukshetra').toUpperCase(), KIT.CX, 380, la, { size: 66, key: 'r5-place', sheen: (t - b0) / 2 });
       const na = clamp((t - (b1 - 0.1)) / 0.5) * (1 - clamp((t - dur + 0.4) / 0.4));
       if (na > 0) {
-        ctx.save(); ctx.globalAlpha = na; ctx.font = R.font(34, 'caption', 600, 'italic'); ctx.textAlign = 'center';
+        ctx.save(); ctx.globalAlpha = na; ctx.font = R.font(30, 'caption', 600, 'italic'); ctx.textAlign = 'center';
         ctx.fillStyle = R.PAL.goldPale; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(8);
-        names.forEach((n, i) => ctx.fillText(n, 700 + i * 140, 980 - i * 52));
+        names.forEach((n, i) => ctx.fillText(n, 668 + i * 148, 905 + i * 4));
         ctx.restore();
       }
     },

@@ -37,7 +37,8 @@
     ctx.save();
     ctx.translate(x, y); ctx.rotate(o.tilt || 0);
     ctx.globalAlpha = a;
-    KIT.glow(ctx, 0, 0, r * 4.2, cold ? R.mix('#ffc860', '#b8ffd8', cold * 0.5) : '#ffc860', 0.35 * glow * a);
+    KIT.glow(ctx, 0, 0, r * 4.2, '#ffc860', 0.35 * glow * a * (1 - 0.5 * cold));
+    if (cold > 0.01) KIT.glow(ctx, 0, 0, r * 4.2, '#b8ffd8', 0.18 * glow * a * cold);
     // the ring
     const g = ctx.createLinearGradient(-r, -r, r, r);
     g.addColorStop(0, '#fff2c0'); g.addColorStop(0.35, '#e7b54a'); g.addColorStop(0.7, '#a8741f'); g.addColorStop(1, '#f7dc9c');
