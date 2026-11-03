@@ -1,0 +1,23 @@
+{
+ "speaker": "parikshit",
+ "voice": "am_eric",
+ "speed": 0.84,
+ "pitch": -1,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.6483,
+   "words": 1,
+   "speed": 0.84,
+   "text": "Sage"
+  },
+  {
+   "t0": 1.0683,
+   "t1": 2.4604,
+   "words": 5,
+   "speed": 0.84,
+   "text": "where did the deer go?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

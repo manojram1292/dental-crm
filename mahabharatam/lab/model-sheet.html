@@ -42,6 +42,14 @@
 <script src="../src/kit/characters/paushya-queen.js"></script>
 <script src="../src/kit/characters/guru-patni.js"></script>
 <script src="../src/kit/characters/takshaka.js"></script>
+<script src="../src/kit/characters/parikshit.js"></script>
+<script src="../src/kit/characters/shamika.js"></script>
+<script src="../src/kit/characters/shringin.js"></script>
+<script src="../src/kit/characters/priests.js"></script>
+<script src="../src/kit/characters/indra.js"></script>
+<script src="../src/kit/characters/sthapati.js"></script>
+<script src="../src/kit/characters/kadru.js"></script>
+<script src="../src/kit/characters/vinata.js"></script>
 <script>
 (async function () {
   'use strict';
@@ -91,6 +99,17 @@
     { id: 'queen', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit', 'sit'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['give', { name: 'give', k: 1 }], ['warn', { name: 'warn', k: 1, earrings: false }], ['bless', { name: 'bless', k: 1 }]], lightPose: 'stand' },
     { id: 'gurupatni', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit', 'sit'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['ask', { name: 'ask', k: 1 }], ['bless', { name: 'bless', k: 1 }]], lightPose: 'stand' },
     { id: 'takshaka', dx: -90, poses: [['stand', 'stand'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['strike', { name: 'strike', k: 1 }, { mood: 'wrath' }], ['recoil', { name: 'recoil', k: 1 }], ['give', { name: 'give', k: 1 }], ['dive', { name: 'dive', k: 0.5 }], ['guise · beggar', 'guise'], ['guise-run', { name: 'guise-run', phase: 1.1 }]], lightPose: 'stand' },
+    // episode 7 (Astika parva)
+    { id: 'parikshit', poses: [['stand', 'stand'], ['weary', { name: 'weary', phase: 1.1, k: 1 }], ['sit · throne', 'sit'], ['speak · ask', { name: 'speak', k: 1 }, { speak: 0.8 }], ['drape', { name: 'drape', k: 0.5 }, { mood: 'wrath' }], ['hold · fruit', { name: 'hold', k: 1 }], ['fall', { name: 'fall', k: 1 }]], lightPose: 'stand' },
+    { id: 'shamika', poses: [['sit · meditate', 'sit'], ['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['grieve', { name: 'grieve', base: 'sit', k: 1 }], ['send', { name: 'send', base: 'sit', k: 1 }], ['bless', { name: 'bless', k: 1 }]], lightPose: 'sit' },
+    { id: 'shringin', poses: [['stand', 'stand'], ['run', { name: 'run', phase: 1.1 }], ['sit', 'sit'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['scoop', { name: 'scoop', k: 1 }], ['curse · wrath', { name: 'curse', k: 1 }, { mood: 'wrath', speak: 0.8 }], ['point', { name: 'point', k: 1 }]], lightPose: 'stand' },
+    // episode 8
+    { id: 'priest', poses: [['Chandabhargava · 0', 'sit', null, 'left', 0], ['Kautsa · 1', 'stand', null, 'left', 1], ['Jaimini · 2', 'stand', null, 'left', 2], ['Sharngarava · 3', 'stand', null, 'left', 3], ['offer · 0', { name: 'offer', base: 'sit', k: 1, phase: 1 }, null, 'left', 0], ['chant · 1', { name: 'chant', k: 1 }, null, 'left', 1], ['chant · seated 2', { name: 'chant', base: 'sit', k: 1 }, null, 'left', 2]], lightPose: 'stand' },
+    { id: 'indra', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit · cloud-throne', 'sit'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['protect', { name: 'protect', k: 1 }], ['protect · throne', { name: 'protect', base: 'throne', k: 1 }], ['raise', { name: 'raise', k: 1 }, { mood: 'wrath' }]], lightPose: 'stand' },
+    { id: 'sthapati', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit', 'sit'], ['measure', { name: 'measure', k: 1 }], ['warn', { name: 'warn', k: 1 }, { speak: 0.8 }], ['warn · seated', { name: 'warn', base: 'sit', k: 1 }]], lightPose: 'stand' },
+    // episodes 8–10 (Kadru and Vinata)
+    { id: 'kadru', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit', 'sit'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['point · wager', { name: 'point', k: 1 }], ['curse · wrath', { name: 'curse', k: 1 }, { mood: 'wrath' }], ['cradle', { name: 'cradle', k: 1 }]], lightPose: 'stand' },
+    { id: 'vinata', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit', 'sit'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['cradle', { name: 'cradle', k: 1 }], ['reach', { name: 'reach', k: 1 }], ['grieve', { name: 'grieve', k: 1 }], ['slave · bow', { name: 'bow', k: 1, slave: true }]], lightPose: 'stand' },
   ];
   const LIGHTS = [['key · fire left', CH.LIGHTS.key], ['back · rim from behind', CH.LIGHTS.back], ['low · dim fire in front', CH.LIGHTS.low]];
   const NPOSE = Math.max(...ROWS.map((r) => r.poses.length));
@@ -176,7 +195,7 @@
   const ly = y + 50, lh = LINEUP_H - 70;
   ctx.save(); ctx.fillStyle = '#0d0907'; ctx.fillRect(40, ly, W - 80, lh); ctx.restore();
   KIT.glow(ctx, W / 2, ly + lh + 60, 900, '#f08a24', 0.35, 'lighter', 0.4);
-  const cast = [['sauti', 'stand', 'left'], ['elder', { name: 'speak', k: 1 }, 'left'], ['sage', 'sit', 'front', 2], ['sage', 'sit', 'front', 1], ['parashurama', { name: 'raise-axe', k: 1 }, 'left'], ['pitr', { name: 'bless', k: 1 }, 'front', 0], ['vyasa', 'stand', 'left'], ['janamejaya', 'stand', 'left'], ['sauti', 'sit', 'right'], ['parashurama', 'walk', 'right'], ['takshaka', 'stand', 'left'], ['sarama', 'stand', 'left'], ['pup', 'stand', 'left'], ['prince', 'stand', 'left', 2], ['uttanka', { name: 'walk', phase: 1.1 }, 'left'], ['queen', 'stand', 'left'], ['gurupatni', 'stand', 'left']];
+  const cast = [['sauti', 'stand', 'left'], ['elder', { name: 'speak', k: 1 }, 'left'], ['sage', 'sit', 'front', 2], ['sage', 'sit', 'front', 1], ['parashurama', { name: 'raise-axe', k: 1 }, 'left'], ['pitr', { name: 'bless', k: 1 }, 'front', 0], ['vyasa', 'stand', 'left'], ['janamejaya', 'stand', 'left'], ['sauti', 'sit', 'right'], ['parashurama', 'walk', 'right'], ['takshaka', 'stand', 'left'], ['sarama', 'stand', 'left'], ['pup', 'stand', 'left'], ['prince', 'stand', 'left', 2], ['uttanka', { name: 'walk', phase: 1.1 }, 'left'], ['queen', 'stand', 'left'], ['gurupatni', 'stand', 'left'], ['parikshit', 'stand', 'left'], ['shamika', 'stand', 'left'], ['shringin', 'stand', 'left'], ['priest', 'stand', 'left', 0], ['indra', 'stand', 'left'], ['sthapati', 'stand', 'left'], ['kadru', 'stand', 'left'], ['vinata', 'stand', 'left']];
   const big = 0.3, small = 0.14;
   cast.forEach(([id, pose, facing, index], i) => {
     const x = 160 + i * ((W - 320) / (cast.length - 1));

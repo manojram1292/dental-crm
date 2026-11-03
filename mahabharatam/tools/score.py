@@ -1452,6 +1452,148 @@ def build_ep6(tl):
 
 
 
+# ─── episodes 7–10 (Astika parva) ────────────────────────────────────────────
+def cicadas(n, key, vel=1.0):
+    """Noon heat: a high, pulsing insect buzz (band noise, fast AM, slow swells)."""
+    r = rng('cicada', key)
+    t = tvec(n)
+    x = bpf(r.standard_normal(n), 3800, 6500)
+    am = (0.5 + 0.5 * np.sin(2 * np.pi * 42 * t)) ** 2
+    sw = 0.4 + 0.6 * (0.5 + 0.5 * np.sin(2 * np.pi * 0.31 * t + r.uniform(0, 6))) ** 2
+    return x * am * sw * 0.05 * vel
+
+
+def crickets(n, key, vel=1.0):
+    """Night: crickets, short chirp trains at a steady rate."""
+    r = rng('crick', key)
+    t = tvec(n)
+    x = np.sin(2 * np.pi * 4300 * t) * (np.sin(2 * np.pi * 28 * t) > 0.2)
+    gate = ((t * 1.6 + r.uniform(0, 1)) % 1) < 0.35
+    return lpf(x * gate, 7000) * 0.012 * vel
+
+
+def tick(key, f=3200.0, vel=1.0):
+    """A tiny dry click (an insect's step)."""
+    n = smp(0.03)
+    t = tvec(n)
+    return np.sin(2 * np.pi * f * t) * np.exp(-t / 0.004) * 0.25 * vel
+
+
+def build_ep7(tl):
+    """Recap sting; the Naimisha fire (hook: a cold shimmer on "Takshaka", a low bell on
+    "Parikshit"); noon heat (cicadas, a running ki-ta for the hunt); the cow-pen at
+    afternoon (a cow bell, birds) that drops to near-silence on "silence"; a drum of anger
+    on "Angry"; the red river, seven rising bells for the seven days and a boom on "burn";
+    a grieving bansuri; the pillar by night (crickets, a chant drone, bells for the
+    mantras); a quickening heartbeat on the seventh day; a tiny tick for the insect; the
+    venom's roar and booms; a conch for the son; the Next sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    h0, hu0, a0, si0, sn0, he0, cu0, w0, to0, se0, in0, sk0, cl0 = (st(i) for i in ('hook', 'hunt', 'ask', 'silent', 'snake', 'heard', 'curse', 'warn', 'tower', 'seventh', 'insect', 'strike', 'cliff'))
+    tan = tanpura_bed(N, D, 'ep7')
+    bed += tan * env_curve([(0, 0.5), (1.5, 0.9), (hu0, 0.7), (si0, 0.8), (beat('silent', 1), 0.35), (sn0, 0.7), (he0, 0.5), (w0, 0.8), (to0, 0.6), (sk0, 0.4), (cl0, 0.6), (D, 0.5)], N)
+    fire = crackle(N, 'fire7')
+    stereo(fire * env_curve([(0, 0), (h0, 0), (h0 + 0.4, 0.6), (hu0 - 0.2, 0.6), (hu0 + 0.4, 0), (cl0, 0), (beat('cliff', 1) - 0.3, 0.5), (D, 0.2)], N) * 0.09, 0, roll=777)
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    # ── hook
+    add(bus_dry, pan(mridangam('ki', 7000, 0.3), -0.15), h0 - 0.14)
+    hit(h0, 7000, 0.45)
+    sh = naga_shimmer(smp(2.0), 'hook7', 0.9)
+    add(bus_wet, fade(np.stack([sh, np.roll(sh, 700)]), 0.2, 0.6), beat('hook', 0) - 0.1)
+    bell(beat('hook', 0), 155.56, 0.22, 0.0, 'tk7')
+    bell(beat('hook', 1), 293.66, 0.24, -0.2, 'pk7')
+    # ── noon: cicadas; the chase (a running ki-ta that slows with the king)
+    n = smp(en('hunt') - hu0 + 0.4)
+    c = cicadas(n, 'noon7') * env_curve([(0, 0), (0.5, 1), (n / SR - 0.6, 1), (n / SR, 0)], n)
+    stereo(c, hu0, roll=2400)
+    tr, k = hu0 + 0.15, 0
+    while tr < beat('hunt', 2):
+        g = clamp01((tr - beat('hunt', 1)) / 1.5)
+        add(bus_dry, pan(mridangam('ki' if k % 2 else 'ta', (7100, k), 0.2 * (1 - 0.6 * g)), 0.2 if k % 2 else -0.2), tr)
+        tr += 0.16 + 0.22 * g
+        k += 1
+    bell(beat('hunt', 2), 1174.66, 0.1, -0.5, 'deer7')
+    # ── the cow-pen: a cow bell, birds; near-silence on "silence"
+    for i, tb in enumerate((a0 + 0.3, a0 + 1.6, sn0 + 0.6)):
+        add(bus_wet, pan(ghanta(659.25, 1.2, ('cow7', i), 0.12), 0.5), tb)
+    r = rng('birds7')
+    tb = a0 + 0.2
+    while tb < beat('silent', 1) - 0.4:
+        add(bus_wet, pan(twitter(int(tb * 100)) * 0.03, r.uniform(-0.8, 0.8)), tb)
+        tb += r.uniform(0.9, 1.7)
+    bell(beat('silent', 1), 880.0, 0.12, 0.0, 'mauna7')
+    # ── the snake: a drum of anger; a dull thud as it is laid on him
+    hit(beat('snake', 0), 7200, 0.75, din=False, boom=0.35)
+    n = smp(1.0)
+    hs = bpf(rng('lift7').standard_normal(n), 2500, 7000) * np.exp(-tvec(n) / 0.25) * 0.03
+    add(bus_wet, pan(hs, -0.2), beat('snake', 1))
+    hit(beat('snake', 2) + 0.2, 7210, 0.6, din=False, boom=0.2)
+    # ── the river: water, a dark drone; the curse: seven bells rising, a boom on "burn"
+    w = water(smp(en('curse') - he0 + 0.5), 'w7')
+    stereo(w * 0.25, he0, roll=999)
+    dr = reed_drone(N, (SA / 4, SA / 2, SA / 2 * 3 / 2), 'curse7')
+    da = env_curve([(0, 0), (he0, 0), (he0 + 0.8, 0.3), (en('curse'), 0.35), (w0 + 0.6, 0.0), (D, 0)], N)
+    bed += pan(lpf(dr, 600) * da, -0.2) + pan(lpf(np.roll(dr, 3000), 600) * da, 0.2)
+    hit(beat('heard', 1), 7300, 0.6, din=False, boom=0.3)
+    scale = (1, 9 / 8, 5 / 4, 4 / 3, 3 / 2, 5 / 3, 15 / 8)
+    for i in range(6):
+        bell(beat('curse', 0) + i * 0.15, SA * 4 * scale[i], 0.13, -0.6 + i * 0.2, ('days7', i))
+    bell(beat('curse', 2), SA * 2, 0.3, 0.6, ('days7', 6))
+    hit(beat('curse', 2), 7310, 1.0, din=False, boom=0.8)
+    sh = naga_shimmer(smp(1.8), 'curse7', 0.9)
+    add(bus_wet, fade(np.stack([sh, np.roll(sh, 500)]), 0.2, 0.5), beat('curse', 1) - 0.2)
+    # ── grief: a slow bansuri phrase
+    Sa, re_, ga, Ma, Pa, dha = SA * 2, SA * 2 * 16 / 15, SA * 2 * 6 / 5, SA * 2 * 4 / 3, SA * 3, SA * 2 * 8 / 5
+    ph = bansuri([Pa, dha, Pa, Ma, ga, re_, Sa], [0.35, 0.4, 0.3, 0.3, 0.45, 0.35, 0.9], 'grief7', 0.8)
+    add(bus_wet, pan(ph * 0.75, 0.25), w0 + 0.1)
+    add(bus_dry, pan(ph * 0.3, 0.25), w0 + 0.1)
+    # ── the pillar by night: crickets, a chant drone, bells for the mantras
+    n = smp(en('tower') - to0 + 0.4)
+    stereo(crickets(n, 'tw7') * env_curve([(0, 0), (0.6, 1), (n / SR - 0.5, 1), (n / SR, 0)], n), to0, roll=1300)
+    ch = reed_drone(N, (SA / 2, SA, SA * 3 / 2), 'chant7')
+    ca = env_curve([(0, 0), (to0, 0), (to0 + 1.0, 0.18), (beat('tower', 2), 0.35), (en('tower'), 0.3), (se0 + 0.6, 0), (D, 0)], N)
+    bed += pan(lpf(ch, 900) * ca, 0.1)
+    for i in range(4):
+        bell(beat('tower', 2) - 0.2 + i * 0.3, [587.33, 880.0, 698.46, 1174.66][i], 0.1, -0.4 + 0.27 * i, ('mantra7', i))
+    # ── the seventh day: the last bell, a quickening heartbeat
+    bell(beat('seventh', 0), SA * 2, 0.26, 0.4, 'day7')
+    tc, k = se0 + 0.3, 0
+    while tc < sk0:
+        g = clamp01((tc - se0) / (sk0 - se0))
+        hit(tc, (7400, k), 0.3 + 0.25 * g, din=False, boom=0.2)
+        hit(tc + 0.22, (7410, k), 0.18 + 0.15 * g, din=False)
+        tc += 0.9 - 0.4 * g
+        k += 1
+    sh = naga_shimmer(smp(1.6), 'serp7', 0.7)
+    add(bus_wet, fade(np.stack([sh, np.roll(sh, 400)]), 0.2, 0.4), beat('seventh', 1))
+    # ── the insect: tiny ticks, a glint
+    for i in range(10):
+        add(bus_dry, pan(tick((7500, i), 3000 + 300 * (i % 3), 0.5), -0.1), beat('insect', 1) - 0.4 + i * 0.12)
+    bell(beat('insect', 2), 1760.0, 0.1, -0.2, 'glint7')
+    # ── the strike: the shimmer swells, the venom's roar, booms
+    n = smp(beat('strike', 1) - sk0 + 0.2)
+    sh = naga_shimmer(n, 'grow7', 1.4) * np.linspace(0.2, 1.2, n)
+    add(bus_wet, fade(np.stack([sh, np.roll(sh, 900)]), 0.1, 0.2), sk0)
+    hit(beat('strike', 0), 7600, 0.8, din=False, boom=0.5)
+    n = smp(en('strike') - beat('strike', 1) + 0.6)
+    ro = roar(n, 'venom7') * env_curve([(0, 0), (0.3, 0.3), (n / SR - 0.6, 0.25), (n / SR, 0)], n)
+    stereo(ro, beat('strike', 1) - 0.1, roll=1500)
+    hit(beat('strike', 1), 7610, 1.1, din=False, boom=0.9)
+    hit(beat('strike', 2), 7620, 0.9, din=False, boom=0.7)
+    # ── the son: a conch; the fire
+    c = conch('son7', 233.08, 2.2, 0.8)
+    add(bus_dry, pan(c * 0.4, -0.3), beat('cliff', 0))
+    add(bus_wet, pan(c * 0.8, -0.3), beat('cliff', 0))
+    hit(beat('cliff', 1), 7700, 0.9, din=False, boom=0.6)
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
     r = rng('dither')
@@ -1489,7 +1631,7 @@ def main():
                 return
         except Exception:
             pass
-    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6}[ep](tl)
+    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7}[ep](tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],
             'note': 'music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)'}

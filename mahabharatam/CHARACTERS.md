@@ -357,6 +357,67 @@ loincloth and a begging bowl, wavering with a cold green double image.
 | Poses | `stand` · `speak` · **`strike`** (k: lunge, hoods flare) · **`recoil`** (k) · **`give`** (k: yields) · **`dive`** (k: pours forward into the earth) · **`guise`** · **`guise-walk`** · **`guise-run`** · **`guise-grab`** (k) |
 | Voice | `takshaka` → am_fenrir, 0.74×, −3 st (reserved: cold and slow). |
 
+## King Parikshit (son of Abhimanyu, Janamejaya's father) · `parikshit` (episode 7)
+
+**Who.** The Kuru king. Hunting, he loses a wounded deer, asks the silent sage Shamika where it went,
+and, met with silence, lays a dead snake on the sage's shoulder with the tip of his bow. Cursed by the
+sage's son Shringin, he hides in a palace on a single pillar; on the seventh day Takshaka, hidden as a
+tiny insect in a fruit, kills him with his venom (CE 1.36–40).
+
+**Look.** His son's frame, older and harder: a short full beard and moustache, hair tied at the nape; a
+**hunting crown** (gold band, a low two-tier crest, a plume of three feathers falling back); makara
+earrings, one necklace, armlets; a **quiver** on his back (fletchings above the far shoulder) on a chest
+strap; a knee-length hunting dhoti with a sash; a long **recurved bow, always in the near hand**. Seated,
+he takes his son's simhasana (the same house).
+
+| | |
+|---|---|
+| Palette | fill `#100606` · lit `#3a1418` · inner `#4a1018` · rim `#b8384a` → `#ffb0a0` · ornaments `#b88a2a` → `#ffd888` |
+| Proportions | ≈ 1060 units without the crest (≈ 1190 with it): hip 500, thigh 250, shin 236; a heavier chest than his son's. Bow 620 tip to tip. |
+| Signature light | **Rose-crimson with gold**: rosier and deeper than his son's saffron, never Parashurama's blood-red. Ornaments 0.5–0.9. Mood `wrath`: an ember in his eye. |
+| Poses | `stand` (bow planted) · `walk` · `run` · **`weary`** (k: a slow, spent walk, head down, bow trailing) · `sit` (enthroned) · `speak` (k: far hand opens) · `point` · **`drape`** (k: bow tip to the grass 0 → 0.25, lifted high with the snake → 0.5, laid level over the sage → 1) · **`hold`** (k: the bow set aside, a fruit turned before his eyes) · **`fall`** (k: struck) |
+| Anchors | `CH.parikshit.anchor(opts, 'hand' \| 'bowTip' \| 'head' \| 'eye')` |
+| Voice | `parikshit` → **am_eric**, 0.84×, −1 st: mature and tired, older than his son (am_michael +1 st), apart from the narrator. |
+
+## Shamika, the silent sage · `shamika` (episode 7)
+
+**Who.** A sage under a vow of silence (mauna), living among the cows. He does not answer the king and
+bears the dead snake without a word; when his son curses the king he grieves and sends his disciple to
+warn him (CE 1.36–38).
+
+**Look.** In the prime of age and still as a stone: a long beard to the chest, a great coiled **jata bun**
+with locks down the back, the **tripundra** (three ash lines) on his brow, **eyes always closed** (they open
+only when he lifts his head in grief), a long rudraksha mala wound round the near wrist, a stiff
+**bark-cloth shawl** over the far shoulder, a white loincloth; lean, a little stooped. His rest pose is
+seated meditation (hands in dhyana mudra).
+
+| | |
+|---|---|
+| Palette | fill `#0e0a12` · lit `#2a2234` · inner `#2e2440` · rim `#9a84c0` → `#f0e6ff` · ornaments `#a898c0` → `#f4eeff` |
+| Proportions | ≈ 1010 units standing: hip 480, thigh 242, shin 228; stooped 0.06 rad; beard ≈ 180. Seated hip 145. |
+| Signature light | **Twilight lilac, the colour of stillness** (rim ×0.95, glow 0.7). Never Vyasa's gold, the elder's ivory or the Pitrs' silver-blue. |
+| Poses | **`sit`** (meditation; default) · `stand` · `walk` · **`grieve`** (k: head sinks, hand to the brow) · **`send`** (k: points the way) · `bless` |
+| Anchors | `CH.shamika.anchor(opts, 'shoulderN' \| 'shoulderF' \| 'neck' \| 'head' \| 'hand')` (the dead snake, `EP7.deadSnake`, is laid across them) |
+| Voice | `shamika` → bm_george, 0.78×, unshifted (reserved: he keeps his vow; his warning is narrated). |
+
+## Shringin, Shamika's son · `shringin` (episode 7)
+
+**Who.** A young ascetic of fierce tapas. Hearing that his father wears a dead snake, he touches water and
+curses the king: within seven days Takshaka will burn him with his venom (CE 1.37).
+
+**Look.** Young and taut, beardless: matted hair bound in **two horn-like knots** at the crown (his name
+means "the horned one"), each with a bound knot and a round tip; a lock at the nape; the sacred thread, a
+rudraksha at the throat; a knee-length **bark loincloth** with a ragged hem and a grass cord; a clay
+**kamandalu, always in the far hand** (he seals the curse with its water).
+
+| | |
+|---|---|
+| Palette | fill `#100604` · lit `#361208` · inner `#5a1408` · rim `#e0481c` → `#ffd27a` · ornaments `#c87a2a` → `#ffe0a0` |
+| Proportions | ≈ 1000 units to the horn-knots: hip 480, thigh 242, shin 228; forward-leaning 0.04 rad. |
+| Signature light | **Molten vermilion (tapas)**, rim ×1.05, glow 0.95: hotter and yellower than Uttanka's coral. Mood `wrath`: an ember in the eye and a heat-glow behind his head. |
+| Poses | `stand` · `walk` · `run` · `sit` · `speak` · `point` · **`scoop`** (k: water from the pot into the cupped hand) · **`curse`** (k: the cupped hand flung up and forward, scattering the water) |
+| Voice | `shringin` → **am_liam**, 0.88×, +0.5 st: young and hot, the quickest voice in the cast; apart from Uttanka (am_puck). |
+
 ### Locations and light
 
 Characters keep their signature light everywhere; the **environment and its key light change per

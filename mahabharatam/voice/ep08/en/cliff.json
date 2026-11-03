@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7989,
+   "words": 5,
+   "speed": 0.81,
+   "text": "Why were the serpents doomed?"
+  },
+  {
+   "t0": 2.0489,
+   "t1": 3.5442,
+   "words": 4,
+   "speed": 0.81,
+   "text": "Because their own mother"
+  },
+  {
+   "t0": 3.9642,
+   "t1": 5.0331,
+   "words": 2,
+   "speed": 0.81,
+   "text": "cursed them."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

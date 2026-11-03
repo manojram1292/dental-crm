@@ -177,12 +177,12 @@
   function upper(g, r, part) {
     g.save(); g.translate(0, r.drop);
     if (part === 'back') {
-      g.save(); g.translate(0, -PIV); g.rotate(-r.lean); g.translate(0, PIV);
+      g.save(); g.translate(0, PIV); g.rotate(-r.lean); g.translate(0, -PIV);
       g.beginPath(); bowPath(g, r); g.fill();
       g.restore();
       g.beginPath(); armsPath(g, r, false); g.fill();
     } else if (part === 'body') {
-      g.save(); g.translate(0, -PIV); g.rotate(-r.lean); g.translate(0, PIV);
+      g.save(); g.translate(0, PIV); g.rotate(-r.lean); g.translate(0, -PIV);
       g.beginPath(); torsoPath(g); g.fill();
       g.beginPath(); headPath(g, r); g.fill();
       g.restore();
@@ -209,7 +209,7 @@
     g.globalAlpha *= a;
     g.strokeStyle = color; g.fillStyle = color; g.lineCap = 'round';
     g.save(); g.translate(0, r.drop);
-    g.save(); g.translate(0, -PIV); g.rotate(-r.lean); g.translate(0, PIV);
+    g.save(); g.translate(0, PIV); g.rotate(-r.lean); g.translate(0, -PIV);
     // sacred thread across the chest, waist cord
     g.beginPath(); g.moveTo(-20, -880); g.quadraticCurveTo(-30, -700, 40, -575); g.lineWidth = 4; g.stroke();
     g.beginPath(); g.moveTo(-40, -556); g.quadraticCurveTo(8, -544, 52, -562); g.lineWidth = 6; g.stroke();

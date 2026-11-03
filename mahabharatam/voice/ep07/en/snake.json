@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.7642,
+   "words": 1,
+   "speed": 0.81,
+   "text": "Angry,"
+  },
+  {
+   "t0": 0.8442,
+   "t1": 3.3922,
+   "words": 8,
+   "speed": 0.81,
+   "text": "the king draped a dead snake on him."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

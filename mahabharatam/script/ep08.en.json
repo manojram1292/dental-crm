@@ -1,0 +1,222 @@
+{
+  "lang": "en",
+  "episode": 8,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 47–48 (Janamejaya learns how his father died and vows the sarpa-satra; the builder's warning; the priests in black; the serpents fall into the fire; Takshaka flees to Indra)",
+  "structure": "Every episode: RECAP (≈3 s; KIT.series.recapStrip) → HOOK (one question, Sauti at the Naimisha fire; the episode title follows it: KIT.series.episodeTitle) → STORY → NEXT (a cliffhanger line, then the teaser card: KIT.series.nextTeaser).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 8",
+    "episodeTitle": "The Snake Sacrifice",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 7",
+    "prevEpisodeTitle": "The Seven-Day Curse",
+    "nextEpisodeLabel": "Episode 9",
+    "nextTitle": "Two Wives, Two Wishes",
+    "placeHastinapura": "Hastinapura",
+    "placeSatra": "The snake sacrifice",
+    "placeSvarga": "Indra's heaven",
+    "indraName": "Indra",
+    "indraEpithet": "king of the gods"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.6
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "recap",
+      "text": "Takshaka killed King Parikshit with his venom.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 200,
+      "beats": [
+        1,
+        6
+      ],
+      "emphasis": [
+        "Takshaka",
+        "Parikshit"
+      ],
+      "role": "recap",
+      "note": "RECAP. Episode 7's key image as a memory: the serpent king rising over the king in the pavilion, the venom-fire. beats = 'killed', 'venom'"
+    },
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "text": "How would Janamejaya take revenge?",
+      "est": 3.2,
+      "pre": 200,
+      "post": 700,
+      "beats": [
+        2,
+        4
+      ],
+      "emphasis": [
+        "Janamejaya"
+      ],
+      "role": "hook",
+      "note": "HOOK (Sauti at the Naimisha fire). The fire leaps; in its smoke the young king's crowned profile, then a ring of falling serpents. beats = 'Janamejaya', 'revenge'; the title shows in the post"
+    },
+    {
+      "id": "learn",
+      "text": "His ministers told young Janamejaya how his father died.",
+      "est": 4.0,
+      "post": 300,
+      "beats": [
+        1,
+        4,
+        8
+      ],
+      "emphasis": [
+        "Janamejaya"
+      ],
+      "note": "STORY 1. The court at Hastinapura (EP6.court, saffron lamplight): the young king enthroned, old ministers bowing before him; in the lamp smoke between them a memory: the pillar, the green hood. beats = 'ministers', 'Janamejaya', 'died'"
+    },
+    {
+      "id": "vow",
+      "speaker": "janamejaya",
+      "text": "I will burn Takshaka and all his kind in the fire!",
+      "say": "I will burn Takshaka… [p:100] and all his kind in the fire!",
+      "est": 3.8,
+      "pre": 150,
+      "post": 450,
+      "beats": [
+        2,
+        3,
+        10
+      ],
+      "emphasis": [
+        "Takshaka"
+      ],
+      "note": "STORY 2 (Janamejaya speaks). He rises from the throne, wrath, his hand raised; the lamps flare. beats = 'burn', 'Takshaka', 'fire'"
+    },
+    {
+      "id": "builder",
+      "text": "As the ground was measured, a builder foretold: a brahmin would stop this rite.",
+      "say": "As the ground was measured, [p:80] a builder foretold: [p:150] a brahmin would stop this rite.",
+      "est": 5.0,
+      "post": 300,
+      "beats": [
+        3,
+        6,
+        9
+      ],
+      "note": "STORY 3. NEW PLACE: the sacrifice ground at dawn (grey-rose light, cords and pegs). A builder with a measuring cord kneels at the boundary; he looks up and raises a warning finger; a small boy's shadow (Astika, foreshadowed) falls across the cord. beats = 'measured', 'builder', 'brahmin'"
+    },
+    {
+      "id": "priests",
+      "text": "Priests in black, their eyes red with smoke, called the serpents by name.",
+      "say": "Priests in black, [p:80] their eyes red with smoke, [p:100] called the serpents by name.",
+      "est": 5.0,
+      "post": 300,
+      "beats": [
+        1,
+        6,
+        10
+      ],
+      "note": "STORY 4. The sarpa-satra: a vast smoky crimson enclosure, the great fire in its altar, four priests in black robes around it pouring ghee and chanting, their eyes glowing red; the king offers with the ladle. beats = 'black', 'smoke', 'serpents' (the first hoods appear in the clouds)"
+    },
+    {
+      "id": "fall",
+      "text": "And serpents of every size and colour fell into the fire.",
+      "est": 4.0,
+      "post": 450,
+      "beats": [
+        1,
+        4,
+        10
+      ],
+      "note": "STORY 5. Looking up: serpents of every size and colour (small green, banded gold, red, great black-hooded), drawn helplessly down through the smoke in spirals and into the fire: mural shapes, no gore; each becomes a burst of sparks. beats = 'serpents', 'size', 'fire'"
+    },
+    {
+      "id": "pull",
+      "text": "Bound by the mantras, not one could escape.",
+      "say": "Bound by the mantras… [p:80] not one could escape.",
+      "est": 3.2,
+      "post": 350,
+      "beats": [
+        2,
+        4,
+        6
+      ],
+      "note": "STORY 5b. Close on the fire: a great hooded serpent strains against the pull, coils thrashing, but gold mantra-light binds it and draws it down into the flames (a burst of sparks; mural, no gore). beats = 'mantras' (gold bands), 'one', 'escape'"
+    },
+    {
+      "id": "flee",
+      "text": "Takshaka fled to Indra, king of the gods.",
+      "est": 3.2,
+      "post": 250,
+      "beats": [
+        0,
+        3
+      ],
+      "emphasis": [
+        "Takshaka",
+        "Indra"
+      ],
+      "note": "STORY 6. NEW PLACE: Indra's heaven, white-gold clouds and a pale palace; Takshaka rises up through the clouds, coiling, afraid, before Indra on his throne with the vajra. beats = 'Takshaka', 'Indra' (name label)"
+    },
+    {
+      "id": "safe",
+      "speaker": "indra",
+      "text": "Stay with me, Takshaka. You are safe.",
+      "say": "Stay with me, Takshaka. [p:150] You are safe.",
+      "est": 2.4,
+      "pre": 150,
+      "post": 450,
+      "beats": [
+        0,
+        3,
+        6
+      ],
+      "note": "STORY 7 (Indra speaks). He raises his hand in protection; the vajra glows; Takshaka coils at his feet. beats = 'Stay', 'safe'",
+      "emphasis": [
+        "Takshaka"
+      ]
+    },
+    {
+      "id": "cliff",
+      "text": "Why were the serpents doomed? Because their own mother cursed them.",
+      "say": "Why were the serpents doomed? [p:200] Because their own mother… cursed them.",
+      "est": 4.6,
+      "pre": 200,
+      "post": 450,
+      "beats": [
+        3,
+        6,
+        9
+      ],
+      "role": "next",
+      "note": "NEXT 1. Back at the sacrifice, the fire roars; in its smoke the shape of a woman, crowned, her hand raised in a curse over a nest of serpent eggs. beats = 'doomed', 'own', 'cursed'"
+    },
+    {
+      "id": "next",
+      "text": "Next: Two Wives, Two Wishes.",
+      "say": "Next: [p:200] Two Wives, [p:80] Two Wishes.",
+      "est": 3.0,
+      "post": 400,
+      "role": "next",
+      "caption": false,
+      "note": "the teaser card, with a glimpse of episode 9: Kashyapa's hermitage, two sisters, a thousand eggs and two"
+    }
+  ]
+}

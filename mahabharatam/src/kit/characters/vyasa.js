@@ -129,7 +129,7 @@
     g.save(); g.translate(0, r.drop);
     if (part === 'back') { g.beginPath(); armsPath(g, r, false); g.fill(); }
     else if (part === 'body') {
-      g.save(); g.translate(0, -PIV); g.rotate(-r.lean); g.translate(0, PIV);
+      g.save(); g.translate(0, PIV); g.rotate(-r.lean); g.translate(0, -PIV);
       g.beginPath(); torsoPath(g); g.fill();
       g.beginPath(); headPath(g, r); g.fill();
       g.restore();
@@ -153,7 +153,7 @@
     g.globalAlpha *= a;
     g.strokeStyle = color; g.fillStyle = color; g.lineCap = 'round';
     g.save(); g.translate(0, r.drop);
-    g.save(); g.translate(0, -PIV); g.rotate(-r.lean); g.translate(0, PIV);
+    g.save(); g.translate(0, PIV); g.rotate(-r.lean); g.translate(0, -PIV);
     g.beginPath(); g.moveTo(-14, -790); g.quadraticCurveTo(-34, -640, 40, -500); g.lineWidth = 3.5; g.stroke();   // sacred thread
     g.beginPath(); g.moveTo(-38, -486); g.quadraticCurveTo(8, -474, 52, -492); g.lineWidth = 4; g.stroke();      // waist cord
     g.save(); g.translate(8, -812); g.rotate(r.look);

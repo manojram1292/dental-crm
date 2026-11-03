@@ -10,6 +10,9 @@
  * and right ~15%).
  *
  * A line with "caption": false is not captioned (the end card shows its text).
+ * A line with "captionY": <px> sets the caption block's bottom baseline (default 1488), so a
+ * shot whose key action is low can lift the caption above it (e.g. 560: upper third, still
+ * inside SAFE). "captionY" can also be "high" (= 560). Episodes 1–6 use the default.
  */
 (function () {
   'use strict';
@@ -53,13 +56,14 @@
     if (vis <= 0.001) return;
     const lay = layout(ctx, L);
     const n = lay.rows.length;
-    const top = CFG.bottom - (n - 1) * CFG.lineH;
+    const bottom = L.captionY === 'high' ? 560 : (typeof L.captionY === 'number' ? L.captionY : CFG.bottom);
+    const top = bottom - (n - 1) * CFG.lineH;
     // painted scrim behind the caption block
     ctx.save();
     ctx.globalAlpha = vis * 0.78;
-    const g = ctx.createLinearGradient(0, top - 200, 0, CFG.bottom + 110);
+    const g = ctx.createLinearGradient(0, top - 200, 0, bottom + 110);
     g.addColorStop(0, 'rgba(10,7,6,0)'); g.addColorStop(0.45, 'rgba(10,7,6,0.62)'); g.addColorStop(0.8, 'rgba(10,7,6,0.62)'); g.addColorStop(1, 'rgba(10,7,6,0)');
-    ctx.fillStyle = g; ctx.fillRect(0, top - 200, R.W, CFG.bottom + 110 - (top - 200));
+    ctx.fillStyle = g; ctx.fillRect(0, top - 200, R.W, bottom + 110 - (top - 200));
     ctx.restore();
     ctx.save();
     ctx.font = R.font(CFG.size, 'caption', CFG.weight);

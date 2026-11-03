@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.5227,
+   "words": 4,
+   "speed": 0.81,
+   "text": "Uttanka urged King Janamejaya"
+  },
+  {
+   "t0": 2.5227,
+   "t1": 3.9665,
+   "words": 4,
+   "speed": 0.859,
+   "text": "to avenge his father."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

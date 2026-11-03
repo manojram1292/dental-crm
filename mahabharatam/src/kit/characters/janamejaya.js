@@ -137,7 +137,7 @@
       g.beginPath(); armsPath(g, r, false); g.fill();
       g.beginPath(); sashPath(g, r); g.fill();
     } else if (part === 'body') {
-      g.save(); g.translate(0, -PIV); g.rotate(-r.lean); g.translate(0, PIV);
+      g.save(); g.translate(0, PIV); g.rotate(-r.lean); g.translate(0, -PIV);
       g.beginPath(); torsoPath(g); g.fill();
       g.beginPath(); headPath(g, r); g.fill();
       g.restore();
@@ -175,7 +175,7 @@
       for (const off of [0, -12]) { g.beginPath(); g.moveTo(Math.min(...xs) - 34, hemY + off); g.quadraticCurveTo(lerp(xs[0], xs[1], 0.5), hemY + 14 + off, Math.max(...xs) + 40, hemY - 4 + off); g.lineWidth = off ? 2.5 : 6; g.stroke(); }
     }
     g.save(); g.translate(0, r.drop);
-    g.save(); g.translate(0, -PIV); g.rotate(-r.lean); g.translate(0, PIV);
+    g.save(); g.translate(0, PIV); g.rotate(-r.lean); g.translate(0, -PIV);
     // jewelled belt, layered necklaces
     g.beginPath(); g.moveTo(-40, -498); g.quadraticCurveTo(8, -484, 56, -504); g.lineWidth = 8; g.stroke();
     CH.beads(g, [-8, -808], [-56, -760], [-40, -720], 9, 4.5);

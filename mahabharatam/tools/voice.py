@@ -78,6 +78,28 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "Naga": "nˈɑːɡə",                                    # NAA-ga
     "Nagas": "nˈɑːɡəz",
     "Parikshit": "pˈʌɾɪkʃɪt",                            # PA-rik-shit
+    "Parikshit's": "pˈʌɾɪkʃɪts",
+    # episodes 7–10 (Astika parva: the curse of Parikshit, the snake sacrifice, Kadru and Vinata, Garuda)
+    "Shamika": "ʃˈʌmiːkə",                               # SHA-mee-ka (Śamīka)
+    "Shamika's": "ʃˈʌmiːkəz",
+    "Shringin": "ʃɹˈɪŋɡɪn",                              # SHRING-gin (Śṛṅgin)
+    "Kashyapa": "kˈʌʃjəpə",                              # KUSH-ya-pa
+    "Kadru": "kˈʌdɹuː",                                  # KUD-roo
+    "Vinata": "vˈɪnətˌɑː",                               # VI-na-taa (Vinatā)
+    "Vinata's": "vˈɪnətˌɑːz",
+    "Uchchaihshravas": "ˌʊʧʧaɪʃɹˈʌvəs",                  # ooch-chai-SHRA-vas
+    "Garuda": "ɡˈʌɾʊdə",                                 # GA-ru-da
+    "Aruna": "ˈʌɾʊɳə",                                   # A-ru-na
+    "amrita": "ˈʌmɹɪtə",                                 # UM-ri-ta (amṛta)
+    "Indra": "ˈɪndɹə",
+    "Indra's": "ˈɪndɹəz",
+    "Vasuki": "vˈɑːsʊki",                                # VAA-su-ki
+    "Astika": "ˈɑːstiːkə",                               # AAS-tee-ka
+    "Abhimanyu": "ˌʌbʰɪmˈʌnjuː",
+    "sarpa": "sˈʌɹpə",
+    "satra": "sˈʌtɹə",
+    "mantras": "mˈʌntɹəz",
+    "Nagas'": "nˈɑːɡəz",
     # English words espeak gets wrong for these voices (audited with --dry)
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
     "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"

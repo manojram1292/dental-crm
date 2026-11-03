@@ -1,0 +1,269 @@
+{
+  "lang": "en",
+  "episode": 7,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 36–40 (Parikshit's hunt, the silent sage Shamika, the dead snake, Shringin's curse, the palace on one pillar, Takshaka in the fruit)",
+  "structure": "Every episode: RECAP (≈3 s; KIT.series.recapStrip) → HOOK (one question, Sauti at the Naimisha fire; the episode title follows it: KIT.series.episodeTitle) → STORY → NEXT (a cliffhanger line, then the teaser card: KIT.series.nextTeaser).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 7",
+    "episodeTitle": "The Seven-Day Curse",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 6",
+    "prevEpisodeTitle": "The Stolen Earrings",
+    "nextEpisodeLabel": "Episode 8",
+    "nextTitle": "The Snake Sacrifice",
+    "parikshitName": "Parikshit",
+    "parikshitEpithet": "Janamejaya's father",
+    "shamikaName": "Shamika",
+    "shamikaEpithet": "under a vow of silence",
+    "shringinName": "Shringin",
+    "shringinEpithet": "the sage's son",
+    "dayLabel": "Day",
+    "towerLabel": "The palace on one pillar"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.6
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice, used by the timeline), say (what is spoken, if not `text`): '…' and '—' pause, ',' and '.' pause a little, [p:400] pauses 400 ms, {s:0.8} speaks what follows at 0.8× until the next {s:…} ({s} resets). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "recap",
+      "text": "Uttanka urged King Janamejaya to avenge his father.",
+      "est": 3.6,
+      "pre": 250,
+      "post": 200,
+      "beats": [
+        1,
+        5
+      ],
+      "emphasis": [
+        "Uttanka",
+        "Janamejaya"
+      ],
+      "note": "RECAP. Episode 6's key image as a memory: Uttanka pointing at the enthroned king in the saffron court, a cold green hood in the lamp smoke. beats = 'urged', 'avenge'",
+      "role": "recap",
+      "say": "Uttanka urged King Janamejaya {s:1.06}to avenge his father."
+    },
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "text": "How did Takshaka kill King Parikshit?",
+      "est": 3.6,
+      "pre": 200,
+      "post": 650,
+      "beats": [
+        2,
+        5
+      ],
+      "emphasis": [
+        "Takshaka",
+        "Parikshit"
+      ],
+      "note": "HOOK (Sauti, at the Naimisha fire, close). In the smoke: a cold green hood, then a crowned king's profile. beats = 'Takshaka' (the hood), 'Parikshit' (the king's profile, his name in gold); the episode title shows in the post",
+      "role": "hook"
+    },
+    {
+      "id": "hunt",
+      "text": "King Parikshit, weary from the hunt, lost a wounded deer.",
+      "say": "King Parikshit, weary from the hunt, [p:80] lost a wounded deer.",
+      "est": 5.0,
+      "post": 250,
+      "beats": [
+        1,
+        5,
+        9
+      ],
+      "emphasis": [
+        "Parikshit"
+      ],
+      "note": "STORY 1. NEW PLACE: the forest at noon, white-hot glare through the trees. The deer, an arrow in its flank, bounds away into the trees; the king follows on foot, bow in hand, slowing. beats = 'Parikshit' (name label), 'hunt', 'deer' (it vanishes)"
+    },
+    {
+      "id": "ask",
+      "speaker": "parikshit",
+      "text": "Sage, where did the deer go?",
+      "say": "Sage… [p:100] where did the deer go?",
+      "est": 2.6,
+      "pre": 150,
+      "post": 300,
+      "beats": [
+        0,
+        4
+      ],
+      "note": "STORY 2 (Parikshit speaks). Shamika's hermitage among the cows: the sage sits in meditation, eyes closed; the king, breathless, stands over him and asks. beats = 'Sage', 'deer'"
+    },
+    {
+      "id": "silent",
+      "text": "But Shamika was under a vow of silence.",
+      "est": 3.6,
+      "post": 300,
+      "beats": [
+        1,
+        7
+      ],
+      "emphasis": [
+        "Shamika"
+      ],
+      "note": "STORY 3. Close on Shamika, eyes closed, still as stone; a lilac stillness round him; the king's shadow falls over him. beats = 'Shamika' (name label), 'silence' (everything hushes)"
+    },
+    {
+      "id": "snake",
+      "text": "Angry, the king draped a dead snake on him.",
+      "say": "Angry, [p:80] the king draped a dead snake on him.",
+      "est": 4.6,
+      "post": 300,
+      "beats": [
+        0,
+        4,
+        6
+      ],
+      "note": "STORY 4. The king hooks a dead snake from the grass on his bow's tip and lays it across the sage's shoulders; the sage does not move. beats = 'Angry' (wrath ember), 'snake' (lifted), 'draped'"
+    },
+    {
+      "id": "heard",
+      "text": "His son Shringin cursed:",
+      "est": 2.8,
+      "post": 100,
+      "beats": [
+        2,
+        3
+      ],
+      "emphasis": [
+        "Shringin"
+      ],
+      "note": "STORY 5. NEW PLACE: a river at dusk, red sky. The young ascetic Shringin turns, his rim kindling to vermilion; he scoops water in his palm (the curse is sealed with water). beats = 'Shringin' (name label), 'cursed'"
+    },
+    {
+      "id": "curse",
+      "speaker": "shringin",
+      "text": "In seven days, Takshaka will burn this king!",
+      "say": "In seven days, [p:250] Takshaka will burn this king!",
+      "est": 3.8,
+      "pre": 150,
+      "post": 450,
+      "beats": [
+        1,
+        4,
+        6
+      ],
+      "emphasis": [
+        "Takshaka"
+      ],
+      "note": "STORY 6 (Shringin speaks). He flings the water: seven drops hang in the air and become seven gold suns (the days); behind him, a cold green hood rises against the red. beats = 'seven' (the seven marks), 'Takshaka' (the hood), 'burn'"
+    },
+    {
+      "id": "warn",
+      "text": "Shamika grieved, and warned him.",
+      "est": 2.8,
+      "post": 200,
+      "beats": [
+        0,
+        3
+      ],
+      "emphasis": [
+        "Shamika"
+      ],
+      "note": "STORY 7. Back at the hermitage at evening, Shamika, the snake set down beside him, bows his head in sorrow; he sends his disciple running toward the distant city. beats = 'Shamika', 'warned' (the disciple runs)"
+    },
+    {
+      "id": "tower",
+      "text": "The king hid in a palace on one pillar, guarded by healers and mantras.",
+      "say": "The king hid in a palace on one pillar, guarded by healers and mantras.",
+      "est": 5.0,
+      "post": 250,
+      "beats": [
+        5,
+        8,
+        13
+      ],
+      "emphasis": [
+        "Parikshit"
+      ],
+      "note": "STORY 8. NEW PLACE: the palace on one pillar, moonlit, cold blue-silver night. A tall pillar rising from a moat, a pavilion on top with the king's lamp; guards with spears, healers with herbs, priests chanting (gold mantra syllables orbit the pavilion). beats = 'palace', 'pillar', 'mantras'"
+    },
+    {
+      "id": "seventh",
+      "text": "On the seventh day, serpents came as hermits, bearing fruit.",
+      "say": "On the seventh day, serpents came as hermits, bearing fruit.",
+      "est": 4.8,
+      "post": 250,
+      "beats": [
+        2,
+        4,
+        9
+      ],
+      "note": "STORY 9. Sunset of the seventh day: seven day-marks, six dim, the seventh blazing. Three hermits with offering-trays walk to the pillar; their shadows on the ground are serpents. beats = 'seventh' (the seventh mark lights), 'serpents' (the shadows), 'fruit'"
+    },
+    {
+      "id": "insect",
+      "text": "In one fruit crawled a tiny copper insect.",
+      "est": 3.2,
+      "post": 200,
+      "beats": [
+        2,
+        6,
+        7
+      ],
+      "captionY": "high",
+      "note": "STORY 10. Close: the king's hand turns a fruit in the lamplight; a tiny copper insect with black eyes crawls out onto his fingertip, glinting green. beats = 'fruit', 'copper', 'insect'"
+    },
+    {
+      "id": "strike",
+      "text": "It became Takshaka, and burned the king with his venom.",
+      "say": "It became Takshaka… and burned the king with his venom.",
+      "est": 4.0,
+      "post": 400,
+      "beats": [
+        2,
+        5,
+        9
+      ],
+      "emphasis": [
+        "Takshaka"
+      ],
+      "note": "STORY 11. The insect swells into the serpent king; his coils rise round the pavilion; he strikes; a stylised wall of green-gold venom-fire (mural flames, no gore) fills the pavilion; the king's crown falls. beats = 'Takshaka' (he grows), 'burned' (strike: fire), 'venom'"
+    },
+    {
+      "id": "cliff",
+      "text": "His son would answer with fire.",
+      "est": 2.6,
+      "pre": 150,
+      "post": 400,
+      "beats": [
+        1,
+        5
+      ],
+      "note": "NEXT 1. The fallen crown in the ashes at dawn; it dissolves into young Janamejaya's crowned profile, lit from below by a rising sacrificial fire. beats = 'son', 'fire'",
+      "role": "next"
+    },
+    {
+      "id": "next",
+      "text": "Next: The Snake Sacrifice.",
+      "say": "Next: [p:200] The Snake Sacrifice.",
+      "est": 2.8,
+      "post": 400,
+      "note": "the teaser card (KIT.series.nextTeaser), with a glimpse of episode 8: the priests' great fire, serpents drawn down through the air into it",
+      "role": "next",
+      "caption": false
+    }
+  ]
+}
