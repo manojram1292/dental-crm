@@ -1,0 +1,37 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.83,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1602,
+   "words": 2,
+   "speed": 0.83,
+   "text": "Long ago,"
+  },
+  {
+   "t0": 1.2602,
+   "t1": 4.3914,
+   "words": 6,
+   "speed": 0.83,
+   "text": "the sage Kashyapa had two wives:"
+  },
+  {
+   "t0": 4.5414,
+   "t1": 6.3941,
+   "words": 3,
+   "speed": 0.83,
+   "text": "the sisters Kadru"
+  },
+  {
+   "t0": 6.8141,
+   "t1": 8.2893,
+   "words": 2,
+   "speed": 0.83,
+   "text": "and Vinata."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

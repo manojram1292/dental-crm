@@ -1,0 +1,217 @@
+{
+  "lang": "en",
+  "episode": 9,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 14 (Kashyapa's boons to Kadru and Vinata; a thousand eggs and two; five hundred years in steaming jars). Told out of the CE's order: the arc opens with Parikshit and the sacrifice, then goes back to the causes (see SERIES.md, arc A02).",
+  "structure": "Every episode: RECAP (≈3 s; KIT.series.recapStrip) → HOOK (one question, Sauti at the Naimisha fire; the episode title follows it: KIT.series.episodeTitle) → STORY → NEXT (a cliffhanger line, then the teaser card: KIT.series.nextTeaser).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 9",
+    "episodeTitle": "Two Wives, Two Wishes",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 8",
+    "prevEpisodeTitle": "The Snake Sacrifice",
+    "nextEpisodeLabel": "Episode 10",
+    "nextTitle": "The Broken Egg",
+    "kashyapaName": "Kashyapa",
+    "kashyapaEpithet": "the sage",
+    "kadruName": "Kadru",
+    "vinataName": "Vinata",
+    "sistersEpithet": "daughters of Daksha",
+    "longAgo": "Long ago",
+    "yearsLabel": "years"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.6
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "recap",
+      "text": "Janamejaya's fire drew the serpents down from the sky.",
+      "est": 3.6,
+      "pre": 250,
+      "post": 200,
+      "beats": [
+        1,
+        4
+      ],
+      "emphasis": [
+        "Janamejaya's"
+      ],
+      "role": "recap",
+      "note": "RECAP. Episode 8's key image as a memory: the great fire of the sacrifice, the priests in black, serpents spiralling down into it. beats = 'fire', 'serpents'"
+    },
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "text": "But why would a mother curse her own sons?",
+      "est": 3.4,
+      "pre": 200,
+      "post": 700,
+      "beats": [
+        4,
+        7
+      ],
+      "role": "hook",
+      "note": "HOOK (Sauti at the Naimisha fire, close). In the smoke a woman's crowned shape bends over a nest of eggs. beats = 'mother', 'sons'; the title in the post"
+    },
+    {
+      "id": "wives",
+      "speaker": "sauti",
+      "text": "Long ago, the sage Kashyapa had two wives: the sisters Kadru and Vinata.",
+      "say": "Long ago, [p:100] the sage Kashyapa had two wives: [p:150] the sisters Kadru… and Vinata.",
+      "est": 5.4,
+      "post": 300,
+      "beats": [
+        4,
+        10,
+        12
+      ],
+      "emphasis": [
+        "Kashyapa",
+        "Kadru",
+        "Vinata"
+      ],
+      "note": "STORY 1. NEW PLACE: Kashyapa's hermitage in a cool blue dawn-before-sunrise, lotus pool, a banyan, Himalayan ridges. Kashyapa seated in the middle; the two sisters arrive from either side. beats = 'Kashyapa' (name), 'Kadru' (her name, olive-gold), 'Vinata' (her name, rose)"
+    },
+    {
+      "id": "boon",
+      "text": "Pleased with them, he offered each a boon.",
+      "est": 3.0,
+      "post": 300,
+      "beats": [
+        0,
+        6
+      ],
+      "note": "STORY 2. Kashyapa raises his hand in blessing; two small lights kindle in the air before the sisters. beats = 'Pleased', 'boon'"
+    },
+    {
+      "id": "kadru",
+      "speaker": "kadru",
+      "text": "Give me a thousand sons, serpents, all equal in splendour.",
+      "say": "Give me a thousand sons… [p:80] serpents, [p:80] all equal in splendour.",
+      "est": 4.2,
+      "pre": 150,
+      "post": 400,
+      "beats": [
+        3,
+        5,
+        8
+      ],
+      "emphasis": [
+        "thousand"
+      ],
+      "note": "STORY 3 (Kadru speaks). Close on Kadru: behind her the dawn fills with a thousand small cobra hoods glinting olive-gold and green. beats = 'thousand' (the hoods multiply), 'serpents', 'splendour'"
+    },
+    {
+      "id": "vinata",
+      "speaker": "vinata",
+      "text": "Give me only two, but greater than all of hers.",
+      "say": "Give me only two… [p:80] but greater than all of hers.",
+      "est": 3.8,
+      "pre": 150,
+      "post": 400,
+      "beats": [
+        3,
+        5,
+        8
+      ],
+      "note": "STORY 4 (Vinata speaks). Close on Vinata: two great birds of light, one red, one gold, wheel behind her. beats = 'two' (two lights), 'greater', 'hers'"
+    },
+    {
+      "id": "granted",
+      "speaker": "kashyapa",
+      "text": "So be it. Guard them well.",
+      "say": "So be it. [p:150] Guard them well.",
+      "est": 2.6,
+      "pre": 150,
+      "post": 450,
+      "beats": [
+        0,
+        4
+      ],
+      "note": "STORY 5 (Kashyapa speaks). He blesses them both, rises and walks away into the forest with his staff. beats = 'So', 'well'"
+    },
+    {
+      "id": "eggs",
+      "text": "Kadru laid a thousand eggs. Vinata laid two.",
+      "say": "Kadru laid a thousand eggs. [p:250] Vinata laid two.",
+      "est": 3.6,
+      "post": 350,
+      "beats": [
+        3,
+        4,
+        7
+      ],
+      "emphasis": [
+        "Kadru",
+        "Vinata"
+      ],
+      "note": "STORY 6. A great field of small olive eggs gleams on Kadru's side; on Vinata's, two large luminous eggs, one rose-red, one gold. beats = 'thousand' (they appear in a wave), 'eggs', 'two'",
+      "captionY": "high"
+    },
+    {
+      "id": "jars",
+      "text": "They were kept warm in steaming jars… for five hundred years.",
+      "say": "They were kept warm in steaming jars… [p:150] for five hundred years.",
+      "est": 4.2,
+      "post": 350,
+      "beats": [
+        5,
+        8,
+        9
+      ],
+      "note": "STORY 7. Rows of tall clay jars, steam curling; the eggs inside glow faintly through the clay. The sky wheels: sun and moon arc over again and again, seasons pass (a counter of years). beats = 'jars', 'hundred', 'years'",
+      "captionY": "high"
+    },
+    {
+      "id": "cliff",
+      "text": "Kadru's eggs hatched. Vinata's did not. And she could not wait.",
+      "say": "Kadru's eggs hatched. [p:200] Vinata's did not. [p:300] And she could not wait.",
+      "est": 4.6,
+      "pre": 150,
+      "post": 450,
+      "beats": [
+        2,
+        5,
+        10
+      ],
+      "emphasis": [
+        "Kadru's",
+        "Vinata's"
+      ],
+      "role": "next",
+      "note": "NEXT 1. Kadru's jars crack: a thousand small serpents pour out, hoods rising. Vinata kneels by her two silent jars; her hand reaches for one. beats = 'hatched', 'not', 'wait' (her hand on the jar)",
+      "captionY": "high"
+    },
+    {
+      "id": "next",
+      "text": "Next: The Broken Egg.",
+      "say": "Next: [p:200] The Broken Egg.",
+      "est": 2.8,
+      "post": 400,
+      "role": "next",
+      "caption": false,
+      "note": "the teaser card, with a glimpse of episode 10: a cracked rose-red egg, a red light pouring out, the first dawn"
+    }
+  ]
+}

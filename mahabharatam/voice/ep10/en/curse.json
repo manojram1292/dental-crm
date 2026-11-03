@@ -1,0 +1,37 @@
+{
+ "speaker": "aruna",
+ "voice": "am_echo",
+ "speed": 0.84,
+ "pitch": 2.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.5947,
+   "words": 1,
+   "speed": 0.84,
+   "text": "Mother"
+  },
+  {
+   "t0": 1.0147,
+   "t1": 2.394,
+   "words": 3,
+   "speed": 0.84,
+   "text": "for your haste,"
+  },
+  {
+   "t0": 2.494,
+   "t1": 4.777,
+   "words": 6,
+   "speed": 0.84,
+   "text": "you will be your rival's slave"
+  },
+  {
+   "t0": 5.197,
+   "t1": 7.2846,
+   "words": 4,
+   "speed": 0.84,
+   "text": "for five hundred years."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

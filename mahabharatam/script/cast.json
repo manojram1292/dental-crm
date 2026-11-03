@@ -22,5 +22,10 @@
   "shringin": {"voice": "am_liam", "speed": 0.88, "pitch": 0.5, "g2p": "en-us", "notes": "Episode 7: Shringin, Shamika's young son, who curses the king. Young and hot, quicker than anyone else in the cast; apart from Uttanka (am_puck)."},
   "indra": {"voice": "am_adam", "speed": 0.8, "pitch": -1.5, "g2p": "en-us", "notes": "Episode 8+: Indra, king of the gods. Broad and regal, lowered 1.5 st; no one else uses am_adam."},
   "priests": {"voice": "am_onyx", "speed": 0.79, "pitch": -1, "g2p": "en-us", "notes": "Episode 8: the sacrificial priests (ritvij). Reserved: their chant is in the score."},
-  "sthapati": {"voice": "bm_daniel", "speed": 0.8, "pitch": 0, "g2p": "en-gb", "notes": "Episode 8: the builder (sthapati) who measures the ground. Reserved: his warning is narrated."}
+  "sthapati": {"voice": "bm_daniel", "speed": 0.8, "pitch": 0, "g2p": "en-gb", "notes": "Episode 8: the builder (sthapati) who measures the ground. Reserved: his warning is narrated."},
+  "kashyapa": {"voice": "bm_daniel", "speed": 0.78, "pitch": -1, "g2p": "en-gb", "notes": "Episode 9+: the sage Kashyapa (the Prajapati), husband of Kadru and Vinata. Calm and paternal, lowered 1 st (the Pitrs use bm_daniel −2 st, reserved)."},
+  "kadru": {"voice": "bf_alice", "speed": 0.82, "pitch": -0.5, "g2p": "en-gb", "notes": "Episode 9+: Kadru, mother of the serpents. Cool, proud and clear; a little lower than her sister."},
+  "vinata": {"voice": "bf_lily", "speed": 0.82, "pitch": 0.5, "g2p": "en-gb", "notes": "Episode 9+: Vinata, mother of Aruna and Garuda. Soft and earnest; set apart from Kadru (bf_alice) and the queen (bf_emma)."},
+  "aruna": {"voice": "am_echo", "speed": 0.84, "pitch": 2.5, "g2p": "en-us", "notes": "Episode 10: Aruna, Vinata's half-formed first son, the red of dawn. Young but grave: am_echo raised 2.5 st (Ganesha uses it unshifted)."},
+  "surya": {"voice": "bm_george", "speed": 0.8, "pitch": -1, "g2p": "en-gb", "notes": "Episode 10+: Surya, the Sun. Reserved (he does not speak in episode 10); warm and grave."}
 }

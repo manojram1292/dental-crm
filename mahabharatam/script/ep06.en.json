@@ -26,7 +26,7 @@
     "placeHastinapura": "Hastinapura",
     "takshakaName": "Takshaka",
     "takshakaEpithet": "king of the serpents",
-    "nextTitle": "The Snake Sacrifice"
+    "nextTitle": "The Seven-Day Curse"
   },
   "timing": {
     "wordsPerSecond": 2.4,
@@ -222,11 +222,11 @@
     },
     {
       "id": "next",
-      "text": "Next: The Snake Sacrifice.",
-      "say": "Next: [p:200] The Snake Sacrifice.",
+      "text": "Next: The Seven-Day Curse.",
+      "say": "Next: [p:200] The Seven-Day Curse.",
       "est": 2.8,
       "post": 500,
-      "note": "the teaser card (KIT.series.nextTeaser), with a glimpse of episode 7: the great fire of the snake sacrifice",
+      "note": "the teaser card (KIT.series.nextTeaser), with a glimpse of episode 7: the palace on one pillar at the sunset of the seventh day, a cold green hood rising behind it",
       "role": "next",
       "caption": false
     }

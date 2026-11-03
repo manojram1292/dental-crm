@@ -1,0 +1,13 @@
+{
+ "stamp": {
+  "episode": 9,
+  "lang": "en",
+  "timeline": "dd330b3749f57cd1",
+  "duration": 56.1667,
+  "score": "4df51ca54211"
+ },
+ "lufs": -22.0,
+ "true_peak_dbtp": -3.25,
+ "seconds": 56.1667,
+ "note": "music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)"
+}

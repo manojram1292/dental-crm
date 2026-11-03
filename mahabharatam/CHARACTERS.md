@@ -418,6 +418,152 @@ rudraksha at the throat; a knee-length **bark loincloth** with a ragged hem and 
 | Poses | `stand` · `walk` · `run` · `sit` · `speak` · `point` · **`scoop`** (k: water from the pot into the cupped hand) · **`curse`** (k: the cupped hand flung up and forward, scattering the water) |
 | Voice | `shringin` → **am_liam**, 0.88×, +0.5 st: young and hot, the quickest voice in the cast; apart from Uttanka (am_puck). |
 
+## The priests of the snake sacrifice (ritvij) · `priest` (episode 8)
+
+**Who.** The priests of Janamejaya's sarpa-satra: in black garments, their eyes red with smoke, they pour
+the oblations and call the serpents by name (CE 1.47–48). The epic names them: Chandabhargava (hotr),
+Kautsa (udgatr), Jaimini (brahman), Sharngarava and Pingala (adhvaryus).
+
+**Look.** Brahmins in profile: a shaven head with a knotted shikha (Jaimini: a heavy topknot), a **black
+upper cloth over both shoulders** and a black ankle-length lower cloth, the sacred thread showing at the
+chest, three ash lines on the brow, a darbha-grass ring, a **sruva** ladle. **Their eyes always burn red.**
+`index` picks the priest:
+
+| index | name | beard | build |
+|---|---|---|---|
+| 0 | Chandabhargava (hotr) | long, pointed | broad ×1.06 |
+| 1 | Kautsa (udgatr) | short | slim, tall ×0.94 / ×1.03 |
+| 2 | Jaimini (brahman) | none (a topknot) | even |
+| 3 | Sharngarava (adhvaryu) | forked | stooped 0.1 rad |
+
+| | |
+|---|---|
+| Palette | fill `#0a0808` · lit `#241a18` · inner `#2a1a18` · rim `#8a7a70` → `#f2dcc8` · ornaments `#9a7a5a` → `#f0d0a0` · eyes `#ff3a1a` |
+| Signature light | **Ash and ember**: the pale ash on everything; the fire lights them, they never glow saffron themselves. |
+| Poses | `stand` · `walk` · `sit` (default) · **`offer`** (k: the sruva over the fire; phase tips it) · **`chant`** (k: both hands raised) · `speak` |
+| Voice | `priests` → am_onyx, 0.79×, −1 st (reserved: their chant is in the score). |
+
+## The builder (sthapati, sutradhara) · `sthapati` (episode 8)
+
+**Who.** The master builder who measures the ground of the snake sacrifice and foretells that it will not
+be completed: a brahmin will be the cause (CE 1.47).
+
+**Look.** A working man in profile: a short square beard, a **wrapped turban** with a tail, a **coil of
+measuring cord** over the far shoulder, a plumb-bob on a line when he measures, a peg-mallet at the belt, a
+short work dhoti.
+
+| | |
+|---|---|
+| Palette | fill `#0e0a06` · inner `#3a2410` · rim `#b8865a` → `#f8dcb8` · ornaments `#a88a5a` → `#f0d8a8` (0.3–0.55) |
+| Signature light | **Ochre clay**: earthy, plainer than any brahmin or king. |
+| Poses | `stand` · `walk` · `sit` · **`measure`** (k: plumb-line held out) · **`warn`** (k: a raised forefinger) · `speak` |
+| Voice | `sthapati` → bm_daniel, 0.8× (reserved: his warning is narrated). |
+
+## Indra (Shakra), king of the gods · `indra` (episode 8 and on)
+
+**Who.** King of the devas. Takshaka flees to him from the snake sacrifice and he promises protection
+(CE 1.48). Recurs: the churning of the ocean, Garuda and the amrita, the Khandava forest.
+
+**Look.** Tall and broad, beardless with a long sweeping moustache; a jewelled **kirita** in four tiers
+with a **sunburst crest**; a **prabha** (a pale-gold disc-halo of rays) behind his head; great earrings, a
+broad collar, a sacred thread of pearls, armlets, an ankle-length silk dhoti and two flying sashes; the
+**vajra** (a grip with a three-pronged head at each end) always in the near hand. `sit` seats him on a
+cloud-throne.
+
+| | |
+|---|---|
+| Palette | fill `#0a0c18` · lit `#1a2238` · inner `#1a2a6a` · rim `#4a8cff` → `#e8f4ff` · ornaments `#e0b040` → `#fff4c0` · prabha `#ffe9a8` |
+| Proportions | ≈ 1100 units without the crown (≈ 1230 with it): hip 520, thigh 262, shin 246. |
+| Signature light | **Storm and lightning** (rim ×1.1, glow 1.0), gold ornaments 0.6–1.0, the prabha behind, the vajra crackling white-blue. Never the Pitrs' translucent silver, never Takshaka's green. |
+| Poses | `stand` · `walk` · `sit` (cloud-throne) · `speak` · **`protect`** (k: abhaya) · **`raise`** (k: the vajra high) |
+| Voice | `indra` → **am_adam**, 0.8×, −1.5 st: broad and regal; no one else uses am_adam. |
+
+## Kadru, mother of the serpents · `kadru` (episodes 8–10 and on)
+
+**Who.** Daughter of Daksha, wife of Kashyapa. She asks for a thousand serpent sons of equal splendour;
+later she wagers with her sister-wife Vinata over the horse Uchchaihshravas's tail, and curses her sons who
+refuse to cheat for her to burn in Janamejaya's sacrifice (CE 1.14–20).
+
+**Look.** Tall, proud, a sharp profile: a high coiled bun crowned by a small **five-hooded serpent diadem**,
+heavy round earrings, a necklace of green stones, **serpent-coil armlets** and a serpent girdle; a sari whose
+pallu falls straight down her back. Built on `CH.female`.
+
+| | |
+|---|---|
+| Palette | fill `#0e0c06` · lit `#2e2810` · inner `#3a3008` · rim `#9a7a28` → `#ece084` · ornaments `#3aa878` → `#c8ffd8` |
+| Signature light | **Tawny olive-gold** ("kadru" means tawny) **with venom-green jewels** (0.5–0.9); a green glint in her eye (brighter in wrath). Kin to Takshaka's green, never his cold rim. |
+| Poses | `stand` · `walk` · `sit` · `speak` · **`point`** (k: the wager) · **`curse`** (k: forefinger high) · **`cradle`** (k: an egg at her breast) |
+| Voice | `kadru` → **bf_alice**, 0.82×, −0.5 st: cool, proud, clear. |
+
+## Vinata, mother of Aruna and Garuda · `vinata` (episodes 9–10 and on)
+
+**Who.** Daughter of Daksha, wife of Kashyapa. She asks for two sons greater than all of Kadru's; after
+five hundred years she breaks one egg too soon (Aruna), and loses the wager to become Kadru's slave until
+Garuda frees her (CE 1.14–20).
+
+**Look.** Gentle and upright, softer in line than her sister: a low knot at the nape wound with lotus buds,
+a lotus at the temple, small drop earrings, a fine necklace, a sari whose pallu crosses the near shoulder and
+falls in front. **Enslaved** (`pose.slave: true`): no ornaments, the end of the sari over her head. Built on
+`CH.female`.
+
+| | |
+|---|---|
+| Palette | fill `#100a0c` · lit `#30182a` · inner `#3a1a2a` · rim `#d890b0` → `#fff0f6` · ornaments `#e8b8c8` → `#fff4f8` |
+| Signature light | **Lotus dawn-rose** (0.4–0.75 ornaments). Never Kadru's olive-gold. |
+| Poses | `stand` · `walk` · `sit` · `speak` · **`cradle`** (k) · **`reach`** (k: bending to an egg) · **`grieve`** (k) · **`bow`** (k) · any pose with `slave: true` |
+| Voice | `vinata` → **bf_lily**, 0.82×, +0.5 st: soft and earnest; apart from Kadru (bf_alice) and the queen (bf_emma). |
+
+## Kashyapa (the Prajapati) · `kashyapa` (episode 9 and on)
+
+**Who.** The great sage, son of Marichi, husband of Daksha's daughters, father of gods, serpents and birds.
+Pleased with Kadru and Vinata, he grants their boons, tells them to guard their children well, and goes into
+the forest (CE 1.14). (Not the healer Kashyapa whom Takshaka turned back on the road: that is another sage,
+held for episode 37.)
+
+**Look.** An ancient sage of great presence, upright: a very long beard to the waist, a **tall tapering
+jata** bound in bands with a round finial, locks down the back, the tripundra, a **black-buck skin** over
+the far shoulder (hoof-flaps behind), the sacred thread, a rudraksha mala, and a **tall staff with a hanging
+gourd** always in the far hand. Eyes open: he is the giver. (Built on Shamika's frame.)
+
+| | |
+|---|---|
+| Palette | fill `#080e12` · lit `#16262e` · inner `#10303a` · rim `#40b0d8` → `#e0f8ff` · ornaments `#c8a050` → `#fff0c0` |
+| Signature light | **Sky turquoise**, the clear sky before sunrise, with gold ornaments. Never Indra's electric blue, Takshaka's green or the Pitrs' silver. |
+| Poses | `sit` (default) · `stand` · `walk` · `speak` · **`bless`** (k: the boon) · `grieve` |
+| Voice | `kashyapa` → bm_daniel, 0.78×, −1 st: calm and paternal. |
+
+## Aruna, the red of dawn · `aruna` (episode 10 and on)
+
+**Who.** Vinata's first son, from the egg she broke too soon: formed above the waist, unformed below. He
+curses her to five hundred years as her rival's slave unless his brother, left to hatch in his own time,
+sets her free, and rises to become the charioteer of the Sun (CE 1.14).
+
+**Look.** A radiant youth from the waist up: beardless, long hair streaming back like flame, a crown band
+with a sunburst jewel, earrings, a necklace, armlets; **below the waist only wisps of red light** (the rig's
+fade, like the Pitrs, but warm and solid above). `rein` holds the Sun's reins.
+
+| | |
+|---|---|
+| Palette | fill `#1a0606` · lit `#3a0e08` · inner `#6a140a` · rim `#ff5a3a` → `#ffd8b0` · ornaments `#ffb070` → `#fff0d0` · aura `#ff5a3a` |
+| Signature light | **Dawn red**: a halo rim all round, faded below the waist, glow 1.1, a red aura behind. His light is the key light of every shot he is in. Never Parashurama's dark blood-red or Shringin's vermilion. |
+| Poses | `stand` · **`emerge`** (k) · `speak` · **`curse`** (k) · **`point`** (k) · **`rise`** (k) · **`rein`** (k) |
+| Voice | `aruna` → **am_echo**, 0.84×, +2.5 st: young but grave (Ganesha uses am_echo unshifted). |
+
+## Surya, the Sun · `surya` (episode 10)
+
+**Who.** The Sun, whose chariot Aruna drives (CE 1.14). Drawn frontally, as in temple iconography.
+
+**Look.** A standing radiant figure inside a great **sun-disc of rays**: a tall kirita, round earrings, a
+broad collar, both hands raised at the shoulders holding **full-blown lotuses**, an ankle-length dhoti. His
+chariot (`EP10.chariot`: a gold disc-wheel and seven horses of light) is a prop.
+
+| | |
+|---|---|
+| Palette | fill `#3a1a04` · inner `#ffb030` · rim `#ffd060` → `#fffbe8` · ornaments `#fff0b0` → `#ffffff` |
+| Signature light | **Blazing gold-white**: halo rim all round, glow 1.3, the disc of rays behind: the brightest thing in any frame. |
+| Poses | `stand` (frontal) |
+| Voice | `surya` → bm_george, 0.8×, −1 st (reserved: he does not speak in episode 10). |
+
 ### Locations and light
 
 Characters keep their signature light everywhere; the **environment and its key light change per
@@ -433,6 +579,18 @@ at dusk** (`EP5.duskRoad`, `EP6.road`, with a stream and the cleft); the teacher
 morning** (`EP6.hermitage`); **King Paushya's palace in warm gold** with its stone lattice
 (`EP6.palace`); the **Naga world** underground in deep blue-green bioluminescence (`EP6.naga`); and
 **Janamejaya's court** in saffron lamplight (`EP6.court`, with the vow's fire).
+
+Episodes 7–10 (`src/scenes/ep07/_common.js` … `ep10/_common.js`): the **forest at noon** (`EP7.noon`: a
+bleached white-gold sky, light straight from above); **Shamika's hermitage among the cows** in honey-gold
+afternoon light from the right (`EP7.pen`; `evening` turns it violet); a **river at dusk under a red sky**
+(`EP7.river`: Shringin's place, the low sun on the water); the **palace on one pillar** (`EP7.tower`: cold
+blue-silver moonlight, or the crimson sunset of the seventh day; its lamplit interior is `EP7.pavilion`,
+flooded by the green-gold venom-fire `EP7.venomFire`); the **snake sacrifice** (`EP8.satra`: a smoke-choked
+crimson enclosure lit from below by the great fire; `dawn` shows the empty ground at grey-rose dawn with
+cords and pegs); **Indra's heaven** (`EP8.svarga`: white-gold cloud banks and a pale palace, cool light from
+above); **Kashyapa's hermitage before sunrise** (`EP9.hermitage`: cool blue-violet, the east glowing low on
+the right; `years` wheels the sun and moon over it); the **open sky at dawn** (`EP10.sky`: grey flooding to
+red and gold); and the **shore of the ocean at sunrise** (`EP10.shore`).
 
 ## Narrator · `narrator`
 
@@ -482,3 +640,28 @@ no figure.
   Hastinapura and urges him to avenge his father Parikshit, whom Takshaka killed, with a sacrifice of
   serpents. (The king's formal vow of the sarpa-satra is told later, in the Astika parva; episode 6
   compresses it into his answer, as the owner's approved script does.)
+- **Astika parva, adhyayas 36–40** (episode 7): Parikshit, hunting, pierces a deer, loses it, and asks the
+  sage Shamika (keeping a vow of silence among the cows) where it went; met with silence, he lifts a dead
+  snake on the tip of his bow and lays it on the sage's shoulder. Shamika's son Shringin, hearing of it,
+  touches water and curses the king: within seven nights Takshaka will burn him with his venom. Shamika
+  rebukes his son and sends his disciple to warn the king, who stays in a palace raised on a single pillar,
+  guarded, with physicians, herbs and mantra-knowing brahmins. On the seventh day nagas come disguised as
+  ascetics bearing fruit; in one fruit is a tiny copper-coloured insect with black eyes; it becomes Takshaka,
+  who coils round the king and burns him with his venom. (The healer Kashyapa, turned back on the road by
+  Takshaka, is held for episode 37.) The episode's cliffhanger, "His son would answer with fire", is the
+  owner's line.
+- **Adhyayas 47–48** (episode 8): Janamejaya, told by his ministers how his father died, vows the
+  sarpa-satra; as the ground is measured a builder (sthapati, sutradhara) foretells that a brahmin will be
+  the cause of its not being completed, and the king orders that no stranger be let in. The priests, in
+  black garments, eyes red with smoke, pour the oblations and call the serpents by name; serpents of every
+  kind fall into the fire. Takshaka flees to Indra, who promises to protect him. (Indra's line, "Stay with
+  me, Takshaka. You are safe.", condenses his promise.)
+- **Adhyaya 14** (episodes 9–10; told after Parikshit and the sacrifice, see `SERIES.md`, arc A02):
+  Kashyapa grants boons to his wives, Daksha's daughters Kadru and Vinata: Kadru asks for a thousand serpent
+  sons of equal splendour, Vinata for two sons surpassing Kadru's in strength and glory. He bids them bear
+  the embryos with care and goes to the forest. The eggs are kept in moist (steaming) vessels for five
+  hundred years; Kadru's thousand hatch, Vinata's two do not. Ashamed, Vinata breaks one: inside is a son
+  whose upper body is formed and lower body is not. Angry, he curses her to be her rival's slave for five
+  hundred years, unless the son in the other egg, if she does not break it too, frees her. He rises into the
+  sky and becomes the charioteer of the Sun: Aruna, the red of dawn. (The cliffhangers follow
+  `catalog/series.json`.)

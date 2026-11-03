@@ -50,6 +50,9 @@
 <script src="../src/kit/characters/sthapati.js"></script>
 <script src="../src/kit/characters/kadru.js"></script>
 <script src="../src/kit/characters/vinata.js"></script>
+<script src="../src/kit/characters/kashyapa.js"></script>
+<script src="../src/kit/characters/aruna.js"></script>
+<script src="../src/kit/characters/surya.js"></script>
 <script>
 (async function () {
   'use strict';
@@ -110,6 +113,10 @@
     // episodes 8–10 (Kadru and Vinata)
     { id: 'kadru', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit', 'sit'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['point · wager', { name: 'point', k: 1 }], ['curse · wrath', { name: 'curse', k: 1 }, { mood: 'wrath' }], ['cradle', { name: 'cradle', k: 1 }]], lightPose: 'stand' },
     { id: 'vinata', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit', 'sit'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['cradle', { name: 'cradle', k: 1 }], ['reach', { name: 'reach', k: 1 }], ['grieve', { name: 'grieve', k: 1 }], ['slave · bow', { name: 'bow', k: 1, slave: true }]], lightPose: 'stand' },
+    { id: 'kashyapa', poses: [['sit', 'sit'], ['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['bless · seated', { name: 'bless', base: 'sit', k: 1 }], ['bless', { name: 'bless', k: 1 }]], lightPose: 'stand' },
+    // episode 10
+    { id: 'aruna', poses: [['stand', 'stand'], ['emerge', { name: 'emerge', k: 0.3 }], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['curse · wrath', { name: 'curse', k: 1 }, { mood: 'wrath' }], ['point', { name: 'point', k: 1 }], ['rise', { name: 'rise', k: 1 }], ['rein', { name: 'rein', k: 1 }]], lightPose: 'stand' },
+    { id: 'surya', frontal: true, poses: [['stand', 'stand', null, 'front']], lightPose: 'stand', lightFront: 0.6 },
   ];
   const LIGHTS = [['key · fire left', CH.LIGHTS.key], ['back · rim from behind', CH.LIGHTS.back], ['low · dim fire in front', CH.LIGHTS.low]];
   const NPOSE = Math.max(...ROWS.map((r) => r.poses.length));
@@ -195,7 +202,7 @@
   const ly = y + 50, lh = LINEUP_H - 70;
   ctx.save(); ctx.fillStyle = '#0d0907'; ctx.fillRect(40, ly, W - 80, lh); ctx.restore();
   KIT.glow(ctx, W / 2, ly + lh + 60, 900, '#f08a24', 0.35, 'lighter', 0.4);
-  const cast = [['sauti', 'stand', 'left'], ['elder', { name: 'speak', k: 1 }, 'left'], ['sage', 'sit', 'front', 2], ['sage', 'sit', 'front', 1], ['parashurama', { name: 'raise-axe', k: 1 }, 'left'], ['pitr', { name: 'bless', k: 1 }, 'front', 0], ['vyasa', 'stand', 'left'], ['janamejaya', 'stand', 'left'], ['sauti', 'sit', 'right'], ['parashurama', 'walk', 'right'], ['takshaka', 'stand', 'left'], ['sarama', 'stand', 'left'], ['pup', 'stand', 'left'], ['prince', 'stand', 'left', 2], ['uttanka', { name: 'walk', phase: 1.1 }, 'left'], ['queen', 'stand', 'left'], ['gurupatni', 'stand', 'left'], ['parikshit', 'stand', 'left'], ['shamika', 'stand', 'left'], ['shringin', 'stand', 'left'], ['priest', 'stand', 'left', 0], ['indra', 'stand', 'left'], ['sthapati', 'stand', 'left'], ['kadru', 'stand', 'left'], ['vinata', 'stand', 'left']];
+  const cast = [['sauti', 'stand', 'left'], ['elder', { name: 'speak', k: 1 }, 'left'], ['sage', 'sit', 'front', 2], ['sage', 'sit', 'front', 1], ['parashurama', { name: 'raise-axe', k: 1 }, 'left'], ['pitr', { name: 'bless', k: 1 }, 'front', 0], ['vyasa', 'stand', 'left'], ['janamejaya', 'stand', 'left'], ['sauti', 'sit', 'right'], ['parashurama', 'walk', 'right'], ['takshaka', 'stand', 'left'], ['sarama', 'stand', 'left'], ['pup', 'stand', 'left'], ['prince', 'stand', 'left', 2], ['uttanka', { name: 'walk', phase: 1.1 }, 'left'], ['queen', 'stand', 'left'], ['gurupatni', 'stand', 'left'], ['parikshit', 'stand', 'left'], ['shamika', 'stand', 'left'], ['shringin', 'stand', 'left'], ['priest', 'stand', 'left', 0], ['indra', 'stand', 'left'], ['sthapati', 'stand', 'left'], ['kadru', 'stand', 'left'], ['vinata', 'stand', 'left'], ['kashyapa', 'stand', 'left'], ['aruna', 'stand', 'left'], ['surya', 'stand', 'front']];
   const big = 0.3, small = 0.14;
   cast.forEach(([id, pose, facing, index], i) => {
     const x = 160 + i * ((W - 320) / (cast.length - 1));

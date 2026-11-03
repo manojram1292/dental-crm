@@ -1,0 +1,30 @@
+{
+ "speaker": "kadru",
+ "voice": "bf_alice",
+ "speed": 0.82,
+ "pitch": -0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.112,
+   "words": 5,
+   "speed": 0.82,
+   "text": "Give me a thousand sons"
+  },
+  {
+   "t0": 2.532,
+   "t1": 3.5462,
+   "words": 1,
+   "speed": 0.82,
+   "text": "serpents,"
+  },
+  {
+   "t0": 3.6262,
+   "t1": 5.6663,
+   "words": 4,
+   "speed": 0.82,
+   "text": "all equal in splendour."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

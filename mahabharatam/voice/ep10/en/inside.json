@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4733,
+   "words": 4,
+   "speed": 0.81,
+   "text": "Inside was a son:"
+  },
+  {
+   "t0": 1.6233,
+   "t1": 3.2466,
+   "words": 4,
+   "speed": 0.81,
+   "text": "his upper body formed"
+  },
+  {
+   "t0": 3.6666,
+   "t1": 5.4896,
+   "words": 4,
+   "speed": 0.81,
+   "text": "his lower body not."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

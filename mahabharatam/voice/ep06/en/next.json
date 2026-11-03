@@ -13,10 +13,10 @@
   },
   {
    "t0": 1.0636,
-   "t1": 2.8215,
+   "t1": 2.6385,
    "words": 3,
    "speed": 0.81,
-   "text": "The Snake Sacrifice."
+   "text": "The Seven-Day Curse."
   }
  ],
  "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"

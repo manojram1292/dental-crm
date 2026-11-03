@@ -1,0 +1,202 @@
+{
+  "lang": "en",
+  "episode": 10,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 14 (Vinata breaks an egg; Aruna, half-formed, curses her to five hundred years of slavery unless his brother frees her, and becomes the charioteer of the Sun). Told out of the CE's order (see SERIES.md, arc A02).",
+  "structure": "Every episode: RECAP (≈3 s; KIT.series.recapStrip) → HOOK (one question, Sauti at the Naimisha fire; the episode title follows it: KIT.series.episodeTitle) → STORY → NEXT (a cliffhanger line, then the teaser card: KIT.series.nextTeaser).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 10",
+    "episodeTitle": "The Broken Egg",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 9",
+    "prevEpisodeTitle": "Two Wives, Two Wishes",
+    "nextEpisodeLabel": "Episode 11",
+    "nextTitle": "The Horse from the Ocean",
+    "arunaName": "Aruna",
+    "arunaEpithet": "the red of dawn",
+    "yearsLabel": "years"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.6
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "recap",
+      "text": "Kadru's thousand eggs hatched. Vinata's two did not.",
+      "say": "Kadru's thousand eggs hatched. [p:150] Vinata's two did not.",
+      "est": 3.8,
+      "pre": 250,
+      "post": 200,
+      "beats": [
+        3,
+        6
+      ],
+      "emphasis": [
+        "Kadru's",
+        "Vinata's"
+      ],
+      "role": "recap",
+      "note": "RECAP. Episode 9's key image as a memory: Kadru's jars cracking, small serpents rising; Vinata kneeling by her two silent jars. beats = 'hatched', 'two'"
+    },
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "text": "What would a mother do, who could not wait?",
+      "est": 3.4,
+      "pre": 200,
+      "post": 700,
+      "beats": [
+        3,
+        8
+      ],
+      "role": "hook",
+      "note": "HOOK (Sauti at the Naimisha fire, close). In the smoke a woman's hand hovers over a glowing egg. beats = 'mother', 'wait'; the title in the post"
+    },
+    {
+      "id": "shame",
+      "text": "Ashamed before her sister, Vinata broke one of her eggs.",
+      "say": "Ashamed before her sister… [p:100] Vinata broke one of her eggs.",
+      "est": 4.2,
+      "post": 350,
+      "beats": [
+        0,
+        5,
+        6
+      ],
+      "emphasis": [
+        "Vinata"
+      ],
+      "note": "STORY 1. Kashyapa's hermitage, a cold grey dawn. Kadru passes behind with her serpent sons; Vinata, alone, lifts the rose-red egg from its jar and on 'broke' (beats[2]) it cracks open in her hands, red light pouring out. beats = 'Ashamed' (Kadru's sons glance), 'Vinata', 'broke'"
+    },
+    {
+      "id": "inside",
+      "text": "Inside was a son: his upper body formed, his lower body not.",
+      "say": "Inside was a son: [p:150] his upper body formed… [p:100] his lower body not.",
+      "est": 4.6,
+      "post": 300,
+      "beats": [
+        3,
+        6,
+        10
+      ],
+      "note": "STORY 2. Close: from the broken shell rises a young man of red light, beautiful from the waist up, and below the waist only light and mist. beats = 'son' (he rises), 'formed', 'not' (the light thins away below)"
+    },
+    {
+      "id": "name",
+      "text": "Aruna.",
+      "est": 1.4,
+      "pre": 100,
+      "post": 800,
+      "beats": [
+        0
+      ],
+      "emphasis": [
+        "Aruna"
+      ],
+      "note": "STORY 3. His name in gold, with 'the red of dawn'; he opens his eyes"
+    },
+    {
+      "id": "curse",
+      "speaker": "aruna",
+      "text": "Mother, for your haste, you will be your rival's slave for five hundred years.",
+      "say": "Mother… [p:100] for your haste, [p:100] you will be your rival's slave… [p:100] for five hundred years.",
+      "est": 5.2,
+      "pre": 150,
+      "post": 400,
+      "beats": [
+        0,
+        3,
+        8,
+        11
+      ],
+      "note": "STORY 4 (Aruna speaks). He raises his hand over her; she falls to her knees; behind her Kadru's shadow grows long, and on 'slave' (beats[2]) Vinata's ornaments fall away, the end of her sari over her head; on 'hundred' a year-counter. beats = 'Mother', 'haste', 'slave', 'hundred'"
+    },
+    {
+      "id": "free",
+      "speaker": "aruna",
+      "text": "Do not break my brother's egg. Wait, and he will set you free.",
+      "say": "Do not break my brother's egg. [p:200] Wait… and he will set you free.",
+      "est": 4.6,
+      "pre": 150,
+      "post": 450,
+      "beats": [
+        3,
+        6,
+        11
+      ],
+      "note": "STORY 5 (Aruna speaks, gentler). He points to the gold egg in its jar, glowing; on 'free' (beats[2]) the gold light pulses like a heartbeat. beats = 'brother's', 'Wait', 'free'"
+    },
+    {
+      "id": "rise",
+      "text": "Then Aruna rose into the sky, to drive the chariot of the Sun.",
+      "say": "Then Aruna rose into the sky… [p:100] to drive the chariot of the Sun.",
+      "est": 4.6,
+      "post": 300,
+      "beats": [
+        1,
+        2,
+        12
+      ],
+      "emphasis": [
+        "Aruna"
+      ],
+      "note": "STORY 6. He rises into the grey sky; the Sun's chariot comes over the eastern ridge: a great gold disc drawn by seven horses of light; Aruna takes the reins. beats = 'Aruna', 'rose', 'Sun'"
+    },
+    {
+      "id": "dawn",
+      "text": "He is the red of every dawn.",
+      "est": 2.6,
+      "post": 800,
+      "beats": [
+        1,
+        6
+      ],
+      "note": "STORY 7. Wide: the whole sky flushes red and rose and gold from the horizon up; on the earth below, Vinata looks up, the gold egg beside her. beats = 'is', 'dawn' (the red floods the sky)"
+    },
+    {
+      "id": "cliff",
+      "text": "Then the sisters saw a horse rise from the ocean, and made a wager.",
+      "say": "Then the sisters saw a horse rise from the ocean… [p:150] and made a wager.",
+      "est": 4.8,
+      "pre": 150,
+      "post": 450,
+      "beats": [
+        4,
+        9,
+        13
+      ],
+      "role": "next",
+      "note": "NEXT 1. The two sisters on a shore at sunrise; from the shining ocean a white horse rises; Kadru points at its tail. beats = 'horse', 'ocean', 'wager'"
+    },
+    {
+      "id": "next",
+      "text": "Next: The Horse from the Ocean.",
+      "say": "Next: [p:200] The Horse from the Ocean.",
+      "est": 3.0,
+      "post": 400,
+      "role": "next",
+      "caption": false,
+      "note": "the teaser card, with a glimpse of episode 11: the white horse Uchchaihshravas rising from the ocean of milk"
+    }
+  ]
+}

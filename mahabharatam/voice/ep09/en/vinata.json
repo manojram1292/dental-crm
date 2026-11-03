@@ -1,0 +1,23 @@
+{
+ "speaker": "vinata",
+ "voice": "bf_lily",
+ "speed": 0.82,
+ "pitch": 0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.8949,
+   "words": 4,
+   "speed": 0.82,
+   "text": "Give me only two"
+  },
+  {
+   "t0": 2.3149,
+   "t1": 4.9525,
+   "words": 6,
+   "speed": 0.82,
+   "text": "but greater than all of hers."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
