@@ -25,10 +25,10 @@
     const bow = [];
     for (let i = 0; i <= 40; i++) {
       const u = i / 40 * 2 - 1;
-      bow.push([350 + 150 * (1 - u * u) - 230 + 26 * Math.pow(Math.abs(u), 5) * 3, 350 + u * 320]);
+      bow.push([300 - 125 * (1 - u * u) - 40 * Math.pow(Math.abs(u), 5), 350 + u * 330]);
     }
     S.push(bow);
-    S.push([bow[0], [350 - 80 + 210, 350], bow[40]]);
+    S.push([bow[0], bow[40]]);
     for (const s of [-1, 1]) {
       const ang = s * 0.5, c = Math.cos(ang), sn = Math.sin(ang);
       const P = (x, y) => [350 + x * c - y * sn, 350 + x * sn + y * c];
