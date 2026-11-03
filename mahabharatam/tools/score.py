@@ -20,7 +20,11 @@ follows any language's timing and any recorded voice:
 Mixed as a bed for narration: about −22 LUFS integrated, ≤ −2 dBTP, with the
 voice band (1–4 kHz) kept gentle. tools/mix.py adds the voice and ducks this.
 
-    python3 tools/score.py [--lang en] [--force]
+    python3 tools/score.py [--ep 1] [--lang en] [--force]
+
+Each episode has its own cue sheet: build() is episode 1, build_ep2() episode 2
+(chosen by the timeline's `episode`). Instruments and the mix stage are shared.
+Writes audio/epNN/music.wav (+ music.json, its stamp).
 """
 from __future__ import annotations
 
@@ -477,6 +481,233 @@ def build(tl):
     return out
 
 
+# ─── episode 2: The Field of Five Lakes ──────────────────────────────────────
+def conch(key, f0=233.08, dur=2.2, vel=1.0):
+    """A shankha: a breathy, brassy tone that swells, glides up into pitch and wavers."""
+    n = smp(dur)
+    t = tvec(n)
+    r = rng('conch', key)
+    glide = f0 * (0.93 + 0.07 * (1 - np.exp(-t / 0.18)))
+    vib = 1 + 0.006 * np.sin(2 * np.pi * 5.2 * t) * np.minimum(1, t / 0.6)
+    ph = 2 * np.pi * np.cumsum(glide * vib) / SR
+    x = sum(np.sin(ph * h + r.uniform(0, 6)) / h ** 0.9 for h in range(1, 14))
+    x = bpf(x, 300, 2600) + 0.6 * bpf(x, 900, 1300)
+    x += bpf(r.standard_normal(n), 600, 3000) * 0.08            # breath
+    env = np.minimum(1, t / 0.35) ** 1.5 * np.exp(-np.maximum(0, t - dur * 0.6) / 0.35)
+    return fade(x * env * vel * 0.25, 0.01, 0.2)
+
+
+def thunder(key, dur=4.0, vel=1.0):
+    n = smp(dur)
+    t = tvec(n)
+    r = rng('thunder', key)
+    crack = hpf(r.standard_normal(n), 900) * np.exp(-t / 0.05) * 0.5
+    roll = lpf(r.standard_normal(n), 160, 2) * (np.exp(-t / 1.4) * (0.6 + 0.4 * np.abs(np.sin(2 * np.pi * 1.3 * t + 1))))
+    return fade((crack + roll * 3.0) * vel, 0.002, 0.6)
+
+
+def water(n, key):
+    """Clear water: a soft bed of trickle and small bubbles."""
+    r = rng('water', key)
+    bed = bpf(r.standard_normal(n), 400, 2500) * 0.05
+    out = bed.copy()
+    for _ in range(int(14 * n / SR)):
+        i = r.integers(0, n)
+        L = smp(r.uniform(0.02, 0.06))
+        if i + L >= n:
+            continue
+        tt = tvec(L)
+        f = r.uniform(700, 1800) * (1 + 1.2 * tt / tt[-1])
+        out[i:i + L] += np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * tt / tt[-1]) * r.uniform(0.05, 0.15)
+    return out
+
+
+def tanpura_bed(N, D, key, notes=None):
+    bed = np.zeros((2, N))
+    cyc, notes = 1.84, notes or (SA * 1.5, SA * 2, SA * 2, SA)
+    t, k = 0.0, 0
+    while t < D:
+        for j, f in enumerate(notes):
+            tt = t + j * cyc / 4
+            if tt >= D:
+                break
+            x = tanpura_pluck(f * (1 + 0.0007 * (j - 1.5)), 4.2, (key, k, j), bright=0.9 + 0.2 * (j == 3))
+            add(bed, pan(x, [-0.35, 0.15, 0.3, -0.1][j]), tt)
+        t += cyc
+        k += 1
+    return bed
+
+
+def build_ep2(tl):
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    g = lambda i: L.get(i)   # noqa: E731
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry = np.zeros((2, N))
+    bus_wet = np.zeros((2, N))
+    bed = np.zeros((2, N))
+
+    def bell(t0, f, vel, p, key):
+        x = ghanta(f, 5.0, key, vel)
+        add(bus_dry, pan(x * 0.4, p), t0)
+        add(bus_wet, pan(x * 0.8, p), t0)
+
+    def hit(t0, key, vel, din=True, boom=0.0):
+        add(bus_dry, pan(mridangam('thom', key, vel), -0.05), t0)
+        if din:
+            add(bus_dry, pan(mridangam('din', key, vel * 0.55), 0.1), t0 + 0.004)
+        add(bus_wet, pan(mridangam('thom', key, vel * 0.5), 0.0), t0)
+        if boom:
+            n = smp(1.8)
+            tt = tvec(n)
+            b = np.sin(2 * np.pi * (42 + 22 * np.exp(-tt / 0.09)) * tt) * np.exp(-tt / 0.7) * boom
+            add(bus_dry, pan(b, 0.0), t0)
+            add(bus_wet, pan(b * 0.4, 0.0), t0)
+
+    # ── calm frame story: tanpura at the fire (ask, answer), back for the holy water, the dawn, the card
+    tan = tanpura_bed(N, D, 'ep2')
+    calm = env_curve([(0, 0.5), (1.5, 1.0), (st('parashurama') - 0.3, 1.0), (st('parashurama') + 0.6, 0.0),
+                      (beat('pitrs', 2) - 0.3, 0.0), (beat('pitrs', 3), 0.85), (D, 1.0)], N)
+    bed += tan * calm
+    # ── fire crackle under the fire circle and the answer, again faint under the end card
+    fire = crackle(N, 'fire2')
+    fa = env_curve([(0, 0.0), (0.4, 0.6), (st('answer'), 0.7), (beat('answer', 0), 1.0), (st('parashurama') + 0.3, 0.0),
+                    (st('episode'), 0.0), (st('episode') + 0.6, 0.45), (D - 0.5, 0.45), (D, 0)], N)
+    add(bus_dry, np.stack([fire * fa * 0.09, np.roll(fire, 777) * fa * 0.09]), 0)
+    # ── line starts: soft tham at the fire; the answer's flare: a rising whoosh + shimmer of the map
+    for i, lid in enumerate(('answer',)):
+        add(bus_dry, pan(mridangam('ki', 200 + i, 0.3), -0.15), st(lid) - 0.14)
+        hit(st(lid), 200 + i, 0.5)
+    bell(st('ask') + 0.2, 587.33, 0.18, 0.2, 'e2a')
+    b0 = beat('answer', 0)
+    n = smp(1.3)
+    tt = tvec(n)
+    whoosh = bpf(rng('flare').standard_normal(n), 200, 3000) * (tt / tt[-1]) ** 2 * np.exp(-np.maximum(0, tt - 1.0) / 0.1) * 0.12
+    add(bus_wet, pan(whoosh, 0.3), b0 - 1.0)
+    add(bus_dry, pan(lpf(rng('roar').standard_normal(smp(1.6)), 300) * np.exp(-tvec(smp(1.6)) / 0.5) * 0.35, 0.3), b0)
+    n = smp(en('answer') - b0 + 0.6)
+    tt = tvec(n)
+    shim = sum(np.sin(2 * np.pi * f * tt + i) * (0.5 + 0.5 * np.sin(2 * np.pi * (0.4 + 0.13 * i) * tt)) for i, f in enumerate((SA * 4, SA * 6, SA * 8, SA * 10)))
+    add(bus_wet, fade(np.stack([shim, np.roll(shim, 411)]) * np.minimum(1, tt / 0.8) * 0.02, 0.2, 0.6), b0)
+    bell(beat('answer', 1), 880.0, 0.28, -0.2, 'land')
+
+    # ── ominous: a low dissonant drone (Sa + komal Re, an octave down) from Parashurama to the lakes
+    ps, le = st('parashurama'), en('lakes')
+    dr = reed_drone(N, (SA / 2, SA / 2 * 16 / 15, SA / 2 * 1.5), 'omen')
+    trem = 0.75 + 0.25 * np.sin(2 * np.pi * 3.1 * tvec(N))
+    da = env_curve([(0, 0), (ps - 0.4, 0), (ps + 1.0, 0.32), (st('kings'), 0.36), (st('lakes'), 0.42), (le - 0.3, 0.3), (le + 0.8, 0.0), (D, 0)], N)
+    bed += pan(lpf(dr, 700) * trem * da * 0.8, -0.15) + pan(lpf(np.roll(dr, 2000), 700) * trem * da * 0.8, 0.15)
+    # thunder with the lightning (the scene's strikes: 0.15 s in, the name, the axe)
+    for j, t0 in enumerate((ps + 0.15, beat('parashurama', 0), beat('parashurama', 1))):
+        th = thunder(('t', j), 4.0, (0.55, 0.8, 1.0)[j])
+        add(bus_dry, pan(th * 0.5, (-0.4, 0.4, -0.1)[j]), t0 + 0.05)
+        add(bus_wet, pan(th * 0.6, 0.0), t0 + 0.05)
+    # rain hiss under the storm
+    n = smp(en('parashurama') - ps + 0.8)
+    rain = hpf(lpf(rng('rain').standard_normal((2, n)), 6000), 1200) * 0.018
+    add(bus_dry, fade(rain, 0.4, 0.8), ps)
+    # the drum build: pulses accelerating through Parashurama's line…
+    t0, gap, k = ps + 0.3, 0.95, 0
+    while t0 < st('kings') - 0.25:
+        hit(t0, 300 + k, 0.45 + 0.35 * (t0 - ps) / (st('kings') - ps), din=False, boom=0.15)
+        t0 += gap
+        gap = max(0.32, gap * 0.82)
+        k += 1
+    hit(beat('parashurama', 1), 399, 1.0, boom=0.5)          # the axe at the top
+    # …then one hit for each of the 21 kings (the timeline's ticks), heavier as they go
+    ticks = L['kings'].get('ticks', [])
+    for i, t0 in enumerate(ticks):
+        v = 0.4 + 0.35 * i / max(1, len(ticks) - 1)
+        hit(t0, 400 + i, v, din=(i % 5 == 4), boom=0.1 + 0.35 * (i == len(ticks) - 1))
+        add(bus_dry, pan(mridangam('ta', 400 + i, 0.25), 0.25 if i % 2 else -0.25), t0 + 0.002)
+    tw = beat('kings', 0)
+    hit(tw, 499, 1.1, boom=0.6)
+    m = manjira('k21', 0.45)
+    add(bus_dry, pan(m * 0.4, -0.2), tw)
+    add(bus_wet, pan(m * 0.6, -0.2), tw)
+    # the lakes: a slow heartbeat and a deep bloom as each beat lands
+    hb = st('lakes') + 0.2
+    while hb < en('lakes') - 0.2:
+        hit(hb, int(hb * 100), 0.42, din=False)
+        hit(hb + 0.22, int(hb * 100) + 1, 0.28, din=False)
+        hb += 0.95
+    for j in range(3):
+        n = smp(2.4)
+        tt = tvec(n)
+        bl = np.sin(2 * np.pi * SA / 4 * tt) * np.exp(-tt / 1.0) * np.minimum(1, tt / 0.05) * 0.4
+        add(bus_dry, pan(bl, 0), beat('lakes', j))
+        add(bus_wet, pan(bl * 0.5, 0), beat('lakes', j))
+
+    # ── release: the Pitrs. Drums stop; a high silver pad; bells; water; a calm reed in Sa–Pa
+    p0 = st('pitrs')
+    n = smp(en('pitrs') - p0 + 1.0)
+    tt = tvec(n)
+    pad = sum(np.sin(2 * np.pi * f * tt + i * 1.3) * (0.6 + 0.4 * np.sin(2 * np.pi * (0.21 + 0.07 * i) * tt)) / (1 + 0.4 * i) for i, f in enumerate((SA * 2, SA * 3, SA * 4, SA * 6)))
+    pad = lpf(pad, 3000) * env_curve([(0, 0), (beat('pitrs', 0) - p0, 0.6), (beat('pitrs', 3) - p0, 1.0), (n / SR - 0.8, 0.8), (n / SR, 0)], n) * 0.035
+    add(bus_wet, np.stack([pad, np.roll(pad, 600)]), p0)
+    bell(beat('pitrs', 0), 1174.7, 0.2, 0.35, 'pa')
+    bell(beat('pitrs', 2) + 0.05, 587.33, 0.22, -0.2, 'pd')
+    for i, (f, pp) in enumerate(((587.33, -0.4), (880.0, 0.3), (1174.7, -0.1))):
+        bell(beat('pitrs', 3) + i * 0.07, f, 0.26 - i * 0.04, pp, ('holy', i))
+    w = water(smp(D - beat('pitrs', 2)), 'w')
+    wa = env_curve([(0, 0), (1.2, 1.0), (en('pitrs') - beat('pitrs', 2), 1.0), (en('pitrs') - beat('pitrs', 2) + 1.5, 0.3), (D - beat('pitrs', 2), 0)], len(w))
+    add(bus_dry, np.stack([w * wa, np.roll(w, 999) * wa]) * 0.5, beat('pitrs', 2))
+    reeds = reed_drone(N, (SA, SA * 1.5), 'calm2')
+    ra = env_curve([(0, 0), (beat('pitrs', 2), 0), (beat('pitrs', 3), 0.18), (st('dawn'), 0.2), (beat('dawn', 1), 0.4), (en('dawn'), 0.3), (D - 1.2, 0.25), (D, 0)], N)
+    bed += pan(reeds * ra * 0.6, -0.2) + pan(np.roll(reeds, 1500) * ra * 0.6, 0.2)
+
+    # ── dawn: the swell, birds, and two conches from either side on "meet"
+    d0 = st('dawn')
+    r = rng('birds2')
+    tt0 = d0 + 0.4
+    while tt0 < beat('dawn', 1) - 0.4:
+        k = r.integers(0, 3)
+        x = koel(int(tt0 * 100)) if k == 0 else twitter(int(tt0 * 100))
+        vol = 0.05 if k == 0 else 0.035
+        pp = r.uniform(-0.8, 0.8)
+        add(bus_dry, pan(x * vol * 0.4, pp), tt0)
+        add(bus_wet, pan(x * vol, pp), tt0)
+        tt0 += r.uniform(0.4, 1.0)
+    n = smp(beat('dawn', 1) - d0 + 0.2)
+    tt = tvec(n)
+    rise = (tt / tt[-1]) ** 2.0
+    tone = sum(np.sin(2 * np.pi * f * tt) / (i + 1) for i, f in enumerate((SA, SA * 1.5, SA * 2, SA * 3))) * rise * 0.1
+    air = bpf(rng('swell2').standard_normal(n), 300, 5000) * rise * 0.06
+    add(bus_wet, np.stack([tone + air, tone + air * 0.9]), d0)
+    mb = beat('dawn', 1)
+    for j, (pp, f, dt) in enumerate(((-0.75, 233.08, 0.0), (0.75, 220.0, 0.45))):
+        c = conch(('c', j), f, 2.4, 0.9)
+        add(bus_dry, pan(c * 0.5, pp), mb + dt)
+        add(bus_wet, pan(c * 0.9, pp), mb + dt)
+    hit(mb, 600, 0.7, boom=0.35)
+
+    # ── the end card: bells as in episode 1
+    e0 = st('episode')
+    add(bus_dry, pan(mridangam('ki', 700, 0.3), -0.15), e0 - 0.14)
+    hit(e0, 700, 0.5)
+    bell(e0 + 0.15, 587.33, 0.3, 0.0, 'e21')
+    bell(e0 + 0.95, 880.0, 0.2, 0.3, 'e22')
+
+    # ── mix (as episode 1)
+    hall = make_ir(3.2, 4.0, 'hall')
+    room = make_ir(1.4, 2.0, 'room')
+    out = bus_dry + reverb(bus_wet, hall) * 0.55 + bus_wet * 0.25 + bed * 0.6 + reverb(bed, room) * 0.25
+    b, a = sps.iirpeak(2600, 1.2, fs=SR)
+    out = out - 0.25 * sps.lfilter(b, a, out, axis=-1)
+    out = hpf(out, 30)
+    out *= env_curve([(0, 0), (0.05, 1), (D - 0.7, 1), (D - 0.02, 0), (D, 0)], N)
+    L0 = lufs(out)
+    out *= db(TARGET_LUFS - L0)
+    tp = true_peak_db(out)
+    if tp > CEIL_DBTP:
+        k = db(CEIL_DBTP - 0.3)
+        out = np.tanh(out / k) * k
+    return out
+
+
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
     r = rng('dither')
@@ -489,31 +720,37 @@ def write_wav(path, x):
         w.writeframes(pcm.tobytes())
 
 
+def ep_tag(args):
+    ep = int(args[args.index('--ep') + 1]) if '--ep' in args else 1
+    return ep, f'ep{ep:02d}'
+
+
 def main():
     args = sys.argv[1:]
     lang = args[args.index('--lang') + 1] if '--lang' in args else 'en'
-    tl_path = os.path.join(ROOT, 'build', f'timeline.{lang}.json')
+    ep, tag = ep_tag(args)
+    tl_path = os.path.join(ROOT, 'build', f'timeline.{tag}.{lang}.json')
     if not os.path.exists(tl_path):
-        sys.exit(f'{tl_path} missing: run `node tools/timeline.mjs --lang {lang}` first')
+        sys.exit(f'{tl_path} missing: run `node tools/timeline.mjs --ep {ep} --lang {lang}` first')
     tl = json.load(open(tl_path))
     src_hash = hashlib.sha1(open(__file__, 'rb').read()).hexdigest()[:12]
-    stamp = {'lang': lang, 'timeline': tl['signature'], 'duration': tl['duration'], 'score': src_hash}
-    out_wav = os.path.join(ROOT, 'audio', 'music.wav')
-    side = os.path.join(ROOT, 'audio', 'music.json')
+    stamp = {'episode': ep, 'lang': lang, 'timeline': tl['signature'], 'duration': tl['duration'], 'score': src_hash}
+    out_wav = os.path.join(ROOT, 'audio', tag, 'music.wav')
+    side = os.path.join(ROOT, 'audio', tag, 'music.json')
     os.makedirs(os.path.dirname(out_wav), exist_ok=True)
     if '--force' not in args and os.path.exists(out_wav) and os.path.exists(side):
         try:
             if json.load(open(side)).get('stamp') == stamp:
-                print(f'audio/music.wav is up to date for timeline {tl["signature"]} ({lang})')
+                print(f'audio/{tag}/music.wav is up to date for timeline {tl["signature"]} ({lang})')
                 return
         except Exception:
             pass
-    x = build(tl)
+    x = {1: build, 2: build_ep2}[ep](tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],
             'note': 'music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)'}
     json.dump(meta, open(side, 'w'), indent=1)
-    print(f'wrote audio/music.wav  {tl["duration"]:.2f} s  {meta["lufs"]} LUFS  {meta["true_peak_dbtp"]} dBTP  (timeline {tl["signature"]}, {lang})')
+    print(f'wrote audio/{tag}/music.wav  {tl["duration"]:.2f} s  {meta["lufs"]} LUFS  {meta["true_peak_dbtp"]} dBTP  (timeline {tl["signature"]}, {lang})')
 
 
 if __name__ == '__main__':

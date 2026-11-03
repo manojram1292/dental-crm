@@ -16,6 +16,7 @@
   R.scale = +(q.get('scale') || (renderMode ? 1 : Math.min(1, (window.devicePixelRatio || 1) * 0.75)));
   if (q.get('captions') === '0') R.showCaptions = false;
   R.lang = (q.get('lang') || 'en').replace(/[^a-z-]/gi, '');
+  // R.ep was set by src/episodes.js (it also loaded that episode's scenes)
   R.live = !renderMode;
   if (q.get('grain') != null) R.grain = +q.get('grain');
   const doPost = q.get('post') !== '0';
@@ -62,7 +63,7 @@
     document.body.classList.add('render');
     window.__reel = {
       ready,
-      info: () => ({ W: R.W, H: R.H, FPS: R.FPS, DURATION: R.DURATION, FRAMES: R.FRAMES, scale: R.scale, lang: R.lang, lines: R.lines.map((l) => ({ id: l.id, start: l.start, end: l.end })) }),
+      info: () => ({ ep: R.ep, W: R.W, H: R.H, FPS: R.FPS, DURATION: R.DURATION, FRAMES: R.FRAMES, scale: R.scale, lang: R.lang, lines: R.lines.map((l) => ({ id: l.id, start: l.start, end: l.end })) }),
       errors: () => R.errors.splice(0),
       frame(f, { mb = 1, shutter = 0.5, type = 'image/png', quality } = {}) {
         drawFrameMB(f, mb, shutter);
@@ -129,7 +130,7 @@
     sound.gain = sound.ctx.createGain();
     sound.gain.gain.value = muted ? 0 : 1;
     sound.gain.connect(sound.ctx.destination);
-    sound.loading = fetch(`audio/mix.${R.lang}.wav`).then((r) => (r.ok ? r : fetch('audio/music.wav')))
+    sound.loading = fetch(`audio/${R.epTag()}/mix.${R.lang}.wav`).then((r) => (r.ok ? r : fetch(`audio/${R.epTag()}/music.wav`)))
       .then((r) => { if (!r.ok) throw new Error(`audio ${r.status}`); return r.arrayBuffer(); })
       .then((b) => new Promise((res, rej) => sound.ctx.decodeAudioData(b, res, rej)))
       .then((buf) => { sound.buffer = buf; if (playing) startSound(T); return buf; })

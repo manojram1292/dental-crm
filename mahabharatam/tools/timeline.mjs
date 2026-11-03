@@ -1,19 +1,27 @@
 #!/usr/bin/env node
 /*
- * Build step: script/<lang>.json (+ voice/<lang>/<id>.wav if present) → build/timeline.<lang>.json
+ * Build step: script/epNN.<lang>.json (+ voice/epNN/<lang>/<id>.wav if present)
+ *             → build/timeline.epNN.<lang>.json
  *
- *   node tools/timeline.mjs [--lang en]
+ *   node tools/timeline.mjs [--ep 1] [--lang en]
  *
  * Per line:
- *   with a voice file   dur = voiceDur + timing.voiceGap + (line.hold || 0)
- *                       the voice starts at line.start + timing.voiceLead
+ *   with a voice file   dur = lead + voiceDur + gap + (line.hold || 0)
+ *                       lead = line.pre (ms) ?? timing.voiceLead, gap = line.post (ms) ?? timing.voiceGap
+ *                       the voice starts at line.start + lead
  *   without             dur = line.est   (speech is estimated from timing.wordsPerSecond)
  * The last line also carries timing.tail (the end card's hold).
  *
  * Words get times inside the speech window, weighted by length plus a pause
  * after punctuation, so captions and `beats` (word indices → seconds) follow
- * any language and any voice. Pictures, captions, the score (tools/score.py)
- * and the mix (tools/mix.py) all read this one file.
+ * any language and any voice. When tools/voice.py left a sidecar
+ * voice/epNN/<lang>/<id>.json with chunk times (a line spoken in pieces, with
+ * pauses between), words are placed inside their own chunk instead.
+ * `ticks` ({ count, from, to, curve }: word indices) spreads `count` evenly
+ * accelerating hits from word `from` to word `to` (t_k = a + (b−a)·(k/(n−1))^curve);
+ * pictures and drums both read line.ticks.
+ * Pictures, captions, the score (tools/score.py) and the mix (tools/mix.py)
+ * all read this one file.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -47,8 +55,11 @@ function wordWeight(w) {
   return k;
 }
 
-export function buildTimeline(lang = 'en', { quiet = false } = {}) {
-  const scriptFile = path.join(ROOT, 'script', `${lang}.json`);
+export const epTag = (ep) => `ep${String(+ep || 1).padStart(2, '0')}`;
+
+export function buildTimeline(lang = 'en', { quiet = false, ep = 1 } = {}) {
+  const tag = epTag(ep);
+  const scriptFile = path.join(ROOT, 'script', `${tag}.${lang}.json`);
   const script = JSON.parse(fs.readFileSync(scriptFile, 'utf8'));
   const tm = { wordsPerSecond: 2.6, voiceGap: 0.35, voiceLead: 0.12, tail: 1.0, ...(script.timing || {}) };
   const out = [];
@@ -56,16 +67,24 @@ export function buildTimeline(lang = 'en', { quiet = false } = {}) {
   const sig = crypto.createHash('sha1').update(JSON.stringify(script));
   script.lines.forEach((line, i) => {
     const words = line.text.trim().split(/\s+/);
-    const wf = path.join(ROOT, 'voice', lang, `${line.id}.wav`);
-    let voice = null, voiceDur = 0, dur, speechStart, speechDur;
+    const wf = path.join(ROOT, 'voice', tag, lang, `${line.id}.wav`);
+    let voice = null, voiceDur = 0, dur, speechStart, speechDur, chunks = null;
     if (fs.existsSync(wf)) {
       voiceDur = wavDuration(wf);
       voice = path.relative(ROOT, wf);
       voiced++;
       sig.update(`${line.id}:${voiceDur}`);
-      speechStart = t + tm.voiceLead;
+      const lead = line.pre != null ? line.pre / 1000 : tm.voiceLead;
+      const gap = line.post != null ? line.post / 1000 : tm.voiceGap;
+      speechStart = t + lead;
       speechDur = voiceDur;
-      dur = tm.voiceLead + voiceDur + tm.voiceGap + (line.hold || 0);
+      dur = lead + voiceDur + gap + (line.hold || 0);
+      const side = wf.replace(/\.wav$/, '.json');
+      if (fs.existsSync(side)) {
+        const sc = JSON.parse(fs.readFileSync(side, 'utf8')).chunks || [];
+        // usable only if the chunks' words add up to the caption's words
+        if (sc.length > 1 && sc.reduce((n, c) => n + c.words, 0) === words.length) chunks = sc;
+      }
     } else {
       dur = line.est;
       const chars = [...line.text].length;
@@ -74,22 +93,39 @@ export function buildTimeline(lang = 'en', { quiet = false } = {}) {
       speechDur = Math.min(natural, dur - (speechStart - t) - 0.25 - (line.hold || 0));
     }
     // Word times: weighted by length + punctuation pauses; the final pause is not spoken.
-    const wts = words.map(wordWeight);
-    const lastPause = wts[wts.length - 1] - (Math.max(2, [...words[words.length - 1].replace(/[^\p{L}\p{N}]/gu, '')].length) + 1.5);
-    const total = wts.reduce((a, b) => a + b, 0) - Math.max(0, lastPause);
-    let acc = 0;
-    const wt = words.map((w, k) => {
-      const t0 = speechStart + (acc / total) * speechDur;
-      const core = Math.max(2, [...w.replace(/[^\p{L}\p{N}]/gu, '')].length) + 1.5;
-      const t1 = speechStart + (Math.min(total, acc + (w.replace(/[^\p{L}\p{N}]/gu, '') ? core : wts[k])) / total) * speechDur;
-      acc += wts[k];
-      return { w, t0: +t0.toFixed(4), t1: +t1.toFixed(4) };
-    });
+    function place(ws, s0, sd) {
+      const wts = ws.map(wordWeight);
+      const lastPause = wts[wts.length - 1] - (Math.max(2, [...ws[ws.length - 1].replace(/[^\p{L}\p{N}]/gu, '')].length) + 1.5);
+      const total = wts.reduce((a, b) => a + b, 0) - Math.max(0, lastPause);
+      let acc = 0;
+      return ws.map((w, k) => {
+        const t0 = s0 + (acc / total) * sd;
+        const core = Math.max(2, [...w.replace(/[^\p{L}\p{N}]/gu, '')].length) + 1.5;
+        const t1 = s0 + (Math.min(total, acc + (w.replace(/[^\p{L}\p{N}]/gu, '') ? core : wts[k])) / total) * sd;
+        acc += wts[k];
+        return { w, t0: +t0.toFixed(4), t1: +t1.toFixed(4) };
+      });
+    }
+    let wt;
+    if (chunks) {
+      wt = [];
+      let k = 0;
+      for (const c of chunks) {
+        wt.push(...place(words.slice(k, k + c.words), speechStart + c.t0, c.t1 - c.t0));
+        k += c.words;
+      }
+    } else wt = place(words, speechStart, speechDur);
     const beats = (line.beats || []).map((k) => wt[Math.min(k, wt.length - 1)].t0);
+    let ticks = [];
+    if (line.ticks) {
+      const { count = 1, from = 0, to = words.length - 1, curve = 1 } = line.ticks;
+      const a = wt[Math.min(from, wt.length - 1)].t0, b = wt[Math.min(to, wt.length - 1)].t0;
+      ticks = Array.from({ length: count }, (_, k) => +(a + (b - a) * Math.pow(count > 1 ? k / (count - 1) : 1, curve)).toFixed(4));
+    }
     out.push({
       id: line.id, start: +t.toFixed(4), end: +(t + dur).toFixed(4),
       speechStart: +speechStart.toFixed(4), speechEnd: +(speechStart + speechDur).toFixed(4),
-      voice, voiceDur: +voiceDur.toFixed(4), words: wt, beats,
+      voice, voiceDur: +voiceDur.toFixed(4), words: wt, beats, ...(ticks.length ? { ticks } : {}), ...(chunks ? { chunks: chunks.length } : {}),
     });
     t += dur;
   });
@@ -97,12 +133,12 @@ export function buildTimeline(lang = 'en', { quiet = false } = {}) {
   const duration = Math.ceil((t + tm.tail) * FPS) / FPS;
   out[out.length - 1].end = +duration.toFixed(4);
   const timeline = {
-    lang, fps: FPS, duration: +duration.toFixed(4), voiced, lines: out,
+    episode: +ep || 1, lang, fps: FPS, duration: +duration.toFixed(4), voiced, lines: out,
     signature: sig.digest('hex').slice(0, 16),
-    note: 'Generated by tools/timeline.mjs from script/<lang>.json and voice/<lang>/*.wav. Do not edit.',
+    note: 'Generated by tools/timeline.mjs from script/epNN.<lang>.json and voice/epNN/<lang>/*.wav. Do not edit.',
   };
   fs.mkdirSync(path.join(ROOT, 'build'), { recursive: true });
-  const file = path.join(ROOT, 'build', `timeline.${lang}.json`);
+  const file = path.join(ROOT, 'build', `timeline.${tag}.${lang}.json`);
   const json = JSON.stringify(timeline, null, 1) + '\n';
   if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== json) fs.writeFileSync(file, json);
   if (!quiet) {
@@ -113,6 +149,6 @@ export function buildTimeline(lang = 'en', { quiet = false } = {}) {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const i = process.argv.indexOf('--lang');
-  buildTimeline(i > 0 ? process.argv[i + 1] : 'en');
+  const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
+  buildTimeline(arg('--lang', 'en'), { ep: +arg('--ep', 1) });
 }

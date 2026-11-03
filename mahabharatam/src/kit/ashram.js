@@ -13,8 +13,11 @@
  *     smoke: { lean, alpha, h }
  *     cam: { zoom, dx, dy }
  *     before(ctx), after(ctx)   hooks drawn in camera space behind / in front of the sages
- *     teller: pose      the storyteller standing in the clearing (or null)
+ *     teller: opts      Sauti (KIT.characters.sauti.draw opts, light is set here: the fire) or null
+ *     hide: [i, …]      sage indices left out (their place taken by a character drawn in a hook)
+ *     middle(ctx)       hook drawn after the fire, before the front (back-facing) row
  *   }
+ *   Sages are KIT.characters.sage (index i = his fixed variation), lit by the fire.
  *   KIT.ashram.FIRE → { x, y } screen position of the flame base (for effects).
  */
 (function () {
@@ -141,9 +144,8 @@
     const x = CX0 + Math.cos(sg.a) * RX, y = CY0 + Math.sin(sg.a) * RY;
     const front = Math.sin(sg.a) > 0;
     const s = 0.33 + 0.16 * (Math.sin(sg.a) + 1) / 2 + (front ? 0.08 : 0);
-    const pose = { x, y: y + (front ? 150 : 0), s: s * (0.94 + 0.12 * hash(sg.i, 5)), T, seed: sg.i * 1.7, back: front, lean: (hash(sg.i, 6) - 0.5) * 0.6 };
+    const pose = { x, y: y + (front ? 150 : 0), s: s * (0.94 + 0.12 * hash(sg.i, 5)), T, back: front };
     pose.turn = o.turn ? o.turn(sg.i, pose) : 0;
-    pose.lean += pose.turn * 0.9;
     return pose;
   }
 
@@ -178,29 +180,26 @@
     KIT.smoke.draw(ctx, FX + lean * 40, FY - fh * 0.75, T, { h: sm.h || 880, w: 46, strands: 4, alpha: sm.alpha ?? 0.38, color: '#a89ab4', lean: sm.lean || 0, speed: 0.9, seed: 3, curls: 0.8, spread: 0.7 });
     if (o.vision) o.vision(ctx);
     // sages behind the fire (they face us: their fronts lit warm by the flames)
-    const poses = SAGES.map((sg) => ({ sg, pose: sagePose(sg, T, o) }));
+    const hide = o.hide || [];
+    const poses = SAGES.filter((sg) => !hide.includes(sg.i)).map((sg) => ({ sg, pose: sagePose(sg, T, o) }));
     poses.sort((a, b) => a.pose.y - b.pose.y);
     const drawSage = ({ sg, pose }) => {
       const dxs = Math.sign(pose.x - FX) || 1;
-      const bw = 460 * pose.s, bh = 560 * pose.s;
-      if (!pose.back) {
-        const near = 1 - clamp(Math.abs(pose.x - FX) / 420);
-        const lit = R.mix('#2a120d', '#8a3c1e', (0.35 + 0.35 * fl) * (0.6 + 0.4 * near));
-        KIT.rimLit(ctx, (g, col) => KIT.sage.draw(g, col, pose), { fill: lit, rim: R.mix('#e0954a', '#ffe0a0', fl), dx: dxs * 4, dy: 3, glow: 0.35, box: [pose.x - bw, pose.y - bh * 1.02, bw * 2, bh * 1.08], key: 'sage' + sg.i, inner: { color: '#b85a2c', alpha: 0.55 * fl } });
-        KIT.sage.ornaments(ctx, pose, 0.6 + 0.3 * fl, R.mix(PAL.goldDeep, PAL.goldPale, fl * 0.6));
-      } else {
-        KIT.rimLit(ctx, (g, col) => KIT.sage.draw(g, col, pose), { fill: '#0d0808', rim: R.mix('#d78a3a', '#ffd88a', fl), dx: dxs * 5, dy: 3, glow: 0.6, box: [pose.x - bw, pose.y - bh * 1.02, bw * 2, bh * 1.08], key: 'sage' + sg.i });
-        KIT.sage.ornaments(ctx, pose, 0.35 * fl, PAL.goldDeep);
-      }
+      const near = 1 - clamp(Math.abs(pose.x - FX) / 420);
+      KIT.characters.sage.draw(ctx, {
+        x: pose.x, y: pose.y, scale: pose.s, index: sg.i, facing: pose.back ? 'back' : 'front',
+        pose: { name: 'sit' }, expression: { look: pose.turn }, t: T, key: 'sage' + sg.i,
+        light: { dir: Math.atan2(-3, -dxs * 4.5), intensity: fl, front: pose.back ? 0 : 0.35 + 0.3 * (0.6 + 0.4 * near) },
+      });
     };
     poses.filter((q) => !q.pose.back).forEach(drawSage);
     // altar + fire
     const base = KIT.fire.altar(ctx, FX, FY, 230, T, { light: 1 });
-    KIT.fire.draw(ctx, FX, base + 2, fh, T, { lean, intensity: 1, seed: 0 });
+    KIT.fire.draw(ctx, FX, base + 2, fh, T, { lean, intensity: o.fireIntensity ?? 1, seed: 0 });
+    if (o.middle) o.middle(ctx);
     const drawTeller = () => {
-      const p = o.teller, bw = 520 * p.s, bh = 1240 * p.s;
-      KIT.rimLit(ctx, (g, col) => KIT.storyteller.draw(g, col, p), { fill: '#0b0708', rim: R.mix('#e09a48', '#ffe2a0', fl), dx: p.flip ? -6 : 6, dy: 2, glow: 0.7, box: [p.x - bw, p.y - bh, bw * 2, bh * 1.03], key: 'teller-ashram', inner: { color: '#3e1c12', alpha: 0.9 } });
-      KIT.storyteller.ornaments(ctx, p, 0.5 + 0.3 * fl);
+      const p = o.teller, toFire = Math.sign(FX - p.x) || 1;
+      KIT.characters.sauti.draw(ctx, { light: { dir: Math.atan2(-2, toFire * 6), intensity: fl, front: 0 }, t: T, key: 'teller-ashram', ...p });
     };
     if (o.teller && !o.tellerFront) drawTeller();
     poses.filter((q) => q.pose.back).forEach(drawSage);

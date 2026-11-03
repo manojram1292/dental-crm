@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Character Model Sheet</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+  :root { --ink: #120d0b; --paper: #f4e4c4; --gold: #e7b54a; --mute: #9a8f7d; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--ink); color: var(--paper); font-family: 'EB Garamond', Georgia, serif; }
+  body { padding: 16px; }
+  canvas { display: block; width: 100%; height: auto; max-width: 1600px; margin: 0 auto; }
+  body.render { padding: 0; }
+  body.render canvas { max-width: none; width: auto; }
+  p { max-width: 1600px; margin: 0 auto 12px; color: var(--mute); font-size: 15px; }
+  body.render p { display: none; }
+</style>
+</head>
+<body>
+<p>Mahabharatam — As Vyasa Told It · character bible (src/kit/characters/, CHARACTERS.md). Every figure is drawn by its module's single draw(ctx, opts); only pose, facing, scale, light and expression change.</p>
+<canvas id="sheet" aria-label="Character model sheet"></canvas>
+
+<script src="../src/engine.js"></script>
+<script src="../src/kit/core.js"></script>
+<script src="../src/kit/fire.js"></script>
+<script src="../src/kit/characters/rig.js"></script>
+<script src="../src/kit/characters/sauti.js"></script>
+<script src="../src/kit/characters/elder-sage.js"></script>
+<script src="../src/kit/characters/sages.js"></script>
+<script src="../src/kit/characters/parashurama.js"></script>
+<script src="../src/kit/characters/pitrs.js"></script>
+<script src="../src/kit/characters/vyasa.js"></script>
+<script src="../src/kit/characters/janamejaya.js"></script>
+<script>
+(async function () {
+  'use strict';
+  const R = window.REEL, KIT = window.KIT, CH = KIT.characters;
+  const q = new URLSearchParams(location.search);
+  if (q.get('render') === '1') document.body.classList.add('render');
+  R.scale = 1;
+  await Promise.all(["600 40px 'Cinzel'", "500 24px 'EB Garamond'", "italic 500 24px 'EB Garamond'"].map((f) => document.fonts.load(f)));
+
+  // ?solo=<id>: one character large, in every pose (close-up check)
+  const solo = q.get('solo');
+  if (solo) {
+    const mod = CH[solo];
+    const poses = (mod.bible.poses || []).map((p) => p.name);
+    const cv = document.getElementById('sheet');
+    cv.width = poses.length * 520; cv.height = 1300;
+    const g = cv.getContext('2d');
+    g.fillStyle = '#1c1410'; g.fillRect(0, 0, cv.width, cv.height);
+    poses.forEach((name, i) => {
+      const pose = { name, k: name === 'strike' ? 0.7 : name === 'descend' ? 0.3 : 1, phase: 1.1 };
+      mod.draw(g, { x: i * 520 + 280, y: 1250, scale: +(q.get('scale') || 0.85), pose, facing: q.get('facing') || (solo === 'sage' || solo === 'pitr' ? 'front' : 'left'), index: i, light: CH.LIGHTS.key, expression: { mood: 'wrath' }, t: 0.6 });
+      g.fillStyle = '#d8c09a'; g.font = '600 26px serif'; g.fillText(name, i * 520 + 30, 40);
+    });
+    window.__sheetReady = true;
+    return;
+  }
+  const CAST = await (await fetch('../script/cast.json')).json();
+  const S = 0.3;                           // one scale for everyone: heights compare
+  const CW = 300, CH_ = 540, LEFT = 360, GAP = 18, HEAD = 64;
+  const T0 = 0.6;
+  // per character: poses to show (label, pose, expression, facing) and the pose used for the three lights
+  const ROWS = [
+    { id: 'sauti', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1, stride: 1 }], ['sit', 'sit'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['speak · seated', { name: 'speak', base: 'sit', k: 1 }], ['bless', { name: 'bless', k: 1 }], ['bow', { name: 'bow', k: 1 }]], lightPose: 'stand' },
+    { id: 'elder', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit', 'sit'], ['speak · ask', { name: 'speak', k: 1 }, { speak: 0.8 }], ['speak · seated', { name: 'speak', base: 'sit', k: 1 }], ['bless', { name: 'bless', k: 1 }], ['bow', { name: 'bow', k: 1 }]], lightPose: 'stand' },
+    { id: 'sage', frontal: true, poses: [['sit · 0', 'sit', null, 'front', 0], ['sit · 1', 'sit', null, 'front', 1], ['sit · 2', 'sit', null, 'front', 2], ['listen · 3', 'sit', { look: 0.8 }, 'front', 3], ['speak · 4', { name: 'speak', k: 1 }, null, 'front', 4], ['bless · 5', { name: 'bless', k: 1 }, null, 'front', 5], ['back · 6', 'sit', null, 'back', 6], ['stand · 7', 'stand', null, 'front', 7]], lightPose: 'sit', lightFront: 0.55 },
+    { id: 'parashurama', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit', 'sit'], ['speak', { name: 'speak', k: 1 }], ['raise-axe', { name: 'raise-axe', k: 1 }, { mood: 'wrath' }], ['strike', { name: 'strike', k: 0.7 }, { mood: 'wrath' }], ['lower-axe', { name: 'lower-axe', k: 1 }, { mood: 'sorrow' }]], lightPose: { name: 'raise-axe', k: 1 } },
+    { id: 'pitr', frontal: true, poses: [['stand · 0', 'stand', null, 'front', 0], ['walk · 1', { name: 'walk', phase: 1 }, null, 'front', 1], ['sit · 2', 'sit', null, 'front', 2], ['speak · 3', { name: 'speak', k: 1 }, null, 'front', 3], ['bless · 4', { name: 'bless', k: 1 }, null, 'front', 4], ['plead · 0', { name: 'plead', k: 1 }, null, 'front', 0], ['descend · 1', { name: 'descend', k: 0.3 }, null, 'front', 1]], lightPose: 'bless', lightFront: 0.3 },
+    { id: 'vyasa', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit', 'sit'], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['dictate · seated', { name: 'dictate', base: 'sit', k: 1 }], ['bless', { name: 'bless', k: 1 }]], lightPose: 'stand' },
+    { id: 'janamejaya', poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['sit · throne', 'sit'], ['speak · command', { name: 'speak', k: 1 }], ['offer', { name: 'offer', k: 1 }], ['bless', { name: 'bless', k: 1 }]], lightPose: 'stand' },
+  ];
+  const LIGHTS = [['key · fire left', CH.LIGHTS.key], ['back · rim from behind', CH.LIGHTS.back], ['low · dim fire in front', CH.LIGHTS.low]];
+  const NPOSE = Math.max(...ROWS.map((r) => r.poses.length));
+  const W = LEFT + NPOSE * (CW + GAP) + 3 * (CW + GAP) + 40 + 40;
+  const LINEUP_H = 700;
+  const H = 120 + ROWS.length * (CH_ + HEAD + GAP) + LINEUP_H + 40;
+  const cv = document.getElementById('sheet');
+  cv.width = W; cv.height = H;
+  const ctx = cv.getContext('2d');
+
+  ctx.fillStyle = '#120d0b'; ctx.fillRect(0, 0, W, H);
+  const title = (t, x, y, size = 40, col = '#e7b54a', fam = 'display', w = 600, st = 'normal') => { ctx.save(); ctx.font = R.font(size, fam, w, st); ctx.fillStyle = col; ctx.fillText(t, x, y); ctx.restore(); };
+  title('MAHABHARATAM · CHARACTER BIBLE', 40, 64, 44);
+  title('one module per character · one draw(ctx, opts) · fixed design, palette, props and signature light · same scale for everyone', 40, 100, 22, '#9a8f7d', 'caption', 500, 'italic');
+
+  function cell(x, y, w, h, light) {
+    // a mural cell: plaster-dark ground, a hint of where the light is
+    ctx.save();
+    ctx.fillStyle = '#1c1410'; ctx.fillRect(x, y, w, h);
+    if (light) {
+      const lx = x + w / 2 + Math.cos(light.dir) * w * 0.62, ly = y + h * 0.55 + Math.sin(light.dir) * h * 0.5;
+      ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
+      KIT.glow(ctx, lx, ly, w * 0.9, '#f08a24', 0.16 * light.intensity);
+      ctx.fillStyle = '#ffcf7a'; ctx.globalAlpha = 0.8 * light.intensity;
+      ctx.beginPath(); ctx.arc(R.clamp(lx, x + 12, x + w - 12), R.clamp(ly, y + 12, y + h - 12), 6, 0, R.TAU); ctx.fill();
+    }
+    ctx.restore();
+    ctx.save(); ctx.strokeStyle = 'rgba(231,181,74,0.25)'; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, y + 0.5, w - 1, h - 1); ctx.restore();
+    // ground line
+    ctx.save(); ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(x, y + h - 34, w, 34); ctx.restore();
+  }
+  function label(t, x, y) { ctx.save(); ctx.font = R.font(19, 'caption', 600); ctx.fillStyle = '#d8c09a'; ctx.textAlign = 'center'; ctx.fillText(t, x, y); ctx.restore(); }
+
+  let y = 130;
+  for (const row of ROWS) {
+    const mod = CH[row.id], b = mod.bible;
+    title(b.name.toUpperCase(), 40, y + 36, 26);
+    // left column: palette + light rule + voice
+    const px = 40, py = y + HEAD;
+    ctx.save();
+    ctx.font = R.font(17, 'caption', 500); ctx.fillStyle = '#9a8f7d';
+    const pal = Object.entries(b.palette);
+    pal.forEach(([k, v], i) => {
+      const cx = px + (i % 2) * 150, cy = py + 10 + Math.floor(i / 2) * 34;
+      ctx.fillStyle = v; ctx.fillRect(cx, cy, 26, 26);
+      ctx.strokeStyle = 'rgba(255,255,255,0.25)'; ctx.strokeRect(cx + 0.5, cy + 0.5, 25, 25);
+      ctx.fillStyle = '#c9b89a'; ctx.fillText(k, cx + 34, cy + 13); ctx.fillStyle = '#7d7262'; ctx.fillText(v, cx + 34, cy + 27);
+    });
+    const ty = py + 10 + Math.ceil(pal.length / 2) * 34 + 24;
+    ctx.fillStyle = '#e7b54a'; ctx.font = R.font(17, 'caption', 600);
+    const v = CAST[b.voice] || {};
+    ctx.fillText(`voice ${v.voice} · ${v.speed}×${v.pitch ? ` · ${v.pitch > 0 ? '+' : ''}${v.pitch} st` : ''}  (${b.voice})`, px, ty);
+    ctx.fillStyle = '#9a8f7d'; ctx.font = R.font(16, 'caption', 500, 'italic');
+    // wrap the light rule
+    const words = b.light.split(' '); let line = '', ly = ty + 26;
+    for (const w of words) { if (ctx.measureText(line + w).width > LEFT - 60) { ctx.fillText(line, px, ly); ly += 20; line = ''; } line += w + ' '; }
+    ctx.fillText(line, px, ly);
+    ctx.restore();
+    // poses
+    row.poses.forEach(([lab, pose, ex, facing, index], i) => {
+      const x = LEFT + i * (CW + GAP), cy = y + HEAD;
+      const light = row.frontal ? { ...CH.LIGHTS.key, front: facing === 'back' ? 0 : (row.lightFront ?? 0.5) } : CH.LIGHTS.key;
+      cell(x, cy, CW, CH_, light);
+      mod.draw(ctx, { x: x + CW / 2 + (row.frontal ? 0 : 20), y: cy + CH_ - 34, scale: S, pose, facing: facing || 'left', index: index ?? 0, expression: ex || {}, light, t: T0, key: `sheet` });
+      label(lab, x + CW / 2, cy + CH_ - 10);
+    });
+    // the same pose under three lights
+    const lx0 = LEFT + NPOSE * (CW + GAP) + 40;
+    LIGHTS.forEach(([lab, L], i) => {
+      const x = lx0 + i * (CW + GAP), cy = y + HEAD;
+      const light = row.frontal ? { ...L, front: Math.max(L.front, i === 0 ? row.lightFront ?? 0.5 : L.front) } : L;
+      cell(x, cy, CW, CH_, light);
+      mod.draw(ctx, { x: x + CW / 2 + (row.frontal ? 0 : 20), y: cy + CH_ - 34, scale: S, pose: row.lightPose, facing: 'left', index: 0, light, t: T0, key: 'sheet' });
+      label(lab, x + CW / 2, cy + CH_ - 10);
+    });
+    if (row === ROWS[0]) title('THE SAME FIGURE UNDER THREE LIGHTS', lx0, y + 36, 20, '#9a8f7d');
+    y += CH_ + HEAD + GAP;
+  }
+
+  // phone-size line-up: everyone at the size they would have in a wide shot on a phone
+  y += 10;
+  title('PHONE-SIZE LINE-UP (as on a 6-inch screen in a wide shot) · silhouettes must read at a glance', 40, y + 30, 22, '#e7b54a');
+  const ly = y + 50, lh = LINEUP_H - 70;
+  ctx.save(); ctx.fillStyle = '#0d0907'; ctx.fillRect(40, ly, W - 80, lh); ctx.restore();
+  KIT.glow(ctx, W / 2, ly + lh + 60, 900, '#f08a24', 0.35, 'lighter', 0.4);
+  const cast = [['sauti', 'stand', 'left'], ['elder', { name: 'speak', k: 1 }, 'left'], ['sage', 'sit', 'front', 2], ['sage', 'sit', 'front', 1], ['parashurama', { name: 'raise-axe', k: 1 }, 'left'], ['pitr', { name: 'bless', k: 1 }, 'front', 0], ['vyasa', 'stand', 'left'], ['janamejaya', 'stand', 'left'], ['sauti', 'sit', 'right'], ['parashurama', 'walk', 'right']];
+  const big = 0.3, small = 0.14;
+  cast.forEach(([id, pose, facing, index], i) => {
+    const x = 160 + i * ((W - 320) / (cast.length - 1));
+    CH[id].draw(ctx, { x, y: ly + lh - 20, scale: big, pose, facing, index: index ?? 0, light: { dir: -Math.PI / 2 + (x < W / 2 ? 0.6 : -0.6), intensity: 0.9, front: 0.35 }, t: T0, key: 'lineup' });
+  });
+  // the same line-up again at true phone size, pure black on plaster, no light: does the shape alone read?
+  ctx.save(); ctx.fillStyle = '#d8c09a'; ctx.fillRect(70, ly + 14, cast.length * 92 + 20, 176); ctx.restore();
+  cast.forEach(([id, pose, facing, index], i) => {
+    const x = 120 + i * 92;
+    CH[id].shape(ctx, '#000', { x, y: ly + 150, scale: small * 0.8, pose, facing, index: index ?? 0, t: T0 });
+  });
+  ctx.save(); ctx.font = R.font(16, 'caption', 500, 'italic'); ctx.fillStyle = '#5a4a3a'; ctx.fillText('shape only, ≈ 110 px tall', 84, ly + 182); ctx.restore();
+  window.__sheetReady = true;
+})().catch((e) => { window.__sheetError = String(e && e.stack || e); });
+</script>
+</body>
+</html>

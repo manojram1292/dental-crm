@@ -8,8 +8,8 @@
  * What is different from ribhu-film:
  *   • Logical canvas is 1080×1920 (YouTube Shorts). Safe zones: see SAFE.
  *   • There is no fixed timeline. The episode is a list of narration LINES
- *     (script/<lang>.json). tools/timeline.mjs turns them into
- *     build/timeline.<lang>.json: per-line start/end, speech window, per-word
+ *     (script/epNN.<lang>.json). tools/timeline.mjs turns them into
+ *     build/timeline.epNN.<lang>.json: per-line start/end, speech window, per-word
  *     times and beat times, from voice/<lang>/<id>.wav durations when they
  *     exist, otherwise from each line's `est`. One scene per line, matched by
  *     line id. Scenes animate in NORMALISED time p = t/dur within their line,
@@ -447,8 +447,8 @@
   const blur = (n) => `blur(${(n * REEL.scale).toFixed(2)}px)`;
 
   // ─── Script & timeline ──────────────────────────────────────────────────────
-  // REEL.script   = script/<lang>.json      (text, strings, fonts)
-  // REEL.timeline = build/timeline.<lang>.json (tools/timeline.mjs)
+  // REEL.script   = script/epNN.<lang>.json         (text, strings, fonts)
+  // REEL.timeline = build/timeline.epNN.<lang>.json (tools/timeline.mjs)
   let DURATION = 30, FRAMES = 900;
   const lines = [];   // timeline lines merged with script lines
 
@@ -647,9 +647,9 @@
   }
 
   async function init() {
-    const lang = REEL.lang;
-    REEL.script = await loadJSON(`script/${lang}.json`);
-    REEL.timeline = await loadJSON(`build/timeline.${lang}.json`);
+    const lang = REEL.lang, tag = REEL.epTag();
+    REEL.script = await loadJSON(`script/${tag}.${lang}.json`);
+    REEL.timeline = await loadJSON(`build/timeline.${tag}.${lang}.json`);
     if (REEL.script.fonts) {
       if (REEL.script.fonts.caption) FAMILY.caption = REEL.script.fonts.caption;
       if (REEL.script.fonts.display) FAMILY.display = REEL.script.fonts.display;
@@ -673,7 +673,9 @@
 
   const REEL = {
     W, H, FPS, DURATION, FRAMES, TAU, PAL, FAMILY, SAFE,
-    lang: 'en', script: null, timeline: null, lines,
+    lang: 'en', ep: 1, script: null, timeline: null, lines,
+    /** 'ep01', 'ep02', …: the episode's file tag (script/, voice/, build/, audio/, src/scenes/). */
+    epTag: (ep = REEL.ep) => `ep${String(+ep || 1).padStart(2, '0')}`,
     scale: 1, grain: 0.14, showCaptions: true, errors: [], live: false,
     /** Sub-pixel camera jitter [x, y] in backing px, set per motion-blur sub-sample by the runtime. */
     jitter: [0, 0],

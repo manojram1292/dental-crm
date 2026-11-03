@@ -3,47 +3,48 @@
  * Offline render: timeline → score → mix → every frame through headless
  * Chromium with motion blur → H.264 + AAC.
  *
- *   node tools/render.mjs [--lang en] [--out episode01.mp4] [--mb 8] [--shutter 0.5]
+ *   node tools/render.mjs [--ep 1] [--lang en] [--out episodeNN.mp4] [--mb 8] [--shutter 0.5]
  *                         [--scale 1] [--workers 3] [--from 0 --to 30] [--crf 18]
  *                         [--no-score] [--keep-frames]
  *
- * Audio: tools/score.py writes audio/music.wav for build/timeline.<lang>.json
+ * Audio: tools/score.py writes audio/epNN/music.wav for build/timeline.epNN.<lang>.json
  * (re-run only when the timeline changed), then tools/mix.py mixes whatever
- * stems exist (music + voice/<lang>/*.wav placed at their lines) into
- * audio/mix.<lang>.wav, which is muxed in.
+ * stems exist (music + voice/epNN/<lang>/*.wav placed at their lines) into
+ * audio/epNN/mix.<lang>.wav, which is muxed in.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { spawn, execFileSync } from 'node:child_process';
 import { ROOT, args, openReel, dataUrlToBuffer, findFfmpeg } from './lib.mjs';
-import { buildTimeline } from './timeline.mjs';
+import { buildTimeline, epTag } from './timeline.mjs';
 
 const a = args();
 const lang = a.lang || 'en';
+const ep = +(a.ep || 1), tag = epTag(ep), num = tag.slice(2);
 const scale = +(a.scale || 1);
 const mb = +(a.mb || 8);
 const shutter = +(a.shutter || 0.5);
 const workers = +(a.workers || Math.max(1, Math.min(4, os.cpus().length - 1)));
-const out = path.resolve(ROOT, a.out || (lang === 'en' ? 'episode01.mp4' : `episode01.${lang}.mp4`));
+const out = path.resolve(ROOT, a.out || (lang === 'en' ? `episode${num}.mp4` : `episode${num}.${lang}.mp4`));
 const crf = String(a.crf || 18);
-const framesDir = path.join(ROOT, `.frames-${lang}`);
+const framesDir = path.join(ROOT, `.frames-${tag}-${lang}`);
 const py = process.env.PYTHON || 'python3';
 
 // 1. Timeline, 2. score (cached by timeline signature + score source), 3. mix.
-const tl = buildTimeline(lang);
-if (!a['no-score']) execFileSync(py, [path.join(ROOT, 'tools/score.py'), '--lang', lang], { stdio: 'inherit' });
-execFileSync(py, [path.join(ROOT, 'tools/mix.py'), '--lang', lang], { stdio: 'inherit' });
-const audio = path.join(ROOT, 'audio', `mix.${lang}.wav`);
+const tl = buildTimeline(lang, { ep });
+if (!a['no-score']) execFileSync(py, [path.join(ROOT, 'tools/score.py'), '--ep', String(ep), '--lang', lang], { stdio: 'inherit' });
+execFileSync(py, [path.join(ROOT, 'tools/mix.py'), '--ep', String(ep), '--lang', lang], { stdio: 'inherit' });
+const audio = path.join(ROOT, 'audio', tag, `mix.${lang}.wav`);
 
-const reel = await openReel({ scale, pages: workers, lang });
+const reel = await openReel({ scale, pages: workers, lang, ep });
 const { FPS, FRAMES, DURATION } = reel.info;
 if (Math.abs(DURATION - tl.duration) > 1e-6) throw new Error(`page duration ${DURATION} ≠ timeline ${tl.duration}`);
 const f0 = Math.round(+(a.from ?? 0) * FPS), f1 = Math.min(FRAMES, Math.round(+(a.to ?? DURATION) * FPS));
 fs.rmSync(framesDir, { recursive: true, force: true });
 fs.mkdirSync(framesDir, { recursive: true });
 
-console.log(`rendering ${lang} frames ${f0}–${f1 - 1} at ${Math.round(1080 * scale)}×${Math.round(1920 * scale)}, mb=${mb}, shutter=${shutter}, workers=${workers}`);
+console.log(`rendering ${tag} ${lang} frames ${f0}–${f1 - 1} at ${Math.round(1080 * scale)}×${Math.round(1920 * scale)}, mb=${mb}, shutter=${shutter}, workers=${workers}`);
 const t0 = Date.now();
 let done = 0;
 await Promise.all(reel.pages.map(async (page, w) => {

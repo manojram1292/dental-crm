@@ -10,7 +10,8 @@
  *   node tools/preview.mjs clip   --from 6 --to 8 [--scale 0.5] [--out clip.mp4]   low-res video for humans
  *   node tools/preview.mjs purity --from 6 --to 8 [--count 12]   checks draw() is a pure function of time
  *
- * Options: --lang ta previews another language, --captions 0 hides captions, --grain 0 disables grain, --post 0 disables
+ * Options: --ep 2 previews another episode (default 1), --lang ta another language,
+ * --page lab/model-sheet.html opens another page (sheet/frames use its __reel), --captions 0 hides captions, --grain 0 disables grain, --post 0 disables
  * grain + vignette (use it for exact colour checks on contract frames).
  * Page errors (exceptions inside scenes) are printed at the end — check them.
  */
@@ -24,6 +25,7 @@ const cmd = a._[0] || 'sheet';
 const scale = +(a.scale || (cmd === 'frames' || cmd === 'bench' ? 1 : 0.5));
 const captions = a.captions !== '0';
 const lang = a.lang || 'en';
+const ep = +(a.ep || 1);
 const grain = a.grain != null ? +a.grain : undefined;
 const post = a.post !== '0';
 const stamp = `${Date.now().toString(36)}-${process.pid}`;
@@ -35,7 +37,7 @@ const range = (from, to, count) => {
   return Array.from({ length: count }, (_, i) => +(from + ((to - from) * i) / (count - 1)).toFixed(4));
 };
 
-const reel = await openReel({ scale, captions, grain, post, lang, page: a.page || 'index.html' });
+const reel = await openReel({ scale, captions, grain, post, lang, ep, page: a.page || 'index.html' });
 const page = reel.pages[0];
 const { FPS, DURATION } = reel.info;
 const END = DURATION - 1 / FPS;
@@ -50,7 +52,7 @@ try {
     const cols = +(a.cols || (cmd === 'strip' ? 10 : 6));
     const cellW = +(a.cellw || (cmd === 'strip' ? 180 : 270));
     const url = await page.evaluate(([t, c, w]) => window.__reel.sheet(t, { cols: c, cellW: w }), [times, cols, cellW]);
-    const out = a.out || path.join(outDir, `${cmd}-${from}-${to}-${stamp}.png`);
+    const out = a.out || path.join(outDir, `${cmd}-ep${ep}-${from}-${to}-${stamp}.png`);
     fs.writeFileSync(out, dataUrlToBuffer(url));
     console.log(`wrote ${out}  (${times.length} frames)`);
   } else if (cmd === 'frames') {
@@ -62,7 +64,7 @@ try {
       const url = mb > 1
         ? await page.evaluate(([f, mb]) => window.__reel.frame(f, { mb }), [f, mb])
         : await page.evaluate((T) => window.__reel.at(T), T);
-      const out = path.join(outdir, `frame-${T.toFixed(3)}-${stamp}.png`);
+      const out = path.join(outdir, `frame-ep${ep}-${T.toFixed(3)}-${stamp}.png`);
       fs.writeFileSync(out, dataUrlToBuffer(url));
       console.log(`wrote ${out}`);
     }

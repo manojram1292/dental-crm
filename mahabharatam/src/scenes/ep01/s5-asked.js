@@ -55,7 +55,7 @@
     g.beginPath(); g.rect(395, 470, 110, 90); fill(); stroke(2.5);       // throne
     g.beginPath(); g.moveTo(385, 470); g.lineTo(385, 360); g.quadraticCurveTo(450, 300, 515, 360); g.lineTo(515, 470); fill(FILL); stroke(2.5); // back
     g.save(); g.translate(450, 520); g.scale(0.22, 0.22);
-    KIT.sage.draw(g, 'rgba(255,196,112,0.8)', { x: 0, y: 0, s: 1, T: 0, back: false, turn: 0 });
+    KIT.characters.sage.shape(g, 'rgba(255,196,112,0.8)', { x: 0, y: 0, scale: 1, facing: 'front', index: 0, pose: { name: 'sit', lean: 0 } });
     g.restore();
     g.beginPath(); g.moveTo(436, 410); g.lineTo(450, 368); g.lineTo(464, 410); g.closePath(); fill('rgba(255,226,170,0.95)'); // crown (kirita)
     g.beginPath(); g.moveTo(450, 330); g.lineTo(450, 250); stroke(3);
@@ -73,7 +73,7 @@
         for (let k = 0; k < 3; k++) {
           const x = 450 + side * (120 + k * 62 + row * 26), y = 560 - row * 26;
           g.save(); g.translate(x, y); g.scale(0.13 - row * 0.02, 0.13 - row * 0.02);
-          KIT.sage.draw(g, row ? 'rgba(240,170,90,0.5)' : 'rgba(255,196,112,0.72)', { x: 0, y: 0, s: 1, T: 0, back: false, turn: -side * 0.8 });
+          KIT.characters.sage.shape(g, row ? 'rgba(240,170,90,0.5)' : 'rgba(255,196,112,0.72)', { x: 0, y: 0, scale: 1, facing: 'front', index: 0, pose: { name: 'sit', lean: 0, leanTurn: 0 }, expression: { look: -side * 0.8 } });
           g.restore();
         }
       }
@@ -127,7 +127,7 @@
       const walk = clamp(t / 1.7);
       const x = lerp(-200, 225, E.outCubic(walk));
       const stride = 1 - E.inCubic(clamp((walk - 0.55) / 0.45));
-      const teller = { x, y: 1660, s: 0.62, flip: true, walk: E.outCubic(walk) * 5.2, stride, T, wind: 0.5, look: 0.04 };
+      const teller = { x, y: 1660, scale: 0.62, facing: 'right', pose: { name: 'walk', phase: E.outCubic(walk) * 5.2, stride, wind: 0.5 }, expression: { look: 0.04 } };
       // the sages turn to him, one after another (nearest first)
       const order = [0, 6, 1, 5, 2, 4, 3];
       const turn = (i) => -E.inOutCubic(clamp((t - 0.55 - order.indexOf(i) * 0.16) / 0.55)) * (i === 0 || i === 6 ? 0.6 : 0.95);

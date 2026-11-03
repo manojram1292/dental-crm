@@ -51,13 +51,10 @@
       const zoom = 1 + 0.06 * E.inOutSine(clamp(p));
       ctx.save();
       KIT.camera(ctx, { x: 520, y: 1100, zoom, dx: -18 * p });
-      const pose = { x: 640, y: 2860, s: 2.02, walk: 0.9 + t * 1.6, stride: 0.22, T, wind: 0.7, look: -0.03 + 0.02 * Math.sin(t * 0.8) };
-      const rim = R.mix('#d8903e', '#ffe2a0', fl);
-      KIT.rimLit(ctx, (g, col) => KIT.storyteller.draw(g, col, pose), {
-        fill: '#0c0809', rim, dx: 9, dy: 3, glow: 0.75 + 0.25 * fl, inner: { color: '#4a2316', alpha: 0.85 },
-        box: [0, 300, R.W, R.H - 300], key: 'teller',
+      KIT.characters.sauti.draw(ctx, {
+        x: 640, y: 2860, scale: 2.02, pose: { name: 'walk', phase: 0.9 + t * 1.6, stride: 0.22, wind: 0.7 },
+        expression: { look: -0.03 + 0.02 * Math.sin(t * 0.8) }, light: { dir: Math.atan2(-3, -9), intensity: fl, front: 0 }, t: T, key: 'teller',
       });
-      KIT.storyteller.ornaments(ctx, pose, 0.55 + 0.25 * fl, R.mix(PAL.goldDeep, PAL.gold, fl));
       ctx.restore();
       // light on the near edge: a warm wash from the left
       KIT.glow(ctx, 0, 1000, 900, '#ff9a40', 0.12 * fl, 'screen');

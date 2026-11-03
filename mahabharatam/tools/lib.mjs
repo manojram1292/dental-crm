@@ -6,11 +6,12 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
-import { buildTimeline } from './timeline.mjs';
+import { buildTimeline, epTag } from './timeline.mjs';
+export { epTag };
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-const TYPES = { '.glb': 'model/gltf-binary', '.svg': 'image/svg+xml', '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.woff2': 'font/woff2', '.wav': 'audio/wav', '.png': 'image/png', '.json': 'application/json' };
+const TYPES = { '.md': 'text/markdown', '.glb': 'model/gltf-binary', '.svg': 'image/svg+xml', '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.woff2': 'font/woff2', '.wav': 'audio/wav', '.png': 'image/png', '.json': 'application/json' };
 
 export function serve(root = ROOT) {
   return new Promise((resolve) => {
@@ -40,13 +41,15 @@ export function args(argv = process.argv.slice(2)) {
 }
 
 /** Opens the reel in render mode. Returns { browser, pages, info, close, drainErrors }. */
-export async function openReel({ scale = 1, pages: nPages = 1, captions = true, grain, post = true, page: pagePath = 'index.html', lang = 'en' } = {}) {
-  buildTimeline(lang, { quiet: true });
+export async function openReel({ scale = 1, pages: nPages = 1, captions = true, grain, post = true, page: pagePath = 'index.html', lang = 'en', ep = 1, query = {} } = {}) {
+  if (pagePath === 'index.html') buildTimeline(lang, { quiet: true, ep });
   const { srv, port } = await serve();
   const browser = await chromium.launch({ args: ['--disable-gpu-vsync', '--disable-frame-rate-limit', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const errors = [];
   const qs = new URLSearchParams({ render: '1', scale: String(scale) });
   qs.set('lang', lang);
+  qs.set('ep', String(ep));
+  for (const [k, v] of Object.entries(query)) qs.set(k, String(v));
   if (!captions) qs.set('captions', '0');
   if (grain != null) qs.set('grain', String(grain));
   if (!post) qs.set('post', '0');

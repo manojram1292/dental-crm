@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mahabharatam — Episode 1</title>
+<title>Mahabharatam — As Vyasa Told It</title>
 <link rel="icon" href="data:,">
-<meta name="description" content="Mahabharatam — As Vyasa Told It. Episode 1: The Storyteller Arrives. Every frame and sound is generated from code.">
+<meta name="description" content="Mahabharatam — As Vyasa Told It. Vertical episodes where every frame and sound is generated from code. ?ep=1, ?ep=2 …">
 <link rel="stylesheet" href="fonts/fonts.css">
 <style>
   :root { --ink: #0f0b09; --paper: #f4e4c4; --signal: #e7b54a; --mute: #9a8f7d; }
@@ -35,7 +35,7 @@
 </head>
 <body>
   <div class="stage">
-    <canvas id="reel" aria-label="Mahabharatam, episode 1"></canvas>
+    <canvas id="reel" aria-label="Mahabharatam"></canvas>
     <div id="overlay"><span>PLAY</span></div>
   </div>
   <div class="bar">
@@ -49,20 +49,21 @@
   <script src="src/engine.js"></script>
   <script src="src/kit/core.js"></script>
   <script src="src/kit/fire.js"></script>
-  <script src="src/kit/figures.js"></script>
+  <script src="src/kit/characters/rig.js"></script>
+  <script src="src/kit/characters/sauti.js"></script>
+  <script src="src/kit/characters/elder-sage.js"></script>
+  <script src="src/kit/characters/sages.js"></script>
+  <script src="src/kit/characters/parashurama.js"></script>
+  <script src="src/kit/characters/pitrs.js"></script>
+  <script src="src/kit/characters/vyasa.js"></script>
+  <script src="src/kit/characters/janamejaya.js"></script>
   <script src="src/kit/forest.js"></script>
   <script src="src/kit/smoke.js"></script>
   <script src="src/kit/captions.js"></script>
   <script src="src/kit/endcard.js"></script>
   <script src="src/kit/ashram.js"></script>
   <script src="src/kit/manuscript.js"></script>
-  <script src="src/scenes/s1-before.js"></script>
-  <script src="src/scenes/s2-forest.js"></script>
-  <script src="src/scenes/s3-name.js"></script>
-  <script src="src/scenes/s4-fire.js"></script>
-  <script src="src/scenes/s5-asked.js"></script>
-  <script src="src/scenes/s6-vyasa.js"></script>
-  <script src="src/scenes/s7-episode.js"></script>
+  <script src="src/episodes.js"></script>
   <script src="src/runtime.js"></script>
 </body>
 </html>

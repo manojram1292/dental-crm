@@ -95,10 +95,9 @@
           const wx = 1.25 - dist;
           const [sx, sy, s] = F.project([wx, 0, ZF], c);
           const sc = (1.78 * s) / 1040;
-          const pose = { x: sx, y: sy, s: sc, walk: (dist / 0.72) * Math.PI, stride: 1, T, wind: 0.9 };
-          const bw = 700 * sc, bh = 1300 * sc;
-          KIT.rimLit(ctx, (g, col) => KIT.storyteller.draw(g, col, pose), {
-            fill: '#0b080b', rim: '#ffcf8f', dx: 2.2, dy: 1.2, glow: 0.8, box: [sx - bw * 0.5, sy - bh, bw, bh * 1.04], key: 'walker',
+          KIT.characters.sauti.draw(ctx, {
+            x: sx, y: sy, scale: sc, pose: { name: 'walk', phase: (dist / 0.72) * Math.PI, stride: 1, wind: 0.9 },
+            light: { dir: Math.atan2(-1.2, -2.2), intensity: 0.78, front: 0 }, t: T, key: 'walker',
           });
         }
       }

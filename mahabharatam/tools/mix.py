@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Mix whatever stems exist into audio/mix.<lang>.wav (what tools/render.mjs muxes).
+Mix whatever stems exist into audio/epNN/mix.<lang>.wav (what tools/render.mjs muxes).
 
-  music  audio/music.wav            (tools/score.py; must match the current timeline)
-  voice  voice/<lang>/<line id>.wav (optional, any sample rate / channels / PCM16/24/32/float32)
+  music  audio/epNN/music.wav            (tools/score.py; must match the current timeline)
+  voice  voice/epNN/<lang>/<line id>.wav (optional, any sample rate / channels / PCM16/24/32/float32)
 
 Each voice line is placed at its line's speechStart from build/timeline.<lang>.json,
 the narration stem is normalised to −16 LUFS, and the music is ducked under
@@ -11,7 +11,7 @@ it (−8 dB, 60 ms attack / 400 ms release, keyed by the voice's own envelope).
 With no voice files the mix is the music stem as-is (≈ −22 LUFS, a bed).
 Ceiling −1 dBTP.
 
-    python3 tools/mix.py [--lang en]
+    python3 tools/mix.py [--ep 1] [--lang en]
 """
 import json
 import os
@@ -23,7 +23,7 @@ from scipy import signal as sps
 from scipy.ndimage import maximum_filter1d, uniform_filter1d
 
 sys.path.insert(0, os.path.dirname(__file__))
-from score import SR, ROOT, lufs, true_peak_db, write_wav, db  # noqa: E402
+from score import SR, ROOT, lufs, true_peak_db, write_wav, db, ep_tag  # noqa: E402
 
 VOICE_LUFS = -16.0
 DUCK_DB = 8.0
@@ -70,15 +70,16 @@ def read_wav(path):
 def main():
     args = sys.argv[1:]
     lang = args[args.index('--lang') + 1] if '--lang' in args else 'en'
-    tl = json.load(open(os.path.join(ROOT, 'build', f'timeline.{lang}.json')))
+    ep, tag = ep_tag(args)
+    tl = json.load(open(os.path.join(ROOT, 'build', f'timeline.{tag}.{lang}.json')))
     N = int(round(tl['duration'] * SR))
-    music_path = os.path.join(ROOT, 'audio', 'music.wav')
-    side = os.path.join(ROOT, 'audio', 'music.json')
+    music_path = os.path.join(ROOT, 'audio', tag, 'music.wav')
+    side = os.path.join(ROOT, 'audio', tag, 'music.json')
     if not os.path.exists(music_path):
-        sys.exit('audio/music.wav missing: run `python3 tools/score.py --lang %s`' % lang)
+        sys.exit(f'audio/{tag}/music.wav missing: run `python3 tools/score.py --ep {ep} --lang {lang}`')
     stamp = json.load(open(side))['stamp'] if os.path.exists(side) else {}
     if stamp.get('timeline') != tl['signature']:
-        sys.exit(f'audio/music.wav was scored for timeline {stamp.get("timeline")}, not {tl["signature"]} ({lang}): run `python3 tools/score.py --lang {lang}`')
+        sys.exit(f'audio/{tag}/music.wav was scored for timeline {stamp.get("timeline")}, not {tl["signature"]} ({lang}): run `python3 tools/score.py --ep {ep} --lang {lang}`')
     music = read_wav(music_path)[:, :N]
     music = np.pad(music, ((0, 0), (0, N - music.shape[1])))
 
@@ -108,9 +109,9 @@ def main():
     tp = true_peak_db(mix)
     if tp > -1.0:
         mix *= db(-1.0 - tp)
-    out = os.path.join(ROOT, 'audio', f'mix.{lang}.wav')
+    out = os.path.join(ROOT, 'audio', tag, f'mix.{lang}.wav')
     write_wav(out, mix)
-    print(f'wrote audio/mix.{lang}.wav  {tl["duration"]:.2f} s  {lufs(mix):.1f} LUFS  {true_peak_db(mix):.2f} dBTP  '
+    print(f'wrote audio/{tag}/mix.{lang}.wav  {tl["duration"]:.2f} s  {lufs(mix):.1f} LUFS  {true_peak_db(mix):.2f} dBTP  '
           f'voice lines: {", ".join(placed) if placed else "none (music only)"}')
 
 

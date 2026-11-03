@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 3.1515,
+   "words": 8,
+   "speed": 0.9,
+   "text": "His ancestors appeared, and asked him to stop."
+  },
+  {
+   "t0": 3.4315,
+   "t1": 4.2325,
+   "words": 3,
+   "speed": 0.9,
+   "text": "He did"
+  },
+  {
+   "t0": 4.4725,
+   "t1": 6.548,
+   "words": 5,
+   "speed": 0.774,
+   "text": "and the land became holy."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
