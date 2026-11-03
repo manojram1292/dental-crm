@@ -2,12 +2,12 @@
  "stamp": {
   "episode": 2,
   "lang": "en",
-  "timeline": "e1ccd1c98344d99c",
-  "duration": 39.1333,
-  "score": "6fa529e0d6a2"
+  "timeline": "b560f4e31f597baa",
+  "duration": 44.6333,
+  "score": "6f9afc3ed228"
  },
- "lufs": -22.35,
- "true_peak_dbtp": -3.44,
- "seconds": 39.1333,
+ "lufs": -22.34,
+ "true_peak_dbtp": -3.29,
+ "seconds": 44.6333,
  "note": "music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)"
 }
