@@ -14,6 +14,16 @@ Vertical YouTube Shorts (1080×1920, 30 fps). Every frame and every sound is gen
 | 8 | The Snake Sacrifice | Adi Parva 47–48 (Janamejaya's vow, the builder's warning, the priests in black, the serpents fall, Takshaka flees to Indra) | `episode08.mp4` (+ `episode08-share.mp4`), 56.0 s |
 | 9 | Two Wives, Two Wishes | Adi Parva 14 (Kashyapa's boons to Kadru and Vinata; a thousand eggs and two; five hundred years) | `episode09.mp4` (+ `episode09-share.mp4`), 56.2 s |
 | 10 | The Broken Egg | Adi Parva 14 (Vinata breaks an egg; Aruna's curse; the charioteer of the Sun) | `episode10.mp4` (+ `episode10-share.mp4`), 54.3 s |
+| 11 | The Horse from the Ocean | Adi Parva 15 (the sisters see Uchchaihshravas; Meru; Narayana's counsel to churn) | `episode11.mp4` (+ `episode11-share.mp4`), 56.1 s |
+| 12 | A Mountain for a Churning Stick | Adi Parva 16 (Ananta uproots Mandara; the Ocean's share; Akupara the tortoise king; Vasuki the rope) | `episode12.mp4` (+ `episode12-share.mp4`), 56.4 s |
+| 13 | What Rose from the Ocean | Adi Parva 16 (fire, Indra's rain, milk and ghee; the Moon, Shri, Sura Devi, the horse, the Kaustubha, Dhanvantari); the cliffhanger's poison tagged | `episode13.mp4` (+ `episode13-share.mp4`), 57.4 s |
+| 14 | The Blue Throat | **As tradition tells it** (the kalakuta and Nilakantha are in the Southern/vulgate Adi 16, not the CE text); tagged on screen throughout | `episode14.mp4` (+ `episode14-share.mp4`), 54.3 s |
+| 15 | The Enchantress and Rahu | Adi Parva 16–17 (Narayana's illusion; Rahu; the Sun and the Moon; the discus; the eclipse) | `episode15.mp4` (+ `episode15-share.mp4`), 57.6 s |
+| 16 | The War for the Amrita | Adi Parva 17 (the battle on the shore; Sudarshana; Nara; Mandara set back); returns to the sisters | `episode16.mp4` (+ `episode16-share.mp4`), 55.9 s |
+| 17 | The Wager | Adi Parva 18 (the wager; Kadru's order and curse; Brahma lets it stand; Kashyapa's cure) | `episode17.mp4` (+ `episode17-share.mp4`), 54.6 s |
+| 18 | The Black Hairs | Adi Parva 19–20 (the flight over the ocean; the black tail; Vinata enslaved) | `episode18.mp4` (+ `episode18-share.mp4`), 54.2 s |
+| 19 | Garuda Is Born | Adi Parva 20 (Garuda hatches blazing; the gods run to Agni; the praise; his mother a slave) | `episode19.mp4` (+ `episode19-share.mp4`), 55.8 s |
+| 20 | Carrying the Serpents | Adi Parva 21–23 (to Ramaniyaka; the Sun's heat; Kadru's prayer and Indra's rain; the serpents' orders) | `episode20.mp4` (+ `episode20-share.mp4`), 56.0 s |
 
 ## Continuity: one structure for every episode
 
@@ -33,6 +43,29 @@ Card words come from the script's `strings` (`previouslyLabel`, `prevEpisodeLabe
 The API is documented at the top of `src/kit/series.js`.
 
 The characters are fixed in a **character bible**: see `CHARACTERS.md` and `CHARACTERS.png`.
+
+## From episode 11: the cold-open grammar (research/engagement.md)
+
+Episodes 11–20 reorder the four beats for viewers who arrive cold: **HOOK first** (the episode's strongest
+image already moving in frame 1, the question as big text from frame 1 with `KIT.series.hookCard`, the
+caption off for that line, the Naimisha fire licking up from the bottom edge with `KIT.series.fireEdge`),
+then the **title** in the hook's post (≥ 1 s, only after the hook text has gone), then a short **RECAP**
+(2.5–3.5 s), the **STORY** (with a brief cut to Sauti at the fire, a different angle each episode, and a
+turn at 40–60 %: direct speech or a reveal after a 200–400 ms rest with a bell or drum), the cliffhanger
+image and line, and a **silent ≈ 1.7 s Next card** (`KIT.series.loopNextScene`: script line with
+`"voice": false` and an `est`) that dissolves back into frame 1, so the episode loops. `tools/voice.py`
+skips `"voice": false` lines. Earlier episodes are unchanged (the kit additions are new functions).
+
+New modules (see `CHARACTERS.md`): `uchchaihshravas.js` (`horse`), `vishnu.js`, `brahma.js`,
+`devas-asuras.js` (`deva`, `asura`: six variants each), `naga-kings.js` (`vasuki`, `ananta`, `naga`),
+`mandara.js`, `akupara.js` (`akupara`, `samudra`), `ocean-treasures.js` (`chandra`, `lakshmi`, `sura`,
+`dhanvantari`), `shiva.js`, `enchantress.js`, `rahu.js`, `nara.js`, `garuda.js`, `agni.js`. Locations:
+`src/scenes/ep11/_common.js` … `ep20/_common.js` (Meru, the cosmic ocean, solid vision medallions
+`EP11.roundel`, name plaques `EP11.plaque`; the churning rig `EP12.churn`; the white sea `EP13.whiteSea`;
+the darkened world `EP14`; the violet dusk and the deep sky `EP15`; the night battle `EP16`; the sunset
+shore, the serpents' grove and the ocean `EP17`, with flying figures `EP17.flyer`; Ramaniyaka `EP20`).
+Score cues: `build_ep11` … `build_ep20` in `tools/score.py`. Each episode's review is in `REVIEW_LOG.md`.
+The model sheet now clips every cell (Surya's disc no longer overflows) and rows may set their own scale.
 
 ## How it is built (dubbing-ready, per episode)
 

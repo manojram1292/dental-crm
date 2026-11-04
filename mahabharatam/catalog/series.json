@@ -276,7 +276,7 @@
         "name": "Agni",
         "aliases": [],
         "major": false,
-        "bible": null
+        "bible": "agni"
       },
       "surya": {
         "name": "Surya",
@@ -384,7 +384,7 @@
           "Vainateya"
         ],
         "major": true,
-        "bible": null
+        "bible": "garuda"
       },
       "shesha": {
         "name": "Shesha",
@@ -1394,6 +1394,14 @@
         "aliases": [],
         "major": false,
         "bible": "nara"
+      },
+      "kadru-sons": {
+        "name": "Kadru's serpent sons (the nagas)",
+        "aliases": [
+          "the serpents"
+        ],
+        "major": false,
+        "bible": "naga"
       }
     },
     "themes": {
@@ -5041,6 +5049,7 @@
                 "kadru",
                 "vinata",
                 "uchchaihshravas",
+                "kadru-sons",
                 "brahma",
                 "kashyapa"
               ],
