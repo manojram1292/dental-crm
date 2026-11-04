@@ -5189,11 +5189,12 @@
                 "theme-animals-and-birds",
                 "theme-gods",
                 "char-sauti",
-                "char-garuda"
+                "char-garuda",
+                "lang-en"
               ],
-              "status": "in_production",
+              "status": "released",
               "languages": {
-                "en": "in_production"
+                "en": "released"
               },
               "tradition_note": false,
               "reorder_note": null,
@@ -5219,10 +5220,12 @@
               "synopsis": "Kadru orders Vinata to carry her to an island in the sea, and Garuda to carry the serpents. He flies so close to the Sun that the serpents faint in the heat; Kadru prays to Indra, who sends rain. They come to the island of Ramaniyaka, and still the serpents order him about.",
               "cliffhanger": "Garuda asked them: \"What will buy our freedom?\"",
               "characters": [
+                "sauti",
                 "garuda",
                 "vinata",
                 "kadru",
-                "indra"
+                "indra",
+                "kadru-sons"
               ],
               "themes": [
                 "serpents",
@@ -5230,7 +5233,9 @@
                 "gods"
               ],
               "locations": [
-                "ramaniyaka"
+                "ramaniyaka",
+                "ocean-of-milk",
+                "naimisha"
               ],
               "playlists": [
                 "all",
@@ -5240,11 +5245,14 @@
                 "theme-serpents",
                 "theme-animals-and-birds",
                 "theme-gods",
+                "char-sauti",
                 "char-garuda",
                 "char-indra"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "in_production",
+              "languages": {
+                "en": "in_production"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null

@@ -198,6 +198,28 @@ Sauti's two-hands gesture ("One flew in hope. The other already knew.") is a new
 3. New palettes for the next two episodes: a burning red-gold sky for Garuda's birth, Indra's heaven
    reddened by his blaze, the white heat of the Sun, Indra's storm, and Ramaniyaka at clear noon.
 
+## Episode 19 · Garuda Is Born (55.8 s)
+
+**Works.** Garuda's rig reads as an eagle-headed king of birds at every size: wings open in a V (both drawn
+behind the body, so the head always shows), a beak, a crest and talons. The new burning sky is the episode's
+own light. Agni with seven breathing tongues of fire, speaking his line (the turn at 45 %), is the
+clearest new figure of the episode. The CE's detail is kept: the gods run to Agni, who tells them it is
+Garuda. Sauti gets a ninth angle (from high above the clearing).
+
+**Weak.**
+1. Against the gold-and-red sky, Garuda is a dark shape: his features and plumage lose contrast, and his
+   blaze aura disappears into a sky that is itself burning.
+2. The great bird's shadow over the clearing is too faint to read.
+3. The hermitage egg shot repeats episode 18's cliffhanger framing.
+
+**Fixes carried into episode 20.**
+1. Garuda's scenes are set against contrasting grounds: the blue sea, the white heat of the Sun (where he
+   is the dark shape on purpose), Indra's slate storm, and the green-and-turquoise island. His front light is
+   0.5–0.6.
+2. Story beats are carried by figures, not by faint overlays (the serpents' fainting is a close-up on
+   their drooping hoods, not a tint).
+3. No shot repeats the previous episode's framing (ep 20 opens on Garuda in flight over the sea).
+
 ## Engagement changes adopted (research/engagement.md)
 
 The research arrived before episode 11 was scripted; the coordinator asked for its low-risk recommendations
