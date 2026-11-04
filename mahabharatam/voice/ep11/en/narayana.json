@@ -1,0 +1,30 @@
+{
+ "speaker": "vishnu",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "pitch": -1,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1172,
+   "words": 3,
+   "speed": 0.8,
+   "text": "Churn the ocean,"
+  },
+  {
+   "t0": 1.2372,
+   "t1": 2.8242,
+   "words": 4,
+   "speed": 0.8,
+   "text": "gods and asuras together"
+  },
+  {
+   "t0": 3.2442,
+   "t1": 4.8257,
+   "words": 5,
+   "speed": 0.8,
+   "text": "and the amrita will rise."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

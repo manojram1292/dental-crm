@@ -42,6 +42,23 @@
  *       frame: marks material from later tradition rather than the Critical Edition.
  *       o = { y (default 236) }
  *   KIT.series.memory(ctx, picture, box, T, o)    the niche itself (used by both cards)
+ *
+ * ── Cold open (episode 11 on; research/engagement.md) ───────────────────────────────
+ *   Order: HOOK (cold open, 0–3 s, the episode's strongest image, moving) → title (in the
+ *   hook's post) → RECAP (2–3 s) → STORY (with a brief cut to Sauti at the fire) → the
+ *   cliffhanger image + line → a silent ≈1.5 s Next card that dissolves back into the
+ *   episode's first image (a loop).
+ *   KIT.series.hookCard(ctx, T, k, text, o)
+ *       The hook question as big engraved text from frame 1 (for viewers with the sound off).
+ *       k = 0..1 visibility (1 at frame 0: never a blank first frame), o = { y (top of the
+ *       block, default 250), size (default 84), gold: [words to gild], out (0..1), maxW }
+ *   KIT.series.fireEdge(ctx, T, a, o)
+ *       The Naimisha fire seen close, licking up from the bottom edge of the frame: the
+ *       first frame and the last frame share it, so the episode loops into itself.
+ *   KIT.series.loopNextScene({ id = 'next', picture, focus, zoom, loop(g, T) })
+ *       The short Next card (≈1.5 s, no voice: the script line has "voice": false and an
+ *       est): NEXT + the niche glimpse + "Episode N · Title", then in the last 0.45 s the
+ *       fire rises and dissolves into loop(g, 0) (default: the first line's scene at t = 0).
  *   KIT.series.archPath(g, x, y, w, h, rise)      a temple-niche outline (ogee arch top)
  *
  * ── Standard scenes (register them from an episode's scene file) ────────────────────
@@ -359,5 +376,99 @@
     });
   }
 
-  KIT.series = { recapStrip, episodeTitle, nextTeaser, traditionTag, memory, archPath, nicheFrame, ground, vis, recapScene, nextScene, RECAP_BOX, NEXT_BOX };
+  /** The hook question as big text (cold open). Words in o.gold are gilded. */
+  function hookCard(ctx, T, k, text, o = {}) {
+    const a = clamp(k) * (1 - clamp(o.out ?? 0));
+    if (a <= 0.003 || !text) return;
+    const size = o.size || 84, maxW = o.maxW || 900, y0 = o.y ?? 250, lh = size * 1.18;
+    const gold = new Set((o.gold || []).map((w) => w.replace(/[^\p{L}\p{N}']/gu, '').toLowerCase()));
+    ctx.save();
+    ctx.font = R.font(size, 'display', 700); ctx.letterSpacing = '2px';
+    const words = text.toUpperCase().split(/\s+/), lines = [];
+    let cur = [];
+    for (const w of words) {
+      const test = [...cur, w].join(' ');
+      if (cur.length && ctx.measureText(test).width > maxW) { lines.push(cur); cur = [w]; } else cur.push(w);
+    }
+    if (cur.length) lines.push(cur);
+    const h = lines.length * lh;
+    // a soft dark band behind the block (legible on any picture)
+    const g = ctx.createLinearGradient(0, y0 - size * 1.3, 0, y0 + h + size * 0.6);
+    g.addColorStop(0, 'rgba(8,5,6,0)'); g.addColorStop(0.25, 'rgba(8,5,6,0.62)'); g.addColorStop(0.8, 'rgba(8,5,6,0.62)'); g.addColorStop(1, 'rgba(8,5,6,0)');
+    ctx.globalAlpha = a; ctx.fillStyle = g; ctx.fillRect(0, y0 - size * 1.3, R.W, h + size * 1.9);
+    ctx.textBaseline = 'alphabetic'; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(14);
+    const settle = 1 + 0.035 * (1 - E.outCubic(clamp(k)));
+    lines.forEach((ln, i) => {
+      const y = y0 + (i + 0.8) * lh;
+      const full = ln.join(' '), fw = ctx.measureText(full).width * settle;
+      let x = KIT.CX - fw / 2;
+      ctx.save(); ctx.translate(KIT.CX, y); ctx.scale(settle, settle); ctx.translate(-KIT.CX, -y);
+      x = KIT.CX - ctx.measureText(full).width / 2;
+      for (const w of ln) {
+        const key = w.replace(/[^\p{L}\p{N}']/gu, '').toLowerCase();
+        ctx.fillStyle = gold.has(key) ? '#ffd27a' : '#fbf1dc';
+        ctx.fillText(w, x, y);
+        x += ctx.measureText(w + ' ').width;
+      }
+      ctx.restore();
+    });
+    ctx.restore();
+  }
+
+  /** The Naimisha fire, close, licking up from the bottom edge (shared by first and last frames). */
+  function fireEdge(ctx, T, a, o = {}) {
+    if (a <= 0.003) return;
+    const base = o.y ?? R.H + 30, hgt = o.h ?? 330;
+    ctx.save();
+    ctx.globalAlpha = clamp(a);
+    KIT.glow(ctx, 540, base, 900, PAL.saffron, 0.55 * KIT.flicker(T, 3), 'lighter', 0.5);
+    const tongues = 13;
+    for (let layer = 0; layer < 3; layer++) {
+      ctx.fillStyle = ['#7a1e06', '#e0601a', '#ffd070'][layer];
+      ctx.globalAlpha = clamp(a) * [0.9, 0.85, 0.8][layer];
+      ctx.beginPath(); ctx.moveTo(-40, base + 40);
+      for (let i = 0; i <= tongues; i++) {
+        const x = -40 + (i / tongues) * (R.W + 80);
+        const ph = T * (3.1 + (i % 4) * 0.4) + i * 1.7 + layer;
+        const hh = hgt * (1 - layer * 0.3) * (0.45 + 0.35 * Math.abs(Math.sin(i * 2.3)) + 0.2 * Math.sin(ph)) * (0.7 + 0.3 * Math.sin(Math.PI * i / tongues));
+        const xm = x - (R.W / tongues) * 0.5;
+        ctx.quadraticCurveTo(xm, base - hh * 0.35, x + 10 * Math.sin(ph * 1.3), base - hh);
+        ctx.quadraticCurveTo(x + 20, base - hh * 0.4, x + (R.W / tongues) * 0.25, base - hh * 0.1);
+      }
+      ctx.lineTo(R.W + 40, base + 40); ctx.closePath(); ctx.fill();
+    }
+    ctx.restore();
+    KIT.embers(ctx, T, { x: 540, y: base - 60, spread: 1000, rate: 10, life: 2.4, rise: 260, sway: 50, size: 2.4, alpha: 0.7 * a, seed: 733 });
+  }
+
+  /** The short, silent Next card that loops back into the episode's first image. */
+  function loopNextScene(def) {
+    R.scene({
+      id: def.id || 'next',
+      fadeIn: def.fadeIn ?? 0.3,
+      draw(ctx, t, env) {
+        const k = clamp(t / 0.9);
+        nextTeaser(ctx, env.T, k, env.strings, {
+          picture: def.picture ? (g, T) => def.picture(g, T, env) : null,
+          focus: def.focus, zoom: def.zoom, push: clamp(t / env.dur), key: 'next-' + (def.id || 'next'),
+        });
+        // the loop: the fire rises and the first image returns (frame 0 of the hook)
+        const tail = env.DURATION - env.line.start;   // the card holds through the end card's tail
+        const lp = E.inOutSine(clamp((t - (tail - 0.5)) / 0.42));
+        const first = R.scenes.get(R.timeline.lines[0].id);
+        const loop = def.loop || (first && first !== this ? (g) => first.draw(g, 0, R.envFor(0, 0)) : null);
+        if (lp > 0.003 && loop) {
+          const b = R.buffer('series-loop', R.W, R.H);
+          b.clear('#0b0806');
+          b.ctx.save(); loop(b.ctx, 0); b.ctx.restore();
+          R.resetCtx(b.ctx);
+          ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = lp; ctx.drawImage(b.canvas, 0, 0); ctx.restore();
+        }
+        fireEdge(ctx, env.T, E.inOutSine(clamp((t - (tail - 0.85)) / 0.4)) * (def.loopFire ?? 1), {});
+      },
+      post: () => ({ bloom: 0.36, vignette: 0.45, paper: 0.32 }),
+    });
+  }
+
+  KIT.series = { recapStrip, episodeTitle, nextTeaser, traditionTag, memory, archPath, nicheFrame, ground, vis, recapScene, nextScene, hookCard, fireEdge, loopNextScene, RECAP_BOX, NEXT_BOX };
 })();

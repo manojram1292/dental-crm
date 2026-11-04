@@ -100,6 +100,15 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "satra": "sˈʌtɹə",
     "mantras": "mˈʌntɹəz",
     "Nagas'": "nˈɑːɡəz",
+    # episodes 11–16 (the churning of the ocean)
+    "Narayana": "nɑːɾˈɑːjəɳə",                           # naa-RAA-ya-na (Nārāyaṇa)
+    "Narayana's": "nɑːɾˈɑːjəɳəz",
+    "Meru": "mˈeɪɾuː",                                   # MAY-roo
+    "asuras": "ˈʌsʊɾəz",                                 # UH-su-raz
+    "asura": "ˈʌsʊɾə",
+    "devas": "dˈeɪvəz",                                  # DAY-vaz
+    "Brahma": "bɹˈʌhmɑː",                                # BRUH-maa (Brahmā)
+    "Brahma's": "bɹˈʌhmɑːz",
     # English words espeak gets wrong for these voices (audited with --dry)
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
     "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"
@@ -214,6 +223,8 @@ def trim(x, sr, head=0.01, tail=0.04):
 os.makedirs(out_dir, exist_ok=True)
 for line in script['lines']:
     if only and line['id'] not in only:
+        continue
+    if line.get('voice') is False:   # a silent line (e.g. the short Next card): timed by its est
         continue
     spk = line.get('speaker', 'narrator')
     c = cast[spk]

@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4436,
+   "words": 4,
+   "speed": 0.81,
+   "text": "To churn an ocean,"
+  },
+  {
+   "t0": 1.6436,
+   "t1": 3.7936,
+   "words": 7,
+   "speed": 0.81,
+   "text": "they needed a mountain for a stick,"
+  },
+  {
+   "t0": 3.9136,
+   "t1": 5.6896,
+   "words": 6,
+   "speed": 0.81,
+   "text": "and a serpent for a rope."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6765,
+   "words": 4,
+   "speed": 0.81,
+   "text": "It began on Meru,"
+  },
+  {
+   "t0": 1.7565,
+   "t1": 3.237,
+   "words": 3,
+   "speed": 0.81,
+   "text": "the golden mountain,"
+  },
+  {
+   "t0": 3.317,
+   "t1": 5.3474,
+   "words": 6,
+   "speed": 0.81,
+   "text": "where the gods sat in council."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

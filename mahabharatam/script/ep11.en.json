@@ -1,0 +1,242 @@
+{
+  "lang": "en",
+  "episode": 11,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 15 (Kadru and Vinata see Uchchaihshravas; Sauti, asked where the horse came from, tells of Meru, the gods' wish for the amrita and Narayana's counsel to churn the ocean with the asuras).",
+  "structure": "From episode 11: COLD OPEN (the hook over the episode's strongest image, big on-screen text from frame 1; KIT.series.hookCard) → title (the hook's post) → RECAP (≈2.5 s) → STORY (with a brief cut to Sauti at the Naimisha fire) → the cliffhanger image + line → a silent ≈1.5 s Next card that dissolves back into the first frame (KIT.series.loopNextScene).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 11",
+    "episodeTitle": "The Horse from the Ocean",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 10",
+    "prevEpisodeTitle": "The Broken Egg",
+    "nextEpisodeLabel": "Episode 12",
+    "nextTitle": "A Mountain for a Churning Stick",
+    "horseName": "Uchchaihshravas",
+    "horseEpithet": "king of horses",
+    "meruName": "Meru",
+    "meruEpithet": "the golden mountain",
+    "amritaName": "Amrita",
+    "amritaEpithet": "the drink that frees from death",
+    "narayanaName": "Narayana",
+    "asurasName": "Asuras",
+    "devasName": "Devas"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "text": "Where did this horse come from?",
+      "say": "Where did this horse come from?",
+      "est": 3.6,
+      "pre": 80,
+      "post": 950,
+      "beats": [
+        3,
+        5
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "horse"
+      ],
+      "note": "COLD OPEN (frame 1 already moving): the white horse surges out of breaking surf at night, the Naimisha fire licking up from the bottom edge; the question in big text from frame 1 (KIT.series.hookCard; caption off). beats = 'horse' (he breaks the surface), 'from'. The title in the post."
+    },
+    {
+      "id": "recap",
+      "text": "Vinata's son Aruna became the red of dawn.",
+      "say": "Vinata's son Aruna became the red of dawn.",
+      "est": 3.0,
+      "pre": 120,
+      "post": 150,
+      "beats": [
+        2,
+        6
+      ],
+      "emphasis": [
+        "Aruna"
+      ],
+      "role": "recap",
+      "note": "RECAP (short, after the hook): episode 10's key image as a memory: Aruna at the reins of the Sun's chariot."
+    },
+    {
+      "id": "sisters",
+      "text": "At sunrise, the sisters Kadru and Vinata saw him on the shore.",
+      "say": "At sunrise, the sisters Kadru and Vinata saw him on the shore.",
+      "est": 4.4,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        1,
+        4,
+        6,
+        9
+      ],
+      "emphasis": [
+        "Kadru",
+        "Vinata"
+      ],
+      "captionY": "high",
+      "note": "STORY 1. The shore at sunrise, the two sisters LARGE in the foreground (Kadru left, Vinata right) turning; between them, far out, the horse walks out of the shining water. beats = 'sunrise' (the sun clears the sea), 'Kadru' (she turns), 'Vinata', 'him' (the horse lifts his head)."
+    },
+    {
+      "id": "name",
+      "text": "Uchchaihshravas, king of horses, honoured by the gods.",
+      "say": "Uchchaihshravas, [p:250] king of horses, honoured by the gods.",
+      "est": 4.2,
+      "pre": 300,
+      "post": 300,
+      "beats": [
+        0,
+        3,
+        7
+      ],
+      "captionY": "high",
+      "note": "STORY 2. Close: the horse large in profile walking left along the surf, mane and tail streaming; his name in gold (pre: a 300 ms rest, bell on the name). On 'gods' small devas appear in the clouds above with lotus garlands, bowing. beats = name, 'horses', 'gods'."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "text": "He rose from the ocean, when it was churned.",
+      "say": "He rose from the ocean, [p:80] when it was churned.",
+      "est": 4.6,
+      "pre": 150,
+      "post": 300,
+      "beats": [
+        4,
+        7
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, the sages leaning in). Above the fire a SOLID vision medallion opens (EP11.roundel, a gold ring, not a ghost): a mountain whirling in a white sea. beats = 'ocean' (the roundel opens), 'churned' (it turns)."
+    },
+    {
+      "id": "meru",
+      "text": "It began on Meru, the golden mountain, where the gods sat in council.",
+      "say": "It began on Meru, the golden mountain, where the gods sat in council.",
+      "est": 4.8,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        3,
+        6,
+        10
+      ],
+      "emphasis": [
+        "Meru"
+      ],
+      "note": "STORY 3. NEW PLACE: Meru blazing white-gold, rays from the peak; the camera tilts down the stepped mountain (beats[0]) to the terrace where six devas stand (beats[2]); Meru's name card."
+    },
+    {
+      "id": "amrita",
+      "text": "They longed for the amrita, the drink that frees from death.",
+      "say": "They longed for the amrita… [p:100] the drink that frees from death.",
+      "est": 4.0,
+      "pre": 100,
+      "post": 250,
+      "beats": [
+        3,
+        9
+      ],
+      "emphasis": [
+        "amrita"
+      ],
+      "captionY": "high",
+      "note": "STORY 4. Closer on the devas, faces lifted; in a roundel above them a white pot pours light. beats = 'amrita' (the roundel), 'death' (its light flares)."
+    },
+    {
+      "id": "narayana",
+      "speaker": "vishnu",
+      "text": "Churn the ocean, gods and asuras together, and the amrita will rise.",
+      "say": "Churn the ocean, [p:120] gods and asuras together… [p:100] and the amrita will rise.",
+      "est": 5.2,
+      "pre": 350,
+      "post": 350,
+      "beats": [
+        0,
+        4,
+        10
+      ],
+      "captionY": "high",
+      "note": "STORY 5 · THE TURN (≈ 55 %): Narayana himself, frontal and large, the gold aureole opening behind him; Brahma on his lotus at the left listening. A 350 ms rest before, a bell on 'Churn'. beats = 'Churn' (he raises his hand), 'asuras', 'rise' (the discus flares)."
+    },
+    {
+      "id": "asuras",
+      "text": "Gods and asuras, old rivals, side by side.",
+      "say": "Gods and asuras, [p:100] old rivals, [p:60] side by side.",
+      "est": 4.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        2,
+        5
+      ],
+      "emphasis": [
+        "asuras"
+      ],
+      "note": "STORY 6. A split composition: the devas file in from the left (pearl-gold), then on 'asuras' (a low drum) the asuras stride in from the right (ember), and they stand face to face across the shore. beats = 'Gods', 'asuras', 'side'."
+    },
+    {
+      "id": "ocean",
+      "text": "Before them lay the ocean, full of jewels and monsters.",
+      "say": "Before them lay the ocean, full of jewels and monsters.",
+      "est": 4.4,
+      "pre": 150,
+      "post": 300,
+      "beats": [
+        4,
+        7,
+        9
+      ],
+      "captionY": "high",
+      "note": "STORY 7. NEW PLACE: the cosmic ocean at night, deep blue, the horizon silver; the camera sinks to the waterline: jewels glinting in the depths (beats[1]) and a makara surfacing (beats[2])."
+    },
+    {
+      "id": "cliff",
+      "text": "To churn an ocean, they needed a mountain for a stick and a serpent for a rope.",
+      "say": "To churn an ocean, [p:200] they needed a mountain for a stick, [p:120] and a serpent for a rope.",
+      "est": 5.4,
+      "pre": 200,
+      "post": 450,
+      "beats": [
+        4,
+        7,
+        12,
+        15
+      ],
+      "role": "next",
+      "note": "NEXT 1 (cliffhanger image): over the dark sea a vast mountain silhouette rises (beats[1] 'mountain') and a serpent's coil shines around it (beats[3] 'rope')."
+    },
+    {
+      "id": "next",
+      "text": "Next: A Mountain for a Churning Stick",
+      "voice": false,
+      "est": 1.7,
+      "role": "next",
+      "caption": false,
+      "note": "The short, silent Next card (≈1.6 s, KIT.series.loopNextScene): a glimpse of episode 12 (Mandara lifted from the earth by the serpent Ananta), then the fire rises and the first frame returns (loop)."
+    }
+  ]
+}
