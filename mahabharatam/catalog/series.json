@@ -5247,11 +5247,12 @@
                 "theme-gods",
                 "char-sauti",
                 "char-garuda",
-                "char-indra"
+                "char-indra",
+                "lang-en"
               ],
-              "status": "in_production",
+              "status": "released",
               "languages": {
-                "en": "in_production"
+                "en": "released"
               },
               "tradition_note": false,
               "reorder_note": null,

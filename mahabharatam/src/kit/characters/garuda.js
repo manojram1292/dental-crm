@@ -131,7 +131,9 @@
     g.translate(0, r.bob);
     g.globalAlpha *= a; g.strokeStyle = color; g.fillStyle = color; g.lineCap = 'round';
     g.save(); g.translate(0, r.drop); g.translate(0, PIV); g.rotate(-r.lean); g.translate(0, -PIV);
-    g.beginPath(); g.moveTo(-60, -820); g.quadraticCurveTo(-20, -740, 34, -820); g.lineWidth = 12; g.stroke();
+    // a broad jewelled collar across the chest (kept straight and low: a U-shaped collar under the beak read as a smile)
+    g.beginPath(); g.moveTo(-66, -770); g.lineTo(44, -786); g.lineWidth = 16; g.stroke();
+    for (let i = 0; i < 6; i++) { g.beginPath(); g.arc(-56 + i * 20, -758 - i * 3, 6, 0, TAU); g.fill(); }
     g.beginPath(); g.moveTo(-44, -496); g.lineTo(60, -496); g.lineWidth = 9; g.stroke();
     g.save(); g.translate(10, -830); g.rotate(r.look); g.scale(1.25, 1.25);
     g.fillStyle = r.wrath || r.blaze > 0.5 ? '#ff5a2a' : '#fff4c0'; g.beginPath(); g.arc(-62, -96, 9, 0, TAU); g.fill();

@@ -220,6 +220,35 @@ Garuda. Sauti gets a ninth angle (from high above the clearing).
    their drooping hoods, not a tint).
 3. No shot repeats the previous episode's framing (ep 20 opens on Garuda in flight over the sea).
 
+## Episode 20 · Carrying the Serpents (56.0 s)
+
+**Works.** Garuda against contrasting grounds (the blue sea, the white heat of the Sun, Indra's slate storm,
+the green and turquoise of Ramaniyaka) reads far better than in episode 19. The faint is a close-up on the
+drooping hoods (the turn at 45 %), and the serpents' revival comes with Indra's rain. Ramaniyaka at clear
+noon is a new light, and the episode's brightest. The serpents speak as one whispering voice (af_nicole
+−2 st). Garuda's own question, the catalog's cliffhanger, is the last spoken line, over a close-up.
+
+**Weak.**
+1. Garuda's collar, a U-shaped band under the beak, reads as a cartoon smile in close-ups (also in
+   episode 19). This is the most visible remaining flaw.
+2. Kadru riding on Vinata's back reads awkwardly (one figure sitting on another's head and shoulders).
+3. The serpents on Ramaniyaka are a row of similar hoods.
+
+**Fixes for episode 21 onward (already made in the kit; episodes 19–20 are not re-rendered).**
+1. `garuda.js`: the collar is now a straight, low jewelled band across the chest, with no U under the beak.
+2. Riding: draw the carrier bent forward (`bow` k ≈ 0.7) with the rider seated further back and lower,
+   or show the pair in silhouette at a distance.
+3. Crowds of serpents should mix `naga` variants with Vasuki-like single-hood leaders at larger scale, and
+   vary their heights.
+
+## Next steps (for whoever continues at episode 21)
+
+- Episode 21, "The Price of Freedom" (CE 1.23–24): the serpents name their price (the amrita); Vinata's
+  counsel to eat the Nishadas but never a brahmin. The Next card of episode 20 already shows the island and
+  the pot. Reuse `EP20.island`, `EP17.ocean`, `garuda`, `vinata`, `naga`.
+- Re-check Garuda's new collar in a solo sheet (`node tools/modelsheet.mjs --solo garuda`).
+- Keep the cold-open grammar, the per-episode new light and Sauti angle, and the review loop.
+
 ## Engagement changes adopted (research/engagement.md)
 
 The research arrived before episode 11 was scripted; the coordinator asked for its low-risk recommendations
