@@ -26,7 +26,7 @@
           else {
             // the body is smoke, falling away
             g.save(); for (let i = 0; i < 14; i++) { const y = lerp(1300, 1950, hash(i, 31)) + after * 120; KIT.glow(g, 300 + (hash(i, 32) - 0.5) * 220, y, 140, '#2a1a2a', 0.6 * (1 - after), 'source-over'); } g.restore();
-            CH.rahu.draw(g, { x: hx + 40 * after, y: hy + 300 - 320 * after, scale: 0.5 + 0.2 * after, facing: 'right', pose: { name: 'head', roar: after }, light: { dir: -0.5, intensity: 1.1, front: 0.4 }, t: T, key: 'd15-head' });
+            CH.rahu.draw(g, { x: hx + 40 * after, y: hy + 300 - 320 * after, scale: 0.5 + 0.2 * after, facing: 'right', pose: { name: 'head', roar: after }, light: { dir: -0.5, intensity: 1.2, front: 0.7 }, t: T, key: 'd15-head' });
           }
         },
       });

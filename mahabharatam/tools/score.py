@@ -2265,6 +2265,69 @@ def build_ep15(tl):
     return _tb_master(bus_dry, bus_wet, bed, D, N)
 
 
+def build_ep16(tl):
+    """Episode 16 (the arc's end): the fire under the first and last frames; the battle (a war-drum
+    pattern from frame 1, roar of fires, weapon whistles); the title bloom; the recap sting; the
+    clash (hits on "clashed"); hurled peaks (deep thuds, rock rumble); the discus (a rest, the
+    conch, a rising whirr and bell on "Sudarshana"); Nara (a bowstring twang, an arrow's whistle,
+    a bright burst on "split"); the flight (falling glides, a splash); dawn (the war-drums stop; a
+    clear tanpura and birds); Sauti closes the tale (crackle, a bell as the horse returns); the
+    sisters at sunrise (waves); Kadru's question (a single low pluck, then silence); the short
+    Next sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    r0, c0, k0, d0, n0, f0, o0, s0, x0, t0, z0 = (st(i) for i in ('recap', 'clash', 'rocks', 'discus', 'nara', 'flee', 'restore', 'sauti', 'cliff', 'tail', 'next'))
+    tan = tanpura_bed(N, D, 'ep16')
+    bed += tan * env_curve([(0, 0.25), (c0, 0.3), (o0, 0.3), (o0 + 1.0, 0.9), (s0, 0.6), (x0, 0.8), (t0 + 0.5, 0.3), (D, 0.4)], N)
+    fire = crackle(N, 'fire16')
+    stereo(fire * env_curve([(0, 0.7), (1.4, 0.25), (2.4, 0), (s0, 0), (s0 + 0.3, 0.6), (x0 - 0.2, 0.6), (x0 + 0.3, 0), (D - 1.0, 0), (D - 0.35, 0.7), (D, 0.7)], N) * 0.1, 0, roll=777)
+    rr = roar(N, 'battle16')
+    stereo(rr * env_curve([(0, 0.6), (r0, 0.3), (r0 + 0.3, 0), (c0, 0), (c0 + 0.5, 0.5), (f0 + 2.0, 0.4), (o0, 0), (D, 0)], N) * 0.08, 0, roll=900)
+    # war drums: from frame 1 through the battle (not under the recap or after the flight)
+    for seg0, seg1, key in ((0.0, r0 - 0.2, 0), (c0 + 0.2, o0 - 0.3, 1)):
+        tb, k = seg0, 0
+        while tb < seg1:
+            hit(tb, (16000, key, k), 0.42 if k % 4 == 0 else 0.25, din=k % 2 == 1, boom=0.2 if k % 4 == 0 else 0, p=-0.3 if k % 2 else 0.3)
+            tb += 0.36
+            k += 1
+    tt0 = L['hook']['speechEnd'] + 0.3
+    for i, f in enumerate((293.66, 440.0, 587.33)):
+        bell(tt0 + 0.12 * i, f, 0.2 - 0.04 * i, -0.2 + 0.2 * i, ('title16', i))
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    hit(beat('clash', 1), 16100, 1.0, din=True, boom=0.7)
+    hit(beat('rocks', 2), 16200, 0.9, din=False, boom=0.9)
+    cn = conch('conch16', 233.08, 2.4, 0.9)
+    add(bus_wet, pan(cn * 0.6, 0.0), beat('discus', 0) - 0.05)
+    add(bus_dry, pan(cn * 0.3, 0.0), beat('discus', 0) - 0.05)
+    bell(beat('discus', 2), 1174.66, 0.18, 0.0, 'sud16')
+    n = smp(1.2)
+    t = tvec(n)
+    tw = np.sin(2 * np.pi * (180 + 40 * np.exp(-t / 0.05)) * t) * np.exp(-t / 0.18) * 0.25
+    add(bus_dry, pan(tw, 0.2), beat('nara', 2) + 0.6)
+    add(bus_wet, pan(glide('arrow16', 2400, 1200, 0.5, 0.5), -0.2), beat('nara', 3) - 0.4)
+    for i, f in enumerate((1318.5, 1760.0, 2093.0)):
+        bell(beat('nara', 3) + 0.05 * i, f, 0.12, -0.3 + 0.3 * i, ('split16', i))
+    hit(beat('nara', 3), 16300, 0.7, din=False, boom=0.5)
+    add(bus_wet, pan(glide('sink16', 400, 120, 1.0, 0.6), -0.3), beat('flee', 1) - 0.2)
+    w = water(smp(1.5), 'splash16')
+    stereo(w * env_curve([(0, 0), (0.05, 1), (1.5, 0)], len(w)) * 0.5, beat('flee', 2) - 0.1, roll=500)
+    for k in range(5):
+        add(bus_wet, pan(bird_chirp(('b16', k), 2400 + 300 * k, 3200 + 200 * k, 0.12) * 0.5, -0.6 + 0.3 * k), o0 + 0.6 + 0.6 * k)
+    bell(beat('restore', 2), 587.33, 0.14, 0.0, 'safe16')
+    bell(beat('sauti', 0), 880.0, 0.14, 0.2, 'horse16')
+    wv = water(smp(z0 - x0 + 0.5), 'shore16')
+    stereo(wv * 0.3, x0, roll=1600)
+    x = tanpura_pluck(SA / 2, 3.0, 'tail16', 0.8)
+    add(bus_dry, pan(x * 0.5, 0.0), beat('tail', 1))
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
     r = rng('dither')
@@ -2302,7 +2365,7 @@ def main():
                 return
         except Exception:
             pass
-    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12, 13: build_ep13, 14: build_ep14, 15: build_ep15}[ep](tl)
+    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12, 13: build_ep13, 14: build_ep14, 15: build_ep15, 16: build_ep16}[ep](tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],
             'note': 'music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)'}

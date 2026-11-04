@@ -74,7 +74,7 @@
       const s = P.s;
       ctx.save(); ctx.translate(P.x, P.y - 260 * s);
       KIT.glow(ctx, 0, 0, 900 * s, '#b02a4a', 0.4 * k);
-      ctx.globalAlpha = 0.8; ctx.fillStyle = '#05030a'; ctx.beginPath(); ctx.arc(0, 0, 420 * s, 0, TAU); ctx.fill();
+      ctx.globalAlpha = 0.45; ctx.fillStyle = '#05030a'; ctx.beginPath(); ctx.arc(0, 0, 420 * s, 0, TAU); ctx.fill();
       ctx.strokeStyle = '#ff8aa0'; ctx.lineWidth = 6 * s; ctx.globalAlpha = 0.6; ctx.beginPath(); ctx.arc(0, 0, 430 * s, 0, TAU); ctx.stroke();
       ctx.restore();
     } else if (r.slip > 0.01) {
@@ -101,7 +101,7 @@
       poses: [{ name: 'disguise', note: 'k: the disguise slips' }, { name: 'head', note: 'roar 0..1' }],
       voice: 'rahu',
     },
-    rule: { fill: '#0a0608', lit: '#241018', litGain: 0.8, rim: ['#b02a4a', '#ffb8c8'], inner: '#3a0a1a', innerA: [0.85, 0.45], glow: 0.9, ornament: ['#b08040', '#ffd8a0'], ornamentA: [0.55, 0.9] },
+    rule: { fill: '#0a0608', lit: '#3a1626', litGain: 1.0, rim: ['#b02a4a', '#ffb8c8'], inner: '#3a0a1a', innerA: [0.85, 0.45], glow: 0.9, ornament: ['#b08040', '#ffd8a0'], ornamentA: [0.55, 0.9] },
     bounds: (P, r) => (r.head ? [-480, -900, 700, 120] : [-560, -1340, 480, 30]),
   });
   CH.ROSTER.push('rahu');

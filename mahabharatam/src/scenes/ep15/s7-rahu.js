@@ -24,7 +24,7 @@
         },
       });
       const la = clamp((t - b1) / 0.4) * (1 - clamp((t - b3 + 0.6) / 0.4));
-      EP15.plaque(ctx, env.strings.rahuName, null, KIT.CX, 300, la, { size: 56, key: 'r15-name' });
+      EP15.plaque(ctx, env.strings.rahuName, null, KIT.CX, 250, la, { size: 56, key: 'r15-name' });
     },
     post: () => ({ bloom: 0.44, vignette: 0.45, paper: 0.3 }),
   });

@@ -17,7 +17,7 @@
       const roar = E.outCubic(clamp((t - b1 + 0.3) / 0.4)), up = E.inOutCubic(clamp((t - b1) / (b2 - b1 + 0.6)));
       EP15.dusk(ctx, T, {
         cam: { zoom: 1.0, dy: lerp(0, 900, up) },
-        after: (g) => CH.rahu.draw(g, { x: 560, y: lerp(1450, 300, up), scale: 1.25, facing: 'right', pose: { name: 'head', roar: 0.35 + 0.65 * roar }, expression: { look: -0.2 * up }, light: { dir: -0.6, intensity: 1.15, front: 0.45 }, t: T, key: 'h15-head' }),
+        after: (g) => CH.rahu.draw(g, { x: 560, y: lerp(1450, 300, up), scale: 1.25, facing: 'right', pose: { name: 'head', roar: 0.35 + 0.65 * roar }, expression: { look: -0.2 * up }, light: { dir: -0.6, intensity: 1.2, front: 0.7 }, t: T, key: 'h15-head' }),
       });
       void dur;
     },

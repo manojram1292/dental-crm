@@ -1,0 +1,234 @@
+{
+  "lang": "en",
+  "episode": 16,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 17: the battle on the shore of the salt sea; the asuras hurl mountain peaks; Narayana calls to mind the discus Sudarshana, which comes blazing like fire; Nara with his divine bow shatters the peaks with gold-tipped arrows; the asuras enter the earth and the salt sea; the gods set Mandara back in its place and keep the amrita safe. Sauti closes the embedded tale (the horse's origin) and returns to Kadru and Vinata (1.18).",
+  "structure": "From episode 11: COLD OPEN (the hook over the episode's strongest image, big on-screen text from frame 1; KIT.series.hookCard) → title (the hook's post) → RECAP (≈2.5 s) → STORY (with a brief cut to Sauti at the Naimisha fire) → the cliffhanger image + line → a silent ≈1.5 s Next card that dissolves back into the first frame (KIT.series.loopNextScene).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 16",
+    "episodeTitle": "The War for the Amrita",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 15",
+    "prevEpisodeTitle": "The Enchantress and Rahu",
+    "nextEpisodeLabel": "Episode 17",
+    "nextTitle": "The Wager",
+    "discusName": "Sudarshana",
+    "discusEpithet": "Narayana's discus",
+    "naraName": "Nara"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "Gods against asuras: who would keep the drink that ends death?",
+      "say": "Gods against asuras: [p:100] who would keep the drink that ends death?",
+      "est": 3.6,
+      "pre": 60,
+      "post": 1400,
+      "beats": [
+        0,
+        2,
+        6,
+        10
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "gods",
+        "asuras",
+        "death"
+      ],
+      "note": "COLD OPEN (moving from frame 1): the battle on the shore at night, fire in the sky; a deva and an asura LARGE in the foreground clash, weapons crossing; a blazing discus streaks overhead. The question in big text from frame 1."
+    },
+    {
+      "id": "recap",
+      "text": "The asuras saw they had been tricked.",
+      "say": "The asuras saw they had been tricked.",
+      "est": 2.6,
+      "pre": 100,
+      "post": 150,
+      "beats": [
+        1,
+        5
+      ],
+      "role": "recap",
+      "note": "RECAP: episode 15's last image as a memory: the enchantress turning gold, the asuras raising their weapons."
+    },
+    {
+      "id": "clash",
+      "text": "On the shore of the salt sea, gods and asuras clashed, and the sky filled with weapons.",
+      "say": "On the shore of the salt sea, [p:80] gods and asuras clashed, [p:80] and the sky filled with weapons.",
+      "est": 5.6,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        6,
+        9,
+        12,
+        15
+      ],
+      "captionY": "high",
+      "note": "STORY 1. NEW PLACE AND LIGHT: the shore in battle at night: a sky lit red from below by fires, smoke, streaks of weapons crossing it. A wide frieze of the two hosts meeting (beats[1] 'clashed', a drum); the sky fills (beats[3])."
+    },
+    {
+      "id": "rocks",
+      "text": "The asuras tore up mountain peaks and hurled them.",
+      "say": "The asuras tore up mountain peaks [p:80] and hurled them.",
+      "est": 3.6,
+      "pre": 100,
+      "post": 200,
+      "beats": [
+        3,
+        6,
+        7
+      ],
+      "note": "STORY 2. Close: an asura, LARGE, heaves a mountain peak overhead (beats[1]) and throws it (beats[2]); peaks fly across the red sky."
+    },
+    {
+      "id": "discus",
+      "text": "Then Narayana called his discus, Sudarshana, blazing like fire.",
+      "say": "Then Narayana called his discus, [p:120] Sudarshana, [p:80] blazing like fire.",
+      "est": 4.4,
+      "pre": 350,
+      "post": 300,
+      "beats": [
+        1,
+        4,
+        5,
+        7
+      ],
+      "emphasis": [
+        "Sudarshana"
+      ],
+      "captionY": "high",
+      "note": "STORY 3 · THE TURN (≈ 45 %): after a 350 ms rest, Narayana frontal and LARGE raises his hand; the discus comes down out of the sky, blazing (beats[2] its name card, a bell); it spins, flaring (beats[3])."
+    },
+    {
+      "id": "nara",
+      "text": "Beside him, Nara drew his great bow, and his arrows split the falling peaks.",
+      "say": "Beside him, [p:80] Nara drew his great bow, [p:100] and his arrows split the falling peaks.",
+      "est": 5.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        2,
+        3,
+        7,
+        10
+      ],
+      "emphasis": [
+        "Nara"
+      ],
+      "captionY": "high",
+      "note": "STORY 4: Nara in profile, LARGE, draws his bow (beats[1] name card, beats[2] draw); a streak of white-gold light (loose) and on 'split' (beats[3]) a falling peak bursts into fragments of light."
+    },
+    {
+      "id": "flee",
+      "text": "The asuras fled, into the earth and into the sea.",
+      "say": "The asuras fled, [p:100] into the earth [p:80] and into the sea.",
+      "est": 3.8,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        2,
+        5,
+        9
+      ],
+      "note": "STORY 5: the discus sweeps the shore; the asuras sink away into cracks of the earth (beats[1]) and dive under the waves (beats[2]): stylised, no blood: they vanish as shadows into earth and water."
+    },
+    {
+      "id": "restore",
+      "text": "Mandara was set back in its place, and the gods kept the amrita safe.",
+      "say": "Mandara was set back in its place, [p:150] and the gods kept the amrita safe.",
+      "est": 4.8,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        0,
+        6,
+        12
+      ],
+      "emphasis": [
+        "Mandara"
+      ],
+      "note": "STORY 6: dawn after the battle: the mountain floats back down to its plain in clear morning light (beats[0]); the gods stand round the white pot, its light calm (beats[2])."
+    },
+    {
+      "id": "sauti",
+      "speaker": "sauti",
+      "text": "And that is how the white horse rose from the ocean.",
+      "say": "And that is how the white horse rose from the ocean.",
+      "est": 3.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        5,
+        10
+      ],
+      "note": "FRAME, closing the tale within the tale: Sauti at the Naimisha fire, the sages nodding; above the fire a gold-ringed medallion shows the white horse once more (beats[0])."
+    },
+    {
+      "id": "cliff",
+      "text": "Back on the shore, Kadru and Vinata looked at the white horse.",
+      "say": "Back on the shore, [p:100] Kadru and Vinata looked at the white horse.",
+      "est": 4.0,
+      "pre": 200,
+      "post": 150,
+      "beats": [
+        4,
+        6,
+        10
+      ],
+      "role": "next",
+      "note": "NEXT 1 (cliffhanger image): the shore at sunrise again (episode 11's place): the two sisters LARGE, the horse far out on the water."
+    },
+    {
+      "id": "tail",
+      "speaker": "kadru",
+      "text": "\"What colour is his tail?\"",
+      "say": "What colour is his tail?",
+      "est": 2.2,
+      "pre": 100,
+      "post": 550,
+      "beats": [
+        1,
+        4
+      ],
+      "role": "next",
+      "note": "NEXT 2 (Kadru speaks): close on Kadru, the green glint in her eye; she points at the horse's tail. beats = 'colour', 'tail'. (The text is exactly the catalog cliffhanger: the narrator line and Kadru's question.)"
+    },
+    {
+      "id": "next",
+      "text": "Next: The Wager",
+      "voice": false,
+      "est": 1.7,
+      "role": "next",
+      "caption": false,
+      "note": "The short, silent Next card: a glimpse of episode 17 (a new arc, Garuda): the sisters face to face, the horse between them; then the loop back to frame 1."
+    }
+  ]
+}

@@ -24,7 +24,7 @@
         },
       });
       const la = clamp((t - b0) / 0.5) * (1 - clamp((t - dur + 0.3) / 0.3));
-      EP15.plaque(ctx, env.strings.enchantressName, env.strings.enchantressEpithet, KIT.CX, 300, la, { size: 52, key: 'e15-name' });
+      EP15.plaque(ctx, env.strings.enchantressName, env.strings.enchantressEpithet, KIT.CX, 250, la, { size: 52, key: 'e15-name' });
     },
     post: () => ({ bloom: 0.44, vignette: 0.42, paper: 0.3 }),
   });

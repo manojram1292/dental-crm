@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4202,
+   "words": 3,
+   "speed": 0.81,
+   "text": "The asuras fled,"
+  },
+  {
+   "t0": 1.5202,
+   "t1": 2.6922,
+   "words": 3,
+   "speed": 0.81,
+   "text": "into the earth"
+  },
+  {
+   "t0": 2.7722,
+   "t1": 4.1244,
+   "words": 4,
+   "speed": 0.81,
+   "text": "and into the sea."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

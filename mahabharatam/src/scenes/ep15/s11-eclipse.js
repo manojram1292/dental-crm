@@ -17,7 +17,7 @@
       const bite = E.inOutSine(clamp((t - b1 + 0.4) / 1.6));
       EP15.heavens(ctx, T, {
         sun: [700, 760, 170], moon: [220, 520, 70], bite: 0.6 * bite,
-        after: (g) => CH.rahu.draw(g, { x: lerp(300, 400, bite), y: lerp(1500, 1300, bite), scale: 0.9, facing: 'right', pose: { name: 'head', roar: 0.8 }, light: { dir: -0.7, intensity: 1.1, front: 0.4 }, t: T, key: 'e15-head' }),
+        after: (g) => CH.rahu.draw(g, { x: lerp(300, 400, bite), y: lerp(1500, 1300, bite), scale: 0.9, facing: 'right', pose: { name: 'head', roar: 0.8 }, light: { dir: -0.7, intensity: 1.2, front: 0.7 }, t: T, key: 'e15-head' }),
       });
       void dur;
     },

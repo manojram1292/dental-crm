@@ -55,7 +55,8 @@
       r.path = po.name === 'rope' && po.path ? po.path : defaultPath(po.name, P.T, po.k);
       r.head = po.name === 'rope' ? !!po.head : true;
       r.tail = po.name === 'rope' ? !!po.tail : true;
-      r.w = po.w || (kind === 'ananta' ? 130 : 110);
+      r.hoods = [1, 3, 1, 5, 1, 3][((P.index % 6) + 6) % 6];
+      r.w = po.w || (kind === 'ananta' ? 130 : kind === 'naga' ? [70, 80, 60, 90, 66, 76][((P.index % 6) + 6) % 6] : 110);
       r.w0 = po.w0 ?? r.w;   // width at the start of a rope stretch
       r.w1 = po.w1 ?? (r.tail ? 8 : r.w);
       r.fire = clamp(po.fire || 0);
@@ -70,7 +71,7 @@
 
   function hoodPath(g, r) {
     const h = r.path[0], a = r.hoodA + r.look;
-    const n = r.kind === 'ananta' ? 7 : 1;
+    const n = r.kind === 'ananta' ? 7 : r.kind === 'naga' ? r.hoods : 1;
     g.save(); g.translate(h[0], h[1]); g.rotate(a + Math.PI / 2);
     // (local: up = −y is the direction the head points)
     for (let i = 0; i < n; i++) {
@@ -116,7 +117,7 @@
     if (r.head) {
       const h = pts[0], an = r.hoodA + r.look;
       g.save(); g.translate(h[0], h[1]); g.rotate(an + Math.PI / 2);
-      const hn = r.kind === 'ananta' ? 7 : 1;
+      const hn = r.kind === 'ananta' ? 7 : r.kind === 'naga' ? r.hoods : 1;
       for (let i = 0; i < hn; i++) {
         const off = hn === 1 ? 0 : (i - (hn - 1) / 2) * 0.4;
         g.save(); g.rotate(off); g.translate(0, hn === 1 ? 0 : -90);
@@ -193,4 +194,18 @@
     rule: { fill: '#d8d0c0', lit: '#fffaf0', litGain: 0.9, rim: ['#ffd890', '#fffbe8'], inner: '#f4ecd8', innerA: [0.5, 0.3], glow: 0.9, ornament: ['#c89830', '#fff0b8'], ornamentA: [0.6, 0.9] },
   });
   CH.ROSTER.push('vasuki', 'ananta');
+  CH.define({
+    id: 'naga', rig: makeRig('naga'), shape, ornaments, after, bounds, defaultPose: 'rise',
+    bible: {
+      name: 'The nagas, Kadru\'s serpent sons',
+      role: 'Kadru\'s thousand sons: some hang from the horse\'s tail as black hairs at her order; those who refuse she curses (CE 1.18–20); Garuda carries them to Ramaniyaka (1.21–23). Six fixed variants by index (one, three or five hoods; thickness).',
+      palette: { fill: '#0c1006', lit: '#24301a', inner: '#2e3a14', rimDim: '#9ad070', rimBright: '#eaffc8', ornamentDim: '#d8c060', ornament: '#fff4b8' },
+      proportions: 'The serpent-king body at 60–90 units thick; one, three or five hoods by index.',
+      props: ['banded belly plates and back chain (as the serpent kings)', 'one, three or five hoods'],
+      light: 'Kadru\'s olive-green: rim #9ad070 → #eaffc8, glow 0.7, gold-olive scales; kin to their mother, never Takshaka\'s cold green.',
+      poses, voice: 'nagas',
+    },
+    rule: { fill: '#0c1006', lit: '#24301a', litGain: 0.8, rim: ['#9ad070', '#eaffc8'], inner: '#2e3a14', innerA: [0.85, 0.45], glow: 0.7, ornament: ['#d8c060', '#fff4b8'], ornamentA: [0.5, 0.85] },
+  });
+  CH.ROSTER.push('naga');
 })();

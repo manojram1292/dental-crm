@@ -16,10 +16,10 @@
       const b1 = env.beats[1] ?? 1.9;
       const bl = E.inOutCubic(clamp(t / 1.0));
       EP13.whiteSea(ctx, T, {
-        hz: 1500, dark: 0.2 * (1 - p), cam: { zoom: 0.96 + 0.04 * p },
+        hz: 1500, dark: 0.5 - 0.15 * p, cam: { zoom: 0.96 + 0.04 * p },
         after: (g) => {
           KIT.glow(g, 820, 520, 260, '#f4f8ff', 0.8); g.fillStyle = '#f8faff'; g.beginPath(); g.arc(820, 520, 70, 0, R.TAU); g.fill(); g.fillStyle = '#28264f'; g.beginPath(); g.arc(846, 506, 64, 0, R.TAU); g.fill();
-          CH.shiva.draw(g, { x: 480, y: 1900, scale: 0.86, facing: 'front', pose: { name: 'bless', k: bl, throat: 1 }, light: { dir: -Math.PI / 2, intensity: 1.1, front: 0.55 }, t: T, key: 'n14-sh' });
+          CH.shiva.draw(g, { x: 500, y: 1960, scale: 1.0, facing: 'front', pose: { name: 'bless', k: bl, throat: 1 }, light: { dir: -Math.PI / 2, intensity: 1.1, front: 0.55 }, t: T, key: 'n14-sh' });
           window.EP11.surf(g, 1850, T, 1, { color: '#ffffff', deep: '#ecebf8', deep2: '#b8b8d8' });
         },
       });

@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9508,
+   "words": 7,
+   "speed": 0.81,
+   "text": "On the shore of the salt sea,"
+  },
+  {
+   "t0": 2.0308,
+   "t1": 3.9693,
+   "words": 4,
+   "speed": 0.81,
+   "text": "gods and asuras clashed,"
+  },
+  {
+   "t0": 4.0493,
+   "t1": 6.225,
+   "words": 6,
+   "speed": 0.81,
+   "text": "and the sky filled with weapons."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

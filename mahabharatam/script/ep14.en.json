@@ -162,7 +162,8 @@
         "Shiva"
       ],
       "tradition": true,
-      "note": "STORY 4. Shiva, LARGE and frontal, his ash-white light pushing the dark back, gathers the smoke into his cupped hands (beats[1]) and drinks (beats[2]); the smoke streams into him and the sky begins to clear. Name card."
+      "note": "STORY 4. Shiva, LARGE and frontal, his ash-white light pushing the dark back, gathers the smoke into his cupped hands (beats[1]) and drinks (beats[2]); the smoke streams into him and the sky begins to clear. Name card.",
+      "captionY": "high"
     },
     {
       "id": "hold",
@@ -177,7 +178,8 @@
         9
       ],
       "tradition": true,
-      "note": "STORY 5 · THE REVEAL: a slow push in to his throat; after the rest, on 'held' (beats[1]) a deep blue glow gathers there and stays (beats[2] 'throat', a deep bell). The line holds 0.85 s after the words, on the glowing throat, in silence but for the bell."
+      "note": "STORY 5 · THE REVEAL: a slow push in to his throat; after the rest, on 'held' (beats[1]) a deep blue glow gathers there and stays (beats[2] 'throat', a deep bell). The line holds 0.85 s after the words, on the glowing throat, in silence but for the bell.",
+      "captionY": "high"
     },
     {
       "id": "name",
@@ -195,7 +197,8 @@
         "Nilakantha"
       ],
       "tradition": true,
-      "note": "STORY 6. Shiva in blessing, the blue throat glowing; the sky clear again; name card 'Nilakantha · the blue-throated' (beats[1])."
+      "note": "STORY 6. Shiva in blessing, the blue throat glowing; the sky clear again; name card 'Nilakantha · the blue-throated' (beats[1]).",
+      "captionY": "high"
     },
     {
       "id": "cliff",

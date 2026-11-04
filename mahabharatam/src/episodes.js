@@ -41,6 +41,8 @@
     14: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', '_common', 's1-hook', 's2-recap', 's3-frame', 's4-poison', 's5-spread', 's6-brahma', 's7-drink', 's8-hold', 's9-name', 's10-cliff', 's11-next'],
     // episode 15: the shore at violet dusk (the enchantress's light), the deep sky of the Sun, the Moon and Rahu (ep15/_common)
     15: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', '_common', 's1-hook', 's2-recap', 's3-clamour', 's4-frame', 's5-enchantress', 's6-pot', 's7-rahu', 's8-sun', 's9-discus', 's10-head', 's11-eclipse', 's12-cliff', 's13-next'],
+    // episode 16: the shore in battle at night (ep16/_common), dawn on the plain, the Naimisha fire closing the tale, the shore at sunrise
+    16: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', '_common', 's1-hook', 's2-recap', 's3-clash', 's4-rocks', 's5-discus', 's6-nara', 's7-flee', 's8-restore', 's9-sauti', 's10-cliff', 's11-tail', 's12-next'],
   };
   const q = new URLSearchParams(location.search);
   const ep = +(q.get('ep') || 1);

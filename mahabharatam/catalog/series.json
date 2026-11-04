@@ -4815,11 +4815,12 @@
                 "char-sauti",
                 "char-shiva",
                 "char-vasuki",
-                "tradition"
+                "tradition",
+                "lang-en"
               ],
-              "status": "in_production",
+              "status": "released",
               "languages": {
-                "en": "in_production"
+                "en": "released"
               },
               "tradition_note": true,
               "reorder_note": null,
@@ -4845,9 +4846,15 @@
               "synopsis": "The asuras clamour for the amrita. Narayana takes on the illusion of a wondrous woman and takes the pot from them; the gods drink. The asura Rahu, disguised as a god, drinks too, but the Sun and the Moon point him out, and Narayana's discus cuts off his head while the amrita is still in his throat. The immortal head roars into the sky: the eternal enmity of Rahu with the Sun and Moon.",
               "cliffhanger": "The asuras saw they had been tricked. War broke out on the shore.",
               "characters": [
+                "sauti",
                 "vishnu",
+                "enchantress",
                 "rahu",
-                "surya"
+                "surya",
+                "chandra",
+                "asuras",
+                "devas",
+                "dhanvantari"
               ],
               "themes": [
                 "deception",
@@ -4856,7 +4863,8 @@
                 "cosmology"
               ],
               "locations": [
-                "ocean-of-milk"
+                "ocean-of-milk",
+                "naimisha"
               ],
               "playlists": [
                 "all",
@@ -4867,10 +4875,13 @@
                 "theme-gods",
                 "theme-demons-and-rakshasas",
                 "theme-cosmology",
+                "char-sauti",
                 "char-vishnu"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "in_production",
+              "languages": {
+                "en": "in_production"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": "The epic describes Narayana's form only as an enchanting woman; the name \"Mohini\" comes from the Puranas, so the title avoids it."

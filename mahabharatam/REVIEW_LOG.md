@@ -90,3 +90,27 @@ to Narayana's breast and Dhanvantari's reveal (after a 350 ms rest) land. Captio
    go on a dark ground with their own ivory glow as the only light.
 3. Effects that carry a line (the smoke, the blue throat) begin within 0.5 s of the shot's start.
 4. Crowds in dark scenes are three per side with 0.3 front light so each figure still reads.
+
+## Episode 14 · The Blue Throat (54.3 s) · as tradition tells it
+
+**Works.** The fidelity framing: "As tradition tells it" is on screen from frame 1 to the last tradition
+shot, and Sauti, close on his face, says plainly that many tellers add this story, with a small source line
+("Southern manuscripts and the Puranas · not in the Critical Edition"). It is honest without sneering. Shiva
+appears four times at four shot sizes (medium, full, an extreme close-up on the throat, a wide shot with the
+crescent moon). The held 0.85 s on the blue throat, under a single deep bell, is the quietest and strongest
+moment of the arc. Brahma's ivory light alone in the dark is a clean turn at 45 %.
+
+**Weak.**
+1. Shiva, a pale figure with bloom, blurs to near white at the medium size; his body is a plain block.
+2. The poison's spreading fumes read as blue polka dots rather than smoke.
+3. The recap caption sits over the niche's figure (as in earlier episodes).
+4. The crowd in the rig shot is still cropped at the frame edges.
+
+**Fixes carried into episode 15.**
+1. Large pale or luminous figures get less bloom (post bloom ≤ 0.46 and front light, not glow), and dark
+   figures that must read (Rahu's head) get front light 0.7 and a lighter lit-fill, and their corona is
+   half-transparent so the mane reads against it.
+2. Effects are drawn as shapes with edges (the discus's arc, the white flash, falling smoke shapes)
+   rather than soft blobs.
+3. Plaques move up to y 250 wherever a three-line caption sits under them, so names and captions never
+   overlap.

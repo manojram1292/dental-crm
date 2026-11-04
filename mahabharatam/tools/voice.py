@@ -123,6 +123,8 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "Nilakantha": "nˌiːləkˈʌɳʈʰə",                       # nee-la-KUN-tha
     "Rahu": "ɾˈɑːhuː",                                   # RAA-hoo
     "Rahu's": "ɾˈɑːhuːz",
+    "Sudarshana": "sʊdˈʌɹʃənə",                          # su-DUR-sha-na
+    "Nara": "nˈʌɾə",                                     # NUH-ra
     # English words espeak gets wrong for these voices (audited with --dry)
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
     "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"

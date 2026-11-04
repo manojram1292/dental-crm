@@ -1,0 +1,16 @@
+{
+ "speaker": "kadru",
+ "voice": "bf_alice",
+ "speed": 0.82,
+ "pitch": -0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9968,
+   "words": 5,
+   "speed": 0.82,
+   "text": "What colour is his tail?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

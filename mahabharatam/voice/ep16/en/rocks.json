@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.496,
+   "words": 6,
+   "speed": 0.81,
+   "text": "The asuras tore up mountain peaks"
+  },
+  {
+   "t0": 2.576,
+   "t1": 3.7797,
+   "words": 3,
+   "speed": 0.81,
+   "text": "and hurled them."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
