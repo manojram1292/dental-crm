@@ -1,0 +1,23 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.83,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.8754,
+   "words": 6,
+   "speed": 0.83,
+   "text": "Here many tellers add a story"
+  },
+  {
+   "t0": 2.9554,
+   "t1": 6.1335,
+   "words": 6,
+   "speed": 0.83,
+   "text": "the oldest manuscripts do not hold."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

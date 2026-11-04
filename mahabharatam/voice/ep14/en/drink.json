@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.4446,
+   "words": 7,
+   "speed": 0.81,
+   "text": "Shiva took the poison in his hands,"
+  },
+  {
+   "t0": 2.5946,
+   "t1": 3.6372,
+   "words": 2,
+   "speed": 0.81,
+   "text": "and drank."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

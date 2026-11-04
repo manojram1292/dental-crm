@@ -1,0 +1,30 @@
+{
+ "speaker": "brahma",
+ "voice": "bm_lewis",
+ "speed": 0.74,
+ "pitch": -2,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.291,
+   "words": 1,
+   "speed": 0.74,
+   "text": "Mahadeva"
+  },
+  {
+   "t0": 1.711,
+   "t1": 3.1159,
+   "words": 3,
+   "speed": 0.74,
+   "text": "save the worlds."
+  },
+  {
+   "t0": 3.3659,
+   "t1": 4.9559,
+   "words": 3,
+   "speed": 0.74,
+   "text": "Take this poison."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

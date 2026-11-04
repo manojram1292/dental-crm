@@ -154,7 +154,8 @@
         2,
         5
       ],
-      "note": "STORY 4 · THE TURN (≈ 50 %): a 300 ms rest; then the first wonder: the Moon rises, frontal, in his silver disc, out of the white sea (beats[1], a bell); his light whitens everything."
+      "note": "STORY 4 · THE TURN (≈ 50 %): a 300 ms rest; then the first wonder: the Moon rises, frontal, in his silver disc, out of the white sea (beats[1], a bell); his light whitens everything.",
+      "captionY": "high"
     },
     {
       "id": "shri",
@@ -171,7 +172,8 @@
       "emphasis": [
         "Shri"
       ],
-      "note": "STORY 5. A quick cut: Shri rises on a pink lotus, ivory and rose-gold (beats[0], a bell), lotuses in her raised hands. Name card."
+      "note": "STORY 5. A quick cut: Shri rises on a pink lotus, ivory and rose-gold (beats[0], a bell), lotuses in her raised hands. Name card.",
+      "captionY": "high"
     },
     {
       "id": "sura",
@@ -184,7 +186,8 @@
         1,
         5
       ],
-      "note": "STORY 6. Split: Sura Devi rising, her cup held up (beats[0]); the white horse leaping out of the milk beside her (beats[1])."
+      "note": "STORY 6. Split: Sura Devi rising, her cup held up (beats[0]); the white horse leaping out of the milk beside her (beats[1]).",
+      "captionY": "high"
     },
     {
       "id": "kaustubha",
@@ -201,7 +204,8 @@
       "emphasis": [
         "Kaustubha"
       ],
-      "note": "STORY 7. A blazing white-blue jewel rises from the sea and flies in an arc (beats[1]) to Narayana's breast, where it settles and burns (beats[2])."
+      "note": "STORY 7. A blazing white-blue jewel rises from the sea and flies in an arc (beats[1]) to Narayana's breast, where it settles and burns (beats[2]).",
+      "captionY": "high"
     },
     {
       "id": "dhanvantari",

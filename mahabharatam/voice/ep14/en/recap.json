@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.9513,
+   "words": 6,
+   "speed": 0.81,
+   "text": "Last of the wonders rose Dhanvantari,"
+  },
+  {
+   "t0": 3.0313,
+   "t1": 4.8655,
+   "words": 5,
+   "speed": 0.81,
+   "text": "with the pot of amrita."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

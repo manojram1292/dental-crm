@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4949,
+   "words": 5,
+   "speed": 0.81,
+   "text": "They gave her the pot."
+  },
+  {
+   "t0": 1.7449,
+   "t1": 4.1105,
+   "words": 7,
+   "speed": 0.81,
+   "text": "She gave the amrita to the gods."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

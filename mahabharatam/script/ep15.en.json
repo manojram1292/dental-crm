@@ -1,0 +1,238 @@
+{
+  "lang": "en",
+  "episode": 15,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 16–17: the Danavas clamour for the amrita; Narayana takes on an enchanting illusion, the wondrous form of a woman, and takes the pot from them; the gods drink; the Danava Rahu, in a god's form, drinks too; the Sun and the Moon point him out; Narayana's discus cuts off his head with the amrita in his throat; the head roars up to the sky and its enmity with the Sun and Moon is eternal. The epic does not name the enchantress ('Mohini' is Puranic).",
+  "structure": "From episode 11: COLD OPEN (the hook over the episode's strongest image, big on-screen text from frame 1; KIT.series.hookCard) → title (the hook's post) → RECAP (≈2.5 s) → STORY (with a brief cut to Sauti at the Naimisha fire) → the cliffhanger image + line → a silent ≈1.5 s Next card that dissolves back into the first frame (KIT.series.loopNextScene).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 15",
+    "episodeTitle": "The Enchantress and Rahu",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 14",
+    "prevEpisodeTitle": "The Blue Throat",
+    "nextEpisodeLabel": "Episode 16",
+    "nextTitle": "The War for the Amrita",
+    "enchantressName": "The Enchantress",
+    "enchantressEpithet": "Narayana's illusion",
+    "rahuName": "Rahu"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "Why does a head without a body chase the Sun and the Moon?",
+      "say": "Why does a head without a body chase the Sun and the Moon?",
+      "est": 3.4,
+      "pre": 60,
+      "post": 1400,
+      "beats": [
+        3,
+        7,
+        10
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "head",
+        "Sun",
+        "Moon"
+      ],
+      "note": "COLD OPEN (moving from frame 1): a great roaring head with a mane of smoke-flame, in its dark corona, sweeps across a deep sky toward the Sun's disc; the Moon pale at the other side. The question in big text from frame 1. The title after the text."
+    },
+    {
+      "id": "recap",
+      "text": "The asuras saw the amrita, and wanted it all.",
+      "say": "The asuras saw the amrita, [p:80] and wanted it all.",
+      "est": 3.0,
+      "pre": 100,
+      "post": 150,
+      "beats": [
+        1,
+        7
+      ],
+      "role": "recap",
+      "note": "RECAP: episode 14's last image as a memory: the asuras crowding toward Dhanvantari's glowing pot (the CE thread resumes here, so no tag)."
+    },
+    {
+      "id": "clamour",
+      "text": "\"It is ours!\" they cried.",
+      "say": "It is ours! [p:100] they cried.",
+      "est": 3.6,
+      "pre": 100,
+      "post": 200,
+      "beats": [
+        2,
+        4
+      ],
+      "note": "STORY 1. Close, low: asura hands and crowns jostling round the white pot from both sides, Dhanvantari's light flickering between them. beats = 'ours' (a drum), 'cried'."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "text": "So Narayana wove an illusion.",
+      "say": "So Narayana wove an illusion.",
+      "est": 2.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        1,
+        4
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, a fifth angle: low behind the flames, Sauti's face through the heat-shimmer); on 'illusion' (beats[1]) the fire's smoke twists into a violet veil."
+    },
+    {
+      "id": "enchantress",
+      "text": "He became a woman so wondrous that the asuras forgot everything.",
+      "say": "He became a woman, [p:100] so wondrous [p:80] that the asuras forgot everything.",
+      "est": 4.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        5,
+        9
+      ],
+      "captionY": "high",
+      "note": "STORY 2. NEW LIGHT: a violet-pearl dusk on the shore, motes in the air. The enchantress walks in, LARGE in profile, her veil floating; the asuras turn, spellbound (beats[2] 'forgot': their weapons lower). Name card."
+    },
+    {
+      "id": "pot",
+      "text": "They gave her the pot. She gave the amrita to the gods.",
+      "say": "They gave her the pot. [p:150] She gave the amrita to the gods.",
+      "est": 4.0,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        3,
+        5,
+        9
+      ],
+      "note": "STORY 3. A two-part frame: an asura holds the pot out to her (beats[0]); a cut across: she walks down the row of seated gods, pouring (beats[2])."
+    },
+    {
+      "id": "rahu",
+      "text": "But one asura, Rahu, sat among the gods in disguise, and drank.",
+      "say": "But one asura, Rahu, [p:100] sat among the gods in disguise, and drank.",
+      "est": 5.0,
+      "pre": 300,
+      "post": 250,
+      "beats": [
+        2,
+        3,
+        9,
+        11
+      ],
+      "emphasis": [
+        "Rahu"
+      ],
+      "captionY": "high",
+      "note": "STORY 4 · THE TURN (≈ 50 %): the row of seated gods; one of them, in Rahu's eclipse light, lifts his cup (beats[1] name card; beats[3] 'drank': the disguise slips, his rim burns red)."
+    },
+    {
+      "id": "sun",
+      "speaker": "surya",
+      "text": "He is no god. He is Rahu!",
+      "say": "He is no god. [p:150] He is Rahu!",
+      "est": 2.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        6
+      ],
+      "note": "STORY 5 (the Sun speaks): the Sun in his disc and the Moon in hers, side by side above the row, point down at him (direct speech). beats = 'god', 'Rahu'."
+    },
+    {
+      "id": "discus",
+      "text": "Narayana's discus flew, and took his head, with the amrita still in his throat.",
+      "say": "Narayana's discus flew, and took his head, [p:80] with the amrita still in his throat.",
+      "est": 5.2,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        1,
+        2,
+        5,
+        11
+      ],
+      "captionY": "high",
+      "note": "STORY 6 (stylised, never gore): Narayana raises the discus; it flies in a white-gold arc (beats[1]) and on 'head' (beats[2]) a flash of white fire: the head is parted from the body, which falls away into smoke."
+    },
+    {
+      "id": "head",
+      "text": "The head could not die. Roaring, it rose into the sky.",
+      "say": "The head could not die. [p:100] Roaring, it rose into the sky.",
+      "est": 4.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        5,
+        9
+      ],
+      "note": "STORY 7: the head, in its dark corona, mane of smoke-flame, jaws open (beats[1] 'Roaring', a roar), soars up out of frame (beats[2] 'sky')."
+    },
+    {
+      "id": "eclipse",
+      "text": "And still it hunts the Sun and the Moon.",
+      "say": "And still it hunts [p:100] the Sun and the Moon.",
+      "est": 3.2,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        3,
+        5,
+        8
+      ],
+      "note": "STORY 8: the sky: the head swallows the edge of the Sun's disc (an eclipse: a bite of shadow, beats[1]); the Moon beyond (beats[2])."
+    },
+    {
+      "id": "cliff",
+      "text": "The asuras saw they had been tricked. War broke out on the shore.",
+      "say": "The asuras saw they had been tricked. [p:200] War broke out on the shore.",
+      "est": 4.6,
+      "pre": 200,
+      "post": 450,
+      "beats": [
+        5,
+        7,
+        11
+      ],
+      "role": "next",
+      "note": "NEXT 1 (cliffhanger image): the enchantress turns, and her rim shows Narayana's gold (pose.reveal); the asuras raise their weapons (beats[1] 'War', a drum); the two hosts face off on the shore at dusk."
+    },
+    {
+      "id": "next",
+      "text": "Next: The War for the Amrita",
+      "voice": false,
+      "est": 1.7,
+      "role": "next",
+      "caption": false,
+      "note": "The short, silent Next card: a glimpse of episode 16: Nara with his bow and Narayana's discus over a battle on the shore; then the loop back to frame 1."
+    }
+  ]
+}

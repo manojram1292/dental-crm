@@ -25,8 +25,8 @@
     KIT.camera(ctx, { x: 540, y: 1000, zoom: cam.zoom || 1, dx: cam.dx || 0, dy: cam.dy || 0 });
     const hz = o.hz ?? 1000, gh = clamp(o.ghee || 0), dk = clamp(o.dark || 0);
     const H = (a, b) => EP11.hex(a, b, gh);
-    KIT.vgrad(ctx, -600, hz, [[0, EP11.hex(H('#3a3a6a', '#4a3a2a'), '#0a0a18', dk)], [0.6, EP11.hex(H('#a8a8d0', '#d8b880'), '#2a2a40', dk)], [1, EP11.hex(H('#fbfaff', '#fff4d8'), '#6a6a80', dk)]], -400, R.W + 400);
-    KIT.glow(ctx, 540, hz, 1000, H('#ffffff', '#ffe8b0'), 0.7 * (1 - dk));
+    KIT.vgrad(ctx, -600, hz, [[0, EP11.hex(H('#0e0c2a', '#2a1a10'), '#05050c', dk)], [0.55, EP11.hex(H('#2e2c62', '#5a3a1e'), '#14142a', dk)], [0.88, EP11.hex(H('#7a78b0', '#b08850'), '#2a2a40', dk)], [1, EP11.hex(H('#e8e8fa', '#fff0cc'), '#6a6a80', dk)]], -400, R.W + 400);
+    KIT.glow(ctx, 540, hz, 700, H('#ffffff', '#ffe8b0'), 0.35 * (1 - dk));
     KIT.vgrad(ctx, hz, R.H + 600, [[0, EP11.hex(H('#ffffff', '#fff0c8'), '#8a8aa0', dk)], [0.3, EP11.hex(H('#e8e8f6', '#f0d8a0'), '#4a4a60', dk)], [1, EP11.hex(H('#b8b8d8', '#c8a060'), '#1a1a28', dk)]], -400, R.W + 400);
     // slow rings of cream on the surface
     ctx.strokeStyle = EP11.hex(H('#ffffff', '#fff8e0'), '#9a9ab0', dk); ctx.lineWidth = 3;

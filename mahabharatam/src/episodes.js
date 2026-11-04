@@ -37,6 +37,10 @@
     12: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', '_common', 's1-hook', 's2-recap', 's3-ask', 's4-mandara', 's5-ananta', 's6-carry', 's7-ocean', 's8-tortoise', 's9-rope', 's10-hold', 's11-cliff', 's12-next'],
     // episode 13: the churning by night, Indra's storm, the WHITE SEA lit from below (ep13/_common), the wonders one by one
     13: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', '_common', 's1-hook', 's2-recap', 's3-fire', 's4-rain', 's5-milk', 's6-frame', 's7-moon', 's8-shri', 's9-sura', 's10-kaustubha', 's11-dhanvantari', 's12-cliff', 's13-next'],
+    // episode 14 (as tradition tells it): the darkened world under the poison, Shiva's light and the blue of his throat (ep14/_common)
+    14: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', '_common', 's1-hook', 's2-recap', 's3-frame', 's4-poison', 's5-spread', 's6-brahma', 's7-drink', 's8-hold', 's9-name', 's10-cliff', 's11-next'],
+    // episode 15: the shore at violet dusk (the enchantress's light), the deep sky of the Sun, the Moon and Rahu (ep15/_common)
+    15: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', '_common', 's1-hook', 's2-recap', 's3-clamour', 's4-frame', 's5-enchantress', 's6-pot', 's7-rahu', 's8-sun', 's9-discus', 's10-head', 's11-eclipse', 's12-cliff', 's13-next'],
   };
   const q = new URLSearchParams(location.search);
   const ep = +(q.get('ep') || 1);

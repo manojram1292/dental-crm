@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9534,
+   "words": 3,
+   "speed": 0.81,
+   "text": "Narayana's discus flew,"
+  },
+  {
+   "t0": 2.0334,
+   "t1": 3.2595,
+   "words": 4,
+   "speed": 0.81,
+   "text": "and took his head,"
+  },
+  {
+   "t0": 3.3395,
+   "t1": 5.6263,
+   "words": 7,
+   "speed": 0.81,
+   "text": "with the amrita still in his throat."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

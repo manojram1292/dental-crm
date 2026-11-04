@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.124,
+   "words": 6,
+   "speed": 0.81,
+   "text": "Its fumes spread over the worlds,"
+  },
+  {
+   "t0": 2.224,
+   "t1": 4.3355,
+   "words": 5,
+   "speed": 0.81,
+   "text": "and gods and asuras fled."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -65,3 +65,28 @@ turns drawn behind the mountain, front turns in front) reads as a real winding. 
 3. One subject per shot, whole in frame: the wonders are single large frontal figures; supporting figures are
    placed fully inside the frame in the corners.
 4. The crowds in the poison shot are three per side, scaled so heads stay in frame.
+
+## Episode 13 · What Rose from the Ocean (57.4 s)
+
+**Works.** The title holds for more than a second on a clean band. The sea's change from dark water to milk
+to gold ghee reads in one shot. The run of wonders (Moon, Shri, Sura Devi and the horse, the Kaustubha,
+Dhanvantari) is a quick-cut sequence of 3–4 s shots, each with its own name card and bell. The jewel's arc
+to Narayana's breast and Dhanvantari's reveal (after a 350 ms rest) land. Captions sit in the dark sky
+(captionY high), not on the white water.
+
+**Weak.**
+1. Five wonders in a row share one composition (a frontal figure rising in the centre of the white sea):
+   quick cuts, but the same picture.
+2. The Moon reads as a dark figure in a glow, not as the Moon: on a pale ground a dark-filled luminous being
+   loses its light.
+3. Indra's rain only becomes visible late in its 2.8 s shot.
+4. The poison shot is the darkest of the arc and the crowd at the bottom is a dark mass.
+
+**Fixes carried into episode 14.**
+1. Repeated subjects get different shot sizes: Shiva appears four times, as a medium (hook), a full figure
+   (drink), an extreme close-up on the throat (a 1.35→2.7× push), and a wide shot with the crescent moon and
+   the sea.
+2. Pale and luminous figures (Shiva) go on dark grounds (the darkened world); dark-filled figures (Brahma)
+   go on a dark ground with their own ivory glow as the only light.
+3. Effects that carry a line (the smoke, the blue throat) begin within 0.5 s of the shot's start.
+4. Crowds in dark scenes are three per side with 0.3 front light so each figure still reads.

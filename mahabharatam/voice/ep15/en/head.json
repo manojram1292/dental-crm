@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6086,
+   "words": 5,
+   "speed": 0.81,
+   "text": "The head could not die."
+  },
+  {
+   "t0": 1.8586,
+   "t1": 2.6464,
+   "words": 1,
+   "speed": 0.81,
+   "text": "Roaring,"
+  },
+  {
+   "t0": 2.7264,
+   "t1": 4.5458,
+   "words": 5,
+   "speed": 0.81,
+   "text": "it rose into the sky."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

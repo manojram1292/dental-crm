@@ -262,7 +262,7 @@
           "Shankara"
         ],
         "major": true,
-        "bible": null
+        "bible": "shiva"
       },
       "brahma": {
         "name": "Brahma",
@@ -284,7 +284,7 @@
           "the Sun"
         ],
         "major": false,
-        "bible": null
+        "bible": "surya"
       },
       "dharma": {
         "name": "Dharma (Yama)",
@@ -317,13 +317,13 @@
         "name": "Rahu",
         "aliases": [],
         "major": false,
-        "bible": null
+        "bible": "rahu"
       },
       "dhanvantari": {
         "name": "Dhanvantari",
         "aliases": [],
         "major": false,
-        "bible": null
+        "bible": "dhanvantari"
       },
       "lakshmi": {
         "name": "Shri / Lakshmi",
@@ -331,7 +331,7 @@
           "Shri"
         ],
         "major": false,
-        "bible": null
+        "bible": "lakshmi"
       },
       "ganga": {
         "name": "Ganga",
@@ -1362,6 +1362,38 @@
         ],
         "major": false,
         "bible": "samudra"
+      },
+      "chandra": {
+        "name": "Chandra (Soma), the Moon",
+        "aliases": [
+          "the Moon",
+          "Soma"
+        ],
+        "major": false,
+        "bible": "chandra"
+      },
+      "sura-devi": {
+        "name": "Sura Devi (Varuni)",
+        "aliases": [
+          "Varuni",
+          "the goddess of wine"
+        ],
+        "major": false,
+        "bible": "sura"
+      },
+      "enchantress": {
+        "name": "The enchantress (Narayana's illusion)",
+        "aliases": [
+          "Mohini (Puranic name)"
+        ],
+        "major": false,
+        "bible": "enchantress"
+      },
+      "nara": {
+        "name": "Nara",
+        "aliases": [],
+        "major": false,
+        "bible": "nara"
       }
     },
     "themes": {
@@ -4685,19 +4717,28 @@
               "synopsis": "Gods and asuras churn. Fire and smoke pour from Vasuki's mouths, the mountain's forests burn and Indra puts the fire out with rain; the juices of trees and herbs run into the sea and it turns to milk, then to ghee. Out come the Moon, Shri, the goddess of wine, the white horse and the Kaustubha jewel, and last Dhanvantari carrying the white pot of amrita.",
               "cliffhanger": "But something else rose too: a poison that could burn the worlds.",
               "characters": [
+                "sauti",
                 "vishnu",
                 "indra",
                 "vasuki",
+                "mandara",
+                "devas",
+                "asuras",
+                "chandra",
                 "lakshmi",
+                "sura-devi",
+                "uchchaihshravas",
                 "dhanvantari"
               ],
               "themes": [
                 "cosmology",
                 "gods",
-                "births-and-origins"
+                "births-and-origins",
+                "tradition-tales"
               ],
               "locations": [
-                "ocean-of-milk"
+                "ocean-of-milk",
+                "naimisha"
               ],
               "playlists": [
                 "all",
@@ -4707,15 +4748,21 @@
                 "theme-cosmology",
                 "theme-gods",
                 "theme-births-and-origins",
+                "theme-tradition-tales",
+                "char-sauti",
                 "char-vishnu",
                 "char-indra",
-                "char-vasuki"
+                "char-vasuki",
+                "tradition",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
-              "tradition_note": false,
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
+              "tradition_note": true,
               "reorder_note": null,
-              "notes": "The cliffhanger introduces the poison, which is later tradition (see S01E014): the line is marked \"As tradition tells it\" on screen."
+              "notes": "The story (the sea turning to milk and ghee; the Moon, Shri, Sura Devi, the white horse, the Kaustubha, Dhanvantari with the white pot) follows the CE's 1.16. The cliffhanger's poison is later tradition (see S01E014) and is marked \"As tradition tells it\" on screen, so the episode carries tradition_note."
             },
             {
               "id": "S01E014",
@@ -4734,11 +4781,17 @@
                   "label": "Adi 1.16 (the poison is in the vulgate/Southern recension, not the CE text)"
                 }
               ],
-              "synopsis": "As the churning goes on, the kalakuta poison rises, its fumes engulfing the worlds. At Brahma's request Shiva takes the poison and holds it in his throat, and is called Nilakantha, the blue-throated.",
+              "synopsis": "As tradition tells it (in the Southern manuscripts and the vulgate, not in the Critical Edition's text): as the churning goes on, the kalakuta poison rises, its fumes engulfing the worlds. At Brahma's request Shiva takes the poison and holds it in his throat, and is called Nilakantha, the blue-throated. (The CE itself passes from Dhanvantari straight to the asuras' clamour for the amrita.)",
               "cliffhanger": "And the asuras, seeing the amrita, wanted it all.",
               "characters": [
+                "sauti",
                 "shiva",
-                "brahma"
+                "brahma",
+                "devas",
+                "asuras",
+                "dhanvantari",
+                "vasuki",
+                "mandara"
               ],
               "themes": [
                 "cosmology",
@@ -4747,7 +4800,8 @@
                 "tradition-tales"
               ],
               "locations": [
-                "ocean-of-milk"
+                "ocean-of-milk",
+                "naimisha"
               ],
               "playlists": [
                 "all",
@@ -4758,11 +4812,15 @@
                 "theme-gods",
                 "theme-devotion",
                 "theme-tradition-tales",
+                "char-sauti",
                 "char-shiva",
+                "char-vasuki",
                 "tradition"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "in_production",
+              "languages": {
+                "en": "in_production"
+              },
               "tradition_note": true,
               "reorder_note": null,
               "notes": "Checked: the kalakuta poison and Shiva holding it in his throat (Nilakantha) are NOT in the constituted text of the CE's Adi 1.16; the CE passes from Dhanvantari and the amrita to the asuras' clamour. The passage is found in Southern manuscripts and the vulgate (Ganguli's Adi 18) and was relegated by Sukthankar as an interpolation; it is fully developed in the Puranas. The episode keeps it, marked \"As tradition tells it\" on screen."

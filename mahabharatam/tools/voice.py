@@ -117,6 +117,12 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "Kaustubha": "kˈaʊstʊbʰə",                           # KOWS-tu-bha
     "Dhanvantari": "dʰˌʌnvˈʌntəɾi",                      # dhun-VUN-ta-ri
     "ghee": "ɡˈiː",
+    "kalakuta": "kˌɑːləkˈuːʈə",                          # kaa-la-KOO-ta (kālakūṭa)
+    "Mahadeva": "məhˌɑːdˈeɪvə",                          # ma-haa-DAY-va
+    "Shiva": "ʃˈɪvə",                                    # SHI-va
+    "Nilakantha": "nˌiːləkˈʌɳʈʰə",                       # nee-la-KUN-tha
+    "Rahu": "ɾˈɑːhuː",                                   # RAA-hoo
+    "Rahu's": "ɾˈɑːhuːz",
     # English words espeak gets wrong for these voices (audited with --dry)
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
     "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"

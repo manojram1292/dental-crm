@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4686,
+   "words": 3,
+   "speed": 0.81,
+   "text": "But one asura,"
+  },
+  {
+   "t0": 1.5486,
+   "t1": 2.449,
+   "words": 1,
+   "speed": 0.81,
+   "text": "Rahu,"
+  },
+  {
+   "t0": 2.549,
+   "t1": 5.005,
+   "words": 6,
+   "speed": 0.81,
+   "text": "sat among the gods in disguise,"
+  },
+  {
+   "t0": 5.085,
+   "t1": 6.1275,
+   "words": 2,
+   "speed": 0.81,
+   "text": "and drank."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

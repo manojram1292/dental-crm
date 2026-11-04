@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.2996,
+   "words": 3,
+   "speed": 0.81,
+   "text": "And the asuras,"
+  },
+  {
+   "t0": 1.3996,
+   "t1": 2.8037,
+   "words": 3,
+   "speed": 0.81,
+   "text": "seeing the amrita,"
+  },
+  {
+   "t0": 2.9537,
+   "t1": 4.1507,
+   "words": 3,
+   "speed": 0.81,
+   "text": "wanted it all."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.435,
+   "words": 4,
+   "speed": 0.81,
+   "text": "He became a woman,"
+  },
+  {
+   "t0": 1.535,
+   "t1": 2.6752,
+   "words": 2,
+   "speed": 0.81,
+   "text": "so wondrous"
+  },
+  {
+   "t0": 2.7552,
+   "t1": 5.1995,
+   "words": 5,
+   "speed": 0.81,
+   "text": "that the asuras forgot everything."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6433,
+   "words": 5,
+   "speed": 0.81,
+   "text": "As the churning went on,"
+  },
+  {
+   "t0": 1.7233,
+   "t1": 3.2259,
+   "words": 3,
+   "speed": 0.81,
+   "text": "a poison rose:"
+  },
+  {
+   "t0": 3.3759,
+   "t1": 4.7937,
+   "words": 2,
+   "speed": 0.81,
+   "text": "the kalakuta,"
+  },
+  {
+   "t0": 4.8737,
+   "t1": 6.2394,
+   "words": 3,
+   "speed": 0.81,
+   "text": "black as smoke."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

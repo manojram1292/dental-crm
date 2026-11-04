@@ -18,7 +18,7 @@
         cam: { zoom: 1.04 + 0.08 * E.inOutSine(clamp(t / dur)) }, hz: 1060, whirl: 1, wx: 560, wy: 1480,
         after: (g) => {
           EP12.churn(g, T, { cx: 860, y: 1180, s: 0.26, spin: T * 0.9, wrap: 1, hosts: 0, light: EP13.seaGlow(860, 1100) });
-          CH.chandra.draw(g, { x: 560, y: lerp(2050, 1640, rise), scale: 0.78, facing: 'front', pose: { name: 'rise', k: rise }, light: EP13.seaGlow(560, 1600, 1.1), t: T, key: 'h13-ch' });
+          CH.chandra.draw(g, { x: 560, y: lerp(2150, 1720, rise), scale: 0.95, facing: 'front', pose: { name: 'rise', k: rise }, light: EP13.seaGlow(560, 1600, 1.1), t: T, key: 'h13-ch' });
           window.EP11.surf(g, 1560, T, 1, { color: '#ffffff', deep: '#ecebf8', deep2: '#b8b8d8' });
         },
       });

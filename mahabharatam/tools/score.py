@@ -2124,6 +2124,147 @@ def build_ep13(tl):
     return _tb_master(bus_dry, bus_wet, bed, D, N)
 
 
+def build_ep14(tl):
+    """Episode 14 (as tradition tells it): the fire under the first and last frames; the cold open
+    (a dark low drone from frame 1, a deep bell on "poison"); the title bloom; the recap sting;
+    Sauti close (crackle, a single soft bell under the source note); the poison (the churning
+    drone stalls; a deep drum and a sub-boom as the smoke boils up); the fumes (wind, the hosts'
+    running steps); Brahma (a rest, his low bell, a held ivory chord); Shiva drinks (the dark
+    drone drains away, an inhaled whoosh); the throat (silence and one deep bell, held); his name
+    (the brightest chord of the arc); the asuras (a low, gathering drum); the short Next sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    f0, p0, s0, b0, d0, h0, n0, c0, z0 = (st(i) for i in ('frame', 'poison', 'spread', 'brahma', 'drink', 'hold', 'name', 'cliff', 'next'))
+    tan = tanpura_bed(N, D, 'ep14')
+    bed += tan * env_curve([(0, 0.3), (f0, 0.4), (p0, 0.3), (s0, 0.2), (b0, 0.5), (d0, 0.4), (h0, 0.15), (h0 + 2.5, 0.3), (n0, 0.9), (c0, 0.6), (D, 0.4)], N)
+    fire = crackle(N, 'fire14')
+    stereo(fire * env_curve([(0, 0.7), (1.4, 0.25), (2.4, 0), (f0, 0), (f0 + 0.3, 0.6), (p0 - 0.2, 0.6), (p0 + 0.4, 0), (D - 1.0, 0), (D - 0.35, 0.7), (D, 0.7)], N) * 0.1, 0, roll=777)
+    pd = reed_drone(N, (SA / 4 * 16 / 15, SA / 2), 'dark14')
+    pa = env_curve([(0, 0.45), (f0 - 0.3, 0.3), (f0, 0), (p0, 0), (beat('poison', 1), 0.5), (b0, 0.6), (d0, 0.5), (beat('drink', 2) + 0.5, 0), (D, 0)], N)
+    bed += pan(lpf(pd, 400) * pa, -0.1) + pan(lpf(np.roll(pd, 1800), 400) * pa, 0.1)
+    hit(0.02, 14000, 0.4, din=False, boom=0.4)
+    bell(beat('hook', 1), 146.83, 0.24, 0.0, 'poison14')
+    tt0 = L['hook']['speechEnd'] + 0.3
+    for i, f in enumerate((293.66, 440.0, 587.33)):
+        bell(tt0 + 0.12 * i, f, 0.2 - 0.04 * i, -0.2 + 0.2 * i, ('title14', i))
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    bell(f0 + 1.0, 587.33, 0.08, 0.2, 'source14')
+    # ── the poison rises
+    hit(beat('poison', 1), 14100, 0.9, din=False, boom=1.0)
+    hit(beat('poison', 2), 14110, 0.5, din=False, boom=0.3)
+    w = wind(smp(en('spread') - s0 + 0.5), 'fumes14')
+    stereo(lpf(w, 900) * env_curve([(0, 0), (0.6, 1), (len(w) / SR - 0.6, 1), (len(w) / SR, 0)], len(w)) * 0.25, s0, roll=900)
+    tb, k = beat('spread', 2) - 0.6, 0
+    while tb < en('spread'):
+        add(bus_dry, pan(mridangam('ki', (14200, k), 0.18), -0.5 if k % 2 else 0.5), tb)
+        tb += 0.16
+        k += 1
+    # ── Brahma
+    bell(beat('brahma', 0), 220.0, 0.2, -0.2, 'brahma14')
+    n = smp(en('brahma') - b0)
+    t = tvec(n)
+    ch = sum(np.sin(2 * np.pi * f * t + j) for j, f in enumerate((SA, SA * 3 / 2, SA * 2))) * np.sin(np.pi * t / t[-1]) * 0.025
+    add(bus_wet, fade(np.stack([ch, np.roll(ch, 600)]), 0.4, 0.5), b0)
+    # ── Shiva drinks
+    n = smp(1.6)
+    t = tvec(n)
+    wh = bpf(rng('inhale14').standard_normal(n), 300, 3000) * (t / t[-1]) ** 2 * 0.08
+    stereo(wh, beat('drink', 2) - 1.3, roll=200)
+    # ── the throat: one deep bell, held
+    bell(beat('hold', 2), 110.0, 0.32, 0.0, 'throat14')
+    bell(beat('hold', 2) + 0.02, 220.0, 0.14, 0.0, 'throat14b')
+    # ── Nilakantha
+    for i, f in enumerate((293.66, 369.99, 440.0, 587.33, 739.99)):
+        bell(beat('name', 1) + 0.1 * i, f, 0.15, -0.4 + 0.2 * i, ('nila14', i))
+    n = smp(en('name') - beat('name', 1))
+    t = tvec(n)
+    sw = sum(np.sin(2 * np.pi * f * t + j) for j, f in enumerate((SA * 2, SA * 5 / 2, SA * 3, SA * 4))) * np.sin(np.pi * t / t[-1]) * 0.035
+    add(bus_wet, fade(np.stack([sw, np.roll(sw, 800)]), 0.4, 0.6), beat('name', 1))
+    # ── the asuras gather
+    tb, k = c0 + 0.2, 0
+    while tb < en('cliff') - 0.3:
+        hit(tb, (14300, k), 0.25 + 0.06 * k, din=False, boom=0.15)
+        tb += 0.55 - 0.03 * k
+        k += 1
+    hit(beat('cliff', 2), 14400, 0.8, din=False, boom=0.5)
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
+def build_ep15(tl):
+    """Episode 15: the fire under the first and last frames; the cold open (a roar and wind across
+    the sky from frame 1); the title bloom; the recap sting; the asuras' clamour (drums, a shout
+    of noise); Sauti (crackle; a shimmer as the smoke becomes a veil); the enchantress (a glassy
+    bell-tremolo that stays under her scenes, the dusk shore's waves); the pot (a soft bell for
+    each); Rahu among the gods (a rest; a low eclipse tone under his name); the Sun's cry (a bright
+    bell); the discus (a rising whirr, then a white-noise flash and a deep boom: no impact sound
+    of flesh); the head (a roar); the eclipse (a falling dark tone); the war (drums gathering);
+    the short Next sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    c0, f0, e0, p0, r0, s0, d0, h0, x0, k0, z0 = (st(i) for i in ('clamour', 'frame', 'enchantress', 'pot', 'rahu', 'sun', 'discus', 'head', 'eclipse', 'cliff', 'next'))
+    tan = tanpura_bed(N, D, 'ep15')
+    bed += tan * env_curve([(0, 0.3), (c0, 0.5), (e0, 0.9), (r0, 0.6), (d0, 0.5), (h0, 0.4), (k0, 0.7), (D, 0.4)], N)
+    fire = crackle(N, 'fire15')
+    stereo(fire * env_curve([(0, 0.7), (1.4, 0.25), (2.4, 0), (f0, 0), (f0 + 0.3, 0.6), (e0 - 0.2, 0.6), (e0 + 0.4, 0), (D - 1.0, 0), (D - 0.35, 0.7), (D, 0.7)], N) * 0.1, 0, roll=777)
+    w = wind(N, 'sky15')
+    stereo(lpf(w, 1200) * env_curve([(0, 0.5), (3.0, 0.3), (st('recap'), 0), (h0, 0), (h0 + 0.6, 0.4), (k0, 0.2), (k0 + 0.4, 0), (D, 0)], N) * 0.2, 0, roll=900)
+    r = roar(smp(2.2), 'hook15')
+    stereo(r * np.exp(-tvec(len(r)) / 1.0) * 0.12, 0.05, roll=600)
+    tt0 = L['hook']['speechEnd'] + 0.3
+    for i, f in enumerate((293.66, 440.0, 587.33)):
+        bell(tt0 + 0.12 * i, f, 0.2 - 0.04 * i, -0.2 + 0.2 * i, ('title15', i))
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    hit(beat('clamour', 0), 15000, 0.7, din=True, boom=0.3)
+    hit(beat('clamour', 0) + 0.2, 15001, 0.5, din=True)
+    hit(beat('clamour', 1), 15002, 0.6, din=True)
+    # the illusion: a glassy tremolo under the enchantress
+    n = smp(r0 - beat('frame', 1) + 0.5)
+    t = tvec(n)
+    gl = sum(np.sin(2 * np.pi * f * t + j) * (0.5 + 0.5 * np.sin(2 * np.pi * (5 + j) * t)) for j, f in enumerate((SA * 4, SA * 5, SA * 6 * 16 / 15))) * 0.012
+    stereo(gl * env_curve([(0, 0), (0.6, 1), (len(gl) / SR - 0.6, 1), (len(gl) / SR, 0)], len(gl)), beat('frame', 1) - 0.4, roll=700)
+    wv = water(smp(r0 - e0), 'dusk15')
+    stereo(wv * 0.22, e0, roll=1600)
+    bell(beat('enchantress', 0), 739.99, 0.12, 0.3, 'ench15')
+    bell(beat('pot', 0), 587.33, 0.12, -0.2, 'pot15a')
+    bell(beat('pot', 2), 880.0, 0.12, 0.2, 'pot15b')
+    bell(beat('rahu', 1), 116.54, 0.26, 0.0, 'rahu15')
+    hit(beat('rahu', 3), 15100, 0.45, din=False, boom=0.3)
+    bell(beat('sun', 0), 1318.5, 0.16, -0.3, 'sun15')
+    bell(beat('sun', 1), 1174.66, 0.14, 0.3, 'moon15')
+    # the discus: a rising whirr, then a white flash and a deep boom
+    n = smp(beat('discus', 2) - beat('discus', 0) + 0.1)
+    t = tvec(n)
+    f = 300 + 900 * (t / t[-1]) ** 1.5
+    whirr = np.sin(2 * np.pi * np.cumsum(f) / SR) * (0.5 + 0.5 * np.sin(2 * np.pi * 18 * t)) * (t / t[-1]) * 0.05
+    stereo(whirr, beat('discus', 0), roll=300)
+    n = smp(1.0)
+    fl = bpf(rng('flash15').standard_normal(n), 2000, 12000) * np.exp(-tvec(n) / 0.15) * 0.15
+    stereo(fl, beat('discus', 2), roll=200)
+    hit(beat('discus', 2), 15200, 1.0, din=False, boom=1.0)
+    rr = roar(smp(2.4), 'head15')
+    stereo(rr * env_curve([(0, 0), (0.2, 1), (2.0, 0.5), (2.4, 0)], len(rr)) * 0.18, beat('head', 1) - 0.1, roll=800)
+    add(bus_wet, pan(glide('ecl15', 220, 110, 2.0, 0.7), 0.0), beat('eclipse', 1))
+    tb, k = k0 + 0.3, 0
+    while tb < en('cliff') - 0.2:
+        hit(tb, (15300, k), 0.3 + 0.05 * k, din=k % 2 == 1, boom=0.15)
+        tb += 0.45
+        k += 1
+    hit(beat('cliff', 1), 15400, 0.9, din=False, boom=0.7)
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
     r = rng('dither')
@@ -2161,7 +2302,7 @@ def main():
                 return
         except Exception:
             pass
-    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12, 13: build_ep13}[ep](tl)
+    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12, 13: build_ep13, 14: build_ep14, 15: build_ep15}[ep](tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],
             'note': 'music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)'}

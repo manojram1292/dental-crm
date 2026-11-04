@@ -1,0 +1,225 @@
+{
+  "lang": "en",
+  "episode": 14,
+  "source": "AS TRADITION TELLS IT. The kalakuta (halahala) poison at the churning and Shiva holding it in his throat (Nilakantha) are found in the Southern manuscripts and the vulgate (Ganguli's Adi 18), not in the constituted text of the BORI Critical Edition's Adi 1.16, which passes from Dhanvantari straight to the asuras' clamour for the amrita (Sukthankar relegated the passage as an interpolation). The story is fully told in the Puranas. The episode is tagged on screen throughout. Its cliffhanger returns to the CE (1.16–17).",
+  "structure": "From episode 11: COLD OPEN (the hook over the episode's strongest image, big on-screen text from frame 1; KIT.series.hookCard) → title (the hook's post) → RECAP (≈2.5 s) → STORY (with a brief cut to Sauti at the Naimisha fire) → the cliffhanger image + line → a silent ≈1.5 s Next card that dissolves back into the first frame (KIT.series.loopNextScene).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 14",
+    "episodeTitle": "The Blue Throat",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 13",
+    "prevEpisodeTitle": "What Rose from the Ocean",
+    "nextEpisodeLabel": "Episode 15",
+    "nextTitle": "The Enchantress and Rahu",
+    "poisonName": "Kalakuta",
+    "poisonEpithet": "the black poison",
+    "shivaName": "Shiva",
+    "shivaEpithet": "Mahadeva",
+    "nilakanthaName": "Nilakantha",
+    "nilakanthaEpithet": "the blue-throated",
+    "sourceNote": "Southern manuscripts and the Puranas · not in the Critical Edition"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "text": "Who would drink a poison that could burn the worlds?",
+      "say": "Who would drink a poison that could burn the worlds?",
+      "est": 3.6,
+      "pre": 60,
+      "post": 1400,
+      "beats": [
+        2,
+        4,
+        9
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "poison"
+      ],
+      "tradition": true,
+      "note": "COLD OPEN (moving from frame 1): Shiva, ash-pale and frontal, lifts the cupped black-blue smoke to his lips over a darkened sea; his throat begins to glow blue. The question in big text from frame 1, 'As tradition tells it' at the very top from frame 1. The title after the text.",
+      "speed": 1.1
+    },
+    {
+      "id": "recap",
+      "text": "Last of the wonders rose Dhanvantari, with the pot of amrita.",
+      "say": "Last of the wonders rose Dhanvantari, [p:80] with the pot of amrita.",
+      "est": 3.2,
+      "pre": 100,
+      "post": 150,
+      "beats": [
+        4,
+        9
+      ],
+      "role": "recap",
+      "note": "RECAP: episode 13's key image as a memory: Dhanvantari rising from the white sea with the glowing pot."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "text": "Here many tellers add a story the oldest manuscripts do not hold.",
+      "say": "Here many tellers add a story [p:80] the oldest manuscripts do not hold.",
+      "est": 4.2,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        2,
+        8
+      ],
+      "tradition": true,
+      "note": "FRAME (Sauti at the Naimisha fire, close on his face this time): he speaks it plainly. The tag 'As tradition tells it' and a small source line ('Southern manuscripts and the Puranas · not in the Critical Edition'). Honest about the source, without sneering at the beloved version. beats = 'tellers', 'manuscripts'."
+    },
+    {
+      "id": "poison",
+      "text": "As the churning went on, a poison rose: the kalakuta, black as smoke.",
+      "say": "As the churning went on, a poison rose: [p:150] the kalakuta, [p:80] black as smoke.",
+      "est": 5.0,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        5,
+        7,
+        9,
+        12
+      ],
+      "emphasis": [
+        "kalakuta"
+      ],
+      "captionY": "high",
+      "tradition": true,
+      "note": "STORY 1. The churning rig at night, the white sea; out of the centre a black-blue smoke boils up (beats[1]) and towers; its name card on 'kalakuta' (beats[2])."
+    },
+    {
+      "id": "spread",
+      "text": "Its fumes spread over the worlds, and gods and asuras fled.",
+      "say": "Its fumes spread over the worlds, [p:100] and gods and asuras fled.",
+      "est": 4.2,
+      "pre": 100,
+      "post": 250,
+      "beats": [
+        1,
+        5,
+        10
+      ],
+      "tradition": true,
+      "note": "STORY 2. Wide: the smoke rolls across the sky and the sea darkens; on 'fled' (beats[2]) the two hosts let go of the rope and run (cower, then walk away), the mountain still."
+    },
+    {
+      "id": "brahma",
+      "speaker": "brahma",
+      "text": "Mahadeva, save the worlds. Take this poison.",
+      "say": "Mahadeva… [p:100] save the worlds. [p:150] Take this poison.",
+      "est": 4.0,
+      "pre": 450,
+      "post": 350,
+      "beats": [
+        0,
+        3,
+        5
+      ],
+      "tradition": true,
+      "note": "STORY 3 · THE TURN (≈ 45 %): after a 350 ms rest, Brahma on his lotus in the gloom, his ivory light the only light, asks (direct speech); on 'Take' (beats[2]) he turns his open hand toward the right, where a pale light is arriving: Shiva."
+    },
+    {
+      "id": "drink",
+      "text": "Shiva took the poison in his hands, and drank.",
+      "say": "Shiva took the poison in his hands, [p:150] and drank.",
+      "est": 3.6,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        0,
+        5,
+        8
+      ],
+      "emphasis": [
+        "Shiva"
+      ],
+      "tradition": true,
+      "note": "STORY 4. Shiva, LARGE and frontal, his ash-white light pushing the dark back, gathers the smoke into his cupped hands (beats[1]) and drinks (beats[2]); the smoke streams into him and the sky begins to clear. Name card."
+    },
+    {
+      "id": "hold",
+      "text": "He did not swallow it. He held it in his throat.",
+      "say": "He did not swallow it. [p:250] He held it in his throat.",
+      "est": 3.8,
+      "pre": 250,
+      "post": 850,
+      "beats": [
+        3,
+        5,
+        9
+      ],
+      "tradition": true,
+      "note": "STORY 5 · THE REVEAL: a slow push in to his throat; after the rest, on 'held' (beats[1]) a deep blue glow gathers there and stays (beats[2] 'throat', a deep bell). The line holds 0.85 s after the words, on the glowing throat, in silence but for the bell."
+    },
+    {
+      "id": "name",
+      "text": "And his throat turned blue: Nilakantha, the blue-throated.",
+      "say": "And his throat turned blue: [p:150] Nilakantha, [p:100] the blue-throated.",
+      "est": 4.4,
+      "pre": 150,
+      "post": 550,
+      "beats": [
+        3,
+        5,
+        7
+      ],
+      "emphasis": [
+        "Nilakantha"
+      ],
+      "tradition": true,
+      "note": "STORY 6. Shiva in blessing, the blue throat glowing; the sky clear again; name card 'Nilakantha · the blue-throated' (beats[1])."
+    },
+    {
+      "id": "cliff",
+      "text": "And the asuras, seeing the amrita, wanted it all.",
+      "say": "And the asuras, [p:100] seeing the amrita, [p:150] wanted it all.",
+      "est": 4.0,
+      "pre": 250,
+      "post": 450,
+      "beats": [
+        2,
+        4,
+        7
+      ],
+      "role": "next",
+      "note": "NEXT 1 (cliffhanger image; back in the CE, so no tag): the asuras crowd forward, LARGE in the foreground, toward Dhanvantari's glowing pot; on 'all' (beats[2]) the nearest reaches for it."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Enchantress and Rahu",
+      "voice": false,
+      "est": 1.7,
+      "role": "next",
+      "caption": false,
+      "note": "The short, silent Next card: a glimpse of episode 15, the enchantress with the pot of amrita, her veil shimmering; then the loop back to frame 1."
+    }
+  ]
+}
