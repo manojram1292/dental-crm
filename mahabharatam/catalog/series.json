@@ -5074,11 +5074,12 @@
                 "theme-deception",
                 "theme-serpents",
                 "theme-women-of-the-epic",
-                "char-sauti"
+                "char-sauti",
+                "lang-en"
               ],
-              "status": "in_production",
+              "status": "released",
               "languages": {
-                "en": "in_production"
+                "en": "released"
               },
               "tradition_note": false,
               "reorder_note": null,
@@ -5104,8 +5105,12 @@
               "synopsis": "The sisters fly over the great ocean, its depths full of monsters and jewels, to where the horse stands. Its tail is streaked with black. Vinata, defeated, becomes Kadru's slave.",
               "cliffhanger": "Then the second egg cracked open, and the sky caught fire.",
               "characters": [
+                "sauti",
                 "kadru",
-                "vinata"
+                "vinata",
+                "uchchaihshravas",
+                "kadru-sons",
+                "aruna"
               ],
               "themes": [
                 "deception",
@@ -5113,7 +5118,9 @@
                 "serpents"
               ],
               "locations": [
-                "ocean-of-milk"
+                "ocean-of-milk",
+                "naimisha",
+                "kashyapa-hermitage"
               ],
               "playlists": [
                 "all",
@@ -5122,10 +5129,13 @@
                 "layer-side",
                 "theme-deception",
                 "theme-women-of-the-epic",
-                "theme-serpents"
+                "theme-serpents",
+                "char-sauti"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "in_production",
+              "languages": {
+                "en": "in_production"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null

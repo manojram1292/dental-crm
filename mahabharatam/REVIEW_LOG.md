@@ -155,3 +155,47 @@ on the sunrise shore, with Kadru's own question as the last spoken line.
 2. Props are drawn with the same rim and fill logic as characters, so they read as solid things.
 3. Speaking close-ups are lit from the front (front 0.45–0.55) by the location's key light (the low sun
    at the right in the wager scenes).
+
+## Episode 17 · The Wager (54.6 s) · the Garuda arc opens
+
+**Works.** Three new lights: the sunset shore (a low gold sun, a glitter path), the serpents' grove in green
+moonlight among banyan roots, and Brahma on Meru's summit. The wager is staged as a shot and reverse shot,
+each sister speaking her own line (Vinata "He is all white", Kadru "His tail is black"). The callback to the
+snake sacrifice of episode 8 sits inside Kadru's curse as a medallion, so the arc ties back into the frame
+story. The sisters' dawn flight uses a new flying pose (`EP17.flyer`).
+
+**Weak.**
+1. In the hook the horse is cropped at the bottom, the black strands in his tail are faint at that size, and
+   the sisters behind him are tiny.
+2. The stake card is legible but small (one long line at 28 px).
+3. Kashyapa's shot is dark: he is a turquoise rim on a dark hermitage.
+
+**Fixes carried into episode 18.**
+1. When a detail carries the line (the black tail), the shot is built around it: a push from 1.4× to 2.1×
+   centred on the tail, held 0.9 s in silence.
+2. The flying pose is used for every flight (hook, ocean, cliffhanger), so the sisters never stand on water.
+3. A dark night flashback (the sons slipping into the tail) uses a lighter blue overlay (0.3 rather than 0.5).
+
+## Engagement changes adopted (research/engagement.md)
+
+The research arrived before episode 11 was scripted; the coordinator asked for its low-risk recommendations
+from the next unscripted episode. All of these keep the essence (faithful, calm, mural, no bait).
+
+| # | Recommendation | Adopted | How |
+|---|---|---|---|
+| 1 | Cold open on the hook, recap after it | ep 11 | Order HOOK → title → RECAP (2.5–3.5 s) → STORY |
+| 2 | First frame already moving, the strongest image | ep 11 | Each hook scene draws the episode's key image in motion from t = 0 (the horse in the surf, Mandara tearing free, the Moon rising, Shiva drinking, Rahu's head, the battle, the horse's tail, the sisters in flight, Garuda's birth, Garuda carrying the serpents) |
+| 3 | Hook a newcomer can follow, with a stake | ep 11 | No unfamiliar names in the hooks ("Where did this horse come from?", "What if a bet … could cost you your freedom?") |
+| 4 | Hook text on screen from frame 1 | ep 11 | `KIT.series.hookCard`: big Cinzel text, stake words gilded, caption off for that line |
+| 5 | Shorter ending, "Next" on the card only | ep 11 | The spoken "Next: …" is gone; a silent ≈ 1.7 s card (`"voice": false`) |
+| 6 | Seamless loop back to the fire | ep 11 | `KIT.series.loopNextScene` dissolves into the episode's first frame; `fireEdge` and the crackle are under both the first and the last frame |
+| 7 | A turn at 40–60 % | ep 11 | Direct speech or a reveal at 44–59 % in every episode (Narayana, the Ocean, the Moon, Brahma, the Sun, the discus and Nara, the sons' refusal, the cheat revealed, Agni, the serpents fainting) |
+| 8 | No image held longer than ≈ 4 s | ep 11, tightened from ep 12 | Push-ins, tilts and in-line cuts on beats; reviewed per episode (ep 11 had two ≈ 5 s holds, fixed from ep 12) |
+| 9 | Stingers and silence | ep 11 | A 200–400 ms `pre` rest before reveal and speech lines, a bell or drum on the reveal beat in every score cue |
+| 15 | Vary composition from episode to episode | ep 11 | A new Sauti angle each episode (nine so far), a new location light per episode, varied shot sizes for repeated figures |
+| — | Captions readable | ep 11, refined ep 13 | captionY lifted over light grounds and low action; plaques for names on bright grounds |
+| — | Respect for devotional audiences | ep 13 | Tradition material tagged and explained by Sauti without sneering (ep 14); deities drawn frontally as icons; violence stylised (Rahu's head, the battle) |
+
+Not adopted here (packaging, outside the render): "Link a reel" and related-video links, Trial Reels,
+cover templates, caption-line questions and pinned comments, and "who's who" carousels. They are
+recommended for upload.
