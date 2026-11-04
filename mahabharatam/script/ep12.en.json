@@ -1,0 +1,238 @@
+{
+  "lang": "en",
+  "episode": 12,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 16 (vv. 1–15 approx.): Ananta uproots Mandara at Brahma's and Narayana's word; the gods and asuras bring it to the ocean, which asks for a share of the amrita; the king of tortoises Akupara bears the mountain, set on his back by Indra; Vasuki is the rope.",
+  "structure": "From episode 11: COLD OPEN (the hook over the episode's strongest image, big on-screen text from frame 1; KIT.series.hookCard) → title (the hook's post) → RECAP (≈2.5 s) → STORY (with a brief cut to Sauti at the Naimisha fire) → the cliffhanger image + line → a silent ≈1.5 s Next card that dissolves back into the first frame (KIT.series.loopNextScene).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 12",
+    "episodeTitle": "A Mountain for a Churning Stick",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 11",
+    "prevEpisodeTitle": "The Horse from the Ocean",
+    "nextEpisodeLabel": "Episode 13",
+    "nextTitle": "What Rose from the Ocean",
+    "mandaraName": "Mandara",
+    "mandaraEpithet": "the mountain of forests",
+    "anantaName": "Ananta",
+    "anantaEpithet": "the eldest serpent",
+    "oceanName": "The Ocean",
+    "akuparaName": "Akupara",
+    "akuparaEpithet": "king of the tortoises",
+    "vasukiName": "Vasuki",
+    "vasukiEpithet": "king of the serpents"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "text": "Who could tear a mountain from the earth?",
+      "say": "Who could tear a mountain from the earth?",
+      "est": 3.2,
+      "pre": 60,
+      "post": 950,
+      "beats": [
+        3,
+        5
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "mountain"
+      ],
+      "note": "COLD OPEN (moving from frame 1): a forested mountain heaving up out of the torn earth, roots and rock falling, a white serpent's seven hoods rising behind it; the fire licks up from the bottom edge. The question in big text from frame 1 (caption off). beats = 'tear' (the ground splits), 'mountain'. The title in the post."
+    },
+    {
+      "id": "recap",
+      "text": "Narayana told the gods and asuras: churn the ocean together.",
+      "say": "Narayana told the gods and asuras: [p:80] churn the ocean together.",
+      "est": 3.0,
+      "pre": 100,
+      "post": 150,
+      "beats": [
+        0,
+        7
+      ],
+      "emphasis": [
+        "Narayana"
+      ],
+      "role": "recap",
+      "note": "RECAP (short): episode 11's key image as a memory: Narayana in his aureole, Brahma beside him."
+    },
+    {
+      "id": "ask",
+      "speaker": "elder_sage",
+      "text": "But with what could anyone churn an ocean?",
+      "say": "But with what could anyone churn an ocean?",
+      "est": 2.8,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        1,
+        6
+      ],
+      "note": "FRAME (the Naimisha fire, from Sauti's side this time): the elder sage Shaunaka leans toward Sauti and asks; Sauti, in the foreground, lifts his hand. beats = 'with what', 'ocean'."
+    },
+    {
+      "id": "mandara",
+      "text": "With Mandara: a mountain of forests, as deep below the earth as it rose above.",
+      "say": "With Mandara: [p:100] a mountain of forests, [p:80] as deep below the earth as it rose above.",
+      "est": 5.0,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        1,
+        9,
+        14
+      ],
+      "emphasis": [
+        "Mandara"
+      ],
+      "captionY": "high",
+      "note": "STORY 1. NEW PLACE AND LIGHT: the plain of the world in clear high daylight, Mandara standing in it; the camera tilts down through the cut-away earth to its roots, as deep as it is tall (beats[1] 'below'), and back up ('above'). Name card."
+    },
+    {
+      "id": "ananta",
+      "text": "At Brahma's word and Narayana's, the serpent Ananta tore it from the ground.",
+      "say": "At Brahma's word and Narayana's, [p:250] the serpent Ananta tore it from the ground.",
+      "est": 5.0,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        1,
+        4,
+        7,
+        9
+      ],
+      "emphasis": [
+        "Ananta"
+      ],
+      "captionY": "high",
+      "note": "STORY 2. A 250 ms rest, then the reveal: Ananta, the white serpent of seven hoods, rises, coils round the mountain, and on 'tore' (beats[3], a drum and boom) Mandara rips out of the earth, roots streaming, rock falling. Name card."
+    },
+    {
+      "id": "carry",
+      "text": "Gods and asuras carried it to the shore of the sea.",
+      "say": "Gods and asuras carried it to the shore of the sea.",
+      "est": 3.6,
+      "pre": 100,
+      "post": 250,
+      "beats": [
+        0,
+        4,
+        9
+      ],
+      "note": "STORY 3. Evening on the shore: the two hosts, side by side for once, carry the mountain high on their raised arms across the frame toward the sea. beats = 'Gods', 'carried', 'sea'."
+    },
+    {
+      "id": "ocean",
+      "speaker": "samudra",
+      "text": "Churn me, then. But I too must have my share of the amrita.",
+      "say": "Churn me, then. [p:150] But I too must have my share of the amrita.",
+      "est": 4.6,
+      "pre": 350,
+      "post": 350,
+      "beats": [
+        0,
+        5,
+        11
+      ],
+      "captionY": "high",
+      "note": "STORY 4 · THE TURN (≈ 50 %): a 350 ms rest, then the Ocean himself rises from the waves, a crowned king of the waters, a wave breaking behind him; on 'share' (beats[1]) he lifts a pearl and a branch of coral. A bell on 'Churn'."
+    },
+    {
+      "id": "tortoise",
+      "text": "Akupara, king of the tortoises, took the mountain on his back.",
+      "say": "Akupara, [p:100] king of the tortoises, took the mountain on his back.",
+      "est": 4.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        5,
+        9
+      ],
+      "emphasis": [
+        "Akupara"
+      ],
+      "note": "STORY 5. Under the surface: a vast ancient tortoise rises from the deep (beats[0], his name card); Indra above, vajra raised, sets the mountain on his shell (beats[2] 'back', a drum)."
+    },
+    {
+      "id": "rope",
+      "text": "And Vasuki, king of the serpents, was wound round it for a rope.",
+      "say": "And Vasuki, [p:100] king of the serpents, [p:60] was wound round it for a rope.",
+      "est": 4.4,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        1,
+        9,
+        12
+      ],
+      "emphasis": [
+        "Vasuki"
+      ],
+      "captionY": "high",
+      "note": "STORY 6. Vasuki, violet and gold, winds round the mountain turn by turn (the helix grows: beats[1] → beats[2]); name card."
+    },
+    {
+      "id": "hold",
+      "text": "The gods took one end, the asuras the other.",
+      "say": "The gods took one end, [p:100] the asuras the other.",
+      "est": 3.4,
+      "pre": 100,
+      "post": 200,
+      "beats": [
+        1,
+        6
+      ],
+      "note": "STORY 7. The whole rig: gods at the tail on the left, asuras at the head on the right, taking hold (beats[0] gods, beats[1] asuras). The CE does not say who held which end; the picture leaves the head with the asuras, as the tradition shows it, without naming it."
+    },
+    {
+      "id": "cliff",
+      "text": "They began to churn, and the ocean began to burn.",
+      "say": "They began to churn… [p:100] and the ocean began to burn.",
+      "est": 4.2,
+      "pre": 150,
+      "post": 450,
+      "beats": [
+        3,
+        9
+      ],
+      "role": "next",
+      "note": "NEXT 1 (cliffhanger image): the mountain begins to turn, the hosts haul; on 'burn' (beats[1]) fire pours from Vasuki's mouths and the forests on the mountain catch fire, red light on the milk-white water."
+    },
+    {
+      "id": "next",
+      "text": "Next: What Rose from the Ocean",
+      "voice": false,
+      "est": 1.7,
+      "role": "next",
+      "caption": false,
+      "note": "The short, silent Next card (KIT.series.loopNextScene): a glimpse of episode 13, the Moon rising from the white sea; then the fire rises and the first frame returns (loop)."
+    }
+  ]
+}

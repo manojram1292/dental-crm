@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.136,
+   "words": 1,
+   "speed": 0.81,
+   "text": "Akupara,"
+  },
+  {
+   "t0": 1.236,
+   "t1": 2.9608,
+   "words": 4,
+   "speed": 0.81,
+   "text": "king of the tortoises,"
+  },
+  {
+   "t0": 3.0408,
+   "t1": 5.0145,
+   "words": 6,
+   "speed": 0.81,
+   "text": "took the mountain on his back."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

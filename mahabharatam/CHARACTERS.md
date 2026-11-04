@@ -564,6 +564,111 @@ chariot (`EP10.chariot`: a gold disc-wheel and seven horses of light) is a prop.
 | Poses | `stand` (frontal) |
 | Voice | `surya` → bm_george, 0.8×, −1 st (reserved: he does not speak in episode 10). |
 
+## Uchchaihshravas, king of horses · `horse` (episodes 10–18)
+
+**Who.** The white horse that rose from the churned ocean, honoured by the gods. Kadru and Vinata see him
+and wager on the colour of his tail (CE 1.15–20). Module `uchchaihshravas.js` (id `horse`).
+
+**Look.** A noble horse in profile, drawn as a living mural animal: a deep chest, an arched neck, a fine
+wedge head with a dished face and pricked ears, a long mane, a full tail of falling strands, hocks that
+bend the right way. As a divine horse: a gold headstall with a forehead jewel, a jewelled collar, gold bands
+above the hooves. `pose.tail` (0..1) combs black hairs through the tail (episode 18).
+
+| | |
+|---|---|
+| Palette | fill `#aeb6d4` · lit `#eef1fb` · inner `#dfe4f6` · rim `#b8ccff` → `#ffffff` · ornaments `#c8a040` → `#ffe9a0` |
+| Proportions | ≈ 1000 units to the poll, ≈ 1250 nose to tail; withers ≈ 790. |
+| Signature light | **Moon-white**: a PALE-filled figure (with Ananta, the only ones) with a silver-blue edge; glow kept at 0.55 so the white never blooms out. Never golden (the Sun) or green/blue (serpents, Indra). |
+| Poses | `stand` · `walk` (phase) · `gallop` (phase) · `rear` (k) · `bow` (k) |
+| Voice | none |
+
+## Vishnu (Narayana) · `vishnu` (episodes 11–16 and on)
+
+**Who.** Narayana counsels the gods to churn the ocean with the asuras (CE 1.15), takes the amrita from the
+asuras by an enchanting illusion, beheads Rahu with the discus, and wins the war on the shore with Nara
+(CE 1.17).
+
+**Look.** Frontal, as in temple iconography (standing straight): four arms (upper right the discus
+**Sudarshana**, upper left the **conch**, lower right open in blessing or speech, lower left on the **mace**),
+a tall cylindrical **kirita**, makara earrings, the **Kaustubha** jewel burning white-blue on the chest, the
+forest garland to the knees, the yellow silk **pitambara** with a fan of pleats, a gold lotus-petal aureole.
+`CH.vishnu.discus(ctx, x, y, r, T, a)` draws Sudarshana in flight.
+
+| | |
+|---|---|
+| Palette | fill `#0b1030` · lit `#1e2c78` · inner `#2a3a9a` · rim `#e8b040` → `#fff2c0` · ornaments `#f0c050` → `#fffbe0` |
+| Proportions | ≈ 1120 units to the top of the crown; shoulders 280 wide. |
+| Signature light | **Rain-cloud indigo edged in gold** (glow 0.85), the lotus aureole behind. Never Indra's electric-blue rim or Kashyapa's turquoise. |
+| Poses | `stand` · `bless` (k) · `speak` (k) · `discus` (k: raised high, blazing, spinning) |
+| Voice | `vishnu` → **am_fenrir**, 0.8×, −1 st: calm, deep, unhurried. |
+
+## Brahma, the Grandfather · `brahma` (episodes 11–17)
+
+**Who.** The creator; the gods' council on Meru turns to him and Narayana (CE 1.15); at their word Ananta
+uproots Mandara (CE 1.16); he lets Kadru's curse stand and gives Kashyapa the cure for poison (CE 1.18).
+
+**Look.** Frontal and seated on a great pink lotus: four faces (the front one and two side profiles seen),
+each with a tiered jata-mukuta; a long white beard; four arms: a rosary, the palm-leaf Veda (a flat bound
+book), an open hand, the kamandalu; an upper cloth over the left shoulder.
+
+| | |
+|---|---|
+| Palette | fill `#16100a` · lit `#3a2c18` · inner `#5a4220` · rim `#f2dcb0` → `#fffaf0` · ornaments `#e8b860` → `#fff4d0` · lotus `#e07a98` |
+| Signature light | **Lotus-ivory**, paler and softer than Sauti's fire-gold; the lotus glows rose-pink. |
+| Poses | `sit` (default) · `bless` (k) · `speak` (k) |
+| Voice | `brahma` → **bm_lewis**, 0.74×, −2 st (the elder sage uses bm_lewis unshifted at 0.77×). |
+
+## The devas (gods) · `deva` and the asuras · `asura` (episodes 11–16)
+
+**Who.** The two hosts, half-brothers and rivals: they churn the ocean together and fight for the amrita
+(CE 1.15–17). Module `devas-asuras.js`: one shared warrior body in profile, so they read as kin, with six
+fixed variants each by `index` (headdress, build, weapon), so a crowd never repeats a silhouette.
+
+**Look.** Devas: slim, upright, beardless; six crowns (kirita, karanda pot-crown, jata-mukuta, plumed crest,
+flame crest, lotus crest), a thin ring of light behind the head, spear/lotus/sword/bow, ankle-length cloth.
+Asuras: ×1.12 broader, heavy brows, a thick moustache and a small fang, flame-locks, horned helmets or spiked
+crowns, mace/sword/spear/club, knee-length cloth. Given their dignity: kings and warriors, not monsters.
+
+| | |
+|---|---|
+| Palette | deva: fill `#12101a` · lit `#2c2840` · rim `#ffe6a0` → `#ffffff` · ornaments `#f0c860` → `#fff8d8`; asura: fill `#100606` · lit `#301010` · rim `#e0502a` → `#ffc090` · ornaments `#a07040` → `#f0c080` |
+| Signature light | **Pearl-gold** (devas) against **ember** (asuras). Never Aruna's luminous halo or Parashurama's blood-red. |
+| Poses | `stand` · `walk` · `pull` (k, phase: hauling the rope) · `raise` · `strike` · `point` · `bow` · `cower` |
+| Voice | `devas` → am_liam −0.5 st; `asuras` → am_onyx 0.78×, −2.5 st (both reserved for group lines). |
+
+## Vasuki, king of the serpents · `vasuki` and Ananta (Shesha) · `ananta` (episodes 11–16)
+
+**Who.** Vasuki is the churning rope; fire and smoke pour from his mouths as he is hauled (CE 1.16). Ananta,
+the eldest serpent, uproots Mount Mandara at Brahma's and Narayana's word (CE 1.16). Module `naga-kings.js`.
+
+**Look.** Not a plain painted snake (the weakness of episodes 7–10): a heavy body of real thickness tapering
+to the tail, pale banded belly plates, a diamond chain down the back, a broad hood with concentric scale arcs,
+the head turned forward off the hood with an eye and a crown-jewel. The body follows a **path**, so the same
+module draws a serpent rearing (`rise`), lying (`coil`), or wound round a mountain (`rope`: `pose.path`,
+`pose.head`/`pose.tail`, `w`, `fire`). Ananta: seven hoods in a fan.
+
+| | |
+|---|---|
+| Palette | Vasuki: fill `#0a0820` · lit `#1c1848` · rim `#8a7aff` → `#ece8ff` · ornaments `#e8b84a` → `#fff0b8` · jewel `#ff2a5a`. Ananta: fill `#d8d0c0` · lit `#fffaf0` · rim `#ffd890` → `#fffbe8` · ornaments `#c89830` → `#fff0b8` |
+| Signature light | Vasuki **lapis-violet with gold scales** and a ruby; Ananta **the white serpent** in gold. Never Takshaka's green or Kadru's olive. |
+| Poses | `rise` (k) · `coil` · `rope` (path, head, tail, w, fire) |
+| Voice | none |
+
+## Mount Mandara · `mandara` (episodes 11–16)
+
+**Who.** The churning stick: uprooted by Ananta, carried to the ocean, set on the tortoise's back, wound with
+Vasuki and whirled; its forests burn and Indra's rain puts them out; after the war it is set back (CE 1.16–17).
+
+**Look.** A broad rocky dome with a second, lower summit and a crag; tree clumps standing proud of its
+outline, green forest over the rock, waterfalls and blossoms; roots and rock hang below when uprooted.
+`pose.spin` turns the forest around the axis (the churning); `pose.burn` lights its forests (stylised flames).
+
+| | |
+|---|---|
+| Palette | rock fill `#1a1810` · lit `#4a4430` · inner `#3a3420` · rim `#d8c890` → `#fff8e0` · forest `#5aaa5a` · waterfalls `#d8f0ff` → `#ffffff` |
+| Signature light | **Stone-gold with green forests** (rim ×1.6). |
+| Poses | `stand` · `uprooted` (k) · `churn` (spin, burn) |
+
 ### Locations and light
 
 Characters keep their signature light everywhere; the **environment and its key light change per
@@ -591,6 +696,14 @@ cords and pegs); **Indra's heaven** (`EP8.svarga`: white-gold cloud banks and a 
 above); **Kashyapa's hermitage before sunrise** (`EP9.hermitage`: cool blue-violet, the east glowing low on
 the right; `years` wheels the sun and moon over it); the **open sky at dawn** (`EP10.sky`: grey flooding to
 red and gold); and the **shore of the ocean at sunrise** (`EP10.shore`).
+
+Episode 11 on (`src/scenes/ep11/_common.js`): **Meru, the golden mountain** (`EP11.meru`: a white-gold
+sky, a stepped peak that is itself the light source, rays; `EP11.meruLight` turns every rim toward the peak
+with strong front light); the **cosmic ocean at night** (`EP11.sea`: deep blue water under an indigo sky, a
+cold silver horizon, jewels in the depths, a makara; `milk` turns it white for the churning;
+`EP11.seaLight`); the **shore at sunrise** with the horse (`EP11.shore`). Visions are now solid painted
+medallions in a gold ring (`EP11.roundel`), and name cards on bright grounds sit on a dark lacquer plaque
+(`EP11.plaque`).
 
 ## Narrator · `narrator`
 

@@ -422,20 +422,22 @@
     ctx.save();
     ctx.globalAlpha = clamp(a);
     KIT.glow(ctx, 540, base, 900, PAL.saffron, 0.55 * KIT.flicker(T, 3), 'lighter', 0.5);
-    const tongues = 13;
+    // painted flame tongues: each a teardrop leaning and licking upward, in three layers
+    // (deep red, saffron, pale gold), with a soft glow under them
+    const tongues = 9;
     for (let layer = 0; layer < 3; layer++) {
-      ctx.fillStyle = ['#7a1e06', '#e0601a', '#ffd070'][layer];
-      ctx.globalAlpha = clamp(a) * [0.9, 0.85, 0.8][layer];
-      ctx.beginPath(); ctx.moveTo(-40, base + 40);
-      for (let i = 0; i <= tongues; i++) {
-        const x = -40 + (i / tongues) * (R.W + 80);
-        const ph = T * (3.1 + (i % 4) * 0.4) + i * 1.7 + layer;
-        const hh = hgt * (1 - layer * 0.3) * (0.45 + 0.35 * Math.abs(Math.sin(i * 2.3)) + 0.2 * Math.sin(ph)) * (0.7 + 0.3 * Math.sin(Math.PI * i / tongues));
-        const xm = x - (R.W / tongues) * 0.5;
-        ctx.quadraticCurveTo(xm, base - hh * 0.35, x + 10 * Math.sin(ph * 1.3), base - hh);
-        ctx.quadraticCurveTo(x + 20, base - hh * 0.4, x + (R.W / tongues) * 0.25, base - hh * 0.1);
+      ctx.fillStyle = ['#8a2208', '#e8661c', '#ffd27a'][layer];
+      ctx.globalAlpha = clamp(a) * [0.95, 0.9, 0.85][layer];
+      for (let i = 0; i < tongues + layer; i++) {
+        const x = -60 + ((i + 0.5 * layer) / tongues) * (R.W + 120);
+        const ph = T * (2.6 + (i % 4) * 0.35) + i * 1.9 + layer * 0.7;
+        const hh = hgt * (1 - layer * 0.28) * (0.55 + 0.3 * Math.abs(Math.sin(i * 2.3 + layer)) + 0.15 * Math.sin(ph)) * (0.75 + 0.25 * Math.sin(Math.PI * (i + 0.5) / tongues));
+        const w = (R.W / tongues) * (0.62 - layer * 0.12), lean = 18 * Math.sin(ph * 0.8);
+        ctx.beginPath(); ctx.moveTo(x - w, base);
+        ctx.bezierCurveTo(x - w, base - hh * 0.45, x - w * 0.2 + lean, base - hh * 0.6, x + lean * 1.6, base - hh);
+        ctx.bezierCurveTo(x + w * 0.35 + lean, base - hh * 0.55, x + w, base - hh * 0.4, x + w, base);
+        ctx.closePath(); ctx.fill();
       }
-      ctx.lineTo(R.W + 40, base + 40); ctx.closePath(); ctx.fill();
     }
     ctx.restore();
     KIT.embers(ctx, T, { x: 540, y: base - 60, spread: 1000, rate: 10, life: 2.4, rise: 260, sway: 50, size: 2.4, alpha: 0.7 * a, seed: 733 });

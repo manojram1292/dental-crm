@@ -109,6 +109,10 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "devas": "dˈeɪvəz",                                  # DAY-vaz
     "Brahma": "bɹˈʌhmɑː",                                # BRUH-maa (Brahmā)
     "Brahma's": "bɹˈʌhmɑːz",
+    "Mandara": "mˈʌndəɾə",                               # MUN-da-ra
+    "Ananta": "ənˈʌntə",                                 # a-NUN-ta
+    "Akupara": "ˌɑːkuːpˈɑːɾə",                           # aa-koo-PAA-ra (Akūpāra)
+    "Shesha": "ʃˈeɪʃə",                                  # SHAY-sha
     # English words espeak gets wrong for these voices (audited with --dry)
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
     "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"

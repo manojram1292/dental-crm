@@ -28,6 +28,18 @@
   const EP11 = (window.EP11 = {});
   const hex = EP5.hex;
   EP11.hex = hex; EP11.mouth = EP5.mouth; EP11.label = window.EP7.label;
+  /** A name card on a dark lacquer plaque: legible on bright grounds (Meru's gold, the white sea). */
+  EP11.plaque = (ctx, text, sub, x, y, a, o = {}) => {
+    if (a <= 0.003) return;
+    const sz = o.size || 64;
+    ctx.save(); ctx.font = R.font(sz, 'display', 600); ctx.letterSpacing = '8px';
+    const w = Math.max(ctx.measureText(text.toUpperCase()).width, sub ? 360 : 0) + 120, h = sub ? sz * 2.7 : sz * 1.6;
+    ctx.globalAlpha = a * 0.82; ctx.fillStyle = '#140a06'; ctx.beginPath(); R.roundRectPath(ctx, x - w / 2, y - sz * 1.15, w, h, 18); ctx.fill();
+    ctx.globalAlpha = a; ctx.strokeStyle = '#e7b54a'; ctx.lineWidth = 2.5; ctx.beginPath(); R.roundRectPath(ctx, x - w / 2 + 8, y - sz * 1.15 + 8, w - 16, h - 16, 12); ctx.stroke();
+    ctx.restore();
+    window.EP5.label(ctx, text, x, y, a, { size: sz, key: o.key, sheen: o.sheen });
+    if (sub) { ctx.save(); ctx.globalAlpha = a; ctx.textAlign = 'center'; ctx.font = R.font(sz * 0.6, 'caption', 600, 'italic'); ctx.fillStyle = '#fbf1dc'; ctx.fillText(sub, x, y + sz * 1.08); ctx.restore(); }
+  };
   const lightTo = (x, y, lx, ly, k = 1, front = 0.3) => ({ dir: Math.atan2(ly - (y - 600), lx - x), intensity: k, front });
   EP11.PEAK = { x: 540, y: 380 };
   EP11.meruLight = (x, y, k = 1.15) => lightTo(x, y, EP11.PEAK.x, EP11.PEAK.y, k, 0.45);
@@ -152,7 +164,7 @@
       after: (g) => {
         const h = o.horse;
         if (h) {
-          KIT.characters.horse.draw(g, { x: h.x ?? 560, y: h.y ?? 1180, scale: h.scale ?? 0.5, facing: h.facing || 'left', pose: h.pose || 'stand', light: { dir: Math.atan2(1080 - (h.y ?? 1180) + 400, 820 - (h.x ?? 560)), intensity: 1, front: 0.6 }, t: T, key: 'shore-horse' });
+          KIT.characters.horse.draw(g, { x: h.x ?? 560, y: h.y ?? 1180, scale: h.scale ?? 0.5, facing: h.facing || 'left', pose: h.pose || 'stand', light: { dir: Math.atan2(1080 - (h.y ?? 1180) + 400, 820 - (h.x ?? 560)), intensity: 0.95, front: 0.35 }, t: T, key: 'shore-horse' });
           if (h.rise != null && h.rise < 1) EP11.surf(g, (h.y ?? 1180) - (1 - h.rise) * 300 * (h.scale ?? 0.5) * 2, T, 1, { color: '#fff4ec', deep: '#d8b0b8', deep2: '#7a6a90' });
         }
         if (o.after) o.after(g);

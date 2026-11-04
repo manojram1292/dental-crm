@@ -1876,6 +1876,174 @@ def build_ep10(tl):
     return _tb_master(bus_dry, bus_wet, bed, D, N)
 
 
+def build_ep11(tl):
+    """Episode 11 (the cold-open grammar): the fire's crackle under frame 1 and again under the
+    last frame (a loop); the horse breaking the surf (surf, a neigh, a drum on "horse"); a bell
+    bloom under the title; the recap sting; the shore at sunrise (waves); a bell on the horse's
+    name, high bells for the flowers of the gods; Sauti's fire (crackle, a bell as the vision
+    opens, a whirl on "churned"); Meru (a bright swell, bells); the amrita (a shimmer, a bloom
+    on "death"); Narayana (a rest, then the CONCH on "Churn"); the hosts (soft hit for the gods,
+    a low drum and boom for the asuras); the ocean (deep water, a glide for the makara); the
+    mountain (a boom) and the serpent (a hiss and a low bell); the short Next sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    s0, n0, f0, m0, a0, v0, x0, o0, c0, z0 = (st(i) for i in ('sisters', 'name', 'frame', 'meru', 'amrita', 'narayana', 'asuras', 'ocean', 'cliff', 'next'))
+    tan = tanpura_bed(N, D, 'ep11')
+    bed += tan * env_curve([(0, 0.35), (1.0, 0.6), (s0, 0.7), (f0, 0.55), (m0, 0.95), (v0, 0.5), (v0 + 0.8, 0.9), (o0, 0.6), (c0, 0.75), (D, 0.5)], N)
+    # the fire: under frame 1 and under the last frame (the loop), and Sauti's scene
+    fire = crackle(N, 'fire11')
+    stereo(fire * env_curve([(0, 0.7), (1.4, 0.25), (2.4, 0), (f0, 0), (f0 + 0.3, 0.6), (m0 - 0.2, 0.6), (m0 + 0.4, 0), (D - 1.0, 0), (D - 0.35, 0.7), (D, 0.7)], N) * 0.1, 0, roll=777)
+    # ── cold open: surf, a drum, a neigh as he breaks the water
+    w = water(N, 'sea11')
+    stereo(w * env_curve([(0, 0.45), (st('recap'), 0.2), (st('recap') + 0.4, 0), (s0, 0), (s0 + 0.5, 0.3), (f0 - 0.3, 0.25), (f0, 0), (x0, 0), (x0 + 0.4, 0.2), (o0, 0.35), (z0, 0.3), (z0 + 0.4, 0), (D, 0)], N), 0, roll=1600)
+    hit(0.02, 11000, 0.5, din=False, boom=0.35)
+    hb = beat('hook', 0)
+    add(bus_wet, pan(glide('neigh11', 700, 1500, 0.5, 0.8) + np.concatenate([np.zeros(smp(0.25)), glide('neigh11b', 1400, 600, 0.5, 0.6)])[:smp(0.5)], -0.1), hb)
+    hit(hb, 11001, 0.55, din=True)
+    tt0 = L['hook']['speechEnd'] + 0.05
+    for i, f in enumerate((293.66, 440.0, 587.33)):
+        bell(tt0 + 0.12 * i, f, 0.2 - 0.04 * i, -0.2 + 0.2 * i, ('title11', i))
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    # ── the shore, the name, the flowers
+    bell(beat('name', 0), 880.0, 0.2, 0.0, 'name11')
+    for i in range(7):
+        bell(beat('name', 2) - 0.3 + i * 0.16, (1318.5, 1760.0, 1174.66, 1567.98, 1975.53, 1318.5, 1760.0)[i], 0.06, -0.6 + 0.2 * i, ('petal11', i))
+    # ── Sauti's vision
+    bell(beat('frame', 0), 587.33, 0.18, 0.1, 'vision11')
+    n = smp(1.6)
+    t = tvec(n)
+    wh = bpf(rng('whirl11').standard_normal(n), 300, 2400) * np.sin(np.pi * t / t[-1]) ** 2 * (0.5 + 0.5 * np.sin(2 * np.pi * (2 + 4 * t) * t)) * 0.06
+    stereo(wh, beat('frame', 1) - 0.3, roll=400)
+    # ── Meru: a bright swell and bells
+    n = smp(en('meru') - m0 + 0.4)
+    t = tvec(n)
+    sw = sum(np.sin(2 * np.pi * f * t + j) for j, f in enumerate((SA * 2, SA * 3, SA * 4, SA * 5))) * np.sin(np.pi * t / t[-1]) * 0.03
+    add(bus_wet, fade(np.stack([sw, np.roll(sw, 700)]), 0.4, 0.6), m0)
+    for i, f in enumerate((587.33, 880.0, 1174.66)):
+        bell(beat('meru', 0) + 0.1 * i, f, 0.14, -0.3 + 0.3 * i, ('meru11', i))
+    # ── the amrita
+    shim = sum(np.sin(2 * np.pi * f * tvec(smp(2.5))) for f in (SA * 8, SA * 10, SA * 12)) * np.exp(-tvec(smp(2.5)) / 1.0) * 0.02
+    add(bus_wet, pan(shim, 0.2), beat('amrita', 0))
+    bell(beat('amrita', 1), 1174.66, 0.16, 0.0, 'death11')
+    # ── Narayana: the conch on "Churn"
+    cn = conch('conch11', 233.08, 2.4, 0.9)
+    add(bus_wet, pan(cn * 0.6, 0.0), beat('narayana', 0) - 0.05)
+    add(bus_dry, pan(cn * 0.3, 0.0), beat('narayana', 0) - 0.05)
+    bell(beat('narayana', 2), 1174.66, 0.18, 0.2, 'rise11')
+    # ── the hosts
+    hit(beat('asuras', 0), 11100, 0.4, din=True)
+    hit(beat('asuras', 1), 11110, 0.85, din=False, boom=0.6)
+    hit(beat('asuras', 2), 11120, 0.5, din=True)
+    # ── the ocean: a deep drone and the makara
+    dr = reed_drone(N, (SA / 2, SA / 2 * 3 / 2), 'deep11')
+    da = env_curve([(0, 0), (o0, 0), (o0 + 0.8, 0.3), (c0, 0.3), (z0, 0.2), (z0 + 0.4, 0), (D, 0)], N)
+    bed += pan(lpf(dr, 600) * da, -0.15) + pan(lpf(np.roll(dr, 3000), 600) * da, 0.15)
+    add(bus_wet, pan(glide('makara11', 180, 90, 1.2, 0.8), 0.3), beat('ocean', 2) - 0.2)
+    # ── the mountain and the serpent
+    hit(beat('cliff', 1), 11200, 0.9, din=False, boom=0.9)
+    n = smp(1.4)
+    t = tvec(n)
+    hiss = bpf(rng('hiss11').standard_normal(n), 3000, 9000) * np.minimum(1, t / 0.2) * np.exp(-t / 0.6) * 0.08
+    stereo(hiss, beat('cliff', 3) - 0.1, roll=300)
+    bell(beat('cliff', 3), 146.83, 0.26, 0.0, 'rope11')
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
+def build_ep12(tl):
+    """Episode 12: the fire under the first and last frames (loop); the mountain tearing from the
+    earth (a rumble from frame 1, cracks, a boom on "mountain"); a bell bloom under the title;
+    the recap sting; Shaunaka's question at the fire (crackle); Mandara (birdsong and water in
+    clear daylight; a low bell sinking with the roots); Ananta (a rest, then a deep drum and a
+    long boom with rock-fall on "tore"); the procession (a slow two-beat walking drum); the
+    Ocean (a rest, a conch-like swell, waves; a bell on "share"); Akupara rising from the deep
+    (a low glide; a drum as the mountain settles); Vasuki winding (a rising hiss-and-shimmer);
+    the hosts taking hold (two hits); the churn (a turning drone, a heavy alternating beat) and
+    the fire (a roar on "burn"); the short Next sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    k0, m0, a0, c0, o0, t0, r0, h0, x0, z0 = (st(i) for i in ('ask', 'mandara', 'ananta', 'carry', 'ocean', 'tortoise', 'rope', 'hold', 'cliff', 'next'))
+    tan = tanpura_bed(N, D, 'ep12')
+    bed += tan * env_curve([(0, 0.3), (1.0, 0.55), (m0, 0.8), (a0, 0.5), (c0, 0.8), (o0, 0.5), (t0, 0.7), (x0, 0.8), (D, 0.5)], N)
+    fire = crackle(N, 'fire12')
+    stereo(fire * env_curve([(0, 0.7), (1.4, 0.25), (2.4, 0), (k0, 0), (k0 + 0.3, 0.6), (m0 - 0.2, 0.6), (m0 + 0.4, 0), (D - 1.0, 0), (D - 0.35, 0.7), (D, 0.7)], N) * 0.1, 0, roll=777)
+    # ── cold open: the earth tearing
+    n = smp(3.6)
+    t = tvec(n)
+    rum = lpf(rng('rum12').standard_normal(n), 120, 2) * np.minimum(1, t / 0.05) * np.exp(-t / 2.5) * 1.2
+    stereo(rum, 0.0, roll=900)
+    for k in range(6):
+        add(bus_dry, pan(crackle(smp(0.25), ('crack12', k), 40.0) * 0.35, -0.3 + 0.12 * k), 0.15 + 0.35 * k)
+    hit(0.02, 12000, 0.5, din=False, boom=0.5)
+    hit(beat('hook', 1), 12001, 0.6, din=False, boom=0.6)
+    tt0 = L['hook']['speechEnd'] + 0.05
+    for i, f in enumerate((293.66, 440.0, 587.33)):
+        bell(tt0 + 0.12 * i, f, 0.2 - 0.04 * i, -0.2 + 0.2 * i, ('title12', i))
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    # ── Mandara in daylight: birds and water; a low bell as the camera sinks to the roots
+    for k in range(5):
+        add(bus_wet, pan(bird_chirp(('b12', k), 2400 + 300 * k, 3200 + 200 * k, 0.12) * 0.5, -0.6 + 0.3 * k), m0 + 0.3 + 0.7 * k)
+    w = water(smp(en('mandara') - m0), 'falls12')
+    stereo(w * 0.25, m0, roll=500)
+    bell(beat('mandara', 1), 146.83, 0.24, 0.0, 'roots12')
+    # ── Ananta: a rest, then the tearing
+    bell(beat('ananta', 0), 587.33, 0.14, -0.2, 'word12')
+    hit(beat('ananta', 3), 12100, 1.0, din=False, boom=1.0)
+    n = smp(2.5)
+    t = tvec(n)
+    fall = bpf(rng('fall12').standard_normal(n), 150, 1500) * np.exp(-t / 0.9) * 0.25
+    stereo(fall, beat('ananta', 3) + 0.05, roll=700)
+    # ── the procession: a two-beat walking drum
+    tb, k = c0 + 0.2, 0
+    while tb < en('carry') - 0.2:
+        hit(tb, (12200, k), 0.32 if k % 2 == 0 else 0.2, din=k % 2 == 1)
+        tb += 0.55
+        k += 1
+    # ── the Ocean speaks
+    cn = conch('ocean12', 196.0, 2.6, 0.7)
+    add(bus_wet, pan(cn * 0.5, 0.0), beat('ocean', 0) - 0.05)
+    w = water(smp(en('ocean') - o0 + 0.3), 'sea12')
+    stereo(w * 0.35, o0, roll=1600)
+    bell(beat('ocean', 1), 880.0, 0.16, 0.2, 'share12')
+    # ── Akupara rises; the mountain settles
+    add(bus_wet, pan(glide('tort12', 110, 70, 1.8, 0.8), 0.0), beat('tortoise', 0))
+    bell(beat('tortoise', 0) + 0.05, 440.0, 0.14, -0.2, 'akupara12')
+    hit(beat('tortoise', 2), 12300, 0.8, din=False, boom=0.7)
+    # ── Vasuki winds: a rising hiss and shimmer
+    n = smp(en('rope') - beat('rope', 0))
+    t = tvec(n)
+    hs = bpf(rng('wind12').standard_normal(n), 3000, 8000) * (t / t[-1]) * 0.05
+    sh = sum(np.sin(2 * np.pi * f * (1 + 0.3 * t / t[-1]) * t) for f in (SA * 4, SA * 6)) * (t / t[-1]) * 0.02
+    stereo(hs + sh, beat('rope', 0), roll=500)
+    bell(beat('rope', 0), 1174.66, 0.14, 0.3, 'vasuki12')
+    # ── the hosts take hold
+    hit(beat('hold', 0), 12400, 0.55, din=True, p=-0.4)
+    hit(beat('hold', 1), 12410, 0.7, din=True, p=0.4)
+    # ── the churn: a turning drone, an alternating heavy beat, the roar of fire
+    dr = reed_drone(N, (SA / 2, SA / 2 * 3 / 2), 'churn12')
+    da = env_curve([(0, 0), (x0, 0), (x0 + 1.0, 0.4), (z0, 0.4), (z0 + 0.4, 0), (D, 0)], N)
+    bed += pan(lpf(dr, 700) * da, -0.15) + pan(lpf(np.roll(dr, 2500), 700) * da, 0.15)
+    tb, k = beat('cliff', 0), 0
+    while tb < en('cliff') - 0.2:
+        hit(tb, (12500, k), 0.55, din=False, boom=0.25, p=-0.4 if k % 2 else 0.4)
+        tb += 0.7
+        k += 1
+    r = roar(smp(en('cliff') - beat('cliff', 1) + 0.3), 'burn12')
+    stereo(r * np.minimum(1, tvec(len(r)) / 0.4) * 0.12, beat('cliff', 1) - 0.2, roll=900)
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
     r = rng('dither')
@@ -1913,7 +2081,7 @@ def main():
                 return
         except Exception:
             pass
-    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10}[ep](tl)
+    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12}[ep](tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],
             'note': 'music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)'}

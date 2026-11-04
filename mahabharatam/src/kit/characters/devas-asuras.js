@@ -19,7 +19,7 @@
  *
  * Poses: stand · walk · pull (k, phase: hauling the serpent-rope, leaning back, hands at
  * chest height in front) · raise (k: weapon high) · strike (k) · point (k) · bow (k) ·
- * cower (k). (x, y) = feet. scale 1 ≈ 1050 px (deva) / 1100 px (asura) to the crown.
+ * cower (k) · carry (k: both hands raised under a load). (x, y) = feet. scale 1 ≈ 1050 px (deva) / 1100 px (asura) to the crown.
  */
 (function () {
   'use strict';
@@ -46,6 +46,7 @@
       if (po.name === 'raise') { nh = along(nh, [-80, -1160], k); wa = lerp(wa, -Math.PI / 2, k); }
       if (po.name === 'strike') { nh = along([-80, -1120], [-330, -640], k); wa = lerp(-Math.PI / 2, -0.2, k); r.lean = 0.18 * k; }
       if (po.name === 'point') { fh = along(fh, [-330, -830], k); }
+      if (po.name === 'carry') { nh = along(nh, [-60, -1090], k); fh = along(fh, [50, -1100], k); r.carry = k; }
       if (po.name === 'bow') { r.lean = 0.35 * k; r.look += 0.2 * k; }
       if (po.name === 'cower') { r.lean = -0.15 * k; nh = along(nh, [-120, -900], k); fh = along(fh, [-60, -880], k); r.look -= 0.25 * k; }
       r.hand = nh; r.farHand = fh; r.wa = wa; r.pull = po.name === 'pull' ? k : 0;
@@ -108,7 +109,7 @@
     const d = [Math.cos(r.wa), Math.sin(r.wa)], n = [-d[1], d[0]];
     const P = (a, b) => [c[0] + d[0] * a + n[0] * b, c[1] + d[1] * a + n[1] * b];
     const w = asura ? ['mace', 'sword', 'spear', 'club', 'mace', 'sword'][v] : ['spear', 'lotus', 'sword', 'spear', 'bow', 'lotus'][v];
-    if (r.pull > 0.5) return;   // both hands on the rope
+    if (r.pull > 0.5 || r.carry > 0.5) return;   // both hands on the rope / under the load
     if (w === 'spear') { limb(g, [P(-260, 0), P(380, 0)], [14, 12]); g.moveTo(...P(380, -18)); g.lineTo(...P(470, 0)); g.lineTo(...P(380, 18)); g.closePath(); cut(g); }
     else if (w === 'sword') { limb(g, [P(-40, 0), P(20, 0)], [20, 20]); g.moveTo(...P(20, -40)); g.lineTo(...P(30, -40)); g.lineTo(...P(30, 40)); g.lineTo(...P(20, 40)); g.closePath(); cut(g); g.moveTo(...P(30, -14)); g.lineTo(...P(300, -8)); g.lineTo(...P(340, 0)); g.lineTo(...P(30, 14)); g.closePath(); cut(g); }
     else if (w === 'mace') { limb(g, [P(-50, 0), P(240, 0)], [22, 22]); g.moveTo(...P(330, 0)); g.ellipse(...P(300, 0), 70, 52, r.wa, 0, TAU); cut(g); }
@@ -178,7 +179,7 @@
   }
 
   const common = { shape, ornaments, before: prabha, defaultPose: 'stand', bounds: () => [-560, -1340, 480, 30] };
-  const poses = [{ name: 'stand' }, { name: 'walk' }, { name: 'pull', note: 'k, phase: hauling the rope' }, { name: 'raise', note: 'k' }, { name: 'strike', note: 'k' }, { name: 'point', note: 'k' }, { name: 'bow', note: 'k' }, { name: 'cower', note: 'k' }];
+  const poses = [{ name: 'stand' }, { name: 'walk' }, { name: 'pull', note: 'k, phase: hauling the rope' }, { name: 'raise', note: 'k' }, { name: 'strike', note: 'k' }, { name: 'point', note: 'k' }, { name: 'bow', note: 'k' }, { name: 'cower', note: 'k' }, { name: 'carry', note: 'k: both hands raised under a load' }];
 
   CH.define({
     id: 'deva', rig: makeRig('deva'), ...common,

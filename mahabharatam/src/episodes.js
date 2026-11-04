@@ -30,6 +30,11 @@
     9: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', '_common', 's0-recap', 's1-hook', 's2-wives', 's3-boon', 's4-kadru', 's5-vinata', 's6-granted', 's7-eggs', 's8-jars', 's9-cliff', 's10-next'],
     // episode 10: the hermitage before dawn (ep09/_common), Aruna's red light, the open sky at dawn, the shore of the ocean
     10: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', '_common', 's0-recap', 's1-hook', 's2-shame', 's3-inside', 's4-name', 's5-curse', 's6-free', 's7-rise', 's8-dawn', 's9-cliff', 's10-next'],
+    // episode 11 (from here on: cold open → title → recap → story → cliffhanger image → silent Next card that loops):
+    // the shore, Meru in gold, the cosmic ocean (ep11/_common); the recap reuses episode 10's sky
+    11: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', '_common', 's1-hook', 's2-recap', 's3-sisters', 's4-name', 's5-frame', 's6-meru', 's7-amrita', 's8-narayana', 's9-asuras', 's10-ocean', 's11-cliff', 's12-next'],
+    // episode 12: the plain of the world by day (Mandara and its roots), the shore at evening, the deep, the churning rig (ep12/_common)
+    12: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', '_common', 's1-hook', 's2-recap', 's3-ask', 's4-mandara', 's5-ananta', 's6-carry', 's7-ocean', 's8-tortoise', 's9-rope', 's10-hold', 's11-cliff', 's12-next'],
   };
   const q = new URLSearchParams(location.search);
   const ep = +(q.get('ep') || 1);

@@ -252,7 +252,7 @@
           "Hari"
         ],
         "major": true,
-        "bible": null
+        "bible": "vishnu"
       },
       "shiva": {
         "name": "Shiva",
@@ -270,7 +270,7 @@
           "Pitamaha"
         ],
         "major": false,
-        "bible": null
+        "bible": "brahma"
       },
       "agni": {
         "name": "Agni",
@@ -357,13 +357,13 @@
         "name": "Kadru",
         "aliases": [],
         "major": false,
-        "bible": null
+        "bible": "kadru"
       },
       "vinata": {
         "name": "Vinata",
         "aliases": [],
         "major": false,
-        "bible": null
+        "bible": "vinata"
       },
       "kashyapa": {
         "name": "Kashyapa (the Prajapati)",
@@ -392,13 +392,13 @@
           "Ananta"
         ],
         "major": false,
-        "bible": null
+        "bible": "ananta"
       },
       "vasuki": {
         "name": "Vasuki",
         "aliases": [],
         "major": true,
-        "bible": null
+        "bible": "vasuki"
       },
       "elapatra": {
         "name": "Elapatra",
@@ -1313,6 +1313,39 @@
         "aliases": [],
         "major": false,
         "bible": null
+      },
+      "uchchaihshravas": {
+        "name": "Uchchaihshravas",
+        "aliases": [
+          "the white horse"
+        ],
+        "major": false,
+        "bible": "horse"
+      },
+      "devas": {
+        "name": "The devas (gods)",
+        "aliases": [
+          "the gods"
+        ],
+        "major": false,
+        "bible": "deva"
+      },
+      "asuras": {
+        "name": "The asuras (Danavas)",
+        "aliases": [
+          "Danavas",
+          "Daityas"
+        ],
+        "major": false,
+        "bible": "asura"
+      },
+      "mandara": {
+        "name": "Mount Mandara",
+        "aliases": [
+          "Mandara"
+        ],
+        "major": false,
+        "bible": "mandara"
       }
     },
     "themes": {
@@ -4253,11 +4286,12 @@
                 "theme-sages",
                 "theme-death-and-grief",
                 "char-sauti",
-                "char-takshaka"
+                "char-takshaka",
+                "lang-en"
               ],
-              "status": "in_production",
+              "status": "released",
               "languages": {
-                "en": "in_production"
+                "en": "released"
               },
               "tradition_note": false,
               "reorder_note": null,
@@ -4312,11 +4346,12 @@
                 "char-sauti",
                 "char-janamejaya",
                 "char-takshaka",
-                "char-indra"
+                "char-indra",
+                "lang-en"
               ],
-              "status": "in_production",
+              "status": "released",
               "languages": {
-                "en": "in_production"
+                "en": "released"
               },
               "tradition_note": false,
               "reorder_note": null,
@@ -4365,10 +4400,13 @@
                 "theme-births-and-origins",
                 "theme-serpents",
                 "theme-women-of-the-epic",
-                "theme-rivalry-and-revenge"
+                "theme-rivalry-and-revenge",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null
@@ -4412,10 +4450,13 @@
                 "layer-main",
                 "theme-curses",
                 "theme-births-and-origins",
-                "theme-women-of-the-epic"
+                "theme-women-of-the-epic",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null
@@ -4440,10 +4481,14 @@
               "synopsis": "Kadru and Vinata see Uchchaihshravas, the white king of horses, honoured by the gods. Where did he come from? Sauti answers with a story within the story: on Mount Meru the gods, longing for the amrita, the drink of immortality, asked how to win it, and Narayana told them: churn the ocean, gods and asuras together.",
               "cliffhanger": "To churn an ocean, they needed a mountain for a stick and a serpent for a rope.",
               "characters": [
+                "sauti",
                 "kadru",
                 "vinata",
+                "uchchaihshravas",
                 "vishnu",
-                "brahma"
+                "brahma",
+                "devas",
+                "asuras"
               ],
               "themes": [
                 "cosmology",
@@ -4452,7 +4497,8 @@
               ],
               "locations": [
                 "ocean-of-milk",
-                "meru"
+                "meru",
+                "naimisha"
               ],
               "playlists": [
                 "all",
@@ -4462,10 +4508,14 @@
                 "theme-cosmology",
                 "theme-gods",
                 "theme-animals-and-birds",
-                "char-vishnu"
+                "char-sauti",
+                "char-vishnu",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null
@@ -4638,7 +4688,7 @@
               "languages": {},
               "tradition_note": false,
               "reorder_note": null,
-              "notes": null
+              "notes": "The cliffhanger introduces the poison, which is later tradition (see S01E014): the line is marked \"As tradition tells it\" on screen."
             },
             {
               "id": "S01E014",
@@ -4654,7 +4704,7 @@
                   "adhyaya_from": 16,
                   "adhyaya_to": 16,
                   "approx": true,
-                  "label": "Adi 1.16 (approx.)"
+                  "label": "Adi 1.16 (the poison is in the vulgate/Southern recension, not the CE text)"
                 }
               ],
               "synopsis": "As the churning goes on, the kalakuta poison rises, its fumes engulfing the worlds. At Brahma's request Shiva takes the poison and holds it in his throat, and is called Nilakantha, the blue-throated.",
@@ -4666,7 +4716,8 @@
               "themes": [
                 "cosmology",
                 "gods",
-                "devotion"
+                "devotion",
+                "tradition-tales"
               ],
               "locations": [
                 "ocean-of-milk"
@@ -4679,13 +4730,15 @@
                 "theme-cosmology",
                 "theme-gods",
                 "theme-devotion",
-                "char-shiva"
+                "theme-tradition-tales",
+                "char-shiva",
+                "tradition"
               ],
               "status": "planned",
               "languages": {},
-              "tradition_note": false,
+              "tradition_note": true,
               "reorder_note": null,
-              "notes": "UNCERTAIN: the Halahala/kalakuta passage is believed to be in the CE's 1.16 as a brief mention; check the constituted text and, if it is only in the apparatus, mark the episode \"As tradition tells it\" (it is fully developed in the Puranas)."
+              "notes": "Checked: the kalakuta poison and Shiva holding it in his throat (Nilakantha) are NOT in the constituted text of the CE's Adi 1.16; the CE passes from Dhanvantari and the amrita to the asuras' clamour. The passage is found in Southern manuscripts and the vulgate (Ganguli's Adi 18) and was relegated by Sukthankar as an interpolation; it is fully developed in the Puranas. The episode keeps it, marked \"As tradition tells it\" on screen."
             },
             {
               "id": "S01E015",

@@ -114,7 +114,7 @@
         3,
         7
       ],
-      "captionY": "high",
+      "captionY": 1720,
       "note": "STORY 2. Close: the horse large in profile walking left along the surf, mane and tail streaming; his name in gold (pre: a 300 ms rest, bell on the name). On 'gods' small devas appear in the clouds above with lotus garlands, bowing. beats = name, 'horses', 'gods'."
     },
     {
@@ -162,8 +162,7 @@
       "emphasis": [
         "amrita"
       ],
-      "captionY": "high",
-      "note": "STORY 4. Closer on the devas, faces lifted; in a roundel above them a white pot pours light. beats = 'amrita' (the roundel), 'death' (its light flares)."
+      "note": "STORY 4. Closer on the devas, faces lifted; in a roundel above them a white pot pours light. beats = 'amrita' (the roundel), 'death' (its light flares). Caption at the default (bottom), below the medallion."
     },
     {
       "id": "narayana",

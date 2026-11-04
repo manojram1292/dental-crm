@@ -11,9 +11,9 @@
  * plume, and gold bands above the hooves. o.pose.tail (0..1) streaks the tail with black
  * (episode 18: the serpents hanging in it as black hairs).
  *
- * SIGNATURE LIGHT: moon-white. The only figure in the bible filled PALE: fill #c4cbe4
- * (shadow side), lit #ffffff, rim #b8ccff → #ffffff (a silver-blue edge), inner #eef2ff,
- * glow 0.9, gold ornaments. He is the brightest thing on any shore, never golden
+ * SIGNATURE LIGHT: moon-white. A figure filled PALE: fill #aeb6d4 (shadow side), lit
+ * #eef1fb, rim #b8ccff → #ffffff (a silver-blue edge), inner #dfe4f6, glow 0.55 (kept
+ * low so the white never blooms out), gold ornaments. He is the brightest thing on any shore, never golden
  * (that is the Sun) and never green or blue (the serpents, Indra).
  *
  * Poses: stand · walk (phase) · gallop (phase) · rear (k) · bow (k: head down, grazing
@@ -197,7 +197,7 @@
   function before(ctx, P, r, k) {
     // a faint moon-halo on the ground he stands on
     const s = P.s;
-    KIT.glow(ctx, P.x, P.y - 520 * s, 900 * s, '#dfe8ff', 0.22 * k);
+    KIT.glow(ctx, P.x, P.y - 520 * s, 900 * s, '#dfe8ff', 0.14 * k);
   }
 
   function after(ctx, P, r) {
@@ -221,10 +221,10 @@
   const bible = {
     name: 'Uchchaihshravas, king of horses',
     role: 'The white horse that rose from the churned ocean, honoured by the gods; the subject of Kadru and Vinata\'s wager (CE 1.15–20).',
-    palette: { fill: '#c4cbe4', lit: '#ffffff', inner: '#eef2ff', rimDim: '#b8ccff', rimBright: '#ffffff', ornamentDim: '#c8a040', ornament: '#ffe9a0' },
+    palette: { fill: '#aeb6d4', lit: '#eef1fb', inner: '#dfe4f6', rimDim: '#b8ccff', rimBright: '#ffffff', ornamentDim: '#c8a040', ornament: '#ffe9a0' },
     proportions: '≈ 1000 units to the poll, ≈ 1250 nose to tail; withers ≈ 790. Deep chest, fine wedge head, long mane and a tail to the ground.',
     props: ['gold headstall with a forehead jewel', 'jewelled collar', 'gold bands above the hooves', 'pose.tail: black hairs in the tail (episode 18)'],
-    light: 'Moon-white: the only PALE-filled figure (fill #c4cbe4 → lit #ffffff), silver-blue rim #b8ccff → #ffffff, inner #eef2ff, glow 0.9, gold ornaments.',
+    light: 'Moon-white: a PALE-filled figure (fill #aeb6d4 → lit #eef1fb), silver-blue rim #b8ccff → #ffffff, inner #dfe4f6, glow 0.55, gold ornaments.',
     poses: [{ name: 'stand' }, { name: 'walk', note: 'phase' }, { name: 'gallop', note: 'phase' }, { name: 'rear', note: 'k' }, { name: 'bow', note: 'k: head lowered' }],
     voice: null,
   };
@@ -232,8 +232,8 @@
   CH.define({
     id: 'horse', bible, rig, shape, ornaments, before, after, defaultPose: 'stand',
     rule: {
-      fill: '#c4cbe4', lit: '#ffffff', litGain: 0.9,
-      rim: ['#b8ccff', '#ffffff'], inner: '#eef2ff', innerA: [0.55, 0.3], glow: 0.9,
+      fill: '#aeb6d4', lit: '#eef1fb', litGain: 0.85,
+      rim: ['#b8ccff', '#ffffff'], inner: '#dfe4f6', innerA: [0.55, 0.3], glow: 0.55,
       ornament: ['#c8a040', '#ffe9a0'], ornamentA: [0.75, 1.0],
     },
     bounds: () => [-700, -1220, 1100, 40],

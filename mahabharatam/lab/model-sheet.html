@@ -57,6 +57,9 @@
   <script src="../src/kit/characters/vishnu.js"></script>
   <script src="../src/kit/characters/brahma.js"></script>
   <script src="../src/kit/characters/devas-asuras.js"></script>
+  <script src="../src/kit/characters/naga-kings.js"></script>
+  <script src="../src/kit/characters/mandara.js"></script>
+  <script src="../src/kit/characters/akupara.js"></script>
 <script>
 (async function () {
   'use strict';
@@ -121,6 +124,15 @@
     // episode 10
     { id: 'aruna', poses: [['stand', 'stand'], ['emerge', { name: 'emerge', k: 0.3 }], ['speak', { name: 'speak', k: 1 }, { speak: 0.8 }], ['curse · wrath', { name: 'curse', k: 1 }, { mood: 'wrath' }], ['point', { name: 'point', k: 1 }], ['rise', { name: 'rise', k: 1 }], ['rein', { name: 'rein', k: 1 }]], lightPose: 'stand' },
     { id: 'surya', frontal: true, poses: [['stand', 'stand', null, 'front']], lightPose: 'stand', lightFront: 0.6 },
+    // episodes 11–16 (the churning of the ocean): the horse, Narayana, Brahma, the two hosts, the serpent kings, Mandara
+    { id: 'horse', S: 0.2, poses: [['stand', 'stand'], ['walk', { name: 'walk', phase: 1.1 }], ['gallop', { name: 'gallop', phase: 0.6 }], ['rear', { name: 'rear', k: 1 }], ['bow', { name: 'bow', k: 1 }], ['tail · black hairs', { name: 'stand', tail: 1 }]], lightPose: 'stand', dx: 30 },
+    { id: 'vishnu', frontal: true, S: 0.36, poses: [['stand', 'stand', null, 'front'], ['bless', { name: 'bless', k: 1 }, null, 'front'], ['speak', { name: 'speak', k: 1 }, null, 'front'], ['discus', { name: 'discus', k: 1 }, null, 'front']], lightPose: 'stand', lightFront: 0.5 },
+    { id: 'brahma', frontal: true, S: 0.36, poses: [['sit', 'sit', null, 'front'], ['bless', { name: 'bless', k: 1 }, null, 'front'], ['speak', { name: 'speak', k: 1 }, null, 'front']], lightPose: 'sit', lightFront: 0.5 },
+    { id: 'deva', poses: [['stand · 0', 'stand', null, 'left', 0], ['walk · 1', { name: 'walk', phase: 1.1 }, null, 'left', 1], ['pull · 2', { name: 'pull', k: 1 }, null, 'left', 2], ['raise · 3', { name: 'raise', k: 1 }, null, 'left', 3], ['point · 4', { name: 'point', k: 1 }, null, 'left', 4], ['bow · 5', { name: 'bow', k: 1 }, null, 'left', 5]], lightPose: 'stand' },
+    { id: 'asura', poses: [['stand · 0', 'stand', null, 'left', 0], ['walk · 1', { name: 'walk', phase: 1.1 }, null, 'left', 1], ['pull · 2', { name: 'pull', k: 1 }, null, 'left', 2], ['raise · 3', { name: 'raise', k: 1 }, null, 'left', 3], ['strike · 4', { name: 'strike', k: 0.8 }, null, 'left', 4], ['cower · 5', { name: 'cower', k: 1 }, null, 'left', 5]], lightPose: 'stand' },
+    { id: 'vasuki', S: 0.26, poses: [['rise', { name: 'rise', k: 1 }], ['coil', 'coil'], ['rise · fire', { name: 'rise', k: 1, fire: 1 }]], lightPose: 'rise' },
+    { id: 'ananta', S: 0.24, poses: [['rise', { name: 'rise', k: 1 }], ['coil', 'coil']], lightPose: 'rise' },
+    { id: 'mandara', frontal: true, S: 0.17, poses: [['stand', 'stand', null, 'front'], ['uprooted', { name: 'uprooted', k: 1 }, null, 'front'], ['churn · burn', { name: 'churn', k: 1, spin: 0.8, burn: 1 }, null, 'front']], lightPose: 'stand', lightFront: 0.4 },
   ];
   const LIGHTS = [['key · fire left', CH.LIGHTS.key], ['back · rim from behind', CH.LIGHTS.back], ['low · dim fire in front', CH.LIGHTS.low]];
   const NPOSE = Math.max(...ROWS.map((r) => r.poses.length));
@@ -184,7 +196,9 @@
       const x = LEFT + i * (CW + GAP), cy = y + HEAD;
       const light = row.frontal ? { ...CH.LIGHTS.key, front: facing === 'back' ? 0 : (row.lightFront ?? 0.5) } : CH.LIGHTS.key;
       cell(x, cy, CW, CH_, light);
-      mod.draw(ctx, { x: x + CW / 2 + (row.frontal ? 0 : 20) + (row.dx || 0), y: cy + CH_ - 34, scale: S, pose, facing: facing || 'left', index: index ?? 0, expression: ex || {}, light, t: T0, key: `sheet` });
+      ctx.save(); ctx.beginPath(); ctx.rect(x, cy, CW, CH_); ctx.clip();
+      mod.draw(ctx, { x: x + CW / 2 + (row.frontal ? 0 : 20) + (row.dx || 0), y: cy + CH_ - 34, scale: row.S || S, pose, facing: facing || 'left', index: index ?? 0, expression: ex || {}, light, t: T0, key: `sheet` });
+      ctx.restore();
       label(lab, x + CW / 2, cy + CH_ - 10);
     });
     // the same pose under three lights
@@ -193,7 +207,9 @@
       const x = lx0 + i * (CW + GAP), cy = y + HEAD;
       const light = row.frontal ? { ...L, front: Math.max(L.front, i === 0 ? row.lightFront ?? 0.5 : L.front) } : L;
       cell(x, cy, CW, CH_, light);
-      mod.draw(ctx, { x: x + CW / 2 + (row.frontal ? 0 : 20) + (row.dx || 0), y: cy + CH_ - 34, scale: S, pose: row.lightPose, facing: 'left', index: 0, light, t: T0, key: 'sheet' });
+      ctx.save(); ctx.beginPath(); ctx.rect(x, cy, CW, CH_); ctx.clip();
+      mod.draw(ctx, { x: x + CW / 2 + (row.frontal ? 0 : 20) + (row.dx || 0), y: cy + CH_ - 34, scale: row.S || S, pose: row.lightPose, facing: row.frontal ? 'front' : 'left', index: 0, light, t: T0, key: 'sheet' });
+      ctx.restore();
       label(lab, x + CW / 2, cy + CH_ - 10);
     });
     if (row === ROWS[0]) title('THE SAME FIGURE UNDER THREE LIGHTS', lx0, y + 36, 20, '#9a8f7d');
@@ -206,7 +222,7 @@
   const ly = y + 50, lh = LINEUP_H - 70;
   ctx.save(); ctx.fillStyle = '#0d0907'; ctx.fillRect(40, ly, W - 80, lh); ctx.restore();
   KIT.glow(ctx, W / 2, ly + lh + 60, 900, '#f08a24', 0.35, 'lighter', 0.4);
-  const cast = [['sauti', 'stand', 'left'], ['elder', { name: 'speak', k: 1 }, 'left'], ['sage', 'sit', 'front', 2], ['sage', 'sit', 'front', 1], ['parashurama', { name: 'raise-axe', k: 1 }, 'left'], ['pitr', { name: 'bless', k: 1 }, 'front', 0], ['vyasa', 'stand', 'left'], ['janamejaya', 'stand', 'left'], ['sauti', 'sit', 'right'], ['parashurama', 'walk', 'right'], ['takshaka', 'stand', 'left'], ['sarama', 'stand', 'left'], ['pup', 'stand', 'left'], ['prince', 'stand', 'left', 2], ['uttanka', { name: 'walk', phase: 1.1 }, 'left'], ['queen', 'stand', 'left'], ['gurupatni', 'stand', 'left'], ['parikshit', 'stand', 'left'], ['shamika', 'stand', 'left'], ['shringin', 'stand', 'left'], ['priest', 'stand', 'left', 0], ['indra', 'stand', 'left'], ['sthapati', 'stand', 'left'], ['kadru', 'stand', 'left'], ['vinata', 'stand', 'left'], ['kashyapa', 'stand', 'left'], ['aruna', 'stand', 'left'], ['surya', 'stand', 'front']];
+  const cast = [['sauti', 'stand', 'left'], ['elder', { name: 'speak', k: 1 }, 'left'], ['sage', 'sit', 'front', 2], ['sage', 'sit', 'front', 1], ['parashurama', { name: 'raise-axe', k: 1 }, 'left'], ['pitr', { name: 'bless', k: 1 }, 'front', 0], ['vyasa', 'stand', 'left'], ['janamejaya', 'stand', 'left'], ['sauti', 'sit', 'right'], ['parashurama', 'walk', 'right'], ['takshaka', 'stand', 'left'], ['sarama', 'stand', 'left'], ['pup', 'stand', 'left'], ['prince', 'stand', 'left', 2], ['uttanka', { name: 'walk', phase: 1.1 }, 'left'], ['queen', 'stand', 'left'], ['gurupatni', 'stand', 'left'], ['parikshit', 'stand', 'left'], ['shamika', 'stand', 'left'], ['shringin', 'stand', 'left'], ['priest', 'stand', 'left', 0], ['indra', 'stand', 'left'], ['sthapati', 'stand', 'left'], ['kadru', 'stand', 'left'], ['vinata', 'stand', 'left'], ['kashyapa', 'stand', 'left'], ['aruna', 'stand', 'left'], ['surya', 'stand', 'front'], ['vishnu', 'stand', 'front'], ['deva', 'stand', 'left', 1], ['asura', 'stand', 'left', 2]];
   const big = 0.3, small = 0.14;
   cast.forEach(([id, pose, facing, index], i) => {
     const x = 160 + i * ((W - 320) / (cast.length - 1));

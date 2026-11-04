@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.7958,
+   "words": 6,
+   "speed": 0.81,
+   "text": "Narayana told the gods and asuras:"
+  },
+  {
+   "t0": 2.8758,
+   "t1": 4.5948,
+   "words": 4,
+   "speed": 0.81,
+   "text": "churn the ocean together."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

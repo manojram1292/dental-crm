@@ -223,5 +223,12 @@
   "pitch": -2.5,
   "g2p": "en-us",
   "notes": "Episode 11+: the asuras as a group (reserved): heavy, low."
+ },
+ "samudra": {
+  "voice": "am_santa",
+  "speed": 0.8,
+  "pitch": -2,
+  "g2p": "en-us",
+  "notes": "Episode 12: the Ocean (Samudra). A broad, deep voice (am_santa lowered 2 st), used by no one else."
  }
 }

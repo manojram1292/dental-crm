@@ -1,0 +1,30 @@
+{
+ "speaker": "samudra",
+ "voice": "am_santa",
+ "speed": 0.8,
+ "pitch": -2,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.8466,
+   "words": 2,
+   "speed": 0.8,
+   "text": "Churn me,"
+  },
+  {
+   "t0": 0.9266,
+   "t1": 1.6367,
+   "words": 1,
+   "speed": 0.8,
+   "text": "then."
+  },
+  {
+   "t0": 1.8867,
+   "t1": 5.5965,
+   "words": 10,
+   "speed": 0.8,
+   "text": "But I too must have my share of the amrita."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

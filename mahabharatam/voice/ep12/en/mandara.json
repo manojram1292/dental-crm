@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9949,
+   "words": 2,
+   "speed": 0.81,
+   "text": "With Mandara:"
+  },
+  {
+   "t0": 1.0949,
+   "t1": 2.8097,
+   "words": 4,
+   "speed": 0.81,
+   "text": "a mountain of forests,"
+  },
+  {
+   "t0": 2.8897,
+   "t1": 5.9889,
+   "words": 9,
+   "speed": 0.81,
+   "text": "as deep below the earth as it rose above."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
