@@ -1,0 +1,224 @@
+{
+  "lang": "en",
+  "episode": 19,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 20: in his time Garuda breaks out of his egg, huge and blazing like a heap of fire, and rises into the sky; the gods, taking his blaze for Agni's, run to Agni (Vibhavasu), who tells them it is Garuda, son of Vinata, his equal in splendour; the gods praise Garuda, who draws in his radiance; he goes to his mother and finds her a slave (1.20–21).",
+  "structure": "From episode 11: COLD OPEN (the hook over the episode's strongest image, big on-screen text from frame 1; KIT.series.hookCard) → title (the hook's post) → RECAP (≈2.5 s) → STORY (with a brief cut to Sauti at the Naimisha fire) → the cliffhanger image + line → a silent ≈1.5 s Next card that dissolves back into the first frame (KIT.series.loopNextScene).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 19",
+    "episodeTitle": "Garuda Is Born",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 18",
+    "prevEpisodeTitle": "The Black Hairs",
+    "nextEpisodeLabel": "Episode 20",
+    "nextTitle": "Carrying the Serpents",
+    "garudaName": "Garuda",
+    "garudaEpithet": "king of birds, son of Vinata",
+    "agniName": "Agni",
+    "agniEpithet": "god of fire"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "Who was born so bright that the gods thought the world was burning?",
+      "say": "Who was born so bright [p:60] that the gods thought the world was burning?",
+      "est": 3.6,
+      "pre": 60,
+      "post": 1400,
+      "beats": [
+        4,
+        6,
+        11
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "bright",
+        "burning"
+      ],
+      "note": "COLD OPEN (moving from frame 1): Garuda rising out of a burst of fire, wings opening, blazing gold against a red sky; the question in big text from frame 1."
+    },
+    {
+      "id": "recap",
+      "text": "Vinata lost the wager, and became her sister's slave.",
+      "say": "Vinata lost the wager, [p:80] and became her sister's slave.",
+      "est": 3.2,
+      "pre": 100,
+      "post": 150,
+      "beats": [
+        0,
+        8
+      ],
+      "role": "recap",
+      "note": "RECAP: episode 18's image as a memory: Vinata bowed in slavery, Kadru standing over her."
+    },
+    {
+      "id": "hatch",
+      "text": "In his own time, the second egg broke open.",
+      "say": "In his own time, [p:100] the second egg broke open.",
+      "est": 3.2,
+      "pre": 150,
+      "post": 200,
+      "beats": [
+        3,
+        7
+      ],
+      "note": "STORY 1: Kashyapa's hermitage before dawn, the gold egg in its jar; on 'broke' (beats[1]) it splits and fire pours out."
+    },
+    {
+      "id": "rise",
+      "text": "Out came Garuda: huge, blazing like a heap of fire, rising into the sky.",
+      "say": "Out came Garuda: [p:150] huge, [p:80] blazing like a heap of fire, [p:80] rising into the sky.",
+      "est": 5.6,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        2,
+        3,
+        4,
+        12
+      ],
+      "emphasis": [
+        "Garuda"
+      ],
+      "captionY": "high",
+      "note": "STORY 2 · REVEAL: Garuda rises LARGE out of the fire, wings opening (beats[0] name card); the whole frame burns gold (blaze); he lifts into the sky (beats[3])."
+    },
+    {
+      "id": "gods",
+      "text": "The gods were afraid, and ran to Agni, the god of fire.",
+      "say": "The gods were afraid, [p:80] and ran to Agni, the god of fire.",
+      "est": 4.0,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        3,
+        7,
+        9
+      ],
+      "emphasis": [
+        "Agni"
+      ],
+      "note": "STORY 3: Indra's heaven under a burning sky (EP8.svarga, reddened): the gods hurry toward Agni, whose seven tongues of fire rise behind him; name card."
+    },
+    {
+      "id": "agni",
+      "speaker": "agni",
+      "text": "\"This is not my fire. It is Garuda, Vinata's son, as bright as I am.\"",
+      "say": "This is not my fire. [p:150] It is Garuda, [p:80] Vinata's son, [p:80] as bright as I am.",
+      "est": 5.0,
+      "pre": 350,
+      "post": 300,
+      "beats": [
+        4,
+        7,
+        9,
+        13
+      ],
+      "captionY": "high",
+      "note": "STORY 4 · THE TURN (≈ 45 %): after a 350 ms rest, Agni speaks (direct speech), LARGE, pointing out across the sky at the distant blaze."
+    },
+    {
+      "id": "praise",
+      "text": "So the gods praised Garuda, and asked him to spare them.",
+      "say": "So the gods praised Garuda, [p:100] and asked him to spare them.",
+      "est": 3.8,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        3,
+        8
+      ],
+      "note": "STORY 5: the gods with folded hands (bow) before Garuda, who hangs in the sky, wings spread, blazing."
+    },
+    {
+      "id": "dim",
+      "text": "He heard them, and drew in his fire.",
+      "say": "He heard them, [p:120] and drew in his fire.",
+      "est": 3.0,
+      "pre": 150,
+      "post": 350,
+      "beats": [
+        1,
+        6
+      ],
+      "note": "STORY 6: the blaze draws back into him (blaze 1 → 0), the sky cools to dawn colours; he folds his wings halfway (beats[1])."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "text": "Then the great bird flew home, to his mother.",
+      "say": "Then the great bird flew home, [p:80] to his mother.",
+      "est": 3.0,
+      "pre": 200,
+      "post": 200,
+      "beats": [
+        3,
+        8
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, an eighth angle: from high above the clearing, the fire a small sun; a bird's shadow passes over the sages)."
+    },
+    {
+      "id": "mother",
+      "text": "He found Vinata, and learned that she was a slave.",
+      "say": "He found Vinata, [p:150] and learned that she was a slave.",
+      "est": 3.8,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        2,
+        8
+      ],
+      "note": "STORY 7: the shore; Garuda alights before Vinata, who kneels with her head covered (slave); he bows to her; on 'slave' (beats[1]) Kadru's shadow falls across them both."
+    },
+    {
+      "id": "cliff",
+      "text": "And his first task as a slave's son: to carry the serpents.",
+      "say": "And his first task as a slave's son: [p:200] to carry the serpents.",
+      "est": 4.2,
+      "pre": 250,
+      "post": 450,
+      "beats": [
+        4,
+        9,
+        10
+      ],
+      "role": "next",
+      "note": "NEXT 1 (cliffhanger image): Kadru points; a heap of her serpent sons rears before Garuda, who looks at them, his eye burning."
+    },
+    {
+      "id": "next",
+      "text": "Next: Carrying the Serpents",
+      "voice": false,
+      "est": 1.7,
+      "role": "next",
+      "caption": false,
+      "note": "The short, silent Next card: a glimpse of episode 20: Garuda flying high with serpents on his back toward the sun; then the loop back to frame 1."
+    }
+  ]
+}

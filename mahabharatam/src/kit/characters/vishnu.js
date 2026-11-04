@@ -40,6 +40,7 @@
     if (po.name === 'discus') { r.ur = along(r.ur, [-300, -1180], k); }
     r.discusR = 70 + (po.name === 'discus' ? 50 * k : 0);
     r.spin = T * (po.name === 'discus' ? 3 + 6 * k : 0.6);
+    r.noDiscus = !!po.noDiscus;   // the discus is away (in flight, drawn by the scene)
     return r;
   }
 
@@ -139,6 +140,7 @@
   }
 
   function after(ctx, P, r) {
+    if (r.noDiscus) return;
     const sx = P.flip ? -P.s : P.s;
     const x = P.x + r.ur[0] * sx, y = P.y + (r.ur[1] - 70 - r.discusR * 0.4) * P.s;
     discus(ctx, x, y, r.discusR * P.s, r.T, 1, r.spin);

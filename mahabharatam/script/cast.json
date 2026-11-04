@@ -230,5 +230,47 @@
   "pitch": -2,
   "g2p": "en-us",
   "notes": "Episode 12: the Ocean (Samudra). A broad, deep voice (am_santa lowered 2 st), used by no one else."
+ },
+ "agni": {
+  "voice": "am_puck",
+  "speed": 0.8,
+  "pitch": -2.5,
+  "g2p": "en-us",
+  "notes": "Episode 19: Agni, god of fire. am_puck lowered 2.5 st (Uttanka uses it at +0.5): bright but deep, a crackle of warmth."
+ },
+ "garuda": {
+  "voice": "am_liam",
+  "speed": 0.84,
+  "pitch": -1.5,
+  "g2p": "en-us",
+  "notes": "Episode 19+: Garuda. am_liam lowered 1.5 st (Shringin uses it at +0.5): young, strong, earnest."
+ },
+ "nagas": {
+  "voice": "af_nicole",
+  "speed": 0.8,
+  "pitch": -2,
+  "g2p": "en-us",
+  "notes": "Episode 20+: the serpents as a group: a cool whisper, lowered 2 st."
+ },
+ "enchantress": {
+  "voice": "af_bella",
+  "speed": 0.84,
+  "pitch": 0,
+  "g2p": "en-us",
+  "notes": "Reserved (the enchantress does not speak in the CE's account)."
+ },
+ "rahu": {
+  "voice": "am_onyx",
+  "speed": 0.76,
+  "pitch": -3,
+  "g2p": "en-us",
+  "notes": "Reserved."
+ },
+ "dhanvantari": {
+  "voice": "bm_daniel",
+  "speed": 0.8,
+  "pitch": 0.5,
+  "g2p": "en-gb",
+  "notes": "Reserved."
  }
 }

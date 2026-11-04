@@ -1,0 +1,37 @@
+{
+ "speaker": "agni",
+ "voice": "am_puck",
+ "speed": 0.8,
+ "pitch": -2.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3253,
+   "words": 5,
+   "speed": 0.8,
+   "text": "This is not my fire."
+  },
+  {
+   "t0": 1.5753,
+   "t1": 2.6315,
+   "words": 3,
+   "speed": 0.8,
+   "text": "It is Garuda,"
+  },
+  {
+   "t0": 2.7115,
+   "t1": 3.7835,
+   "words": 2,
+   "speed": 0.8,
+   "text": "Vinata's son,"
+  },
+  {
+   "t0": 3.8635,
+   "t1": 5.205,
+   "words": 5,
+   "speed": 0.8,
+   "text": "as bright as I am."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

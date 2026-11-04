@@ -1,0 +1,16 @@
+{
+ "speaker": "vinata",
+ "voice": "bf_lily",
+ "speed": 0.82,
+ "pitch": 0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7789,
+   "words": 4,
+   "speed": 0.82,
+   "text": "He is all white."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

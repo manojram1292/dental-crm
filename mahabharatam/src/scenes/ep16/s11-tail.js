@@ -17,7 +17,7 @@
       const pt = E.inOutCubic(clamp((t - b1 + 0.4) / 0.5));
       EP11.shore(ctx, T, {
         cam: { zoom: 1.5, dx: -120, dy: -260 },
-        horse: { x: 700, y: 1140, scale: 0.3, pose: 'stand' },
+        horse: { x: 740, y: 1110, scale: 0.18, pose: 'stand' },
         after: (g) => CH.kadru.draw(g, { x: 330, y: 2000, scale: 1.25, facing: 'right', pose: pt > 0.01 ? { name: 'point', k: pt } : { name: 'speak', k: 1 }, expression: { mood: pt > 0.4 ? 'wrath' : 'calm', speak: EP11.mouth(env, t) }, light: { dir: Math.atan2(1080 - 1400, 820 - 330), intensity: 1.1, front: 0.45 }, t: T, key: 't16-kd' }),
       });
     },

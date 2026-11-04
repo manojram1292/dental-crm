@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.272,
+   "words": 7,
+   "speed": 0.81,
+   "text": "The loser would be the winner's slave."
+  },
+  {
+   "t0": 2.522,
+   "t1": 4.0749,
+   "words": 5,
+   "speed": 0.81,
+   "text": "They would look at dawn."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

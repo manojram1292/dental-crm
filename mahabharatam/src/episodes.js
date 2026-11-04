@@ -43,6 +43,10 @@
     15: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', '_common', 's1-hook', 's2-recap', 's3-clamour', 's4-frame', 's5-enchantress', 's6-pot', 's7-rahu', 's8-sun', 's9-discus', 's10-head', 's11-eclipse', 's12-cliff', 's13-next'],
     // episode 16: the shore in battle at night (ep16/_common), dawn on the plain, the Naimisha fire closing the tale, the shore at sunrise
     16: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', '_common', 's1-hook', 's2-recap', 's3-clash', 's4-rocks', 's5-discus', 's6-nara', 's7-flee', 's8-restore', 's9-sauti', 's10-cliff', 's11-tail', 's12-next'],
+    // episode 17 (the Garuda arc): the shore at sunset, the serpents' grove at night, Meru's summit, Kashyapa's hermitage, the ocean at dawn (ep17/_common)
+    17: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', '_common', 's1-hook', 's2-recap', 's3-white', 's4-black', 's5-stakes', 's6-frame', 's7-order', 's8-refuse', 's9-curse', 's10-brahma', 's11-kashyapa', 's12-cliff', 's13-next'],
+    // episode 18: the ocean from above and beneath (the fire under the sea), a night flashback, the far shore, the red sky, the hermitage (ep17/_common)
+    18: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', 's1-hook', 's2-recap', 's3-fly', 's4-deep', 's5-frame', 's6-sons', 's7-arrive', 's8-tail', 's9-lost', 's10-slave', 's11-aruna', 's12-cliff', 's13-next'],
   };
   const q = new URLSearchParams(location.search);
   const ep = +(q.get('ep') || 1);

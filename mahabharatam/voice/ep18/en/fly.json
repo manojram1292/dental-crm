@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.4163,
+   "words": 7,
+   "speed": 0.81,
+   "text": "The sisters flew out over the ocean,"
+  },
+  {
+   "t0": 2.4963,
+   "t1": 4.5667,
+   "words": 6,
+   "speed": 0.81,
+   "text": "the home of all the waters."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

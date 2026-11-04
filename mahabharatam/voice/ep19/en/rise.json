@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.297,
+   "words": 3,
+   "speed": 0.81,
+   "text": "Out came Garuda:"
+  },
+  {
+   "t0": 1.447,
+   "t1": 2.3415,
+   "words": 1,
+   "speed": 0.81,
+   "text": "huge,"
+  },
+  {
+   "t0": 2.4215,
+   "t1": 4.5447,
+   "words": 6,
+   "speed": 0.81,
+   "text": "blazing like a heap of fire,"
+  },
+  {
+   "t0": 4.6247,
+   "t1": 6.4277,
+   "words": 4,
+   "speed": 0.81,
+   "text": "rising into the sky."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

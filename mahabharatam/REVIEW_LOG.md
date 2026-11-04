@@ -114,3 +114,23 @@ moment of the arc. Brahma's ivory light alone in the dark is a clean turn at 45 
    rather than soft blobs.
 3. Plaques move up to y 250 wherever a three-line caption sits under them, so names and captions never
    overlap.
+
+## Episode 15 · The Enchantress and Rahu (57.6 s)
+
+**Works.** The new dusk light (violet to rose, motes of illusion) is the arc's most distinctive palette. The
+enchantress reads at a glance: tall profile, floating veil. Rahu's severed head is the strongest new image
+of the arc, and it is never gore: a great crowned head in a half-transparent eclipse corona, the neck ending
+in a band of white fire. The Sun's direct speech ("He is no god. He is Rahu!") with two beams of light
+pointing down makes a clear turn at 56 %. The eclipse bite closes the myth visually.
+
+**Weak.**
+1. In the discus shot Narayana still holds his discus while it is also flying: two discuses on screen.
+2. The clamour shot (2.9 s) is mostly empty white sea with arms cut at the edges.
+3. Among the seated gods, Rahu's disguise is too good: he does not stand out until the slip.
+
+**Fixes carried into episode 16.**
+1. `vishnu` gets `pose.noDiscus`: while Sudarshana flies, his hand is empty (the kit change is
+   additive; earlier episodes don't use it).
+2. Crowd shots are framed so every figure is whole: the battle frieze uses four per side at staggered depths.
+3. A disguised figure keeps a faint signature glow (`rahu`: 0.22 eclipse glow even in disguise), the way
+   episode 15 was re-tuned before render; in ep 16 Nara's storm-jade rim marks him out among the gods.

@@ -20,7 +20,7 @@
         streaks: 0.3, hz: 1500,
         after: (g) => {
           KIT.glow(g, 540, 900, 900, '#ffe8a0', 0.25 + 0.3 * come);
-          CH.vishnu.draw(g, { x: 560, y: 2040, scale: 1.18, facing: 'front', pose: { name: 'discus', k: raise * (0.4 + 0.6 * flare) }, light: { dir: -Math.PI / 2, intensity: 1.15, front: 0.55 }, t: T, key: 'v16-vi' });
+          CH.vishnu.draw(g, { x: 560, y: 2040, scale: 1.18, facing: 'front', pose: { name: 'discus', k: raise * (0.4 + 0.6 * flare), noDiscus: come < 0.999 }, light: { dir: -Math.PI / 2, intensity: 1.15, front: 0.55 }, t: T, key: 'v16-vi' });
           if (come < 0.999) CH.vishnu.discus(g, lerp(1000, 560 - 300 * 1.18, come), lerp(-100, 2040 - 1260 * 1.18, come), 90, T, 1, T * 10);
         },
       });

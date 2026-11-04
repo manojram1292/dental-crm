@@ -1,0 +1,241 @@
+{
+  "lang": "en",
+  "episode": 17,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 18: Kadru asks Vinata the colour of Uchchaihshravas; Vinata says white, Kadru that the tail is black; they wager slavery and agree to look the next day; Kadru orders her thousand sons to become black hairs in the tail; those who refuse she curses to burn in Janamejaya's snake sacrifice; Brahma, seeing the serpents grown many and venomous, lets the curse stand and gives Kashyapa the knowledge that cures poison.",
+  "structure": "From episode 11: COLD OPEN (the hook over the episode's strongest image, big on-screen text from frame 1; KIT.series.hookCard) → title (the hook's post) → RECAP (≈2.5 s) → STORY (with a brief cut to Sauti at the Naimisha fire) → the cliffhanger image + line → a silent ≈1.5 s Next card that dissolves back into the first frame (KIT.series.loopNextScene).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 17",
+    "episodeTitle": "The Wager",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 16",
+    "prevEpisodeTitle": "The War for the Amrita",
+    "nextEpisodeLabel": "Episode 18",
+    "nextTitle": "The Black Hairs",
+    "stakeLabel": "The loser becomes the winner's slave",
+    "curseLabel": "Janamejaya's snake sacrifice",
+    "kashyapaName": "Kashyapa",
+    "kashyapaEpithet": "the cure for every poison"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "What if a bet about a horse's tail could cost you your freedom?",
+      "say": "What if a bet about a horse's tail [p:80] could cost you your freedom?",
+      "est": 3.6,
+      "pre": 60,
+      "post": 1400,
+      "beats": [
+        3,
+        6,
+        11
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "tail",
+        "freedom"
+      ],
+      "note": "COLD OPEN (moving from frame 1): close on the white horse's tail streaming in the sunset wind; dark strands creep into it, one by one; behind, two women's silhouettes face each other. The question in big text from frame 1."
+    },
+    {
+      "id": "recap",
+      "text": "The white horse had risen from the churning of the ocean.",
+      "say": "The white horse had risen from the churning of the ocean.",
+      "est": 3.0,
+      "pre": 100,
+      "post": 150,
+      "beats": [
+        2,
+        8
+      ],
+      "role": "recap",
+      "note": "RECAP: episode 16's closing image as a memory: Sauti's medallion of the white horse on the shore."
+    },
+    {
+      "id": "white",
+      "speaker": "vinata",
+      "text": "\"He is all white.\"",
+      "say": "He is all white.",
+      "est": 2.0,
+      "pre": 150,
+      "post": 200,
+      "beats": [
+        1,
+        3
+      ],
+      "note": "STORY 1 (Vinata speaks): the shore at sunset (NEW LIGHT: low gold from the right). Vinata, LARGE, calm, looking out at the horse."
+    },
+    {
+      "id": "black",
+      "speaker": "kadru",
+      "text": "\"His tail is black.\"",
+      "say": "His tail is black.",
+      "est": 2.0,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        1,
+        3
+      ],
+      "note": "STORY 2 (Kadru speaks): reverse angle: Kadru, LARGE, the green glint in her eye, a thin smile; she points at the tail."
+    },
+    {
+      "id": "stakes",
+      "text": "The loser would be the winner's slave. They would look at dawn.",
+      "say": "The loser would be the winner's slave. [p:200] They would look at dawn.",
+      "est": 4.6,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        1,
+        5,
+        11
+      ],
+      "note": "STORY 3: the two sisters face to face, the setting sun between them; a card: 'The loser becomes the winner's slave'; the sun goes down (beats[2] 'dawn': the sky darkens to night)."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "text": "But Kadru did not wait for dawn.",
+      "say": "But Kadru did not wait for dawn.",
+      "est": 2.4,
+      "pre": 200,
+      "post": 200,
+      "beats": [
+        1,
+        6
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, the sages leaning in, a sixth angle: over the elder's shoulder): a sly beat."
+    },
+    {
+      "id": "order",
+      "speaker": "kadru",
+      "text": "\"My sons, hang from his tail, like black hairs.\"",
+      "say": "My sons, [p:150] hang from his tail, [p:100] like black hairs.",
+      "est": 3.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        1,
+        4,
+        7
+      ],
+      "captionY": "high",
+      "note": "STORY 4 · NEW PLACE AND LIGHT: the serpents' grove at night, deep green moonlight among great roots. Kadru, her five-hooded diadem glinting, speaks to her sons rearing round her (many hoods, varied)."
+    },
+    {
+      "id": "refuse",
+      "text": "Some of her sons refused.",
+      "say": "Some of her sons [p:100] refused.",
+      "est": 2.4,
+      "pre": 350,
+      "post": 300,
+      "beats": [
+        3
+      ],
+      "note": "STORY 5 · THE TURN (≈ 50 %): after a 350 ms rest: a row of serpents turn their hoods away from her, one by one (beats[0])."
+    },
+    {
+      "id": "curse",
+      "speaker": "kadru",
+      "text": "\"Then burn in the fire of Janamejaya's snake sacrifice!\"",
+      "say": "Then burn [p:100] in the fire [p:80] of Janamejaya's snake sacrifice!",
+      "est": 3.8,
+      "pre": 150,
+      "post": 300,
+      "beats": [
+        1,
+        4,
+        6
+      ],
+      "captionY": "high",
+      "note": "STORY 6 (Kadru's curse): Kadru's finger high (curse pose), her eye green fire; above, a gold-ringed medallion opens on the snake sacrifice of episode 8, serpents falling into the flames (a callback). beats = 'burn', 'fire', 'Janamejaya's'."
+    },
+    {
+      "id": "brahma",
+      "text": "Brahma let the curse stand: the serpents had grown too many, and too venomous.",
+      "say": "Brahma let the curse stand: [p:150] the serpents had grown too many, [p:80] and too venomous.",
+      "est": 5.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        3,
+        9,
+        12
+      ],
+      "emphasis": [
+        "Brahma"
+      ],
+      "note": "STORY 7: Brahma on his lotus on Meru's summit, grave, his hand lowered (beats[1]); the serpents' shadows multiply below (beats[2])."
+    },
+    {
+      "id": "kashyapa",
+      "text": "And to Kashyapa he gave the knowledge that cures all poison.",
+      "say": "And to Kashyapa [p:100] he gave the knowledge that cures all poison.",
+      "est": 4.0,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        2,
+        5,
+        9
+      ],
+      "emphasis": [
+        "Kashyapa"
+      ],
+      "note": "STORY 8: Kashyapa, seated, receives a small light from Brahma's raised hand into his cupped palms (beats[1]); name card."
+    },
+    {
+      "id": "cliff",
+      "text": "At dawn the sisters flew out over the ocean to look.",
+      "say": "At dawn [p:100] the sisters flew out over the ocean to look.",
+      "est": 3.8,
+      "pre": 200,
+      "post": 450,
+      "beats": [
+        1,
+        4,
+        7,
+        10
+      ],
+      "role": "next",
+      "note": "NEXT 1 (cliffhanger image): dawn over the endless ocean; the two sisters flying out over it, small against the sky, toward the horizon."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Black Hairs",
+      "voice": false,
+      "est": 1.7,
+      "role": "next",
+      "caption": false,
+      "note": "The short, silent Next card: a glimpse of episode 18: the horse's tail, streaked with black; then the loop back to frame 1."
+    }
+  ]
+}

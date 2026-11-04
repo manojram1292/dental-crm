@@ -1,0 +1,23 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.8964,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.5775,
+   "words": 8,
+   "speed": 0.896,
+   "text": "What if a bet about a horse's tail"
+  },
+  {
+   "t0": 2.6575,
+   "t1": 5.0228,
+   "words": 5,
+   "speed": 0.896,
+   "text": "could cost you your freedom?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,30 @@
+{
+ "speaker": "kadru",
+ "voice": "bf_alice",
+ "speed": 0.82,
+ "pitch": -0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9752,
+   "words": 2,
+   "speed": 0.82,
+   "text": "Then burn"
+  },
+  {
+   "t0": 1.0752,
+   "t1": 2.3042,
+   "words": 3,
+   "speed": 0.82,
+   "text": "in the fire"
+  },
+  {
+   "t0": 2.3842,
+   "t1": 5.2787,
+   "words": 4,
+   "speed": 0.82,
+   "text": "of Janamejaya's snake sacrifice!"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

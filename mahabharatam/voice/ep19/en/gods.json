@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.575,
+   "words": 4,
+   "speed": 0.81,
+   "text": "The gods were afraid,"
+  },
+  {
+   "t0": 1.655,
+   "t1": 3.1059,
+   "words": 4,
+   "speed": 0.81,
+   "text": "and ran to Agni,"
+  },
+  {
+   "t0": 3.1859,
+   "t1": 4.7118,
+   "words": 4,
+   "speed": 0.81,
+   "text": "the god of fire."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

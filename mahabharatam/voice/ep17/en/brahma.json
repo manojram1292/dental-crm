@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.8672,
+   "words": 5,
+   "speed": 0.81,
+   "text": "Brahma let the curse stand:"
+  },
+  {
+   "t0": 2.0172,
+   "t1": 4.0829,
+   "words": 6,
+   "speed": 0.81,
+   "text": "the serpents had grown too many,"
+  },
+  {
+   "t0": 4.1629,
+   "t1": 5.6277,
+   "words": 3,
+   "speed": 0.81,
+   "text": "and too venomous."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

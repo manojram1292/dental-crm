@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.401,
+   "words": 3,
+   "speed": 0.81,
+   "text": "And to Kashyapa"
+  },
+  {
+   "t0": 1.501,
+   "t1": 4.6301,
+   "words": 8,
+   "speed": 0.81,
+   "text": "he gave the knowledge that cures all poison."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -2328,6 +2328,126 @@ def build_ep16(tl):
     return _tb_master(bus_dry, bus_wet, bed, D, N)
 
 
+def build_ep17(tl):
+    """Episode 17 (the Garuda arc opens): the fire under the first and last frames; the cold open
+    (wind in the horse's tail, a low pluck as the dark strands creep in); the title bloom; the
+    recap sting; the wager at sunset (waves; a soft bell for Vinata, a low reed note for Kadru; a
+    drum on "slave"; night falling: crickets); Sauti (crackle); the serpents' grove (a hissing
+    shimmer, glassy and green; a held drone); a rest and one bell as the sons turn away; the curse
+    (a deep drum and boom on "burn"; the sacrifice's roar under the medallion); Brahma (a grave
+    low chord); Kashyapa (a single clear bell as the light settles); the flight at dawn (a rising
+    bansuri); the short Next sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    r0, w0, s0, f0, o0, c0, b0, k0, x0, z0 = (st(i) for i in ('recap', 'white', 'stakes', 'frame', 'order', 'curse', 'brahma', 'kashyapa', 'cliff', 'next'))
+    tan = tanpura_bed(N, D, 'ep17')
+    bed += tan * env_curve([(0, 0.3), (w0, 0.6), (f0, 0.4), (o0, 0.3), (b0, 0.6), (x0, 0.9), (D, 0.4)], N)
+    fire = crackle(N, 'fire17')
+    stereo(fire * env_curve([(0, 0.7), (1.4, 0.25), (2.4, 0), (f0, 0), (f0 + 0.3, 0.6), (o0 - 0.2, 0.6), (o0 + 0.3, 0), (D - 1.0, 0), (D - 0.35, 0.7), (D, 0.7)], N) * 0.1, 0, roll=777)
+    wd = wind(N, 'tail17')
+    stereo(lpf(wd, 1500) * env_curve([(0, 0.5), (r0, 0.2), (r0 + 0.3, 0), (w0, 0), (w0 + 0.4, 0.15), (f0, 0), (D, 0)], N) * 0.2, 0, roll=900)
+    add(bus_dry, pan(tanpura_pluck(SA / 2, 3.0, 'hook17', 0.8) * 0.5, 0.0), beat('hook', 0))
+    tt0 = L['hook']['speechEnd'] + 0.3
+    for i, f in enumerate((293.66, 440.0, 587.33)):
+        bell(tt0 + 0.12 * i, f, 0.2 - 0.04 * i, -0.2 + 0.2 * i, ('title17', i))
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    wv = water(smp(f0 - w0), 'sunset17')
+    stereo(wv * 0.25, w0, roll=1600)
+    bell(beat('white', 1), 880.0, 0.12, 0.3, 'white17')
+    n = smp(1.6)
+    t = tvec(n)
+    reed = (np.sin(2 * np.pi * SA / 2 * 16 / 15 * t) + 0.4 * np.sin(2 * np.pi * SA * 16 / 15 * t)) * np.sin(np.pi * t / t[-1]) * 0.05
+    add(bus_wet, pan(reed, -0.3), beat('black', 1))
+    hit(beat('stakes', 1), 17000, 0.7, din=False, boom=0.5)
+    cr = crickets(smp(f0 - beat('stakes', 2) + 0.3), 'night17')
+    stereo(cr * 0.5, beat('stakes', 2), roll=400)
+    # the grove: a green glassy shimmer and hiss
+    sh = naga_shimmer(smp(b0 - o0), 'grove17', 1.0)
+    stereo(sh * env_curve([(0, 0), (0.5, 1), (len(sh) / SR - 0.5, 1), (len(sh) / SR, 0)], len(sh)), o0, roll=600)
+    bell(beat('refuse', 0), 659.25, 0.16, 0.0, 'refuse17')
+    hit(beat('curse', 0), 17100, 1.0, din=False, boom=1.0)
+    rr = roar(smp(en('curse') - beat('curse', 1) + 0.3), 'satra17')
+    stereo(rr * 0.08, beat('curse', 1), roll=800)
+    n = smp(en('brahma') - b0)
+    t = tvec(n)
+    ch = sum(np.sin(2 * np.pi * f * t + j) for j, f in enumerate((SA / 2, SA * 3 / 4, SA))) * np.sin(np.pi * t / t[-1]) * 0.03
+    add(bus_wet, fade(np.stack([ch, np.roll(ch, 600)]), 0.4, 0.5), b0)
+    bell(beat('kashyapa', 1), 1174.66, 0.16, 0.0, 'cure17')
+    Sa, Re, Ga, Pa, Dha = SA * 2, SA * 2 * 9 / 8, SA * 2 * 5 / 4, SA * 3, SA * 2 * 5 / 3
+    ph = bansuri([Sa, Re, Ga, Pa, Dha, Sa * 2], [0.3, 0.3, 0.35, 0.4, 0.4, 1.4], 'fly17', 0.8)
+    add(bus_wet, pan(ph * 0.7, 0.2), beat('cliff', 0))
+    w2 = water(smp(z0 - x0 + 0.5), 'ocean17')
+    stereo(w2 * 0.25, x0, roll=1600)
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
+def build_ep18(tl):
+    """Episode 18: the fire under the first and last frames; the flight (wind and sea from frame 1, a
+    rising bansuri phrase); the title bloom; the recap sting (the grove's shimmer under it); the
+    deep (a submerged drone, bubbles; a low roar for the fire under the sea); Sauti (crackle, two
+    soft bells: hope up, knowing down); the night flashback (crickets, a cold hiss); the arrival
+    (waves); a 400 ms rest, then a deep drum on the black tail and silence; Vinata's loss (a
+    falling reed); the slave (a single low bell); Aruna (the dawn chord of episode 10, briefly);
+    the egg cracking (crackles, a swelling roar into a blaze of bells); the short Next sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    r0, f0, d0, s0, n0, a0, t0, l0, v0, u0, c0, z0 = (st(i) for i in ('recap', 'fly', 'deep', 'frame', 'sons', 'arrive', 'tail', 'lost', 'slave', 'aruna', 'cliff', 'next'))
+    tan = tanpura_bed(N, D, 'ep18')
+    bed += tan * env_curve([(0, 0.4), (d0, 0.3), (s0, 0.5), (n0, 0.3), (t0, 0.1), (l0 + 0.5, 0.4), (u0, 0.8), (c0, 0.6), (D, 0.4)], N)
+    fire = crackle(N, 'fire18')
+    stereo(fire * env_curve([(0, 0.7), (1.4, 0.25), (2.4, 0), (s0, 0), (s0 + 0.3, 0.6), (n0 - 0.2, 0.6), (n0 + 0.3, 0), (D - 1.0, 0), (D - 0.35, 0.7), (D, 0.7)], N) * 0.1, 0, roll=777)
+    w = water(N, 'sea18')
+    stereo(w * env_curve([(0, 0.4), (r0, 0.1), (f0, 0.35), (d0, 0.1), (s0, 0), (a0, 0), (a0 + 0.3, 0.3), (u0, 0.2), (c0, 0), (D, 0)], N) * 0.8, 0, roll=1600)
+    wd = wind(N, 'fly18')
+    stereo(lpf(wd, 1500) * env_curve([(0, 0.5), (r0, 0.2), (f0, 0.4), (d0, 0), (D, 0)], N) * 0.2, 0, roll=900)
+    Sa, Re, Ga, Pa, Dha = SA * 2, SA * 2 * 9 / 8, SA * 2 * 5 / 4, SA * 3, SA * 2 * 5 / 3
+    ph = bansuri([Sa, Re, Ga, Pa, Dha, Sa * 2], [0.3, 0.3, 0.35, 0.4, 0.4, 1.4], 'fly18', 0.8)
+    add(bus_wet, pan(ph * 0.6, 0.2), 0.2)
+    tt0 = L['hook']['speechEnd'] + 0.3
+    for i, f in enumerate((293.66, 440.0, 587.33)):
+        bell(tt0 + 0.12 * i, f, 0.2 - 0.04 * i, -0.2 + 0.2 * i, ('title18', i))
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    sh = naga_shimmer(smp(f0 - r0), 'grove18', 0.6)
+    stereo(sh, r0, roll=600)
+    dr = reed_drone(N, (SA / 2, SA / 2 * 3 / 2), 'deep18')
+    da = env_curve([(0, 0), (d0, 0), (d0 + 0.6, 0.4), (s0, 0), (D, 0)], N)
+    bed += pan(lpf(dr, 500) * da, -0.15) + pan(lpf(np.roll(dr, 2500), 500) * da, 0.15)
+    rr = roar(smp(en('deep') - beat('deep', 2) + 0.3), 'seafire18')
+    stereo(rr * 0.08, beat('deep', 2) - 0.3, roll=900)
+    bell(beat('frame', 0), 880.0, 0.12, -0.3, 'hope18')
+    bell(beat('frame', 1), 220.0, 0.18, 0.3, 'knew18')
+    cr = crickets(smp(a0 - n0), 'night18')
+    stereo(cr * 0.5, n0, roll=400)
+    sh2 = naga_shimmer(smp(a0 - n0), 'sons18', 0.8)
+    stereo(sh2, n0, roll=500)
+    hit(beat('tail', 1), 18000, 1.0, din=False, boom=0.9)
+    add(bus_wet, pan(glide('lost18', 330, 220, 1.4, 0.6), 0.0), beat('lost', 1))
+    bell(beat('slave', 1), 146.83, 0.24, 0.0, 'slave18')
+    n = smp(en('aruna') - u0)
+    t = tvec(n)
+    sw = sum(np.sin(2 * np.pi * f * t + j) for j, f in enumerate((SA * 2, SA * 5 / 2, SA * 3))) * np.sin(np.pi * t / t[-1]) * 0.03
+    add(bus_wet, fade(np.stack([sw, np.roll(sw, 800)]), 0.3, 0.5), u0)
+    for k in range(6):
+        add(bus_dry, pan(crackle(smp(0.2), ('egg18', k), 50.0) * 0.3, -0.25 + 0.1 * k), beat('cliff', 1) - 0.3 + k * 0.08)
+    r2 = roar(smp(z0 - beat('cliff', 2) + 0.8), 'blaze18')
+    stereo(r2 * env_curve([(0, 0), (0.3, 1), (len(r2) / SR, 0.5)], len(r2)) * 0.15, beat('cliff', 2) - 0.2, roll=700)
+    for i, f in enumerate((587.33, 739.99, 880.0, 1174.66)):
+        bell(beat('cliff', 2) + 0.08 * i, f, 0.16, -0.4 + 0.25 * i, ('blaze18', i))
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
     r = rng('dither')
@@ -2365,7 +2485,7 @@ def main():
                 return
         except Exception:
             pass
-    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12, 13: build_ep13, 14: build_ep14, 15: build_ep15, 16: build_ep16}[ep](tl)
+    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12, 13: build_ep13, 14: build_ep14, 15: build_ep15, 16: build_ep16, 17: build_ep17, 18: build_ep18}[ep](tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],
             'note': 'music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)'}

@@ -1,0 +1,230 @@
+{
+  "lang": "en",
+  "episode": 18,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 19–20: the sisters fly over the ocean, described at length (its monsters, its jewels, the fire under the sea); the serpents, having agreed among themselves, become black hairs in the horse's tail; the sisters see the tail black, and Vinata, defeated, becomes Kadru's slave (as Aruna had foretold, 1.14). The cliffhanger opens Garuda's birth (1.20).",
+  "structure": "From episode 11: COLD OPEN (the hook over the episode's strongest image, big on-screen text from frame 1; KIT.series.hookCard) → title (the hook's post) → RECAP (≈2.5 s) → STORY (with a brief cut to Sauti at the Naimisha fire) → the cliffhanger image + line → a silent ≈1.5 s Next card that dissolves back into the first frame (KIT.series.loopNextScene).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 18",
+    "episodeTitle": "The Black Hairs",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 17",
+    "prevEpisodeTitle": "The Wager",
+    "nextEpisodeLabel": "Episode 19",
+    "nextTitle": "Garuda Is Born",
+    "slaveLabel": "Five hundred years"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "Who won the bet: the honest sister, or the one who cheated?",
+      "say": "Who won the bet: [p:80] the honest sister, [p:60] or the one who cheated?",
+      "est": 3.6,
+      "pre": 60,
+      "post": 1400,
+      "beats": [
+        3,
+        6,
+        10
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "honest",
+        "cheated"
+      ],
+      "note": "COLD OPEN (moving from frame 1): the two sisters LARGE in the foreground flying over the dawn ocean, the white horse on a far shore ahead; the question in big text from frame 1."
+    },
+    {
+      "id": "recap",
+      "text": "Kadru ordered her sons to hang from the horse's tail as black hairs.",
+      "say": "Kadru ordered her sons to hang from the horse's tail as black hairs.",
+      "est": 3.6,
+      "pre": 100,
+      "post": 150,
+      "beats": [
+        0,
+        10
+      ],
+      "role": "recap",
+      "note": "RECAP: episode 17's image as a memory: Kadru in the serpents' grove, her sons rearing round her."
+    },
+    {
+      "id": "fly",
+      "text": "The sisters flew out over the ocean, the home of all the waters.",
+      "say": "The sisters flew out over the ocean, [p:80] the home of all the waters.",
+      "est": 4.0,
+      "pre": 150,
+      "post": 200,
+      "beats": [
+        2,
+        5,
+        11
+      ],
+      "note": "STORY 1. NEW SHOT: from high above, the sisters small over the vast dawn ocean, waves wheeling below (EP17.ocean); the camera follows them."
+    },
+    {
+      "id": "deep",
+      "text": "Below them moved monsters and jewels, and a fire that burns beneath the sea.",
+      "say": "Below them moved monsters and jewels, [p:100] and a fire that burns beneath the sea.",
+      "est": 5.0,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        3,
+        5,
+        8,
+        13
+      ],
+      "captionY": "high",
+      "note": "STORY 2: a cut-away under the surface: makaras and glinting jewels (beats[0..1]); deep down, the fire under the sea (the mare-headed submarine fire of the epic's ocean) glows red (beats[2..3])."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "text": "One flew in hope. The other already knew.",
+      "say": "One flew in hope. [p:200] The other already knew.",
+      "est": 3.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        7
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, close, a seventh angle: his hands in the firelight, a slow gesture of two hands, one raised, one turned down)."
+    },
+    {
+      "id": "sons",
+      "text": "In the night, her sons had done as she asked.",
+      "say": "In the night, [p:80] her sons had done as she asked.",
+      "est": 3.4,
+      "pre": 150,
+      "post": 200,
+      "beats": [
+        2,
+        5
+      ],
+      "note": "STORY 3 (a flashback in cold blue): night on the shore; dark serpents slip up into the sleeping horse's white tail and hang there (pose.tail rising). The CE: the serpents agreed among themselves to do it. THE TURN (≈ 51 %): the cheat revealed to the viewer before Vinata sees it."
+    },
+    {
+      "id": "arrive",
+      "text": "They came down where the horse stood.",
+      "say": "They came down where the horse stood.",
+      "est": 2.8,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        1,
+        6
+      ],
+      "note": "STORY 4: dawn on the far shore: the sisters alight beside the horse, seen from behind them."
+    },
+    {
+      "id": "tail",
+      "text": "His tail was black.",
+      "say": "His tail [p:350] was black.",
+      "est": 2.6,
+      "pre": 400,
+      "post": 900,
+      "beats": [
+        1,
+        3
+      ],
+      "note": "STORY 5 · THE REVEAL (≈ 50 %): after a 400 ms rest, a slow push in along the horse to his tail: streaked with black hairs (beats[1], a deep drum)."
+    },
+    {
+      "id": "lost",
+      "text": "Vinata had lost.",
+      "say": "Vinata had lost.",
+      "est": 2.2,
+      "pre": 400,
+      "post": 250,
+      "beats": [
+        0,
+        2
+      ],
+      "emphasis": [
+        "Vinata"
+      ],
+      "note": "STORY 6: close on Vinata's face, the rose light draining from her rim; Kadru's green glint at the edge of the frame."
+    },
+    {
+      "id": "slave",
+      "text": "She bowed her head, and became her sister's slave.",
+      "say": "She bowed her head, [p:150] and became her sister's slave.",
+      "est": 4.0,
+      "pre": 150,
+      "post": 600,
+      "beats": [
+        1,
+        7
+      ],
+      "note": "STORY 7: Vinata bows (bow pose); her ornaments fall away and her sari's end covers her head (slave: true) on 'slave' (beats[1]); Kadru stands over her."
+    },
+    {
+      "id": "aruna",
+      "text": "Just as her son Aruna had foretold.",
+      "say": "Just as her son Aruna had foretold.",
+      "est": 2.8,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        4,
+        6
+      ],
+      "emphasis": [
+        "Aruna"
+      ],
+      "note": "STORY 8: the sky over them reddens: Aruna at the reins of the Sun's chariot, small and high, looks down (a callback to episode 10)."
+    },
+    {
+      "id": "cliff",
+      "text": "Then the second egg cracked open, and the sky caught fire.",
+      "say": "Then the second egg cracked open… [p:100] and the sky caught fire.",
+      "est": 4.2,
+      "pre": 250,
+      "post": 450,
+      "beats": [
+        3,
+        5,
+        10
+      ],
+      "role": "next",
+      "note": "NEXT 1 (cliffhanger image): Kashyapa's hermitage: the gold egg in its jar; a crack of fire runs across it (beats[1]) and on 'fire' (beats[2]) light bursts out and floods the sky gold-red."
+    },
+    {
+      "id": "next",
+      "text": "Next: Garuda Is Born",
+      "voice": false,
+      "est": 1.7,
+      "role": "next",
+      "caption": false,
+      "note": "The short, silent Next card: a glimpse of episode 19: Garuda rising, wings spread, blazing; then the loop back to frame 1."
+    }
+  ]
+}

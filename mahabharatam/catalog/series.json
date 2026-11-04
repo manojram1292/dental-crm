@@ -4876,11 +4876,12 @@
                 "theme-demons-and-rakshasas",
                 "theme-cosmology",
                 "char-sauti",
-                "char-vishnu"
+                "char-vishnu",
+                "lang-en"
               ],
-              "status": "in_production",
+              "status": "released",
               "languages": {
-                "en": "in_production"
+                "en": "released"
               },
               "tradition_note": false,
               "reorder_note": null,
@@ -4906,8 +4907,15 @@
               "synopsis": "Gods and asuras fight on the shore. Nara with his bow and Narayana with the discus Sudarshana drive the asuras into the earth and the sea; Mandara is set back in its place, and the gods keep the amrita safe.",
               "cliffhanger": "Back on the shore, Kadru and Vinata looked at the white horse. \"What colour is his tail?\"",
               "characters": [
+                "sauti",
                 "vishnu",
-                "indra"
+                "nara",
+                "devas",
+                "asuras",
+                "mandara",
+                "kadru",
+                "vinata",
+                "uchchaihshravas"
               ],
               "themes": [
                 "battles",
@@ -4916,7 +4924,9 @@
                 "demons-and-rakshasas"
               ],
               "locations": [
-                "ocean-of-milk"
+                "ocean-of-milk",
+                "mandara",
+                "naimisha"
               ],
               "playlists": [
                 "all",
@@ -4927,11 +4937,13 @@
                 "theme-gods",
                 "theme-divine-weapons",
                 "theme-demons-and-rakshasas",
-                "char-vishnu",
-                "char-indra"
+                "char-sauti",
+                "char-vishnu"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "in_production",
+              "languages": {
+                "en": "in_production"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null

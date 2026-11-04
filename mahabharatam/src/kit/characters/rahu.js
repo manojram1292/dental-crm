@@ -77,8 +77,9 @@
       ctx.globalAlpha = 0.45; ctx.fillStyle = '#05030a'; ctx.beginPath(); ctx.arc(0, 0, 420 * s, 0, TAU); ctx.fill();
       ctx.strokeStyle = '#ff8aa0'; ctx.lineWidth = 6 * s; ctx.globalAlpha = 0.6; ctx.beginPath(); ctx.arc(0, 0, 430 * s, 0, TAU); ctx.stroke();
       ctx.restore();
-    } else if (r.slip > 0.01) {
-      KIT.glow(ctx, P.x, P.y - 600 * P.s, 500 * P.s, '#b02a4a', 0.45 * r.slip);
+    } else {
+      // a faint eclipse-glow even in disguise (so the viewer can pick him out, as the Sun and Moon did), stronger as it slips
+      KIT.glow(ctx, P.x, P.y - 600 * P.s, 520 * P.s, '#b02a4a', 0.22 + 0.4 * r.slip);
     }
   }
 

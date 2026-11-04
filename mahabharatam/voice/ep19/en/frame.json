@@ -1,0 +1,23 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.83,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.602,
+   "words": 6,
+   "speed": 0.83,
+   "text": "Then the great bird flew home,"
+  },
+  {
+   "t0": 2.682,
+   "t1": 4.1319,
+   "words": 3,
+   "speed": 0.83,
+   "text": "to his mother."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
