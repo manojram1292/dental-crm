@@ -26,8 +26,8 @@
       const line = env.script.lines[0];
       KIT.series.hookCard(ctx, T, 1, line.text, { y: 200, size: 86, gold: line.hookGold, out });
       KIT.series.fireEdge(ctx, T, 1 - 0.75 * E.inOutSine(clamp(t / 1.4)), { h: 300 });
-      const tk = clamp((t - sp - 0.05) / 0.9);
-      if (tk > 0) KIT.series.episodeTitle(ctx, T, tk, env.strings, { y: 360, key: 'ep12-title' });
+      const tk = clamp((t - sp - 0.38) / 0.9);   // only after the hook text has gone (ep 11 review)
+      if (tk > 0) KIT.series.episodeTitle(ctx, T, tk, env.strings, { y: 520, key: 'ep12-title' });
     },
     post: () => ({ bloom: 0.3, vignette: 0.42, paper: 0.32 }),
   });

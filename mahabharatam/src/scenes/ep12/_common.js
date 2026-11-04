@@ -121,7 +121,7 @@
         // evening: a warm band on the horizon over the night-blue sea
         KIT.glow(g, 900, 1080, 900, '#ff9a5a', 0.35);
         KIT.vgrad(g, 1500, 2400, [[0, '#4a3a3a'], [0.2, '#2a2028'], [1, '#0a080c']], -400, 1480);
-        const mx = lerp(-80, 560, p), my = 1180;
+        const mx = lerp(200, 640, p), my = 1180;
         const L = { dir: -0.15, intensity: 1.15, front: 0.55 };
         CH.mandara.draw(g, { x: mx, y: my - 40, scale: 0.4, facing: 'front', pose: { name: 'uprooted', k: 1 }, light: L, t: T, key: 'pr-m' });
         for (let i = 0; i < 7; i++) {

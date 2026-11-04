@@ -74,6 +74,12 @@
       g.fillStyle = i % 3 ? 'rgba(90,170,90,0.55)' : 'rgba(150,210,110,0.5)';
       g.beginPath(); g.arc(x, y, rr, 0, TAU); g.arc(x + rr * 0.8, y + rr * 0.3, rr * 0.7, 0, TAU); g.arc(x - rr * 0.8, y + rr * 0.3, rr * 0.7, 0, TAU); g.fill();
     }
+    // lit stone facets: pale angular planes on the light side of each ledge (rock, not foliage)
+    g.fillStyle = 'rgba(232,214,160,0.22)';
+    for (let i = 0; i < 18; i++) {
+      const y = -(0.06 + 0.86 * hash(i, 71)) * H, w = half(y), x = (hash(i, 72) * 1.6 - 0.8) * w, f = 40 + 50 * hash(i, 73);
+      g.beginPath(); g.moveTo(x, y); g.lineTo(x + f * 0.9, y + f * 0.3); g.lineTo(x + f * 0.5, y + f * 1.1); g.lineTo(x - f * 0.3, y + f * 0.7); g.closePath(); g.fill();
+    }
     g.strokeStyle = 'rgba(200,230,190,0.18)'; g.lineWidth = 3;
     for (let b = 1; b < 8; b++) { const y = -(b / 8) * H, w = half(y); g.beginPath(); g.moveTo(-w * 0.9, y + 20); g.quadraticCurveTo(0, y + 50 + 10 * Math.sin(b + r.spin), w * 0.9, y + 20); g.stroke(); }
     // waterfalls (only when still)
