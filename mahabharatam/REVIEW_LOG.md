@@ -40,3 +40,28 @@ pink sky. Narayana at 59 % of the runtime is a clear turn, with the conch under 
 4. No empty establishing shots: every shot has its subject in frame from its first frame.
 5. Mandara is drawn larger, lit as stone (lit fill `#4a4430`, stone-gold rim), with a second summit and a crag;
    Sauti and the elder get front light 0.4–0.45 at the fire.
+
+## Episode 12 · A Mountain for a Churning Stick (56.4 s)
+
+**Works.** The title no longer collides with the hook text. Ananta's seven hoods in front of the tearing
+mountain make a strong first frame; the shake on "tore" lands. The Ocean as a crowned king rising waist-deep
+from the waves (the turn at 52 %, after a 350 ms rest) is the most striking new figure. The rope helix (back
+turns drawn behind the mountain, front turns in front) reads as a real winding. Sauti's scene is a new angle.
+
+**Weak.**
+1. The title now starts too late: the hook's post is 0.95 s, so "Episode 12" is on screen for barely half a
+   second before the recap.
+2. Three shots in a row share one location and framing (the earth cut-away: hook, Mandara, Ananta, ≈ 12 s).
+3. The tortoise shot splits attention: the shell at the bottom edge, the mountain and Indra floating above;
+   Akupara's head is off-frame.
+4. The hosts at the bottom of the rig shots are cropped at the head and crowd into dark clutter.
+5. Mandara still reads as a dark cone at small sizes (better lit than in ep 11).
+
+**Fixes carried into episode 13.**
+1. The hook's post is 1.4 s and the title starts 0.3 s after the speech: the title holds ≥ 1 s.
+2. No two consecutive shots share a framing: ep 13 alternates close churn → storm sky → wide milk → fire
+   (from above, Sauti standing) → each wonder with its own composition (centre rise, low angle with petals,
+   split frame, an arc to Narayana, a reveal).
+3. One subject per shot, whole in frame: the wonders are single large frontal figures; supporting figures are
+   placed fully inside the frame in the corners.
+4. The crowds in the poison shot are three per side, scaled so heads stay in frame.

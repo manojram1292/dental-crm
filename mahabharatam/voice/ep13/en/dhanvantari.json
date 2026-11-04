@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9158,
+   "words": 2,
+   "speed": 0.81,
+   "text": "And last"
+  },
+  {
+   "t0": 1.1158,
+   "t1": 2.4846,
+   "words": 2,
+   "speed": 0.81,
+   "text": "came Dhanvantari,"
+  },
+  {
+   "t0": 2.5646,
+   "t1": 4.8866,
+   "words": 6,
+   "speed": 0.81,
+   "text": "holding the white pot of amrita."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

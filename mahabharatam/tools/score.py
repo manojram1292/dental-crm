@@ -2044,6 +2044,86 @@ def build_ep12(tl):
     return _tb_master(bus_dry, bus_wet, bed, D, N)
 
 
+def build_ep13(tl):
+    """Episode 13: the fire under the first and last frames; the whirlpool (a turning shimmer from
+    frame 1, a bell on "rose"); the title bloom; the recap sting; the churn on fire (the turning
+    drone, alternating hauls, a roar); Indra (thunder on the flash, rain); the sea turning to
+    milk (a rising major swell; a gold shimmer on "ghee"); Sauti (crackle, sparks); then the
+    wonders, each with its own bell: the Moon (after a rest: a low bell and high shimmer), Shri
+    (a bright three-bell figure), Sura and the horse (a bell and a neigh), the Kaustubha (a glassy
+    glide), Dhanvantari (a rest, then the fullest chord); the poison (the music drops out to a
+    low dark drone and a deep drum); the short Next sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    st = lambda i: L[i]['start']   # noqa: E731
+    en = lambda i: L[i]['end']     # noqa: E731
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    f0, r0, m0, s0, mo0, x0, z0 = (st(i) for i in ('fire', 'rain', 'milk', 'frame', 'moon', 'cliff', 'next'))
+    tan = tanpura_bed(N, D, 'ep13')
+    bed += tan * env_curve([(0, 0.4), (1.0, 0.6), (f0, 0.5), (m0, 0.8), (mo0, 1.0), (x0, 0.9), (x0 + 1.0, 0.15), (z0, 0.2), (D, 0.4)], N)
+    fire = crackle(N, 'fire13')
+    stereo(fire * env_curve([(0, 0.7), (1.4, 0.25), (2.4, 0), (s0, 0), (s0 + 0.3, 0.6), (mo0 - 0.2, 0.6), (mo0 + 0.3, 0), (D - 1.0, 0), (D - 0.35, 0.7), (D, 0.7)], N) * 0.1, 0, roll=777)
+    n = smp(3.4)
+    t = tvec(n)
+    sh = sum(np.sin(2 * np.pi * f * t + i) * (0.5 + 0.5 * np.sin(2 * np.pi * (0.7 + 0.3 * i) * t)) for i, f in enumerate((SA * 4, SA * 5, SA * 6))) * np.minimum(1, t / 0.05) * np.exp(-t / 2.5) * 0.025
+    stereo(sh, 0.0, roll=500)
+    hit(0.02, 13000, 0.45, din=False, boom=0.3)
+    bell(beat('hook', 0), 880.0, 0.16, 0.0, 'rose13')
+    tt0 = L['hook']['speechEnd'] + 0.4
+    for i, f in enumerate((293.66, 440.0, 587.33)):
+        bell(tt0 + 0.12 * i, f, 0.2 - 0.04 * i, -0.2 + 0.2 * i, ('title13', i))
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    # ── the churn on fire
+    dr = reed_drone(N, (SA / 2, SA / 2 * 3 / 2), 'churn13')
+    da = env_curve([(0, 0), (f0, 0), (f0 + 0.6, 0.4), (m0 + 2, 0.3), (s0, 0), (D, 0)], N)
+    bed += pan(lpf(dr, 700) * da, -0.15) + pan(lpf(np.roll(dr, 2500), 700) * da, 0.15)
+    tb, k = f0 + 0.2, 0
+    while tb < r0 - 0.2:
+        hit(tb, (13100, k), 0.45, din=False, boom=0.2, p=-0.4 if k % 2 else 0.4)
+        tb += 0.7
+        k += 1
+    rr = roar(smp(r0 - beat('fire', 1) + 1.2), 'roar13')
+    stereo(rr * env_curve([(0, 0), (0.4, 1), (len(rr) / SR - 1.0, 1), (len(rr) / SR, 0)], len(rr)) * 0.12, beat('fire', 1), roll=900)
+    # ── Indra: thunder, rain
+    th = thunder('th13', 3.0, 0.9)
+    stereo(th * 0.6, beat('rain', 0) + 0.35, roll=1200)
+    rn = bpf(rng('rain13').standard_normal(smp(en('rain') - beat('rain', 1) + 2.5)), 1500, 9000) * 0.05
+    stereo(rn * env_curve([(0, 0), (0.4, 1), (len(rn) / SR - 1.2, 1), (len(rn) / SR, 0)], len(rn)), beat('rain', 1) - 0.4, roll=300)
+    # ── milk, then ghee
+    n = smp(en('milk') - beat('milk', 1))
+    t = tvec(n)
+    sw = sum(np.sin(2 * np.pi * f * t + j) for j, f in enumerate((SA, SA * 5 / 4, SA * 3 / 2, SA * 2))) * (t / t[-1]) ** 1.2 * 0.03
+    add(bus_wet, fade(np.stack([sw, np.roll(sw, 600)]), 0.5, 0.6), beat('milk', 1))
+    for i, f in enumerate((1174.66, 1479.98, 1760.0)):
+        bell(beat('milk', 3) + 0.08 * i, f, 0.08, -0.3 + 0.3 * i, ('ghee13', i))
+    # ── the wonders
+    bell(beat('moon', 1), 293.66, 0.24, 0.0, 'moon13')
+    shim = sum(np.sin(2 * np.pi * f * tvec(smp(2.6))) for f in (SA * 8, SA * 12)) * np.exp(-tvec(smp(2.6)) / 1.0) * 0.02
+    add(bus_wet, pan(shim, 0.2), beat('moon', 1))
+    for i, f in enumerate((880.0, 1108.73, 1318.5)):
+        bell(beat('shri', 0) + 0.11 * i, f, 0.14, -0.3 + 0.3 * i, ('shri13', i))
+    bell(beat('sura', 0), 659.25, 0.16, -0.3, 'sura13')
+    add(bus_wet, pan(glide('neigh13', 700, 1500, 0.5, 0.7), 0.3), beat('sura', 1))
+    add(bus_wet, pan(glide('jewel13', 1200, 2400, 1.2, 0.5), 0.0), beat('kaustubha', 1) - 0.3)
+    bell(beat('kaustubha', 2), 1760.0, 0.12, 0.3, 'kaus13')
+    for i, f in enumerate((293.66, 440.0, 587.33, 739.99, 880.0)):
+        bell(beat('dhanvantari', 1) + 0.09 * i, f, 0.16, -0.4 + 0.2 * i, ('dhan13', i))
+    n = smp(en('dhanvantari') - beat('dhanvantari', 3) + 0.4)
+    t = tvec(n)
+    sw = sum(np.sin(2 * np.pi * f * t + j) for j, f in enumerate((SA * 2, SA * 5 / 2, SA * 3, SA * 4))) * np.sin(np.pi * t / t[-1]) * 0.035
+    add(bus_wet, fade(np.stack([sw, np.roll(sw, 800)]), 0.3, 0.5), beat('dhanvantari', 3))
+    # ── the poison: a dark drone and a deep drum
+    pd = reed_drone(N, (SA / 4 * 16 / 15, SA / 2), 'poison13')
+    pa = env_curve([(0, 0), (x0, 0), (beat('cliff', 1), 0.5), (z0, 0.4), (z0 + 0.4, 0), (D, 0)], N)
+    bed += pan(lpf(pd, 400) * pa, -0.1) + pan(lpf(np.roll(pd, 1800), 400) * pa, 0.1)
+    hit(beat('cliff', 1), 13200, 0.9, din=False, boom=0.9)
+    hit(beat('cliff', 2), 13210, 0.6, din=False, boom=0.5)
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
     r = rng('dither')
@@ -2081,7 +2161,7 @@ def main():
                 return
         except Exception:
             pass
-    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12}[ep](tl)
+    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12, 13: build_ep13}[ep](tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],
             'note': 'music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)'}

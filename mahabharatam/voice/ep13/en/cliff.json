@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9584,
+   "words": 5,
+   "speed": 0.81,
+   "text": "But something else rose too:"
+  },
+  {
+   "t0": 2.1584,
+   "t1": 4.6851,
+   "words": 7,
+   "speed": 0.81,
+   "text": "a poison that could burn the worlds."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,16 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.83,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.7712,
+   "words": 7,
+   "speed": 0.83,
+   "text": "What rose out of the churning sea?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -35,6 +35,8 @@
     11: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', '_common', 's1-hook', 's2-recap', 's3-sisters', 's4-name', 's5-frame', 's6-meru', 's7-amrita', 's8-narayana', 's9-asuras', 's10-ocean', 's11-cliff', 's12-next'],
     // episode 12: the plain of the world by day (Mandara and its roots), the shore at evening, the deep, the churning rig (ep12/_common)
     12: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', '_common', 's1-hook', 's2-recap', 's3-ask', 's4-mandara', 's5-ananta', 's6-carry', 's7-ocean', 's8-tortoise', 's9-rope', 's10-hold', 's11-cliff', 's12-next'],
+    // episode 13: the churning by night, Indra's storm, the WHITE SEA lit from below (ep13/_common), the wonders one by one
+    13: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', '_common', 's1-hook', 's2-recap', 's3-fire', 's4-rain', 's5-milk', 's6-frame', 's7-moon', 's8-shri', 's9-sura', 's10-kaustubha', 's11-dhanvantari', 's12-cliff', 's13-next'],
   };
   const q = new URLSearchParams(location.search);
   const ep = +(q.get('ep') || 1);

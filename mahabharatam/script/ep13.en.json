@@ -1,0 +1,251 @@
+{
+  "lang": "en",
+  "episode": 13,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 16: the churning; fire and smoke from Vasuki's mouths; the forests of Mandara burn and Indra quenches them with rain; the juices of trees and herbs flow into the ocean, which turns to milk and then to ghee; the Moon, Shri, Sura Devi, the white horse and the Kaustubha jewel rise, and last Dhanvantari with the white pot of amrita. The cliffhanger's poison is later tradition (see episode 14) and is tagged on screen.",
+  "structure": "From episode 11: COLD OPEN (the hook over the episode's strongest image, big on-screen text from frame 1; KIT.series.hookCard) → title (the hook's post) → RECAP (≈2.5 s) → STORY (with a brief cut to Sauti at the Naimisha fire) → the cliffhanger image + line → a silent ≈1.5 s Next card that dissolves back into the first frame (KIT.series.loopNextScene).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 13",
+    "episodeTitle": "What Rose from the Ocean",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 12",
+    "prevEpisodeTitle": "A Mountain for a Churning Stick",
+    "nextEpisodeLabel": "Episode 14",
+    "nextTitle": "The Blue Throat",
+    "moonName": "The Moon",
+    "shriName": "Shri",
+    "shriEpithet": "goddess of fortune",
+    "suraName": "Sura Devi",
+    "suraEpithet": "goddess of wine",
+    "horseName": "Uchchaihshravas",
+    "kaustubhaName": "Kaustubha",
+    "kaustubhaEpithet": "the jewel on Narayana's breast",
+    "dhanvantariName": "Dhanvantari",
+    "dhanvantariEpithet": "physician of the gods"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "text": "What rose out of the churning sea?",
+      "say": "What rose out of the churning sea?",
+      "est": 3.0,
+      "pre": 60,
+      "post": 1400,
+      "beats": [
+        1,
+        5
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "rose",
+        "sea"
+      ],
+      "note": "COLD OPEN (moving from frame 1): out of a whirlpool of white sea a silver disc is rising, the Moon, the churning mountain turning behind it; the fire licks up from the bottom edge. The question in big text from frame 1. The title after the text has gone (ep 11 review)."
+    },
+    {
+      "id": "recap",
+      "text": "Then gods and asuras began to churn the ocean.",
+      "say": "Then gods and asuras began to churn the ocean.",
+      "est": 3.2,
+      "pre": 100,
+      "post": 150,
+      "beats": [
+        1,
+        6
+      ],
+      "role": "recap",
+      "note": "RECAP: episode 12's key image as a memory: the rig, Vasuki wound round Mandara on the tortoise, the hosts at either end."
+    },
+    {
+      "id": "fire",
+      "text": "Fire and smoke poured from Vasuki's mouths, and the mountain's forests burned.",
+      "say": "Fire and smoke poured from Vasuki's mouths, and the mountain's forests burned.",
+      "est": 5.0,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        0,
+        4,
+        11
+      ],
+      "captionY": "high",
+      "note": "STORY 1. CLOSE on the churning: the hosts heaving, the mountain spinning; fire and smoke roll from Vasuki's mouths (beats[1]); on 'burned' (beats[2]) the forests catch fire. Stylised flames, warm red light on the white water."
+    },
+    {
+      "id": "rain",
+      "text": "Indra put out the fire with rain.",
+      "say": "Indra put out the fire with rain.",
+      "est": 2.8,
+      "pre": 150,
+      "post": 300,
+      "beats": [
+        0,
+        6
+      ],
+      "emphasis": [
+        "Indra"
+      ],
+      "note": "STORY 2. A cut UP into the storm-clouds: Indra on his cloud, vajra raised (beats[0]); lightning, and on 'rain' (beats[1]) silver rain sweeps down over the burning mountain and the flames die to smoke. Indra's own storm-blue light."
+    },
+    {
+      "id": "milk",
+      "text": "The sap of its trees and herbs ran into the sea, and the water turned to milk, then to ghee.",
+      "say": "The sap of its trees and herbs ran into the sea, [p:60] and the water turned to milk, [p:60] then to ghee.",
+      "est": 6.2,
+      "pre": 150,
+      "post": 300,
+      "beats": [
+        1,
+        8,
+        13,
+        16
+      ],
+      "captionY": "high",
+      "note": "STORY 3. Golden streams of sap run down the mountain's flanks into the sea (beats[0..1]); the dark water whitens outward from the mountain (beats[2] 'milk') and then takes a gold sheen (beats[3] 'ghee')."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "text": "One by one, the wonders rose.",
+      "say": "One by one, [p:80] the wonders rose.",
+      "est": 4.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        4
+      ],
+      "note": "FRAME (the Naimisha fire, a wide shot from above the flames, a third angle): Sauti stands to tell it, his hand rising with the words; the sages look up. beats = 'One', 'rose' (sparks lift from the fire)."
+    },
+    {
+      "id": "moon",
+      "text": "First, the Moon, cool and bright.",
+      "say": "First, [p:150] the Moon, [p:80] cool and bright.",
+      "est": 3.0,
+      "pre": 300,
+      "post": 250,
+      "beats": [
+        0,
+        2,
+        5
+      ],
+      "note": "STORY 4 · THE TURN (≈ 50 %): a 300 ms rest; then the first wonder: the Moon rises, frontal, in his silver disc, out of the white sea (beats[1], a bell); his light whitens everything."
+    },
+    {
+      "id": "shri",
+      "text": "Then Shri, goddess of fortune, in white.",
+      "say": "Then Shri, [p:80] goddess of fortune, [p:60] in white.",
+      "est": 3.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        1,
+        4,
+        6
+      ],
+      "emphasis": [
+        "Shri"
+      ],
+      "note": "STORY 5. A quick cut: Shri rises on a pink lotus, ivory and rose-gold (beats[0], a bell), lotuses in her raised hands. Name card."
+    },
+    {
+      "id": "sura",
+      "text": "The goddess of wine, and the white horse.",
+      "say": "The goddess of wine, [p:120] and the white horse.",
+      "est": 3.2,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        1,
+        5
+      ],
+      "note": "STORY 6. Split: Sura Devi rising, her cup held up (beats[0]); the white horse leaping out of the milk beside her (beats[1])."
+    },
+    {
+      "id": "kaustubha",
+      "text": "The Kaustubha jewel, which went to Narayana's breast.",
+      "say": "The Kaustubha jewel, [p:100] which went to Narayana's breast.",
+      "est": 3.6,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        1,
+        5,
+        6
+      ],
+      "emphasis": [
+        "Kaustubha"
+      ],
+      "note": "STORY 7. A blazing white-blue jewel rises from the sea and flies in an arc (beats[1]) to Narayana's breast, where it settles and burns (beats[2])."
+    },
+    {
+      "id": "dhanvantari",
+      "text": "And last came Dhanvantari, holding the white pot of amrita.",
+      "say": "And last [p:200] came Dhanvantari, [p:80] holding the white pot of amrita.",
+      "est": 5.4,
+      "pre": 350,
+      "post": 350,
+      "beats": [
+        1,
+        3,
+        7,
+        9
+      ],
+      "emphasis": [
+        "Dhanvantari"
+      ],
+      "captionY": "high",
+      "note": "STORY 8 · THE REVEAL: a 350 ms rest; Dhanvantari rises, LARGE, from the milk, the white pot of amrita glowing at his chest (beats[1] a bell, beats[3] 'amrita': the pot flares, both hosts turn toward it)."
+    },
+    {
+      "id": "cliff",
+      "text": "But something else rose too: a poison that could burn the worlds.",
+      "say": "But something else rose too: [p:200] a poison that could burn the worlds.",
+      "est": 5.0,
+      "pre": 250,
+      "post": 450,
+      "beats": [
+        2,
+        6,
+        10
+      ],
+      "role": "next",
+      "tradition": true,
+      "note": "NEXT 1 (cliffhanger image): the white sea darkens at the centre; a black-blue smoke boils up out of it and spreads (beats[1] 'poison'); the gods and asuras fall back. ON SCREEN: \"As tradition tells it\" (KIT.series.traditionTag): the poison is not in the CE's constituted text (see episode 14 and the catalog note)."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Blue Throat",
+      "voice": false,
+      "est": 1.7,
+      "role": "next",
+      "caption": false,
+      "note": "The short, silent Next card: a glimpse of episode 14 (tradition): Shiva, ash-pale, his throat glowing blue; then the loop back to frame 1."
+    }
+  ]
+}

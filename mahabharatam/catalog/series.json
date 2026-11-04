@@ -1346,6 +1346,22 @@
         ],
         "major": false,
         "bible": "mandara"
+      },
+      "akupara": {
+        "name": "Akupara, king of the tortoises",
+        "aliases": [
+          "the tortoise king"
+        ],
+        "major": false,
+        "bible": "akupara"
+      },
+      "samudra": {
+        "name": "Samudra, the Ocean",
+        "aliases": [
+          "the Ocean"
+        ],
+        "major": false,
+        "bible": "samudra"
       }
     },
     "themes": {
@@ -4603,11 +4619,17 @@
               "synopsis": "At Brahma's and Narayana's word, the serpent Ananta uproots Mount Mandara and the gods carry it to the ocean, which agrees to be churned if it gets a share of the amrita. The king of tortoises, Akupara, takes the mountain on his back; Vasuki becomes the rope.",
               "cliffhanger": "They began to churn, and the ocean began to burn.",
               "characters": [
-                "shesha",
-                "vasuki",
-                "vishnu",
+                "sauti",
                 "brahma",
-                "indra"
+                "vishnu",
+                "shesha",
+                "mandara",
+                "devas",
+                "asuras",
+                "akupara",
+                "indra",
+                "vasuki",
+                "samudra"
               ],
               "themes": [
                 "cosmology",
@@ -4616,8 +4638,9 @@
                 "animals-and-birds"
               ],
               "locations": [
-                "ocean-of-milk",
-                "mandara"
+                "naimisha",
+                "mandara",
+                "ocean-of-milk"
               ],
               "playlists": [
                 "all",
@@ -4628,12 +4651,16 @@
                 "theme-gods",
                 "theme-serpents",
                 "theme-animals-and-birds",
-                "char-vasuki",
+                "char-sauti",
                 "char-vishnu",
-                "char-indra"
+                "char-indra",
+                "char-vasuki",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null
