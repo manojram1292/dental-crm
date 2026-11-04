@@ -176,6 +176,28 @@ story. The sisters' dawn flight uses a new flying pose (`EP17.flyer`).
 2. The flying pose is used for every flight (hook, ocean, cliffhanger), so the sisters never stand on water.
 3. A dark night flashback (the sons slipping into the tail) uses a lighter blue overlay (0.3 rather than 0.5).
 
+## Episode 18 · The Black Hairs (54.2 s)
+
+**Works.** The reveal works as planned: after a 400 ms rest, a push centred on the tail (1.4→2.1×) shows the
+black hairs clearly, held in silence under one deep drum. The cut-away under the sea (makaras, glinting
+jewels, the fire beneath the sea breathing on the sea-floor) is a new kind of image for the series. The
+callback to Aruna at the reins of the Sun ("just as her son had foretold") ties the arc back to episode 10.
+Sauti's two-hands gesture ("One flew in hope. The other already knew.") is a new angle on the fire.
+
+**Weak.**
+1. The flying pose, at large scale in the hook, reads as two women lying on a slope, and Vinata is cropped
+   at the bottom.
+2. In the night flashback the small coiled serpents read as spirals, and the shot is still dark.
+3. The wager scenes and this episode share the same pink-to-violet shore; it is repeated across three
+   episodes.
+
+**Fixes carried into episode 19.**
+1. Large flight is given to the one true flyer, Garuda, whose rig has real flight poses (`fly` with
+   wing-beats, `spread`, `carry`); riders sit upright on their carrier (Kadru on Vinata's back in ep 20).
+2. Serpents are drawn at ≥ 0.2 scale and in the `rise` pose (a hood is readable; a coil at small size is not).
+3. New palettes for the next two episodes: a burning red-gold sky for Garuda's birth, Indra's heaven
+   reddened by his blaze, the white heat of the Sun, Indra's storm, and Ramaniyaka at clear noon.
+
 ## Engagement changes adopted (research/engagement.md)
 
 The research arrived before episode 11 was scripted; the coordinator asked for its low-risk recommendations

@@ -5130,11 +5130,12 @@
                 "theme-deception",
                 "theme-women-of-the-epic",
                 "theme-serpents",
-                "char-sauti"
+                "char-sauti",
+                "lang-en"
               ],
-              "status": "in_production",
+              "status": "released",
               "languages": {
-                "en": "in_production"
+                "en": "released"
               },
               "tradition_note": false,
               "reorder_note": null,
@@ -5160,9 +5161,13 @@
               "synopsis": "In his time Garuda bursts from his egg, huge and blazing, and rises into the sky. The gods, thinking he is Agni come to burn the worlds, beg for shelter and praise him; he hears their praise and draws in his radiance. He flies to his mother, and learns that she is a slave.",
               "cliffhanger": "And his first task as a slave's son: to carry the serpents.",
               "characters": [
+                "sauti",
                 "garuda",
                 "vinata",
-                "agni"
+                "kadru",
+                "agni",
+                "devas",
+                "kadru-sons"
               ],
               "themes": [
                 "births-and-origins",
@@ -5170,7 +5175,10 @@
                 "gods"
               ],
               "locations": [
-                "kashyapa-hermitage"
+                "kashyapa-hermitage",
+                "svarga",
+                "naimisha",
+                "ocean-of-milk"
               ],
               "playlists": [
                 "all",
@@ -5180,10 +5188,13 @@
                 "theme-births-and-origins",
                 "theme-animals-and-birds",
                 "theme-gods",
+                "char-sauti",
                 "char-garuda"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "in_production",
+              "languages": {
+                "en": "in_production"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null
