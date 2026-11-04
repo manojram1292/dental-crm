@@ -11,8 +11,8 @@
       const T = env.T, p = clamp(t / env.dur);
       EP17.ocean(ctx, T, { hz: 200, cam: { zoom: 1.0 + 0.1 * p, dy: lerp(0, -80, p) }, after: (g) => {
         const L = { dir: -Math.PI / 2 + 0.6, intensity: 1.05, front: 0.5 };
-        CH.kadru.draw(g, { x: lerp(300, 520, p), y: lerp(1300, 1000, p), scale: 0.4, facing: 'left', pose: { name: 'walk', phase: T * 1.5, wind: 1.4 }, light: L, t: T, key: 'f18-kd' });
-        CH.vinata.draw(g, { x: lerp(560, 740, p), y: lerp(1420, 1120, p), scale: 0.38, facing: 'left', pose: { name: 'walk', phase: T * 1.5 + 1, wind: 1.4 }, light: L, t: T, key: 'f18-vn' });
+        EP17.flyer(g, (q, o) => CH.kadru.draw(q, o), lerp(300, 520, p), lerp(1300, 1000, p), 0.4, T, L, 'f18-kd');
+        EP17.flyer(g, (q, o) => CH.vinata.draw(q, o), lerp(560, 740, p), lerp(1420, 1120, p), 0.38, T, L, 'f18-vn');
       } });
     },
     post: () => ({ bloom: 0.38, vignette: 0.4, paper: 0.3 }),

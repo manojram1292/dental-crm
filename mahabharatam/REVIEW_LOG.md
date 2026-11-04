@@ -134,3 +134,24 @@ pointing down makes a clear turn at 56 %. The eclipse bite closes the myth visua
 2. Crowd shots are framed so every figure is whole: the battle frieze uses four per side at staggered depths.
 3. A disguised figure keeps a faint signature glow (`rahu`: 0.22 eclipse glow even in disguise), the way
    episode 15 was re-tuned before render; in ep 16 Nara's storm-jade rim marks him out among the gods.
+
+## Episode 16 · The War for the Amrita (55.9 s) · the arc's end
+
+**Works.** A new night-battle light (the sky lit red from the burning shore, weapon streaks) gives the arc a
+proper climax, distinct from every earlier palette. Narayana's hand is empty while Sudarshana flies (the
+episode 15 fix). Nara at full draw reads as an archer at a glance. The arc closes the way the bible asks
+(the first and last episodes of a side tale return to the listener): Sauti's medallion shows the white horse
+once more ("And that is how the white horse rose from the ocean"), and the cliffhanger returns to the sisters
+on the sunrise shore, with Kadru's own question as the last spoken line.
+
+**Weak.**
+1. The clash shot opens on an empty shore for about a second, before the hosts walk in.
+2. The hurled mountain peaks read as flat green-dotted triangles (they look like slices of fruit).
+3. Kadru's close-up is lit by the pale sky, and her face is a dark mass.
+
+**Fixes carried into episode 17.**
+1. Every shot opens with its subject already in frame (the sisters are in the sunset shot from frame 1;
+   the serpents are already rearing when the grove opens).
+2. Props are drawn with the same rim and fill logic as characters, so they read as solid things.
+3. Speaking close-ups are lit from the front (front 0.45–0.55) by the location's key light (the low sun
+   at the right in the wager scenes).

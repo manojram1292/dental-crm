@@ -2448,6 +2448,126 @@ def build_ep18(tl):
     return _tb_master(bus_dry, bus_wet, bed, D, N)
 
 
+def _cue_common(tl, key, beds, fire_at):
+    """Shared opening of the episode 19–20 cues: buses, a tanpura bed shaped by `beds`, the
+    Naimisha fire under the first and last frames and under Sauti's line (`fire_at`), the title
+    bloom and the recap sting."""
+    D = tl['duration']
+    N = smp(D)
+    L = {l['id']: l for l in tl['lines']}
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    bed += tanpura_bed(N, D, key) * env_curve(beds, N)
+    f0, f1 = L[fire_at]['start'], L[fire_at]['end']
+    fire = crackle(N, 'fire' + key)
+    stereo(fire * env_curve([(0, 0.7), (1.4, 0.25), (2.4, 0), (f0, 0), (f0 + 0.3, 0.6), (f1 - 0.2, 0.6), (f1 + 0.3, 0), (D - 1.0, 0), (D - 0.35, 0.7), (D, 0.7)], N) * 0.1, 0, roll=777)
+    tt0 = L['hook']['speechEnd'] + 0.3
+    for i, f in enumerate((293.66, 440.0, 587.33)):
+        bell(tt0 + 0.12 * i, f, 0.2 - 0.04 * i, -0.2 + 0.2 * i, ('title' + key, i))
+    series_recap_sting(bus_dry, bus_wet, L['recap'])
+    beat = lambda i, k, d=0.5: (L[i]['beats'][k] if len(L[i]['beats']) > k else L[i]['start'] + d * (L[i]['end'] - L[i]['start']))  # noqa: E731
+    return D, N, L, bus_dry, bus_wet, bed, bell, hit, stereo, beat
+
+
+def build_ep19(tl):
+    """Episode 19: a roar of fire under the cold open; the title; the recap; the egg's cracks and
+    burst; Garuda rising (a great swell, bells, wing-beats); the gods' alarm (hurried drums);
+    Agni (a rest; a crackling low tone under his voice); the praise (a calm chord); the fire drawn
+    in (the roar falls away into a soft bell); Sauti (crackle; a wing-whoosh over the clearing);
+    the reunion (a gentle bansuri); the serpents (a hiss and a low bell); the short Next sting."""
+    D, N, L, bus_dry, bus_wet, bed, bell, hit, stereo, beat = _cue_common(tl, 'ep19', [(0, 0.3), (tl['lines'][3]['start'], 0.5), (tl['lines'][6]['start'], 0.8), (tl['lines'][9]['start'], 0.9), (tl['duration'], 0.4)], 'frame')
+    st = lambda i: L[i]['start']   # noqa: E731
+    rr = roar(N, 'blaze19')
+    stereo(rr * env_curve([(0, 0.6), (st('recap'), 0.2), (st('recap') + 0.3, 0), (st('hatch'), 0), (beat('hatch', 1), 0.6), (st('dim'), 0.6), (beat('dim', 1) + 0.6, 0), (D, 0)], N) * 0.1, 0, roll=900)
+    hit(0.02, 19000, 0.5, din=False, boom=0.6)
+    for k in range(5):
+        add(bus_dry, pan(crackle(smp(0.2), ('egg19', k), 50.0) * 0.3, -0.25 + 0.1 * k), beat('hatch', 1) - 0.3 + k * 0.07)
+    hit(beat('hatch', 1), 19100, 0.9, din=False, boom=0.9)
+    for i, f in enumerate((293.66, 440.0, 587.33, 880.0)):
+        bell(beat('rise', 0) + 0.1 * i, f, 0.18, -0.4 + 0.25 * i, ('garuda19', i))
+    n = smp(L['rise']['end'] - beat('rise', 0))
+    t = tvec(n)
+    sw = sum(np.sin(2 * np.pi * f * t + j) for j, f in enumerate((SA, SA * 3 / 2, SA * 2, SA * 3))) * (t / t[-1]) * 0.03
+    add(bus_wet, fade(np.stack([sw, np.roll(sw, 600)]), 0.4, 0.5), beat('rise', 0))
+    tb, k = st('gods') + 0.1, 0
+    while tb < L['gods']['end'] - 0.2:
+        add(bus_dry, pan(mridangam('ki' if k % 2 else 'ta', (19200, k), 0.2), -0.3 if k % 2 else 0.3), tb)
+        tb += 0.18
+        k += 1
+    add(bus_wet, pan(glide('agni19', 160, 120, 2.5, 0.5), 0.0), beat('agni', 0))
+    bell(beat('agni', 1), 659.25, 0.16, 0.0, 'name19')
+    n = smp(L['praise']['end'] - st('praise'))
+    t = tvec(n)
+    ch = sum(np.sin(2 * np.pi * f * t + j) for j, f in enumerate((SA, SA * 5 / 4, SA * 3 / 2))) * np.sin(np.pi * t / t[-1]) * 0.03
+    add(bus_wet, fade(np.stack([ch, np.roll(ch, 500)]), 0.3, 0.5), st('praise'))
+    bell(beat('dim', 1), 880.0, 0.14, 0.0, 'dim19')
+    n = smp(1.2)
+    t = tvec(n)
+    wh = bpf(rng('wing19').standard_normal(n), 200, 1500) * np.sin(np.pi * t / t[-1]) ** 2 * 0.12
+    stereo(wh, st('frame') + 1.0, roll=300)
+    Sa, Re, Ga, Pa = SA * 2, SA * 2 * 9 / 8, SA * 2 * 5 / 4, SA * 3
+    ph = bansuri([Pa, Ga, Re, Sa], [0.4, 0.4, 0.5, 1.4], 'mother19', 0.7)
+    add(bus_wet, pan(ph * 0.6, 0.2), st('mother') + 0.2)
+    sh = naga_shimmer(smp(L['cliff']['end'] - st('cliff')), 'cliff19', 0.8)
+    stereo(sh, st('cliff'), roll=500)
+    bell(beat('cliff', 2), 146.83, 0.24, 0.0, 'task19')
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
+def build_ep20(tl):
+    """Episode 20: wing-beats and wind under the cold open; the title; the recap; Kadru's order (a
+    low reed note); the flight (wind, waves, a bansuri); the climb to the Sun (a rising high drone
+    that whitens); the serpents fainting (the drone thins, one falling glide each); Kadru's prayer (a
+    rest, a held chord); Indra's storm (thunder, rain, a bell as the serpents revive); Sauti (crackle,
+    a bell as the island opens); the island (surf, birds); the serpents' command (a hiss); the
+    question (silence, then one bell on "freedom"); the short Next sting."""
+    D, N, L, bus_dry, bus_wet, bed, bell, hit, stereo, beat = _cue_common(tl, 'ep20', [(0, 0.3), (tl['lines'][3]['start'], 0.5), (tl['lines'][5]['start'], 0.2), (tl['lines'][8]['start'], 0.8), (tl['lines'][10]['start'], 0.3), (tl['duration'], 0.4)], 'frame')
+    st = lambda i: L[i]['start']   # noqa: E731
+    wd = wind(N, 'fly20')
+    stereo(lpf(wd, 1500) * env_curve([(0, 0.5), (st('recap'), 0.2), (st('recap') + 0.3, 0), (st('fly'), 0), (st('fly') + 0.3, 0.4), (st('pray'), 0.3), (st('rain'), 0), (D, 0)], N) * 0.22, 0, roll=900)
+    tb, k = 0.05, 0
+    while tb < st('recap') - 0.2:
+        n = smp(0.35)
+        x = bpf(rng('beat20', k).standard_normal(n), 120, 900) * np.sin(np.pi * tvec(n) / 0.35) ** 2 * 0.15
+        stereo(x, tb, roll=200)
+        tb += 0.5
+        k += 1
+    n = smp(1.6)
+    t = tvec(n)
+    reed = (np.sin(2 * np.pi * SA / 2 * 16 / 15 * t) + 0.4 * np.sin(2 * np.pi * SA * 16 / 15 * t)) * np.sin(np.pi * t / t[-1]) * 0.05
+    add(bus_wet, pan(reed, -0.3), beat('order', 1))
+    w = water(smp(st('sun') - st('fly')), 'sea20')
+    stereo(w * 0.3, st('fly'), roll=1600)
+    Sa, Re, Ga, Pa, Dha = SA * 2, SA * 2 * 9 / 8, SA * 2 * 5 / 4, SA * 3, SA * 2 * 5 / 3
+    ph = bansuri([Sa, Re, Ga, Pa, Dha], [0.3, 0.3, 0.35, 0.4, 1.2], 'fly20', 0.7)
+    add(bus_wet, pan(ph * 0.6, 0.2), st('fly') + 0.3)
+    n = smp(L['faint']['end'] - st('sun'))
+    t = tvec(n)
+    hd = sum(np.sin(2 * np.pi * f * (1 + 0.1 * t / t[-1]) * t + j) for j, f in enumerate((SA * 6, SA * 8, SA * 9))) * np.minimum(1, t / 0.5) * (1 - 0.7 * np.clip((t - (st('faint') - st('sun'))) / 1.5, 0, 1)) * 0.012
+    stereo(hd, st('sun'), roll=400)
+    for i in range(4):
+        add(bus_wet, pan(glide(('faint20', i), 700 - 60 * i, 300, 0.6, 0.35), -0.4 + 0.25 * i), beat('faint', 1) - 0.4 + i * 0.25)
+    n = smp(L['pray']['end'] - st('pray'))
+    t = tvec(n)
+    ch = sum(np.sin(2 * np.pi * f * t + j) for j, f in enumerate((SA / 2, SA * 3 / 4, SA))) * np.sin(np.pi * t / t[-1]) * 0.03
+    add(bus_wet, fade(np.stack([ch, np.roll(ch, 500)]), 0.3, 0.5), st('pray'))
+    th = thunder('th20', 3.0, 0.9)
+    stereo(th * 0.6, beat('rain', 1), roll=1200)
+    rn = bpf(rng('rain20').standard_normal(smp(L['rain']['end'] - beat('rain', 2) + 1.5)), 1500, 9000) * 0.05
+    stereo(rn * env_curve([(0, 0), (0.4, 1), (len(rn) / SR - 1.0, 1), (len(rn) / SR, 0)], len(rn)), beat('rain', 2) - 0.4, roll=300)
+    bell(beat('rain', 2) + 0.6, 880.0, 0.12, 0.2, 'revive20')
+    bell(beat('frame', 0), 659.25, 0.14, 0.0, 'isle20')
+    w2 = water(smp(st('ask') - st('command')), 'surf20')
+    stereo(w2 * 0.3, st('command'), roll=1600)
+    for k in range(4):
+        add(bus_wet, pan(bird_chirp(('b20', k), 2600 + 300 * k, 3400, 0.12) * 0.5, -0.5 + 0.3 * k), st('command') + 0.3 + 0.6 * k)
+    sh = naga_shimmer(smp(L['command']['end'] - st('command')), 'cmd20', 0.8)
+    stereo(sh, st('command'), roll=500)
+    bell(beat('ask', 1), 587.33, 0.2, 0.0, 'freedom20')
+    series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
     r = rng('dither')
@@ -2485,7 +2605,7 @@ def main():
                 return
         except Exception:
             pass
-    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12, 13: build_ep13, 14: build_ep14, 15: build_ep15, 16: build_ep16, 17: build_ep17, 18: build_ep18}[ep](tl)
+    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12, 13: build_ep13, 14: build_ep14, 15: build_ep15, 16: build_ep16, 17: build_ep17, 18: build_ep18, 19: build_ep19, 20: build_ep20}[ep](tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],
             'note': 'music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)'}

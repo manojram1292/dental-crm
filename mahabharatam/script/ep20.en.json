@@ -1,0 +1,235 @@
+{
+  "lang": "en",
+  "episode": 20,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 21–23: Kadru orders Vinata to carry her to Ramaniyaka, the serpents' island in the ocean, and Garuda to carry the serpents; he flies toward the Sun and the serpents faint in its heat; Kadru praises Indra (1.21), who covers the sky with clouds and rains (1.22); they reach Ramaniyaka; the serpents order Garuda to carry them on to another island; Garuda asks his mother why he must obey them, then asks the serpents what would set them free (1.23).",
+  "structure": "From episode 11: COLD OPEN (the hook over the episode's strongest image, big on-screen text from frame 1; KIT.series.hookCard) → title (the hook's post) → RECAP (≈2.5 s) → STORY (with a brief cut to Sauti at the Naimisha fire) → the cliffhanger image + line → a silent ≈1.5 s Next card that dissolves back into the first frame (KIT.series.loopNextScene).",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 20",
+    "episodeTitle": "Carrying the Serpents",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 19",
+    "prevEpisodeTitle": "Garuda Is Born",
+    "nextEpisodeLabel": "Episode 21",
+    "nextTitle": "The Price of Freedom",
+    "islandName": "Ramaniyaka",
+    "islandEpithet": "the island of the serpents"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "Why would a mighty bird carry the serpents who enslaved his mother?",
+      "say": "Why would a mighty bird carry the serpents [p:60] who enslaved his mother?",
+      "est": 3.6,
+      "pre": 60,
+      "post": 1400,
+      "beats": [
+        3,
+        7,
+        11
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "serpents",
+        "mother"
+      ],
+      "note": "COLD OPEN (moving from frame 1): Garuda LARGE in flight over the sea, wings beating, serpents coiled on his back; the question in big text from frame 1."
+    },
+    {
+      "id": "recap",
+      "text": "Garuda was born, and found his mother a slave.",
+      "say": "Garuda was born, [p:80] and found his mother a slave.",
+      "est": 3.0,
+      "pre": 100,
+      "post": 150,
+      "beats": [
+        0,
+        8
+      ],
+      "role": "recap",
+      "note": "RECAP: episode 19's image as a memory: Garuda bowing to Vinata on the shore."
+    },
+    {
+      "id": "order",
+      "speaker": "kadru",
+      "text": "\"Vinata, carry me to Ramaniyaka. Your son will carry my sons.\"",
+      "say": "Vinata, [p:100] carry me to Ramaniyaka. [p:150] Your son will carry my sons.",
+      "est": 4.6,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        0,
+        3,
+        5,
+        9
+      ],
+      "captionY": "high",
+      "note": "STORY 1 (Kadru speaks): the shore at morning; Kadru LARGE, imperious, pointing out to sea (beats[1]); then at Garuda and her sons (beats[3]). Name card for the island."
+    },
+    {
+      "id": "fly",
+      "text": "Vinata bore Kadru. Garuda bore the serpents, out over the sea.",
+      "say": "Vinata bore Kadru. [p:120] Garuda bore the serpents, [p:80] out over the sea.",
+      "est": 4.4,
+      "pre": 150,
+      "post": 200,
+      "beats": [
+        0,
+        4,
+        10
+      ],
+      "note": "STORY 2: wide over the ocean: Vinata flying with Kadru on her back, and above them Garuda with the serpents coiled on his back."
+    },
+    {
+      "id": "sun",
+      "text": "Garuda flew higher, close to the Sun.",
+      "say": "Garuda flew higher, [p:80] close to the Sun.",
+      "est": 3.0,
+      "pre": 150,
+      "post": 200,
+      "beats": [
+        2,
+        6
+      ],
+      "note": "STORY 3: Garuda climbs toward a blazing Sun at the top of the frame; heat shimmer; the sky whitens."
+    },
+    {
+      "id": "faint",
+      "text": "In the heat, the serpents fainted.",
+      "say": "In the heat, [p:150] the serpents fainted.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        5
+      ],
+      "note": "STORY 4 · THE TURN (≈ 45 %): close on his back: the serpents' hoods droop and their rims dim one by one (beats[1])."
+    },
+    {
+      "id": "pray",
+      "speaker": "kadru",
+      "text": "\"Indra, lord of the gods, save my sons!\"",
+      "say": "Indra, [p:100] lord of the gods, [p:100] save my sons!",
+      "est": 3.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        5,
+        7
+      ],
+      "note": "STORY 5 (Kadru speaks): Kadru, on Vinata's back, lifts her hands to the sky and cries out (her long praise of Indra in the CE, condensed).",
+      "captionY": "high"
+    },
+    {
+      "id": "rain",
+      "text": "Indra covered the sky with clouds, and poured down rain.",
+      "say": "Indra covered the sky with clouds, [p:100] and poured down rain.",
+      "est": 4.0,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        0,
+        5,
+        9
+      ],
+      "emphasis": [
+        "Indra"
+      ],
+      "note": "STORY 6: Indra on his storm cloud (EP13.storm), vajra raised; clouds roll over the Sun (beats[1]), rain sweeps down (beats[2]); the serpents revive."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "text": "So they came to Ramaniyaka, a lovely island in the sea.",
+      "say": "So they came to Ramaniyaka, [p:80] a lovely island in the sea.",
+      "est": 4.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        4,
+        7
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, a ninth angle: low, between two sages); above the fire a gold-ringed medallion shows a green island ringed with surf (the island's name card)."
+    },
+    {
+      "id": "command",
+      "speaker": "nagas",
+      "text": "\"Bird, carry us to another island, with clear water!\"",
+      "say": "Bird, [p:100] carry us to another island, [p:80] with clear water!",
+      "est": 3.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        5,
+        8
+      ],
+      "note": "STORY 7 (the serpents speak, as one): on the island's shore, the serpents rear round Garuda, ordering him; he stands among them, his wings half-folded, his eye burning."
+    },
+    {
+      "id": "cliff",
+      "text": "Garuda asked them:",
+      "say": "Garuda asked them:",
+      "est": 1.8,
+      "pre": 200,
+      "post": 100,
+      "beats": [
+        0
+      ],
+      "role": "next",
+      "note": "NEXT 1 (cliffhanger image): Garuda turns to face the serpents, LARGE."
+    },
+    {
+      "id": "ask",
+      "speaker": "garuda",
+      "text": "\"What will buy our freedom?\"",
+      "say": "What will buy our freedom?",
+      "est": 2.4,
+      "pre": 100,
+      "post": 600,
+      "beats": [
+        1,
+        4
+      ],
+      "role": "next",
+      "note": "NEXT 2 (Garuda speaks): close on Garuda's eagle head, the fierce eye softening to a question; on 'freedom' (beats[1]) a single bell. (The catalog cliffhanger: the narrator line and Garuda's question.)"
+    },
+    {
+      "id": "next",
+      "text": "Next: The Price of Freedom",
+      "voice": false,
+      "est": 1.7,
+      "role": "next",
+      "caption": false,
+      "note": "The short, silent Next card: a glimpse of episode 21: the serpents rearing, the white pot of amrita glowing far above; then the loop back to frame 1."
+    }
+  ]
+}

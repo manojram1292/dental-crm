@@ -16,8 +16,8 @@
         g.fillStyle = '#c8a888'; g.beginPath(); g.ellipse(560, 1070, 240, 18, 0, 0, R.TAU); g.fill();
         CH.horse.draw(g, { x: 560, y: 1068, scale: 0.13, facing: 'left', pose: 'stand', light: { dir: -1.2, intensity: 1, front: 0.6 }, t: T, key: 'h18-ho' });
         const L = { dir: -Math.PI / 2 + 0.4, intensity: 1.1, front: 0.5 };
-        CH.kadru.draw(g, { x: lerp(280, 300, p), y: 1950 + 20 * Math.sin(T * 1.2), scale: 1.1, facing: 'left', pose: { name: 'walk', phase: T * 1.5, wind: 1.4 }, light: L, t: T, key: 'h18-kd' });
-        CH.vinata.draw(g, { x: lerp(820, 800, p), y: 1990 + 20 * Math.sin(T * 1.2 + 1), scale: 1.06, facing: 'left', pose: { name: 'walk', phase: T * 1.5 + 1, wind: 1.4 }, light: L, t: T, key: 'h18-vn' });
+        EP17.flyer(g, (q, o) => CH.kadru.draw(q, o), lerp(420, 440, p), 1750 + 20 * Math.sin(T * 1.2), 0.95, T, L, 'h18-kd', -1.0);
+        EP17.flyer(g, (q, o) => CH.vinata.draw(q, o), lerp(860, 840, p), 1980 + 20 * Math.sin(T * 1.2 + 1), 0.9, T, L, 'h18-vn', -1.0);
       } });
       const sp = env.speech[1], out = clamp((t - sp - 0.05) / 0.3), line = env.script.lines[0];
       KIT.series.hookCard(ctx, T, 1, line.text, { y: 200, size: 78, gold: line.hookGold, out });

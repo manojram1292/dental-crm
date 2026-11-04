@@ -4938,11 +4938,12 @@
                 "theme-divine-weapons",
                 "theme-demons-and-rakshasas",
                 "char-sauti",
-                "char-vishnu"
+                "char-vishnu",
+                "lang-en"
               ],
-              "status": "in_production",
+              "status": "released",
               "languages": {
-                "en": "in_production"
+                "en": "released"
               },
               "tradition_note": false,
               "reorder_note": null,
@@ -5036,8 +5037,10 @@
               "synopsis": "Vinata says the horse is all white; Kadru says its tail is black; the loser will be the winner's slave. That night Kadru orders her thousand sons to hang from the tail as black hairs. Those who refuse she curses: they will burn in Janamejaya's snake sacrifice. Brahma lets the curse stand, because the serpents have grown too many and too venomous, and gives Kashyapa the knowledge that cures poison.",
               "cliffhanger": "At dawn the sisters flew out over the ocean to look.",
               "characters": [
+                "sauti",
                 "kadru",
                 "vinata",
+                "uchchaihshravas",
                 "brahma",
                 "kashyapa"
               ],
@@ -5048,7 +5051,10 @@
                 "women-of-the-epic"
               ],
               "locations": [
-                "ocean-of-milk"
+                "ocean-of-milk",
+                "naimisha",
+                "meru",
+                "kashyapa-hermitage"
               ],
               "playlists": [
                 "all",
@@ -5058,10 +5064,13 @@
                 "theme-curses",
                 "theme-deception",
                 "theme-serpents",
-                "theme-women-of-the-epic"
+                "theme-women-of-the-epic",
+                "char-sauti"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "in_production",
+              "languages": {
+                "en": "in_production"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null

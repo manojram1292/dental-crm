@@ -669,6 +669,126 @@ outline, green forest over the rock, waterfalls and blossoms; roots and rock han
 | Signature light | **Stone-gold with green forests** (rim ×1.6). |
 | Poses | `stand` · `uprooted` (k) · `churn` (spin, burn) |
 
+## Akupara, king of the tortoises · `akupara` (episodes 12–14)
+
+**Who.** He bears Mount Mandara on his back; Indra sets the mountain on him (CE 1.16). The epic's tortoise king, not the Puranic avatar. Module `akupara.js`.
+
+**Look.** A vast sea-tortoise in profile: a high dome patterned with mural hexagon plates, a gold shell rim, a long scaled neck, four broad flippers (`swim` phase; `bear` k braces under the mountain).
+
+| | |
+|---|---|
+| Palette | fill `#120e08` · lit `#3a2c18` · rim `#e0b070` → `#fff0d0` · plates `#5ad0b0` → `#d8fff0` |
+| Signature light | **Sea-bronze** with teal plates (rim ×1.4). |
+| Voice | none |
+
+## Samudra, the Ocean · `samudra` (episode 12)
+
+**Who.** The ocean agrees to be churned if he too gets a share of the amrita (CE 1.16). Module `akupara.js`.
+
+**Look.** Frontal, waist-deep in the waves: a crown of three wave-crests, hair and beard falling as waves, a pearl and a branch of coral (`offer`), a breaking wave behind him.
+
+| | |
+|---|---|
+| Palette | fill `#06141a` · lit `#134048` · rim `#6ae0e8` → `#eaffff` · ornaments pearl `#fff6e8`, coral `#ff7a6a` |
+| Signature light | **Aquamarine**, glow 0.85. |
+| Voice | `samudra` → am_santa, 0.8×, −2 st |
+
+## The wonders of the ocean: the Moon `chandra`, Shri `lakshmi`, Sura Devi `sura`, Dhanvantari `dhanvantari` (episode 13)
+
+**Who.** What rose from the churned ocean (CE 1.16). Module `ocean-treasures.js`: one shared frontal body, a different crown, garment, hands and palette each.
+
+**Look.** Chandra: a serene youth in a silver disc, a crescent at the crown, white lotuses. Shri: in WHITE garments (as the CE says), a karanda crown, lotuses, on a pink lotus. Sura Devi: a queen with a vine-leaf crown, a cup held up and a wine jar, drawn with dignity. Dhanvantari: a simple crown, a garland of herbs, the white pot of amrita glowing at his chest (`offer`).
+
+| | |
+|---|---|
+| Palette | Chandra rim `#c8dcff` → `#ffffff`; Shri PALE fill `#e8dcd0` with rose-gold rim `#ffb0a0`; Sura rim `#c04060` → `#ffd0dc`; Dhanvantari rim `#c8f0c0` → `#ffffff`, pot `#ffffff` |
+| Signature light | Moon-silver · ivory and rose-gold · wine-crimson · pale herb-jade. |
+| Voice | Dhanvantari `dhanvantari` → bm_daniel +0.5 st (reserved); the others are silent |
+
+## Shiva (Mahadeva) · `shiva` (episode 14, as tradition tells it)
+
+**Who.** He takes the kalakuta poison and holds it in his throat (vulgate/Southern Adi 16; not in the CE text). Module `shiva.js`.
+
+**Look.** Frontal: ash-pale body, tall DARK matted locks bound with a pale serpent and set with a white crescent moon, a calm face with half-closed eyes and a third eye, a serpent at the neck, a tiger skin, the trident with a damaru; `drink` (k) cups the hands to the mouth; `pose.throat` (0..1) the blue throat.
+
+| | |
+|---|---|
+| Palette | PALE fill `#b8bcc8` · lit `#eef0f6` · rim `#7ad0ff` → `#e8faff` · slate ornaments `#4a5a7a` · throat `#3a7aff` |
+| Signature light | **Ash and ice**; the only blue throat. |
+| Voice | none (silent) |
+
+## The enchantress (Narayana's illusion) · `enchantress` (episodes 14–16)
+
+**Who.** Narayana's enchanting illusion takes the amrita from the asuras (CE 1.16–17). The epic gives her no name; "Mohini" is Puranic and is not used. Module `enchantress.js` on `CH.female`.
+
+**Look.** Tall and graceful in profile: a high tiered bun with jasmine and a crescent comb, long drop earrings, a jewelled girdle, a floating veil like a mirage, the pot of amrita (`carry`, `pour` k, `beckon` k); `pose.reveal` turns her rim to Narayana's gold.
+
+| | |
+|---|---|
+| Palette | fill `#0e0a20` · lit `#2a2050` · rim `#c8a0ff` → `#fff0ff` · ornaments gold |
+| Signature light | **Illusion-pearl**, glow 1.0, shimmering motes. |
+| Voice | `enchantress` → af_bella (reserved) |
+
+## Rahu · `rahu` (episodes 15–16)
+
+**Who.** Disguised as a god he drinks the amrita; the Sun and Moon point him out; the discus takes his head; the immortal head hunts them still (CE 1.17). Module `rahu.js`.
+
+**Look.** `disguise`: the deva body in Rahu's eclipse light (a faint glow even in disguise; `k` lets it slip). `head`: a great crowned head in profile with a mane of smoke-flame and roaring jaws, in a half-transparent eclipse corona, the neck ending in a band of WHITE FIRE (never gore).
+
+| | |
+|---|---|
+| Palette | fill `#0a0608` · lit `#3a1626` · rim `#b02a4a` → `#ffb8c8` · ornaments bronze |
+| Signature light | **Eclipse**, glow 0.9. |
+| Voice | `rahu` → am_onyx −3 st (reserved) |
+
+## Nara · `nara` (episodes 15–16)
+
+**Who.** With his divine bow he fights beside Narayana in the war for the amrita (CE 1.17). Module `nara.js` on the deva body.
+
+**Look.** The deva warrior body with a great bow, a quiver, `draw` (k) and `loose` (k: a streak of white-gold light).
+
+| | |
+|---|---|
+| Palette | fill `#06120e` · lit `#163a2e` · rim `#5ad8a8` → `#e8fff4` · ornaments gold |
+| Signature light | **Storm-jade**, glow 0.9. |
+| Voice | none |
+
+## Garuda, king of birds · `garuda` (episodes 18–20 and on)
+
+**Who.** Vinata's second son, born blazing like fire; he carries the serpents and later storms heaven for the amrita (CE 1.20–30). Module `garuda.js`.
+
+**Look.** A man's body with an eagle's head (hooked beak, fierce eye, flame-feather crest, a small crown), vast wings that open in a V behind him (both drawn behind the body so the head always reads), painted feather bars and coverts, a feathered mantle and kilt, talons. Poses `stand` · `spread` (k) · `fly` (phase) · `carry` (k) · `bow` (k); `pose.blaze` his birth-fire.
+
+| | |
+|---|---|
+| Palette | fill `#2a1004` · lit `#7a3c10` · rim `#ffb030` → `#fff4c0` · ornaments `#ff6a2a` → `#ffe0a0` |
+| Signature light | **Blazing gold** (rim ×1.2, glow 1.1); never Aruna's red halo or Surya's disc. |
+| Voice | `garuda` → am_liam, 0.84×, −1.5 st |
+
+## Agni (Vibhavasu), god of fire · `agni` (episode 19)
+
+**Who.** The gods take newborn Garuda's blaze for Agni's; Agni tells them it is Garuda, his equal in splendour (CE 1.20). Module `agni.js` on the deva body.
+
+**Look.** The deva body (flame crest) with seven breathing tongues of fire behind him and a beard of flame.
+
+| | |
+|---|---|
+| Palette | fill `#1a0602` · lit `#4a1404` · rim `#ff7a2a` → `#ffe8a0` · ornaments gold |
+| Signature light | **Living fire**, glow 1.1. |
+| Voice | `agni` → am_puck, 0.8×, −2.5 st |
+
+## The nagas, Kadru's serpent sons · `naga` (episodes 17–20)
+
+**Who.** Kadru's sons: some become the black hairs in the horse's tail; those who refuse she curses (CE 1.18–20); Garuda carries them to Ramaniyaka (1.21–23). Defined in `naga-kings.js`.
+
+**Look.** The serpent-king body, thinner (60–90 units), one or three hoods by index (five hoods read as a hand at phone size and were dropped).
+
+| | |
+|---|---|
+| Palette | fill `#0c1006` · lit `#24301a` · rim `#9ad070` → `#eaffc8` · ornaments `#d8c060` |
+| Signature light | **Kadru's olive-green**; never Takshaka's cold green. |
+| Voice | `nagas` → af_nicole, 0.8×, −2 st (a group whisper) |
+
 ### Locations and light
 
 Characters keep their signature light everywhere; the **environment and its key light change per
@@ -704,6 +824,15 @@ cold silver horizon, jewels in the depths, a makara; `milk` turns it white for t
 `EP11.seaLight`); the **shore at sunrise** with the horse (`EP11.shore`). Visions are now solid painted
 medallions in a gold ring (`EP11.roundel`), and name cards on bright grounds sit on a dark lacquer plaque
 (`EP11.plaque`).
+
+Episodes 12–20: the **plain of the world in clear daylight**, its ground cut away to show Mandara's roots
+(`EP12.earth`, `EP12.dayLight`) and the **churning rig** (`EP12.churn`: tortoise, mountain, Vasuki's helix,
+the hosts); **the white sea** lit from below (`EP13.whiteSea`, `EP13.seaGlow`; `dark` drains it under the
+poison) and **Indra's storm** (`EP13.storm`); **the darkened world** of episode 14 (tradition-tagged, `EP14`);
+**the shore at violet dusk** and **the deep sky** of the Sun, the Moon and Rahu (`EP15.dusk`, `EP15.heavens`);
+**the shore in battle at night**, fire-lit from the horizon (`EP16.battle`); **the shore at sunset**, **the
+serpents' grove at night** in green moonlight, **the ocean at dawn** above and beneath (`EP17.sunset`,
+`EP17.grove`, `EP17.ocean`); **Ramaniyaka at noon** (`EP20.island`).
 
 ## Narrator · `narrator`
 

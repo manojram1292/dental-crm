@@ -17,7 +17,7 @@
         after: (g) => {
           CH.kadru.draw(g, { x: 170, y: 1580, scale: 0.42, facing: 'right', pose: { name: 'point', k: 1 }, light: EP17.sunLight(170, 1580), t: T, key: 'h17-kd' });
           CH.vinata.draw(g, { x: 380, y: 1580, scale: 0.4, facing: 'left', pose: 'stand', light: EP17.sunLight(380, 1580), t: T, key: 'h17-vn' });
-          CH.horse.draw(g, { x: 430, y: 1980, scale: 1.0, facing: 'left', pose: { name: 'stand', tail: 0.15 + 0.6 * E.inOutSine(p), wind: 1.2 }, light: EP17.sunLight(430, 1980, 1.05), t: T, key: 'h17-ho' });
+          CH.horse.draw(g, { x: 450, y: 1960, scale: 0.68, facing: 'left', pose: { name: 'stand', tail: 0.15 + 0.6 * E.inOutSine(p), wind: 1.2 }, light: EP17.sunLight(430, 1980, 1.05), t: T, key: 'h17-ho' });
         },
       });
       const sp = env.speech[1], out = clamp((t - sp - 0.05) / 0.3), line = env.script.lines[0];

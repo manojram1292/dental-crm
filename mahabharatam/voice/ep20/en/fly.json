@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9713,
+   "words": 3,
+   "speed": 0.81,
+   "text": "Vinata bore Kadru."
+  },
+  {
+   "t0": 2.2213,
+   "t1": 4.0416,
+   "words": 4,
+   "speed": 0.81,
+   "text": "Garuda bore the serpents,"
+  },
+  {
+   "t0": 4.1216,
+   "t1": 5.5217,
+   "words": 4,
+   "speed": 0.81,
+   "text": "out over the sea."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

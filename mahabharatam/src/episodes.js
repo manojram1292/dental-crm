@@ -47,6 +47,10 @@
     17: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', '_common', 's1-hook', 's2-recap', 's3-white', 's4-black', 's5-stakes', 's6-frame', 's7-order', 's8-refuse', 's9-curse', 's10-brahma', 's11-kashyapa', 's12-cliff', 's13-next'],
     // episode 18: the ocean from above and beneath (the fire under the sea), a night flashback, the far shore, the red sky, the hermitage (ep17/_common)
     18: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', 's1-hook', 's2-recap', 's3-fly', 's4-deep', 's5-frame', 's6-sons', 's7-arrive', 's8-tail', 's9-lost', 's10-slave', 's11-aruna', 's12-cliff', 's13-next'],
+    // episode 19: the hermitage, the burning sky, Indra's heaven reddened, the Naimisha clearing from above, the shore
+    19: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', 's1-hook', 's2-recap', 's3-hatch', 's4-rise', 's5-gods', 's6-agni', 's7-praise', 's8-dim', 's9-frame', 's10-mother', 's11-cliff', 's12-next'],
+    // episode 20: the shore, the ocean in flight, the white heat of the Sun, Indra's storm, the island of Ramaniyaka at noon (ep20/_common)
+    20: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', '_common', 's1-hook', 's2-recap', 's3-order', 's4-fly', 's5-sun', 's6-faint', 's7-pray', 's8-rain', 's9-frame', 's10-command', 's11-cliff', 's12-ask', 's13-next'],
   };
   const q = new URLSearchParams(location.search);
   const ep = +(q.get('ep') || 1);

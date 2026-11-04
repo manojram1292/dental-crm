@@ -20,7 +20,7 @@
         CH.vinata.draw(g, { x: 820, y: 1960, scale: 0.95, facing: 'left', pose: 'stand', light: EP17.sunLight(820, 1960), t: T, key: 's17-vn' });
       } });
       const la = clamp((t - b0) / 0.5) * (1 - clamp((t - b2 + 0.3) / 0.5));
-      EP17.plaque(ctx, env.strings.stakeLabel, null, KIT.CX, 820, la, { size: 40, key: 's17-stake' });
+      EP17.plaque(ctx, env.strings.stakeLabel, null, KIT.CX, 820, la, { size: 28, key: 's17-stake' });
       void dur;
     },
     post: () => ({ bloom: 0.38, vignette: 0.45, paper: 0.32 }),

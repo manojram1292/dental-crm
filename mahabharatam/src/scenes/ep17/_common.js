@@ -89,5 +89,11 @@
     if (o.after) o.after(ctx);
     ctx.restore();
   };
+  /** A sister in flight: the figure pitched forward about its waist, sari streaming (draw = CH.x.draw). */
+  EP17.flyer = (g, draw, x, y, s, T, L, key, pitch = -0.9) => {
+    g.save(); g.translate(x, y - 500 * s); g.rotate(pitch); g.translate(-x, -(y - 500 * s));
+    draw(g, { x, y, scale: s, facing: 'left', pose: { name: 'walk', phase: 0.3, wind: 1.6 }, light: L, t: T, key });
+    g.restore();
+  };
   void TAU; void lerp;
 })();

@@ -1,0 +1,23 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.8964,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 3.0961,
+   "words": 8,
+   "speed": 0.896,
+   "text": "Why would a mighty bird carry the serpents"
+  },
+  {
+   "t0": 3.1561,
+   "t1": 5.3928,
+   "words": 4,
+   "speed": 0.896,
+   "text": "who enslaved his mother?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

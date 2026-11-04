@@ -1,0 +1,30 @@
+{
+ "speaker": "kadru",
+ "voice": "bf_alice",
+ "speed": 0.82,
+ "pitch": -0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.0608,
+   "words": 1,
+   "speed": 0.82,
+   "text": "Vinata,"
+  },
+  {
+   "t0": 1.1608,
+   "t1": 3.3613,
+   "words": 4,
+   "speed": 0.82,
+   "text": "carry me to Ramaniyaka."
+  },
+  {
+   "t0": 3.6113,
+   "t1": 5.8925,
+   "words": 6,
+   "speed": 0.82,
+   "text": "Your son will carry my sons."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

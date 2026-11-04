@@ -55,7 +55,7 @@
       r.path = po.name === 'rope' && po.path ? po.path : defaultPath(po.name, P.T, po.k);
       r.head = po.name === 'rope' ? !!po.head : true;
       r.tail = po.name === 'rope' ? !!po.tail : true;
-      r.hoods = [1, 3, 1, 5, 1, 3][((P.index % 6) + 6) % 6];
+      r.hoods = [1, 3, 1, 1, 3, 1][((P.index % 6) + 6) % 6];
       r.w = po.w || (kind === 'ananta' ? 130 : kind === 'naga' ? [70, 80, 60, 90, 66, 76][((P.index % 6) + 6) % 6] : 110);
       r.w0 = po.w0 ?? r.w;   // width at the start of a rope stretch
       r.w1 = po.w1 ?? (r.tail ? 8 : r.w);
@@ -198,10 +198,10 @@
     id: 'naga', rig: makeRig('naga'), shape, ornaments, after, bounds, defaultPose: 'rise',
     bible: {
       name: 'The nagas, Kadru\'s serpent sons',
-      role: 'Kadru\'s thousand sons: some hang from the horse\'s tail as black hairs at her order; those who refuse she curses (CE 1.18–20); Garuda carries them to Ramaniyaka (1.21–23). Six fixed variants by index (one, three or five hoods; thickness).',
+      role: 'Kadru\'s thousand sons: some hang from the horse\'s tail as black hairs at her order; those who refuse she curses (CE 1.18–20); Garuda carries them to Ramaniyaka (1.21–23). Six fixed variants by index (one or three hoods; thickness).',
       palette: { fill: '#0c1006', lit: '#24301a', inner: '#2e3a14', rimDim: '#9ad070', rimBright: '#eaffc8', ornamentDim: '#d8c060', ornament: '#fff4b8' },
-      proportions: 'The serpent-king body at 60–90 units thick; one, three or five hoods by index.',
-      props: ['banded belly plates and back chain (as the serpent kings)', 'one, three or five hoods'],
+      proportions: 'The serpent-king body at 60–90 units thick; one or three hoods by index.',
+      props: ['banded belly plates and back chain (as the serpent kings)', 'one or three hoods (five read as a hand at phone size)'],
       light: 'Kadru\'s olive-green: rim #9ad070 → #eaffc8, glow 0.7, gold-olive scales; kin to their mother, never Takshaka\'s cold green.',
       poses, voice: 'nagas',
     },

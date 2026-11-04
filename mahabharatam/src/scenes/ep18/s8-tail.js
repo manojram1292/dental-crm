@@ -9,7 +9,7 @@
     draw(ctx, t, env) {
       const T = env.T, dur = env.dur;
       const z = E.inOutSine(clamp(t / dur));
-      ctx.save(); KIT.camera(ctx, { x: 820, y: 1200, zoom: lerp(1.6, 2.6, z), dx: lerp(-200, -300, z), dy: lerp(-100, -260, z) });
+      ctx.save(); KIT.camera(ctx, { x: 900, y: 1150, zoom: lerp(1.4, 2.1, z), dx: -360, dy: -190 });
       EP11.shore(ctx, T, { horse: { x: 520, y: 1400, scale: 0.75, facing: 'left', pose: { name: 'stand', tail: 1, wind: 0.8 } } });
       ctx.restore();
     },
