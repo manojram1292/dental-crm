@@ -109,7 +109,7 @@ CEIL = -1.0
 def limit(x, ceil_db=CEIL):
     """Look-ahead true-peak limiter: per-sample gain from 4×-oversampled peaks, min-held over 10 ms and
     averaged over 8 ms (an average of a wider min-hold never exceeds the gain any peak needs)."""
-    c = db(ceil_db - 0.15)
+    c = db(ceil_db - 0.4)   # 0.4 dB of headroom for the AAC encode (measured +0.2–0.25 dB on the mp4)
     up = sps.resample_poly(np.abs(x).max(0), 4, 1)
     pk = up.reshape(-1, 4).max(1) if len(up) % 4 == 0 else np.pad(up, (0, (-len(up)) % 4)).reshape(-1, 4).max(1)
     pk = np.maximum(pk[:x.shape[1]], np.abs(x).max(0))
