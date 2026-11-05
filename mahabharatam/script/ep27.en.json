@@ -1,0 +1,283 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "episode": 27,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 29 (first part): Garuda finds the soma surrounded by a fire that covers the sky; he makes himself ninety times ninety mouths, drinks rivers and puts the fire out with them; he makes himself small and golden and goes in; before the soma spins an iron wheel with razor-sharp edges, made by the gods to cut down thieves; he finds the gap between its spokes, shrinks and passes through; beneath it lie two great serpents with blazing eyes whose gaze is poison; he blinds them with dust, cuts them down unseen, breaks the wheel and flies out with the soma, not drinking it. (The cliffhanger looks ahead: Vishnu meets him in the sky.)",
+  "structure": "From episode 21 (independent review): COLD OPEN (≤ 8 words, ≤ 3 s; opening style A: the question over the answer image) → title (hook post) → STORY from ≈ 5 s with the UNVOICED recap band over its first shot (KIT.series.recapBand) → turn at 40–60 % → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1 (KIT.series.overlayNextScene). No fire edge in the Garuda arc from here.",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 27",
+    "episodeTitle": "The Wheel of Blades",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 26",
+    "prevEpisodeTitle": "Garuda Storms Heaven",
+    "recapLine": "The gods fled. Fire and a wheel guarded the amrita.",
+    "nextEpisodeLabel": "Episode 28",
+    "nextTitle": "A Boon from Vishnu",
+    "mouthsFigure": "90 × 90",
+    "mouthsLabel": "mouths"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.2,
+      "text": "How do you pass a wheel of blades?",
+      "say": "How do you pass [p:60] a wheel of blades?",
+      "est": 2.6,
+      "pre": 60,
+      "post": 1300,
+      "beats": [
+        3,
+        6
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "wheel",
+        "blades?"
+      ],
+      "sfx": [
+        "ki@0",
+        "bell@1"
+      ],
+      "note": "COLD OPEN (style A, moving from frame 1): the iron wheel spinning LARGE, its blades flashing past the camera; through the gap between spokes, the white glow of the amrita."
+    },
+    {
+      "id": "fire",
+      "speed": 1.04,
+      "text": "First, a fire that reached the sky.",
+      "say": "First, [p:80] a fire that reached the sky.",
+      "est": 2.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        1,
+        6
+      ],
+      "sfx": [
+        "roar"
+      ],
+      "note": "STORY 1 with the unvoiced recap band: NEW LIGHT, the inner court of the amrita, all fire: a wall of flame from floor to sky; Garuda small before it."
+    },
+    {
+      "id": "mouths",
+      "speed": 1.04,
+      "text": "He made himself ninety times ninety mouths, drank whole rivers, and poured them on the fire.",
+      "say": "He made himself ninety times ninety mouths, [p:100] drank whole rivers, [p:80] and poured them on the fire.",
+      "est": 5.0,
+      "pre": 200,
+      "post": 200,
+      "beats": [
+        3,
+        8,
+        11,
+        15
+      ],
+      "sfx": [
+        "surf@1",
+        "glide@3"
+      ],
+      "note": "STORY 2: a gold counter '90 × 90 · mouths' on beats[0]; rivers drawn up into him in silver ribbons (beats[1..2]); poured down, the fire hisses into steam (beats[3])."
+    },
+    {
+      "id": "small",
+      "speed": 1.04,
+      "text": "Then he made himself small, and bright as gold.",
+      "say": "Then he made himself small, [p:100] and bright as gold.",
+      "est": 3.0,
+      "pre": 200,
+      "post": 200,
+      "beats": [
+        4,
+        8
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 3: through the steam, Garuda shrinks to a small figure blazing gold."
+    },
+    {
+      "id": "wheel",
+      "speed": 1.08,
+      "text": "Before the amrita spun a wheel of iron, its rim all blades.",
+      "say": "Before the amrita spun a wheel of iron, [p:120] its rim all blades.",
+      "est": 3.8,
+      "pre": 300,
+      "post": 300,
+      "beats": [
+        3,
+        7,
+        11
+      ],
+      "sfx": [
+        "ki@1",
+        "bell-low@2"
+      ],
+      "note": "STORY 4: the reveal: the wheel, LARGE and frontal, spinning before the glowing pot; its blades sing.",
+      "captionY": "high"
+    },
+    {
+      "id": "made",
+      "speed": 1.04,
+      "text": "The gods had made it to cut down any thief.",
+      "say": "The gods had made it [p:80] to cut down any thief.",
+      "est": 3.0,
+      "pre": 100,
+      "post": 300,
+      "beats": [
+        1,
+        9
+      ],
+      "sfx": [
+        "ki@0"
+      ],
+      "note": "STORY 4b: close on the rim: the blades flash past, one after another, singing.",
+      "captionY": "high"
+    },
+    {
+      "id": "slip",
+      "speed": 1.04,
+      "text": "He found the gap between its spokes, and slipped through.",
+      "say": "He found the gap between its spokes, [p:120] and slipped through.",
+      "est": 3.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        9
+      ],
+      "sfx": [
+        "wings@1"
+      ],
+      "note": "STORY 5: the tiny gold Garuda times the spokes and darts through a gap (beats[1]); seen from behind him.",
+      "captionY": "high"
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "But two more guards were waiting.",
+      "say": "But two more guards were waiting.",
+      "est": 2.4,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        5
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, a sixteenth angle: from behind Sauti's back, his hand raised with two fingers, the sages' faces lit beyond him)."
+    },
+    {
+      "id": "serpents",
+      "speed": 1.1,
+      "text": "Beneath it lay two great serpents, their eyes like fire, never closing, their very gaze poison.",
+      "say": "Beneath it lay two great serpents, [p:80] their eyes like fire, [p:60] never closing, [p:80] their very gaze poison.",
+      "est": 4.0,
+      "pre": 900,
+      "post": 300,
+      "beats": [
+        5,
+        8,
+        12,
+        16
+      ],
+      "sfx": [
+        "silence",
+        "hiss",
+        "bell-low@3"
+      ],
+      "note": "STORY 6 · THE TURN (≈ 52 %): after a 0.9 s rest (the episode's one long rest), the reveal beneath the wheel: the two guardian serpents rear, ember eyes unblinking; Garuda small between them.",
+      "captionY": "high"
+    },
+    {
+      "id": "blind",
+      "speed": 1.04,
+      "text": "He filled their eyes with dust, and cut them down.",
+      "say": "He filled their eyes with dust, [p:120] and cut them down.",
+      "est": 3.2,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        4,
+        9
+      ],
+      "sfx": [
+        "wind@0",
+        "drum@1"
+      ],
+      "note": "STORY 7: a cloud of dust thrown up by his wings; their eyes grey out (beats[0]); a flash of talons and they sink (beats[1]) (no gore: they fall back into shadow).",
+      "captionY": "high"
+    },
+    {
+      "id": "take",
+      "speed": 1.04,
+      "text": "He broke the wheel, and flew off with the amrita, without drinking a drop.",
+      "say": "He broke the wheel, [p:100] and flew off with the amrita, [p:120] without drinking a drop.",
+      "est": 4.6,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        2,
+        8,
+        13
+      ],
+      "sfx": [
+        "crack@0",
+        "wings@1",
+        "bell@2"
+      ],
+      "note": "STORY 8: the wheel shatters (beats[0]); Garuda, full size again, bursts upward holding the white pot (beats[1]); he does not lift it to his beak (beats[2])."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.04,
+      "text": "On his way out, he met Vishnu.",
+      "say": "On his way out, [p:150] he met Vishnu.",
+      "est": 2.6,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        4,
+        6
+      ],
+      "role": "next",
+      "captionY": "high",
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): the open sky; ahead of Garuda a deep-blue light opens: Narayana (Vishnu) waiting in the air, his discus behind him."
+    },
+    {
+      "id": "next",
+      "text": "Next: A Boon from Vishnu",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The short Next over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

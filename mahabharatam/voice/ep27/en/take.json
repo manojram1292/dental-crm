@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8424,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3162,
+   "words": 4,
+   "speed": 0.842,
+   "text": "He broke the wheel,"
+  },
+  {
+   "t0": 1.4162,
+   "t1": 3.2658,
+   "words": 6,
+   "speed": 0.842,
+   "text": "and flew off with the amrita,"
+  },
+  {
+   "t0": 3.3858,
+   "t1": 5.1009,
+   "words": 4,
+   "speed": 0.842,
+   "text": "without drinking a drop."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

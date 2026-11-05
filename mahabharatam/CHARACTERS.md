@@ -757,11 +757,11 @@ outline, green forest over the rock, waterfalls and blossoms; roots and rock han
 
 **Who.** Vinata's second son, born blazing like fire; he carries the serpents and later storms heaven for the amrita (CE 1.20–30). Module `garuda.js`.
 
-**Look.** A man's body with an eagle's head (hooked beak, fierce eye, flame-feather crest, a small crown), vast wings that open in a V behind him (both drawn behind the body so the head always reads), painted feather bars and coverts, a feathered mantle and kilt, talons. Poses `stand` · `spread` (k) · `fly` (phase) · `carry` (k) · `bow` (k); `pose.blaze` his birth-fire.
+**Look.** (Revised for episodes 19–20 re-render and 21 on: a lighter feathered face mask, a GOLD beak with a dark gape line, an eye with a dark pupil, the collar LOW on the chest as a necklace with a pendant (the old band under the beak read as a grin), a warm painted band over the wing primaries, a brighter fill.) A man's body with an eagle's head (hooked beak, fierce eye, flame-feather crest, a small crown), vast wings that open in a V behind him (both drawn behind the body so the head always reads), painted feather bars and coverts, a feathered mantle and kilt, talons. Poses `stand` · `spread` (k) · `fly` (phase) · `carry` (k) · `bow` (k); `pose.blaze` his birth-fire.
 
 | | |
 |---|---|
-| Palette | fill `#2a1004` · lit `#7a3c10` · rim `#ffb030` → `#fff4c0` · ornaments `#ff6a2a` → `#ffe0a0` |
+| Palette | fill `#3a1806` · lit `#9a5418` · rim `#ffb030` → `#fff4c0` · ornaments `#ff6a2a` → `#ffe0a0` · face mask `#b8682a` · beak `#f0b840` |
 | Signature light | **Blazing gold** (rim ×1.2, glow 1.1); never Aruna's red halo or Surya's disc. |
 | Voice | `garuda` → am_liam, 0.84×, −1.5 st |
 
@@ -788,6 +788,80 @@ outline, green forest over the rock, waterfalls and blossoms; roots and rock han
 | Palette | fill `#0c1006` · lit `#24301a` · rim `#9ad070` → `#eaffc8` · ornaments `#d8c060` |
 | Signature light | **Kadru's olive-green**; never Takshaka's cold green. |
 | Voice | `nagas` → af_nicole, 0.8×, −2 st (a group whisper) |
+
+## The Nishadas · `nishada` (index 0–3) and the Nishadi · `nishadi` (episodes 21–22)
+
+**Who.** A fishing people who live in a remote bay of the ocean; Vinata sends Garuda to eat them (CE 1.24–25). Drawn with respect: a people at their work and homes. The brahmin's wife is a Nishadi. Module `nishada.js`.
+
+**Look.** `nishada` on Uttanka's young body: long hair bound at the nape with a cord, the staff become a fishing spear, a rolled net over the shoulder (even index), shell beads. `nishadi` on the teacher's wife's sari'd body: sari end over her head, a shell necklace.
+
+| | |
+|---|---|
+| Palette | fill `#0a1014` · lit `#23343a` · rim `#7ab8c0` → `#e0f6f4` · ornaments shell-white |
+| Signature light | **Moon on water**; never Takshaka's cold green. |
+| Voice | none (they do not speak) |
+
+## The brahmin in the throat · `brahmin` (episode 22)
+
+**Who.** Swallowed with the Nishadas, he burns Garuda's throat like a live coal and will not leave without his Nishadi wife (CE 1.25). Module `nishada.js`, on Vaishampayana's body with the sacred thread.
+
+| | |
+|---|---|
+| Palette | fill `#120c06` · lit `#3a2a16` · rim `#e8c890` → `#fff6dc`; `pose.coal` lights him from inside |
+| Signature light | **Hearth-ivory with an inner coal**. |
+| Voice | `brahmin` → am_eric, 0.86×, +1.5 st |
+
+## Supratika the elephant · `supratika` and Vibhavasu the tortoise · `vibhavasu` (episodes 22–24)
+
+**Who.** Two quarrelling brothers: Vibhavasu cursed his younger brother Supratika to become an elephant, and Supratika cursed him to become a tortoise; they fight on in a lake until Garuda carries them off (CE 1.25–26). Module `brothers.js`.
+
+**Look.** `supratika`: a vast mural elephant (domed head, swinging trunk `pose.trunk`, long ivory tusks, fan ears, painted rope bands, no howdah); `pose.fight` rears him, `pose.seized` curls his legs. `vibhavasu`: Akupara's tortoise body, smaller, in his own mud-gold and moss light.
+
+| | |
+|---|---|
+| Palette | Supratika: fill `#0e0e12` · rim `#b8b0d8` → `#f2eeff` · ivory tusks. Vibhavasu: fill `#100c06` · rim `#c8b060` → `#fff4c0` · moss plates `#8ab060` |
+| Signature light | **Monsoon slate** (elephant) · **mud-gold and moss** (tortoise); Akupara stays sea-bronze and teal. |
+| Voice | none |
+
+## The Valakhilyas, the thumb-sized sages · `valakhilya` (episodes 23–25)
+
+**Who.** Sages no bigger than a thumb who hang head-down from Rauhina's branch; Garuda saves them; Indra once laughed at them, and their rite brought about Garuda (CE 1.26–27). Module `valakhilya.js` on the sages' body; `CH.valakhilya.hang` draws one head-down from its feet.
+
+| | |
+|---|---|
+| Palette | fill `#1a1612` · lit `#4a4438` · rim `#e8e4d8` → `#ffffff` · glow 1.0 |
+| Signature light | **Ash-white tapas**, so a figure a few pixels tall still reads. Always drawn tiny. |
+| Voice | `valakhilyas` → bm_lewis, 0.86×, +3.5 st (a group) |
+
+## Brihaspati, teacher of the gods · `brihaspati` (episode 25)
+
+**Who.** Indra's guru, who explains the omens (CE 1.26). Module `brihaspati.js` on Vyasa's body, with a faint yellow aureole and no crown.
+
+| | |
+|---|---|
+| Palette | fill `#160e02` · lit `#4a3410` · rim `#f0c840` → `#fff6c0` |
+| Signature light | **Jupiter's yellow gold**. |
+| Voice | `brihaspati` → bm_george, 0.8×, −1.5 st |
+
+## Vishvakarma (Bhauvana), the gods' builder · `vishvakarma` (episode 26)
+
+**Who.** The divine artisan who guarded the soma and was the first to fall to Garuda in heaven (CE 1.28). Module `vishvakarma.js` on the deva body (kirita), with a great hammer, a leather apron and a measuring cord.
+
+| | |
+|---|---|
+| Palette | fill `#160a04` · lit `#4a2410` · rim `#e88a40` → `#ffe0b0` · brass |
+| Signature light | **Forge copper**; never Agni's tongues of flame. |
+| Voice | none |
+
+## The two serpents who guard the amrita · `guardsnake` (index 0, 1) (episode 27)
+
+**Who.** Fire-eyed serpents under the wheel of blades whose gaze is poison; Garuda blinds them with dust and cuts them down (CE 1.29). Module `amrita-guards.js` on Vasuki's body; `pose.blind` dims their ember glow.
+
+| | |
+|---|---|
+| Palette | fill `#120604` · lit `#3a1408` · rim `#ff6a3a` → `#ffd8b0` · ember ornaments |
+| Signature light | **Iron and ember**; never Vasuki's violet or the nagas' olive. |
+| Voice | none |
 
 ### Locations and light
 
@@ -833,6 +907,21 @@ poison) and **Indra's storm** (`EP13.storm`); **the darkened world** of episode 
 **the shore in battle at night**, fire-lit from the horizon (`EP16.battle`); **the shore at sunset**, **the
 serpents' grove at night** in green moonlight, **the ocean at dawn** above and beneath (`EP17.sunset`,
 `EP17.grove`, `EP17.ocean`); **Ramaniyaka at noon** (`EP20.island`).
+
+Episodes 21–30 (the Garuda arc's second half; `src/scenes/ep21/_common.js` … `ep30/_common.js`), a new light in every
+episode: Ramaniyaka in **late gold**, the **palm grove at evening** (amber through the trunks) and the **Nishadas' bay at
+moonrise** (teal and silver), the **night sky of Vinata's blessing** with the four guardian signs (`EP21`); the **bay under
+a storm of dust** and a **high mountain hermitage at dawn** in rose and snow (`EP22`), the **storm-green lake of the
+brothers** (`EP22.lake`); Kashyapa's tale as a **red-ochre mural panel** and the **holy grove of Alamba at violet
+twilight** with the great tree Rauhina (`EP23`); **the world from high above at midday** (a white glare), **Gandhamadana**
+in green-gold with petals, **an empty snow mountain at evening alpenglow** and **heaven at night under omens** (`EP24`);
+**Indra's council hall** reddened by the omens, **the sacrifice at bright morning**, **a cow's hoofprint at ground level**
+and **the Valakhilyas' blue-white rite** (`EP25`); **heaven's courtyard under a bruised green-violet storm** and **the
+compass of heaven from above** (`EP26`, with the fire ring and the wheel of blades); **the inner court all on fire** that
+turns to steam, **the amrita's vault in cold steel-blue**, **the open sky at deep blue dusk** (`EP27`); **first light over a
+cloud-sea** and **a white-gold sky** for Vishnu's banner (`EP28`); **a silver noon among high clouds** and **the sky after
+the storm with a rainbow** (`EP29`); **Ramaniyaka at dawn**, pink and misted, with the **kusha grass at ground level** (`EP30`).
+
 
 ## Narrator · `narrator`
 

@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9481,
+   "words": 5,
+   "speed": 0.81,
+   "text": "Flying out with the amrita,"
+  },
+  {
+   "t0": 2.0481,
+   "t1": 4.3444,
+   "words": 6,
+   "speed": 0.81,
+   "text": "Garuda met Vishnu in the sky."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -146,6 +146,15 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "kusha": "kˈʊʃə",                                    # KU-sha (the sacred grass)
     "Alamba": "ɐlˈʌmbə",
     "yojana": "jˈoʊdʒənə",
+    "Vayu": "vˈɑːjuː",
+    "Sadhyas": "sˈɑːdʰjəz",
+    "Gandharvas": "ɡəndʰˈʌɾvəz",
+    "Vasus": "vˈʌsʊz",
+    "Rudras": "ɾˈʊdɾəz",
+    "Adityas": "ˈɑːdɪtjəz",
+    "Ashvins": "ˈʌʃvɪnz",
+    "Dadhichi": "dədʰˈiːʧi",
+    "Shatakratu": "ʃˌʌtəkɾˈʌtʊ",
     "yojanas": "jˈoʊdʒənəz",
     # English words espeak gets wrong for these voices (audited with --dry)
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it

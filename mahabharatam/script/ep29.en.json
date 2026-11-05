@@ -1,0 +1,262 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "episode": 29,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, end of adhyaya 29 and adhyaya 30: Indra strikes Garuda with the vajra; Garuda, unhurt, laughing, speaks gently: he honours the sage from whose bones the vajra was made, and the vajra, and Indra, and lets fall a single feather; seeing its beauty, all beings name him Suparna, 'the fine-feathered'. Indra, amazed, asks for his friendship and to know the measure of his strength; Garuda answers that he could carry the earth with its mountains, forests and oceans, and Indra with it, on a single feather. Indra asks for the soma back; Garuda says he is taking it for a purpose and will let no one drink it: where he sets it down, Indra may take it. Indra, pleased, offers a boon, and Garuda asks that the mighty serpents be his food. (The cliffhanger: he flies down, and Indra follows unseen.)",
+  "structure": "From episode 21 (independent review): COLD OPEN (≤ 8 words, ≤ 3 s; opening style C: a statement card over the answer image) → title (hook post) → STORY from ≈ 5 s with the UNVOICED recap band over its first shot (KIT.series.recapBand) → turn at 40–60 % → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1 (KIT.series.overlayNextScene). No fire edge in the Garuda arc from here.",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 29",
+    "episodeTitle": "The Feather and the Thunderbolt",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 28",
+    "prevEpisodeTitle": "A Boon from Vishnu",
+    "recapLine": "Vishnu made Garuda his mount, and his banner.",
+    "nextEpisodeLabel": "Episode 30",
+    "nextTitle": "Forked Tongues",
+    "suparnaName": "Suparna",
+    "suparnaEpithet": "the fine-feathered"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.3,
+      "text": "The thunderbolt struck. He lost one feather.",
+      "say": "The thunderbolt struck. [p:100] He lost one feather.",
+      "est": 3.0,
+      "pre": 60,
+      "post": 1300,
+      "beats": [
+        1,
+        6
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "thunderbolt",
+        "feather."
+      ],
+      "sfx": [
+        "thunder@0",
+        "bell@1"
+      ],
+      "note": "COLD OPEN (style C, moving from frame 1): the vajra's white flash breaking on Garuda's wing in a storm sky; a single gold feather spins away down the frame."
+    },
+    {
+      "id": "strike",
+      "speed": 1.08,
+      "text": "Indra struck him with the thunderbolt.",
+      "say": "Indra struck him [p:60] with the thunderbolt.",
+      "est": 2.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        5
+      ],
+      "captionY": "high",
+      "sfx": [
+        "thunder@1"
+      ],
+      "note": "STORY 1 with the unvoiced recap band: Indra's storm (slate cloud banks): the vajra leaves Indra's hand and strikes Garuda in a burst of white."
+    },
+    {
+      "id": "laugh",
+      "speed": 1.08,
+      "text": "Garuda was not hurt. He laughed, and spoke gently.",
+      "say": "Garuda was not hurt. [p:200] He laughed, [p:80] and spoke gently.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        5,
+        8
+      ],
+      "note": "STORY 2: the light clears: Garuda unharmed, his head thrown back; then turning calmly toward Indra."
+    },
+    {
+      "id": "honour",
+      "speaker": "garuda",
+      "speed": 1.12,
+      "text": "\"I honour the sage whose bones made this weapon. I honour you. Here is one feather.\"",
+      "say": "I honour the sage [p:60] whose bones made this weapon. [p:200] I honour you. [p:200] Here is one feather.",
+      "est": 5.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        6,
+        10,
+        15
+      ],
+      "captionY": "high",
+      "note": "STORY 3 (Garuda speaks): close on Garuda, respectful, his wing lifting; a small medallion of an old sage in austerity on 'sage' (beats[0])."
+    },
+    {
+      "id": "feather",
+      "speed": 1.05,
+      "text": "One feather fell, so fine that all who saw it named him Suparna: the fine-feathered.",
+      "say": "One feather fell, [p:100] so fine that all who saw it named him Suparna: [p:150] the fine-feathered.",
+      "est": 5.2,
+      "pre": 300,
+      "post": 300,
+      "beats": [
+        2,
+        12,
+        14
+      ],
+      "sfx": [
+        "bell@0",
+        "bell@1"
+      ],
+      "note": "STORY 4: NEW LIGHT: a silver noon among high clouds: a single gold feather falls, turning slowly, LARGE; small figures of gods and beings look up at it; the plaque 'Suparna'."
+    },
+    {
+      "id": "friend",
+      "speaker": "indra",
+      "speed": 1.05,
+      "text": "\"Let us be friends. Tell me, how strong are you?\"",
+      "say": "Let us be friends. [p:200] Tell me, [p:60] how strong are you?",
+      "est": 3.4,
+      "pre": 900,
+      "post": 300,
+      "beats": [
+        3,
+        8
+      ],
+      "captionY": "high",
+      "sfx": [
+        "silence",
+        "chord"
+      ],
+      "note": "STORY 5 · THE TURN (≈ 46 %): after a 0.9 s rest, the reversal (direct speech): NEW LIGHT, the sky after the storm, a rainbow over the breaking clouds; Indra lowers the vajra and opens his hand."
+    },
+    {
+      "id": "strong",
+      "speaker": "garuda",
+      "speed": 1.12,
+      "text": "\"On one feather I could carry the earth, its mountains and seas, and you as well.\"",
+      "say": "On one feather [p:60] I could carry the earth, [p:80] its mountains and seas, [p:100] and you as well.",
+      "est": 5.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        7,
+        11,
+        15
+      ],
+      "captionY": "high",
+      "sfx": [
+        "drum@1",
+        "bell@3"
+      ],
+      "note": "STORY 6 (Garuda speaks): a vision: the round earth, mountains and seas, resting on a single gold feather held up in the sky; on 'you' (beats[3]) a tiny Indra on top."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "Then Indra asked for the amrita back.",
+      "say": "Then Indra [p:60] asked for the amrita back.",
+      "est": 2.6,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        1,
+        6
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, an eighteenth angle: through the smoke, Sauti's open hand held out, palm up)."
+    },
+    {
+      "id": "plan",
+      "speaker": "garuda",
+      "speed": 1.12,
+      "text": "\"I will let no one drink it. Where I set it down, take it.\"",
+      "say": "I will let no one drink it. [p:250] Where I set it down, [p:80] take it.",
+      "est": 4.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        9,
+        12
+      ],
+      "captionY": "high",
+      "note": "STORY 7 (Garuda speaks): the two in the rainbow sky, the pot between them; Garuda's wing points down toward the earth."
+    },
+    {
+      "id": "boon",
+      "speed": 1.15,
+      "text": "Indra granted him a boon, and Garuda chose: let the serpents be my food.",
+      "say": "Indra granted him a boon, [p:100] and Garuda chose: [p:150] let the serpents be my food.",
+      "est": 4.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        7,
+        11
+      ],
+      "sfx": [
+        "hiss@2",
+        "bell-low@2"
+      ],
+      "note": "STORY 8: Indra's hand in blessing; on 'serpents' (beats[2]) a medallion of serpents rearing below, Garuda's shadow falling over them."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.08,
+      "text": "Garuda flew down with the amrita. Indra followed, unseen.",
+      "say": "Garuda flew down with the amrita. [p:200] Indra followed, [p:80] unseen.",
+      "est": 3.8,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        2,
+        6,
+        8
+      ],
+      "role": "next",
+      "captionY": "high",
+      "sfx": [
+        "wings@0",
+        "bell-low@2"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): Garuda dives toward Ramaniyaka far below with the pot; behind him, a faint translucent Indra follows in the clouds."
+    },
+    {
+      "id": "next",
+      "text": "Next: Forked Tongues",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The short Next over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8748000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6938,
+   "words": 4,
+   "speed": 0.875,
+   "text": "Garuda was not hurt."
+  },
+  {
+   "t0": 1.9438,
+   "t1": 2.7822,
+   "words": 2,
+   "speed": 0.875,
+   "text": "He laughed,"
+  },
+  {
+   "t0": 2.8622,
+   "t1": 4.187,
+   "words": 3,
+   "speed": 0.875,
+   "text": "and spoke gently."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

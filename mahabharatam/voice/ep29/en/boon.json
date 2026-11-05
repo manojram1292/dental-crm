@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9315,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.5875,
+   "words": 5,
+   "speed": 0.931,
+   "text": "Indra granted him a boon,"
+  },
+  {
+   "t0": 1.6875,
+   "t1": 2.9765,
+   "words": 3,
+   "speed": 0.931,
+   "text": "and Garuda chose:"
+  },
+  {
+   "t0": 3.1265,
+   "t1": 4.9053,
+   "words": 6,
+   "speed": 0.931,
+   "text": "let the serpents be my food."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

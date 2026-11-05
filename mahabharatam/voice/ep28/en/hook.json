@@ -1,0 +1,23 @@
+{
+ "speaker": "garuda",
+ "voice": "am_liam",
+ "speed": 0.9408000000000001,
+ "pitch": -1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1141,
+   "words": 3,
+   "speed": 0.941,
+   "text": "Let me stand"
+  },
+  {
+   "t0": 1.1741,
+   "t1": 2.168,
+   "words": 2,
+   "speed": 0.941,
+   "text": "above you."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

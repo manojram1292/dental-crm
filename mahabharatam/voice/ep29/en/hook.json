@@ -1,0 +1,23 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 1.079,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7307,
+   "words": 3,
+   "speed": 1.079,
+   "text": "The thunderbolt struck."
+  },
+  {
+   "t0": 1.9807,
+   "t1": 3.5425,
+   "words": 4,
+   "speed": 1.079,
+   "text": "He lost one feather."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

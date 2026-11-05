@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8748000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.906,
+   "words": 7,
+   "speed": 0.875,
+   "text": "They came back to find it gone,"
+  },
+  {
+   "t0": 2.026,
+   "t1": 4.0999,
+   "words": 8,
+   "speed": 0.875,
+   "text": "and licked the grass where it had stood."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

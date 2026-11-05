@@ -1,0 +1,292 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "episode": 26,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 28: as Garuda comes, heaven fills with terrible omens (winds, falling meteors, a rain of blood); the gods arm themselves and surround the soma. Garuda arrives; Vishvakarma, who guarded the soma, fights him and falls, torn by his wings, beak and claws. The dust raised by his wings blinds the gods; at Indra's order Vayu blows it away; the gods attack and Garuda, roaring, wounds them; they flee: the Sadhyas and Gandharvas to the east, the Vasus and Rudras to the south, the Adityas to the west, the Ashvins to the north. (The cliffhanger looks ahead to 1.29: the fire and the wheel around the amrita.)",
+  "structure": "From episode 21 (independent review): COLD OPEN (≤ 8 words, ≤ 3 s; opening style C: a statement card over the answer image) → title (hook post) → STORY from ≈ 5 s with the UNVOICED recap band over its first shot (KIT.series.recapBand) → turn at 40–60 % → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1 (KIT.series.overlayNextScene). No fire edge in the Garuda arc from here.",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 26",
+    "episodeTitle": "Garuda Storms Heaven",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 25",
+    "prevEpisodeTitle": "Why Indra Feared a Bird",
+    "recapLine": "Garuda flew toward heaven, for the amrita.",
+    "nextEpisodeLabel": "Episode 27",
+    "nextTitle": "The Wheel of Blades",
+    "vkName": "Vishvakarma",
+    "vkEpithet": "builder of the gods, guard of the amrita",
+    "east": "East · Sadhyas, Gandharvas",
+    "south": "South · Vasus, Rudras",
+    "west": "West · Adityas",
+    "north": "North · Ashvins"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.2,
+      "text": "One bird against all the gods.",
+      "say": "One bird [p:60] against all the gods.",
+      "est": 2.6,
+      "pre": 60,
+      "post": 1300,
+      "beats": [
+        1,
+        5
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "bird",
+        "gods."
+      ],
+      "sfx": [
+        "wings@0",
+        "drum@1"
+      ],
+      "note": "COLD OPEN (style C, moving from frame 1): Garuda bursts LARGE through heaven's white gate, wings slamming open, the gods' spears raised against him in silhouette."
+    },
+    {
+      "id": "omens",
+      "speed": 1.12,
+      "text": "Heaven filled with omens: wild winds, falling stars, and a rain of blood.",
+      "say": "Heaven filled with omens: [p:100] wild winds, [p:60] falling stars, [p:60] and a rain of blood.",
+      "est": 4.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        4,
+        6,
+        12
+      ],
+      "captionY": "high",
+      "sfx": [
+        "wind",
+        "thunder@2"
+      ],
+      "note": "STORY 1 with the unvoiced recap band: NEW LIGHT, heaven's courtyard under a bruised green-violet storm: winds tear the banners, meteors streak, a red rain (drawn as streaks, never gore)."
+    },
+    {
+      "id": "arm",
+      "speed": 1.12,
+      "text": "The gods put on their armour, and stood round the amrita.",
+      "say": "The gods put on their armour, [p:80] and stood round the amrita.",
+      "est": 3.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        4,
+        10
+      ],
+      "sfx": [
+        "ki@0"
+      ],
+      "note": "STORY 2: the gods in a ring, spears and bows, round the white pot of amrita on its pedestal, seen from above."
+    },
+    {
+      "id": "indra",
+      "speed": 1.1,
+      "text": "Indra himself stood among them, the thunderbolt in his hand.",
+      "say": "Indra himself stood among them, [p:80] the thunderbolt in his hand.",
+      "est": 3.4,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        0,
+        7
+      ],
+      "captionY": "high",
+      "sfx": [
+        "bell-low@1"
+      ],
+      "note": "STORY 2b: Indra in the ring of gods, LARGE, the vajra raised, lightning playing on it."
+    },
+    {
+      "id": "guard",
+      "speed": 1.12,
+      "text": "Its guardian, Vishvakarma, met him first, and fell.",
+      "say": "Its guardian, Vishvakarma, [p:80] met him first, [p:150] and fell.",
+      "est": 3.6,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        2,
+        7
+      ],
+      "captionY": "high",
+      "sfx": [
+        "drum@1"
+      ],
+      "note": "STORY 3: Vishvakarma, the builder, raises his hammer at the gate; Garuda's wing sweeps him down (beats[1]); plaque."
+    },
+    {
+      "id": "dust",
+      "speed": 1.12,
+      "text": "The dust of his wings blinded the gods.",
+      "say": "The dust of his wings [p:60] blinded the gods.",
+      "est": 2.8,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        5,
+        7
+      ],
+      "sfx": [
+        "wind@0"
+      ],
+      "note": "STORY 4: a wall of dust rolls over the courtyard; the gods' figures blur and shield their eyes."
+    },
+    {
+      "id": "vayu",
+      "speaker": "indra",
+      "speed": 1.05,
+      "text": "\"Vayu! Blow this dust away!\"",
+      "say": "Vayu! [p:200] Blow this dust away!",
+      "est": 2.6,
+      "pre": 850,
+      "post": 300,
+      "beats": [
+        0,
+        2
+      ],
+      "captionY": "high",
+      "sfx": [
+        "silence",
+        "bell-low@0",
+        "wind@1"
+      ],
+      "note": "STORY 5 · THE TURN (≈ 45 %): after a 0.85 s rest, Indra through the dust, vajra raised, cries out (direct speech)."
+    },
+    {
+      "id": "clear",
+      "speed": 1.12,
+      "text": "The wind swept the sky clear, and the gods attacked.",
+      "say": "The wind swept the sky clear, [p:100] and the gods attacked.",
+      "est": 3.2,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        1,
+        9
+      ],
+      "sfx": [
+        "wind@0",
+        "ki@1"
+      ],
+      "note": "STORY 6: the dust is torn away in long streaks (beats[0]); the gods charge with spears from both sides."
+    },
+    {
+      "id": "fight",
+      "speed": 1.12,
+      "text": "With wings, beak and talons, he tore through them.",
+      "say": "With wings, [p:60] beak and talons, [p:100] he tore through them.",
+      "est": 3.2,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        1,
+        2,
+        4,
+        7
+      ],
+      "sfx": [
+        "drum@0",
+        "drum@1",
+        "drum@2",
+        "roar@3"
+      ],
+      "note": "STORY 7: three quick cuts on the beats: a wing-blow, the beak, the talons; weapons fly from the gods' hands (no blood)."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.1,
+      "text": "And the gods fled, in every direction.",
+      "say": "And the gods fled, [p:100] in every direction.",
+      "est": 2.6,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        6
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, a fifteenth angle: from directly above the fire, Sauti's hands flung outward)."
+    },
+    {
+      "id": "flee",
+      "speed": 1.15,
+      "text": "The Sadhyas and Gandharvas east, the Vasus and Rudras south, the Adityas west, the Ashvins north.",
+      "say": "The Sadhyas and Gandharvas east, [p:60] the Vasus and Rudras south, [p:60] the Adityas west, [p:60] the Ashvins north.",
+      "est": 5.4,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        4,
+        9,
+        12,
+        15
+      ],
+      "sfx": [
+        "bell@0",
+        "bell@1",
+        "bell@2",
+        "bell@3"
+      ],
+      "note": "STORY 8: a compass of heaven seen from above: four groups of gods stream away to the four quarters, each quarter lit as it is named, its plaque.",
+      "hold": 0.5,
+      "captionY": "high"
+    },
+    {
+      "id": "cliff",
+      "speed": 1.1,
+      "text": "But the amrita was ringed with fire, and a wheel of blades.",
+      "say": "But the amrita was ringed with fire, [p:120] and a wheel of blades.",
+      "est": 4.0,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        6,
+        11
+      ],
+      "role": "next",
+      "captionY": "high",
+      "sfx": [
+        "roar@0",
+        "bell-low@1"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): Garuda alone in the empty courtyard faces the amrita: a ring of roaring fire (beats[0]) and behind it a spinning wheel edged with blades (beats[1])."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Wheel of Blades",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The short Next over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

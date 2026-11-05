@@ -1,0 +1,23 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.8964,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9054,
+   "words": 3,
+   "speed": 0.896,
+   "text": "Then the bird"
+  },
+  {
+   "t0": 0.9854,
+   "t1": 3.2001,
+   "words": 6,
+   "speed": 0.896,
+   "text": "offered a boon to the god."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

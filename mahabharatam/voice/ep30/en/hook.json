@@ -1,0 +1,23 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.9959999999999999,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.775,
+   "words": 4,
+   "speed": 0.996,
+   "text": "How did the serpents"
+  },
+  {
+   "t0": 1.835,
+   "t1": 3.5164,
+   "words": 3,
+   "speed": 0.996,
+   "text": "get forked tongues?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

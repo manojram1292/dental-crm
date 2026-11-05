@@ -1,0 +1,23 @@
+{
+ "speaker": "garuda",
+ "voice": "am_liam",
+ "speed": 0.882,
+ "pitch": -1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.2105,
+   "words": 9,
+   "speed": 0.882,
+   "text": "And let me be free of age and death,"
+  },
+  {
+   "t0": 2.3305,
+   "t1": 3.8509,
+   "words": 3,
+   "speed": 0.882,
+   "text": "without the amrita."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

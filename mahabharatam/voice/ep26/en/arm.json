@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9072000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6202,
+   "words": 6,
+   "speed": 0.907,
+   "text": "The gods put on their armour,"
+  },
+  {
+   "t0": 1.7002,
+   "t1": 3.2739,
+   "words": 5,
+   "speed": 0.907,
+   "text": "and stood round the amrita."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

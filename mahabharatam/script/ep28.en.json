@@ -1,0 +1,300 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "episode": 28,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 29 (second part): flying out with the soma, Garuda meets Vishnu in the sky; Vishnu, pleased that he had not drunk it though he held it, offers him a boon; Garuda asks to stand above him, and to be free of age and death without the amrita; Vishnu grants both; Garuda offers Vishnu a boon in return, and Vishnu chooses him as his mount, and makes him his banner, so that Garuda sits above him. (The cliffhanger looks ahead: Indra strikes him with the vajra.)",
+  "structure": "From episode 21 (independent review): COLD OPEN (≤ 8 words, ≤ 3 s; opening style B: direct speech in medias res, the line itself on the card) → title (hook post) → STORY from ≈ 5 s with the UNVOICED recap band over its first shot (KIT.series.recapBand) → turn at 40–60 % → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1 (KIT.series.overlayNextScene). No fire edge in the Garuda arc from here.",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 28",
+    "episodeTitle": "A Boon from Vishnu",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 27",
+    "prevEpisodeTitle": "The Wheel of Blades",
+    "recapLine": "Garuda took the amrita, and did not drink it.",
+    "nextEpisodeLabel": "Episode 29",
+    "nextTitle": "The Feather and the Thunderbolt",
+    "vishnuName": "Vishnu",
+    "vishnuEpithet": "Narayana",
+    "bannerName": "Garuda-dhvaja",
+    "bannerEpithet": "the banner of Vishnu"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "garuda",
+      "speed": 1.12,
+      "text": "\"Let me stand above you.\"",
+      "say": "Let me stand [p:60] above you.",
+      "est": 2.4,
+      "pre": 60,
+      "post": 1300,
+      "beats": [
+        2,
+        4
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "above",
+        "you.\""
+      ],
+      "sfx": [
+        "wings@0",
+        "bell@1"
+      ],
+      "note": "COLD OPEN (style B, in medias res, moving from frame 1): Garuda, the white pot in his talons, faces Vishnu in a gold dawn sky; the camera rises past Vishnu's crown to Garuda's eye; the line on the card."
+    },
+    {
+      "id": "meet",
+      "speed": 1.0,
+      "text": "Flying out with the amrita, Garuda met Vishnu in the sky.",
+      "say": "Flying out with the amrita, [p:100] Garuda met Vishnu in the sky.",
+      "est": 3.8,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        4,
+        7
+      ],
+      "captionY": "high",
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 1 with the unvoiced recap band: NEW LIGHT, the sky at first light over a cloud-sea, gold below and blue above: Vishnu standing in the air in his deep-blue light; Garuda coming in with the pot; plaque."
+    },
+    {
+      "id": "pleased",
+      "speaker": "vishnu",
+      "speed": 1.05,
+      "text": "\"You held the amrita, and did not drink it. I am pleased. Choose a boon.\"",
+      "say": "You held the amrita, [p:80] and did not drink it. [p:200] I am pleased. [p:150] Choose a boon.",
+      "est": 5.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        8,
+        13
+      ],
+      "captionY": "high",
+      "sfx": [
+        "chord"
+      ],
+      "note": "STORY 2 (Vishnu speaks): Vishnu frontal, LARGE, his hand opening in blessing."
+    },
+    {
+      "id": "above",
+      "speaker": "garuda",
+      "speed": 1.0,
+      "text": "\"Let me stand above you.\"",
+      "say": "Let me stand [p:100] above you.",
+      "est": 2.6,
+      "pre": 350,
+      "post": 300,
+      "beats": [
+        2,
+        4
+      ],
+      "captionY": "high",
+      "sfx": [
+        "drum@1"
+      ],
+      "note": "STORY 3: after a short rest, Garuda's bold request, close on his eagle head, then a cut wide: the bird above the god."
+    },
+    {
+      "id": "deathless",
+      "speaker": "garuda",
+      "speed": 1.05,
+      "text": "\"And let me be free of age and death, without the amrita.\"",
+      "say": "And let me be free of age and death, [p:120] without the amrita.",
+      "est": 3.6,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        5,
+        11
+      ],
+      "captionY": "high",
+      "note": "STORY 4 (Garuda speaks): Garuda holds the pot out, away from himself."
+    },
+    {
+      "id": "granted",
+      "speaker": "vishnu",
+      "speed": 1.0,
+      "text": "\"So be it.\"",
+      "say": "So be it.",
+      "est": 1.6,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        0,
+        2
+      ],
+      "captionY": "high",
+      "sfx": [
+        "bell@2"
+      ],
+      "note": "STORY 5 (Vishnu speaks): Vishnu's hand in abhaya; a ring of blue light passes over Garuda."
+    },
+    {
+      "id": "ageless",
+      "speed": 1.04,
+      "text": "From then on, he needed no amrita. Age and death could not touch him.",
+      "say": "From then on, [p:80] he needed no amrita. [p:200] Age and death could not touch him.",
+      "est": 4.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        5,
+        8,
+        12
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 5b: Garuda alone in the gold light, wings opening wide, the pot held out from him; a calm glow settles on him."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "Then the bird offered a boon to the god.",
+      "say": "Then the bird [p:80] offered a boon to the god.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        2,
+        8
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, a seventeenth angle: wide and level, all the sages turned to Sauti, his palm held up as if offering)."
+    },
+    {
+      "id": "offer",
+      "speaker": "garuda",
+      "speed": 1.05,
+      "text": "\"I too will give you a boon. Ask, Lord.\"",
+      "say": "I too will give you a boon. [p:200] Ask, Lord.",
+      "est": 3.0,
+      "pre": 900,
+      "post": 300,
+      "beats": [
+        3,
+        7
+      ],
+      "captionY": "high",
+      "note": "STORY 6 · THE TURN (≈ 58 %): after a 0.9 s rest, the reversal: the bird offers the god a boon (direct speech); Garuda bows his head, wings half-folded.",
+      "sfx": [
+        "silence",
+        "bell@1"
+      ]
+    },
+    {
+      "id": "mount",
+      "speaker": "vishnu",
+      "speed": 1.0,
+      "text": "\"Then be my mount.\"",
+      "say": "Then be my mount.",
+      "est": 1.8,
+      "pre": 350,
+      "post": 350,
+      "beats": [
+        0,
+        3
+      ],
+      "captionY": "high",
+      "sfx": [
+        "bell-low@1"
+      ],
+      "note": "STORY 7 (Vishnu speaks): close two-shot, Vishnu's hand comes to rest on Garuda's shoulder."
+    },
+    {
+      "id": "banner",
+      "speed": 1.0,
+      "text": "And Vishnu set him on his banner, so the bird sits above the god.",
+      "say": "And Vishnu set him on his banner, [p:100] so the bird sits above the god.",
+      "est": 4.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        5,
+        10,
+        13
+      ],
+      "sfx": [
+        "conch@0",
+        "bell@2"
+      ],
+      "note": "STORY 8: NEW LIGHT, a white-gold sky: Vishnu's tall banner-staff, and at its top Garuda's image on the banner, above the god; plaque."
+    },
+    {
+      "id": "both",
+      "speed": 1.0,
+      "text": "So each had his wish: the bird above the god, the god upon the bird.",
+      "say": "So each had his wish: [p:120] the bird above the god, [p:100] the god upon the bird.",
+      "est": 4.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        7,
+        12
+      ],
+      "sfx": [
+        "bansuri@0"
+      ],
+      "note": "STORY 9: Vishnu seated on Garuda's back in flight, and above them the banner with Garuda's image (both at once)."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.0,
+      "text": "Then Indra hurled his thunderbolt.",
+      "say": "Then Indra [p:80] hurled his thunderbolt.",
+      "est": 2.6,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        1,
+        4
+      ],
+      "role": "next",
+      "captionY": "high",
+      "sfx": [
+        "thunder@1"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): Indra on a storm-cloud behind them, the vajra blazing as it leaves his hand."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Feather and the Thunderbolt",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The short Next over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

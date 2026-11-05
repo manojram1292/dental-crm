@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8748000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.8832,
+   "words": 5,
+   "speed": 0.875,
+   "text": "Garuda set the amrita down"
+  },
+  {
+   "t0": 1.9632,
+   "t1": 3.6622,
+   "words": 6,
+   "speed": 0.875,
+   "text": "on a bed of kusha grass."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

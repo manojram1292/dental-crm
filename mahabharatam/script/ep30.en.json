@@ -1,0 +1,278 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "episode": 30,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 30: Garuda comes to the serpents with the soma and sets it down on kusha (darbha) grass, telling them to bathe and then drink it, and that his mother is free from that day, as they had agreed; the serpents agree, and Vinata is freed. While they go to bathe, Indra takes the soma and returns to heaven. The serpents come back, find it gone, and lick the grass where it had been set down; their tongues split in two, and the kusha grass, touched by the amrita, becomes holy. Garuda lives on in the forest with his mother, honoured by the birds, eating the serpents. (The cliffhanger looks ahead to the next arc: Kadru's curse on her sons still stands.)",
+  "structure": "From episode 21 (independent review): COLD OPEN (≤ 8 words, ≤ 3 s; opening style A: the question over the answer image) → title (hook post) → STORY from ≈ 5 s with the UNVOICED recap band over its first shot (KIT.series.recapBand) → turn at 40–60 % → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1 (KIT.series.overlayNextScene). No fire edge in the Garuda arc from here.",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 30",
+    "episodeTitle": "Forked Tongues",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 29",
+    "prevEpisodeTitle": "The Feather and the Thunderbolt",
+    "recapLine": "Garuda flew down with the amrita. Indra followed, unseen.",
+    "nextEpisodeLabel": "Episode 31",
+    "nextTitle": "Shesha Holds the Earth",
+    "kushaName": "Kusha",
+    "kushaEpithet": "the sacred grass"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.2,
+      "text": "How did the serpents get forked tongues?",
+      "say": "How did the serpents [p:60] get forked tongues?",
+      "est": 2.8,
+      "pre": 60,
+      "post": 1300,
+      "beats": [
+        3,
+        6
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "forked",
+        "tongues?"
+      ],
+      "sfx": [
+        "hiss",
+        "bell@1"
+      ],
+      "note": "COLD OPEN (style A, moving from frame 1): close at ground level in the dawn mist: a serpent's head rises over a bed of kusha grass, its tongue flicking out, forked."
+    },
+    {
+      "id": "wait",
+      "speed": 1.05,
+      "text": "On Ramaniyaka, the serpents were waiting.",
+      "say": "On Ramaniyaka, [p:80] the serpents were waiting.",
+      "est": 2.8,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        1,
+        4
+      ],
+      "captionY": "high",
+      "sfx": [
+        "hiss"
+      ],
+      "note": "STORY 0 with the unvoiced recap band: NEW LIGHT, Ramaniyaka at dawn: the serpents coiled on the pale beach looking up; a gold speck (Garuda) descends out of the pink sky."
+    },
+    {
+      "id": "set",
+      "speed": 1.08,
+      "text": "Garuda set the amrita down on a bed of kusha grass.",
+      "say": "Garuda set the amrita down [p:80] on a bed of kusha grass.",
+      "est": 3.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        9
+      ],
+      "captionY": "high",
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 1 with the unvoiced recap band: NEW LIGHT, Ramaniyaka at dawn (pink sky, pale-green palms, mist on the lagoon): Garuda lowers the white pot onto the kusha; plaque 'Kusha'."
+    },
+    {
+      "id": "terms",
+      "speaker": "garuda",
+      "speed": 1.05,
+      "text": "\"Here is the amrita. Bathe first, then drink. And my mother is free.\"",
+      "say": "Here is the amrita. [p:150] Bathe first, [p:60] then drink. [p:250] And my mother is free.",
+      "est": 4.6,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        5,
+        11
+      ],
+      "captionY": "high",
+      "note": "STORY 2 (Garuda speaks): Garuda standing over the pot, wings half-open, facing the serpents."
+    },
+    {
+      "id": "agree",
+      "speaker": "nagas",
+      "speed": 1.05,
+      "text": "\"So be it. She is free.\"",
+      "say": "So be it. [p:150] She is free.",
+      "est": 2.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        0,
+        4
+      ],
+      "captionY": "high",
+      "sfx": [
+        "hiss"
+      ],
+      "note": "STORY 3 (the serpents speak, as one): the serpents rear round the pot, eager."
+    },
+    {
+      "id": "vinata",
+      "speed": 1.0,
+      "text": "And Vinata was free.",
+      "say": "And Vinata [p:100] was free.",
+      "est": 2.4,
+      "pre": 400,
+      "post": 500,
+      "beats": [
+        1,
+        3
+      ],
+      "sfx": [
+        "bansuri@0",
+        "bell@1"
+      ],
+      "note": "STORY 4: the payoff of the whole arc: Vinata lifts the slave's sari end from her head; her ornaments shine again; Garuda bows to her and she blesses him (episode 18's bow, reversed)."
+    },
+    {
+      "id": "bathe",
+      "speed": 1.08,
+      "text": "While the serpents went to bathe, Indra took the amrita, and went back to heaven.",
+      "say": "While the serpents went to bathe, [p:100] Indra took the amrita, [p:100] and went back to heaven.",
+      "est": 4.8,
+      "pre": 900,
+      "post": 300,
+      "beats": [
+        3,
+        7,
+        12
+      ],
+      "sfx": [
+        "silence",
+        "surf@0",
+        "bell@1",
+        "wings@2"
+      ],
+      "note": "STORY 5 · THE TURN (≈ 44 %): after a 0.9 s rest, the reversal: the serpents slide into the misty lagoon (beats[0]); Indra, appearing out of the air, lifts the pot from the kusha (beats[1]) and rises away into the pink sky (beats[2])."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "They had won the wager by a trick. Now a trick undid them.",
+      "say": "They had won the wager by a trick. [p:200] Now a trick undid them.",
+      "est": 3.6,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        7,
+        12
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire at the end of the arc: a nineteenth angle, low and close, the dawn beginning behind the trees; Sauti's hands turn over, one up, one down)."
+    },
+    {
+      "id": "lick",
+      "speed": 1.08,
+      "text": "They came back to find it gone, and licked the grass where it had stood.",
+      "say": "They came back to find it gone, [p:120] and licked the grass where it had stood.",
+      "est": 4.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        6,
+        8,
+        10
+      ],
+      "sfx": [
+        "hiss"
+      ],
+      "note": "STORY 6: the serpents return to the empty kusha bed; heads lowered, they lick the blades."
+    },
+    {
+      "id": "split",
+      "speed": 1.0,
+      "text": "And their tongues split in two.",
+      "say": "And their tongues [p:120] split in two.",
+      "est": 2.4,
+      "pre": 300,
+      "post": 400,
+      "beats": [
+        2,
+        5
+      ],
+      "sfx": [
+        "drum@1",
+        "bell-low@1"
+      ],
+      "note": "STORY 7: extreme close-up on one serpent's head: the tongue, sliced by the sharp blades, now forked (beats[1]); held a beat in silence."
+    },
+    {
+      "id": "holy",
+      "speed": 1.08,
+      "text": "And the kusha grass, touched by the amrita, became holy.",
+      "say": "And the kusha grass, [p:80] touched by the amrita, [p:80] became holy.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        6,
+        9
+      ],
+      "sfx": [
+        "bell@2"
+      ],
+      "note": "STORY 8: the kusha bed glows faintly gold where the pot stood; dew on the blades catches the sunrise."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.05,
+      "text": "The serpents were cheated twice over. And their mother's curse still stood.",
+      "say": "The serpents were cheated twice over. [p:250] And their mother's curse [p:80] still stood.",
+      "est": 4.2,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        3,
+        9,
+        11
+      ],
+      "role": "next",
+      "captionY": "high",
+      "sfx": [
+        "bell-low@1"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line, 'their mother's' added for newcomers): the serpents' grove at night (episode 17's place): Kadru's curse as a red memory medallion over the coiled serpents: the fire of the snake sacrifice (episode 8)."
+    },
+    {
+      "id": "next",
+      "text": "Next: Shesha Holds the Earth",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The short Next over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

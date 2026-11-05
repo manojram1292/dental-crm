@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8748000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.1743,
+   "words": 6,
+   "speed": 0.875,
+   "text": "Garuda flew down with the amrita."
+  },
+  {
+   "t0": 2.4243,
+   "t1": 3.5205,
+   "words": 2,
+   "speed": 0.875,
+   "text": "Indra followed,"
+  },
+  {
+   "t0": 3.6005,
+   "t1": 4.567,
+   "words": 1,
+   "speed": 0.875,
+   "text": "unseen."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8424,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.9616,
+   "words": 7,
+   "speed": 0.842,
+   "text": "He made himself ninety times ninety mouths,"
+  },
+  {
+   "t0": 3.0616,
+   "t1": 4.4764,
+   "words": 3,
+   "speed": 0.842,
+   "text": "drank whole rivers,"
+  },
+  {
+   "t0": 4.5564,
+   "t1": 6.3876,
+   "words": 6,
+   "speed": 0.842,
+   "text": "and poured them on the fire."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

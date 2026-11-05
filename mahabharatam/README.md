@@ -24,6 +24,17 @@ Vertical YouTube Shorts (1080×1920, 30 fps). Every frame and every sound is gen
 | 18 | The Black Hairs | Adi Parva 19–20 (the flight over the ocean; the black tail; Vinata enslaved) | `episode18.mp4` (+ `episode18-share.mp4`), 54.2 s |
 | 19 | Garuda Is Born | Adi Parva 20 (Garuda hatches blazing; the gods run to Agni; the praise; his mother a slave) | `episode19.mp4` (+ `episode19-share.mp4`), 55.8 s |
 | 20 | Carrying the Serpents | Adi Parva 21–23 (to Ramaniyaka; the Sun's heat; Kadru's prayer and Indra's rain; the serpents' orders) | `episode20.mp4` (+ `episode20-share.mp4`), 56.0 s |
+| 0 | As Vyasa Told It: An Introduction (DRAFT for the owner) | the channel's opening statement (trailer, catalog `extras` S00E000) | `episode00.mp4` (+ `episode00-share.mp4`), 73.5 s |
+| 21 | The Price of Freedom | Adi Parva 23–24 (the serpents' price; Vinata's counsel: the Nishadas, never a brahmin; her blessing) | `episode21.mp4` (+ `episode21-share.mp4`), 57.8 s |
+| 22 | The Brahmin in the Throat | Adi Parva 25 (the Nishadas; the brahmin and his Nishadi wife; Kashyapa) | `episode22.mp4` (+ `episode22-share.mp4`), 55.8 s |
+| 23 | The Elephant and the Tortoise | Adi Parva 25–26 (Vibhavasu and Supratika; Alamba; Rauhina's branch) | `episode23.mp4` (+ `episode23-share.mp4`), 57.4 s |
+| 24 | The Thumb-Sized Sages | Adi Parva 26 (the Valakhilyas; Gandhamadana; the omens) | `episode24.mp4` (+ `episode24-share.mp4`), 55.6 s |
+| 25 | Why Indra Feared a Bird | Adi Parva 26–27 (Brihaspati; Shaunaka asks; the leaf-stalk and the hoofprint; the Indra of birds) | `episode25.mp4` (+ `episode25-share.mp4`), 56.5 s |
+| 26 | Garuda Storms Heaven | Adi Parva 28 (omens; Vishvakarma; the dust and Vayu; the gods flee to the four quarters) | `episode26.mp4` (+ `episode26-share.mp4`), 55.8 s |
+| 27 | The Wheel of Blades | Adi Parva 29 (the fire and 90 × 90 mouths; the wheel; the two serpents; the amrita not drunk) | `episode27.mp4` (+ `episode27-share.mp4`), 55.4 s |
+| 28 | A Boon from Vishnu | Adi Parva 29 (Vishnu's boon; above him and deathless; the mount and the banner) | `episode28.mp4` (+ `episode28-share.mp4`), 55.3 s |
+| 29 | The Feather and the Thunderbolt | Adi Parva 29–30 (the vajra and the feather; Suparna; friendship; the serpents as food) | `episode29.mp4` (+ `episode29-share.mp4`), 58.2 s |
+| 30 | Forked Tongues | Adi Parva 30 (the kusha grass; Vinata freed; Indra takes the amrita; the forked tongues) | `episode30.mp4` (+ `episode30-share.mp4`), 57.1 s |
 
 ## Continuity: one structure for every episode
 
@@ -66,6 +77,34 @@ the darkened world `EP14`; the violet dusk and the deep sky `EP15`; the night ba
 shore, the serpents' grove and the ocean `EP17`, with flying figures `EP17.flyer`; Ramaniyaka `EP20`).
 Score cues: `build_ep11` … `build_ep20` in `tools/score.py`. Each episode's review is in `REVIEW_LOG.md`.
 The model sheet now clips every cell (Surya's disc no longer overflows) and rows may set their own scale.
+
+## From episode 21: the independent review adopted, and the November remaster
+
+`review/independent-11-20.md` (an independent reviewer of episodes 11–20) was adopted item by item; the decisions are in
+`REVIEW_LOG.md` and every episode is measured in `QUALITY_SCORECARD.md` with `python3 -I tools/scorecard.py --ep N`.
+
+- **Loudness.** `tools/mix.py` masters every mix to **−14 LUFS integrated with a look-ahead true-peak limiter at −1 dBTP**
+  (it used to peak-normalise only, and episodes came out at −19 to −21 LUFS), and a silent Next card sits 9 dB under the
+  body. Episodes 1–20 were remixed and remuxed into their existing mp4s and share copies with the video stream copied
+  (`ebur128` verified); episodes 12, 14 and 18 were re-voiced and re-rendered for factual fixes (Vasuki's mouths and the
+  forests, not the ocean, burn; "many manuscripts leave out", not "the oldest manuscripts"; Aruna "cursed", not "foretold").
+- **Captions** have a dark 7 px outline under every word (kit-wide, from every new render on).
+- **The cold open, tightened.** Hooks are ≤ 8 words and ≈ 3 s, rotating three openings (A a question card over the answer
+  image, B direct speech in medias res, C a statement card). The spoken recap is gone: `KIT.series.recapBand` lays
+  "Previously · Episode N" and one line over the first story shot, so the story starts by ≈ 4–5 s. The fire edge is retired
+  for the Garuda arc. The Next card is replaced by `KIT.series.overlayNextScene`: the cliffhanger image keeps playing under a
+  slim NEXT › band for ≈ 1.1 s and dissolves into frame 1.
+- **Rhythm.** Narration runs at 1.04–1.12× line speed (≈ 2.3–2.5 words/s), with one deliberate rest of 0.85–0.9 s before the
+  turn in every episode.
+- **A data-driven score.** Episodes 0 and 21 on have no hand-written cue builder: `build_auto` in `tools/score.py` reads each
+  script line's `"sfx": ["kind@beat", …]` (bell, bell-low, drum, ki, wind, surf, rain, thunder, roar, hiss, wings, glide,
+  chord, bansuri, conch, crack, silence) on top of the tanpura bed, the Naimisha crackle under Sauti's lines, the title bells
+  and the shared stings.
+- **Episode 0** (`script/ep00.en.json`, `src/scenes/ep00/`) is the channel's introduction: `epTag(0)` is `ep00`
+  (`src/engine.js`, `tools/timeline.mjs`), and the catalog lists it under `extras` (validated by `tools/catalog.mjs`).
+- New character modules: `nishada.js` (`nishada`, `nishadi`, `brahmin`), `brothers.js` (`supratika`, `vibhavasu`),
+  `valakhilya.js`, `brihaspati.js`, `vishvakarma.js`, `amrita-guards.js` (`guardsnake`); see `CHARACTERS.md`. `garuda.js` has a
+  lit face mask, a gold beak and the collar moved low on the chest (episodes 19–20 were re-rendered with it).
 
 ## How it is built (dubbing-ready, per episode)
 

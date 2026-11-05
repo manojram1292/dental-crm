@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.1747,
+   "words": 7,
+   "speed": 0.81,
+   "text": "And Vishnu set him on his banner,"
+  },
+  {
+   "t0": 2.2747,
+   "t1": 4.5465,
+   "words": 7,
+   "speed": 0.81,
+   "text": "so the bird sits above the god."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

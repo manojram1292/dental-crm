@@ -296,3 +296,74 @@ Rejected or not acted on:
 - **The five-person blind test and retention/CTR measures**: not measurable from here (no viewers, no analytics). The scorecard uses proxies from the timeline and the frames.
 - **Ep 16: the amrita given to Nara**: checked. CE 1.17 ends with the gods giving the amrita to Nara (Kiritin) to guard. The episode's line ("the gods kept the amrita safe") is not wrong, only less specific, so it was not changed (the brief said fix only if wrong).
 - **Ep 11 layer "side" in an arc marked main**: the catalog's ep 11 belongs to the churning tale, a side tale inside the main Astika arc; the layer is deliberate.
+
+## The November remaster (episodes 1–20) and the introduction (episode 0)
+
+- **Loudness**: every episode remixed to −14 LUFS / −1 dBTP and remuxed into its existing mp4 and share copy (video stream
+  copied); the measured values are in the remux log and the scorecard.
+- **Facts**: ep 12 "the hold" now names the ends (the gods the tail, the asuras the head, CE 1.16) and the cliffhanger is
+  "fire poured from Vasuki's mouths" (the ocean did not burn); ep 14's Sauti line is "a story that many manuscripts leave
+  out" with a 40 px two-line source plate ("In some manuscripts and the Puranas · not in the Critical Edition"); ep 18 says
+  Aruna "had cursed". All three re-voiced and re-rendered; the catalog's ep 12 cliffhanger updated.
+- **Episode 0** (the introduction, a draft for the owner): Sauti's fire as the cold open, three new title moments (the
+  hundred thousand verses with the Critical Edition's ≈ 75,000; the edition's name with episode 14's honest tag as the
+  example; the drawing code wiped into the picture), a four-cut montage of released episodes, and Sauti's closing line over
+  episode 1's own walk through the forest. Weak: the montage's figures are smaller than in the episodes; the Vyasa shot is a
+  dark silhouette on a bright sky; it renders slowly (the memory niches draw three full pictures per frame).
+
+## Episodes 21–30 · the Garuda arc, second half
+
+Every episode: an opening ≤ 8 words in one of three rotating styles, the unvoiced recap band, a turn at 42–60 % after the
+episode's one long rest (0.85–0.9 s), a new light (often two or three), the ≤ 1.2 s NEXT › overlay that dissolves into
+frame 1, −14 LUFS. Numbers per episode are in `QUALITY_SCORECARD.md`.
+
+**21 · The Price of Freedom (57.8 s).** *Works:* Garuda with the lit face reads on the late-gold island; the four guardians
+of Vinata's blessing (Wind, Moon, Fire, Sun) arrive on the beats as painted signs with labels; the coal glowing in his throat
+on "burned" sets up ep 22. *Weak:* the memory roundel of the horse's tail is hard to read; Vinata is a dark silhouette in
+the amber grove. *Fix carried:* lighter figures keep front ≥ 0.55 against low sun; roundels are framed on the whole subject.
+
+**22 · The Brahmin in the Throat (55.8 s).** *Works:* the hook in medias res (the line itself on the card); the brahmin
+lit from inside like a coal; the couple walking away under the moon; the high hermitage in rose and snow (a new light).
+*Weak:* the hermitage scenes are three shots of one place; the Nishadas are small. *Fix carried:* one place, one framing:
+later episodes vary scale (close, wide, low angle) within a location.
+
+**23 · The Elephant and the Tortoise (57.4 s).** *Works:* the red-ochre mural panel for Kashyapa's tale (a story inside a
+story gets its own look); the transformations on the curse words; the violet grove of Alamba; the hanging sages read as a
+fringe of tiny glowing figures. *Weak:* the elephant's legs are blocky; the carried load floats a little below the talons.
+
+**24 · The Thumb-Sized Sages (55.6 s).** *Works:* the midday glare from above (a new light), Gandhamadana in green-gold
+with petals, the sages letting go as sparks of light toward the snow; Indra under the omens. *Weak:* the branch in his beak
+is thin at small sizes.
+
+**25 · Why Indra Feared a Bird (56.5 s).** *Works:* the blue-white rite (a new light) as the hook; the macro shot of the
+hoofprint puddle with the tiny sages under one stalk; Indra's foot passing over them as the turn; Shaunaka himself asks, as
+in the CE. *Weak:* Brihaspati and Indra are dark figures against red arches.
+
+**26 · Garuda Storms Heaven (55.8 s).** *Works:* the bruised-violet storm over white colonnades; Vishvakarma with his
+hammer; Indra's cry to Vayu as the turn; the compass of heaven with the four quarters lighting as named. *Weak:* the
+plan-view of the Naimisha fire is abstract; the fight cuts are quick and small.
+
+**27 · The Wheel of Blades (55.4 s).** *Works:* the wheel itself (a frontal blade-rimmed wheel spinning over the vault's
+cold steel-blue); the counter "90 × 90 mouths"; fire turned to steam; the serpents' ember eyes. *Weak:* the shrunk Garuda is
+a gold speck in two shots.
+
+**28 · A Boon from Vishnu (55.3 s).** *Works:* first light over a cloud-sea (gold below, blue above); Vishnu frontal and
+large; the reversal (the bird offers the god a boon) as the turn; the banner with Garuda's image above the god.
+*Weak:* several two-shots share one composition (Vishnu left, Garuda right).
+
+**29 · The Feather and the Thunderbolt (58.2 s).** *Works:* the single gold feather falling in silver light with the
+"Suparna" plaque; the rainbow after the storm as the new light for friendship; the earth on one feather. *Weak:* the hook
+runs 3.6 s (two short sentences); the episode is at the upper limit.
+
+**30 · Forked Tongues (57.1 s).** *Works:* dawn on Ramaniyaka (pink, misted); Vinata freed, unveiling, with Garuda bowing
+(episode 18's bow reversed); the tongue forking in extreme close-up; the closing medallion of the snake sacrifice ties the
+arc back to the frame story. *Weak:* the kusha "glow" is faint; the serpents read as a row.
+
+### Remaining weaknesses (for whoever continues at episode 31)
+- Close-up serpents with three hoods read as a hand (fixed in ep 30 by using index 0 for close-ups; keep single hoods close).
+- Several figures (Vinata, Kashyapa, Brihaspati, Indra) are still dark silhouettes against bright grounds; raise `front` or
+  give them a lit fill as Garuda now has.
+- Rahu's neck band (ep 15) still reads as a grin; Kadru/horse merge in the ep 17 hook; Ananta's hoods (ep 12) read as a
+  hand; the Moon in ep 13 is dark. Not re-rendered.
+- The elephant module's legs are blocky; the carried load in `EP23.carry` sits slightly below the talons.
+- The introduction renders slowly (≈ 1.5 s per frame at mb 4).

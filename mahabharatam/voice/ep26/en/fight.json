@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9072000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9332,
+   "words": 2,
+   "speed": 0.907,
+   "text": "With wings,"
+  },
+  {
+   "t0": 1.0132,
+   "t1": 2.309,
+   "words": 3,
+   "speed": 0.907,
+   "text": "beak and talons,"
+  },
+  {
+   "t0": 2.409,
+   "t1": 3.7908,
+   "words": 4,
+   "speed": 0.907,
+   "text": "he tore through them."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

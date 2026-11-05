@@ -1,0 +1,30 @@
+{
+ "speaker": "indra",
+ "voice": "am_adam",
+ "speed": 0.8400000000000001,
+ "pitch": -1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3222,
+   "words": 4,
+   "speed": 0.84,
+   "text": "Let us be friends."
+  },
+  {
+   "t0": 1.5722,
+   "t1": 2.3121,
+   "words": 2,
+   "speed": 0.84,
+   "text": "Tell me,"
+  },
+  {
+   "t0": 2.3921,
+   "t1": 3.7246,
+   "words": 4,
+   "speed": 0.84,
+   "text": "how strong are you?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

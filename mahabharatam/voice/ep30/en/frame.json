@@ -1,0 +1,23 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.8964,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.6317,
+   "words": 8,
+   "speed": 0.896,
+   "text": "They had won the wager by a trick."
+  },
+  {
+   "t0": 2.8817,
+   "t1": 5.4247,
+   "words": 5,
+   "speed": 0.896,
+   "text": "Now a trick undid them."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

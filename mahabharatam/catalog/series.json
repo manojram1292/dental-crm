@@ -5346,10 +5346,10 @@
               "refs": [
                 {
                   "parva": 1,
-                  "adhyaya_from": 24,
+                  "adhyaya_from": 25,
                   "adhyaya_to": 25,
                   "approx": false,
-                  "label": "Adi 1.24–25"
+                  "label": "Adi 1.25"
                 }
               ],
               "synopsis": "Garuda swallows a crowd of Nishadas, and one of them burns his throat: a brahmin. He offers to let him go, but the brahmin will not leave without his Nishada wife; Garuda releases them both. He then meets his father Kashyapa, who tells him what he may eat instead.",
@@ -5381,7 +5381,7 @@
               "languages": {},
               "tradition_note": false,
               "reorder_note": null,
-              "notes": null
+              "notes": "Vinata's counsel (the Nishadas, never a brahmin) is in 1.24 and is told in episode 21; this episode is 1.25."
             },
             {
               "id": "S01E023",
@@ -5396,11 +5396,11 @@
                   "parva": 1,
                   "adhyaya_from": 25,
                   "adhyaya_to": 26,
-                  "approx": true,
-                  "label": "Adi 1.25–26 (approx.)"
+                  "approx": false,
+                  "label": "Adi 1.25–26"
                 }
               ],
-              "synopsis": "Kashyapa tells of two brothers, Vibhavasu and Supratika, who quarrelled over their inheritance and cursed each other to become an elephant and a tortoise; they fight on in a lake. Garuda seizes one in each claw and looks for a tree that will bear his weight. He lands on a giant branch, and it breaks.",
+              "synopsis": "Kashyapa tells of two brothers: the wrathful sage Vibhavasu cursed his younger brother Supratika, who wanted their wealth divided, to become an elephant, and Supratika cursed him back to become a tortoise; they fight on in a lake. Kashyapa tells Garuda to eat them. Garuda seizes one in each claw and flies to Alamba, where the great tree Rauhina offers its branch, a hundred yojanas long. He lands on it, and it breaks.",
               "cliffhanger": "Hanging from that branch, upside down, were thousands of tiny sages.",
               "characters": [
                 "garuda",
@@ -5429,7 +5429,7 @@
               "languages": {},
               "tradition_note": false,
               "reorder_note": null,
-              "notes": null
+              "notes": "Checked against the CE: Vibhavasu (the elder) curses Supratika to be the elephant; Supratika curses Vibhavasu to be the tortoise."
             },
             {
               "id": "S01E024",
@@ -5546,11 +5546,12 @@
                   "label": "Adi 1.28"
                 }
               ],
-              "synopsis": "Heaven fills with omens: winds, meteors, blood rain. The gods arm themselves around the amrita. Garuda arrives, scatters the guards with dust from his wings, wounds the gods with beak and talons, and they flee in every direction.",
+              "synopsis": "Heaven fills with omens: winds, meteors, a rain of blood. The gods arm themselves around the amrita. Garuda arrives; Vishvakarma, who guards the soma, fights him first and falls. The dust of his wings blinds the gods until Vayu, at Indra's word, blows it away; Garuda wounds them with wings, beak and talons, and they flee to the four quarters.",
               "cliffhanger": "But the amrita was ringed with fire and a wheel of blades.",
               "characters": [
                 "garuda",
-                "indra"
+                "indra",
+                "devas"
               ],
               "themes": [
                 "battles",
@@ -5682,8 +5683,8 @@
                   "parva": 1,
                   "adhyaya_from": 29,
                   "adhyaya_to": 30,
-                  "approx": true,
-                  "label": "Adi 1.29–30 (approx.)"
+                  "approx": false,
+                  "label": "Adi 1.29–30"
                 }
               ],
               "synopsis": "Indra strikes with the vajra. Garuda is not hurt, but drops a single feather out of respect for the sage from whose bones the vajra was made. The gods name him Suparna, \"fine-feathered\". Indra offers friendship; Garuda accepts, and asks that the serpents be his food.",
@@ -5737,7 +5738,7 @@
                 }
               ],
               "synopsis": "Garuda sets the amrita on a bed of kusha grass and tells the serpents to bathe before they drink. While they bathe, Indra takes it back to heaven. Vinata is free. The serpents lick the grass where the pot stood, and their tongues split in two; the kusha grass becomes holy.",
-              "cliffhanger": "The serpents were cheated twice over. And the curse still stood.",
+              "cliffhanger": "The serpents were cheated twice over. And their mother's curse still stood.",
               "characters": [
                 "garuda",
                 "vinata",

@@ -1,0 +1,23 @@
+{
+ "speaker": "indra",
+ "voice": "am_adam",
+ "speed": 0.8400000000000001,
+ "pitch": -1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.7382,
+   "words": 1,
+   "speed": 0.84,
+   "text": "Vayu!"
+  },
+  {
+   "t0": 0.9882,
+   "t1": 2.5184,
+   "words": 4,
+   "speed": 0.84,
+   "text": "Blow this dust away!"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

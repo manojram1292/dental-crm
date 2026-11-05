@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.0913,
+   "words": 6,
+   "speed": 0.891,
+   "text": "Beneath it lay two great serpents,"
+  },
+  {
+   "t0": 2.1713,
+   "t1": 3.6739,
+   "words": 4,
+   "speed": 0.891,
+   "text": "their eyes like fire,"
+  },
+  {
+   "t0": 3.7539,
+   "t1": 4.8751,
+   "words": 2,
+   "speed": 0.891,
+   "text": "never closing,"
+  },
+  {
+   "t0": 4.9551,
+   "t1": 6.6463,
+   "words": 4,
+   "speed": 0.891,
+   "text": "their very gaze poison."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

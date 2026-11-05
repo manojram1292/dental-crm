@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9072000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.8476,
+   "words": 6,
+   "speed": 0.907,
+   "text": "The wind swept the sky clear,"
+  },
+  {
+   "t0": 1.9476,
+   "t1": 3.3641,
+   "words": 4,
+   "speed": 0.907,
+   "text": "and the gods attacked."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
