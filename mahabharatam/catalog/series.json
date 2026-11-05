@@ -3741,6 +3741,36 @@
       "members": "compilations"
     }
   ],
+  "extras": [
+    {
+      "id": "S00E000",
+      "kind": "trailer",
+      "n": 0,
+      "title": "As Vyasa Told It: An Introduction",
+      "synopsis": "The channel's opening statement, posted before episode 1 and pinned: the Mahabharata (about 100,000 verses by the traditional count; nearly 75,000 in the Critical Edition), known to most through retellings and television, told here as Vyasa's text tells it, following the BORI Critical Edition and marking later tradition on screen; one minute at a time, in order, from the frame story; drawn like temple murals, every frame made in code, the voices synthetic; and, with the audience's encouragement, longer episodes that go deeper.",
+      "cliffhanger": "It begins with a storyteller, arriving at a fire in the forest.",
+      "leads_to": "S01E001",
+      "characters": [
+        "sauti",
+        "vyasa",
+        "garuda",
+        "shiva"
+      ],
+      "themes": [
+        "frame-story"
+      ],
+      "status": "in_production",
+      "languages": {
+        "en": "in_production"
+      },
+      "script": "script/ep00.en.json",
+      "files": {
+        "en": "episode00.mp4"
+      },
+      "tradition_note": true,
+      "notes": "A montage of the released episodes 1–20 plus three title moments. Shows Shiva's blue throat (episode 14, tagged \"As tradition tells it\") as the example of how later tradition is marked. Status: DRAFT for the owner's approval."
+    }
+  ],
   "seasons": [
     {
       "id": "S01",

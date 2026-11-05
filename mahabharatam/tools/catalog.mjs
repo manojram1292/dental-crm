@@ -9,6 +9,8 @@
  *   node tools/catalog.mjs --csv out.csv --released   only released episodes in the CSV (what can be uploaded today)
  *   node tools/catalog.mjs --file other.json   use another catalog file
  *
+ * `extras[]` (the introduction / trailer, S00E000) sit outside the numbered run and are validated separately.
+ *
  * The playlist rules (derivePlaylists) are the single source of truth: an episode's playlists[] is a
  * pure function of its season, arc, layer, themes, characters (those marked major), tradition_note and
  * released languages. Edit tags, then run --sync; never hand-edit playlists[].
@@ -159,6 +161,21 @@ export function validate(cat) {
     const arcSum = s.arcs.reduce((k, a) => k + (a.episode_count || 0), 0);
     if (s.episode_count !== arcSum) err(`${sid}: episode_count ${s.episode_count} but its arcs add up to ${arcSum}`);
   }
+  // extras: pieces outside the numbered run (the introduction / trailer, S00E000…). They never take a global number ≥ 1.
+  const EXTRA_ID = /^S00E(\d{3})$/, EXTRA_KINDS = ['trailer'];
+  for (const x of cat.extras || []) {
+    const where = x.id || 'extra';
+    uniq(x.id, 'extra');
+    if (!EXTRA_ID.test(x.id || '')) err(`${where}: extra id must look like S00E000`);
+    if (!EXTRA_KINDS.includes(x.kind)) err(`${where}: kind must be one of ${EXTRA_KINDS}`);
+    if (x.n !== 0) err(`${where}: extras have n = 0 (outside the numbered run)`);
+    for (const f of ['title', 'synopsis']) if (!x[f] || typeof x[f] !== 'string') err(`${where}: missing ${f}`);
+    if (!STATUSES.includes(x.status)) err(`${where}: status must be one of ${STATUSES}`);
+    for (const c of x.characters || []) if (!V.characters[c]) err(`${where}: unknown character "${c}"`);
+    for (const t of x.themes || []) if (!V.themes[t]) err(`${where}: unknown theme "${t}"`);
+    for (const [code, st] of Object.entries(x.languages || {})) if (!STATUSES.includes(st)) err(`${where}: languages.${code} status "${st}"`);
+    if (x.leads_to && !seen.has(x.leads_to)) err(`${where}: leads_to ${x.leads_to} is not an episode id`);
+  }
   const total = expectN - 1 - totalShift;
   if (cat.totals && cat.totals.episodes !== total) err(`totals.episodes ${cat.totals.episodes} but the seasons add up to ${total}`);
   if (total < 1000 || total > 2000) warn(`total ${total} is outside the owner's 1,000–2,000 range`);
@@ -212,6 +229,7 @@ function printStats(cat) {
   for (const r of st.seasons) console.log(`${padE(r.id, 6)} ${padE(r.parva, 30)} ${pad(r.arcs, 4)} ${pad(r.episodes, 5)} ${pad(r.main, 5)} ${pad(r.side, 5)} ${pad(r.wisdom, 6)} ${pad(r.listed, 6)}`);
   const L = st.layer;
   console.log(`${padE('Total', 37)} ${pad(st.seasons.reduce((n, r) => n + r.arcs, 0), 4)} ${pad(st.total, 5)} ${pad(L.main, 5)} ${pad(L.side, 5)} ${pad(L.wisdom, 6)} ${pad(st.listed, 6)}`);
+  for (const x of cat.extras || []) console.log(`Extra: ${x.id} (${x.kind}) "${x.title}" · ${x.status}`);
   console.log(`\nLayers: main ${L.main} · side ${L.side} · wisdom ${L.wisdom}`);
   console.log(`Status: released ${st.status.released} · in production ${st.status.in_production} · planned ${st.status.planned}`);
   const kinds = new Map(cat.playlists.map((p) => [p.id, p]));

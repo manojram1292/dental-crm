@@ -2568,6 +2568,100 @@ def build_ep20(tl):
     return _tb_master(bus_dry, bus_wet, bed, D, N)
 
 
+# ─── episode 0 and episodes 21+: a data-driven cue sheet ─────────────────────
+def build_auto(tl):
+    """A cue sheet read from the script: each line may carry "sfx": ["kind@beat", …] (beat = the
+    line's beat index; without @ the sound starts with the line and lasts the whole line). Kinds:
+      bell (high) · bell-low · drum (a thom with a boom) · ki (quick drums through the line) ·
+      wind · surf · rain · thunder · roar (fire) · hiss (serpents) · wings (a whoosh) · glide
+      (a falling tone) · chord (a held calm chord) · bansuri (a rising phrase) · conch · crack
+      (a dry snap) · silence (the bed dips under the line).
+    The bed (tanpura), the Naimisha crackle under the first/last frames and every "speaker":
+    "sauti" line, the title bells, the recap sting and the Next sting are always there."""
+    D = tl['duration']
+    N = smp(D)
+    ep = tl['episode']
+    key = f'auto{ep:02d}'
+    sc = json.load(open(os.path.join(ROOT, 'script', f'ep{ep:02d}.{tl["lang"]}.json')))
+    SL = {l['id']: l for l in sc['lines']}
+    L = {l['id']: l for l in tl['lines']}
+    bus_dry, bus_wet, bed, bell, hit, stereo = _tb_buses(N)
+    pts = [(0, 0.35)]
+    for l in tl['lines']:
+        lvl = 0.0 if 'silence' in SL[l['id']].get('sfx', []) else (0.85 if SL[l['id']].get('speaker') == 'sauti' else 0.5)
+        pts += [(l['start'] + 0.01, lvl), (max(l['start'] + 0.02, l['end'] - 0.01), lvl)]
+    pts.append((D, 0.4))
+    bed += tanpura_bed(N, D, key) * env_curve(pts, N)
+    fpts = [(0, 0.7), (1.4, 0.25), (2.4, 0)]
+    for l in tl['lines'][1:]:
+        if SL[l['id']].get('speaker') == 'sauti' and l['start'] > 2.5:
+            fpts += [(l['start'], 0), (l['start'] + 0.3, 0.6), (l['end'] - 0.2, 0.6), (l['end'] + 0.2, 0)]
+    fpts += [(D - 1.0, 0), (D - 0.35, 0.7), (D, 0.7)]
+    fpts.sort()
+    stereo(crackle(N, 'fire' + key) * env_curve(fpts, N) * 0.1, 0, roll=777)
+    tt0 = L['hook']['speechEnd'] + 0.3
+    for i, f in enumerate((293.66, 440.0, 587.33)):
+        bell(tt0 + 0.12 * i, f, 0.2 - 0.04 * i, -0.2 + 0.2 * i, ('title' + key, i))
+    if 'recap' in L:
+        series_recap_sting(bus_dry, bus_wet, L['recap'])
+    for li, l in enumerate(tl['lines']):
+        t0, t1 = l['start'], l['end']
+        for j, cue in enumerate(SL[l['id']].get('sfx', [])):
+            kind, _, b = cue.partition('@')
+            at = (l['beats'][int(b)] if b and int(b) < len(l['beats']) else t0 + 0.1) if b else t0 + 0.05
+            k = (key, li, j)
+            span = max(0.5, t1 - at)
+            if kind == 'bell':
+                bell(at, 880.0, 0.14, 0.1, k)
+            elif kind == 'bell-low':
+                bell(at, 146.83, 0.24, 0.0, k)
+            elif kind == 'drum':
+                hit(at, k, 0.8, din=False, boom=0.7)
+            elif kind == 'ki':
+                tb, n = at, 0
+                while tb < t1 - 0.2:
+                    add(bus_dry, pan(mridangam('ki' if n % 2 else 'ta', (k, n), 0.2), -0.3 if n % 2 else 0.3), tb)
+                    tb += 0.18
+                    n += 1
+            elif kind == 'wind':
+                w = wind(smp(span), k)
+                stereo(lpf(w, 1500) * env_curve([(0, 0), (0.4, 1), (len(w) / SR - 0.5, 1), (len(w) / SR, 0)], len(w)) * 0.2, at, roll=900)
+            elif kind == 'surf':
+                stereo(water(smp(span), k) * 0.3, at, roll=1600)
+            elif kind == 'rain':
+                rn = bpf(rng(k).standard_normal(smp(span)), 1500, 9000) * 0.05
+                stereo(rn * env_curve([(0, 0), (0.4, 1), (len(rn) / SR - 0.5, 1), (len(rn) / SR, 0)], len(rn)), at, roll=300)
+            elif kind == 'thunder':
+                stereo(thunder(k, 3.0, 0.9) * 0.6, at, roll=1200)
+            elif kind == 'roar':
+                rr = roar(smp(span), k)
+                stereo(rr * env_curve([(0, 0), (0.3, 1), (len(rr) / SR - 0.4, 1), (len(rr) / SR, 0)], len(rr)) * 0.1, at, roll=900)
+            elif kind == 'hiss':
+                stereo(naga_shimmer(smp(span), k, 0.8), at, roll=500)
+            elif kind == 'wings':
+                n = smp(1.0)
+                tt = tvec(n)
+                stereo(bpf(rng(k).standard_normal(n), 200, 1500) * np.sin(np.pi * tt / tt[-1]) ** 2 * 0.12, at, roll=300)
+            elif kind == 'glide':
+                add(bus_wet, pan(glide(k, 600, 260, 0.8, 0.4), 0.0), at)
+            elif kind == 'chord':
+                n = smp(span)
+                tt = tvec(n)
+                ch = sum(np.sin(2 * np.pi * f * tt + q) for q, f in enumerate((SA / 2, SA * 3 / 4, SA))) * np.sin(np.pi * tt / tt[-1]) * 0.03
+                add(bus_wet, fade(np.stack([ch, np.roll(ch, 500)]), 0.3, 0.5), at)
+            elif kind == 'bansuri':
+                Sa, Re, Ga, Pa = SA * 2, SA * 2 * 9 / 8, SA * 2 * 5 / 4, SA * 3
+                add(bus_wet, pan(bansuri([Sa, Re, Ga, Pa], [0.35, 0.35, 0.4, 1.3], k, 0.7) * 0.6, 0.2), at)
+            elif kind == 'conch':
+                add(bus_wet, pan(conch(k, 233.08, 2.0, 0.6), 0.0), at)
+            elif kind == 'crack':
+                for q in range(4):
+                    add(bus_dry, pan(crackle(smp(0.2), (k, q), 50.0) * 0.3, -0.2 + 0.12 * q), at + q * 0.06)
+    if 'next' in L:
+        series_next_sting(bus_dry, bus_wet, L['next'])
+    return _tb_master(bus_dry, bus_wet, bed, D, N)
+
+
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
     r = rng('dither')
@@ -2605,7 +2699,7 @@ def main():
                 return
         except Exception:
             pass
-    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12, 13: build_ep13, 14: build_ep14, 15: build_ep15, 16: build_ep16, 17: build_ep17, 18: build_ep18, 19: build_ep19, 20: build_ep20}[ep](tl)
+    x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12, 13: build_ep13, 14: build_ep14, 15: build_ep15, 16: build_ep16, 17: build_ep17, 18: build_ep18, 19: build_ep19, 20: build_ep20}.get(ep, build_auto)(tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],
             'note': 'music/ambience stem, a bed for narration (tools/mix.py adds voice/<lang>/*.wav and ducks this)'}

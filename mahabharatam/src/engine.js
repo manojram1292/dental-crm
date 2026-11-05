@@ -675,7 +675,7 @@
     W, H, FPS, DURATION, FRAMES, TAU, PAL, FAMILY, SAFE,
     lang: 'en', ep: 1, script: null, timeline: null, lines,
     /** 'ep01', 'ep02', …: the episode's file tag (script/, voice/, build/, audio/, src/scenes/). */
-    epTag: (ep = REEL.ep) => `ep${String(+ep || 1).padStart(2, '0')}`,
+    epTag: (ep = REEL.ep) => `ep${String(+ep === 0 ? 0 : (+ep || 1)).padStart(2, '0')}`,
     scale: 1, grain: 0.14, showCaptions: true, errors: [], live: false,
     /** Sub-pixel camera jitter [x, y] in backing px, set per motion-blur sub-sample by the runtime. */
     jitter: [0, 0],

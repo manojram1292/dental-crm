@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9328,
+   "words": 4,
+   "speed": 0.81,
+   "text": "The voices are synthetic:"
+  },
+  {
+   "t0": 2.0328,
+   "t1": 3.761,
+   "words": 3,
+   "speed": 0.81,
+   "text": "a text-to-speech model,"
+  },
+  {
+   "t0": 3.841,
+   "t1": 5.1833,
+   "words": 2,
+   "speed": 0.81,
+   "text": "not actors."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

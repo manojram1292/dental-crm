@@ -1,0 +1,44 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9845,
+   "words": 2,
+   "speed": 0.81,
+   "text": "No hype,"
+  },
+  {
+   "t0": 1.0645,
+   "t1": 2.4403,
+   "words": 2,
+   "speed": 0.81,
+   "text": "nothing twisted:"
+  },
+  {
+   "t0": 2.5903,
+   "t1": 4.2912,
+   "words": 5,
+   "speed": 0.81,
+   "text": "the essence of the epic,"
+  },
+  {
+   "t0": 4.3712,
+   "t1": 5.3718,
+   "words": 1,
+   "speed": 0.81,
+   "text": "condensed,"
+  },
+  {
+   "t0": 5.4518,
+   "t1": 6.9369,
+   "words": 4,
+   "speed": 0.81,
+   "text": "as it is told."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

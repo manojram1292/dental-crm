@@ -13,6 +13,9 @@
   'use strict';
   const R = window.REEL;
   const EPISODES = {
+    // episode 0: THE INTRODUCTION (the channel's opening statement, a trailer): a montage of the series' places and figures,
+    // three title moments (the hundred thousand verses, the Critical Edition, "made in code"); 'ep01/s2-forest' is episode 1's own walk
+    0: ['ep02/_common', 'ep03/_common', 'ep04/_common', 'ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep14/_common', 'ep15/_common', 'ep17/_common', 'ep20/_common', '_common', 's1-hook', 's2-verses', 's3-ce', 's4-know', 's5-vyasa', 's6-edition', 's7-order', 's8-code', 's9-voices', 's10-essence', 's11-deeper', 'ep01/s2-forest', 's13-next'],
     1: ['ep02/_common', 's1-before', 's2-forest', 's3-name', 's4-fire', 's5-asked', 's6-vyasa', 's7-tease', 's8-next'],
     2: ['_common', 's0-recap', 's1-ask', 's2-answer', 's3-parashurama', 's4-kings', 's5-lakes', 's6-pitrs', 's7-dawn', 's8-next'],
     // 'ep02/_common': another episode's helpers (EP2.mouth, EP2.mandala: the field of five lakes)
@@ -54,7 +57,7 @@
   };
   const q = new URLSearchParams(location.search);
   const ep = +(q.get('ep') || 1);
-  R.ep = EPISODES[ep] ? ep : 1;
+  R.ep = EPISODES[ep] ? ep : 1;   // 0 is the introduction
   R.EPISODES = EPISODES;
   // Parser-inserted scripts written here run in order, before src/runtime.js.
   for (const f of EPISODES[R.ep]) document.write(`<script src="src/scenes/${f.includes('/') ? f : R.epTag() + '/' + f}.js"><\/script>`);

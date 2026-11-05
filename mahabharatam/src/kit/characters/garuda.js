@@ -130,24 +130,43 @@
     if (a <= 0.01) return;
     g.translate(0, r.bob);
     g.globalAlpha *= a; g.strokeStyle = color; g.fillStyle = color; g.lineCap = 'round';
-    g.save(); g.translate(0, r.drop); g.translate(0, PIV); g.rotate(-r.lean); g.translate(0, -PIV);
-    // a broad jewelled collar across the chest (kept straight and low: a U-shaped collar under the beak read as a smile)
-    g.beginPath(); g.moveTo(-66, -770); g.lineTo(44, -786); g.lineWidth = 16; g.stroke();
-    for (let i = 0; i < 6; i++) { g.beginPath(); g.arc(-56 + i * 20, -758 - i * 3, 6, 0, TAU); g.fill(); }
-    g.beginPath(); g.moveTo(-44, -496); g.lineTo(60, -496); g.lineWidth = 9; g.stroke();
-    g.save(); g.translate(10, -830); g.rotate(r.look); g.scale(1.25, 1.25);
-    g.fillStyle = r.wrath || r.blaze > 0.5 ? '#ff5a2a' : '#fff4c0'; g.beginPath(); g.arc(-62, -96, 9, 0, TAU); g.fill();
-    g.strokeStyle = color; g.lineWidth = 5; g.beginPath(); g.moveTo(-90, -112); g.quadraticCurveTo(-60, -124, -36, -110); g.stroke();
-    g.restore();
-    g.restore();
+    const a0 = g.globalAlpha;
+    // (wings first, so the face and collar paint over any overlap)
     // feather bars and covert scallops on both wings (painted plumage, not a flat shape)
     const root = r.rot([40, -760]);
     for (const far of [true, false]) {
       const { pts } = wingPts(r, root, far);
+      // a warm painted band over the primaries, so the wings are plumage, not a dark mass
+      g.save(); g.globalAlpha = a * (far ? 0.28 : 0.4); g.fillStyle = '#c86a20';
+      g.beginPath(); for (let i = 0; i < pts.length; i++) { const { a: aa, len } = pts[i]; const q = [root[0] + Math.cos(aa) * len * 0.82, root[1] + Math.sin(aa) * len * 0.82]; i ? g.lineTo(q[0], q[1]) : g.moveTo(root[0] + Math.cos(aa) * len * 0.45, root[1] + Math.sin(aa) * len * 0.45), g.lineTo(q[0], q[1]); }
+      for (let i = pts.length - 1; i >= 0; i--) { const { a: aa, len } = pts[i]; g.lineTo(root[0] + Math.cos(aa) * len * 0.45, root[1] + Math.sin(aa) * len * 0.45); }
+      g.fill(); g.restore();
       g.lineWidth = 5; g.globalAlpha = a * (far ? 0.5 : 0.8);
       for (const { a: aa, len } of pts) { g.beginPath(); g.moveTo(root[0] + Math.cos(aa) * len * 0.4, root[1] + Math.sin(aa) * len * 0.4); g.lineTo(root[0] + Math.cos(aa) * len * 0.9, root[1] + Math.sin(aa) * len * 0.9); g.stroke(); }
-      for (let i = 0; i < 6; i++) { const { a: aa, len } = pts[Math.min(9, i + 1)]; const c = [root[0] + Math.cos(aa) * len * 0.32, root[1] + Math.sin(aa) * len * 0.32]; g.beginPath(); g.arc(c[0], c[1], 22, aa - 1.2, aa + 1.2); g.stroke(); }
+      for (let i = 0; i < 6; i++) { const { a: aa, len } = pts[Math.min(9, i + 1)]; const c = [root[0] + Math.cos(aa) * len * 0.5, root[1] + Math.sin(aa) * len * 0.5]; g.beginPath(); g.arc(c[0], c[1], 22, aa - 1.2, aa + 1.2); g.stroke(); }
     }
+    g.globalAlpha = a0;
+    g.save(); g.translate(0, r.drop); g.translate(0, PIV); g.rotate(-r.lean); g.translate(0, -PIV);
+    // the face: a lighter feathered mask over the dark head, a GOLD BEAK with a dark gape line, so the
+    // eagle head reads at every size and on bright skies (ep 21 fix: the head was a dark silhouette)
+    g.save(); g.translate(10, -830); g.rotate(r.look); g.scale(1.25, 1.25);
+    const ga = g.globalAlpha;
+    g.globalAlpha = ga * 0.85; g.fillStyle = '#b8682a';
+    g.beginPath(); g.moveTo(34, 0); g.bezierCurveTo(48, -40, 50, -96, 26, -126); g.bezierCurveTo(0, -146, -44, -138, -70, -112); g.bezierCurveTo(-74, -80, -62, -50, -60, -40); g.bezierCurveTo(-40, -10, -10, 8, 34, 0); g.fill();
+    g.globalAlpha = ga; g.fillStyle = '#f0b840';
+    g.beginPath(); g.moveTo(-72, -118); g.bezierCurveTo(-100, -108, -128, -94, -148, -70); g.quadraticCurveTo(-160, -48, -140, -36); g.lineTo(-132, -52); g.bezierCurveTo(-110, -54, -90, -52, -66, -48); g.closePath(); g.fill();
+    g.strokeStyle = '#3a1404'; g.lineWidth = 4; g.beginPath(); g.moveTo(-64, -66); g.quadraticCurveTo(-100, -70, -134, -54); g.stroke();
+    g.fillStyle = '#fff4c0'; g.beginPath(); g.arc(-62, -96, 11, 0, TAU); g.fill();
+    g.fillStyle = r.wrath || r.blaze > 0.5 ? '#ff3a0a' : '#2a0c02'; g.beginPath(); g.arc(-64, -96, 5.5, 0, TAU); g.fill();
+    g.strokeStyle = color; g.lineWidth = 6; g.beginPath(); g.moveTo(-92, -114); g.quadraticCurveTo(-60, -128, -32, -112); g.stroke();
+    g.restore();
+    // the collar: a jewelled band LOW on the chest with a hanging pendant (a necklace, well below the beak;
+    // the old band under the beak read as a grin)
+    g.strokeStyle = color; g.fillStyle = color;
+    g.beginPath(); g.moveTo(-70, -706); g.lineTo(52, -716); g.lineWidth = 9; g.stroke();
+    g.beginPath(); g.moveTo(-14, -704); g.lineTo(-2, -676); g.lineTo(10, -704); g.closePath(); g.fill();
+    g.beginPath(); g.moveTo(-44, -496); g.lineTo(60, -496); g.lineWidth = 9; g.stroke();
+    g.restore();
   }
 
   function before(ctx, P, r, k) {
@@ -166,14 +185,14 @@
     bible: {
       name: 'Garuda, king of birds',
       role: 'Vinata\'s second son: he hatches blazing like fire, carries the serpents, and storms heaven for the amrita to free his mother (CE 1.20–30).',
-      palette: { fill: '#2a1004', lit: '#7a3c10', inner: '#7a3a0a', rimDim: '#ffb030', rimBright: '#fff4c0', ornamentDim: '#ff6a2a', ornament: '#ffe0a0' },
+      palette: { fill: '#3a1806', lit: '#9a5418', inner: '#7a3a0a', rimDim: '#ffb030', rimBright: '#fff4c0', ornamentDim: '#ff6a2a', ornament: '#ffe0a0' },
       proportions: '≈ 1100 units to the crest; open wingspan ≈ 2400; a man\'s body, an eagle\'s head, taloned feet.',
       props: ['eagle head with hooked beak and flame-feather crest', 'a small crown', 'vast flame-feathered wings', 'feathered mantle and kilt', 'talons', 'armlets and collar'],
       light: 'Blazing gold: rim #ffb030 → #fff4c0 (×1.2), glow 1.1, vermilion-gold ornaments; pose.blaze adds his birth-fire. Never Aruna\'s red halo or Surya\'s disc.',
       poses: [{ name: 'stand', note: 'wings half-open' }, { name: 'spread', note: 'k: wings and arm open' }, { name: 'fly', note: 'phase: the wings beat' }, { name: 'carry', note: 'k: talons and arms down, carrying' }, { name: 'bow', note: 'k' }, { name: 'any + blaze', note: '0..1: his birth-fire' }],
       voice: 'garuda',
     },
-    rule: { fill: '#2a1004', lit: '#7a3c10', litGain: 1.0, rim: ['#ffb030', '#fff4c0'], inner: '#7a3a0a', innerA: [0.85, 0.45], glow: 1.1, rimW: 1.2, ornament: ['#ff6a2a', '#ffe0a0'], ornamentA: [0.6, 0.95] },
+    rule: { fill: '#3a1806', lit: '#9a5418', litGain: 1.0, rim: ['#ffb030', '#fff4c0'], inner: '#7a3a0a', innerA: [0.85, 0.45], glow: 1.1, rimW: 1.2, ornament: ['#ff6a2a', '#ffe0a0'], ornamentA: [0.6, 0.95] },
     bounds: () => [-1100, -2200, 1700, 60],
   });
   CH.ROSTER.push('garuda');

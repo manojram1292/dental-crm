@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 3.6355,
+   "words": 9,
+   "speed": 0.81,
+   "text": "It is often called the longest poem ever composed:"
+  },
+  {
+   "t0": 3.7555,
+   "t1": 5.9994,
+   "words": 5,
+   "speed": 0.81,
+   "text": "about a hundred thousand verses,"
+  },
+  {
+   "t0": 6.0794,
+   "t1": 7.9397,
+   "words": 4,
+   "speed": 0.81,
+   "text": "by the traditional count."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
