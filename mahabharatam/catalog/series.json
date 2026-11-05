@@ -5327,10 +5327,13 @@
                 "theme-animals-and-birds",
                 "theme-boons",
                 "theme-women-of-the-epic",
-                "char-garuda"
+                "char-garuda",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null
@@ -5375,10 +5378,13 @@
                 "theme-animals-and-birds",
                 "theme-sages",
                 "theme-love-stories",
-                "char-garuda"
+                "char-garuda",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": "Vinata's counsel (the Nishadas, never a brahmin) is in 1.24 and is told in episode 21; this episode is 1.25."
@@ -5423,10 +5429,13 @@
                 "theme-curses",
                 "theme-animals-and-birds",
                 "theme-rivalry-and-revenge",
-                "char-garuda"
+                "char-garuda",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": "Checked against the CE: Vibhavasu (the elder) curses Supratika to be the elephant; Supratika curses Vibhavasu to be the tortoise."
@@ -5470,10 +5479,13 @@
                 "layer-side",
                 "theme-sages",
                 "theme-animals-and-birds",
-                "char-garuda"
+                "char-garuda",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null
@@ -5521,10 +5533,13 @@
                 "theme-gods",
                 "theme-births-and-origins",
                 "theme-curses",
-                "char-indra"
+                "char-indra",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": "A digression in the CE itself (Shaunaka asks, Sauti answers), kept in its place."
@@ -5570,10 +5585,13 @@
                 "theme-gods",
                 "theme-animals-and-birds",
                 "char-garuda",
-                "char-indra"
+                "char-indra",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null
@@ -5614,10 +5632,13 @@
                 "layer-side",
                 "theme-animals-and-birds",
                 "theme-cosmology",
-                "char-garuda"
+                "char-garuda",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null
@@ -5662,10 +5683,13 @@
                 "theme-gods",
                 "theme-devotion",
                 "char-garuda",
-                "char-vishnu"
+                "char-vishnu",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null
@@ -5712,10 +5736,13 @@
                 "theme-divine-weapons",
                 "theme-boons",
                 "char-garuda",
-                "char-indra"
+                "char-indra",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null
@@ -5762,10 +5789,13 @@
                 "theme-serpents",
                 "theme-curses",
                 "char-garuda",
-                "char-indra"
+                "char-indra",
+                "lang-en"
               ],
-              "status": "planned",
-              "languages": {},
+              "status": "released",
+              "languages": {
+                "en": "released"
+              },
               "tradition_note": false,
               "reorder_note": null,
               "notes": null

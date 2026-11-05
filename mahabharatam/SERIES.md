@@ -2,7 +2,7 @@
 
 This is the plan for the whole series: what it is, how every episode is built, how faithful it is and how that is marked, the eighteen seasons with their arcs and episode counts, the playlist taxonomy, and the title and description templates. The machine-readable version is [`catalog/series.json`](catalog/series.json) (how to use it: [`catalog/README.md`](catalog/README.md)); `node tools/catalog.mjs` validates it and prints the numbers quoted here. The look and the voices are fixed in [`CHARACTERS.md`](CHARACTERS.md); the production pipeline is in [`README.md`](README.md).
 
-**At a glance:** 18 seasons (one per parva) · 124 arcs · **1,200 episodes** (main narrative 700, side tales 298, wisdom 202) · Season 1 is planned episode by episode (161 episodes); Seasons 2–18 are planned arc by arc. Episodes 1–20 are released (11–20 use the cold-open grammar; see README.md and REVIEW_LOG.md).
+**At a glance:** 18 seasons (one per parva) · 124 arcs · **1,200 episodes** (main narrative 700, side tales 298, wisdom 202) · Season 1 is planned episode by episode (161 episodes); Seasons 2–18 are planned arc by arc. Episodes 1–30 are released (11–20 use the cold-open grammar, 21–30 the tightened grammar of the independent review; see README.md and REVIEW_LOG.md), with an introduction (episode 0, a draft for the owner).
 
 ## Contents
 

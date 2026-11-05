@@ -41,3 +41,20 @@ One row per episode from episode 20 (the baseline) on. Every number that can be 
 | 27 | yes | 8 w · 2.76 s | 19.6 | 4.1 s | 1.1 s | 60 % | 0 of 24 (*eye*; captions moved high over the vault shots) | 55.4 | 3 (the inner court on fire, turning to steam; the vault in cold steel-blue; the open sky at deep blue dusk) | 0 | 2.68 · 0.34 / 1.5 | −14.2 · −1.8 | −9.5 dB | A / NEXT › overlay | Adi 1.29 · none · ✓ (ep 28 opens on Vishnu) | pure | 17.2 |
 | 28 | yes | 5 w · 2.23 s | 62.2 | 3.5 s | 1.7 s | 59 % | 0 of 24 (*eye*) | 55.3 | 2 (first light over a cloud-sea; a white-gold sky for the banner) + Indra's storm at the cliffhanger | 0 (but within the episode several two-shots share one layout, *eye*) | 2.69 · 0.29 / 1.5 | −14.2 · −1.8 | −10.0 dB | B / NEXT › overlay | Adi 1.29 · none · ✓ (ep 29 opens on the vajra) | pure | 17.4 |
 | 29 | yes | 7 w · 3.6 s ✗ (two sentences) | 58.6 | 4.9 s | 3.7 s | 44 % | 0 of 24 (*eye*) | 58.2 (over the 58 target, under the 59 max) | 2 (a silver noon among high clouds; the sky after the storm with a rainbow) | 0 | 2.49 · 0.33 / 1.5 | −14.2 · −1.6 | −9.2 dB | C / NEXT › overlay | Adi 1.29–30 · none · ✓ (the sage of the vajra left unnamed, as the line needs no name) | pure | 17.6 |
+| 30 | yes | 7 w · 3.58 s ✗ (a slow Sauti line) | 12.6 | 4.9 s | 3.3 s | 44 % | 0 of 24 (*eye*) | 57.1 | 2 (Ramaniyaka at dawn, pink and misted; the kusha grass at ground level) + the Naimisha fire at first light | 0 | 2.49 · 0.35 / 1.5 | −14.1 · −1.8 | −9.2 dB | A / NEXT › overlay | Adi 1.30 · none · ✓ (catalog cliffhanger reworded "their mother's curse"; ep 31 opens the Astika arc) | pure | 14.1 |
+
+## Summary (episodes 21–30 against the episode-20 baseline)
+
+- **Hook**: 5–8 words in every episode (baseline 12); spoken by 2.2–3.6 s (baseline 5.45). Three episodes miss the 3.0 s
+  target by 0.03–0.6 s (23, 29, 30); all are under 3.6 s.
+- **Story start**: 3.5–4.9 s (baseline 10.6); every episode meets ≤ 6 s.
+- **Motion by 0.5 s**: 7–62 grey levels (every hook moves from frame 0; ep 23's 7.1 is the slowest: the elephant's rear starts slow).
+- **Longest static hold**: 1.1–4.8 s; two misses (ep 23 4.2 s on the mural panel, ep 24 4.8 s under the branch).
+- **Turn**: 44–60 % in all ten (each after one 0.85–0.9 s rest; gap max 1.5 s in every episode).
+- **Speech rate**: 2.39–2.77 words/s (baseline 2.13); gap sd 0.29–0.35.
+- **Loudness**: −14.1 to −14.2 LUFS, −1.4 to −1.9 dBTP on the mp4s (baseline −20.4); the same for episodes 0–20 after
+  the remaster.
+- **Next card**: 9–12 dB under the body (baseline +2 dB), ≈ 1.1 s.
+- **Repeated compositions vs the previous 3 episodes** (dHash): 0 in all ten.
+- **New lights**: 2–4 per episode.
+- **Purity**: pure in all. **Share copies**: 14.1–18.8 MB (the 73 s introduction: 21.0 MB).
