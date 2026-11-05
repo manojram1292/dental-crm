@@ -109,7 +109,7 @@ CEIL = -1.0
 def limit(x, ceil_db=CEIL):
     """Look-ahead true-peak limiter: per-sample gain from 4×-oversampled peaks, min-held over 10 ms and
     averaged over 8 ms (an average of a wider min-hold never exceeds the gain any peak needs)."""
-    c = db(ceil_db - 0.4)   # 0.4 dB of headroom for the AAC encode (measured +0.2–0.25 dB on the mp4)
+    c = db(ceil_db - 1.0)   # 1 dB of headroom for the AAC encode (sharp voice onsets overshoot by up to +1.9 dB on the mp4)
     up = sps.resample_poly(np.abs(x).max(0), 4, 1)
     pk = up.reshape(-1, 4).max(1) if len(up) % 4 == 0 else np.pad(up, (0, (-len(up)) % 4)).reshape(-1, 4).max(1)
     pk = np.maximum(pk[:x.shape[1]], np.abs(x).max(0))
@@ -179,6 +179,9 @@ def main():
             g[i0:i0 + ramp] = np.linspace(1, db(-9.0), ramp)
             g[i0 + ramp:i1] = db(-9.0)
             mix = mix * g
+    # a 120 ms fade-in: a hard onset in the first AAC frames overshoots by up to +2 dB after encoding
+    n0 = int(0.12 * SR)
+    mix[:, :n0] *= np.linspace(0, 1, n0) ** 2
     mix = master(mix)
     out = os.path.join(ROOT, 'audio', tag, f'mix.{lang}.wav')
     write_wav(out, mix)
