@@ -179,9 +179,9 @@ def main():
             g[i0:i0 + ramp] = np.linspace(1, db(-9.0), ramp)
             g[i0 + ramp:i1] = db(-9.0)
             mix = mix * g
-    # a 120 ms fade-in: a hard onset in the first AAC frames overshoots by up to +2 dB after encoding
-    n0 = int(0.12 * SR)
-    mix[:, :n0] *= np.linspace(0, 1, n0) ** 2
+    # a 350 ms fade-in: a hard onset in the first AAC frames overshoots by up to +2 dB after encoding
+    n0 = int(0.35 * SR)
+    mix[:, :n0] *= np.linspace(0, 1, n0) ** 1.5
     mix = master(mix)
     out = os.path.join(ROOT, 'audio', tag, f'mix.{lang}.wav')
     write_wav(out, mix)
