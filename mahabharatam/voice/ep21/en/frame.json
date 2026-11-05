@@ -1,0 +1,23 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.8964,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.6362,
+   "words": 6,
+   "speed": 0.896,
+   "text": "The price of his mother's freedom:"
+  },
+  {
+   "t0": 2.7562,
+   "t1": 4.6102,
+   "words": 5,
+   "speed": 0.896,
+   "text": "the drink of the gods."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

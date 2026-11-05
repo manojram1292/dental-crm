@@ -129,6 +129,22 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "Agni": "ˈʌɡni",                                     # UG-nee
     "Vibhavasu": "vˌɪbʰɑːvˈʌsuː",
     "Ramaniyaka": "ɾˌʌməɳˈiːjəkə",                       # ra-ma-NEE-ya-ka
+    # episodes 21–30 (the Garuda arc: the Nishadas, the brahmin, the elephant and the tortoise, the Valakhilyas, heaven)
+    "Nishada": "nɪʃˈɑːdə",                               # ni-SHAA-da
+    "Nishadas": "nɪʃˈɑːdəz",
+    "Nishadi": "nɪʃˈɑːdiː",                              # ni-SHAA-dee (a Nishada woman)
+    "Vibhavasu": "vɪbʰˈɑːvəsʊ",                          # vi-BHAA-va-su
+    "Supratika": "sʊpɾətˈiːkə",                          # su-pra-TEE-ka
+    "Valakhilya": "vˌɑːləkʰˈɪljə",                       # vaa-la-KHIL-ya
+    "Valakhilyas": "vˌɑːləkʰˈɪljəz",
+    "Rauhina": "ɾˈaʊhɪɳə",                               # ROW-hi-na (the great tree)
+    "Gandhamadana": "ɡˌʌndʰəmˈɑːdənə",                   # gan-dha-MAA-da-na
+    "Suparna": "sʊpˈʌɾɳə",                               # su-PAR-na
+    "Vishvakarma": "vˌɪʃvəkˈʌɾmə",                       # vish-va-KAR-ma
+    "Brihaspati": "bɾɪhˈʌspəti",                         # bri-HAS-pa-ti
+    "Vainateya": "vˌaɪnətˈeɪjə",                         # vai-na-TAY-ya
+    "kusha": "kˈʊʃə",                                    # KU-sha (the sacred grass)
+    "Alamba": "ɐlˈʌmbə",
     # English words espeak gets wrong for these voices (audited with --dry)
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
     "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"

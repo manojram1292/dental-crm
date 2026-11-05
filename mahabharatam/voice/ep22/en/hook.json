@@ -1,0 +1,23 @@
+{
+ "speaker": "garuda",
+ "voice": "am_liam",
+ "speed": 0.9408000000000001,
+ "pitch": -1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.7832,
+   "words": 1,
+   "speed": 0.941,
+   "text": "Brahmin,"
+  },
+  {
+   "t0": 0.8632,
+   "t1": 2.4004,
+   "words": 5,
+   "speed": 0.941,
+   "text": "come out of my mouth!"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

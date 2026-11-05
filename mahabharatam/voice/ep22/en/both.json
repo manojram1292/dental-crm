@@ -1,0 +1,30 @@
+{
+ "speaker": "garuda",
+ "voice": "am_liam",
+ "speed": 0.9072,
+ "pitch": -1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.5598,
+   "words": 5,
+   "speed": 0.907,
+   "text": "Then take her with you."
+  },
+  {
+   "t0": 1.8098,
+   "t1": 2.4497,
+   "words": 1,
+   "speed": 0.907,
+   "text": "Go,"
+  },
+  {
+   "t0": 2.5297,
+   "t1": 3.7715,
+   "words": 3,
+   "speed": 0.907,
+   "text": "both of you."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

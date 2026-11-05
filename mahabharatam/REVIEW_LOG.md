@@ -272,3 +272,27 @@ from the next unscripted episode. All of these keep the essence (faithful, calm,
 Not adopted here (packaging, outside the render): "Link a reel" and related-video links, Trial Reels,
 cover templates, caption-line questions and pinned comments, and "who's who" carousels. They are
 recommended for upload.
+
+## Independent review (review/independent-11-20.md): adopted and rejected
+
+Read before episode 21 was scripted (it arrived while the introduction was in production). Its top 10, each
+with what was done and where it is measured (`QUALITY_SCORECARD.md`, `tools/scorecard.py`):
+
+| # | Finding | Decision | How / why |
+|---|---|---|---|
+| 1 | Hook ≤ 8 words, spoken ≤ 3.0 s, ≤ 3 card lines | **Adopted** (ep 0, ep 21 on) | Hook lines are ≤ 8 words with a faster line speed (1.12–1.2×); scorecard columns *hook words* and *hook speech end* |
+| 2 | Story by 6 s; mid-arc recaps as an unvoiced strip | **Adopted** (ep 21 on) | The spoken recap line is gone; `KIT.series.recapBand` lays "Previously · Episode N" and one line over the first story shot; column *story start* |
+| 3 | Master at −14 LUFS, ≤ −1 dBTP | **Adopted** (all episodes) | `tools/mix.py` now masters to −14 LUFS with a look-ahead true-peak limiter at −1 dBTP; episodes 1–20 remixed and remuxed (video copied); column *LUFS / dBTP* (ebur128) |
+| 4 | Readable captions; tags ≥ 36 px | **Adopted** | Captions get a dark 7 px outline under every word (kit-wide; applies to every render from now on); the ep 14 source line is now 40 px upright on a scrim, in two lines; tags were already 40 px |
+| 5 | No smile on Garuda or Rahu; Garuda luminous | **Adopted** for Garuda (eps 19–20 re-rendered, ep 21 on); **Rahu deferred** | Garuda: a lighter face mask, a gold beak with a gape line, the collar moved low on the chest with a pendant, a warm painted band on the wings, a brighter fill and lit colour. Rahu does not appear in episodes 21–30; his neck band is listed as a remaining weakness for the next Rahu episode or an ep 15 re-render |
+| 6 | Real motion in 0–1 s | **Adopted** | Every hook has a camera move or an action that starts at t = 0 (scorecard *motion by 0.5 s*, mean frame difference) |
+| 7 | Break the template | **Adopted in part** | From ep 21 the Garuda arc drops the fire edge and the navy Next card; hooks rotate among three openings (question card over action · direct speech in medias res · a single held image with a one-line card). The lacquer plaques stay (they carry names the audio cannot spell) |
+| 8 | Rhythm 2.4–2.6 words/s, varied gaps, one rest ≥ 0.8 s | **Adopted** | Narrator lines run at 1.08–1.12× line speed; `pre` values vary 100–900 ms with one deliberate rest ≥ 0.8 s per episode; columns *words/s* and *gap sd / max* |
+| 9 | Fidelity copy-check before each render | **Adopted** | Every row of the scorecard carries the CE reference and a check that the cliffhanger matches the next episode's opening; the remaster fixed eps 12, 14 and 18 |
+| 10 | Shorter end (Next ≤ 1.0–1.2 s over the cliffhanger image), Link-a-reel | **Adopted** (render side) / **passed to the owner** (upload side) | `KIT.series.overlayNextScene`: the cliffhanger picture keeps playing under a slim NEXT › band, then dissolves into frame 1; the Next card is 9 dB quieter (mix). Link-a-reel and Related-video links are YouTube upload settings, outside the render |
+
+Rejected or not acted on:
+- **Re-render episodes 11, 13, 16, 17 for their hooks** (a recap that doesn't match the hook, the Moon, Ananta's hoods reading as a hand, Kadru's head merging with the horse): rejected for now; each costs a full re-render and the remaster brief limits re-renders to factual fixes. Listed as remaining weaknesses.
+- **The five-person blind test and retention/CTR measures**: not measurable from here (no viewers, no analytics). The scorecard uses proxies from the timeline and the frames.
+- **Ep 16: the amrita given to Nara**: checked. CE 1.17 ends with the gods giving the amrita to Nara (Kiritin) to guard. The episode's line ("the gods kept the amrita safe") is not wrong, only less specific, so it was not changed (the brief said fix only if wrong).
+- **Ep 11 layer "side" in an arc marked main**: the catalog's ep 11 belongs to the churning tale, a side tale inside the main Astika arc; the layer is deliberate.

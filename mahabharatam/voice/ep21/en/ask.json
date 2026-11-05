@@ -1,0 +1,23 @@
+{
+ "speaker": "garuda",
+ "voice": "am_liam",
+ "speed": 0.9072,
+ "pitch": -1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.644,
+   "words": 1,
+   "speed": 0.907,
+   "text": "Mother,"
+  },
+  {
+   "t0": 0.724,
+   "t1": 2.3782,
+   "words": 5,
+   "speed": 0.907,
+   "text": "why must we obey them?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

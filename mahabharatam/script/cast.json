@@ -272,5 +272,12 @@
   "pitch": 0.5,
   "g2p": "en-gb",
   "notes": "Reserved."
+ },
+ "brahmin": {
+  "voice": "am_eric",
+  "speed": 0.86,
+  "pitch": 1.5,
+  "g2p": "en-us",
+  "notes": "Episode 22: the brahmin in Garuda's throat. am_eric raised 1.5 st (Parikshit uses it at −1): calm, unafraid, a householder's voice."
  }
 }

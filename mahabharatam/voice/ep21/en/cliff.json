@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8748000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.054,
+   "words": 6,
+   "speed": 0.875,
+   "text": "He swooped down on the Nishadas,"
+  },
+  {
+   "t0": 2.174,
+   "t1": 3.5459,
+   "words": 3,
+   "speed": 0.875,
+   "text": "and swallowed something"
+  },
+  {
+   "t0": 3.6659,
+   "t1": 4.651,
+   "words": 2,
+   "speed": 0.875,
+   "text": "that burned."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

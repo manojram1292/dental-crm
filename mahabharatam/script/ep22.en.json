@@ -1,0 +1,276 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "episode": 22,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 25: Garuda comes to the Nishadas' bay, raises a storm of dust that blinds them, and opens his mouth across their path; they run into it. A brahmin among them burns his throat like a live coal. Garuda tells him to come out, for a brahmin must never be killed by him; the brahmin answers that his wife is a Nishadi and must come out with him; Garuda lets them both go, and they bless him. Flying on, he meets his father Kashyapa, who asks after his welfare and his food; Garuda says his mother is well, that he is sent to bring the amrita, that the Nishadas did not satisfy him, and asks for other food. Kashyapa then tells him of the elephant and the tortoise.",
+  "structure": "From episode 21 (independent review): COLD OPEN (≤ 8 words, ≤ 3 s; opening style B: direct speech in medias res, the line itself on the card) → title (hook post) → STORY from ≈ 5 s with the UNVOICED recap band over its first shot (KIT.series.recapBand) → turn at 40–60 % → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1 (KIT.series.overlayNextScene). No fire edge in the Garuda arc from here.",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 22",
+    "episodeTitle": "The Brahmin in the Throat",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 21",
+    "prevEpisodeTitle": "The Price of Freedom",
+    "recapLine": "His mother said: never harm a brahmin.",
+    "nextEpisodeLabel": "Episode 23",
+    "nextTitle": "The Elephant and the Tortoise",
+    "kashyapaName": "Kashyapa",
+    "kashyapaEpithet": "the sage, his father"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "garuda",
+      "speed": 1.12,
+      "text": "\"Brahmin, come out of my mouth!\"",
+      "say": "Brahmin, [p:60] come out of my mouth!",
+      "est": 2.6,
+      "pre": 60,
+      "post": 1350,
+      "beats": [
+        0,
+        4
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "Brahmin",
+        "mouth!\""
+      ],
+      "sfx": [
+        "roar",
+        "bell-low@0"
+      ],
+      "note": "COLD OPEN (style B, in medias res, moving from frame 1): Garuda's head huge in the moonlit bay, beak opening; a coal-red light glows deep in his throat and a small human figure is lit inside it; the line on the card; the title in the post."
+    },
+    {
+      "id": "dust",
+      "speed": 1.15,
+      "text": "His wings raised a storm of dust, and the Nishadas ran blind, into his open beak.",
+      "say": "His wings raised a storm of dust, [p:100] and the Nishadas ran blind, [p:80] into his open beak.",
+      "est": 5.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        1,
+        6,
+        13
+      ],
+      "captionY": "high",
+      "sfx": [
+        "wind@0",
+        "wings@1"
+      ],
+      "note": "STORY 1 with the unvoiced recap band: the bay at moonrise again but a NEW LIGHT, the moon dimmed by dust (ochre-grey haze over teal): Garuda's wings beat up a whirl of dust; Nishada men run, spears and nets, toward a dark cleft that is his open beak."
+    },
+    {
+      "id": "burn",
+      "speed": 1.1,
+      "text": "But one of them burned in his throat, like a live coal.",
+      "say": "But one of them burned in his throat, [p:120] like a live coal.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        9
+      ],
+      "sfx": [
+        "roar@0",
+        "drum@1"
+      ],
+      "note": "STORY 2: close on Garuda's neck and head in profile: a coal-red glow swells in the throat (beats[0]); on 'coal' (beats[1]) he rears back."
+    },
+    {
+      "id": "come",
+      "speaker": "garuda",
+      "speed": 1.08,
+      "text": "\"Come out! I will never harm a brahmin.\"",
+      "say": "Come out! [p:200] I will never harm a brahmin.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        0,
+        4
+      ],
+      "captionY": "high",
+      "note": "STORY 3 (Garuda speaks): on the beach, Garuda bends low, beak open to the sand, careful."
+    },
+    {
+      "id": "wife",
+      "speaker": "brahmin",
+      "speed": 1.05,
+      "text": "\"Not without my wife. She is a Nishadi.\"",
+      "say": "Not without my wife. [p:200] She is a Nishadi.",
+      "est": 3.0,
+      "pre": 350,
+      "post": 350,
+      "beats": [
+        3,
+        7
+      ],
+      "captionY": "high",
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 4: after a short rest the brahmin answers from the beak's edge: he stands lit from inside (pose.coal), his hand back toward his wife who is still inside."
+    },
+    {
+      "id": "both",
+      "speaker": "garuda",
+      "speed": 1.08,
+      "text": "\"Then take her with you. Go, both of you.\"",
+      "say": "Then take her with you. [p:150] Go, both of you.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        1,
+        5
+      ],
+      "captionY": "high",
+      "note": "STORY 5 (Garuda speaks): wide on the moonlit sand: the brahmin and his wife step out of the beak together; Garuda's head lowered."
+    },
+    {
+      "id": "blessed",
+      "speed": 1.1,
+      "text": "They blessed him, and went where they wished.",
+      "say": "They blessed him, [p:100] and went where they wished.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        7
+      ],
+      "sfx": [
+        "bansuri@0"
+      ],
+      "note": "STORY 6: the couple walk away along the shore, the brahmin's hand raised in blessing back toward Garuda; the coal-glow gone from his throat."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "Hungry as he was, he kept his mother's word.",
+      "say": "Hungry as he was, [p:100] he kept his mother's word.",
+      "est": 3.2,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        7
+      ],
+      "sfx": [
+        "chord"
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, an eleventh angle: a profile against the fire, his hand on his own throat)."
+    },
+    {
+      "id": "father",
+      "speed": 1.1,
+      "text": "Flying on, he came to his father, Kashyapa.",
+      "say": "Flying on, [p:80] he came to his father, Kashyapa.",
+      "est": 3.0,
+      "pre": 900,
+      "post": 250,
+      "beats": [
+        1,
+        7
+      ],
+      "sfx": [
+        "silence",
+        "wings@0",
+        "bell@1"
+      ],
+      "note": "STORY 7 · THE TURN (≈ 59 %): after a 0.9 s rest (the episode's one long rest), a cut to a NEW LIGHT: a high mountain hermitage at dawn, cold blue and rose: Garuda alights before Kashyapa; the plaque."
+    },
+    {
+      "id": "welfare",
+      "speaker": "kashyapa",
+      "speed": 1.05,
+      "text": "\"Are you well, my son? Do you have food enough?\"",
+      "say": "Are you well, my son? [p:200] Do you have food enough?",
+      "est": 3.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        6
+      ],
+      "captionY": "high",
+      "note": "STORY 8 (Kashyapa speaks): Kashyapa, seated, blessing, his hand raised."
+    },
+    {
+      "id": "hungry",
+      "speaker": "garuda",
+      "speed": 1.08,
+      "text": "\"I go for the amrita, and I am still hungry. Show me other food.\"",
+      "say": "I go for the amrita, [p:100] and I am still hungry. [p:150] Show me other food.",
+      "est": 4.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        7,
+        11
+      ],
+      "captionY": "high",
+      "note": "STORY 9 (Garuda speaks): Garuda kneels before his father; a two-shot."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.08,
+      "text": "Two brothers, cursed into an elephant and a tortoise, were fighting in a lake.",
+      "say": "Two brothers, [p:100] cursed into an elephant and a tortoise, [p:120] were fighting in a lake.",
+      "est": 4.8,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        0,
+        6,
+        9,
+        13
+      ],
+      "role": "next",
+      "sfx": [
+        "drum@1",
+        "drum@2",
+        "surf@3"
+      ],
+      "note": "NEXT 1 (cliffhanger image, the catalog line): over Kashyapa's raised hand, a gold-ringed vision opens on a lake: a huge elephant and a huge tortoise locked in a fight, water thrown up."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Elephant and the Tortoise",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The short Next over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

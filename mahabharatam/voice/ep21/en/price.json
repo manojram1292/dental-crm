@@ -1,0 +1,30 @@
+{
+ "speaker": "nagas",
+ "voice": "af_nicole",
+ "speed": 0.8400000000000001,
+ "pitch": -2,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.5943,
+   "words": 4,
+   "speed": 0.84,
+   "text": "Bring us the amrita,"
+  },
+  {
+   "t0": 1.6943,
+   "t1": 2.7122,
+   "words": 2,
+   "speed": 0.84,
+   "text": "by force."
+  },
+  {
+   "t0": 3.0122,
+   "t1": 4.5999,
+   "words": 4,
+   "speed": 0.84,
+   "text": "Then you are free."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

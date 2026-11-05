@@ -54,6 +54,11 @@
     19: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', 's1-hook', 's2-recap', 's3-hatch', 's4-rise', 's5-gods', 's6-agni', 's7-praise', 's8-dim', 's9-frame', 's10-mother', 's11-cliff', 's12-next'],
     // episode 20: the shore, the ocean in flight, the white heat of the Sun, Indra's storm, the island of Ramaniyaka at noon (ep20/_common)
     20: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', '_common', 's1-hook', 's2-recap', 's3-order', 's4-fly', 's5-sun', 's6-faint', 's7-pray', 's8-rain', 's9-frame', 's10-command', 's11-cliff', 's12-ask', 's13-next'],
+    // episode 21 (independent review adopted: ≤ 8-word hook, unvoiced recap band, short NEXT › overlay, no fire edge):
+    // Ramaniyaka in late gold, the palm grove at evening (amber), the Nishadas' bay at moonrise (teal), the night sky of the blessing
+    21: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', 'ep20/_common', '_common', 's1-hook', 's2-ask', 's3-mother', 's4-demand', 's5-price', 's6-frame', 's7-food', 's8-nishadas', 's9-never', 's10-bless', 's11-cliff', 's12-next'],
+    // episode 22: the bay under a storm of dust, the moonlit sand, the high mountain hermitage at dawn (rose and snow), the lake of the brothers (in the vision)
+    22: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', 'ep20/_common', 'ep21/_common', '_common', 's1-hook', 's2-dust', 's3-burn', 's4-come', 's5-wife', 's6-both', 's7-blessed', 's8-frame', 's9-father', 's10-welfare', 's11-hungry', 's12-cliff', 's13-next'],
   };
   const q = new URLSearchParams(location.search);
   const ep = +(q.get('ep') || 1);

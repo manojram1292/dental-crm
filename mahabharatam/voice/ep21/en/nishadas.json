@@ -1,0 +1,30 @@
+{
+ "speaker": "vinata",
+ "voice": "bf_lily",
+ "speed": 0.861,
+ "pitch": 0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.0777,
+   "words": 6,
+   "speed": 0.861,
+   "text": "In a bay of the ocean"
+  },
+  {
+   "t0": 2.1577,
+   "t1": 4.0127,
+   "words": 3,
+   "speed": 0.861,
+   "text": "live the Nishadas."
+  },
+  {
+   "t0": 4.2627,
+   "t1": 5.4579,
+   "words": 2,
+   "speed": 0.861,
+   "text": "Eat them."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

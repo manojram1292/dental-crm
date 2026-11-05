@@ -1,0 +1,282 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "episode": 21,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 23–24: on Ramaniyaka Garuda asks his mother why they must obey the serpents; she tells him she was made a slave by her sister's deceit in a wager; he asks the serpents what would free them, and they answer: bring the amrita by force (1.23). He tells his mother he will go and asks what he may eat; she sends him to the Nishadas who live in a remote bay of the ocean, but forbids him ever to kill a brahmin, who would be like fire, and tells him how to know one: the one who sticks in his throat like a swallowed fish-hook, burning like charcoal; she blesses him: may the Wind guard his wings, the Moon his back, Fire his head and the Sun all of him (1.24).",
+  "structure": "From episode 21 (independent review): COLD OPEN (≤ 8 words, ≤ 3 s; opening style A: the question over the answer image) → title (hook post) → STORY from ≈ 5 s with the UNVOICED recap band over its first shot (KIT.series.recapBand) → turn at 40–60 % → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1 (KIT.series.overlayNextScene). No fire edge in the Garuda arc from here.",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 21",
+    "episodeTitle": "The Price of Freedom",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 20",
+    "prevEpisodeTitle": "Carrying the Serpents",
+    "recapLine": "Garuda carried the serpents to Ramaniyaka.",
+    "nextEpisodeLabel": "Episode 22",
+    "nextTitle": "The Brahmin in the Throat",
+    "priceName": "Amrita",
+    "priceEpithet": "the drink of the gods, in heaven",
+    "nishadaName": "The Nishadas",
+    "nishadaEpithet": "a people of the ocean's bay",
+    "windSign": "Wind",
+    "moonSign": "Moon",
+    "fireSign": "Fire",
+    "sunSign": "Sun"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.15,
+      "text": "What price could free a slave?",
+      "say": "What price could free a slave?",
+      "est": 2.6,
+      "pre": 60,
+      "post": 1350,
+      "beats": [
+        1,
+        4
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "price",
+        "free"
+      ],
+      "sfx": [
+        "wings@0",
+        "bell@1"
+      ],
+      "note": "COLD OPEN (style A, moving from frame 1): Garuda on Ramaniyaka's beach in the late gold light, wings snapping open from t = 0; the serpents rear round him; high above, the white pot of amrita glows in a vision ring. The question in big text from frame 1; the title in the post."
+    },
+    {
+      "id": "ask",
+      "speaker": "garuda",
+      "speed": 1.08,
+      "text": "\"Mother, why must we obey them?\"",
+      "say": "Mother, [p:80] why must we obey them?",
+      "est": 2.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        4
+      ],
+      "captionY": "high",
+      "sfx": [
+        "surf"
+      ],
+      "note": "STORY 1 (Garuda speaks) with the unvoiced recap band for its first 2.6 s: a palm grove on the island at evening (NEW LIGHT: amber through palms, long shadows), Garuda kneeling to his mother."
+    },
+    {
+      "id": "mother",
+      "speaker": "vinata",
+      "speed": 1.05,
+      "text": "\"My sister cheated me in a wager. I became her slave.\"",
+      "say": "My sister cheated me in a wager. [p:200] I became her slave.",
+      "est": 3.6,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        3,
+        8
+      ],
+      "captionY": "high",
+      "sfx": [
+        "bell-low@2"
+      ],
+      "note": "STORY 2 (Vinata speaks): close on Vinata, her head covered (the slave's sari end); in a small memory roundel above her, the black-streaked tail of the white horse (beats[1] 'cheated')."
+    },
+    {
+      "id": "demand",
+      "speaker": "garuda",
+      "speed": 1.08,
+      "text": "He asked the serpents: \"What will free us?\"",
+      "say": "He asked the serpents: [p:120] What will free us?",
+      "est": 2.8,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        3,
+        6
+      ],
+      "captionY": "high",
+      "note": "STORY 3: Garuda strides out of the grove onto the sand and towers over the rearing serpents (a low angle from behind the serpents)."
+    },
+    {
+      "id": "price",
+      "speaker": "nagas",
+      "speed": 1.05,
+      "text": "\"Bring us the amrita, by force. Then you are free.\"",
+      "say": "Bring us the amrita, [p:100] by force. [p:300] Then you are free.",
+      "est": 3.8,
+      "pre": 350,
+      "post": 350,
+      "beats": [
+        3,
+        5,
+        9
+      ],
+      "captionY": "high",
+      "sfx": [
+        "silence",
+        "hiss",
+        "drum@1",
+        "bell@2"
+      ],
+      "note": "STORY 4 (the price): after a short rest the serpents answer as one; on 'amrita' (beats[0]) the white pot appears far above in the sky in a ring of light, on 'force' (beats[1]) a drum; name plaque 'Amrita'."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "The price of his mother's freedom: the drink of the gods.",
+      "say": "The price of his mother's freedom: [p:120] the drink of the gods.",
+      "est": 3.6,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        8
+      ],
+      "sfx": [
+        "chord"
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, a tenth angle: from behind the sages' shoulders, the fire between them and Sauti, his hand cupped as if holding a pot)."
+    },
+    {
+      "id": "food",
+      "speaker": "garuda",
+      "speed": 1.08,
+      "text": "\"I will bring it. But what may I eat on the way?\"",
+      "say": "I will bring it. [p:150] But what may I eat on the way?",
+      "est": 3.4,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        0,
+        7
+      ],
+      "captionY": "high",
+      "note": "STORY 5 (Garuda speaks): on the shore at dusk, Garuda half-spread, ready to fly; Vinata before him."
+    },
+    {
+      "id": "nishadas",
+      "speaker": "vinata",
+      "speed": 1.05,
+      "text": "\"In a bay of the ocean live the Nishadas. Eat them.\"",
+      "say": "In a bay of the ocean [p:80] live the Nishadas. [p:150] Eat them.",
+      "est": 3.6,
+      "pre": 850,
+      "post": 250,
+      "beats": [
+        3,
+        6,
+        7
+      ],
+      "sfx": [
+        "silence",
+        "surf",
+        "bell-low@1"
+      ],
+      "note": "STORY 6 · THE TURN (≈ 52 %): after a 0.85 s rest (the episode's one long rest), Vinata names the food; a cut to the bay at moonrise (NEW LIGHT: teal and silver): a far village of huts on stilts, fishing boats, small fires; name plaque 'The Nishadas'."
+    },
+    {
+      "id": "never",
+      "speaker": "vinata",
+      "speed": 1.0,
+      "text": "\"But never a brahmin. He would burn in your throat like fire.\"",
+      "say": "But never a brahmin. [p:250] He would burn in your throat [p:60] like fire.",
+      "est": 3.8,
+      "pre": 300,
+      "post": 300,
+      "beats": [
+        2,
+        7,
+        10
+      ],
+      "captionY": "high",
+      "sfx": [
+        "bell@0",
+        "roar@2"
+      ],
+      "note": "STORY 7 (Vinata speaks): close on Vinata, her hand raised in warning (beats[0]); on 'throat' a glowing coal of fire appears at the throat of a painted Garuda silhouette beside her (the sign she gives him, CE 1.24)."
+    },
+    {
+      "id": "bless",
+      "text": "She blessed him: may the Wind guard your wings, the Moon your back, Fire your head, and the Sun all of you.",
+      "say": "She blessed him: [p:100] may the Wind guard your wings, [p:60] the Moon your back, [p:60] Fire your head, [p:60] and the Sun all of you.",
+      "speed": 1.08,
+      "est": 6.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        9,
+        13,
+        18
+      ],
+      "sfx": [
+        "wind@0",
+        "bell@1",
+        "bell@2",
+        "bell@3"
+      ],
+      "note": "STORY 8: Garuda rises into a deep night-blue sky over the sea; the four guardians appear around him one by one as painted signs on the beats: the Wind's streamers at his wings, the Moon's crescent at his back, Fire's flame above his head, the Sun's disc behind all of him."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.08,
+      "text": "He swooped down on the Nishadas, and swallowed something that burned.",
+      "say": "He swooped down on the Nishadas, [p:120] and swallowed something [p:120] that burned.",
+      "est": 4.4,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        1,
+        7,
+        10
+      ],
+      "role": "next",
+      "captionY": "high",
+      "sfx": [
+        "wings@0",
+        "roar@2",
+        "drum@2"
+      ],
+      "note": "NEXT 1 (cliffhanger image, the catalog line): Garuda dives on the bay, beak open, the huts and boats sweeping toward him; on 'burned' (beats[2]) a coal-red glow lights inside his throat and he jerks his head up."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Brahmin in the Throat",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The short Next: the cliffhanger image keeps playing (the glow in his throat) under the NEXT › band; dissolve into frame 1."
+    }
+  ]
+}

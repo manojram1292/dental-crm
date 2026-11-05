@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9254,
+   "words": 8,
+   "speed": 0.891,
+   "text": "But one of them burned in his throat,"
+  },
+  {
+   "t0": 2.0454,
+   "t1": 3.4161,
+   "words": 4,
+   "speed": 0.891,
+   "text": "like a live coal."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

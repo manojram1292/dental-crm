@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9315,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.2083,
+   "words": 7,
+   "speed": 0.931,
+   "text": "His wings raised a storm of dust,"
+  },
+  {
+   "t0": 2.3083,
+   "t1": 4.1662,
+   "words": 5,
+   "speed": 0.931,
+   "text": "and the Nishadas ran blind,"
+  },
+  {
+   "t0": 4.2462,
+   "t1": 5.7515,
+   "words": 4,
+   "speed": 0.931,
+   "text": "into his open beak."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

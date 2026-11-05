@@ -1,0 +1,23 @@
+{
+ "speaker": "garuda",
+ "voice": "am_liam",
+ "speed": 0.9072,
+ "pitch": -1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.2103,
+   "words": 4,
+   "speed": 0.907,
+   "text": "I will bring it."
+  },
+  {
+   "t0": 1.4603,
+   "t1": 3.3342,
+   "words": 8,
+   "speed": 0.907,
+   "text": "But what may I eat on the way?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

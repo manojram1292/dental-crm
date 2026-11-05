@@ -1,0 +1,30 @@
+{
+ "speaker": "vinata",
+ "voice": "bf_lily",
+ "speed": 0.82,
+ "pitch": 0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.0668,
+   "words": 4,
+   "speed": 0.82,
+   "text": "But never a brahmin."
+  },
+  {
+   "t0": 2.3168,
+   "t1": 4.7435,
+   "words": 6,
+   "speed": 0.82,
+   "text": "He would burn in your throat"
+  },
+  {
+   "t0": 4.8035,
+   "t1": 6.2255,
+   "words": 2,
+   "speed": 0.82,
+   "text": "like fire."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
