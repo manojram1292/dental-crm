@@ -6,17 +6,17 @@
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.6549,
-   "words": 5,
+   "t1": 2.2005,
+   "words": 6,
    "speed": 0.81,
-   "text": "The gods took one end,"
+   "text": "The gods took the serpent's tail,"
   },
   {
-   "t0": 1.7549,
-   "t1": 3.2952,
+   "t0": 2.3005,
+   "t1": 3.8798,
    "words": 4,
    "speed": 0.81,
-   "text": "the asuras the other."
+   "text": "the asuras his head."
   }
  ],
  "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"

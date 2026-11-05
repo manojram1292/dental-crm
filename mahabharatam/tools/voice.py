@@ -93,7 +93,8 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "amrita": "ˈʌmɹɪtə",                                 # UM-ri-ta (amṛta)
     "Indra": "ˈɪndɹə",
     "Indra's": "ˈɪndɹəz",
-    "Vasuki": "vˈɑːsʊki",                                # VAA-su-ki
+    "Vasuki": "vˈɑːsʊki",
+    "Vasuki's": "vˈɑːsʊkiz",                                # VAA-su-ki
     "Astika": "ˈɑːstiːkə",                               # AAS-tee-ka
     "Abhimanyu": "ˌʌbʰɪmˈʌnjuː",
     "sarpa": "sˈʌɹpə",

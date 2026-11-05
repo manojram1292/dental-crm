@@ -13,10 +13,10 @@
   },
   {
    "t0": 1.9157,
-   "t1": 4.0665,
+   "t1": 4.7506,
    "words": 6,
    "speed": 0.81,
-   "text": "and the ocean began to burn."
+   "text": "and fire poured from Vasuki's mouths."
   }
  ],
  "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"

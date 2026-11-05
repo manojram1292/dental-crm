@@ -1,5 +1,5 @@
 /*
- * Ep 14 · line "frame" · FRAME (Sauti, close) · "Here many tellers add a story the oldest manuscripts do not hold."
+ * Ep 14 · line "frame" · FRAME (Sauti, close) · "Here many tellers add a story that many manuscripts leave out."
  * The Naimisha fire, close on Sauti's face and hands (a fourth angle): he says it plainly. The
  * tag and a small source line ("Southern manuscripts and the Puranas · not in the Critical
  * Edition") at the top: honest, unhurried, no sneer at the beloved version.

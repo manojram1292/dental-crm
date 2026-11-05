@@ -1,4 +1,4 @@
-/* Ep 18 · line "aruna" · "Just as her son Aruna had foretold." · The sky reddens; Aruna at the reins of the Sun's chariot, high and small, looks down on the two figures on the shore (a callback to episode 10). */
+/* Ep 18 · line "aruna" · "Just as her son Aruna had cursed." · The sky reddens; Aruna at the reins of the Sun's chariot, high and small, looks down on the two figures on the shore (a callback to episode 10). */
 (function () {
   'use strict';
   const R = window.REEL, KIT = window.KIT, EP10 = window.EP10;

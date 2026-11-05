@@ -18,8 +18,12 @@
   /** The small source line under the tag (frame scene). */
   EP14.source = (ctx, a, text) => {
     if (a <= 0.01 || !text) return;
-    ctx.save(); ctx.globalAlpha = a; ctx.textAlign = 'center'; ctx.font = R.font(34, 'caption', 500, 'italic');
-    ctx.fillStyle = '#e8dcc0'; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(10);
-    ctx.fillText(text, KIT.CX, 262); ctx.restore();
+    // (remaster) phone-legible: 40 px upright on a dark scrim, split into two lines at ' · '
+    const parts = String(text).split(' · ');
+    ctx.save(); ctx.globalAlpha = a; ctx.textAlign = 'center'; ctx.font = R.font(40, 'caption', 600);
+    const w = Math.max(...parts.map((q) => ctx.measureText(q).width));
+    ctx.fillStyle = 'rgba(8,6,10,0.72)'; ctx.beginPath(); ctx.roundRect(KIT.CX - w / 2 - 30, 226, w + 60, 50 * parts.length + 24, 14); ctx.fill();
+    ctx.fillStyle = '#f2e6c8'; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(6);
+    parts.forEach((q, i) => ctx.fillText(q, KIT.CX, 266 + i * 50)); ctx.restore();
   };
 })();

@@ -12,7 +12,7 @@
       KIT.ashram.draw(ctx, T, {
         cycle: 0.8, speed: 0, hide: [1, 2], turn: () => 0.3,
         smoke: { alpha: 0.32, lean: 8 }, fireH: 250,
-        cam: { zoom: 1.3 + 0.08 * E.inOutSine(p), dx: 40, dy: -120 },
+        cam: { zoom: 1.5 - 0.2 * E.outCubic(clamp(t / 1.6)) + 0.06 * p, dx: 40 - 30 * E.outCubic(clamp(t / 1.6)), dy: -120 },
         after: (g) => CH.sauti.draw(g, { x: 800, y: 1330, scale: 0.62, facing: 'left', pose: { name: 'speak', base: 'sit', k: 0.4 + 0.6 * E.inOutSine(clamp(t / 1.2)) }, expression: { look: -0.05, speak: EP0.mouth(env, t) }, light: { dir: Math.atan2(F.y - 1000, F.x - 800), intensity: fl * 1.2, front: 0.55 }, t: T, key: 'h0-sauti' }),
       });
       const sp = env.speech[1], out = clamp((t - sp - 0.05) / 0.3), line = env.script.lines[0];

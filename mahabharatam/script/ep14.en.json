@@ -26,7 +26,7 @@
     "shivaEpithet": "Mahadeva",
     "nilakanthaName": "Nilakantha",
     "nilakanthaEpithet": "the blue-throated",
-    "sourceNote": "Southern manuscripts and the Puranas · not in the Critical Edition"
+    "sourceNote": "In some manuscripts and the Puranas · not in the Critical Edition"
   },
   "timing": {
     "wordsPerSecond": 2.4,
@@ -83,8 +83,8 @@
     {
       "id": "frame",
       "speaker": "sauti",
-      "text": "Here many tellers add a story the oldest manuscripts do not hold.",
-      "say": "Here many tellers add a story [p:80] the oldest manuscripts do not hold.",
+      "text": "Here many tellers add a story that many manuscripts leave out.",
+      "say": "Here many tellers add a story [p:80] that many manuscripts leave out.",
       "est": 4.2,
       "pre": 150,
       "post": 250,
@@ -93,7 +93,7 @@
         8
       ],
       "tradition": true,
-      "note": "FRAME (Sauti at the Naimisha fire, close on his face this time): he speaks it plainly. The tag 'As tradition tells it' and a small source line ('Southern manuscripts and the Puranas · not in the Critical Edition'). Honest about the source, without sneering at the beloved version. beats = 'tellers', 'manuscripts'."
+      "note": "FRAME (Sauti at the Naimisha fire, close on his face this time): he speaks it plainly. The tag 'As tradition tells it' and a small source line (the strings.sourceNote). Honest about the source, without sneering at the beloved version. beats = 'tellers', 'manuscripts'. (Remaster fix: 'the oldest manuscripts do not hold' overclaimed; the CE leaves the passage out because a manuscript group lacks it, not because of age.)"
     },
     {
       "id": "poison",

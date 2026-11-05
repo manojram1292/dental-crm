@@ -30,7 +30,7 @@
     "codeTitle": "Every frame is code",
     "voiceTitle": "Synthetic voices",
     "voiceSub": "Kokoro-82M text-to-speech",
-    "sourceNote": "Southern manuscripts and the Puranas · not in the Critical Edition",
+    "sourceNote": "In some manuscripts and the Puranas · not in the Critical Edition",
     "montage1": "Ep 1 · The Storyteller",
     "montage2": "Ep 8 · The Snake Sacrifice",
     "montage3": "Ep 12 · The Churning",
@@ -56,7 +56,7 @@
       "id": "hook",
       "speaker": "sauti",
       "text": "What does the Mahabharata actually say?",
-      "say": "What does the Mahabharata [p:60] actually say?",
+      "say": "What does the Mahabharata actually say?",
       "est": 3.0,
       "pre": 60,
       "post": 1300,
@@ -70,7 +70,8 @@
         "Mahabharata",
         "say?"
       ],
-      "note": "COLD OPEN (moving from frame 1): night at Naimisha, Sauti speaking at the fire, the sages listening, sparks rising; the question in big text from frame 1; the series title in the post."
+      "note": "COLD OPEN (moving from frame 1): night at Naimisha, Sauti speaking at the fire, the sages listening, sparks rising; the question in big text from frame 1; the series title in the post.",
+      "speed": 1.15
     },
     {
       "id": "verses",
@@ -263,7 +264,7 @@
       "text": "It begins with a storyteller, arriving at a fire in the forest.",
       "say": "It begins with a storyteller, [p:100] arriving at a fire in the forest.",
       "est": 4.0,
-      "pre": 250,
+      "pre": 800,
       "post": 350,
       "beats": [
         4,

@@ -1,7 +1,7 @@
 {
   "lang": "en",
   "episode": 18,
-  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 19–20: the sisters fly over the ocean, described at length (its monsters, its jewels, the fire under the sea); the serpents, having agreed among themselves, become black hairs in the horse's tail; the sisters see the tail black, and Vinata, defeated, becomes Kadru's slave (as Aruna had foretold, 1.14). The cliffhanger opens Garuda's birth (1.20).",
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 19–20: the sisters fly over the ocean, described at length (its monsters, its jewels, the fire under the sea); the serpents, having agreed among themselves, become black hairs in the horse's tail; the sisters see the tail black, and Vinata, defeated, becomes Kadru's slave (as Aruna had cursed, 1.14). The cliffhanger opens Garuda's birth (1.20).",
   "structure": "From episode 11: COLD OPEN (the hook over the episode's strongest image, big on-screen text from frame 1; KIT.series.hookCard) → title (the hook's post) → RECAP (≈2.5 s) → STORY (with a brief cut to Sauti at the Naimisha fire) → the cliffhanger image + line → a silent ≈1.5 s Next card that dissolves back into the first frame (KIT.series.loopNextScene).",
   "fonts": {
     "caption": "'EB Garamond'",
@@ -188,8 +188,8 @@
     },
     {
       "id": "aruna",
-      "text": "Just as her son Aruna had foretold.",
-      "say": "Just as her son Aruna had foretold.",
+      "text": "Just as her son Aruna had cursed.",
+      "say": "Just as her son Aruna had cursed.",
       "est": 2.8,
       "pre": 200,
       "post": 300,
@@ -200,7 +200,7 @@
       "emphasis": [
         "Aruna"
       ],
-      "note": "STORY 8: the sky over them reddens: Aruna at the reins of the Sun's chariot, small and high, looks down (a callback to episode 10)."
+      "note": "STORY 8: the sky over them reddens: Aruna at the reins of the Sun's chariot, small and high, looks down (a callback to episode 10). (Remaster fix: 'foretold' softened Aruna's curse of CE 1.14; episode 10 says 'curse'.)"
     },
     {
       "id": "cliff",

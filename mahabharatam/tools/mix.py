@@ -10,8 +10,11 @@ the narration stem is lightened (VOICE_EQ: a gentle 90 Hz high-pass, a −4 dB l
 at 170 Hz and a −1.5 dB air shelf at 7.5 kHz: less boom, softer edges; no compressor),
 then normalised to −16 LUFS, and the music is ducked under
 it (−8 dB, 60 ms attack / 400 ms release, keyed by the voice's own envelope).
-With no voice files the mix is the music stem as-is (≈ −22 LUFS, a bed).
-Ceiling −1 dBTP.
+A silent Next card (a line with "voice": false at the end) sits 9 dB under the rest: the card is quiet.
+MASTER (from the November remaster; independent review item 3): the mix is brought to −14 LUFS
+integrated with a look-ahead true-peak limiter at −1 dBTP (4× oversampled peaks, a 10 ms min-hold
+and an 8 ms smoothing window, so the gain is never above what any peak allows). Before this the
+whole mix was only peak-normalised and released at −19 to −21 LUFS.
 
     python3 tools/mix.py [--ep 1] [--lang en]
 """
@@ -22,7 +25,7 @@ import wave
 
 import numpy as np
 from scipy import signal as sps
-from scipy.ndimage import maximum_filter1d, uniform_filter1d
+from scipy.ndimage import maximum_filter1d, minimum_filter1d, uniform_filter1d
 
 sys.path.insert(0, os.path.dirname(__file__))
 from score import SR, ROOT, lufs, true_peak_db, write_wav, db, ep_tag  # noqa: E402
@@ -99,6 +102,34 @@ def read_wav(path):
     return x
 
 
+TARGET_LUFS_MASTER = -14.0
+CEIL = -1.0
+
+
+def limit(x, ceil_db=CEIL):
+    """Look-ahead true-peak limiter: per-sample gain from 4×-oversampled peaks, min-held over 10 ms and
+    averaged over 8 ms (an average of a wider min-hold never exceeds the gain any peak needs)."""
+    c = db(ceil_db - 0.15)
+    up = sps.resample_poly(np.abs(x).max(0), 4, 1)
+    pk = up.reshape(-1, 4).max(1) if len(up) % 4 == 0 else np.pad(up, (0, (-len(up)) % 4)).reshape(-1, 4).max(1)
+    pk = np.maximum(pk[:x.shape[1]], np.abs(x).max(0))
+    g = np.minimum(1.0, c / np.maximum(pk, 1e-9))
+    g = minimum_filter1d(g, int(0.010 * SR))
+    g = uniform_filter1d(g, int(0.008 * SR))
+    return x * g
+
+
+def master(x):
+    for _ in range(4):
+        x = x * db(TARGET_LUFS_MASTER - lufs(x))
+        x = limit(x)
+        if abs(lufs(x) - TARGET_LUFS_MASTER) < 0.2 and true_peak_db(x) <= CEIL:
+            break
+    if true_peak_db(x) > CEIL:
+        x = x * db(CEIL - 0.05 - true_peak_db(x))
+    return x
+
+
 def main():
     args = sys.argv[1:]
     lang = args[args.index('--lang') + 1] if '--lang' in args else 'en'
@@ -139,9 +170,16 @@ def main():
         mix = music * db(g_db) + voice
     else:
         mix = music.copy()
-    tp = true_peak_db(mix)
-    if tp > -1.0:
-        mix *= db(-1.0 - tp)
+    # the silent Next card(s) at the end: 9 dB down, faded in over 0.25 s
+    for l in tl['lines']:
+        if l['id'] == 'next' and not l.get('voice'):
+            i0, i1 = int(l['start'] * SR), N
+            g = np.ones(N)
+            ramp = min(int(0.25 * SR), i1 - i0)
+            g[i0:i0 + ramp] = np.linspace(1, db(-9.0), ramp)
+            g[i0 + ramp:i1] = db(-9.0)
+            mix = mix * g
+    mix = master(mix)
     out = os.path.join(ROOT, 'audio', tag, f'mix.{lang}.wav')
     write_wav(out, mix)
     print(f'wrote audio/{tag}/mix.{lang}.wav  {tl["duration"]:.2f} s  {lufs(mix):.1f} LUFS  {true_peak_db(mix):.2f} dBTP  '

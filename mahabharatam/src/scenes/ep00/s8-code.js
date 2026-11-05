@@ -16,7 +16,7 @@
       ctx.save();
       const edge = lerp(-400, 2600, w);
       ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(Math.max(0, R.W - edge), 0); ctx.lineTo(0, Math.max(0, R.H - edge) * 1.7); ctx.closePath();
-      if (w < 0.999) { ctx.clip(); EP0.ground(ctx, T, 0.6); EP0.code(ctx, T, 60, 560, 960, 760, t * 1.6, 1); }
+      if (w < 0.999) { ctx.clip(); EP0.ground(ctx, T, 0.6); EP0.code(ctx, T, 60, 520, 960, 660, t * 1.6, 1); }
       ctx.restore();
       // the wipe's edge: a line of gold paint
       if (w > 0.01 && w < 0.99) {

@@ -3,7 +3,7 @@
  * (REEL.overlay). Text comes ONLY from script/<lang>.json; word timings come
  * from build/timeline.<lang>.json, so captions follow any voice/language.
  *
- * Style: EB Garamond, cream on a soft painted scrim, revealed word by word
+ * Style: EB Garamond, cream with a dark 7 px outline (from the November remaster) on a soft painted scrim, revealed word by word
  * (each word rises and warms in on its own time); names listed in a line's
  * `emphasis` are set in gold. Kept inside the Shorts safe zone: centred on
  * SAFE's centre, bottom edge at y = 1490 (YouTube UI covers the bottom ~20%
@@ -82,6 +82,9 @@
         ctx.globalAlpha = vis * e;
         const base = w.gold ? PAL.goldPale : PAL.cream;
         ctx.fillStyle = w.gold ? R.mix(PAL.gold, '#ffe6a6', speaking * 0.6) : R.mix(base, '#ffffff', speaking * 0.35);
+        // (independent review, item 4) a dark outline under every word: legible over bright skies and crowds
+        ctx.save(); ctx.shadowColor = 'transparent'; ctx.lineJoin = 'round'; ctx.lineWidth = 7; ctx.strokeStyle = 'rgba(12,8,6,0.85)';
+        ctx.strokeText(w.w, x0 + w.x, y0 + (1 - e) * 16); ctx.restore();
         ctx.fillText(w.w, x0 + w.x, y0 + (1 - e) * 16);
       }
     });

@@ -200,8 +200,8 @@
     },
     {
       "id": "hold",
-      "text": "The gods took one end, the asuras the other.",
-      "say": "The gods took one end, [p:100] the asuras the other.",
+      "text": "The gods took the serpent's tail, the asuras his head.",
+      "say": "The gods took the serpent's tail, [p:100] the asuras his head.",
       "est": 3.4,
       "pre": 100,
       "post": 200,
@@ -209,21 +209,21 @@
         1,
         6
       ],
-      "note": "STORY 7. The whole rig: gods at the tail on the left, asuras at the head on the right, taking hold (beats[0] gods, beats[1] asuras). The CE does not say who held which end; the picture leaves the head with the asuras, as the tradition shows it, without naming it."
+      "note": "STORY 7. The whole rig: gods at the tail on the left, asuras at the head on the right, taking hold (beats[0] gods, beats[1] asuras). CE 1.16: the asuras hold Vasuki's head end, the gods his tail (fixed in the November remaster; the line had said only 'one end … the other')."
     },
     {
       "id": "cliff",
-      "text": "They began to churn, and the ocean began to burn.",
-      "say": "They began to churn… [p:100] and the ocean began to burn.",
+      "text": "They began to churn, and fire poured from Vasuki's mouths.",
+      "say": "They began to churn… [p:100] and fire poured from Vasuki's mouths.",
       "est": 4.2,
       "pre": 150,
       "post": 450,
       "beats": [
         3,
-        9
+        5
       ],
       "role": "next",
-      "note": "NEXT 1 (cliffhanger image): the mountain begins to turn, the hosts haul; on 'burn' (beats[1]) fire pours from Vasuki's mouths and the forests on the mountain catch fire, red light on the milk-white water."
+      "note": "NEXT 1 (cliffhanger image): the mountain begins to turn, the hosts haul; on 'fire' (beats[1]) fire pours from Vasuki's mouths and the forests on the mountain catch fire. (Remaster fix: the line said 'the ocean began to burn'; in CE 1.16 the fire comes from Vasuki's mouths and the mountain's forests burn.)"
     },
     {
       "id": "next",

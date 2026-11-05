@@ -1,5 +1,5 @@
 /*
- * Ep 12 · line "cliff" · NEXT (cliffhanger image) · "They began to churn, and the ocean began to burn."
+ * Ep 12 · line "cliff" · NEXT (cliffhanger image) · "They began to churn, and fire poured from Vasuki's mouths."
  *
  * The mountain begins to turn (spin), the hosts haul in turn; on "burn" (beats[1]) fire and
  * smoke roll from Vasuki's mouths and the forests on the mountain catch fire, red light on

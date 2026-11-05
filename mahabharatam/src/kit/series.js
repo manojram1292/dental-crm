@@ -61,6 +61,12 @@
  *       fire rises and dissolves into loop(g, 0) (default: the first line's scene at t = 0).
  *   KIT.series.archPath(g, x, y, w, h, rise)      a temple-niche outline (ogee arch top)
  *
+ * ── From episode 21 (independent review) ────────────────────────────────────────────
+ *   KIT.series.recapBand(ctx, T, a, S, o)   the UNVOICED recap: a small band over the first story shot
+ *       ("Previously · Episode N" + strings.recapLine); the spoken recap line is gone.
+ *   KIT.series.overlayNextScene({ id, picture(ctx, T, env, t), y })   the short Next (≤ 1.2 s): the
+ *       cliffhanger image keeps playing under a slim NEXT › band, then dissolves into frame 1.
+ *
  * ── Standard scenes (register them from an episode's scene file) ────────────────────
  *   KIT.series.recapScene({ id = 'recap', picture(g, T, env), focus, zoom, fadeIn })
  *   KIT.series.nextScene({ id = 'next', picture(g, T, env), focus, zoom, fadeIn })
@@ -472,5 +478,60 @@
     });
   }
 
-  KIT.series = { recapStrip, episodeTitle, nextTeaser, traditionTag, memory, archPath, nicheFrame, ground, vis, recapScene, nextScene, hookCard, fireEdge, loopNextScene, RECAP_BOX, NEXT_BOX };
+  // ── From episode 21 (independent review items 2, 7 and 10) ─────────────────────────
+  /** The unvoiced recap: a small lacquer band at the top of the FIRST STORY SHOT ("Previously ·
+   *  Episode 20 · Title" and one short line from strings.recapLine), in for ≈ 2.6 s. a = 0..1. */
+  function recapBand(ctx, T, a, S, o = {}) {
+    if (a <= 0.003) return;
+    const y = o.y ?? 210, cx = KIT.CX;
+    ctx.save(); ctx.globalAlpha = clamp(a);
+    ctx.font = R.font(36, 'display', 600); ctx.letterSpacing = '3px';
+    const head = `${str(S, 'previouslyLabel').toUpperCase()} · ${str(S, 'prevEpisodeLabel')}`;
+    ctx.font = R.font(40, 'caption', 600);
+    const line = S.recapLine || str(S, 'prevEpisodeTitle');
+    const w = Math.max(ctx.measureText(line).width, 520) + 80;
+    ctx.fillStyle = 'rgba(16,8,6,0.8)'; ctx.beginPath(); ctx.roundRect(cx - w / 2, y - 50, w, 124, 16); ctx.fill();
+    ctx.strokeStyle = 'rgba(216,168,80,0.85)'; ctx.lineWidth = 3; ctx.stroke();
+    ctx.textAlign = 'center'; ctx.fillStyle = PAL.goldPale; ctx.font = R.font(32, 'display', 600); ctx.letterSpacing = '4px';
+    ctx.fillText(head, cx, y - 6);
+    ctx.letterSpacing = '0px'; ctx.font = R.font(40, 'caption', 600); ctx.fillStyle = PAL.cream;
+    ctx.fillText(line, cx, y + 48);
+    ctx.restore();
+  }
+
+  /** The SHORT Next (≤ 1.2 s): no card. The cliffhanger picture keeps playing; a slim band slides
+   *  in with "NEXT ›  Episode N · Title"; in the last 0.45 s the episode's first frame dissolves in
+   *  (the loop). def = { id = 'next', picture(g, T, env) (the cliffhanger image, full frame), y (band) } */
+  function overlayNextScene(def) {
+    R.scene({
+      id: def.id || 'next',
+      fadeIn: def.fadeIn ?? 0,
+      draw(ctx, t, env) {
+        if (def.picture) def.picture(ctx, env.T, env, t);
+        const k = E.outCubic(clamp(t / 0.3));
+        const y = def.y ?? 1180, cx = KIT.CX, S = env.strings;
+        ctx.save(); ctx.globalAlpha = k;
+        ctx.fillStyle = 'rgba(10,6,5,0.78)'; ctx.fillRect(0, y - 70, R.W, 140);
+        ctx.fillStyle = 'rgba(216,168,80,0.9)'; ctx.fillRect(0, y - 70, R.W, 3); ctx.fillRect(0, y + 67, R.W, 3);
+        ctx.restore();
+        KIT.goldText(ctx, `${str(S, 'nextLabel').toUpperCase()} ›`, cx, y - 8 + (1 - k) * 20, { size: 46, spacing: 8, weight: 700, alpha: k, glow: 0.2, key: 'ovn-next' });
+        ctx.save(); ctx.globalAlpha = k; ctx.textAlign = 'center'; ctx.font = R.font(42, 'caption', 600); ctx.fillStyle = PAL.cream;
+        ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(8);
+        ctx.fillText(`${str(S, 'nextEpisodeLabel')} · ${str(S, 'nextTitle')}`, cx, y + 46); ctx.restore();
+        const tail = env.DURATION - env.line.start;
+        const lp = E.inOutSine(clamp((t - (tail - 0.5)) / 0.42));
+        const first = R.scenes.get(R.timeline.lines[0].id);
+        if (lp > 0.003 && first && first !== this) {
+          const b = R.buffer('series-loop', R.W, R.H);
+          b.clear('#0b0806');
+          b.ctx.save(); first.draw(b.ctx, 0, R.envFor(0, 0)); b.ctx.restore();
+          R.resetCtx(b.ctx);
+          ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = lp; ctx.drawImage(b.canvas, 0, 0); ctx.restore();
+        }
+      },
+      post: def.post || (() => ({ bloom: 0.38, vignette: 0.45, paper: 0.3 })),
+    });
+  }
+
+  KIT.series = { recapStrip, episodeTitle, nextTeaser, traditionTag, memory, archPath, nicheFrame, ground, vis, recapScene, nextScene, hookCard, fireEdge, loopNextScene, recapBand, overlayNextScene, RECAP_BOX, NEXT_BOX };
 })();
