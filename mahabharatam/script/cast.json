@@ -279,5 +279,19 @@
   "pitch": 1.5,
   "g2p": "en-us",
   "notes": "Episode 22: the brahmin in Garuda's throat. am_eric raised 1.5 st (Parikshit uses it at −1): calm, unafraid, a householder's voice."
+ },
+ "valakhilyas": {
+  "voice": "bm_lewis",
+  "speed": 0.86,
+  "pitch": 3.5,
+  "g2p": "en-gb",
+  "notes": "Episodes 24–25: the thumb-sized sages as a group: the elder sage's deep British voice raised 3.5 st and quicker: small, dry, unhurried (bm_lewis is Shaunaka unshifted and Brahma at −2)."
+ },
+ "brihaspati": {
+  "voice": "bm_george",
+  "speed": 0.8,
+  "pitch": -1.5,
+  "g2p": "en-gb",
+  "notes": "Episode 25: Brihaspati, teacher of the gods. bm_george lowered 1.5 st (Vyasa −2.5, Surya −1, Shamika 0): grave and exact."
  }
 }

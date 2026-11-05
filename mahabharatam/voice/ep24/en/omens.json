@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.6094,
+   "words": 1,
+   "speed": 0.891,
+   "text": "Then,"
+  },
+  {
+   "t0": 0.6894,
+   "t1": 1.5866,
+   "words": 2,
+   "speed": 0.891,
+   "text": "in heaven,"
+  },
+  {
+   "t0": 1.6666,
+   "t1": 2.9445,
+   "words": 3,
+   "speed": 0.891,
+   "text": "there were omens."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

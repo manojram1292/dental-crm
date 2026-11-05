@@ -1,0 +1,285 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "episode": 23,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 25–26: Kashyapa tells Garuda of the wrathful sage Vibhavasu and his younger brother Supratika, who wanted their inheritance divided; Vibhavasu cursed him to become an elephant, and Supratika cursed him to become a tortoise; enemies still, they fight in a lake, the elephant six yojanas high and twice as long, the tortoise three yojanas high and ten round. Kashyapa tells Garuda to eat them and blesses him. Garuda seizes the elephant in one claw and the tortoise in the other and flies to the holy place Alamba; the trees of the gods shake, afraid of breaking; the great tree Rauhina offers its branch, a hundred yojanas long; when he lands, the branch breaks, and on it hang the Valakhilya sages, head down (1.26).",
+  "structure": "From episode 21 (independent review): COLD OPEN (≤ 8 words, ≤ 3 s; opening style C: a statement card over the answer image) → title (hook post) → STORY from ≈ 5 s with the UNVOICED recap band over its first shot (KIT.series.recapBand) → turn at 40–60 % → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1 (KIT.series.overlayNextScene). No fire edge in the Garuda arc from here.",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 23",
+    "episodeTitle": "The Elephant and the Tortoise",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 22",
+    "prevEpisodeTitle": "The Brahmin in the Throat",
+    "recapLine": "Garuda asked his father for food.",
+    "nextEpisodeLabel": "Episode 24",
+    "nextTitle": "The Thumb-Sized Sages",
+    "vibhavasuName": "Vibhavasu",
+    "vibhavasuEpithet": "the elder brother, quick to anger",
+    "supratikaName": "Supratika",
+    "supratikaEpithet": "the younger brother",
+    "rauhinaName": "Rauhina",
+    "rauhinaEpithet": "a great tree at Alamba"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.25,
+      "text": "Two brothers became an elephant and a tortoise.",
+      "say": "Two brothers became an elephant and a tortoise.",
+      "est": 3.0,
+      "pre": 60,
+      "post": 1300,
+      "beats": [
+        1,
+        4,
+        7
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "elephant",
+        "tortoise."
+      ],
+      "sfx": [
+        "drum@0",
+        "surf"
+      ],
+      "note": "COLD OPEN (style C, a statement over the answer image, moving from frame 1): the storm-green lake: the elephant rears and crashes down, trunk up, on the tortoise, spray thrown high."
+    },
+    {
+      "id": "tell",
+      "speed": 1.18,
+      "text": "Kashyapa told him: the sage Vibhavasu had a younger brother, Supratika.",
+      "say": "Kashyapa told him: [p:80] the sage Vibhavasu [p:60] had a younger brother, [p:60] Supratika.",
+      "est": 4.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        4,
+        10
+      ],
+      "captionY": "high",
+      "sfx": [
+        "chord"
+      ],
+      "note": "STORY 1 with the unvoiced recap band: NEW LIGHT, a flashback painted as a red-ochre mural panel: two sages seated, the elder stern; their names on beats."
+    },
+    {
+      "id": "divide",
+      "speed": 1.12,
+      "text": "Supratika wanted their wealth divided.",
+      "say": "Supratika wanted their wealth divided.",
+      "est": 2.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        1,
+        4
+      ],
+      "captionY": "high",
+      "note": "STORY 2: a heap of gold between them; the younger brother's hand cuts the air, splitting it."
+    },
+    {
+      "id": "curse1",
+      "speed": 1.1,
+      "text": "Vibhavasu cursed him: \"Become an elephant!\"",
+      "say": "Vibhavasu cursed him: [p:100] Become an elephant!",
+      "est": 2.8,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        1,
+        4
+      ],
+      "captionY": "high",
+      "sfx": [
+        "drum@1"
+      ],
+      "note": "STORY 3: the elder points (beats[0]); on 'elephant' the younger brother's figure swells into the elephant."
+    },
+    {
+      "id": "curse2",
+      "speed": 1.1,
+      "text": "Supratika cursed him back: \"Become a tortoise!\"",
+      "say": "Supratika cursed him back: [p:100] Become a tortoise!",
+      "est": 2.8,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        1,
+        5
+      ],
+      "captionY": "high",
+      "sfx": [
+        "drum@1"
+      ],
+      "note": "STORY 4: the elephant's trunk points; on 'tortoise' the elder sinks into a tortoise."
+    },
+    {
+      "id": "lake",
+      "speed": 1.18,
+      "text": "Enemies still, they fight in a lake: the elephant six yojanas high, the tortoise three.",
+      "say": "Enemies still, [p:80] they fight in a lake: [p:120] the elephant six yojanas high, [p:60] the tortoise three.",
+      "est": 5.2,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        7,
+        12
+      ],
+      "sfx": [
+        "surf",
+        "drum@0",
+        "drum@2"
+      ],
+      "note": "STORY 5: the lake at storm-green light, wide: the two vast animals locked together, the reeds flattened.",
+      "captionY": "high"
+    },
+    {
+      "id": "eat",
+      "speaker": "kashyapa",
+      "speed": 1.15,
+      "text": "\"Eat them both, my son. Then go for the amrita.\"",
+      "say": "Eat them both, my son. [p:200] Then go for the amrita.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        8
+      ],
+      "captionY": "high",
+      "note": "STORY 6 (Kashyapa speaks): the mountain ledge at dawn from a new angle (low, the sky behind him), his hand in blessing."
+    },
+    {
+      "id": "seize",
+      "speed": 1.1,
+      "text": "Garuda seized the elephant in one claw, and the tortoise in the other.",
+      "say": "Garuda seized the elephant in one claw, [p:100] and the tortoise in the other.",
+      "est": 4.2,
+      "pre": 850,
+      "post": 300,
+      "beats": [
+        1,
+        3,
+        9
+      ],
+      "sfx": [
+        "silence",
+        "wings@0",
+        "drum@1",
+        "drum@2"
+      ],
+      "note": "STORY 7 · THE TURN (≈ 50 %): after a 0.85 s rest Garuda drops out of the sky onto the lake (beats[0]) and rises with the elephant in one set of talons (beats[1]) and the tortoise in the other (beats[2]), water streaming off them.",
+      "captionY": "high"
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "But where could he land, with such a load?",
+      "say": "But where could he land, [p:80] with such a load?",
+      "est": 2.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        8
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, a twelfth angle: from very low, the flames between us and him, his hands spread wide as if weighing)."
+    },
+    {
+      "id": "rauhina",
+      "speed": 1.18,
+      "text": "At Alamba, a great tree, Rauhina, offered him its branch, a hundred yojanas long.",
+      "say": "At Alamba, [p:80] a great tree, Rauhina, [p:80] offered him its branch, [p:60] a hundred yojanas long.",
+      "est": 5.0,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        1,
+        5,
+        9,
+        13
+      ],
+      "sfx": [
+        "bell@1",
+        "bansuri@2"
+      ],
+      "note": "STORY 8: NEW LIGHT, the holy grove of Alamba at violet twilight with golden fruit-lamps among giant trees; the great tree Rauhina reaches out one vast branch; Garuda comes in with his load; the plaque."
+    },
+    {
+      "id": "broke",
+      "speed": 1.1,
+      "text": "He landed on it, and the branch broke.",
+      "say": "He landed on it, [p:120] and the branch broke.",
+      "est": 2.6,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        3,
+        7
+      ],
+      "sfx": [
+        "crack@1",
+        "drum@1"
+      ],
+      "note": "STORY 9: Garuda settles on the branch; on 'broke' (beats[1]) it cracks and drops.",
+      "captionY": "high"
+    },
+    {
+      "id": "cliff",
+      "speed": 1.15,
+      "text": "Hanging from that branch, upside down, were thousands of tiny sages.",
+      "say": "Hanging from that branch, [p:100] upside down, [p:150] were thousands of tiny sages.",
+      "est": 4.2,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        7,
+        10
+      ],
+      "role": "next",
+      "captionY": "high",
+      "sfx": [
+        "bell@2"
+      ],
+      "note": "NEXT 1 (cliffhanger image, the catalog line): close along the cracked branch: rows of tiny sages hang head-down from it, each lit with a faint ash-white glow, their beards falling upward; one opens his eyes."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Thumb-Sized Sages",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The short Next over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

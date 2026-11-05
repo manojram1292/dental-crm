@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.5235,
+   "words": 7,
+   "speed": 0.891,
+   "text": "Garuda seized the elephant in one claw,"
+  },
+  {
+   "t0": 2.6235,
+   "t1": 4.2066,
+   "words": 6,
+   "speed": 0.891,
+   "text": "and the tortoise in the other."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

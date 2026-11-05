@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9072000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.0755,
+   "words": 3,
+   "speed": 0.907,
+   "text": "In their anger,"
+  },
+  {
+   "t0": 1.1555,
+   "t1": 2.4185,
+   "words": 4,
+   "speed": 0.907,
+   "text": "they began a rite,"
+  },
+  {
+   "t0": 2.4985,
+   "t1": 4.3569,
+   "words": 5,
+   "speed": 0.907,
+   "text": "to bring forth another Indra,"
+  },
+  {
+   "t0": 4.4369,
+   "t1": 5.8664,
+   "words": 4,
+   "speed": 0.907,
+   "text": "who would terrify him."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

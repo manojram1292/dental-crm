@@ -59,6 +59,10 @@
     21: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', 'ep20/_common', '_common', 's1-hook', 's2-ask', 's3-mother', 's4-demand', 's5-price', 's6-frame', 's7-food', 's8-nishadas', 's9-never', 's10-bless', 's11-cliff', 's12-next'],
     // episode 22: the bay under a storm of dust, the moonlit sand, the high mountain hermitage at dawn (rose and snow), the lake of the brothers (in the vision)
     22: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', 'ep20/_common', 'ep21/_common', '_common', 's1-hook', 's2-dust', 's3-burn', 's4-come', 's5-wife', 's6-both', 's7-blessed', 's8-frame', 's9-father', 's10-welfare', 's11-hungry', 's12-cliff', 's13-next'],
+    // episode 23: the tale as a red-ochre mural panel, the storm-green lake of the brothers, the ledge at dawn (a low angle), the holy grove of Alamba at violet twilight
+    23: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', 'ep20/_common', 'ep21/_common', 'ep22/_common', '_common', 's1-hook', 's2-tell', 's3-divide', 's4-curse1', 's5-curse2', 's6-lake', 's7-eat', 's8-seize', 's9-frame', 's10-rauhina', 's11-broke', 's12-cliff', 's13-next'],
+    // episode 24: the world from above at midday (a white glare), Gandhamadana (green-gold, petals), an empty snow mountain at evening alpenglow, heaven at night under omens
+    24: ['ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', 'ep20/_common', 'ep21/_common', 'ep22/_common', 'ep23/_common', '_common', 's1-hook', 's2-beak', 's3-name', 's4-nowhere', 's5-gandha', 's6-warn', 's7-plead', 's8-leave', 's9-frame', 's10-drop', 's11b-omens', 's11-cliff', 's12-next'],
   };
   const q = new URLSearchParams(location.search);
   const ep = +(q.get('ep') || 1);

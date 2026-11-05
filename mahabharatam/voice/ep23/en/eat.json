@@ -1,0 +1,30 @@
+{
+ "speaker": "kashyapa",
+ "voice": "bm_daniel",
+ "speed": 0.8969999999999999,
+ "pitch": -1,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.287,
+   "words": 3,
+   "speed": 0.897,
+   "text": "Eat them both,"
+  },
+  {
+   "t0": 1.367,
+   "t1": 2.4357,
+   "words": 2,
+   "speed": 0.897,
+   "text": "my son."
+  },
+  {
+   "t0": 2.6857,
+   "t1": 4.5696,
+   "words": 5,
+   "speed": 0.897,
+   "text": "Then go for the amrita."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

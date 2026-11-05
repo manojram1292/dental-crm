@@ -1,0 +1,279 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "episode": 24,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 26: seeing the Valakhilyas hanging head-down from the broken branch, and afraid of killing them, Garuda catches it in his beak and flies on, the elephant and the tortoise still in his claws, finding no place to set it down; he comes to Mount Gandhamadana, where Kashyapa is in austerity; Kashyapa warns him that the Valakhilyas, who drink the sun's rays, might burn him in their anger, and asks them to let go, for Garuda's task is for the good of creatures; they let go and leave for the Himalaya. On Kashyapa's word Garuda drops the branch on a mountain where no one lives, and eats the elephant and the tortoise on its peak. Then omens appear in heaven (the cliffhanger looks ahead to 1.27).",
+  "structure": "From episode 21 (independent review): COLD OPEN (≤ 8 words, ≤ 3 s; opening style A: the question over the answer image) → title (hook post) → STORY from ≈ 5 s with the UNVOICED recap band over its first shot (KIT.series.recapBand) → turn at 40–60 % → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1 (KIT.series.overlayNextScene). No fire edge in the Garuda arc from here.",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 24",
+    "episodeTitle": "The Thumb-Sized Sages",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 23",
+    "prevEpisodeTitle": "The Elephant and the Tortoise",
+    "recapLine": "Rauhina's branch broke under Garuda.",
+    "nextEpisodeLabel": "Episode 25",
+    "nextTitle": "Why Indra Feared a Bird",
+    "valakhilyaName": "The Valakhilyas",
+    "valakhilyaEpithet": "sages no bigger than a thumb",
+    "gandhaName": "Gandhamadana",
+    "gandhaEpithet": "the fragrant mountain"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "sauti",
+      "speed": 1.2,
+      "text": "How could he land without killing them?",
+      "say": "How could he land without killing them?",
+      "est": 2.8,
+      "pre": 60,
+      "post": 1300,
+      "beats": [
+        3,
+        5
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "land",
+        "killing"
+      ],
+      "sfx": [
+        "wings@0",
+        "bell@1"
+      ],
+      "note": "COLD OPEN (style A, moving from frame 1): Garuda in flight over a cloud-sea, the vast branch in his beak, rows of tiny sages hanging from it, the elephant and tortoise in his talons; the camera tracks with him."
+    },
+    {
+      "id": "beak",
+      "speed": 1.15,
+      "text": "He caught the falling branch in his beak, and flew on.",
+      "say": "He caught the falling branch in his beak, [p:100] and flew on.",
+      "est": 3.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        2,
+        7,
+        10
+      ],
+      "captionY": "high",
+      "sfx": [
+        "crack@0",
+        "wings@2"
+      ],
+      "note": "STORY 1 with the unvoiced recap band: Alamba at violet twilight: the branch falling, Garuda snatching it in his beak (beats[1]), lifting away."
+    },
+    {
+      "id": "name",
+      "speed": 1.15,
+      "text": "On it hung the Valakhilyas, sages no bigger than a thumb.",
+      "say": "On it hung the Valakhilyas, [p:80] sages no bigger than a thumb.",
+      "est": 3.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        9
+      ],
+      "captionY": "high",
+      "sfx": [
+        "bell@0"
+      ],
+      "note": "STORY 2: close along the branch: the tiny sages, one turning his face up; Garuda's great eye above them in the frame for scale; the plaque."
+    },
+    {
+      "id": "nowhere",
+      "speed": 1.15,
+      "text": "Over land and sea he flew, and found no place to set it down.",
+      "say": "Over land and sea he flew, [p:100] and found no place to set it down.",
+      "est": 4.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        7,
+        13
+      ],
+      "sfx": [
+        "wind"
+      ],
+      "note": "STORY 3: NEW LIGHT: the world from high above at midday, a white glare on the cloud-sea, mountains and coasts sliding under him."
+    },
+    {
+      "id": "gandha",
+      "speed": 1.12,
+      "text": "At last he came to Gandhamadana, where his father sat in austerity.",
+      "say": "At last [p:100] he came to Gandhamadana, [p:80] where his father sat in austerity.",
+      "est": 4.2,
+      "pre": 300,
+      "post": 250,
+      "beats": [
+        5,
+        9
+      ],
+      "sfx": [
+        "bansuri@0",
+        "bell@0"
+      ],
+      "note": "STORY 4: NEW LIGHT: Gandhamadana, the fragrant mountain, warm green-gold with flowering trees and drifting petals; Kashyapa seated below; Garuda comes down with his load; the plaque."
+    },
+    {
+      "id": "warn",
+      "speaker": "kashyapa",
+      "speed": 1.08,
+      "text": "\"Careful, my son. Their anger could burn you.\"",
+      "say": "Careful, my son. [p:200] Their anger could burn you.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        0,
+        5
+      ],
+      "captionY": "high",
+      "note": "STORY 5 (Kashyapa speaks): Kashyapa rises, a hand lifted to stop Garuda."
+    },
+    {
+      "id": "plead",
+      "speaker": "kashyapa",
+      "speed": 1.08,
+      "text": "\"Holy ones, his task is for the good of all. Let go.\"",
+      "say": "Holy ones, [p:100] his task is for the good of all. [p:200] Let go.",
+      "est": 3.6,
+      "pre": 900,
+      "post": 300,
+      "beats": [
+        0,
+        10
+      ],
+      "captionY": "high",
+      "note": "STORY 6 · THE TURN (≈ 48 %): after a 0.9 s rest (the episode's one long rest), Kashyapa, palms joined, speaks up to the tiny sages on the branch held above him.",
+      "sfx": [
+        "silence",
+        "bell@1"
+      ]
+    },
+    {
+      "id": "leave",
+      "speed": 1.15,
+      "text": "The tiny sages let go of the branch, and left for the Himalaya.",
+      "say": "The tiny sages let go of the branch, [p:100] and left for the Himalaya.",
+      "est": 3.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        11
+      ],
+      "sfx": [
+        "bell@0",
+        "bell@1"
+      ],
+      "note": "STORY 7: one by one the sages let go and drift down and away like sparks of ash-white light, streaming toward far snow peaks."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "Now the branch was his to drop.",
+      "say": "Now the branch was his to drop.",
+      "est": 2.4,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        2,
+        6
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire, a thirteenth angle: over the shoulder of the elder sage, Sauti opening his fingers as if letting something fall)."
+    },
+    {
+      "id": "drop",
+      "speed": 1.12,
+      "text": "He dropped it on a lonely snow mountain, and ate his meal on the peak.",
+      "say": "He dropped it on a lonely snow mountain, [p:120] and ate his meal on the peak.",
+      "est": 4.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        6,
+        9
+      ],
+      "sfx": [
+        "drum@0",
+        "wings@2"
+      ],
+      "note": "STORY 8: NEW LIGHT: an empty snow mountain at evening alpenglow (rose on white, blue shadows): the branch falls and the mountain shakes (beats[0]); Garuda alights on the peak with the two animals, seen from far (no eating shown)."
+    },
+    {
+      "id": "omens",
+      "speed": 1.1,
+      "text": "Then, in heaven, there were omens.",
+      "say": "Then, [p:80] in heaven, [p:80] there were omens.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        2,
+        5
+      ],
+      "sfx": [
+        "thunder@1"
+      ],
+      "note": "STORY 9: heaven at night: meteors streak over the cloud-palaces, a red haze rises (CE 1.26: the omens before Indra asks Brihaspati)."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.1,
+      "text": "Why did the Valakhilyas matter so much? Because they had once frightened Indra.",
+      "say": "Why did the Valakhilyas matter so much? [p:250] Because they had once frightened Indra.",
+      "est": 4.6,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        2,
+        12
+      ],
+      "role": "next",
+      "captionY": "high",
+      "sfx": [
+        "thunder@1",
+        "bell-low@1"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): heaven at night: omens: meteors streak; Indra on his throne, his vajra flaring; he looks up, uneasy."
+    },
+    {
+      "id": "next",
+      "text": "Next: Why Indra Feared a Bird",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The short Next over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9315,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7285,
+   "words": 5,
+   "speed": 0.931,
+   "text": "On it hung the Valakhilyas,"
+  },
+  {
+   "t0": 1.8085,
+   "t1": 3.7876,
+   "words": 6,
+   "speed": 0.931,
+   "text": "sages no bigger than a thumb."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

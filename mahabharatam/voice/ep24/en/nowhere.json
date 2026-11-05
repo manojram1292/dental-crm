@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9315,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.5767,
+   "words": 6,
+   "speed": 0.931,
+   "text": "Over land and sea he flew,"
+  },
+  {
+   "t0": 1.6767,
+   "t1": 3.6961,
+   "words": 8,
+   "speed": 0.931,
+   "text": "and found no place to set it down."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

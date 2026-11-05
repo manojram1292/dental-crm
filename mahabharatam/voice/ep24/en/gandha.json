@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9072000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.7856,
+   "words": 2,
+   "speed": 0.907,
+   "text": "At last"
+  },
+  {
+   "t0": 0.8856,
+   "t1": 2.6815,
+   "words": 4,
+   "speed": 0.907,
+   "text": "he came to Gandhamadana,"
+  },
+  {
+   "t0": 2.7615,
+   "t1": 4.922,
+   "words": 6,
+   "speed": 0.907,
+   "text": "where his father sat in austerity."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

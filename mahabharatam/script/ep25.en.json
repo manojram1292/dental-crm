@@ -1,0 +1,258 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "episode": 25,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, end of adhyaya 26 and adhyaya 27: Indra, seeing the omens, asks Brihaspati, who tells him that Vinata's son, born of the Valakhilyas' austerity and through Indra's own fault, is coming to take the soma. Shaunaka asks what Indra's fault was; Sauti tells: at Kashyapa's sacrifice for a son, Indra carried a mountain of firewood with ease and saw the Valakhilyas, thumb-sized, together carrying a single palasha leaf-stalk and sinking into a puddle in a cow's hoofprint; he laughed at them and stepped over them. Enraged, they began a rite to bring forth another Indra who would terrify him. Indra went to Kashyapa, who went to the Valakhilyas: Indra was made king of the gods by Brahma's word; let the new one be the Indra of birds. They agreed. Kashyapa then granted Vinata, who had prayed for a son, two sons; the cliffhanger returns to Garuda's flight (1.28).",
+  "structure": "From episode 21 (independent review): COLD OPEN (≤ 8 words, ≤ 3 s; opening style B: direct speech in medias res, the line itself on the card) → title (hook post) → STORY from ≈ 5 s with the UNVOICED recap band over its first shot (KIT.series.recapBand) → turn at 40–60 % → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1 (KIT.series.overlayNextScene). No fire edge in the Garuda arc from here.",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 25",
+    "episodeTitle": "Why Indra Feared a Bird",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 24",
+    "prevEpisodeTitle": "The Thumb-Sized Sages",
+    "recapLine": "Garuda spared the tiny sages; heaven saw omens.",
+    "nextEpisodeLabel": "Episode 26",
+    "nextTitle": "Garuda Storms Heaven",
+    "brihaspatiName": "Brihaspati",
+    "brihaspatiEpithet": "teacher of the gods",
+    "shaunakaName": "Shaunaka",
+    "shaunakaEpithet": "the elder of Naimisha, asks"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "valakhilyas",
+      "speed": 1.1,
+      "text": "\"Let there be another Indra!\"",
+      "say": "Let there be [p:60] another Indra!",
+      "est": 2.4,
+      "pre": 60,
+      "post": 1300,
+      "beats": [
+        3,
+        4
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "another",
+        "Indra!\""
+      ],
+      "sfx": [
+        "roar",
+        "bell-low@1"
+      ],
+      "note": "COLD OPEN (style B, in medias res, moving from frame 1): night; the thumb-sized sages around a fierce blue-white sacrificial fire, ladles raised, the flame towering out of all proportion to them; the line on the card."
+    },
+    {
+      "id": "omen",
+      "speed": 1.12,
+      "text": "Under the omens, Indra asked his teacher, Brihaspati, what they meant.",
+      "say": "Under the omens, [p:80] Indra asked his teacher, Brihaspati, [p:60] what they meant.",
+      "est": 4.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        6,
+        8
+      ],
+      "captionY": "high",
+      "note": "STORY 1 with the unvoiced recap band: NEW LIGHT, Indra's council hall at night, gold lamps reddened by the omen-haze through the arches; Indra turns to Brihaspati (plaque)."
+    },
+    {
+      "id": "answer",
+      "speaker": "brihaspati",
+      "speed": 1.05,
+      "text": "\"Vinata's son is coming for the amrita. Your own fault made him.\"",
+      "say": "Vinata's son is coming for the amrita. [p:250] Your own fault made him.",
+      "est": 4.2,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        6,
+        9
+      ],
+      "captionY": "high",
+      "sfx": [
+        "bell-low@2"
+      ],
+      "note": "STORY 2 (Brihaspati speaks): close on Brihaspati in his yellow-gold light, his finger raised."
+    },
+    {
+      "id": "frame",
+      "speaker": "elder_sage",
+      "speed": 1.05,
+      "text": "\"What fault had Indra made?\"",
+      "say": "What fault had Indra made?",
+      "est": 2.4,
+      "pre": 300,
+      "post": 250,
+      "beats": [
+        1,
+        3
+      ],
+      "note": "FRAME (the Naimisha fire): Shaunaka himself asks (as he does in the CE, 1.27), leaning in from across the fire; Sauti nods (a fourteenth angle: the elder's side)."
+    },
+    {
+      "id": "wood",
+      "speed": 1.12,
+      "text": "At Kashyapa's sacrifice, Indra carried firewood the size of a mountain, with ease.",
+      "say": "At Kashyapa's sacrifice, [p:80] Indra carried firewood the size of a mountain, [p:60] with ease.",
+      "est": 4.4,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        7,
+        12
+      ],
+      "sfx": [
+        "bansuri@0"
+      ],
+      "note": "STORY 3: NEW LIGHT, the sacrificial ground at bright morning, white smoke: Indra striding with a mountain of logs on his shoulder."
+    },
+    {
+      "id": "leaf",
+      "speed": 1.12,
+      "text": "The Valakhilyas, all together, carried one leaf-stalk, and sank in a puddle in a cow's hoofprint.",
+      "say": "The Valakhilyas, all together, [p:80] carried one leaf-stalk, [p:100] and sank in a puddle [p:60] in a cow's hoofprint.",
+      "est": 5.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        5,
+        7,
+        12,
+        16
+      ],
+      "note": "STORY 4: a macro shot at ground level: the tiny sages straining under one palasha stalk; the hoofprint puddle reflecting the sky; they slip and flounder in it (beats[2])."
+    },
+    {
+      "id": "laugh",
+      "speed": 1.08,
+      "text": "Indra laughed at them, and stepped over them.",
+      "say": "Indra laughed at them, [p:150] and stepped over them.",
+      "est": 3.0,
+      "pre": 900,
+      "post": 350,
+      "beats": [
+        1,
+        6
+      ],
+      "sfx": [
+        "silence",
+        "drum@0"
+      ],
+      "note": "STORY 5 · THE TURN (≈ 47 %): after a 0.9 s rest: Indra's great foot comes down over the puddle and passes above the sages (beats[1]); his laughter as a gold shimmer."
+    },
+    {
+      "id": "rite",
+      "speed": 1.12,
+      "text": "In their anger, they began a rite, to bring forth another Indra, who would terrify him.",
+      "say": "In their anger, [p:80] they began a rite, [p:80] to bring forth another Indra, [p:60] who would terrify him.",
+      "est": 5.0,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        10,
+        15
+      ],
+      "sfx": [
+        "roar",
+        "drum@2"
+      ],
+      "note": "STORY 6: NEW LIGHT, night, the blue-white fire of the Valakhilyas' rite (the hook's image, wider): its flame rising into the shape of a great wing."
+    },
+    {
+      "id": "peace",
+      "speaker": "kashyapa",
+      "speed": 1.05,
+      "text": "\"Brahma made this Indra. Let yours be Indra of the birds.\"",
+      "say": "Brahma made this Indra. [p:200] Let yours be Indra of the birds.",
+      "est": 3.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        0,
+        9
+      ],
+      "captionY": "high",
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 7 (Kashyapa speaks): Kashyapa kneels to the tiny sages by their fire, Indra behind him, head bowed; they agree."
+    },
+    {
+      "id": "born",
+      "speed": 1.1,
+      "text": "That Indra of birds was born to Vinata: Garuda.",
+      "say": "That Indra of birds was born to Vinata: [p:150] Garuda.",
+      "est": 3.2,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        7,
+        8
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 8: Kashyapa's hermitage before sunrise (ep 9's place): Vinata with the golden egg; it glows and the blazing bird rises from it in a medallion (ep 19's image)."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.1,
+      "text": "And now that bird was flying toward heaven.",
+      "say": "And now [p:80] that bird was flying toward heaven.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        4,
+        7
+      ],
+      "role": "next",
+      "captionY": "high",
+      "sfx": [
+        "wings@0",
+        "drum@1"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): Garuda climbs through the cloud-banks toward the white walls of heaven, LARGE, wings beating."
+    },
+    {
+      "id": "next",
+      "text": "Next: Garuda Storms Heaven",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The short Next over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.8964,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7281,
+   "words": 5,
+   "speed": 0.896,
+   "text": "But where could he land,"
+  },
+  {
+   "t0": 1.8081,
+   "t1": 3.3479,
+   "words": 4,
+   "speed": 0.896,
+   "text": "with such a load?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

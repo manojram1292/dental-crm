@@ -145,6 +145,8 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "Vainateya": "vˌaɪnətˈeɪjə",                         # vai-na-TAY-ya
     "kusha": "kˈʊʃə",                                    # KU-sha (the sacred grass)
     "Alamba": "ɐlˈʌmbə",
+    "yojana": "jˈoʊdʒənə",
+    "yojanas": "jˈoʊdʒənəz",
     # English words espeak gets wrong for these voices (audited with --dry)
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
     "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"

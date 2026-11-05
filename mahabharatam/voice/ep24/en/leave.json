@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9315,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.3679,
+   "words": 8,
+   "speed": 0.931,
+   "text": "The tiny sages let go of the branch,"
+  },
+  {
+   "t0": 2.4679,
+   "t1": 4.02,
+   "words": 5,
+   "speed": 0.931,
+   "text": "and left for the Himalaya."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

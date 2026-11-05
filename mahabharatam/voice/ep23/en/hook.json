@@ -1,0 +1,16 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 1.0374999999999999,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 3.0925,
+   "words": 8,
+   "speed": 1.037,
+   "text": "Two brothers became an elephant and a tortoise."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7234,
+   "words": 4,
+   "speed": 0.891,
+   "text": "Supratika cursed him back:"
+  },
+  {
+   "t0": 1.8234,
+   "t1": 3.1167,
+   "words": 3,
+   "speed": 0.891,
+   "text": "Become a tortoise!"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

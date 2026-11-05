@@ -1,0 +1,44 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9558,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.851,
+   "words": 2,
+   "speed": 0.956,
+   "text": "At Alamba,"
+  },
+  {
+   "t0": 0.931,
+   "t1": 1.9415,
+   "words": 3,
+   "speed": 0.956,
+   "text": "a great tree,"
+  },
+  {
+   "t0": 2.0215,
+   "t1": 2.8077,
+   "words": 1,
+   "speed": 0.956,
+   "text": "Rauhina,"
+  },
+  {
+   "t0": 2.8877,
+   "t1": 4.2073,
+   "words": 4,
+   "speed": 0.956,
+   "text": "offered him its branch,"
+  },
+  {
+   "t0": 4.2873,
+   "t1": 5.9752,
+   "words": 4,
+   "speed": 0.956,
+   "text": "a hundred yojanas long."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

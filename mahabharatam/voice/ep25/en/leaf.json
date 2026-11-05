@@ -1,0 +1,44 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9072000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1794,
+   "words": 2,
+   "speed": 0.907,
+   "text": "The Valakhilyas,"
+  },
+  {
+   "t0": 1.2594,
+   "t1": 2.1758,
+   "words": 2,
+   "speed": 0.907,
+   "text": "all together,"
+  },
+  {
+   "t0": 2.2558,
+   "t1": 3.6641,
+   "words": 3,
+   "speed": 0.907,
+   "text": "carried one leaf-stalk,"
+  },
+  {
+   "t0": 3.7641,
+   "t1": 5.0418,
+   "words": 5,
+   "speed": 0.907,
+   "text": "and sank in a puddle"
+  },
+  {
+   "t0": 5.1018,
+   "t1": 6.5407,
+   "words": 4,
+   "speed": 0.907,
+   "text": "in a cow's hoofprint."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

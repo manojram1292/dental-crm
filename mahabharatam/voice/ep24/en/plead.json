@@ -1,0 +1,30 @@
+{
+ "speaker": "kashyapa",
+ "voice": "bm_daniel",
+ "speed": 0.8424,
+ "pitch": -1,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.2779,
+   "words": 2,
+   "speed": 0.842,
+   "text": "Holy ones,"
+  },
+  {
+   "t0": 1.3779,
+   "t1": 3.6326,
+   "words": 8,
+   "speed": 0.842,
+   "text": "his task is for the good of all."
+  },
+  {
+   "t0": 3.8826,
+   "t1": 5.0034,
+   "words": 2,
+   "speed": 0.842,
+   "text": "Let go."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
