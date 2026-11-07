@@ -216,7 +216,7 @@
   CH.define({
     id: 'indra', bible, rig, shape, ornaments, before, after, defaultPose: 'stand',
     rule: {
-      fill: '#0a0c18', lit: '#1a2238', litGain: 0.8, rimW: 1.1,
+      fill: '#0a0c18', lit: '#56689a', litGain: 0.8, rimW: 1.1,
       rim: ['#4a8cff', '#e8f4ff'], inner: '#1a2a6a', innerA: [0.9, 0.45], glow: 1.0,
       ornament: ['#e0b040', '#fff4c0'], ornamentA: [0.6, 1.0],
     },

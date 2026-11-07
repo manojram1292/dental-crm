@@ -15,6 +15,7 @@
  *                       dir       angle TOWARD the light in screen space (0 = right, π = left, −π/2 = above)
  *                       intensity 0..1.3 (the fire's flicker goes here)
  *                       front     0..1 how much the light falls on the side we see (lit face vs. pure silhouette)
+ *                       fill      0..1 a soft frontal fill added to front (bright grounds: 0.3–0.5), so faces read
  *       expression    { look (head pitch, rad), speak (0..1 jaw / beard), mood ('calm' | 'wrath' | 'sorrow' | 'serene') }
  *       t             seconds (breath, cloth, flames: never the design)
  *       key           optional buffer key when the same character is drawn twice in one frame
@@ -201,7 +202,9 @@
   };
   function lightOf(o) {
     const L = o.light || CH.LIGHTS.key;
-    return { dir: L.dir ?? Math.PI, intensity: clamp(L.intensity ?? 1, 0, 1.5), front: clamp(L.front ?? 0, 0, 1) };
+    // fill (0..1): a soft frontal fill on top of `front`, so a figure against a bright ground never goes to a pure black
+    // cut-out (episode 31 on; the remaining weakness of eps 21–30). Bright locations pass light.fill ≈ 0.3–0.5.
+    return { dir: L.dir ?? Math.PI, intensity: clamp(L.intensity ?? 1, 0, 1.5), front: clamp(L.front ?? 0, 0, 1), fill: clamp(L.fill ?? 0, 0, 1) };
   }
   /** Rim width in screen px for a figure drawn at `scale` (bigger figures, wider rims; brighter light, wider rim). */
   const rimWidth = (scale, k, rule) => (rule.rimW || 1) * 7.0 * Math.pow(Math.max(0.05, scale), 0.36) * (0.72 + 0.28 * clamp(k));
@@ -255,7 +258,7 @@
 
     const w = rimWidth(P.s, k, rule);
     const dx = -Math.cos(L.dir) * w, dy = -Math.sin(L.dir) * w;
-    const fill = R.mix(rule.fill, rule.lit || rule.fill, clamp(L.front * k * (rule.litGain ?? 1)));
+    const fill = R.mix(rule.fill, rule.lit || rule.fill, clamp(L.front * k * (rule.litGain ?? 1) + L.fill * 0.6));
     const rim = R.mix(rule.rim[0], rule.rim[1], clamp(k));
     const key = `ch-${def.id}${opts.key ? '-' + opts.key : ''}`;
     const buf = R.buffer(key, bw, bh);

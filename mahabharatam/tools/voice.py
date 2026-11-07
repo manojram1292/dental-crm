@@ -156,6 +156,26 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "Dadhichi": "dədʰˈiːʧi",
     "Shatakratu": "ʃˌʌtəkɾˈʌtʊ",
     "yojanas": "jˈoʊdʒənəz",
+    # episodes 31–40 (the Astika arc: Shesha, Vasuki's council, Jaratkaru, Astika, the sacrifice stops)
+    "dharma": "dˈʌɾmə",                                  # DHUR-ma
+    "Elapatra": "ˌeɪləpˈʌtɾə",                           # ay-la-PUT-ra
+    "Jaratkaru": "dʒˌʌɾətkˈɑːɾuː",                       # ja-rat-KAA-roo (Jaratkāru)
+    "Jaratkaru's": "dʒˌʌɾətkˈɑːɾuːz",
+    "Astika's": "ˈɑːstiːkəz",
+    "asti": "ˈʌsti",                                     # UH-sti ("there is")
+    "Chyavana": "ʧjˈʌvənə",                              # CHYA-va-na
+    "Bhrigu": "bʰɾˈɪɡuː",                                # BHRI-goo
+    "Badari": "bˈʌdəɾi",                                 # BA-da-ri
+    "Gokarna": "ɡoʊkˈʌɾɳə",                              # go-KAR-na
+    "Pushkara": "pˈʊʃkəɾə",                              # PUSH-ka-ra
+    "Himalaya": "hɪmˈɑːləjə",                            # hi-MAA-la-ya
+    "Janamejaya's": "dʒˌʌnəmˈeɪdʒəjəz",
+    "Yayavara": "jˌɑːjɑːvˈʌɾə",
+    "Yayavaras": "jˌɑːjɑːvˈʌɾəz",
+    "Shaunaka's": "ʃˈaʊnəkəz",
+    "Hastinapura's": "hˌʌstɪnˈɑːpʊɾəz",
+    "Takshaka's": "tˈʌkʃəkəz",
+    "Shesha's": "ʃˈeɪʃəz",
     # English words espeak gets wrong for these voices (audited with --dry)
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
     "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"

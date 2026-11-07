@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8748000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.8889,
+   "words": 9,
+   "speed": 0.875,
+   "text": "But his brothers schemed against Vinata and her son,"
+  },
+  {
+   "t0": 2.9889,
+   "t1": 4.8146,
+   "words": 7,
+   "speed": 0.875,
+   "text": "and he would not live among them."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

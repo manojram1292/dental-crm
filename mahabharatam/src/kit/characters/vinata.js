@@ -117,7 +117,7 @@
   CH.define({
     id: 'vinata', bible, rig, shape, ornaments, defaultPose: 'stand',
     rule: {
-      fill: '#100a0c', lit: '#30182a', litGain: 0.8,
+      fill: '#100a0c', lit: '#7a4466', litGain: 0.8,
       rim: ['#d890b0', '#fff0f6'], inner: '#3a1a2a', innerA: [0.85, 0.4], glow: 0.75,
       ornament: ['#e8b8c8', '#fff4f8'], ornamentA: [0.4, 0.75],
     },

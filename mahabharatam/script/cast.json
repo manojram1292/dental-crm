@@ -293,5 +293,12 @@
   "pitch": -1.5,
   "g2p": "en-gb",
   "notes": "Episode 25: Brihaspati, teacher of the gods. bm_george lowered 1.5 st (Vyasa −2.5, Surya −1, Shamika 0): grave and exact."
+ },
+ "shesha": {
+  "voice": "am_echo",
+  "speed": 0.8,
+  "pitch": -3,
+  "g2p": "en-us",
+  "notes": "Episode 31+: Shesha (Ananta), the eldest serpent. am_echo lowered 3 st (Ganesha 0, Aruna +2.5): calm, deep, kind; never Takshaka's cold am_fenrir."
  }
 }

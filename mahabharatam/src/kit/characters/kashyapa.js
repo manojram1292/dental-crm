@@ -183,7 +183,7 @@
   const mod = CH.define({
     id: 'kashyapa', bible, rig, shape, ornaments, defaultPose: 'sit',
     rule: {
-      fill: '#080e12', lit: '#16262e', litGain: 0.8,
+      fill: '#080e12', lit: '#4a7080', litGain: 0.8,
       rim: ['#40b0d8', '#e0f8ff'], inner: '#10303a', innerA: [0.85, 0.4], glow: 0.85,
       ornament: ['#c8a050', '#fff0c0'], ornamentA: [0.4, 0.8],
     },

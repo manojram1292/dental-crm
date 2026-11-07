@@ -1,0 +1,310 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "episode": 31,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 32: Shaunaka asks why Shesha left; Sauti tells how Shesha, the eldest serpent, abandoned his mother Kadru and his brothers, who hated Vinata and her son, and practised fierce austerities at Gandhamadana, Badari, Gokarna, the Pushkara forest and the foot of the Himalaya, living on air, his flesh, skin and sinews dried up; Brahma came and asked what he was doing and told him to choose a boon; Shesha said his brothers were wicked and he wanted no more of them, and asked that his mind delight in dharma, peace and austerity; Brahma, pleased, asked him to hold this unsteady earth, with its mountains, forests, seas and towns, so that it is still; Shesha entered a cleft in the earth and holds it on his head from below; Brahma gave him Vinata's son Garuda as a helper. (The cliffhanger is the opening of 1.33: Vasuki calls a council.)",
+  "structure": "From episode 21: COLD OPEN (≤ 8 words, ≤ 3 s; opening style B: direct speech in medias res, the line on the card) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band over its first shot → turn at 40–60 % after one ≈ 0.9 s rest → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1. Gate: tools/gate.mjs (run by tools/render.mjs).",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 31",
+    "episodeTitle": "Shesha Holds the Earth",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 30",
+    "prevEpisodeTitle": "Forked Tongues",
+    "recapLine": "The serpents were cheated. Their mother's curse still stood.",
+    "nextEpisodeLabel": "Episode 32",
+    "nextTitle": "Vasuki's Council",
+    "sheshaName": "Shesha",
+    "sheshaEpithet": "the eldest serpent",
+    "places": [
+      "Gandhamadana",
+      "Badari",
+      "Gokarna",
+      "Pushkara",
+      "the Himalaya"
+    ]
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "brahma",
+      "speed": 1.3,
+      "text": "\"Hold the earth still, Shesha.\"",
+      "say": "Hold the earth still, [p:60] Shesha.",
+      "est": 2.6,
+      "pre": 60,
+      "post": 1300,
+      "beats": [
+        1,
+        4
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "earth",
+        "still,"
+      ],
+      "sfx": [
+        "chord",
+        "bell@1"
+      ],
+      "note": "COLD OPEN (style B, direct speech in medias res, moving from frame 1): under the earth: Shesha's seven-headed canopy rises into the frame and meets the underside of the earth disc, which steadies; Brahma's words on the card."
+    },
+    {
+      "id": "eldest",
+      "speed": 1.06,
+      "text": "Shesha was the eldest of the serpents.",
+      "say": "Shesha [p:60] was the eldest of the serpents.",
+      "est": 2.8,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        6
+      ],
+      "captionY": "high",
+      "sfx": [
+        "hiss"
+      ],
+      "note": "STORY 0 with the unvoiced recap band: NEW LIGHT, the serpents' grove at moonset re-lit: the white serpent among his dark brothers, taller than all; plaque \"Shesha\"."
+    },
+    {
+      "id": "brothers",
+      "speed": 1.08,
+      "text": "But his brothers schemed against Vinata and her son, and he would not live among them.",
+      "say": "But his brothers schemed against Vinata and her son, [p:100] and he would not live among them.",
+      "est": 4.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        8,
+        14
+      ],
+      "captionY": "high",
+      "sfx": [
+        "hiss@1"
+      ],
+      "note": "STORY 1: the dark brothers hiss together in a knot (beats[0]); Shesha turns away (beats[2]) and goes out of the grove, white on black."
+    },
+    {
+      "id": "penance",
+      "speed": 1.08,
+      "text": "He went from holy place to holy place, and lived on air alone.",
+      "say": "He went from holy place to holy place, [p:100] and lived on air alone.",
+      "est": 3.8,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        2,
+        5,
+        8,
+        11
+      ],
+      "sfx": [
+        "bansuri@0",
+        "bell@1",
+        "bell@2",
+        "bell@3"
+      ],
+      "note": "STORY 2: NEW LIGHT, the holy places before dawn (indigo sky, ash-silver horizon): four quick tableaux on the beats with name plaques: Gandhamadana, Badari, Gokarna, Pushkara; the Himalaya at the end."
+    },
+    {
+      "id": "bone",
+      "speed": 1.04,
+      "text": "His flesh and skin dried down to the bone.",
+      "say": "His flesh and skin [p:80] dried down to the bone.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        6
+      ],
+      "sfx": [
+        "wind"
+      ],
+      "note": "STORY 3: a low angle at the foot of the Himalaya: the white serpent, thin now, the belly plates showing like ribs, rising motionless against the snow and the stars."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.08,
+      "text": "Not every serpent took his mother's side.",
+      "say": "Not every serpent [p:60] took his mother's side.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        2,
+        6
+      ],
+      "note": "FRAME (Sauti at the Naimisha fire: a twentieth angle, over the elder's shoulder, Shaunaka large and dark in the foreground, Sauti lit across the fire)."
+    },
+    {
+      "id": "ask",
+      "speaker": "brahma",
+      "speed": 1.1,
+      "text": "\"Shesha, what are you doing? Choose a boon.\"",
+      "say": "Shesha, [p:80] what are you doing? [p:200] Choose a boon.",
+      "est": 3.8,
+      "pre": 900,
+      "post": 300,
+      "beats": [
+        0,
+        5
+      ],
+      "sfx": [
+        "silence",
+        "bell@0",
+        "chord@1"
+      ],
+      "note": "STORY 4 · THE TURN (≈ 45 %): after a 0.9 s rest, NEW LIGHT, Brahma's rose-gold dawn floods the snow; Brahma, frontal on his lotus, large in the sky; the thin serpent small below him (not a side-by-side two-shot)."
+    },
+    {
+      "id": "wish",
+      "speaker": "shesha",
+      "speed": 1.04,
+      "text": "\"Let my mind delight in dharma, and in peace.\"",
+      "say": "Let my mind delight in dharma, [p:100] and in peace.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        5,
+        8
+      ],
+      "sfx": [
+        "bell@2"
+      ],
+      "note": "STORY 5 (Shesha speaks): close on his canopy in the rose light, lifting; the seven heads bow."
+    },
+    {
+      "id": "unsteady",
+      "speed": 1.08,
+      "text": "The earth was shaking, with all its mountains, seas and towns.",
+      "say": "The earth was shaking, [p:80] with all its mountains, [p:60] seas and towns.",
+      "est": 3.8,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        2,
+        6,
+        8,
+        10
+      ],
+      "sfx": [
+        "drum@0",
+        "drum@1"
+      ],
+      "note": "STORY 6: the earth as a painted disc (mountains, forests, seas, towns) seen from the side, tilting and quaking in empty space."
+    },
+    {
+      "id": "hold",
+      "speed": 1.06,
+      "text": "So Shesha went down through a cleft, and held it on his heads.",
+      "say": "So Shesha went down through a cleft, [p:100] and held it on his heads.",
+      "est": 3.8,
+      "pre": 250,
+      "post": 350,
+      "beats": [
+        3,
+        6,
+        11
+      ],
+      "sfx": [
+        "chord@1",
+        "bell-low@2"
+      ],
+      "note": "STORY 7: NEW LIGHT, beneath the earth: the cavern lit by Shesha's own pearl glow; the white body pours down the cleft (beats[1]); the canopy rises and the earth stops shaking (beats[2])."
+    },
+    {
+      "id": "still",
+      "speed": 1.0,
+      "text": "And he holds it still, to this day.",
+      "say": "And he holds it still, [p:100] to this day.",
+      "est": 2.6,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        2,
+        7
+      ],
+      "sfx": [
+        "bell-low@1"
+      ],
+      "note": "STORY 7b: the wide cutaway: the earth disc resting on the pearl canopy in the dark, the world above at peace (towns lit, seas calm); a slow pull out."
+    },
+    {
+      "id": "friend",
+      "speed": 1.06,
+      "text": "And Brahma gave him a friend: Garuda.",
+      "say": "And Brahma gave him a friend: [p:150] Garuda.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        6
+      ],
+      "sfx": [
+        "wings@1",
+        "bell@1"
+      ],
+      "note": "STORY 8: over the steadied earth's rim, Garuda glides past the white serpent's heads, gold over pearl: enemies of the serpents, a friend to this one."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.05,
+      "text": "Vasuki, his brother, chose another way. He called a council.",
+      "say": "Vasuki, [p:60] his brother, [p:60] chose another way. [p:250] He called a council.",
+      "est": 4.2,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        0,
+        7,
+        9
+      ],
+      "role": "next",
+      "captionY": "high",
+      "sfx": [
+        "hiss@0",
+        "bell-low@2"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): the Naga world's jewelled hall in violet: Vasuki rears on his throne-coil; serpents gather from the dark (beats[2])."
+    },
+    {
+      "id": "next",
+      "text": "Next: Vasuki's Council",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The short Next over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

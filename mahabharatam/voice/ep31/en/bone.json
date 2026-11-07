@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8424,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3825,
+   "words": 4,
+   "speed": 0.842,
+   "text": "His flesh and skin"
+  },
+  {
+   "t0": 1.4625,
+   "t1": 3.0688,
+   "words": 5,
+   "speed": 0.842,
+   "text": "dried down to the bone."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

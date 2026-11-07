@@ -5,7 +5,7 @@
  *
  *   node tools/render.mjs [--ep 1] [--lang en] [--out episodeNN.mp4] [--mb 8] [--shutter 0.5]
  *                         [--scale 1] [--workers 3] [--from 0 --to 30] [--crf 18]
- *                         [--no-score] [--keep-frames]
+ *                         [--no-score] [--keep-frames] [--no-gate]
  *
  * Audio: tools/score.py writes audio/epNN/music.wav for build/timeline.epNN.<lang>.json
  * (re-run only when the timeline changed), then tools/mix.py mixes whatever
@@ -18,6 +18,7 @@ import os from 'node:os';
 import { spawn, execFileSync } from 'node:child_process';
 import { ROOT, args, openReel, dataUrlToBuffer, findFfmpeg } from './lib.mjs';
 import { buildTimeline, epTag } from './timeline.mjs';
+import { gate } from './gate.mjs';
 
 const a = args();
 const lang = a.lang || 'en';
@@ -33,6 +34,12 @@ const py = process.env.PYTHON || 'python3';
 
 // 1. Timeline, 2. score (cached by timeline signature + score source), 3. mix.
 const tl = buildTimeline(lang, { ep });
+// 0. The pre-render gate (tools/gate.mjs): hook ≤ 8 w / ≤ 3.0 s, story ≤ 5 s, turn 40–60 %, ≤ 59 s, Next ≤ 1.2 s, no static
+// hold > 4 s (a 1/8-size pass). --no-gate only for re-renders of episodes made before the gate.
+if (!a['no-gate']) {
+  const g = await gate(ep, { lang, frames: true });
+  if (!g.ok) { console.error(`render refused by the gate: ${g.fails.join('; ')}`); process.exit(1); }
+}
 if (!a['no-score']) execFileSync(py, [path.join(ROOT, 'tools/score.py'), '--ep', String(ep), '--lang', lang], { stdio: 'inherit' });
 execFileSync(py, [path.join(ROOT, 'tools/mix.py'), '--ep', String(ep), '--lang', lang], { stdio: 'inherit' });
 const audio = path.join(ROOT, 'audio', tag, `mix.${lang}.wav`);

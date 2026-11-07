@@ -205,7 +205,7 @@
   CH.define({
     id: 'vyasa', bible, rig, shape, ornaments, before, defaultPose: 'stand',
     rule: {
-      fill: '#0a0d12', lit: '#1e2a33', litGain: 0.8,
+      fill: '#0a0d12', lit: '#566874', litGain: 0.8,
       rim: ['#b8925a', '#ffe9b0'], inner: '#1b2430', innerA: [0.85, 0.45], glow: 0.7, rimW: 0.85,
       ornament: ['#a8741f', '#f7dc9c'], ornamentA: [0.45, 0.8],
     },

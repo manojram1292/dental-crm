@@ -69,11 +69,57 @@
 
   const widths = (r) => r.path.map((_, i) => { const u = i / (r.path.length - 1); return r.tail ? lerp(r.w0, r.w1, Math.pow(u, 1.6)) : lerp(r.w0, r.w1, u); });
 
+
+  // MANY HOODS as ONE CANOPY (episode 31 on): the old fan of separate lobes read as a hand at phone size. Now one
+  // continuous shield, wide at the top, with a scalloped crown edge and small separate heads standing on it.
+  const FAN = (r, n) => {
+    const sp = n >= 7 ? 0.2 : 0.26, R0 = 70 + r.w * 2.0, W = r.w * 0.42;
+    return { sp, R0, W, ang: (i) => (i - (n - 1) / 2) * sp, pt: (a, rad) => [Math.sin(a) * rad, 40 - Math.cos(a) * rad] };
+  };
+  function fanPath(g, r, n) {
+    const F = FAN(r, n), half = F.ang(n - 1) + F.sp * 0.55;
+    const L = F.pt(-half, F.R0 * 0.9), Rt = F.pt(half, F.R0 * 0.9), bul = F.R0 * Math.sin(half) * 1.15;
+    // a cobra's hood: from the neck it swells out wide at mid-height, then rises to the crown edge
+    g.moveTo(-r.w * 0.45, 40);
+    g.bezierCurveTo(-bul, 40 - F.R0 * 0.2, -bul * 1.05, 40 - F.R0 * 0.6, L[0], L[1]);
+    for (let i = 0; i < n; i++) {
+      const a1 = F.ang(i) + F.sp / 2, top = F.pt(F.ang(i), F.R0 * 1.03), e = F.pt(i === n - 1 ? half : a1, F.R0 * 0.93);
+      g.quadraticCurveTo(top[0], top[1], e[0], e[1]);
+    }
+    g.lineTo(Rt[0], Rt[1]);
+    g.bezierCurveTo(bul * 1.05, 40 - F.R0 * 0.6, bul, 40 - F.R0 * 0.2, r.w * 0.45, 40); g.closePath(); cut(g);
+    // the heads: broad spade-shaped cobra heads (snout up), set close on the crown edge (a crown of heads, not fingers)
+    for (let i = 0; i < n; i++) {
+      const a = F.ang(i), c = F.pt(a, F.R0 + F.W * 0.3);
+      g.save(); g.translate(c[0], c[1]); g.rotate(a);
+      g.moveTo(-F.W * 0.5, F.W * 0.6);
+      g.bezierCurveTo(-F.W * 0.75, 0, -F.W * 0.55, -F.W * 0.7, 0, -F.W * 0.82);
+      g.bezierCurveTo(F.W * 0.55, -F.W * 0.7, F.W * 0.75, 0, F.W * 0.5, F.W * 0.6);
+      g.closePath(); cut(g);
+      g.restore();
+    }
+  }
+  function fanOrnaments(g, r, n, color) {
+    const F = FAN(r, n), half = F.ang(n - 1) + F.sp * 0.4;
+    g.strokeStyle = color; g.globalAlpha *= 0.55; g.lineWidth = Math.max(2, r.w * 0.05);
+    for (const k of [0.5, 0.68, 0.84]) { g.beginPath(); g.arc(0, 40, F.R0 * k, -Math.PI / 2 - half, -Math.PI / 2 + half); g.stroke(); }
+    g.globalAlpha /= 0.55;
+    g.fillStyle = r.wrath ? '#ff6040' : (r.kind === 'ananta' ? '#c87a20' : '#fff0b8');
+    for (let i = 0; i < n; i++) {
+      const c = F.pt(F.ang(i), F.R0 + F.W * 0.3);
+      for (const e of [-1, 1]) { g.beginPath(); g.arc(c[0] + Math.cos(F.ang(i)) * e * F.W * 0.28 + Math.sin(F.ang(i)) * F.W * 0.2, c[1] + Math.sin(F.ang(i)) * e * F.W * 0.28 - Math.cos(F.ang(i)) * F.W * 0.2, F.W * 0.1, 0, TAU); g.fill(); }
+    }
+    g.save(); g.fillStyle = r.kind === 'ananta' ? '#ffe9a0' : '#ff2a5a'; g.shadowColor = g.fillStyle; g.shadowBlur = R.px(F.W * 0.5);
+    const j = F.pt(0, F.R0 * 0.72), d = F.W * 0.3;
+    g.beginPath(); g.moveTo(j[0], j[1] - d); g.lineTo(j[0] + d * 0.6, j[1]); g.lineTo(j[0], j[1] + d * 0.5); g.lineTo(j[0] - d * 0.6, j[1]); g.closePath(); g.fill(); g.restore();
+  }
+
   function hoodPath(g, r) {
     const h = r.path[0], a = r.hoodA + r.look;
     const n = r.kind === 'ananta' ? 7 : r.kind === 'naga' ? r.hoods : 1;
     g.save(); g.translate(h[0], h[1]); g.rotate(a + Math.PI / 2);
     // (local: up = −y is the direction the head points)
+    if (n > 1) { fanPath(g, r, n); g.restore(); return; }
     for (let i = 0; i < n; i++) {
       const off = n === 1 ? 0 : (i - (n - 1) / 2) * 0.4;
       g.save(); g.rotate(off); g.translate(0, n === 1 ? 0 : -90);
@@ -118,6 +164,7 @@
       const h = pts[0], an = r.hoodA + r.look;
       g.save(); g.translate(h[0], h[1]); g.rotate(an + Math.PI / 2);
       const hn = r.kind === 'ananta' ? 7 : r.kind === 'naga' ? r.hoods : 1;
+      if (hn > 1) { fanOrnaments(g, r, hn, color); g.restore(); return; }
       for (let i = 0; i < hn; i++) {
         const off = hn === 1 ? 0 : (i - (hn - 1) / 2) * 0.4;
         g.save(); g.rotate(off); g.translate(0, hn === 1 ? 0 : -90);

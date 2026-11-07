@@ -1,0 +1,30 @@
+{
+ "speaker": "brahma",
+ "voice": "bm_lewis",
+ "speed": 0.8140000000000001,
+ "pitch": -2,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.837,
+   "words": 1,
+   "speed": 0.814,
+   "text": "Shesha,"
+  },
+  {
+   "t0": 0.917,
+   "t1": 2.2432,
+   "words": 4,
+   "speed": 0.814,
+   "text": "what are you doing?"
+  },
+  {
+   "t0": 2.4932,
+   "t1": 3.7111,
+   "words": 3,
+   "speed": 0.814,
+   "text": "Choose a boon."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

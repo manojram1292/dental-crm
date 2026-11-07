@@ -1,0 +1,23 @@
+{
+ "speaker": "brahma",
+ "voice": "bm_lewis",
+ "speed": 0.962,
+ "pitch": -2,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.2555,
+   "words": 4,
+   "speed": 0.962,
+   "text": "Hold the earth still,"
+  },
+  {
+   "t0": 1.3355,
+   "t1": 2.0491,
+   "words": 1,
+   "speed": 0.962,
+   "text": "Shesha."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
