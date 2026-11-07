@@ -1,0 +1,30 @@
+{
+ "speaker": "pitrs",
+ "voice": "bm_daniel",
+ "speed": 0.7548,
+ "pitch": -2,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.0805,
+   "words": 5,
+   "speed": 0.755,
+   "text": "The grass is our line."
+  },
+  {
+   "t0": 2.3305,
+   "t1": 4.3093,
+   "words": 4,
+   "speed": 0.755,
+   "text": "The rat is time."
+  },
+  {
+   "t0": 4.5593,
+   "t1": 6.8636,
+   "words": 6,
+   "speed": 0.755,
+   "text": "And you are the last root."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

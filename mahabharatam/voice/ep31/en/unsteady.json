@@ -6,21 +6,28 @@
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.3603,
-   "words": 4,
+   "t1": 1.7134,
+   "words": 5,
    "speed": 0.875,
-   "text": "The earth was shaking,"
+   "text": "Brahma showed him the earth,"
   },
   {
-   "t0": 1.4403,
-   "t1": 2.9492,
-   "words": 4,
+   "t0": 1.7934,
+   "t1": 2.6389,
+   "words": 1,
    "speed": 0.875,
-   "text": "with all its mountains,"
+   "text": "shaking,"
   },
   {
-   "t0": 3.0292,
-   "t1": 4.4291,
+   "t0": 2.7189,
+   "t1": 4.028,
+   "words": 3,
+   "speed": 0.875,
+   "text": "with its mountains,"
+  },
+  {
+   "t0": 4.108,
+   "t1": 5.5078,
    "words": 3,
    "speed": 0.875,
    "text": "seas and towns."

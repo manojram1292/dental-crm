@@ -1,0 +1,23 @@
+{
+ "speaker": "jaratkaru",
+ "voice": "bm_george",
+ "speed": 0.8528,
+ "pitch": 1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.26,
+   "words": 3,
+   "speed": 0.853,
+   "text": "Who are you,"
+  },
+  {
+   "t0": 1.34,
+   "t1": 2.6583,
+   "words": 2,
+   "speed": 0.853,
+   "text": "hanging there?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

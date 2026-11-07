@@ -30,6 +30,9 @@
     const r = F.rig(P);
     const po = P.po, k = po.k;
     r.slave = !!po.slave;
+    // (Nov 7, independent review 21–30) standing, her hands hang clasped low in front, arms straight: the old folded-at-
+    // the-waist hands read as a proud hand-on-hip, wrong for a grieving slave mother
+    if (po.name === 'stand' || !po.name) { r.hand = [-60, -430]; r.farHand = [-40, -436]; r.nearKind = 'cup'; r.farKind = 'cup'; r.nearA = 0.9; r.farA = 0.8; }
     if (po.name === 'cradle') { r.hand = along(r.hand, [-120, -600], k); r.farHand = along(r.farHand, [-90, -640], k); r.nearKind = 'cup'; r.farKind = 'cup'; r.look += 0.2 * k; }
     if (po.name === 'reach') { r.hand = along(r.hand, [-320, -380], k); r.nearKind = 'open'; r.nearA = Math.PI / 2 + 0.5; r.lean += 0.35 * k; r.look += 0.3 * k; }
     if (po.name === 'grieve') { r.hand = along(r.hand, [-80, -780], k); r.nearKind = 'open'; r.nearA = -Math.PI / 2 - 0.9; r.lean += 0.12 * k; r.look += 0.25 * k; }

@@ -1,0 +1,283 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "captionBand": {
+    "y": 1400
+  },
+  "episode": 33,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 41–42 (told briefly also at 1.13): Jaratkaru, a great ascetic, celibate, wanders the earth, bathing at holy places, living on air, sleeping wherever evening finds him. He sees his ancestors hanging head-down in a pit, holding on to a single tuft of virana grass, whose last root a rat living in the pit is slowly gnawing. He asks who they are; they say they are the Yayavaras, falling because their line is ending: their one descendant, Jaratkaru, does nothing but austerities and will not have a son. He tells them he is that Jaratkaru. They explain: the grass is their family line, the roots already eaten are those Time has taken, the rat is Time, and the last root is Jaratkaru himself. He agrees to marry for their sake, on conditions: a bride of his own name, given to him freely as alms, and he will not have to support her.",
+  "structure": "From episode 21: COLD OPEN (≤ 8 words, ≤ 3 s; opening chosen by content (not a fixed rotation): a statement card over the image itself: the rat at the root, the card low over the dark of the pit) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band over its first shot → turn at 40–60 % after one ≈ 0.9 s rest → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1. Gate: tools/gate.mjs (run by tools/render.mjs).",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 33",
+    "episodeTitle": "The Ancestors in the Pit",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 32",
+    "prevEpisodeTitle": "Vasuki's Council",
+    "recapLine": "The serpents watched for a sage named Jaratkaru.",
+    "nextEpisodeLabel": "Episode 34",
+    "nextTitle": "The Bride with His Name",
+    "jaratName": "Jaratkaru",
+    "jaratEpithet": "the wandering ascetic",
+    "yayName": "The Yayavaras",
+    "yayEpithet": "his ancestors",
+    "conditions": [
+      "A bride with his name",
+      "Freely given",
+      "Not his to keep"
+    ]
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.12,
+      "text": "A rat was gnawing the last root.",
+      "say": "A rat was gnawing [p:40] the last root.",
+      "est": 2.6,
+      "pre": 60,
+      "post": 1150,
+      "beats": [
+        1,
+        6
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "last",
+        "root."
+      ],
+      "sfx": [
+        "crack",
+        "bell-low@1"
+      ],
+      "note": "COLD OPEN (a statement card over the image, chosen by content): extreme close on a single grass root at the lip of a pit, a rat's teeth working at it from frame 1; far below, pale hanging figures; the card low over the dark."
+    },
+    {
+      "id": "wander",
+      "speed": 1.06,
+      "text": "Jaratkaru wandered the earth, and slept wherever night found him.",
+      "say": "Jaratkaru wandered the earth, [p:100] and slept wherever night found him.",
+      "est": 3.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        4,
+        9
+      ],
+      "sfx": [
+        "wind"
+      ],
+      "note": "STORY 0 with the unvoiced recap band (top): NEW LIGHT, the wilderness at ochre dusk (thorn trees, a dry riverbed): the gaunt ascetic walking, large, low angle; plaque \"Jaratkaru\"; he wanted no wife, no home, no son (a lamp, a hut, a cradle fade past him in the dusk)."
+    },
+    {
+      "id": "pit",
+      "speed": 1.06,
+      "text": "One day he came upon a pit.",
+      "say": "One day [p:60] he came upon a pit.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 200,
+      "beats": [
+        1,
+        6
+      ],
+      "sfx": [
+        "wind@0"
+      ],
+      "note": "STORY 2: NEW LIGHT, top-light: he stands at the lip of a black pit, seen from inside it looking up, a cold shaft of moonlight down past him."
+    },
+    {
+      "id": "hang",
+      "speed": 1.06,
+      "text": "Men hung in it, head down, clinging to one stalk of grass.",
+      "say": "Men hung in it, [p:80] head down, [p:80] clinging to one stalk of grass.",
+      "est": 3.4,
+      "pre": 200,
+      "post": 200,
+      "beats": [
+        2,
+        4,
+        10
+      ],
+      "sfx": [
+        "chord@0"
+      ],
+      "note": "STORY 3: down the shaft: five pale ancestors hang head-down from a single tuft, swaying, their robes falling upward."
+    },
+    {
+      "id": "rat",
+      "speed": 1.04,
+      "text": "And a rat was gnawing at its root.",
+      "say": "And a rat [p:60] was gnawing at its root.",
+      "est": 2.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        2,
+        6
+      ],
+      "sfx": [
+        "crack@1",
+        "crack@1"
+      ],
+      "note": "STORY 4: the rat at the root (the hook's image, from a new angle: side-on, the root in silhouette against the moonlight)."
+    },
+    {
+      "id": "ask",
+      "speaker": "jaratkaru",
+      "speed": 1.04,
+      "text": "\"Who are you, hanging there?\"",
+      "say": "Who are you, [p:80] hanging there?",
+      "est": 2.2,
+      "pre": 250,
+      "post": 200,
+      "beats": [
+        0,
+        4
+      ],
+      "note": "STORY 5 (Jaratkaru speaks): close on the ascetic's face at the lip, lit from below by the ancestors' pale glow."
+    },
+    {
+      "id": "answer",
+      "speaker": "pitrs",
+      "speed": 1.02,
+      "text": "\"We are the Yayavaras. Our last son will not marry.\"",
+      "say": "We are the Yayavaras. [p:200] Our last son will not marry.",
+      "est": 4.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        7,
+        9
+      ],
+      "mixDb": -2,
+      "note": "STORY 6 (the ancestors speak as one): the hanging figures seen upside down from below, against the moon disc at the pit's mouth; plaque \"The Yayavaras\"."
+    },
+    {
+      "id": "iam",
+      "speaker": "jaratkaru",
+      "speed": 1.0,
+      "text": "\"I am that son. I am Jaratkaru.\"",
+      "say": "I am that son. [p:300] I am Jaratkaru.",
+      "est": 2.8,
+      "pre": 900,
+      "post": 350,
+      "beats": [
+        3,
+        6
+      ],
+      "sfx": [
+        "silence",
+        "bell@1"
+      ],
+      "mixDb": 1,
+      "note": "STORY 7 · THE TURN (≈ 50 %): after the 0.9 s silence, the reveal: the camera rises up the shaft to the ascetic's face, frontal, lit; the hanging faces turn up to him."
+    },
+    {
+      "id": "stalk",
+      "speaker": "pitrs",
+      "speed": 1.02,
+      "text": "\"The grass is our line. The rat is time. And you are the last root.\"",
+      "say": "The grass is our line. [p:150] The rat is time. [p:250] And you are the last root.",
+      "est": 4.2,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        6,
+        12
+      ],
+      "sfx": [
+        "bell-low@1",
+        "drum@2"
+      ],
+      "note": "STORY 8: three cuts on the beats: the tuft glowing (the line), the rat in black (time), the single root bright gold (him)."
+    },
+    {
+      "id": "agree",
+      "speaker": "jaratkaru",
+      "speed": 1.02,
+      "text": "\"For your sake, I will marry. On conditions.\"",
+      "say": "For your sake, [p:80] I will marry. [p:250] On conditions.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        6
+      ],
+      "note": "STORY 9 (Jaratkaru speaks): NEW LIGHT, first grey dawn over the pit's rim: he kneels, the ancestors below him lifted a little."
+    },
+    {
+      "id": "terms",
+      "speed": 1.04,
+      "text": "A bride with his own name, freely given, and not his to keep.",
+      "say": "A bride with his own name, [p:100] freely given, [p:100] and not his to keep.",
+      "est": 3.6,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        0,
+        6,
+        9
+      ],
+      "sfx": [
+        "bell@0",
+        "bell@1",
+        "bell@2"
+      ],
+      "note": "STORY 10: three gold lines appear one per beat over the dawn (the conditions as a short list)."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.04,
+      "text": "And one family had been waiting for him: the serpents.",
+      "say": "And one family had been waiting for him: [p:300] the serpents.",
+      "est": 3.6,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        3,
+        9
+      ],
+      "role": "next",
+      "sfx": [
+        "hiss@1"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): the dawn wilderness from behind him; in the thorn scrub at the frame's edges, serpents' heads rise and watch him walk away."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Bride with His Name",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The arc's serpent cartouche over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

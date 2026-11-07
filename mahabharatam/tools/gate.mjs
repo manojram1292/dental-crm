@@ -11,15 +11,38 @@
  * With --frames, also renders the whole episode at 1/8 size (135×240, no motion blur) and fails when any static hold
  * (frames whose 1 s grey-level change stays under 2.0, the scorecard's own rule) lasts longer than 4.0 s.
  *
- * tools/render.mjs runs this gate (with --frames) before rendering; --no-gate skips it (only for re-renders of
+ * From episode 31 (independent review 21–30) also: speech ≤ 2.6 words/s over the voiced lines · at most 2 NEW proper
+ * names (first mentions in the episode; names are the capitalised words of tools/voice.py's NAMES table, plus any
+ * capitalised word that is not the first of a sentence) in any 10 s window · the hook has no undefined pronoun (he, she,
+ * it, they, them, him, her, his, its, their before any name) · the script sets one fixed "captionBand".
+ * With --audio (after tools/mix.py): the mix has a silence ≥ 0.6 s at ≤ −45 dB (silencedetect), LRA ≥ 4 LU, and the Next
+ * window is ≥ 8 dB under the body (ebur128 integrated).
+ *
+ * tools/render.mjs runs this gate (with --frames and --audio, after the score and the mix) before rendering; --no-gate skips it (only for re-renders of
  * episodes made before the gate existed, whose format predates these targets).
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { ROOT, args, openReel } from './lib.mjs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { ROOT, args, openReel, findFfmpeg } from './lib.mjs';
 import { buildTimeline, epTag } from './timeline.mjs';
 
-export async function gate(ep, { lang = 'en', frames = false, fps = 10, quiet = false } = {}) {
+const NAMES = (() => {
+  try { return new Set([...fs.readFileSync(path.join(ROOT, 'tools', 'voice.py'), 'utf8').matchAll(/"([A-Z][A-Za-z]+)(?:'s)?":/g)].map((m) => m[1])); } catch { return new Set(); }
+})();
+const ANCHORS = new Set(['Sauti', 'Next', 'I']);
+const PRONOUNS = /^(he|she|it|they|them|him|her|his|its|their|hers|theirs)$/i;
+
+function ebur(file, ss, to) {
+  const a = ['-hide_banner', '-nostats'];
+  if (ss != null) a.push('-ss', String(ss));
+  if (to != null) a.push('-to', String(to));
+  const r = spawnSync(findFfmpeg(), [...a, '-i', file, '-filter_complex', 'ebur128', '-f', 'null', '-'], { encoding: 'utf8' }).stderr;
+  const sm = r.slice(r.lastIndexOf('Summary'));
+  return { I: +((sm.match(/I:\s+(-?[\d.]+)/) || [])[1] ?? NaN), LRA: +((sm.match(/LRA:\s+(-?[\d.]+)/) || [])[1] ?? NaN) };
+}
+
+export async function gate(ep, { lang = 'en', frames = false, audio = false, fps = 10, quiet = false } = {}) {
   const tag = epTag(ep);
   const tl = buildTimeline(lang, { ep, quiet: true });
   const sc = JSON.parse(fs.readFileSync(path.join(ROOT, 'script', `${tag}.${lang}.json`), 'utf8'));
@@ -46,6 +69,54 @@ export async function gate(ep, { lang = 'en', frames = false, fps = 10, quiet = 
     const pre = SL[L[ti].id].pre ?? 0;
     const rest = L[ti].speechStart - (L[ti - 1]?.speechEnd ?? 0);
     if (pre < 800 && rest < 0.8) fails.push(`no ≥ 0.8 s rest before the turn (pre ${pre} ms, gap ${rest.toFixed(2)} s)`);
+  }
+  if (ep >= 31) {
+    const voiced = L.filter((l) => l.voice);
+    const words = voiced.reduce((n, l) => n + SL[l.id].text.split(/\s+/).filter(Boolean).length, 0);
+    const speech = voiced.reduce((n, l) => n + (l.speechEnd - l.speechStart), 0);
+    info.push(`${(words / speech).toFixed(2)} words/s`);
+    if (words / speech > 2.6) fails.push(`speech rate ${(words / speech).toFixed(2)} words/s (max 2.6)`);
+    // first mentions of proper names, timed by the caption words
+    const seen = new Set(), firsts = [];
+    for (const l of L) {
+      if (!l.words || !l.voice) continue;
+      let sentenceStart = true;
+      for (const w of l.words) {
+        const raw = w.w.replace(/^[^A-Za-z]+/, ''), core = raw.replace(/[^A-Za-z]+$/, '').replace(/'s$/, '');
+        const isName = core && /^[A-Z]/.test(core) && !ANCHORS.has(core) && (NAMES.has(core) || !sentenceStart);
+        if (isName && !seen.has(core)) { seen.add(core); firsts.push([w.t0, core]); }
+        sentenceStart = /[.?!:"”]$/.test(w.w.replace(/["”]$/, '')) || /[.?!]["”]?$/.test(w.w);
+      }
+    }
+    let worst = [];
+    for (const [t] of firsts) { const win = firsts.filter(([u]) => u >= t && u < t + 10); if (win.length > worst.length) worst = win; }
+    info.push(`${firsts.length} names, ≤ ${worst.length} new per 10 s`);
+    if (worst.length > 2) fails.push(`${worst.length} new names within 10 s: ${worst.map((x) => x[1]).join(', ')} (max 2)`);
+    const hw0 = hs.text.replace(/["“”]/g, '').split(/\s+/);
+    // an antecedent is a name, or one of the common nouns a pronoun can safely point back to
+    const NOUNS = /^(sage|king|boy|girl|bird|serpent|serpents|snake|wife|husband|mother|father|son|daughter|man|woman|god|gods|priest|priests|brother|sister|child|healer|bride)$/i;
+    const firstName = hw0.findIndex((w) => (/^[A-Z]/.test(w) && NAMES.has(w.replace(/[^A-Za-z]/g, ''))) || NOUNS.test(w.replace(/[^A-Za-z]/g, '')));
+    const pron = hw0.findIndex((w) => PRONOUNS.test(w.replace(/[^A-Za-z]/g, '')));
+    if (pron >= 0 && (firstName < 0 || pron < firstName)) fails.push(`the hook's "${hw0[pron]}" has no name before it (undefined pronoun)`);
+    if (!sc.captionBand) fails.push('no fixed "captionBand" in the script');
+  }
+  if (audio) {
+    const mixf = path.join(ROOT, 'audio', tag, `mix.${lang}.wav`);
+    if (!fs.existsSync(mixf)) fails.push(`no mix at audio/${tag}/mix.${lang}.wav`);
+    else {
+      const sd = spawnSync(findFfmpeg(), ['-hide_banner', '-nostats', '-i', mixf, '-af', 'silencedetect=noise=-45dB:d=0.6', '-f', 'null', '-'], { encoding: 'utf8' }).stderr;
+      const sil = [...sd.matchAll(/silence_duration: ([\d.]+)/g)].map((m) => +m[1]);
+      const all = ebur(mixf);
+      info.push(`silences ≥ 0.6 s at −45 dB: ${sil.length}${sil.length ? ` (longest ${Math.max(...sil).toFixed(2)} s)` : ''} · LRA ${all.LRA} LU`);
+      if (!sil.length) fails.push('no silence ≥ 0.6 s at ≤ −45 dB in the mix');
+      if (!(all.LRA >= 4)) fails.push(`LRA ${all.LRA} LU (min 4)`);
+      const nxl = L.find((l) => l.id === 'next');
+      if (nxl) {
+        const d = ebur(mixf, nxl.start).I - ebur(mixf, null, nxl.start).I;
+        info.push(`Next ${d.toFixed(1)} dB vs body`);
+        if (!(d <= -8)) fails.push(`Next only ${d.toFixed(1)} dB under the body (min 8)`);
+      }
+    }
   }
   const nx = L.find((l) => l.id === 'next');
   const tail = sc.timing?.tail ?? 0;   // the end card's hold is not part of the Next overlay's own length
@@ -93,6 +164,6 @@ export async function gate(ep, { lang = 'en', frames = false, fps = 10, quiet = 
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const a = args();
-  const r = await gate(+(a.ep || 1), { lang: a.lang || 'en', frames: !!a.frames, fps: +(a.fps || 10) });
+  const r = await gate(+(a.ep || 1), { lang: a.lang || 'en', frames: !!a.frames, audio: !!a.audio, fps: +(a.fps || 10) });
   process.exitCode = r.ok ? 0 : 1;
 }

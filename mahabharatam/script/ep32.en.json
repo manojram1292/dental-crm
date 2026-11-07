@@ -1,0 +1,310 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "episode": 32,
+  "captionBand": {
+    "y": 1400
+  },
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 33–35: Vasuki, hearing his mother's curse, calls his brothers to council: how can the curse be escaped? Some serpents say: let us become brahmins and beg Janamejaya not to hold the sacrifice; some, let us become his ministers and counsel against it; some, let us bite the chief priest; some, let us become clouds and pour rain on the fire; some, let us steal the sacrificial ladles by night. Vasuki rejects these. Then Elapatra speaks (1.34): when their mother cursed them he was in her lap and heard the gods ask Brahma how he could allow it; Brahma answered that only the wicked serpents would perish, and that the sage Jaratkaru would marry a woman of the same name, and their son Astika would free the virtuous serpents. The serpents rejoice (1.35); Vasuki, who has a sister named Jaratkaru, sets serpents to watch the sage.",
+  "structure": "From episode 21: COLD OPEN (≤ 8 words, ≤ 3 s; opening chosen by content (not a fixed rotation): a question over the council in the dark, the card at the top over the vault) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band over its first shot → turn at 40–60 % after one ≈ 0.9 s rest → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1. Gate: tools/gate.mjs (run by tools/render.mjs).",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 32",
+    "episodeTitle": "Vasuki's Council",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 31",
+    "prevEpisodeTitle": "Shesha Holds the Earth",
+    "recapLine": "Shesha left to hold the earth. Vasuki stayed.",
+    "nextEpisodeLabel": "Episode 33",
+    "nextTitle": "The Ancestors in the Pit",
+    "vasukiName": "Vasuki",
+    "vasukiEpithet": "king of the serpents",
+    "elapatraName": "Elapatra",
+    "elapatraEpithet": "a young serpent",
+    "jaratName": "Jaratkaru",
+    "jaratEpithet": "a wandering sage"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.12,
+      "text": "How do you escape your own mother's curse?",
+      "say": "How do you escape [p:40] your own mother's curse?",
+      "est": 2.8,
+      "pre": 60,
+      "post": 1150,
+      "beats": [
+        3,
+        7
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "escape",
+        "curse?"
+      ],
+      "sfx": [
+        "hiss",
+        "bell-low@1"
+      ],
+      "note": "COLD OPEN (question card over the answer's place, moving from frame 1): looking down into Vasuki's hall from the vault: a ring of serpents' heads around a jewel-fire, the camera sinking toward them; the card at the top."
+    },
+    {
+      "id": "council",
+      "speed": 1.06,
+      "text": "Vasuki called his brothers to council.",
+      "say": "Vasuki [p:60] called his brothers to council.",
+      "est": 2.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        5
+      ],
+      "sfx": [
+        "hiss",
+        "drum@1"
+      ],
+      "mixDb": -1,
+      "note": "STORY 0 with the unvoiced recap band (top): NEW LIGHT, the hall lit by a central jewel-fire (ember-red under violet): Vasuki large in the centre, plaque \"Vasuki\"."
+    },
+    {
+      "id": "brahmins",
+      "speaker": "nagas",
+      "speed": 1.04,
+      "text": "\"Let us become brahmins, and beg the king to stop.\"",
+      "say": "Let us become brahmins, [p:80] and beg the king to stop.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 200,
+      "beats": [
+        2,
+        6,
+        9
+      ],
+      "sfx": [
+        "hiss@0"
+      ],
+      "note": "STORY 1 (one serpent speaks): a VISION PANEL opens in the jewel-fire's smoke: serpents in brahmins' white, bowing before a throne."
+    },
+    {
+      "id": "bite",
+      "speaker": "nagas",
+      "speed": 1.06,
+      "text": "\"Let us bite the chief priest.\"",
+      "say": "Let us bite [p:60] the chief priest.",
+      "est": 2.0,
+      "pre": 150,
+      "post": 200,
+      "beats": [
+        2,
+        4
+      ],
+      "sfx": [
+        "hiss@0",
+        "crack@1"
+      ],
+      "note": "STORY 2 (another): the panel turns: a serpent strikes at a priest's silhouette (stylised)."
+    },
+    {
+      "id": "clouds",
+      "speaker": "nagas",
+      "speed": 1.04,
+      "text": "\"Let us be clouds, and rain on the fire.\"",
+      "say": "Let us be clouds, [p:80] and rain on the fire.",
+      "est": 2.6,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        3,
+        7
+      ],
+      "sfx": [
+        "rain@1",
+        "thunder@1"
+      ],
+      "note": "STORY 3 (another): the panel turns: dark clouds with serpent tails pour rain on the sacrificial fire."
+    },
+    {
+      "id": "no",
+      "speaker": "vasuki",
+      "speed": 1.04,
+      "text": "\"No. Each plan is a crime, or a dream.\"",
+      "say": "No. [p:250] Each plan is a crime, [p:80] or a dream.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        0,
+        5,
+        8
+      ],
+      "sfx": [
+        "drum@0"
+      ],
+      "note": "STORY 4 (Vasuki speaks): close and low on Vasuki's hood (a single hood: no hand), the visions blown out of the smoke."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.06,
+      "text": "Then the youngest voice in the hall spoke.",
+      "say": "Then the youngest voice [p:60] in the hall spoke.",
+      "est": 2.6,
+      "pre": 300,
+      "post": 250,
+      "beats": [
+        3,
+        7
+      ],
+      "mixDb": -5,
+      "note": "FRAME (Sauti, a twenty-first angle: a high three-quarter view from behind the fire, Sauti's face lit, the sages as a dark ring below)."
+    },
+    {
+      "id": "elapatra",
+      "speaker": "elapatra",
+      "speed": 1.04,
+      "text": "\"I heard Brahma speak of this, from our mother's lap.\"",
+      "say": "I heard Brahma speak of this, [p:100] from our mother's lap.",
+      "est": 3.2,
+      "pre": 900,
+      "post": 300,
+      "beats": [
+        0,
+        3,
+        8
+      ],
+      "sfx": [
+        "silence",
+        "bell@0"
+      ],
+      "note": "STORY 5 · THE TURN (≈ 45 %): after the 0.9 s silence, Elapatra, a slender silver-teal serpent, rises out of the crowd into the jewel-light; plaque \"Elapatra\"."
+    },
+    {
+      "id": "memory",
+      "speed": 1.06,
+      "text": "The gods had asked Brahma why he let the curse stand.",
+      "say": "The gods had asked Brahma [p:60] why he let the curse stand.",
+      "est": 3.2,
+      "pre": 250,
+      "post": 200,
+      "beats": [
+        2,
+        4,
+        10
+      ],
+      "sfx": [
+        "chord@0"
+      ],
+      "note": "STORY 6: NEW LIGHT, the memory in silver-blue: Brahma on his lotus in a cold moonlit court, the gods below him as small luminous figures; a serpent child in the corner."
+    },
+    {
+      "id": "brahma",
+      "speaker": "brahma",
+      "speed": 1.1,
+      "text": "\"A sage named Jaratkaru will marry a girl of his own name.\"",
+      "say": "A sage named Jaratkaru [p:80] will marry a girl [p:40] of his own name.",
+      "est": 3.6,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        5,
+        8
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 7 (Brahma speaks, in the memory): Brahma large, frontal, his lower hand raised; two small linked medallions appear: a gaunt sage, a girl with a serpent crown."
+    },
+    {
+      "id": "astika",
+      "speaker": "brahma",
+      "speed": 1.08,
+      "text": "\"Their son will save the good serpents.\"",
+      "say": "Their son [p:60] will save the good serpents.",
+      "est": 2.6,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        1,
+        6
+      ],
+      "sfx": [
+        "bansuri@0",
+        "bell@1"
+      ],
+      "note": "STORY 8: a third medallion between the two: a small boy, lit gold; the serpents' eyes all turn to it."
+    },
+    {
+      "id": "sister",
+      "speed": 1.04,
+      "text": "And Vasuki had a sister. Her name was Jaratkaru.",
+      "say": "And Vasuki had a sister. [p:300] Her name was Jaratkaru.",
+      "est": 3.4,
+      "pre": 300,
+      "post": 350,
+      "beats": [
+        4,
+        8
+      ],
+      "sfx": [
+        "bell@1",
+        "chord@1"
+      ],
+      "mixDb": 1,
+      "note": "STORY 9: back in the hall at full warmth: Vasuki turns to his sister, a young naga woman with a single-hood crown, at the edge of the light; she looks up."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.04,
+      "text": "So the serpents watched for Jaratkaru, a sage who never wanted a wife.",
+      "say": "So the serpents watched for Jaratkaru, [p:150] a sage who never wanted a wife.",
+      "est": 4.2,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        3,
+        6,
+        11
+      ],
+      "role": "next",
+      "sfx": [
+        "hiss@0",
+        "bell-low@2"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): NEW LIGHT, a forest at night in teal moonlight: serpents' eyes glint in the roots and branches; far off, a gaunt ascetic walks alone along a path."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Ancestors in the Pit",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The short Next (the arc's serpent cartouche) over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

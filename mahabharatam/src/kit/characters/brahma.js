@@ -109,7 +109,7 @@
   const bible = {
     name: 'Brahma, the Grandfather',
     role: 'The creator, the gods\' counsel on Meru; he lets Kadru\'s curse stand and gives Kashyapa the cure for poison (CE 1.15–18).',
-    palette: { fill: '#16100a', lit: '#3a2c18', inner: '#5a4220', rimDim: '#f2dcb0', rimBright: '#fffaf0', ornamentDim: '#e8b860', ornament: '#fff4d0', lotus: '#e07a98' },
+    palette: { fill: '#16100a', lit: '#b89870', inner: '#5a4220', rimDim: '#f2dcb0', rimBright: '#fffaf0', ornamentDim: '#e8b860', ornament: '#fff4d0', lotus: '#e07a98' },
     proportions: 'Frontal and seated: ≈ 1100 units from the base of the lotus to the crowns; four faces (three seen), four arms.',
     props: ['four faces with tall jata-mukutas', 'long white beard', 'rosary (upper right)', 'palm-leaf Veda (upper left)', 'kamandalu (lower left)', 'a great pink lotus seat'],
     light: 'Lotus-ivory: rim #f2dcb0 → #fffaf0 (paler than Sauti\'s fire-gold), glow 0.75, ornaments #e8b860 → #fff4d0; the lotus glows rose-pink.',
@@ -120,7 +120,7 @@
   CH.define({
     id: 'brahma', bible, rig, shape, ornaments, before, defaultPose: 'sit',
     rule: {
-      fill: '#16100a', lit: '#3a2c18', litGain: 0.8,
+      fill: '#16100a', lit: '#b89870', litGain: 0.8,
       rim: ['#f2dcb0', '#fffaf0'], inner: '#5a4220', innerA: [0.85, 0.5], glow: 0.75,
       ornament: ['#e8b860', '#fff4d0'], ornamentA: [0.6, 0.95],
     },

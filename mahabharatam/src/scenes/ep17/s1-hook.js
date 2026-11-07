@@ -15,8 +15,8 @@
       EP17.sunset(ctx, T, {
         cam: { zoom: 1.0 + 0.08 * E.inOutSine(p) },
         after: (g) => {
-          CH.kadru.draw(g, { x: 170, y: 1580, scale: 0.42, facing: 'right', pose: { name: 'point', k: 1 }, light: EP17.sunLight(170, 1580), t: T, key: 'h17-kd' });
-          CH.vinata.draw(g, { x: 380, y: 1580, scale: 0.4, facing: 'left', pose: 'stand', light: EP17.sunLight(380, 1580), t: T, key: 'h17-vn' });
+          CH.kadru.draw(g, { x: 690, y: 1385, scale: 0.29, facing: 'right', pose: { name: 'point', k: 1 }, light: { ...EP17.sunLight(690, 1385), fill: 0.35 }, t: T, key: 'h17-kd' });   // Nov 7: moved clear of the horse's head (they merged)
+          CH.vinata.draw(g, { x: 860, y: 1385, scale: 0.28, facing: 'left', pose: 'stand', light: { ...EP17.sunLight(860, 1385), fill: 0.35 }, t: T, key: 'h17-vn' });
           CH.horse.draw(g, { x: 450, y: 1960, scale: 0.68, facing: 'left', pose: { name: 'stand', tail: 0.15 + 0.6 * E.inOutSine(p), wind: 1.2 }, light: EP17.sunLight(430, 1980, 1.05), t: T, key: 'h17-ho' });
         },
       });

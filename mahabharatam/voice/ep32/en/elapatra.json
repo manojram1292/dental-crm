@@ -1,0 +1,23 @@
+{
+ "speaker": "elapatra",
+ "voice": "af_river",
+ "speed": 0.8736,
+ "pitch": -1,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9703,
+   "words": 6,
+   "speed": 0.874,
+   "text": "I heard Brahma speak of this,"
+  },
+  {
+   "t0": 2.0703,
+   "t1": 3.522,
+   "words": 4,
+   "speed": 0.874,
+   "text": "from our mother's lap."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

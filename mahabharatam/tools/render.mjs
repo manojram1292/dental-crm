@@ -34,14 +34,14 @@ const py = process.env.PYTHON || 'python3';
 
 // 1. Timeline, 2. score (cached by timeline signature + score source), 3. mix.
 const tl = buildTimeline(lang, { ep });
-// 0. The pre-render gate (tools/gate.mjs): hook ≤ 8 w / ≤ 3.0 s, story ≤ 5 s, turn 40–60 %, ≤ 59 s, Next ≤ 1.2 s, no static
-// hold > 4 s (a 1/8-size pass). --no-gate only for re-renders of episodes made before the gate.
-if (!a['no-gate']) {
-  const g = await gate(ep, { lang, frames: true });
-  if (!g.ok) { console.error(`render refused by the gate: ${g.fails.join('; ')}`); process.exit(1); }
-}
 if (!a['no-score']) execFileSync(py, [path.join(ROOT, 'tools/score.py'), '--ep', String(ep), '--lang', lang], { stdio: 'inherit' });
 execFileSync(py, [path.join(ROOT, 'tools/mix.py'), '--ep', String(ep), '--lang', lang], { stdio: 'inherit' });
+// 4. The pre-render gate (after the score and the mix, before any final frame) (tools/gate.mjs): hook ≤ 8 w / ≤ 3.0 s, story ≤ 5 s, turn 40–60 %, ≤ 59 s, Next ≤ 1.2 s, no static
+// hold > 4 s (a 1/8-size pass). --no-gate only for re-renders of episodes made before the gate.
+if (!a['no-gate']) {
+  const g = await gate(ep, { lang, frames: true, audio: true });
+  if (!g.ok) { console.error(`render refused by the gate: ${g.fails.join('; ')}`); process.exit(1); }
+}
 const audio = path.join(ROOT, 'audio', tag, `mix.${lang}.wav`);
 
 const reel = await openReel({ scale, pages: workers, lang, ep });

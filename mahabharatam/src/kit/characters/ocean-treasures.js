@@ -132,7 +132,7 @@
   const defs = [
     { id: 'chandra', name: 'Chandra (Soma), the Moon', role: 'The first wonder to rise from the churned ocean, cool and bright (CE 1.16).', opt: { crown: 'crescent', lotuses: true }, before: discBefore('#dfe8ff', 'rgba(220,232,255,0.7)', 470),
       pal: { fill: '#0c1420', lit: '#2a3a58', inner: '#3a4a70', rimDim: '#c8dcff', rimBright: '#ffffff', ornamentDim: '#dfe8ff', ornament: '#ffffff' },
-      rule: { fill: '#0c1420', lit: '#2a3a58', litGain: 0.8, rim: ['#c8dcff', '#ffffff'], inner: '#3a4a70', innerA: [0.85, 0.5], glow: 1.0, ornament: ['#dfe8ff', '#ffffff'], ornamentA: [0.7, 1.0] },
+      rule: { fill: '#9aaccc', lit: '#e8f0ff', litGain: 0.9, rim: ['#dfe8ff', '#ffffff'], inner: '#c4d2ee', innerA: [0.45, 0.25], glow: 1.1, ornament: ['#b89a50', '#fff2c0'], ornamentA: [0.75, 1.0] },   // Nov 7: LUMINOUS (was a dark figure, fill #0c1420)
       light: 'Moon-silver: rim #c8dcff → #ffffff, glow 1.0, a great silver disc behind: the Sun\'s counterpart.', props: ['a silver disc behind him', 'a crescent at the crown', 'a white lotus in each raised hand'], voice: null, bounds: [-640, -1340, 640, 30] },
     { id: 'lakshmi', name: 'Shri (Lakshmi), goddess of fortune', role: 'She rises from the churned ocean in white garments (CE 1.16).', opt: { fem: true, crown: 'karanda', lotuses: true }, before: (ctx, P, r, k) => lotusSeat(ctx, P, k),
       pal: { fill: '#e8dcd0', lit: '#fff8f0', inner: '#f4ece4', rimDim: '#ffb0a0', rimBright: '#fff4ec', ornamentDim: '#e0a840', ornament: '#fff0c0', lotus: '#e88aa8' },

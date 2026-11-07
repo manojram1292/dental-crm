@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8586000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1144,
+   "words": 4,
+   "speed": 0.859,
+   "text": "Men hung in it,"
+  },
+  {
+   "t0": 1.1944,
+   "t1": 2.1561,
+   "words": 2,
+   "speed": 0.859,
+   "text": "head down,"
+  },
+  {
+   "t0": 2.2361,
+   "t1": 4.2584,
+   "words": 6,
+   "speed": 0.859,
+   "text": "clinging to one stalk of grass."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

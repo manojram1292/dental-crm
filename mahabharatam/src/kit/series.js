@@ -511,8 +511,18 @@
         const k = E.outCubic(clamp(t / 0.3));
         const y = def.y ?? 1180, cx = KIT.CX, S = env.strings;
         ctx.save(); ctx.globalAlpha = k;
-        ctx.fillStyle = 'rgba(10,6,5,0.78)'; ctx.fillRect(0, y - 70, R.W, 140);
-        ctx.fillStyle = 'rgba(216,168,80,0.9)'; ctx.fillRect(0, y - 70, R.W, 3); ctx.fillRect(0, y + 67, R.W, 3);
+        if (def.style === 'serpent') {
+          // the Astika arc's own Next (eps 31–40): a lapis cartouche whose border is a serpent biting its tail
+          const w = 760, h = 170, x0 = cx - w / 2;
+          ctx.fillStyle = 'rgba(12,8,30,0.86)'; ctx.beginPath(); ctx.roundRect(x0, y - 80, w, h, 85); ctx.fill();
+          ctx.strokeStyle = 'rgba(160,140,255,0.95)'; ctx.lineWidth = 9; ctx.setLineDash([26, 10]); ctx.lineDashOffset = -env.T * 40;
+          ctx.beginPath(); ctx.roundRect(x0 + 10, y - 70, w - 20, h - 20, 75); ctx.stroke(); ctx.setLineDash([]);
+          ctx.fillStyle = '#ece8ff'; ctx.beginPath(); ctx.ellipse(x0 + 30, y + 5, 22, 15, 0, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = '#ff2a5a'; ctx.beginPath(); ctx.arc(x0 + 22, y, 4, 0, Math.PI * 2); ctx.fill();
+        } else {
+          ctx.fillStyle = 'rgba(10,6,5,0.78)'; ctx.fillRect(0, y - 70, R.W, 140);
+          ctx.fillStyle = 'rgba(216,168,80,0.9)'; ctx.fillRect(0, y - 70, R.W, 3); ctx.fillRect(0, y + 67, R.W, 3);
+        }
         ctx.restore();
         KIT.goldText(ctx, `${str(S, 'nextLabel').toUpperCase()} ›`, cx, y - 8 + (1 - k) * 20, { size: 46, spacing: 8, weight: 700, alpha: k, glow: 0.2, key: 'ovn-next' });
         ctx.save(); ctx.globalAlpha = k; ctx.textAlign = 'center'; ctx.font = R.font(42, 'caption', 600); ctx.fillStyle = PAL.cream;

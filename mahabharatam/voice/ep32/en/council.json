@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8586000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9447,
+   "words": 1,
+   "speed": 0.859,
+   "text": "Vasuki"
+  },
+  {
+   "t0": 1.0047,
+   "t1": 2.8895,
+   "words": 5,
+   "speed": 0.859,
+   "text": "called his brothers to council."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

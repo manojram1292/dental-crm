@@ -11,8 +11,12 @@ From the rendered video (episodeNN-share.mp4, decoded at 10 fps, 135×240 grey):
   motion by 0.5 s (mean |frame(0.5 s) − frame(0)|, 0–255) · longest static hold (s: the longest run of
   frames whose 1 s change stays under the threshold) · repeated compositions: line-midpoint stills compared
   by a 16×16 difference hash against the previous --prev episodes (pairs at Hamming distance ≤ 30 of 240)
-  · loudness (ebur128 integrated LUFS, true peak dBTP) · the Next card's loudness relative to the rest
   · share size (MB)
+Every AUDIO number is measured on the final mp4 (episodeNN.mp4), never on the timeline (correction of Nov 7, after the
+independent review of eps 21–30): ebur128 integrated LUFS, true peak, LRA · silencedetect at −45 dB for ≥ 0.6 s (count,
+longest) · the Next window's integrated loudness (ebur128 on [next.start, end]) against the body's ([0, next.start]).
+REPEATS also compare the 0.5 s, 3 s and last frames of the episode with those of the previous --prev episodes by a 64-bit
+perceptual hash (DCT pHash; a pair at Hamming ≤ 10 of 64 is a repeat), besides the line-midpoint dHash.
 """
 import json, os, subprocess, sys
 import numpy as np
@@ -38,6 +42,39 @@ def dhash(img):
     ys, xs = np.linspace(0, h, 17).astype(int), np.linspace(0, w, 18).astype(int)
     m = np.array([[img[ys[i]:ys[i + 1], xs[j]:xs[j + 1]].mean() for j in range(17)] for i in range(16)])
     return (m[:, 1:] > m[:, :-1]).flatten()
+
+
+def phash(img):
+    # 64-bit DCT perceptual hash on a 32×32 block mean
+    from scipy.fft import dctn
+    h, w = img.shape
+    ys, xs = np.linspace(0, h, 33).astype(int), np.linspace(0, w, 33).astype(int)
+    m = np.array([[img[ys[i]:ys[i + 1], xs[j]:xs[j + 1]].mean() for j in range(32)] for i in range(32)])
+    d = dctn(m, norm='ortho')[:8, :8].flatten()
+    return d[1:] > np.median(d[1:])
+
+
+def keyframes(F):
+    return {'0.5s': F[min(len(F) - 1, 5)], '3s': F[min(len(F) - 1, 30)], 'last': F[-1]}
+
+
+def ebur(path, ss=None, to=None):
+    a = [FF, '-hide_banner', '-nostats']
+    if ss is not None:
+        a += ['-ss', str(ss)]
+    if to is not None:
+        a += ['-to', str(to)]
+    r = subprocess.run(a + ['-i', path, '-vn', '-filter_complex', 'ebur128=peak=true', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    summ, o = r[r.rfind('Summary'):], {}
+    for ln in summ.splitlines():
+        ln = ln.strip()
+        if ln.startswith('I:'):
+            o['I'] = float(ln.split()[1])
+        elif ln.startswith('LRA:'):
+            o['LRA'] = float(ln.split()[1])
+        elif ln.startswith('Peak:'):
+            o['TP'] = float(ln.split()[1])
+    return o
 
 
 def video_for(e):
@@ -99,20 +136,33 @@ if v:
                 if d <= 30:
                     reps.append(f'{i}~ep{e}.{j}({d})')
     out['repeats'] = reps
-    r = subprocess.run([FF, '-hide_banner', '-nostats', '-i', os.path.join(ROOT, f'episode{ep:02d}.mp4') if os.path.exists(os.path.join(ROOT, f'episode{ep:02d}.mp4')) else v, '-filter_complex', 'ebur128=peak=true', '-f', 'null', '-'], capture_output=True, text=True).stderr
-    summ = r[r.rfind('Summary'):]
-    for ln in summ.splitlines():
-        ln = ln.strip()
-        if ln.startswith('I:'):
-            out['lufs'] = float(ln.split()[1])
-        if ln.startswith('Peak:'):
-            out['true_peak'] = float(ln.split()[1])
+    mp4 = os.path.join(ROOT, f'episode{ep:02d}.mp4') if os.path.exists(os.path.join(ROOT, f'episode{ep:02d}.mp4')) else v
+    a = ebur(mp4)
+    out['lufs'], out['true_peak'], out['lra'] = a.get('I'), a.get('TP'), a.get('LRA')
+    sd = subprocess.run([FF, '-hide_banner', '-nostats', '-i', mp4, '-vn', '-af', 'silencedetect=noise=-45dB:d=0.6', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    sil = [float(x.split('silence_duration:')[1].split()[0]) for x in sd.splitlines() if 'silence_duration:' in x]
+    out['silences_45db'] = len(sil)
+    out['longest_silence'] = round(max(sil), 2) if sil else 0.0
     nx = next((l for l in L if l['id'] == 'next'), None)
     if nx:
-        r2 = subprocess.run([FF, '-hide_banner', '-nostats', '-ss', str(nx['start'] + 0.3), '-i', v, '-af', 'volumedetect', '-f', 'null', '-'], capture_output=True, text=True).stderr
-        r3 = subprocess.run([FF, '-hide_banner', '-nostats', '-t', str(nx['start']), '-i', v, '-af', 'volumedetect', '-f', 'null', '-'], capture_output=True, text=True).stderr
-        mv = lambda s: float(s.split('mean_volume:')[1].split('dB')[0]) if 'mean_volume:' in s else None  # noqa: E731
-        a, b = mv(r2), mv(r3)
-        out['next_vs_body_db'] = round(a - b, 1) if a is not None and b is not None else None
+        body, nxt = ebur(mp4, to=nx['start']), ebur(mp4, ss=nx['start'])
+        out['next_vs_body_db'] = round(nxt['I'] - body['I'], 1) if 'I' in nxt and 'I' in body else None
+    # repeats on the key frames (0.5 s, 3 s, last) by pHash
+    kr, mk, dmin = [], {k: phash(f) for k, f in keyframes(F).items()}, 64
+    for e in range(max(1, ep - prev), ep):
+        pv = video_for(e)
+        if not pv:
+            continue
+        G = frames(pv)
+        for k2, f2 in keyframes(G).items():
+            h2 = phash(f2)
+            for k1, h1 in mk.items():
+                d = int((h1 != h2).sum())
+                if k1 == k2:
+                    dmin = min(dmin, d)
+                if d <= 10:
+                    kr.append(f'{k1}~ep{e}.{k2}({d})')
+    out['key_repeats'] = kr
+    out['key_min_dist'] = dmin   # the smallest pHash distance between same-slot key frames (0.5 s / 3 s / last) and the previous episodes: higher = more varied
     out['share_mb'] = round(os.path.getsize(os.path.join(ROOT, f'episode{ep:02d}-share.mp4')) / 1e6, 1) if os.path.exists(os.path.join(ROOT, f'episode{ep:02d}-share.mp4')) else None
 print(json.dumps(out, ensure_ascii=False) if '--json' in args else '\n'.join(f'{k}: {v}' for k, v in out.items()))

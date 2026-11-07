@@ -47,7 +47,7 @@
   "speed": 0.74,
   "pitch": -2,
   "g2p": "en-gb",
-  "notes": "Reserved."
+  "notes": "Episode 33: the Yayavaras, Jaratkaru's ancestors, as one voice (bm_daniel −2 st, slow)."
  },
  "sages": {
   "voice": "am_onyx",
@@ -300,5 +300,33 @@
   "pitch": -3,
   "g2p": "en-us",
   "notes": "Episode 31+: Shesha (Ananta), the eldest serpent. am_echo lowered 3 st (Ganesha 0, Aruna +2.5): calm, deep, kind; never Takshaka's cold am_fenrir."
+ },
+ "vasuki": {
+  "voice": "am_onyx",
+  "speed": 0.8,
+  "pitch": -1.5,
+  "g2p": "en-us",
+  "notes": "Episode 32+: Vasuki, king of the serpents. am_onyx lowered 1.5 st: heavy, worried, kingly (the asuras' am_onyx is −2.5 and slower)."
+ },
+ "elapatra": {
+  "voice": "af_river",
+  "speed": 0.84,
+  "pitch": -1,
+  "g2p": "en-us",
+  "notes": "Episode 32: Elapatra, the young serpent who remembers Brahma's words. af_river lowered 1 st: light, clear, apart from the serpents' chorus (af_nicole −2)."
+ },
+ "jaratkaru": {
+  "voice": "bm_george",
+  "speed": 0.82,
+  "pitch": 1.5,
+  "g2p": "en-gb",
+  "notes": "Episode 32+: Jaratkaru the ascetic. bm_george raised 1.5 st (Vyasa −2.5, Brihaspati −1.5, Surya −1, Shamika 0): lean, dry, exact."
+ },
+ "nagini": {
+  "voice": "af_kore",
+  "speed": 0.82,
+  "pitch": -0.5,
+  "g2p": "en-us",
+  "notes": "Episode 34+: Jaratkaru, Vasuki's sister, the sage's bride, Astika's mother. af_kore lowered 0.5 st: warm and steady; apart from Kadru (bf_alice) and Vinata (bf_lily)."
  }
 }

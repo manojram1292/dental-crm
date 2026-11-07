@@ -1,0 +1,30 @@
+{
+ "speaker": "vasuki",
+ "voice": "am_onyx",
+ "speed": 0.8320000000000001,
+ "pitch": -1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.6376,
+   "words": 1,
+   "speed": 0.832,
+   "text": "No."
+  },
+  {
+   "t0": 0.8876,
+   "t1": 2.6707,
+   "words": 5,
+   "speed": 0.832,
+   "text": "Each plan is a crime,"
+  },
+  {
+   "t0": 2.7507,
+   "t1": 4.0951,
+   "words": 3,
+   "speed": 0.832,
+   "text": "or a dream."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

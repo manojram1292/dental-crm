@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8586000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.8619,
+   "words": 2,
+   "speed": 0.859,
+   "text": "One day"
+  },
+  {
+   "t0": 0.9219,
+   "t1": 2.4577,
+   "words": 5,
+   "speed": 0.859,
+   "text": "he came upon a pit."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

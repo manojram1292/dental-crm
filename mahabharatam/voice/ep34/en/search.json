@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8586000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.8583,
+   "words": 4,
+   "speed": 0.859,
+   "text": "Jaratkaru searched the world,"
+  },
+  {
+   "t0": 1.9583,
+   "t1": 3.3887,
+   "words": 4,
+   "speed": 0.859,
+   "text": "and found no bride."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -64,8 +64,15 @@
     g.lineWidth = 8; g.beginPath(); g.moveTo(-190, -365); g.quadraticCurveTo(-150, -385, -100, -360); g.stroke();
     for (let i = 0; i < 4; i++) { g.beginPath(); g.arc(-120 + i * 52, -470 - i * 13, 9, 0, TAU); g.fill(); }
     // the neck ends in a band of white fire: the stroke of the discus, not a wound
-    g.save(); g.globalAlpha = a; g.strokeStyle = '#fff4e0'; g.shadowColor = '#ffd890'; g.shadowBlur = R.px(26 * P.s); g.lineWidth = 22; g.lineCap = 'round';
-    g.beginPath(); g.moveTo(-170, -58); g.bezierCurveTo(-60, 0, 80, 10, 200, -40); g.stroke(); g.restore();
+    // (Nov 7 fix: the old U-shaped stroke read as a grin, and flame spikes read as teeth.) Now a FLAT soft seam of white
+    // light, slightly arched (the clean stroke of the discus), with a few smoke wisps trailing down and back: no edge a
+    // viewer can take for a mouth.
+    g.save(); g.globalAlpha = a; g.fillStyle = '#fff4e0'; g.shadowColor = '#ffc070'; g.shadowBlur = R.px(34 * P.s);
+    g.beginPath(); g.ellipse(10, -52, 185, 13, -0.04, 0, TAU); g.fill();
+    g.shadowBlur = 0; const ph = r.T || 0;
+    g.strokeStyle = 'rgba(150,140,150,0.55)'; g.lineWidth = 10; g.lineCap = 'round';
+    for (let i = 0; i < 4; i++) { const x = -110 + i * 90, u = (ph * 0.6 + i * 0.27) % 1; g.globalAlpha = a * (1 - u) * 0.8; g.beginPath(); g.moveTo(x, -40); g.bezierCurveTo(x + 30, -10 + u * 40, x + 60 + 20 * Math.sin(ph + i), 30 + u * 80, x + 110, 60 + u * 120); g.stroke(); }
+    g.restore();
   }
 
   function before(ctx, P, r, k) {

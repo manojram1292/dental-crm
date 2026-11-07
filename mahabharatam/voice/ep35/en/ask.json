@@ -1,0 +1,23 @@
+{
+ "speaker": "elder_sage",
+ "voice": "bm_lewis",
+ "speed": 0.8162,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7571,
+   "words": 5,
+   "speed": 0.816,
+   "text": "And what did she choose,"
+  },
+  {
+   "t0": 1.8371,
+   "t1": 2.7309,
+   "words": 1,
+   "speed": 0.816,
+   "text": "Sauti?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

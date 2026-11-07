@@ -13,6 +13,11 @@
  * A line with "captionY": <px> sets the caption block's bottom baseline (default 1488), so a
  * shot whose key action is low can lift the caption above it (e.g. 560: upper third, still
  * inside SAFE). "captionY" can also be "high" (= 560). Episodes 1–6 use the default.
+ *
+ * THE FIXED BAND (episode 31 on; independent review 21–30, item 7): a script with "captionBand": { "y": 1400 } puts every
+ * caption in ONE place (captionY is ignored: the shots are composed around the band), in a bolder upright face (700),
+ * with the WHOLE line shown at full contrast from its first word (no dim, unrevealed words); the word being spoken
+ * warms to white-gold. The scrim is darker (≥ 4.5:1 for cream on it, even over white skies).
  */
 (function () {
   'use strict';
@@ -29,7 +34,7 @@
     let lay = layouts.get(key);
     if (lay) return lay;
     ctx.save();
-    ctx.font = R.font(CFG.size, 'caption', CFG.weight);
+    ctx.font = R.font(CFG.size, 'caption', R.script && R.script.captionBand ? 700 : CFG.weight);
     const space = ctx.measureText(' ').width;
     const emph = (L.emphasis || []).map(core);
     const rows = [[]];
@@ -54,19 +59,21 @@
     const tIn = L.speechStart - 0.08, tOut = L.end - 0.08;
     const vis = clamp((T - tIn) / 0.2) * (1 - clamp((T - (tOut - 0.28)) / 0.28));
     if (vis <= 0.001) return;
+    const BAND = R.script && R.script.captionBand;
     const lay = layout(ctx, L);
     const n = lay.rows.length;
-    const bottom = L.captionY === 'high' ? 560 : (typeof L.captionY === 'number' ? L.captionY : CFG.bottom);
+    const bottom = BAND ? BAND.y : L.captionY === 'high' ? 560 : (typeof L.captionY === 'number' ? L.captionY : CFG.bottom);
     const top = bottom - (n - 1) * CFG.lineH;
     // painted scrim behind the caption block
     ctx.save();
-    ctx.globalAlpha = vis * 0.78;
+    ctx.globalAlpha = vis * (BAND ? 0.95 : 0.78);
     const g = ctx.createLinearGradient(0, top - 200, 0, bottom + 110);
-    g.addColorStop(0, 'rgba(10,7,6,0)'); g.addColorStop(0.45, 'rgba(10,7,6,0.62)'); g.addColorStop(0.8, 'rgba(10,7,6,0.62)'); g.addColorStop(1, 'rgba(10,7,6,0)');
+    const sa = BAND ? 0.8 : 0.62;
+    g.addColorStop(0, 'rgba(10,7,6,0)'); g.addColorStop(0.45, `rgba(10,7,6,${sa})`); g.addColorStop(0.8, `rgba(10,7,6,${sa})`); g.addColorStop(1, 'rgba(10,7,6,0)');
     ctx.fillStyle = g; ctx.fillRect(0, top - 200, R.W, bottom + 110 - (top - 200));
     ctx.restore();
     ctx.save();
-    ctx.font = R.font(CFG.size, 'caption', CFG.weight);
+    ctx.font = R.font(CFG.size, 'caption', BAND ? 700 : CFG.weight);
     ctx.textBaseline = 'alphabetic';
     ctx.shadowColor = 'rgba(8,5,3,0.9)';
     ctx.shadowBlur = R.px(12);
@@ -75,13 +82,13 @@
       const y0 = top + r * CFG.lineH, x0 = KIT.CX - row.width / 2;
       for (const w of row.words) {
         const wt = L.words[w.i];
-        const k = clamp((T - (wt.t0 - 0.05)) / 0.34);
+        const k = BAND ? 1 : clamp((T - (wt.t0 - 0.05)) / 0.34);
         if (k <= 0) continue;
         const e = E.outCubic(k);
         const speaking = clamp((T - wt.t0) / 0.08) * (1 - clamp((T - wt.t1) / 0.35));
         ctx.globalAlpha = vis * e;
         const base = w.gold ? PAL.goldPale : PAL.cream;
-        ctx.fillStyle = w.gold ? R.mix(PAL.gold, '#ffe6a6', speaking * 0.6) : R.mix(base, '#ffffff', speaking * 0.35);
+        ctx.fillStyle = w.gold ? R.mix(PAL.gold, '#ffe6a6', speaking * 0.6) : BAND ? R.mix(base, '#fff2c8', speaking * 0.8) : R.mix(base, '#ffffff', speaking * 0.35);
         // (independent review, item 4) a dark outline under every word: legible over bright skies and crowds
         ctx.save(); ctx.shadowColor = 'transparent'; ctx.lineJoin = 'round'; ctx.lineWidth = 7; ctx.strokeStyle = 'rgba(12,8,6,0.85)';
         ctx.strokeText(w.w, x0 + w.x, y0 + (1 - e) * 16); ctx.restore();

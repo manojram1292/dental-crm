@@ -73,7 +73,7 @@
   // MANY HOODS as ONE CANOPY (episode 31 on): the old fan of separate lobes read as a hand at phone size. Now one
   // continuous shield, wide at the top, with a scalloped crown edge and small separate heads standing on it.
   const FAN = (r, n) => {
-    const sp = n >= 7 ? 0.2 : 0.26, R0 = 70 + r.w * 2.0, W = r.w * 0.42;
+    const sp = n >= 7 ? 0.19 : 0.26, R0 = 40 + r.w * 1.45, W = r.w * 0.36;
     return { sp, R0, W, ang: (i) => (i - (n - 1) / 2) * sp, pt: (a, rad) => [Math.sin(a) * rad, 40 - Math.cos(a) * rad] };
   };
   function fanPath(g, r, n) {
@@ -225,7 +225,7 @@
       light: 'Lapis-violet with gold scales: rim #8a7aff → #ece8ff, glow 0.8; never Takshaka\'s green, Indra\'s electric blue or Kadru\'s olive.',
       poses, voice: null,
     },
-    rule: { fill: '#0a0820', lit: '#1c1848', litGain: 0.8, rim: ['#8a7aff', '#ece8ff'], inner: '#2c2470', innerA: [0.85, 0.45], glow: 0.8, ornament: ['#e8b84a', '#fff0b8'], ornamentA: [0.55, 0.9] },
+    rule: { fill: '#0a0820', lit: '#4a4290', litGain: 0.8, rim: ['#8a7aff', '#ece8ff'], inner: '#2c2470', innerA: [0.85, 0.45], glow: 0.8, ornament: ['#e8b84a', '#fff0b8'], ornamentA: [0.55, 0.9] },
   });
   CH.define({
     id: 'ananta', rig: makeRig('ananta'), shape, ornaments, after, bounds, defaultPose: 'rise',
@@ -238,7 +238,7 @@
       light: 'The white serpent: pale fill (#d8d0c0 → #fffaf0), gold rim #ffd890 → #fffbe8, glow 0.9.',
       poses, voice: null,
     },
-    rule: { fill: '#d8d0c0', lit: '#fffaf0', litGain: 0.9, rim: ['#ffd890', '#fffbe8'], inner: '#f4ecd8', innerA: [0.5, 0.3], glow: 0.9, ornament: ['#c89830', '#fff0b8'], ornamentA: [0.6, 0.9] },
+    rule: { fill: '#b8ac94', lit: '#ece2cc', litGain: 0.8, rim: ['#ffd890', '#fffbe8'], inner: '#d8ccb0', innerA: [0.5, 0.3], glow: 0.55, ornament: ['#c89830', '#fff0b8'], ornamentA: [0.6, 0.9] },
   });
   CH.ROSTER.push('vasuki', 'ananta');
   CH.define({
@@ -252,7 +252,7 @@
       light: 'Kadru\'s olive-green: rim #9ad070 → #eaffc8, glow 0.7, gold-olive scales; kin to their mother, never Takshaka\'s cold green.',
       poses, voice: 'nagas',
     },
-    rule: { fill: '#0c1006', lit: '#24301a', litGain: 0.8, rim: ['#9ad070', '#eaffc8'], inner: '#2e3a14', innerA: [0.85, 0.45], glow: 0.7, ornament: ['#d8c060', '#fff4b8'], ornamentA: [0.5, 0.85] },
+    rule: { fill: '#0c1006', lit: '#4a6034', litGain: 0.8, rim: ['#9ad070', '#eaffc8'], inner: '#2e3a14', innerA: [0.85, 0.45], glow: 0.7, ornament: ['#d8c060', '#fff4b8'], ornamentA: [0.5, 0.85] },
   });
   CH.ROSTER.push('naga');
 })();

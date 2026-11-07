@@ -16,6 +16,15 @@ integrated with a look-ahead true-peak limiter at −1 dBTP (4× oversampled pea
 and an 8 ms smoothing window, so the gain is never above what any peak allows). Before this the
 whole mix was only peak-normalised and released at −19 to −21 LUFS.
 
+FROM EPISODE 31 (independent review 21–30, items 5 and 10; measured on the mp4 by tools/scorecard.py):
+  · the Next window is set NEXT_UNDER dB (10) under the body's integrated loudness AFTER mastering (before, the limiter
+    squeezed the body and the Next ended only 1–2 dB under it on the mp4);
+  · REAL SILENCE before the turn (the line whose note says "TURN"): everything is muted (≤ −60 dB) between the end of the
+    previous speech and the turn's speech, with 50 ms ramps, so silencedetect finds a ≥ 0.6 s rest at −45 dB;
+  · DYNAMICS: a script line may carry "mixDb" (e.g. −5 for an intimate line, +1 for a peak), applied to the whole mix over
+    the line; when the loudness range (LRA, EBU R128 short-term, computed here) is under 4 LU, the mixDb offsets are
+    deepened (×1.5, ×2) until it reaches 4.2 LU.
+
     python3 tools/mix.py [--ep 1] [--lang en]
 """
 import json
@@ -130,6 +139,37 @@ def master(x):
     return x
 
 
+NEXT_UNDER = 10.0
+LRA_MIN = 4.2
+
+
+def lra(x):
+    """EBU R128 loudness range: K-weighted 3 s short-term loudness every 0.1 s, abs gate −70, rel gate −20 LU, P95 − P10."""
+    from score import _K1, _K2
+    y = sps.lfilter(*_K2, sps.lfilter(*_K1, x, axis=-1), axis=-1)
+    p = (y ** 2).sum(0)
+    w, h = int(3 * SR), int(0.1 * SR)
+    cs = np.concatenate([[0], np.cumsum(p)])
+    st = np.arange(0, len(p) - w + 1, h)
+    lv = -0.691 + 10 * np.log10((cs[st + w] - cs[st]) / w + 1e-20)
+    lv = lv[lv > -70]
+    if not len(lv):
+        return 0.0
+    rel = -0.691 + 10 * np.log10(np.mean(10 ** ((lv + 0.691) / 10))) - 20
+    lv = lv[lv > rel]
+    return float(np.percentile(lv, 95) - np.percentile(lv, 10))
+
+
+def line_gains(tl, SL, N, mult=1.0):
+    g = np.zeros(N)
+    for l in tl['lines']:
+        d = SL.get(l['id'], {}).get('mixDb')
+        if d:
+            i0, i1 = int(l['start'] * SR), min(N, int(l['end'] * SR))
+            g[i0:i1] += d * mult
+    return db(uniform_filter1d(g, int(0.3 * SR)))
+
+
 def main():
     args = sys.argv[1:]
     lang = args[args.index('--lang') + 1] if '--lang' in args else 'en'
@@ -182,7 +222,41 @@ def main():
     # a 350 ms fade-in: a hard onset in the first AAC frames overshoots by up to +2 dB after encoding
     n0 = int(0.35 * SR)
     mix[:, :n0] *= np.linspace(0, 1, n0) ** 1.5
-    mix = master(mix)
+    scp = os.path.join(ROOT, 'script', f'{tag}.{lang}.json')
+    SL = {l['id']: l for l in json.load(open(scp))['lines']} if os.path.exists(scp) else {}
+    new_rules = ep >= 31
+    pre = mix
+    for mult in ((1.0, 1.5, 2.0) if new_rules else (1.0,)):
+        mix = master(pre * line_gains(tl, SL, N, mult)) if new_rules else master(pre)
+        if not new_rules or lra(mix) >= LRA_MIN:
+            break
+    if new_rules:
+        L = tl['lines']
+        nx = next((l for l in L if l['id'] == 'next' and not l.get('voice')), None)
+        if nx:
+            i0 = int(nx['start'] * SR)
+            for _ in range(4):   # the cliffhanger's last word and the Next sting sit at the boundary: iterate
+                under = lufs(mix[:, :i0]) - lufs(mix[:, i0:])
+                if under >= NEXT_UNDER - 0.2:
+                    break
+                g = np.ones(N)
+                ramp = int(0.04 * SR)
+                k = db(-(NEXT_UNDER + 0.3 - under))
+                g[i0 - ramp:i0] = np.linspace(1, k, ramp)
+                g[i0:] = k
+                mix = mix * g
+        ti = next((i for i, l in enumerate(L) if 'TURN' in SL.get(l['id'], {}).get('note', '')), None)
+        if ti:
+            prev = next((l for l in reversed(L[:ti]) if l.get('voice')), None)
+            a, b = (prev['speechEnd'] if prev else L[ti]['start']) + 0.06, L[ti]['speechStart'] - 0.03
+            if b - a >= 0.3:
+                g = np.ones(N)
+                i0, i1, r = int(a * SR), int(b * SR), int(0.05 * SR)
+                g[i0:i1] = 1e-3
+                g[i0:i0 + r] = np.linspace(1, 1e-3, r)
+                g[i1 - r:i1] = np.linspace(1e-3, 1, r)
+                mix = mix * g
+        print(f'  ep{ep}: LRA {lra(mix):.1f} LU · Next {lufs(mix[:, :int(nx["start"] * SR)]) - lufs(mix[:, int(nx["start"] * SR):]) if nx else 0:.1f} dB under the body · silence before the turn {max(0, b - a) if ti else 0:.2f} s')
     out = os.path.join(ROOT, 'audio', tag, f'mix.{lang}.wav')
     write_wav(out, mix)
     print(f'wrote audio/{tag}/mix.{lang}.wav  {tl["duration"]:.2f} s  {lufs(mix):.1f} LUFS  {true_peak_db(mix):.2f} dBTP  '

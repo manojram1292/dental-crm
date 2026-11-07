@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8424,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4408,
+   "words": 4,
+   "speed": 0.842,
+   "text": "He wanted no wife,"
+  },
+  {
+   "t0": 1.5208,
+   "t1": 2.447,
+   "words": 2,
+   "speed": 0.842,
+   "text": "no home,"
+  },
+  {
+   "t0": 2.527,
+   "t1": 3.5874,
+   "words": 3,
+   "speed": 0.842,
+   "text": "and no son."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

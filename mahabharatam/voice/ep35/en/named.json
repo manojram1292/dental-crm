@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8424,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9184,
+   "words": 5,
+   "speed": 0.842,
+   "text": "Because his father said asti,"
+  },
+  {
+   "t0": 2.0684,
+   "t1": 4.2692,
+   "words": 6,
+   "speed": 0.842,
+   "text": "the boy would be called Astika."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

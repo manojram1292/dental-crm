@@ -84,7 +84,6 @@
         0,
         6
       ],
-      "captionY": "high",
       "sfx": [
         "hiss"
       ],
@@ -103,7 +102,6 @@
         8,
         14
       ],
-      "captionY": "high",
       "sfx": [
         "hiss@1"
       ],
@@ -138,7 +136,7 @@
       "say": "His flesh and skin [p:80] dried down to the bone.",
       "est": 3.0,
       "pre": 250,
-      "post": 300,
+      "post": 200,
       "beats": [
         1,
         6
@@ -146,7 +144,8 @@
       "sfx": [
         "wind"
       ],
-      "note": "STORY 3: a low angle at the foot of the Himalaya: the white serpent, thin now, the belly plates showing like ribs, rising motionless against the snow and the stars."
+      "note": "STORY 3: a low angle at the foot of the Himalaya: the white serpent, thin now, the belly plates showing like ribs, rising motionless against the snow and the stars.",
+      "mixDb": -4
     },
     {
       "id": "frame",
@@ -161,7 +160,8 @@
         2,
         6
       ],
-      "note": "FRAME (Sauti at the Naimisha fire: a twentieth angle, over the elder's shoulder, Shaunaka large and dark in the foreground, Sauti lit across the fire)."
+      "note": "FRAME (Sauti at the Naimisha fire: a twentieth angle, over the elder's shoulder, Shaunaka large and dark in the foreground, Sauti lit across the fire).",
+      "mixDb": -5
     },
     {
       "id": "ask",
@@ -191,7 +191,7 @@
       "say": "Let my mind delight in dharma, [p:100] and in peace.",
       "est": 3.4,
       "pre": 250,
-      "post": 300,
+      "post": 200,
       "beats": [
         3,
         5,
@@ -205,14 +205,14 @@
     {
       "id": "unsteady",
       "speed": 1.08,
-      "text": "The earth was shaking, with all its mountains, seas and towns.",
-      "say": "The earth was shaking, [p:80] with all its mountains, [p:60] seas and towns.",
+      "text": "Brahma showed him the earth, shaking, with its mountains, seas and towns.",
+      "say": "Brahma showed him the earth, [p:80] shaking, [p:80] with its mountains, [p:60] seas and towns.",
       "est": 3.8,
       "pre": 250,
-      "post": 250,
+      "post": 200,
       "beats": [
-        2,
-        6,
+        0,
+        5,
         8,
         10
       ],
@@ -229,7 +229,7 @@
       "say": "So Shesha went down through a cleft, [p:100] and held it on his heads.",
       "est": 3.8,
       "pre": 250,
-      "post": 350,
+      "post": 200,
       "beats": [
         3,
         6,
@@ -239,7 +239,8 @@
         "chord@1",
         "bell-low@2"
       ],
-      "note": "STORY 7: NEW LIGHT, beneath the earth: the cavern lit by Shesha's own pearl glow; the white body pours down the cleft (beats[1]); the canopy rises and the earth stops shaking (beats[2])."
+      "note": "STORY 7: NEW LIGHT, beneath the earth: the cavern lit by Shesha's own pearl glow; the white body pours down the cleft (beats[1]); the canopy rises and the earth stops shaking (beats[2]).",
+      "mixDb": 1
     },
     {
       "id": "still",
@@ -248,7 +249,7 @@
       "say": "And he holds it still, [p:100] to this day.",
       "est": 2.6,
       "pre": 200,
-      "post": 300,
+      "post": 200,
       "beats": [
         2,
         7
@@ -256,18 +257,19 @@
       "sfx": [
         "bell-low@1"
       ],
-      "note": "STORY 7b: the wide cutaway: the earth disc resting on the pearl canopy in the dark, the world above at peace (towns lit, seas calm); a slow pull out."
+      "note": "STORY 7b: the wide cutaway: the earth disc resting on the pearl canopy in the dark, the world above at peace (towns lit, seas calm); a slow pull out.",
+      "mixDb": -3
     },
     {
       "id": "friend",
       "speed": 1.06,
-      "text": "And Brahma gave him a friend: Garuda.",
-      "say": "And Brahma gave him a friend: [p:150] Garuda.",
+      "text": "And he gave Shesha a friend: Garuda.",
+      "say": "And he gave Shesha a friend: [p:150] Garuda.",
       "est": 2.8,
       "pre": 250,
-      "post": 300,
+      "post": 200,
       "beats": [
-        4,
+        3,
         6
       ],
       "sfx": [
@@ -290,7 +292,6 @@
         9
       ],
       "role": "next",
-      "captionY": "high",
       "sfx": [
         "hiss@0",
         "bell-low@2"
@@ -306,5 +307,8 @@
       "caption": false,
       "note": "The short Next over the cliffhanger image; dissolve into frame 1."
     }
-  ]
+  ],
+  "captionBand": {
+    "y": 1400
+  }
 }

@@ -1,0 +1,292 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "captionBand": {
+    "y": 1400
+  },
+  "episode": 35,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 43 (the naming at 1.44): one evening the sage sleeps with his head in his wife's lap as the sun goes down; she weighs the choice: if he misses the evening rite, his dharma is lost; if she wakes him, he will be angry; she decides that dharma matters more and wakes him gently: the sun is setting, it is time for the evening worship. He wakes, his lips trembling with anger: she has insulted him; the sun has no power to set while he sleeps; he will leave her. She says she woke him for his dharma, not to insult him, and asks about the purpose for which her brother gave her (a son). He answers 'asti' (it is there): she carries a child who will be like fire, a great sage. He leaves. Because his father said 'asti', the boy is named Astika (1.44).",
+  "structure": "From episode 21: COLD OPEN (≤ 8 words, ≤ 3 s; opening chosen by content (not a fixed rotation): a statement card by content (the stake, no pronoun without a noun): the sunset shaft on the sleeper, the card in the dark upper wall) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band over its first shot → turn at 40–60 % after one ≈ 0.9 s rest → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1. Gate: tools/gate.mjs (run by tools/render.mjs).",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 35",
+    "episodeTitle": "The Sunset Prayer",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 34",
+    "prevEpisodeTitle": "The Bride with His Name",
+    "recapLine": "\"If you ever displease me, I will leave.\"",
+    "nextEpisodeLabel": "Episode 36",
+    "nextTitle": "The Boy Called Astika",
+    "astiWord": "asti",
+    "astiGloss": "\"there is\"",
+    "astikaName": "Astika",
+    "astikaEpithet": "\"he who is\""
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.12,
+      "text": "Wake the sage, and lose him forever.",
+      "say": "Wake the sage, [p:80] and lose him forever.",
+      "est": 2.6,
+      "pre": 60,
+      "post": 1150,
+      "beats": [
+        2,
+        6
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "Wake",
+        "forever."
+      ],
+      "sfx": [
+        "bell-low@1"
+      ],
+      "note": "COLD OPEN (a statement card, by content): the sunset shaft crawling across the chamber floor onto the sleeping sage from frame 1; her hand hovering over his shoulder; the card high in the dark wall."
+    },
+    {
+      "id": "setting",
+      "speed": 1.06,
+      "text": "The sun was setting. Asleep, he would miss his evening prayer.",
+      "say": "The sun was setting. [p:200] Asleep, [p:60] he would miss his evening prayer.",
+      "est": 3.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        5,
+        10
+      ],
+      "sfx": [
+        "bell@2"
+      ],
+      "note": "STORY 0 with the unvoiced recap band (top): NEW LIGHT, the world above at sunset: the red disc touching the horizon over the forest (the sandhya hour), then down to the chamber."
+    },
+    {
+      "id": "lap",
+      "speed": 1.04,
+      "text": "He slept with his head in her lap.",
+      "say": "He slept [p:60] with his head in her lap.",
+      "est": 2.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        1,
+        7
+      ],
+      "mixDb": -2,
+      "note": "STORY 0b: the chamber, close: the sage asleep, his head in her lap, the red shaft creeping nearer."
+    },
+    {
+      "id": "angry",
+      "speed": 1.06,
+      "text": "But if she woke him, he would be angry.",
+      "say": "But if she woke him, [p:80] he would be angry.",
+      "est": 2.6,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        4,
+        7
+      ],
+      "mixDb": -2,
+      "note": "STORY 1: close on her face, half in the red light, half in violet shadow; her hand hovers and draws back."
+    },
+    {
+      "id": "ask",
+      "speaker": "elder_sage",
+      "speed": 1.06,
+      "text": "\"And what did she choose, Sauti?\"",
+      "say": "And what did she choose, [p:80] Sauti?",
+      "est": 2.4,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        5
+      ],
+      "mixDb": -4,
+      "note": "FRAME (Shaunaka asks: the first time the elder speaks in this arc; a twenty-third angle, the elder close, Sauti blurred across the fire)."
+    },
+    {
+      "id": "wake",
+      "speaker": "nagini",
+      "speed": 1.04,
+      "text": "\"Rise, my lord. The sun is setting.\"",
+      "say": "Rise, [p:80] my lord. [p:250] The sun is setting.",
+      "est": 2.6,
+      "pre": 300,
+      "post": 300,
+      "beats": [
+        0,
+        5
+      ],
+      "sfx": [
+        "bell@0"
+      ],
+      "mixDb": 1,
+      "note": "STORY 2: she chooses dharma: her hand on his shoulder; the red light reaches his face (beats[0])."
+    },
+    {
+      "id": "eyes",
+      "speed": 1.06,
+      "text": "His eyes opened, and his lips trembled with anger.",
+      "say": "His eyes opened, [p:100] and his lips trembled with anger.",
+      "est": 3.0,
+      "pre": 200,
+      "post": 200,
+      "beats": [
+        2,
+        6
+      ],
+      "sfx": [
+        "drum@1"
+      ],
+      "note": "STORY 3: extreme close on the sage's face, rising off the mat into the red light; a low drum."
+    },
+    {
+      "id": "insult",
+      "speaker": "jaratkaru",
+      "speed": 1.04,
+      "text": "\"The sun would not dare to set while I slept. I am leaving.\"",
+      "say": "The sun would not dare to set [p:60] while I slept. [p:300] I am leaving.",
+      "est": 3.8,
+      "pre": 900,
+      "post": 300,
+      "beats": [
+        4,
+        8,
+        11
+      ],
+      "sfx": [
+        "silence",
+        "drum@2"
+      ],
+      "note": "STORY 4 · THE TURN (≈ 45 %): after the 0.9 s silence, the reversal: (Jaratkaru speaks) low angle, the sage standing, huge against the window's red shaft; she kneels small at the edge."
+    },
+    {
+      "id": "plead",
+      "speaker": "nagini",
+      "speed": 1.04,
+      "text": "\"I woke you for your prayer. And the child my brother hoped for?\"",
+      "say": "I woke you for your prayer. [p:250] And the child [p:60] my brother hoped for?",
+      "est": 3.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        5,
+        8
+      ],
+      "mixDb": -2,
+      "note": "STORY 5 (the bride speaks): she rises toward him, one hand at her waist; the lamp between them."
+    },
+    {
+      "id": "asti",
+      "speaker": "jaratkaru",
+      "speed": 1.0,
+      "text": "\"Asti. There is one. He will shine like fire.\"",
+      "say": "Asti. [p:400] There is one. [p:250] He will shine like fire.",
+      "est": 3.4,
+      "pre": 300,
+      "post": 350,
+      "beats": [
+        0,
+        3,
+        7
+      ],
+      "sfx": [
+        "bell@0",
+        "chord@2"
+      ],
+      "note": "STORY 6 (Jaratkaru speaks): at the doorway, turning back; a small gold flame kindles at her waist (beats[2]); the word \"asti\" in gold."
+    },
+    {
+      "id": "gone",
+      "speed": 1.04,
+      "text": "And he was gone.",
+      "say": "And he was gone.",
+      "est": 1.6,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        0,
+        3
+      ],
+      "mixDb": -3,
+      "sfx": [
+        "wind@0"
+      ],
+      "note": "STORY 7: the empty doorway; his staff's shadow leaves it; she stands alone in the last red light."
+    },
+    {
+      "id": "named",
+      "speed": 1.04,
+      "text": "Because his father said \"asti\", the boy would be called Astika.",
+      "say": "Because his father said asti, [p:150] the boy would be called Astika.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        10
+      ],
+      "sfx": [
+        "bansuri@0",
+        "bell@1"
+      ],
+      "note": "STORY 8: NEW LIGHT, night in the chamber, one lamp: she sits with her hands over the small gold flame; plaque \"Astika · he who is\"."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.04,
+      "text": "The boy grew up among the serpents. And the sacrifice drew near.",
+      "say": "The boy grew up among the serpents. [p:300] And the sacrifice drew near.",
+      "est": 3.6,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        3,
+        9
+      ],
+      "role": "next",
+      "sfx": [
+        "hiss@0",
+        "drum@1"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): the gold flame becomes a small boy standing in the dawn-lit hall among serpents; behind him, far off in the dark, the red glow of the sacrificial fire."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Boy Called Astika",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The arc's serpent cartouche over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

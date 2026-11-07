@@ -1,0 +1,23 @@
+{
+ "speaker": "jaratkaru",
+ "voice": "bm_george",
+ "speed": 0.8528,
+ "pitch": 1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.5378,
+   "words": 4,
+   "speed": 0.853,
+   "text": "What is her name?"
+  },
+  {
+   "t0": 1.7878,
+   "t1": 3.4154,
+   "words": 5,
+   "speed": 0.853,
+   "text": "I will not keep her."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,30 @@
+{
+ "speaker": "jaratkaru",
+ "voice": "bm_george",
+ "speed": 0.82,
+ "pitch": 1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.8918,
+   "words": 1,
+   "speed": 0.82,
+   "text": "Asti."
+  },
+  {
+   "t0": 1.2917,
+   "t1": 2.6667,
+   "words": 3,
+   "speed": 0.82,
+   "text": "There is one."
+  },
+  {
+   "t0": 2.9167,
+   "t1": 5.3744,
+   "words": 5,
+   "speed": 0.82,
+   "text": "He will shine like fire."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

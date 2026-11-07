@@ -1,0 +1,307 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "captionBand": {
+    "y": 1400
+  },
+  "episode": 34,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 42–43: Jaratkaru wanders the earth seeking a wife but finds none; he goes into the forest and cries out three times, softly, asking for a bride as alms from all creatures. The serpents set to watch him tell Vasuki, who comes with his sister, adorned, and offers her. Jaratkaru, holding to his conditions, asks her name and says he will not support her; Vasuki answers that her name is Jaratkaru and that he will support and protect her. They are married in Vasuki's house; the sage makes one more condition: if she ever does anything he dislikes, he will leave her. She agrees, and serves him with great care. (The cliffhanger is 1.43's evening: the sun begins to set while he sleeps.)",
+  "structure": "From episode 21: COLD OPEN (≤ 8 words, ≤ 3 s; opening chosen by content (not a fixed rotation): direct speech by content: the sage's cry in the forest, the card at mid-height beside him) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band over its first shot → turn at 40–60 % after one ≈ 0.9 s rest → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1. Gate: tools/gate.mjs (run by tools/render.mjs).",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 34",
+    "episodeTitle": "The Bride with His Name",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 33",
+    "prevEpisodeTitle": "The Ancestors in the Pit",
+    "recapLine": "He would marry: a bride with his name, freely given.",
+    "nextEpisodeLabel": "Episode 35",
+    "nextTitle": "The Sunset Prayer",
+    "brideName": "Jaratkaru",
+    "brideEpithet": "Vasuki's sister"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "jaratkaru",
+      "speed": 1.2,
+      "text": "\"Give me a bride with my name!\"",
+      "say": "Give me a bride [p:40] with my name!",
+      "est": 2.6,
+      "pre": 60,
+      "post": 1150,
+      "beats": [
+        3,
+        6
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "bride",
+        "name!"
+      ],
+      "sfx": [
+        "wind",
+        "bell@1"
+      ],
+      "note": "COLD OPEN (direct speech, by content): the deep forest in green-gold shafts; the gaunt sage, arms raised, crying out; birds lift from the canopy from frame 1; the card at mid-height beside him."
+    },
+    {
+      "id": "search",
+      "speed": 1.06,
+      "text": "Jaratkaru searched the world, and found no bride.",
+      "say": "Jaratkaru searched the world, [p:100] and found no bride.",
+      "est": 3.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        7
+      ],
+      "sfx": [
+        "wind"
+      ],
+      "note": "STORY 0 with the unvoiced recap band (top): a long road across a plain at evening, the sage tiny on it, then a push in; houses he passes, doors closed."
+    },
+    {
+      "id": "cry",
+      "speed": 1.06,
+      "text": "So he went into the forest, and called out three times.",
+      "say": "So he went into the forest, [p:100] and called out three times.",
+      "est": 3.4,
+      "pre": 200,
+      "post": 200,
+      "beats": [
+        5,
+        7,
+        9
+      ],
+      "sfx": [
+        "bell@0",
+        "bell@1",
+        "bell@2"
+      ],
+      "note": "STORY 1: NEW LIGHT, the deep forest in green-gold shafts: three calls, each with a ring of light spreading through the trees (beats)."
+    },
+    {
+      "id": "alms",
+      "speaker": "jaratkaru",
+      "speed": 1.04,
+      "text": "\"All you who live here: give me a bride, as alms.\"",
+      "say": "All you who live here: [p:120] give me a bride, [p:80] as alms.",
+      "est": 3.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        4,
+        8
+      ],
+      "mixDb": -2,
+      "note": "STORY 2 (Jaratkaru speaks): close, low, his raised hands against the canopy."
+    },
+    {
+      "id": "came",
+      "speed": 1.06,
+      "text": "The serpents heard. Vasuki came, and brought his sister.",
+      "say": "The serpents heard. [p:200] Vasuki came, [p:80] and brought his sister.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        2,
+        4,
+        8
+      ],
+      "sfx": [
+        "hiss@0",
+        "chord@2"
+      ],
+      "note": "STORY 3: from the roots, serpents' eyes; Vasuki rises out of a cleft, and beside him his sister, adorned, steps into a shaft of light; plaque \"Jaratkaru, Vasuki's sister\"."
+    },
+    {
+      "id": "name",
+      "speaker": "jaratkaru",
+      "speed": 1.04,
+      "text": "\"What is her name? I will not keep her.\"",
+      "say": "What is her name? [p:250] I will not keep her.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        8
+      ],
+      "note": "STORY 4 (Jaratkaru speaks): the sage in the foreground (dark shoulder and profile, large, left), the two serpents beyond (Vasuki and the bride, mid-ground right): an over-the-shoulder, not a side-by-side."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.06,
+      "text": "A man who owned nothing, begging for a wife.",
+      "say": "A man who owned nothing, [p:100] begging for a wife.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        4,
+        7
+      ],
+      "mixDb": -4,
+      "note": "FRAME (Sauti, a twenty-second angle: very close, from the side, the fire only a glow on his cheek; a wry turn of the hand)."
+    },
+    {
+      "id": "answer",
+      "speaker": "vasuki",
+      "speed": 1.02,
+      "text": "\"Her name is Jaratkaru. And I will keep her.\"",
+      "say": "Her name is Jaratkaru. [p:300] And I will keep her.",
+      "est": 3.0,
+      "pre": 900,
+      "post": 350,
+      "beats": [
+        3,
+        7
+      ],
+      "sfx": [
+        "silence",
+        "bell@0"
+      ],
+      "mixDb": 1,
+      "note": "STORY 5 · THE TURN (≈ 45 %): after the 0.9 s silence, the reverse angle: close on the bride's face, lit; Vasuki's hood behind her; on her name, the sage's shadow falls across them both."
+    },
+    {
+      "id": "wed",
+      "speed": 1.06,
+      "text": "They were married in the hall of the serpents.",
+      "say": "They were married [p:60] in the hall of the serpents.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        2,
+        8
+      ],
+      "sfx": [
+        "conch@0",
+        "bell@1"
+      ],
+      "note": "STORY 6: NEW LIGHT, the hall in wedding gold: lamps along the floor, a small sacred fire; the couple walk round it, serpents watching in rows."
+    },
+    {
+      "id": "joy",
+      "speed": 1.06,
+      "text": "And the serpents rejoiced.",
+      "say": "And the serpents rejoiced.",
+      "est": 3.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        2,
+        3
+      ],
+      "sfx": [
+        "bansuri@0",
+        "bell@1"
+      ],
+      "note": "STORY 6b: the rows of serpents in the gold hall sway; above the fire, a faint gold medallion of the boy (episode 32's) glows and fades."
+    },
+    {
+      "id": "if",
+      "speaker": "jaratkaru",
+      "speed": 1.04,
+      "text": "\"If you ever displease me, I will leave.\"",
+      "say": "If you ever displease me, [p:150] I will leave.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        6
+      ],
+      "sfx": [
+        "drum@1"
+      ],
+      "note": "STORY 7 (Jaratkaru speaks): low angle up at the sage, the lamps going still; his finger raised."
+    },
+    {
+      "id": "agree",
+      "speaker": "nagini",
+      "speed": 1.04,
+      "text": "\"So be it.\"",
+      "say": "So be it.",
+      "est": 1.6,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        0,
+        2
+      ],
+      "mixDb": -3,
+      "note": "STORY 8 (the bride speaks): close, her eyes lowered, then up; a single lamp beside her."
+    },
+    {
+      "id": "served",
+      "speed": 1.04,
+      "text": "She served him with great care, and watched over his sleep.",
+      "say": "She served him with great care, [p:100] and watched over his sleep.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        9
+      ],
+      "mixDb": -2,
+      "note": "STORY 9: NEW LIGHT, their chamber at evening: violet walls, one lamp; the sage asleep on a mat, his head on her lap; she keeps watch."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.04,
+      "text": "One evening, the sun began to set while he slept.",
+      "say": "One evening, [p:100] the sun began to set [p:80] while he slept.",
+      "est": 3.2,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        4,
+        7
+      ],
+      "role": "next",
+      "sfx": [
+        "bell-low@1"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): the chamber: a shaft of red-gold sunset from the world above crawls across the floor toward the sleeping sage; she looks from him to the light."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Sunset Prayer",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The arc's serpent cartouche over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

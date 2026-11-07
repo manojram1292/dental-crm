@@ -367,3 +367,27 @@ arc back to the frame story. *Weak:* the kusha "glow" is faint; the serpents rea
   hand; the Moon in ep 13 is dark. Not re-rendered.
 - The elephant module's legs are blocky; the carried load in `EP23.carry` sits slightly below the talons.
 - The introduction renders slowly (≈ 1.5 s per frame at mb 4).
+
+## Independent review 21–30 (review/independent-21-30.md): adopted and rejected
+
+Read before episode 32 was scripted (episode 31 was scripted but not yet rendered, so it was brought under the same rules).
+
+| # | Finding | Decision | How / where measured |
+|---|---|---|---|
+| 10 (first) | Make the scorecard honest | **Adopted** | `tools/scorecard.py` measures every audio number on the final mp4: ebur128 I / TP / LRA, `silencedetect` (−45 dB, ≥ 0.6 s), and the Next window's ebur128 loudness against the body's. Repeats also compare the 0.5 s, 3 s and last frames with the previous 3 episodes by a 64-bit DCT pHash (`key_repeats`, `key_min_dist`). Eps 21–30 re-scored; correction note in `QUALITY_SCORECARD.md`. |
+| — | Next card really quieter (≥ 8 dB under, on the mp4) | **Adopted** (ep 31 on) | `tools/mix.py` sets the Next window 10 dB under the body AFTER mastering (iterated, 40 ms ramp: the limiter had squeezed the body and the boundary word/sting leaked); the gate fails a mix under 8 dB. |
+| 1 | Lit faces | **Adopted** (kit) | `rig.js` light gets `fill` (a frontal fill on top of `front`); lighter `lit` colours for Indra, Kashyapa, Vinata, Brihaspati, Vyasa, Brahma, Vasuki, the nagas; every new arc character (`astika-arc.js`) has a mid-tone lit fill. *Eye* on each contact sheet. |
+| 2 | Named subject ≥ 10 % of frame height | **Adopted** | Composition rule for every scene from ep 31 (Elapatra at ≈ 50 %, the sister at ≈ 60 %); *eye* column on the scorecard. |
+| 3 | Vary the frame, not the grammar | **Adopted** | Hook style chosen by content (ep 31 direct speech over the canopy; ep 32 a question over the council from above), the hook card and the title placed by content (ep 31 top over the earth; title lands at 2.4–2.8 s), the arc's own NEXT treatment (`overlayNextScene({ style: 'serpent' })`: a lapis cartouche with a serpent border, placed per episode). Measured by `key_min_dist`. |
+| 4 | Hook copy rules | **Adopted** | The gate fails an undefined pronoun in the hook; payoff never stated; deity faces kept clear of the card (checked on the 0 s still). |
+| 5 | Real silence and dynamics | **Adopted** | `mix.py` mutes everything (≤ −60 dB) in the rest before the turn (≥ 0.6 s at −45 dB on the mp4); per-line `mixDb` (intimate lines −3…−5 dB, peaks +1) deepened automatically until LRA ≥ 4.2 LU; the gate checks both on the mix. |
+| 6 | ≤ 2.6 words/s; lift the 1.5 s gap cap | **Adopted** | The gate fails > 2.6 words/s; rests now vary with the script (1.0–1.2 s before the turn, not a fixed 1.5). |
+| 7 | One fixed upright caption band, full contrast; recap band above y = 1450 | **Adopted** (ep 31 on) | `"captionBand": { "y": 1400 }` in the script: one place, weight 700, the whole line at full contrast from its first word; the recap band at y = 300. Also found and fixed: the two EB Garamond files were swapped (`EBGaramond.woff2` is the Italic), so every "upright" caption had been italic: `fonts/fonts.css` now maps them correctly. |
+| 8 | Ep 40 as an arc finale: a ≥ 4 s lit payoff + an arc-end card | **Planned for ep 40** | — |
+| 9 | ≤ 2 new names per 10 s, one plaque per shot | **Adopted** | The gate counts first mentions of proper names in any 10 s window (ep 31 failed it once: the friend line was rewritten). |
+| — | Throat coal in eps 21–22 reads as a second eye | **Not done** | It needs two full re-renders; not cheap. Left as a remaining weakness. |
+| — | Vinata's hand-on-hip pose | **Adopted** (kit) | `vinata.js` standing pose: hands clasped low in front, arms straight; the same for Jaratkaru the bride (`nagini`). |
+| — | Catalog: ep 11 `side` in a `main` arc | **Kept** | As decided at ep 21: a side tale inside the main arc, deliberate. |
+| — | Trial Reel A/B on ep 31 | **Passed to the owner** | An upload setting, outside the render. |
+
+Rejected: none of the top 10 outright. The reviewer's 1–2 dB figure for the Next window could not be reproduced exactly (ebur128 over [next.start, end] on the mp4 gives −5 to −7 dB for eps 21–30), but the point stands: it was nowhere near the 9–12 dB the scorecard claimed.
