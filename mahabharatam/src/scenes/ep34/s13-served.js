@@ -4,12 +4,6 @@
   const R = window.REEL, KIT = window.KIT, EPA = window.EPA, EP34 = window.EP34, EP33 = window.EP33;
   const { clamp, E, lerp } = R;
   const CH = KIT.characters;
-  EP34.sleep = (g, T, o = {}) => {
-    CH.nagini.draw(g, { x: 400, y: 1700, scale: 0.72, facing: 'right', pose: { name: 'sit' }, expression: { look: o.look ?? 0.25 }, light: EP34.lamp(400, 1500, 860, 1560, 1.15), t: T, key: 'sl34-ng' });
-    g.save(); g.translate(1060, 1690); g.rotate(-Math.PI / 2);
-    CH.jaratkaru.draw(g, { x: 0, y: 0, scale: 0.55, facing: 'left', pose: { name: 'stand' }, light: { dir: 0, intensity: 1.0, front: 0.6, fill: 0.4 }, t: 0, key: 'sl34-jk' });
-    g.restore();
-  };
   R.scene({
     id: 'served',
     fadeIn: 0.3,

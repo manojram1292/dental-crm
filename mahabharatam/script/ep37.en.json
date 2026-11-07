@@ -1,0 +1,275 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "captionBand": {
+    "y": 1400
+  },
+  "episode": 37,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 45–46 (the healer's road also at 1.38–39): Janamejaya asks his ministers how his father died, and they tell him. The brahmin Kashyapa, who could cure poison, was going to save Parikshit; Takshaka, disguised as an old brahmin, met him on the road and asked where he was going; to test him, Takshaka bit a banyan tree, which burned to ash; Kashyapa gathered the ashes and by his knowledge made the tree live again, first a sprout, then leaves, then the whole tree. A man who had climbed the tree for dry wood, unseen by both, burned with it and came back to life with it; he later told what he had seen. Takshaka gave Kashyapa wealth, and the healer, seeing by meditation that the king's life was at its end, turned back. Hearing this, Janamejaya, grieving, resolves on vengeance (the vow and the sacrifice: episode 8). Reorder: the ministers' report comes before the vow; we place it here as the last piece of the flashback.",
+  "structure": "From episode 21: COLD OPEN (≤ 8 words, ≤ 3 s; opening chosen by content (not a fixed rotation): a statement card by content: the hidden man's eye in the banyan's leaves, the card on the dark trunk) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band over its first shot → turn at 40–60 % after one ≈ 0.9 s rest → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1. Gate: tools/gate.mjs (run by tools/render.mjs).",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 37",
+    "episodeTitle": "The Witness in the Tree",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 36",
+    "prevEpisodeTitle": "The Boy Called Astika",
+    "recapLine": "In Hastinapura, a king asked how his father died.",
+    "nextEpisodeLabel": "Episode 38",
+    "nextTitle": "Astika at the Gate",
+    "healerName": "Kashyapa",
+    "healerEpithet": "a healer of poisons"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.12,
+      "text": "A man in the tree saw everything.",
+      "say": "A man in the tree [p:40] saw everything.",
+      "est": 2.4,
+      "pre": 60,
+      "post": 1150,
+      "beats": [
+        1,
+        6
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "saw",
+        "everything."
+      ],
+      "sfx": [
+        "wind",
+        "bell-low@1"
+      ],
+      "note": "COLD OPEN (a statement card by content): the banyan's leaves part from frame 1 on a man's wide eye; far below on the road, two small figures; the card on the dark trunk."
+    },
+    {
+      "id": "asked",
+      "speed": 1.01,
+      "text": "Janamejaya asked his ministers how his father had died.",
+      "say": "Janamejaya asked his ministers [p:60] how his father had died.",
+      "est": 3.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        4,
+        9
+      ],
+      "sfx": [
+        "drum@1"
+      ],
+      "note": "STORY 0 with the unvoiced recap band (top): Janamejaya's court at night by torchlight (episode 36's), from behind the ministers: the king on his throne, lit, leaning in. Then the oldest minister begins; the torch behind him dissolves into the noon light of the road."
+    },
+    {
+      "id": "healer",
+      "speed": 1.01,
+      "text": "A healer named Kashyapa was hurrying to save the king.",
+      "say": "A healer named Kashyapa [p:60] was hurrying to save the king.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        5,
+        9
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 2: NEW LIGHT, the road at blazing noon (episode 7's forest light, re-lit white-gold with long shadows): the young healer striding, his pouch of herbs; plaque \"Kashyapa · a healer of poisons\"."
+    },
+    {
+      "id": "met",
+      "speed": 1.01,
+      "text": "On the road he met an old brahmin. It was Takshaka.",
+      "say": "On the road he met an old brahmin. [p:300] It was Takshaka.",
+      "est": 3.4,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        6,
+        10
+      ],
+      "sfx": [
+        "hiss@1"
+      ],
+      "note": "STORY 3: a stooped old beggar in the road (Takshaka's guise, shimmering); on \"Takshaka\" the shimmer slips and the serpent king rears behind the guise."
+    },
+    {
+      "id": "test",
+      "speaker": "takshaka",
+      "speed": 0.99,
+      "text": "\"Heal what I bite, if you can.\"",
+      "say": "Heal what I bite, [p:80] if you can.",
+      "est": 2.4,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        0,
+        3
+      ],
+      "note": "STORY 4 (Takshaka speaks): Takshaka large, green, his hood over the healer (a high-low two-shot), a banyan behind them."
+    },
+    {
+      "id": "bite",
+      "speed": 0.99,
+      "text": "He bit a great banyan, and it burned to ash.",
+      "say": "He bit a great banyan, [p:120] and it burned to ash.",
+      "est": 3.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        8
+      ],
+      "sfx": [
+        "crack@0",
+        "roar@1"
+      ],
+      "note": "STORY 5: the strike; green venom-fire runs up the trunk (episode 7's venom-fire) and the whole tree collapses into a grey heap."
+    },
+    {
+      "id": "revive",
+      "speed": 0.99,
+      "text": "Kashyapa gathered the ash, and the tree grew back, leaf by leaf.",
+      "say": "Kashyapa gathered the ash, [p:150] and the tree grew back, [p:80] leaf by leaf.",
+      "est": 3.8,
+      "pre": 900,
+      "post": 300,
+      "beats": [
+        1,
+        7,
+        10
+      ],
+      "sfx": [
+        "silence",
+        "bell@0",
+        "bansuri@1",
+        "bell@2"
+      ],
+      "mixDb": 1,
+      "note": "STORY 6 · THE TURN (≈ 45 %): after the 0.9 s silence: the healer kneels at the ash heap, palms over it (beats[0]); a sprout, two leaves, then the whole banyan rises in green-gold light."
+    },
+    {
+      "id": "witness",
+      "speed": 0.99,
+      "text": "A man had climbed it for firewood. He burned, and came back with it.",
+      "say": "A man had climbed it for firewood. [p:250] He burned, [p:100] and came back with it.",
+      "est": 4.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        8,
+        13
+      ],
+      "sfx": [
+        "bell@2"
+      ],
+      "note": "STORY 7: in the regrown branches, the woodman sits up, whole, his bundle of sticks still on his back, blinking; the hook's eye, explained."
+    },
+    {
+      "id": "gold",
+      "speed": 0.99,
+      "text": "Takshaka gave the healer gold, and he turned back.",
+      "say": "Takshaka gave the healer gold, [p:100] and he turned back.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        8
+      ],
+      "mixDb": -2,
+      "note": "STORY 8: a heap of gold in the dust between them; the healer, eyes closed (he has seen the king's time is over), takes it and walks away; the serpent watches him go."
+    },
+    {
+      "id": "could",
+      "speed": 0.99,
+      "text": "The king learned that his father could have been saved.",
+      "say": "The king learned [p:100] that his father could have been saved.",
+      "est": 3.2,
+      "pre": 300,
+      "post": 300,
+      "beats": [
+        1,
+        9
+      ],
+      "mixDb": -3,
+      "note": "STORY 9: back in the court by torchlight, close on Janamejaya's face; the painted panel of his father behind him catches the light."
+    },
+    {
+      "id": "fury",
+      "speed": 1.0,
+      "text": "And his grief became fury.",
+      "say": "And his grief [p:80] became fury.",
+      "est": 2.0,
+      "pre": 250,
+      "post": 350,
+      "beats": [
+        2,
+        4
+      ],
+      "sfx": [
+        "drum@0",
+        "drum@1"
+      ],
+      "mixDb": 1,
+      "note": "STORY 10: he stands; the torches flare red; his shadow climbs the panel."
+    },
+    {
+      "id": "cliff",
+      "speed": 0.99,
+      "text": "Back in the present, the fire blazed, and Vasuki felt it pulling him in.",
+      "say": "Back in the present, [p:100] the fire blazed, [p:100] and Vasuki felt it pulling him in.",
+      "est": 4.2,
+      "pre": 300,
+      "post": 400,
+      "beats": [
+        3,
+        6,
+        9
+      ],
+      "role": "next",
+      "sfx": [
+        "roar@1",
+        "hiss@2"
+      ],
+      "note": "NEXT 1 (cliffhanger; the catalog line corrected: Vasuki is drawn toward the fire, not in it): NEW LIGHT, the snake sacrifice ablaze (episode 8's place re-lit), serpents spiralling into it; Vasuki's great hood strains against the pull at the frame's edge."
+    },
+    {
+      "id": "next",
+      "text": "Next: Astika at the Gate",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The arc's serpent cartouche over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

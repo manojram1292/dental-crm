@@ -107,7 +107,8 @@
       "sfx": [
         "hiss@0"
       ],
-      "note": "STORY 1 (one serpent speaks): a VISION PANEL opens in the jewel-fire's smoke: serpents in brahmins' white, bowing before a throne."
+      "note": "STORY 1 (one serpent speaks): a VISION PANEL opens in the jewel-fire's smoke: serpents in brahmins' white, bowing before a throne.",
+      "mixDb": -3
     },
     {
       "id": "bite",
@@ -126,7 +127,8 @@
         "hiss@0",
         "crack@1"
       ],
-      "note": "STORY 2 (another): the panel turns: a serpent strikes at a priest's silhouette (stylised)."
+      "note": "STORY 2 (another): the panel turns: a serpent strikes at a priest's silhouette (stylised).",
+      "mixDb": -2
     },
     {
       "id": "clouds",
@@ -145,7 +147,8 @@
         "rain@1",
         "thunder@1"
       ],
-      "note": "STORY 3 (another): the panel turns: dark clouds with serpent tails pour rain on the sacrificial fire."
+      "note": "STORY 3 (another): the panel turns: dark clouds with serpent tails pour rain on the sacrificial fire.",
+      "mixDb": -3
     },
     {
       "id": "no",
@@ -200,7 +203,8 @@
         "silence",
         "bell@0"
       ],
-      "note": "STORY 5 · THE TURN (≈ 45 %): after the 0.9 s silence, Elapatra, a slender silver-teal serpent, rises out of the crowd into the jewel-light; plaque \"Elapatra\"."
+      "note": "STORY 5 · THE TURN (≈ 45 %): after the 0.9 s silence, Elapatra, a slender silver-teal serpent, rises out of the crowd into the jewel-light; plaque \"Elapatra\".",
+      "mixDb": 1
     },
     {
       "id": "memory",
@@ -218,7 +222,8 @@
       "sfx": [
         "chord@0"
       ],
-      "note": "STORY 6: NEW LIGHT, the memory in silver-blue: Brahma on his lotus in a cold moonlit court, the gods below him as small luminous figures; a serpent child in the corner."
+      "note": "STORY 6: NEW LIGHT, the memory in silver-blue: Brahma on his lotus in a cold moonlit court, the gods below him as small luminous figures; a serpent child in the corner.",
+      "mixDb": -3
     },
     {
       "id": "brahma",
@@ -256,7 +261,8 @@
         "bansuri@0",
         "bell@1"
       ],
-      "note": "STORY 8: a third medallion between the two: a small boy, lit gold; the serpents' eyes all turn to it."
+      "note": "STORY 8: a third medallion between the two: a small boy, lit gold; the serpents' eyes all turn to it.",
+      "mixDb": -2
     },
     {
       "id": "sister",

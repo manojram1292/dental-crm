@@ -328,5 +328,12 @@
   "pitch": -0.5,
   "g2p": "en-us",
   "notes": "Episode 34+: Jaratkaru, Vasuki's sister, the sage's bride, Astika's mother. af_kore lowered 0.5 st: warm and steady; apart from Kadru (bf_alice) and Vinata (bf_lily)."
+ },
+ "astika": {
+  "voice": "af_sky",
+  "speed": 0.86,
+  "pitch": -1.5,
+  "g2p": "en-us",
+  "notes": "Episode 38+: Astika, the boy. af_sky lowered 1.5 st: a boy's clear voice, unhurried (the pup uses it +3)."
  }
 }

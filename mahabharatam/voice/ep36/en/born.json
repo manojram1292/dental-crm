@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8424,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.056,
+   "words": 3,
+   "speed": 0.842,
+   "text": "And in time"
+  },
+  {
+   "t0": 1.116,
+   "t1": 2.4672,
+   "words": 4,
+   "speed": 0.842,
+   "text": "a boy was born,"
+  },
+  {
+   "t0": 2.5873,
+   "t1": 4.8137,
+   "words": 7,
+   "speed": 0.842,
+   "text": "bright as a child of the gods."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

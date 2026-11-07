@@ -1,0 +1,30 @@
+{
+ "speaker": "janamejaya",
+ "voice": "am_michael",
+ "speed": 0.8944,
+ "pitch": 1,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.7668,
+   "words": 2,
+   "speed": 0.894,
+   "text": "A boy,"
+  },
+  {
+   "t0": 0.8468,
+   "t1": 2.5438,
+   "words": 6,
+   "speed": 0.894,
+   "text": "and he speaks like a sage."
+  },
+  {
+   "t0": 2.7938,
+   "t1": 3.8998,
+   "words": 3,
+   "speed": 0.894,
+   "text": "Choose a boon!"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

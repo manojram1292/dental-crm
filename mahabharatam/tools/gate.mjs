@@ -30,7 +30,7 @@ import { buildTimeline, epTag } from './timeline.mjs';
 const NAMES = (() => {
   try { return new Set([...fs.readFileSync(path.join(ROOT, 'tools', 'voice.py'), 'utf8').matchAll(/"([A-Z][A-Za-z]+)(?:'s)?":/g)].map((m) => m[1])); } catch { return new Set(); }
 })();
-const ANCHORS = new Set(['Sauti', 'Next', 'I']);
+const ANCHORS = new Set(['Sauti', 'Shaunaka', 'Next', 'I']);   // the frame's own people are not new names
 const PRONOUNS = /^(he|she|it|they|them|him|her|his|its|their|hers|theirs)$/i;
 
 function ebur(file, ss, to) {

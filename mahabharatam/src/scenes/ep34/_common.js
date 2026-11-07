@@ -5,6 +5,7 @@
  *                             o.rings (array of 0..1: the expanding rings of light of the three calls), o.cam, o.after(g)
  *   EP34.chamber(ctx, T, o)   THEIR CHAMBER IN VASUKI'S PALACE AT EVENING: violet walls, an arched window shaft high on the
  *                             left, one lamp; o.sun (0..1: a red-gold sunset shaft crawls across the floor), o.cam, o.after(g)
+ *   EP34.sleep(g, T, o)      the sage asleep with his head in her lap (o.look: her gaze)
  *   (the wedding uses EPA.hall with mood 'gold': the hall's first wedding light)
  */
 (function () {
@@ -36,6 +37,14 @@
     for (const [k, rv] of (o.rings || []).entries()) { if (rv <= 0 || rv >= 1) continue; ctx.strokeStyle = `rgba(255,240,180,${0.6 * (1 - rv)})`; ctx.lineWidth = 10 * (1 - rv) + 2; ctx.beginPath(); ctx.ellipse(o.ringAt?.[0] ?? 540, o.ringAt?.[1] ?? 900, 60 + rv * 900, 30 + rv * 450, 0, 0, TAU); ctx.stroke(); void k; }
     if (o.after) o.after(ctx);
     ctx.restore();
+  };
+
+  // the sleeper and the watcher: the sage asleep (lying: a standing figure turned 90°), his head in her lap
+  EP34.sleep = (g, T, o = {}) => {
+    KIT.characters.nagini.draw(g, { x: 400, y: 1700, scale: 0.72, facing: 'right', pose: { name: 'sit' }, expression: { look: o.look ?? 0.25 }, light: EP34.lamp(400, 1500, 860, 1560, 1.15), t: T, key: 'sl34-ng' });
+    g.save(); g.translate(1060, 1690); g.rotate(-Math.PI / 2);
+    KIT.characters.jaratkaru.draw(g, { x: 0, y: 0, scale: 0.55, facing: 'left', pose: { name: 'stand' }, light: { dir: 0, intensity: 1.0, front: 0.6, fill: 0.4 }, t: 0, key: 'sl34-jk' });
+    g.restore();
   };
 
   EP34.chamber = (ctx, T, o = {}) => {

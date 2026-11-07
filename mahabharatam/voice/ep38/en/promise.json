@@ -1,0 +1,30 @@
+{
+ "speaker": "astika",
+ "voice": "af_sky",
+ "speed": 0.8944,
+ "pitch": -1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.0469,
+   "words": 3,
+   "speed": 0.894,
+   "text": "I will go,"
+  },
+  {
+   "t0": 1.1269,
+   "t1": 1.9011,
+   "words": 1,
+   "speed": 0.894,
+   "text": "uncle."
+  },
+  {
+   "t0": 2.1511,
+   "t1": 3.7334,
+   "words": 5,
+   "speed": 0.894,
+   "text": "I will set you free."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8586000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7511,
+   "words": 5,
+   "speed": 0.859,
+   "text": "He learned the sacred texts"
+  },
+  {
+   "t0": 1.8311,
+   "t1": 3.4132,
+   "words": 4,
+   "speed": 0.859,
+   "text": "from the sage Chyavana."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

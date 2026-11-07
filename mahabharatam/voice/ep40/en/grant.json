@@ -1,0 +1,30 @@
+{
+ "speaker": "janamejaya",
+ "voice": "am_michael",
+ "speed": 0.86,
+ "pitch": 1,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9858,
+   "words": 3,
+   "speed": 0.86,
+   "text": "So be it."
+  },
+  {
+   "t0": 1.2358,
+   "t1": 2.9757,
+   "words": 4,
+   "speed": 0.86,
+   "text": "Let the sacrifice end."
+  },
+  {
+   "t0": 3.2257,
+   "t1": 4.6812,
+   "words": 3,
+   "speed": 0.86,
+   "text": "Let Takshaka live."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

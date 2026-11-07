@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8181,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.3503,
+   "words": 8,
+   "speed": 0.818,
+   "text": "On the road he met an old brahmin."
+  },
+  {
+   "t0": 2.6503,
+   "t1": 4.1756,
+   "words": 3,
+   "speed": 0.818,
+   "text": "It was Takshaka."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

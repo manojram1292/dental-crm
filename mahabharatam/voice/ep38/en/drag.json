@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8019000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.0448,
+   "words": 6,
+   "speed": 0.802,
+   "text": "Most of his people had burned."
+  },
+  {
+   "t0": 2.2948,
+   "t1": 4.9908,
+   "words": 7,
+   "speed": 0.802,
+   "text": "Now the spell was pulling Vasuki in."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8181,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.5178,
+   "words": 4,
+   "speed": 0.818,
+   "text": "Janamejaya asked his ministers"
+  },
+  {
+   "t0": 2.5778,
+   "t1": 4.3373,
+   "words": 5,
+   "speed": 0.818,
+   "text": "how his father had died."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

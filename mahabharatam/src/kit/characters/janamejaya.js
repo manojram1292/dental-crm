@@ -216,7 +216,7 @@
   CH.define({
     id: 'janamejaya', bible, rig, shape, ornaments, defaultPose: 'stand',
     rule: {
-      fill: '#0e0806', lit: '#3a1a0c', litGain: 0.8,
+      fill: '#0e0806', lit: '#a8603a', litGain: 0.8,
       rim: ['#c45a1a', '#ffb35a'], inner: '#4a1a08', innerA: [0.88, 0.45], glow: 0.8,
       ornament: ['#c8902a', '#ffe08a'], ornamentA: [0.6, 1.0],
     },

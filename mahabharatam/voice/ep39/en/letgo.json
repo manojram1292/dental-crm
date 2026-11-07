@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.7776000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1039,
+   "words": 2,
+   "speed": 0.778,
+   "text": "And Indra"
+  },
+  {
+   "t0": 1.2539,
+   "t1": 2.3722,
+   "words": 2,
+   "speed": 0.778,
+   "text": "let go."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

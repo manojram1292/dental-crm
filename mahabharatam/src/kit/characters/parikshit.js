@@ -267,7 +267,7 @@
   const mod = CH.define({
     id: 'parikshit', bible, rig, shape, ornaments, after, defaultPose: 'stand',
     rule: {
-      fill: '#100606', lit: '#3a1418', litGain: 0.8,
+      fill: '#100606', lit: '#7a3038', litGain: 0.8,
       rim: ['#b8384a', '#ffb0a0'], inner: '#4a1018', innerA: [0.88, 0.45], glow: 0.8,
       ornament: ['#b88a2a', '#ffd888'], ornamentA: [0.5, 0.9],
     },

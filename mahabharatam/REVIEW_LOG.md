@@ -391,3 +391,20 @@ Read before episode 32 was scripted (episode 31 was scripted but not yet rendere
 | — | Trial Reel A/B on ep 31 | **Passed to the owner** | An upload setting, outside the render. |
 
 Rejected: none of the top 10 outright. The reviewer's 1–2 dB figure for the Next window could not be reproduced exactly (ebur128 over [next.start, end] on the mp4 gives −5 to −7 dB for eps 21–30), but the point stands: it was nowhere near the 9–12 dB the scorecard claimed.
+
+## Episodes 31–40 · the Astika arc (the frame story returns)
+
+The arc shares `src/scenes/ep31/_common.js` (`EPA`: the holy places, beneath the earth, the earth disc, Vasuki's hall in four
+moods, Shesha rearing straight up) and the new characters in `src/kit/characters/astika-arc.js` (Elapatra, Jaratkaru the bride
+`nagini`, Jaratkaru the ascetic, Astika, Chyavana, Kashyapa the healer, the witness in the tree). Every episode passes
+`tools/gate.mjs` before rendering; numbers are in `QUALITY_SCORECARD.md`.
+
+**31 · Shesha Holds the Earth (57.6 s).** *Works:* the cold open is a direct-speech line over a moving image (Shesha's canopy
+rising under the quaking earth); the seven hoods now read as one canopy with a crown of heads, not a hand; the earth as a painted
+disc in the dark with Shesha's own pearl light (a new light); Brahma lit and frontal in a rose-gold dawn, with the serpent small
+below him (a vertical, not a side-by-side, two-shot); the first real silence (1.04 s) and the first LRA over 4 (5.5 LU) in the
+series; the Next really 10 dB under. *Weak:* the canopy still reads as a goblet when the body is thin; Shesha's white body blooms
+in the dark cavern; the montage of holy places is dark and the serpent small in it; Garuda appears only in one shot.
+*Fix carried:* the fixed caption band means every subject is composed above y ≈ 1300 or large enough that the band crosses the
+legs (done in eps 32–36 by moving cameras and figures); the gate's LRA check failed ep 32 once, so `mix.py` now aims at 4.6 LU and
+every script marks its intimate lines with `mixDb`.

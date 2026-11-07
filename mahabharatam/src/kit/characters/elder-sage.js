@@ -209,7 +209,7 @@
   CH.define({
     id: 'elder', bible, rig, shape, ornaments, defaultPose: 'stand',
     rule: {
-      fill: '#100a08', lit: '#3e271a', litGain: 0.8,
+      fill: '#100a08', lit: '#7a5236', litGain: 0.8,
       rim: ['#c9a27a', '#fff0d0'], inner: '#3a2416', innerA: [0.85, 0.4], glow: 0.6,
       ornament: ['#9a8f7d', '#f1e6c8'], ornamentA: [0.4, 0.75],
     },

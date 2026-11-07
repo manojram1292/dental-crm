@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8019000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9963,
+   "words": 2,
+   "speed": 0.802,
+   "text": "But first,"
+  },
+  {
+   "t0": 1.0963,
+   "t1": 2.377,
+   "words": 3,
+   "speed": 0.802,
+   "text": "the priests said,"
+  },
+  {
+   "t0": 2.477,
+   "t1": 4.8031,
+   "words": 6,
+   "speed": 0.802,
+   "text": "Takshaka must come to the fire."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

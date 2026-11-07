@@ -1,0 +1,16 @@
+{
+ "speaker": "nagas",
+ "voice": "af_nicole",
+ "speed": 0.8,
+ "pitch": -2,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1905,
+   "words": 3,
+   "speed": 0.8,
+   "text": "So be it."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

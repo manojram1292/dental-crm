@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8019000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.5044,
+   "words": 4,
+   "speed": 0.802,
+   "text": "He praised the king,"
+  },
+  {
+   "t0": 1.5844,
+   "t1": 2.68,
+   "words": 2,
+   "speed": 0.802,
+   "text": "the priests,"
+  },
+  {
+   "t0": 2.76,
+   "t1": 4.4097,
+   "words": 4,
+   "speed": 0.802,
+   "text": "and the fire itself."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

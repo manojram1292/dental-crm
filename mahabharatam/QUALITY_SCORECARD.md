@@ -58,3 +58,49 @@ One row per episode from episode 20 (the baseline) on. Every number that can be 
 - **Repeated compositions vs the previous 3 episodes** (dHash): 0 in all ten.
 - **New lights**: 2–4 per episode.
 - **Purity**: pure in all. **Share copies**: 14.1–18.8 MB (the 73 s introduction: 21.0 MB).
+
+## Correction (Nov 7): what the old rows over-claimed, and the re-score
+
+The independent review of eps 21–30 (`review/independent-21-30.md` §6) found that this scorecard over-claimed. It was right on each point:
+
+- **The Next card.** The old tool compared the mean volume of the Next window *plus the fade-out tail* with the body, which made the
+  card look 9–12 dB quieter. Measured properly on the mp4 (ebur128 integrated, [next.start, end] against [0, next.start]), eps 21–30
+  are only **5.1–7.0 dB** under the body. The mastering limiter squeezed the body; the pre-master −9 dB did not survive.
+- **The rest.** The 0.85–0.9 s "rest" before the turn existed in the timeline but the music bed played straight through it:
+  `silencedetect` (−45 dB, ≥ 0.6 s) finds **no silence in any of eps 21–30**.
+- **Loudness range.** Never measured before: **1.9–2.6 LU** in all ten (nothing breathes).
+- **Repeats.** Only line-midpoint stills were compared, so the repeated hook, title and Next layouts were never tested. The tool now
+  also compares the 0.5 s, 3 s and last frames by pHash (`key_repeats` at Hamming ≤ 10/64, and `key_min_dist`, the closest
+  same-slot pair against the previous three episodes: higher is more varied). Eps 21–30: no pair ≤ 10; `key_min_dist` 20–28.
+- **Ep 21's true peak** (−0.9 ✗) was a stale pre-remux number: the mp4 measures **−1.8 dBTP**.
+- **Ep 28's caption column** said 0, but the hook card covers Vishnu's face at t = 0: it should read **1 of 24**.
+- **Speech rate**: eps 22, 24, 27, 28 run 2.63–2.77 words/s, over the 2.6 the review asked for; the rows showed the numbers but
+  the summary called the item adopted.
+
+`tools/scorecard.py` now measures every audio number on the final mp4 (ebur128 I / TP / LRA, silencedetect, the Next window by
+ebur128), and adds the key-frame pHash check. Re-scored eps 21–30 (audio and repeats only; the other columns stand):
+
+| Ep | LUFS · TP (mp4) | LRA | Silences ≥ 0.6 s at −45 dB | Next vs body (ebur128) | W/s | Key repeats · min dist |
+|---|---|---|---|---|---|---|
+| 21 | −14.1 · −1.8 | 2.6 ✗ | 0 ✗ | −6.3 ✗ | 2.45 | 0 · 28 |
+| 22 | −14.1 · −1.9 | 1.9 ✗ | 0 ✗ | −6.1 ✗ | 2.63 ✗ | 0 · 24 |
+| 23 | −14.2 · −1.7 | 2.0 ✗ | 0 ✗ | −7.0 ✗ | 2.42 | 0 · 22 |
+| 24 | −14.2 · −1.7 | 2.0 ✗ | 0 ✗ | −5.5 ✗ | 2.77 ✗ | 0 · 24 |
+| 25 | −14.1 · −1.7 | 2.0 ✗ | 0 ✗ | −5.8 ✗ | 2.39 | 0 · 26 |
+| 26 | −14.2 · −1.7 | 2.2 ✗ | 0 ✗ | −6.3 ✗ | 2.48 | 0 · 26 |
+| 27 | −14.2 · −1.8 | 2.1 ✗ | 0 ✗ | −5.1 ✗ | 2.68 ✗ | 0 · 22 |
+| 28 | −14.2 · −1.8 | 2.1 ✗ | 0 ✗ | −5.5 ✗ | 2.69 ✗ | 0 · 20 |
+| 29 | −14.2 · −1.6 | 2.2 ✗ | 0 ✗ | −5.1 ✗ | 2.49 | 0 · 26 |
+| 30 | −14.1 · −1.8 | 2.2 ✗ | 0 ✗ | −5.3 ✗ | 2.49 | 0 · 28 |
+
+## Rows from episode 31 (the honest scorecard; the pre-render gate)
+
+From episode 31 every episode passes `tools/gate.mjs` before a final frame is rendered (`tools/render.mjs` runs it after the score
+and the mix): hook ≤ 8 words and ≤ 3.0 s, story ≤ 5 s, turn 40–60 % after a ≥ 0.8 s rest, ≤ 59 s, Next ≤ 1.2 s, no static hold
+> 4 s (a 1/8-size pass), ≤ 2.6 words/s, ≤ 2 new names per 10 s, no undefined pronoun in the hook, one fixed caption band, a real
+silence ≥ 0.6 s at −45 dB, LRA ≥ 4 LU, Next ≥ 8 dB under the body. New targets: **LRA ≥ 4**, **silence ≥ 1**, **Next ≤ −8 dB**,
+**words/s ≤ 2.6**, **key min dist** above the eps 21–30 mean (24.6).
+
+| Ep | Hook | Move@0.5 | Story | Hold | Turn | Cap×fig | Dur | Light | Repeat (mid · key · min dist) | W/s · gaps | LUFS · TP · LRA | Silence | Next | Open / Next | Fidelity | Pure | Share |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 31 | 5 w · 2.11 s | 15.2 | 3.4 s | 2.9 s | 43 % | 0 of 24 (*eye*: fixed band at 1400; the canopy and the earth composed above it) | 57.6 | 3 (the holy places before dawn, indigo and ash-silver; Brahma's rose-gold dawn on the snow; beneath the earth, Shesha's pearl light) + the grove at moonset | 0 · 0 · 24 (= baseline) | 2.56 · 0.33 / 1.5 | −14.1 · −1.7 · **5.5** | 1 (1.04 s) | **−10.3 dB** | direct speech over the canopy / the arc's serpent cartouche | Adi 1.32 · none · ✓ (ep 32 opens on the council) | pure | 14.9 |

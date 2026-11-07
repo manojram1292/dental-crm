@@ -107,7 +107,8 @@
       "sfx": [
         "wind@0"
       ],
-      "note": "STORY 2: NEW LIGHT, top-light: he stands at the lip of a black pit, seen from inside it looking up, a cold shaft of moonlight down past him."
+      "note": "STORY 2: NEW LIGHT, top-light: he stands at the lip of a black pit, seen from inside it looking up, a cold shaft of moonlight down past him.",
+      "mixDb": -3
     },
     {
       "id": "hang",
@@ -143,7 +144,8 @@
         "crack@1",
         "crack@1"
       ],
-      "note": "STORY 4: the rat at the root (the hook's image, from a new angle: side-on, the root in silhouette against the moonlight)."
+      "note": "STORY 4: the rat at the root (the hook's image, from a new angle: side-on, the root in silhouette against the moonlight).",
+      "mixDb": -3
     },
     {
       "id": "ask",
@@ -158,7 +160,8 @@
         0,
         4
       ],
-      "note": "STORY 5 (Jaratkaru speaks): close on the ascetic's face at the lip, lit from below by the ancestors' pale glow."
+      "note": "STORY 5 (Jaratkaru speaks): close on the ascetic's face at the lip, lit from below by the ancestors' pale glow.",
+      "mixDb": -2
     },
     {
       "id": "answer",
@@ -215,7 +218,8 @@
         "bell-low@1",
         "drum@2"
       ],
-      "note": "STORY 8: three cuts on the beats: the tuft glowing (the line), the rat in black (time), the single root bright gold (him)."
+      "note": "STORY 8: three cuts on the beats: the tuft glowing (the line), the rat in black (time), the single root bright gold (him).",
+      "mixDb": 1
     },
     {
       "id": "agree",
@@ -250,7 +254,8 @@
         "bell@1",
         "bell@2"
       ],
-      "note": "STORY 10: three gold lines appear one per beat over the dawn (the conditions as a short list)."
+      "note": "STORY 10: three gold lines appear one per beat over the dawn (the conditions as a short list).",
+      "mixDb": -2
     },
     {
       "id": "cliff",

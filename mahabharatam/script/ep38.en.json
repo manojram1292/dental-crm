@@ -1,0 +1,282 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "captionBand": {
+    "y": 1400
+  },
+  "episode": 38,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 49–50: with most of the serpents burned, Vasuki, his limbs burning and his mind reeling as the mantras drag him toward the fire, tells his sister the time has come: let her son save them. She tells Astika why he was born; he promises his uncle he will free him from the curse, and goes. At the sacrifice the doorkeepers will not let him in; he praises the sacrifice (like those of Soma, Varuna and Prajapati), the king, the assembly and the fire, and is admitted. Janamejaya, delighted, says that though a boy he speaks like an elder, and wishes to give him a boon; the priests answer that the boy deserves it, but first Takshaka must come to the fire (the cliffhanger, 1.50–51).",
+  "structure": "From episode 21: COLD OPEN (≤ 8 words, ≤ 3 s; opening chosen by content (not a fixed rotation): direct speech in medias res by content: Vasuki's cry, the card at the side of his straining hood) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band over its first shot → turn at 40–60 % after one ≈ 0.9 s rest → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1. Gate: tools/gate.mjs (run by tools/render.mjs).",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 38",
+    "episodeTitle": "Astika at the Gate",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 37",
+    "prevEpisodeTitle": "The Witness in the Tree",
+    "recapLine": "The fire blazed, and Vasuki felt it pulling him in.",
+    "nextEpisodeLabel": "Episode 39",
+    "nextTitle": "Indra Lets Go",
+    "astikaName": "Astika",
+    "astikaEpithet": "Vasuki's nephew"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "vasuki",
+      "speed": 1.15,
+      "text": "\"My limbs are burning. Send your son!\"",
+      "say": "My limbs are burning. [p:100] Send your son!",
+      "est": 2.6,
+      "pre": 60,
+      "post": 1150,
+      "beats": [
+        2,
+        5
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "burning.",
+        "son!"
+      ],
+      "sfx": [
+        "roar",
+        "drum@1"
+      ],
+      "note": "COLD OPEN (direct speech in medias res, by content): Vasuki's hood straining at the frame's edge against a red glow, sparks rising past him from frame 1; the card beside him."
+    },
+    {
+      "id": "drag",
+      "speed": 0.99,
+      "text": "Most of his people had burned. Now the spell was pulling Vasuki in.",
+      "say": "Most of his people had burned. [p:200] Now the spell was pulling Vasuki in.",
+      "est": 3.8,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        2,
+        5,
+        12
+      ],
+      "sfx": [
+        "roar@1"
+      ],
+      "mixDb": -1,
+      "note": "STORY 0 with the unvoiced recap band (top): Vasuki's hall lit red from above through a crack in the vault, the empty coils of the hall; Vasuki writhing on his throne-coil, gold mantra bands closing on him."
+    },
+    {
+      "id": "told",
+      "speed": 0.99,
+      "text": "His sister told her son why he had been born.",
+      "say": "His sister told her son [p:60] why he had been born.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        2,
+        4,
+        9
+      ],
+      "mixDb": -3,
+      "note": "STORY 1: Jaratkaru the mother kneels to the boy, her hands on his shoulders; behind them, faint, the medallions of episode 32 (the sage, the bride, the boy)."
+    },
+    {
+      "id": "promise",
+      "speaker": "astika",
+      "speed": 1.04,
+      "text": "\"I will go, uncle. I will set you free.\"",
+      "say": "I will go, [p:60] uncle. [p:200] I will set you free.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        8
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 2 (Astika speaks): the boy, lit gold, looks up at Vasuki's hood; the uncle bows to him."
+    },
+    {
+      "id": "walk",
+      "speed": 0.99,
+      "text": "So the boy walked to the king's sacrifice.",
+      "say": "So the boy walked [p:60] to the king's sacrifice.",
+      "est": 2.6,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        7
+      ],
+      "sfx": [
+        "wind@0"
+      ],
+      "note": "STORY 3: NEW LIGHT, the plain before the sacrifice at a smoky red noon: the small boy on a long road toward a black smoke column; the enclosure's posts on the horizon."
+    },
+    {
+      "id": "gate",
+      "speed": 0.99,
+      "text": "At the gate, the guards would not let him in.",
+      "say": "At the gate, [p:80] the guards would not let him in.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        2,
+        6
+      ],
+      "sfx": [
+        "drum@0"
+      ],
+      "mixDb": -1,
+      "note": "STORY 4: two tall guards cross their spears before the boy (a low angle from behind him); the fire's glow beyond them."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 0.99,
+      "text": "So he did what he did best. He spoke.",
+      "say": "So he did what he did best. [p:250] He spoke.",
+      "est": 2.6,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        6,
+        8
+      ],
+      "mixDb": -4,
+      "note": "FRAME (Sauti, a twenty-sixth angle: low behind the fire, the flames between camera and Sauti; he smiles)."
+    },
+    {
+      "id": "praise",
+      "speaker": "astika",
+      "speed": 1.02,
+      "text": "\"This sacrifice shines like the sacrifices of the gods!\"",
+      "say": "This sacrifice shines [p:80] like the sacrifices of the gods!",
+      "est": 3.0,
+      "pre": 900,
+      "post": 300,
+      "beats": [
+        2,
+        8
+      ],
+      "sfx": [
+        "silence",
+        "bell@0",
+        "conch@1"
+      ],
+      "mixDb": 1,
+      "note": "STORY 5 · THE TURN (≈ 47 %): after the 0.9 s silence: the boy's voice rings out at the gate; the guards turn; behind them the great fire flares gold (beats[0])."
+    },
+    {
+      "id": "more",
+      "speed": 0.99,
+      "text": "He praised the king, the priests, and the fire itself.",
+      "say": "He praised the king, [p:80] the priests, [p:80] and the fire itself.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        5,
+        9
+      ],
+      "sfx": [
+        "bell@0",
+        "bell@1",
+        "bell@2"
+      ],
+      "note": "STORY 6: NEW LIGHT, inside the enclosure (episode 8's sacrifice, now seen at noon through smoke): three quick cuts on the beats: the king on his seat, the four priests in black, the fire."
+    },
+    {
+      "id": "aside",
+      "speed": 0.95,
+      "text": "The guards stepped aside. The whole assembly fell silent.",
+      "say": "The guards stepped aside. [p:250] The whole assembly fell silent.",
+      "est": 3.2,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        8
+      ],
+      "sfx": [
+        "chord@1"
+      ],
+      "mixDb": -2,
+      "note": "STORY 6b: the spears lift; the boy walks in alone down the long aisle between the seated priests and kings, all heads turning to him."
+    },
+    {
+      "id": "king",
+      "speaker": "janamejaya",
+      "speed": 1.04,
+      "text": "\"A boy, and he speaks like a sage. Choose a boon!\"",
+      "say": "A boy, [p:60] and he speaks like a sage. [p:250] Choose a boon!",
+      "est": 3.2,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        8
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 7 (Janamejaya speaks): the king rises from his seat, lit by the fire, his hand open toward the small boy (a high-low two-shot, the boy foreground, the king beyond)."
+    },
+    {
+      "id": "cliff",
+      "speed": 0.99,
+      "text": "But first, the priests said, Takshaka must come to the fire.",
+      "say": "But first, [p:100] the priests said, [p:100] Takshaka must come to the fire.",
+      "est": 3.6,
+      "pre": 300,
+      "post": 400,
+      "beats": [
+        0,
+        5,
+        10
+      ],
+      "role": "next",
+      "sfx": [
+        "drum@0",
+        "hiss@2"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): the four priests turn to the sky as one, ladles raised; in the smoke above the fire, the shape of a great green hood far off."
+    },
+    {
+      "id": "next",
+      "text": "Next: Indra Lets Go",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The arc's serpent cartouche over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

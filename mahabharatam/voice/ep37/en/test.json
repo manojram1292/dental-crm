@@ -1,0 +1,23 @@
+{
+ "speaker": "takshaka",
+ "voice": "am_fenrir",
+ "speed": 0.7326,
+ "pitch": -3,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.2962,
+   "words": 4,
+   "speed": 0.733,
+   "text": "Heal what I bite,"
+  },
+  {
+   "t0": 1.3762,
+   "t1": 2.4108,
+   "words": 3,
+   "speed": 0.733,
+   "text": "if you can."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

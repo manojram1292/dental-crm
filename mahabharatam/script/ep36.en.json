@@ -1,0 +1,286 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "captionBand": {
+    "y": 1400
+  },
+  "episode": 36,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 44: Vasuki, distressed, asks his sister whether the sage left her with child, for the serpents' sake; she answers that he said 'asti', 'it is there', and that he never spoke falsely even in jest. Vasuki rejoices and honours her. In time she bears a boy, radiant like a child of the gods, who grows up in Vasuki's house; he studies the Vedas and their branches with Chyavana, the son of Bhrigu; he keeps the vows of a celibate student, and grows, the hope of the serpents. (Shaunaka, Sauti's listener, is himself of Bhrigu's line: 1.4–5.) The cliffhanger turns to Hastinapura, where Janamejaya asks his ministers how his father died (1.45).",
+  "structure": "From episode 21: COLD OPEN (≤ 8 words, ≤ 3 s; opening chosen by content (not a fixed rotation): a question card by content: the small boy in a ring of serpents' eyes, the card low in the dark below him) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band over its first shot → turn at 40–60 % after one ≈ 0.9 s rest → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1. Gate: tools/gate.mjs (run by tools/render.mjs).",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 36",
+    "episodeTitle": "The Boy Called Astika",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 35",
+    "prevEpisodeTitle": "The Sunset Prayer",
+    "recapLine": "\"Asti. There is one.\" And the sage was gone.",
+    "nextEpisodeLabel": "Episode 37",
+    "nextTitle": "The Witness in the Tree",
+    "astikaName": "Astika",
+    "astikaEpithet": "son of Jaratkaru",
+    "chyavanaName": "Chyavana",
+    "chyavanaEpithet": "son of Bhrigu"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.12,
+      "text": "Can one boy save a whole people?",
+      "say": "Can one boy [p:40] save a whole people?",
+      "est": 2.4,
+      "pre": 60,
+      "post": 1150,
+      "beats": [
+        2,
+        6
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "one",
+        "boy"
+      ],
+      "sfx": [
+        "hiss",
+        "bell@1"
+      ],
+      "note": "COLD OPEN (a question card by content): the small boy standing in the dark hall inside a vast ring of serpents' eyes that open one by one from frame 1; the card low in the dark beneath him."
+    },
+    {
+      "id": "afraid",
+      "speed": 1.06,
+      "text": "Vasuki came to his sister at night, afraid for his people.",
+      "say": "Vasuki came to his sister at night, [p:80] afraid for his people.",
+      "est": 3.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        9
+      ],
+      "mixDb": -1,
+      "note": "STORY 0 with the unvoiced recap band (top): the chamber at night (episode 35's, the lamp lower): Vasuki's hood leans in at the doorway; she sits alone."
+    },
+    {
+      "id": "child",
+      "speaker": "vasuki",
+      "speed": 1.04,
+      "text": "\"Did he leave you with child?\"",
+      "say": "Did he leave you [p:40] with child?",
+      "est": 2.0,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        2,
+        5
+      ],
+      "note": "STORY 1 (Vasuki speaks): close on Vasuki's single hood, low, the ruby jewel catching the lamp."
+    },
+    {
+      "id": "never",
+      "speaker": "nagini",
+      "speed": 1.04,
+      "text": "\"He said, there is one. He never spoke a lie.\"",
+      "say": "He said, [p:80] there is one. [p:250] He never spoke a lie.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        8
+      ],
+      "mixDb": -2,
+      "note": "STORY 2 (the bride speaks): she lifts her face to her brother; the small gold flame at her waist glows (episode 35's)."
+    },
+    {
+      "id": "rejoiced",
+      "speed": 1.04,
+      "text": "Vasuki rejoiced, and honoured his sister.",
+      "say": "Vasuki rejoiced, [p:100] and honoured his sister.",
+      "est": 2.6,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        1,
+        5
+      ],
+      "sfx": [
+        "bell@0"
+      ],
+      "note": "STORY 2b: Vasuki bows his great hood to her; the lamplight warms; jewels brought by serpents glint around her."
+    },
+    {
+      "id": "wait",
+      "speaker": "sauti",
+      "speed": 1.06,
+      "text": "All the serpents had left was one unborn child.",
+      "say": "All the serpents had left [p:80] was one unborn child.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        8
+      ],
+      "mixDb": -4,
+      "note": "FRAME (Sauti, a twenty-fourth angle: from beside the elder, Sauti seen across the fire, his hands cupped as if around a flame)."
+    },
+    {
+      "id": "born",
+      "speed": 1.04,
+      "text": "And in time a boy was born, bright as a child of the gods.",
+      "say": "And in time [p:60] a boy was born, [p:120] bright as a child of the gods.",
+      "est": 3.6,
+      "pre": 900,
+      "post": 350,
+      "beats": [
+        4,
+        7,
+        12
+      ],
+      "sfx": [
+        "silence",
+        "bell@0",
+        "chord@1"
+      ],
+      "mixDb": 1,
+      "note": "STORY 3 · THE TURN (≈ 40 %): after the 0.9 s silence, NEW LIGHT, the birth: the hall floods with white-gold light from a newborn held in his mother's arms; the serpents' heads bow in rings."
+    },
+    {
+      "id": "named",
+      "speed": 1.04,
+      "text": "They called him Astika.",
+      "say": "They called him [p:60] Astika.",
+      "est": 1.8,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        3,
+        3
+      ],
+      "sfx": [
+        "bell@0"
+      ],
+      "note": "STORY 4: Vasuki lifts his hood over mother and child like a canopy; plaque \"Astika\"."
+    },
+    {
+      "id": "grew",
+      "speed": 1.04,
+      "text": "He grew like the waxing moon, and kept every vow.",
+      "say": "He grew like the waxing moon, [p:100] and kept every vow.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        2,
+        5,
+        9
+      ],
+      "sfx": [
+        "bansuri@0"
+      ],
+      "note": "STORY 6: NEW LIGHT, the night sky over the serpent world: the moon waxes through four phases on the beats while the boy, seen in silhouette on a rock, grows taller in each."
+    },
+    {
+      "id": "hope",
+      "speed": 1.04,
+      "text": "And the serpents watched him, and remembered the promise.",
+      "say": "And the serpents watched him, [p:100] and remembered the promise.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        8
+      ],
+      "mixDb": -1,
+      "note": "STORY 7: the hall at dawn (episode 35's light): the boy walks through the rows of serpents, who turn as he passes; Elapatra among them."
+    },
+    {
+      "id": "teacher",
+      "speed": 1.06,
+      "text": "He learned the sacred texts from the sage Chyavana.",
+      "say": "He learned the sacred texts [p:80] from the sage Chyavana.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        4,
+        8,
+        8
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 5: NEW LIGHT, Bhrigu's line's hermitage at morning (green forest, a sacred fire of ember-red): the boy seated before the ember-lit teacher; palm-leaf pages; plaque \"Chyavana\"."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.06,
+      "text": "Shaunaka, that teacher was of your own family.",
+      "say": "Shaunaka, [p:100] that teacher was of your own family.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        0,
+        7
+      ],
+      "mixDb": -4,
+      "note": "FRAME (Sauti, a twenty-fifth angle: the reverse: Sauti turning to look straight at him across the fire; the elder's face lit by surprise)."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.04,
+      "text": "Meanwhile, in Hastinapura, a king was asking how his father died.",
+      "say": "Meanwhile, [p:100] in Hastinapura, [p:100] a king was asking how his father died.",
+      "est": 3.8,
+      "pre": 300,
+      "post": 400,
+      "beats": [
+        2,
+        6,
+        11
+      ],
+      "role": "next",
+      "sfx": [
+        "drum@1",
+        "bell-low@2"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): NEW LIGHT, Janamejaya's court at night by torchlight: the young king on his throne leaning forward, his ministers before him; behind him a painted panel of his father."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Witness in the Tree",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The arc's serpent cartouche over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

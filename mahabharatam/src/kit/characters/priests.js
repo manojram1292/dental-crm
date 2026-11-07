@@ -184,7 +184,7 @@
   CH.define({
     id: 'priest', bible, rig, shape, ornaments, after, defaultPose: 'sit',
     rule: {
-      fill: '#0a0808', lit: '#241a18', litGain: 0.7,
+      fill: '#0a0808', lit: '#5a4a44', litGain: 0.7,
       rim: ['#8a7a70', '#f2dcc8'], inner: '#2a1a18', innerA: [0.8, 0.4], glow: 0.6,
       ornament: ['#9a7a5a', '#f0d0a0'], ornamentA: [0.3, 0.6],
     },

@@ -141,7 +141,7 @@
   CH.define({
     id: 'sthapati', bible, rig, shape, ornaments, defaultPose: 'stand',
     rule: {
-      fill: '#0e0a06', lit: '#2e2010', litGain: 0.8,
+      fill: '#0e0a06', lit: '#6a5030', litGain: 0.8,
       rim: ['#b8865a', '#f8dcb8'], inner: '#3a2410', innerA: [0.85, 0.4], glow: 0.7,
       ornament: ['#a88a5a', '#f0d8a8'], ornamentA: [0.3, 0.55],
     },

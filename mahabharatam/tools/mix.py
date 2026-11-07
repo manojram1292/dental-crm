@@ -140,7 +140,7 @@ def master(x):
 
 
 NEXT_UNDER = 10.0
-LRA_MIN = 4.2
+LRA_MIN = 4.6   # a margin over the gate's 4.0 (ffmpeg's ebur128 and this estimate differ by a few tenths)
 
 
 def lra(x):
@@ -226,7 +226,7 @@ def main():
     SL = {l['id']: l for l in json.load(open(scp))['lines']} if os.path.exists(scp) else {}
     new_rules = ep >= 31
     pre = mix
-    for mult in ((1.0, 1.5, 2.0) if new_rules else (1.0,)):
+    for mult in ((1.0, 1.5, 2.0, 2.6) if new_rules else (1.0,)):
         mix = master(pre * line_gains(tl, SL, N, mult)) if new_rules else master(pre)
         if not new_rules or lra(mix) >= LRA_MIN:
             break

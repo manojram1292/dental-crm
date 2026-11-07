@@ -62,7 +62,7 @@
       { fill: '#140c04', lit: '#8a6a3a', inner: '#5a3a14', rimDim: '#ffd890', rimBright: '#fffbe8', ornamentDim: '#7a8aff', ornament: '#e0e4ff' },
       'Shringin\'s young body (≈ 1220 units), drawn at a boy\'s scale.', ['a boy\'s top-knot', 'the sacred thread', 'lapis beads'], 'Dawn-gold with lapis ornaments: his father\'s fire, his mother\'s jewels.',
       [{ name: 'stand' }, { name: 'walk' }, { name: 'run' }, { name: 'sit' }, { name: 'speak', note: 'k' }, { name: 'point', note: 'k' }], 'astika'),
-    rule: { fill: '#140c04', lit: '#8a6a3a', litGain: 0.9, rim: ['#ffd890', '#fffbe8'], inner: '#5a3a14', innerA: [0.8, 0.4], glow: 0.9, ornament: ['#7a8aff', '#e0e4ff'], ornamentA: [0.55, 0.95] },
+    rule: { fill: '#140c04', lit: '#c89a5a', litGain: 0.9, rim: ['#ffd890', '#fffbe8'], inner: '#5a3a14', innerA: [0.8, 0.4], glow: 0.9, ornament: ['#7a8aff', '#e0e4ff'], ornamentA: [0.55, 0.95] },
     bounds: () => [-520, -1220, 440, 30],
   });
 

@@ -1,0 +1,23 @@
+{
+ "speaker": "astika",
+ "voice": "af_sky",
+ "speed": 0.8772,
+ "pitch": -1.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7117,
+   "words": 3,
+   "speed": 0.877,
+   "text": "Stop this sacrifice."
+  },
+  {
+   "t0": 1.9617,
+   "t1": 3.8213,
+   "words": 5,
+   "speed": 0.877,
+   "text": "Let no more serpents fall."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

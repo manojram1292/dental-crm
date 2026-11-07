@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8019000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4103,
+   "words": 4,
+   "speed": 0.802,
+   "text": "Back in the present,"
+  },
+  {
+   "t0": 1.5103,
+   "t1": 3.0397,
+   "words": 3,
+   "speed": 0.802,
+   "text": "the fire blazed,"
+  },
+  {
+   "t0": 3.1397,
+   "t1": 5.5736,
+   "words": 7,
+   "speed": 0.802,
+   "text": "and Vasuki felt it pulling him in."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

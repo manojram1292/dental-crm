@@ -314,7 +314,7 @@
   CH.define({
     id: 'sauti', bible, rig, shape, ornaments,
     rule: {
-      fill: '#0c0809', lit: '#2e160d', litGain: 0.8,
+      fill: '#0c0809', lit: '#6a3a22', litGain: 0.8,
       rim: ['#d8903e', '#ffe2a0'], inner: '#46200f', innerA: 0.88, glow: 0.8,
       ornament: [PAL.goldDeep, PAL.gold], ornamentA: [0.45, 0.8],
     },

@@ -1,0 +1,299 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "captionBand": {
+    "y": 1400
+  },
+  "episode": 39,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyaya 51 (with 1.53): the priests tell the king that Takshaka has fled in fear to Indra's house. Janamejaya orders them to bring Takshaka with Indra if Indra shields him. The hotri makes the offering with the mantras; Indra comes in his aerial car with Takshaka hidden in his upper garment, and, drawn by the mantras, afraid, he lets Takshaka go and returns to his own abode. Takshaka, bewildered by the mantras, falls whirling toward the fire. The priests tell the king the work is done and he may grant the brahmin his boon; Janamejaya offers it, and Astika asks that the sacrifice stop and no more serpents fall. The king, unwilling, offers gold, silver, cattle, anything else; Astika will take nothing else. As Takshaka falls, Astika cries 'Stay!' three times, and he stays, held between sky and fire.",
+  "structure": "From episode 21: COLD OPEN (≤ 8 words, ≤ 3 s; opening chosen by content (not a fixed rotation): a statement card by content: Indra's chariot dragged down through the smoke, the card under it in the dark) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band over its first shot → turn at 40–60 % after one ≈ 0.9 s rest → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1. Gate: tools/gate.mjs (run by tools/render.mjs).",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 39",
+    "episodeTitle": "Indra Lets Go",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 38",
+    "prevEpisodeTitle": "Astika at the Gate",
+    "recapLine": "First, the priests said, Takshaka must come to the fire.",
+    "nextEpisodeLabel": "Episode 40",
+    "nextTitle": "The Sacrifice Stops",
+    "stayWord": "Stay!"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.12,
+      "text": "The chant dragged down the king of gods.",
+      "say": "The chant dragged down [p:40] the king of gods.",
+      "est": 2.6,
+      "pre": 60,
+      "post": 1150,
+      "beats": [
+        2,
+        7
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "dragged",
+        "down"
+      ],
+      "sfx": [
+        "thunder",
+        "drum@1"
+      ],
+      "note": "COLD OPEN (a statement card by content): Indra's white-gold chariot tilting down through black smoke from frame 1, gold syllables of the chant wound round its wheels like ropes; the card below it."
+    },
+    {
+      "id": "hiding",
+      "speed": 1.0,
+      "text": "Takshaka was hiding in heaven, with Indra.",
+      "say": "Takshaka was hiding in heaven, [p:80] with Indra.",
+      "est": 2.8,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        0,
+        6
+      ],
+      "mixDb": -2,
+      "note": "STORY 0 with the unvoiced recap band (top): NEW LIGHT, Indra's heaven by day under a dark rumour of smoke at the horizon: Indra on his cloud-throne, Takshaka coiled small behind it, hiding."
+    },
+    {
+      "id": "order",
+      "speaker": "janamejaya",
+      "speed": 1.04,
+      "text": "\"If Indra shields him, let Indra burn too!\"",
+      "say": "If Indra shields him, [p:100] let Indra burn too!",
+      "est": 2.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        7
+      ],
+      "sfx": [
+        "drum@1"
+      ],
+      "mixDb": 1,
+      "note": "STORY 1 (Janamejaya speaks): the king standing at the fire, arm flung up at the sky; low angle, the fire to the side (his face lit)."
+    },
+    {
+      "id": "chant",
+      "speed": 1.0,
+      "text": "The priests chanted Takshaka's name, louder and louder.",
+      "say": "The priests chanted Takshaka's name, [p:80] louder and louder.",
+      "est": 3.2,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        3,
+        5,
+        7
+      ],
+      "sfx": [
+        "drum@0",
+        "drum@1",
+        "drum@2"
+      ],
+      "note": "STORY 2: the four priests pour into the fire; gold syllables rise from their mouths up the smoke in spirals."
+    },
+    {
+      "id": "drag",
+      "speed": 1.0,
+      "text": "Indra's chariot was dragged down from the sky, Takshaka hidden in his robe.",
+      "say": "Indra's chariot was dragged down from the sky, [p:120] Takshaka hidden in his robe.",
+      "est": 4.2,
+      "pre": 200,
+      "post": 300,
+      "beats": [
+        3,
+        5,
+        10
+      ],
+      "sfx": [
+        "thunder@1",
+        "wings@1"
+      ],
+      "note": "STORY 3: NEW LIGHT, the sky over the sacrifice, gold chant-ropes against storm-black smoke: the chariot plunges; Indra grips the rail, a green tail showing under his upper cloth."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.0,
+      "text": "Even the king of the gods could not hold on.",
+      "say": "Even the king of the gods [p:80] could not hold on.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        5,
+        9
+      ],
+      "mixDb": -4,
+      "note": "FRAME (Sauti, a twenty-seventh angle: from high above the Naimisha fire, Sauti's upturned face lit, the circle of sages around)."
+    },
+    {
+      "id": "letgo",
+      "speed": 0.96,
+      "text": "And Indra let go.",
+      "say": "And Indra [p:150] let go.",
+      "est": 2.0,
+      "pre": 900,
+      "post": 450,
+      "beats": [
+        1,
+        3
+      ],
+      "sfx": [
+        "silence",
+        "bell@1",
+        "crack@2"
+      ],
+      "mixDb": 1,
+      "note": "STORY 4 · THE TURN (≈ 44 %): after the 0.9 s silence: close on Indra's hand opening; the green coil slips from his robe (beats[1]); the chariot springs back up and away."
+    },
+    {
+      "id": "fall",
+      "speed": 1.0,
+      "text": "Takshaka fell, whirling, toward the flames.",
+      "say": "Takshaka fell, [p:80] whirling, [p:80] toward the flames.",
+      "est": 2.8,
+      "pre": 150,
+      "post": 250,
+      "beats": [
+        1,
+        2,
+        5
+      ],
+      "sfx": [
+        "glide@0",
+        "roar@2"
+      ],
+      "note": "STORY 5: Takshaka tumbling head over tail down the smoke toward the great fire; the camera falls with him."
+    },
+    {
+      "id": "boon",
+      "speaker": "astika",
+      "speed": 1.02,
+      "text": "\"Stop this sacrifice. Let no more serpents fall.\"",
+      "say": "Stop this sacrifice. [p:250] Let no more serpents fall.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        0,
+        5
+      ],
+      "sfx": [
+        "bell@0"
+      ],
+      "note": "STORY 6 (Astika claims his boon): the boy before the king, small and lit gold; the king's face falls."
+    },
+    {
+      "id": "else",
+      "speed": 1.0,
+      "text": "The king offered gold, cattle, anything else. The boy would not take it.",
+      "say": "The king offered gold, [p:80] cattle, [p:80] anything else. [p:250] The boy would not take it.",
+      "est": 4.2,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        4,
+        6,
+        12
+      ],
+      "mixDb": -2,
+      "note": "STORY 7: heaps of gold and a row of cattle appear as painted signs between them; the boy shakes his head; the signs fade."
+    },
+    {
+      "id": "stay",
+      "speaker": "astika",
+      "speed": 1.0,
+      "text": "\"Stay! Stay! Stay!\"",
+      "say": "Stay! [p:200] Stay! [p:200] Stay!",
+      "est": 2.4,
+      "pre": 300,
+      "post": 400,
+      "beats": [
+        0,
+        1,
+        2
+      ],
+      "sfx": [
+        "bell@0",
+        "bell@1",
+        "bell@2"
+      ],
+      "mixDb": 1,
+      "note": "STORY 8 (Astika calls to Takshaka): the boy turns to the sky, hand raised; on each word a ring of gold light pulses out."
+    },
+    {
+      "id": "hang",
+      "speed": 1.0,
+      "text": "And Takshaka hung in the air, above the fire.",
+      "say": "And Takshaka hung in the air, [p:100] above the fire.",
+      "est": 2.8,
+      "pre": 250,
+      "post": 350,
+      "beats": [
+        1,
+        6
+      ],
+      "sfx": [
+        "chord@0"
+      ],
+      "note": "STORY 9: Takshaka held motionless in mid-air over the flames, rings of gold around him, the smoke parting."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.0,
+      "text": "Would the king keep his word?",
+      "say": "Would the king [p:60] keep his word?",
+      "est": 2.2,
+      "pre": 300,
+      "post": 400,
+      "beats": [
+        2,
+        5
+      ],
+      "role": "next",
+      "sfx": [
+        "drum@1"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): close on Janamejaya's face, torn, the suspended serpent reflected in his eyes; the fire still roaring."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Sacrifice Stops",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The arc's serpent cartouche over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

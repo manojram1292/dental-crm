@@ -156,7 +156,14 @@
     });
   }
   function canopyPath(g, r) {
-    hoodLayout(r).forEach((h, i) => hood(g, h.base, h.c, h.w, h.l, r.T, i));
+    // (episode 37: the five spades read as a hand at phone size) a shared web joins the hoods into one canopy first,
+    // and each spade is drawn wider so they overlap
+    const H = hoodLayout(r), piv = r.rot(NECK);
+    const out = H.map((h) => { const dx = h.c[0] - piv[0], dy = h.c[1] - piv[1], d = Math.hypot(dx, dy) || 1; return [h.c[0] + dx / d * h.l * 0.38, h.c[1] + dy / d * h.l * 0.38]; });
+    g.moveTo(piv[0], piv[1] + 60);
+    out.forEach((p, i) => { if (i === 0) g.lineTo(p[0], p[1]); else { const q = out[i - 1]; g.quadraticCurveTo((p[0] + q[0]) / 2 + (p[0] - piv[0]) * 0.08, (p[1] + q[1]) / 2 + (p[1] - piv[1]) * 0.08, p[0], p[1]); } });
+    g.closePath(); cut(g);
+    H.forEach((h, i) => hood(g, h.base, h.c, h.w * 1.25, h.l, r.T, i));
   }
 
   function nagaArms(g, r, near) {
@@ -343,7 +350,7 @@
   const mod = CH.define({
     id: 'takshaka', bible, rig, shape, ornaments, before, after, defaultPose: 'stand',
     rule: {
-      fill: '#06100c', lit: '#10281e', litGain: 0.9,
+      fill: '#06100c', lit: '#2a6048', litGain: 0.9,
       rim: ['#1f9a64', '#a8ffd0'], inner: '#0c3a28', innerA: [0.9, 0.5], glow: 1.1, rimW: 1.1,
       ornament: ['#3aa878', '#d8ffe8'], ornamentA: [0.5, 0.95],
     },

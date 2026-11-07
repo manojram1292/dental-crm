@@ -1,0 +1,275 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`). captionY (px or \"high\") lifts the caption above low action."
+  },
+  "captionBand": {
+    "y": 1400
+  },
+  "episode": 40,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Astika sub-parva, adhyayas 51–53: the members of the assembly urge Janamejaya to grant the brahmin his boon; he grants it: the sacrifice ends, Takshaka lives, and the words of the builder (the suta who foretold that a brahmin would stop the rite, 1.47) come true. The king honours the priests and the assembly and the builder; Astika, having done what he came to do, returns home. The serpents, overjoyed, offer him a boon; he asks that whoever recites this story of his, morning or evening, with a calm mind, shall have nothing to fear from serpents; they grant it. Sauti adds that in the intervals of that sacrifice Vaishampayana, Vyasa's disciple, told the Mahabharata to Janamejaya (1.53). (The cliffhanger turns to the next arc: Shaunaka asks for the story of his own family, the Bhrigus, 1.4–5, reordered.)",
+  "structure": "From episode 21: COLD OPEN (≤ 8 words, ≤ 3 s; opening chosen by content (not a fixed rotation): a statement card over the fire sinking; the ARC FINALE: a ≥ 4 s lit payoff close-up of Astika, then the arc-end card (episodes 31–40, the playlist) before the cliffhanger and the short Next) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band over its first shot → turn at 40–60 % after one ≈ 0.9 s rest → the cliffhanger image + line → a ≤ 1.2 s NEXT › band over the cliffhanger image that dissolves into frame 1. Gate: tools/gate.mjs (run by tools/render.mjs).",
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 40",
+    "episodeTitle": "The Sacrifice Stops",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 39",
+    "prevEpisodeTitle": "Indra Lets Go",
+    "recapLine": "Takshaka hung in the air. Would the king keep his word?",
+    "nextEpisodeLabel": "Episode 41",
+    "nextTitle": "The Bride and the Demon",
+    "arcLabel": "The end of an arc",
+    "arcTitle": "Astika",
+    "arcRange": "Episodes 31–40",
+    "arcPlaylist": "The whole arc is in the Astika playlist",
+    "builderName": "The builder's warning",
+    "builderEpithet": "episode 8"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.12,
+      "text": "A king's word put out the fire.",
+      "say": "A king's word [p:40] put out the fire.",
+      "est": 2.4,
+      "pre": 60,
+      "post": 1150,
+      "beats": [
+        2,
+        6
+      ],
+      "role": "hook",
+      "caption": false,
+      "hookGold": [
+        "word",
+        "fire."
+      ],
+      "sfx": [
+        "roar",
+        "bell-low@1"
+      ],
+      "note": "COLD OPEN (a statement card over the image): the great fire of the snake sacrifice sinking from frame 1, the serpent held above it in gold rings; the card in the smoke above."
+    },
+    {
+      "id": "urge",
+      "speed": 1.0,
+      "text": "The whole assembly urged the king: give the boy his boon.",
+      "say": "The whole assembly urged the king: [p:150] give the boy his boon.",
+      "est": 3.4,
+      "pre": 200,
+      "post": 250,
+      "beats": [
+        2,
+        5,
+        10
+      ],
+      "mixDb": -1,
+      "note": "STORY 0 with the unvoiced recap band (top): the seated kings and sages of the assembly turn to Janamejaya, hands raised; the fire roars behind."
+    },
+    {
+      "id": "grant",
+      "speaker": "janamejaya",
+      "speed": 1.0,
+      "text": "\"So be it. Let the sacrifice end. Let Takshaka live.\"",
+      "say": "So be it. [p:250] Let the sacrifice end. [p:250] Let Takshaka live.",
+      "est": 3.6,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        0,
+        5,
+        9
+      ],
+      "sfx": [
+        "bell@1",
+        "conch@2"
+      ],
+      "mixDb": 1,
+      "note": "STORY 1 (Janamejaya speaks): the king lowers his raised arm, lit gold, the fire off to the side; his face eases."
+    },
+    {
+      "id": "embers",
+      "speed": 0.98,
+      "text": "And the great fire sank into embers.",
+      "say": "And the great fire [p:80] sank into embers.",
+      "est": 2.6,
+      "pre": 250,
+      "post": 350,
+      "beats": [
+        3,
+        6
+      ],
+      "sfx": [
+        "wind@1"
+      ],
+      "mixDb": -3,
+      "note": "STORY 2: NEW LIGHT, the enclosure after the fire: the flames drop to a bed of embers; grey smoke thins; a cool blue dusk comes down over the posts."
+    },
+    {
+      "id": "builder",
+      "speed": 1.0,
+      "text": "The builder's warning had come true: a brahmin had stopped the rite.",
+      "say": "The builder's warning had come true: [p:150] a brahmin had stopped the rite.",
+      "est": 3.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        7,
+        11
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 3: the old builder (episode 8's sthapati) nods at the edge of the enclosure, his measuring cord in hand; plaque \"The builder's warning · episode 8\"."
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.0,
+      "text": "The serpents were saved by a boy who was half serpent.",
+      "say": "The serpents were saved [p:80] by a boy who was half serpent.",
+      "est": 3.2,
+      "pre": 250,
+      "post": 250,
+      "beats": [
+        3,
+        10
+      ],
+      "mixDb": -4,
+      "note": "FRAME (Sauti, a twenty-eighth angle: the last of the arc: frontal, level, the fire low between him and us; the elder and the sages lit warm around him)."
+    },
+    {
+      "id": "thanks",
+      "speed": 1.0,
+      "text": "Then the serpents came to Astika, overjoyed, and offered him a boon.",
+      "say": "Then the serpents came to Astika, [p:100] overjoyed, [p:100] and offered him a boon.",
+      "est": 3.8,
+      "pre": 900,
+      "post": 300,
+      "beats": [
+        4,
+        6,
+        11
+      ],
+      "sfx": [
+        "silence",
+        "bansuri@0",
+        "bell@2"
+      ],
+      "mixDb": 1,
+      "note": "STORY 4 · THE TURN (≈ 45 %): after the 0.9 s silence: NEW LIGHT, Vasuki's hall at dawn in full gold (the hall's brightest light): the serpents rise in rings around the boy, Vasuki and Elapatra among them, every head bowed."
+    },
+    {
+      "id": "wish",
+      "speaker": "astika",
+      "speed": 1.0,
+      "text": "\"Whoever tells this story, let them never fear a serpent.\"",
+      "say": "Whoever tells this story, [p:150] let them never fear a serpent.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        7
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "STORY 5 (Astika speaks): the boy, lit gold, his hand open toward the serpents. The serpents' hoods all lift together on \"serpent\": the boon is granted."
+    },
+    {
+      "id": "payoff",
+      "speed": 0.96,
+      "text": "And Astika went home, to his mother.",
+      "say": "And Astika went home, [p:150] to his mother.",
+      "est": 2.6,
+      "pre": 300,
+      "post": 2100,
+      "beats": [
+        1,
+        6
+      ],
+      "sfx": [
+        "bansuri@0",
+        "bell@1"
+      ],
+      "mixDb": -1,
+      "note": "STORY 7 · THE ARC'S PAYOFF (≥ 4 s, lit, close): the mother kneels and the boy runs into her arms in the gold hall; Vasuki's hood over them both; a slow push in on their faces, held through the long post."
+    },
+    {
+      "id": "told",
+      "speed": 1.0,
+      "text": "And in the pauses of that sacrifice, the Mahabharata was told.",
+      "say": "And in the pauses of that sacrifice, [p:120] the Mahabharata was told.",
+      "est": 3.4,
+      "pre": 300,
+      "post": 300,
+      "beats": [
+        3,
+        9
+      ],
+      "sfx": [
+        "bell-low@1"
+      ],
+      "mixDb": -2,
+      "note": "STORY 8: the enclosure at night, the embers low; beside them Vaishampayana begins to speak to the seated king (episode 4's disciple), palm leaves open."
+    },
+    {
+      "id": "arcend",
+      "text": "The end of an arc · Astika",
+      "voice": false,
+      "est": 1.5,
+      "caption": false,
+      "note": "The ARC-END CARD (silent): over the told shot, a lapis cartouche: THE END OF AN ARC · ASTIKA · Episodes 31–40 · the whole arc is in the Astika playlist."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.0,
+      "text": "But Sauti had another family to speak of: Shaunaka's own.",
+      "say": "But Sauti had another family to speak of: [p:250] Shaunaka's own.",
+      "est": 3.6,
+      "pre": 200,
+      "post": 400,
+      "beats": [
+        5,
+        9
+      ],
+      "role": "next",
+      "sfx": [
+        "bell@1"
+      ],
+      "note": "NEXT 1 (cliffhanger, the catalog line): back at the Naimisha fire: Sauti turns to the elder; behind the elder, in the fire's smoke, the faint shape of a woman and a boar (the next arc)."
+    },
+    {
+      "id": "next",
+      "text": "Next: The Bride and the Demon",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The arc's serpent cartouche (its last time) over the cliffhanger image; dissolve into frame 1."
+    }
+  ]
+}

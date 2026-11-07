@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.5316,
+   "words": 7,
+   "speed": 0.81,
+   "text": "And in the pauses of that sacrifice,"
+  },
+  {
+   "t0": 2.6516,
+   "t1": 4.7825,
+   "words": 4,
+   "speed": 0.81,
+   "text": "the Mahabharata was told."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
