@@ -112,3 +112,22 @@ silence ≥ 0.6 s at −45 dB, LRA ≥ 4 LU, Next ≥ 8 dB under the body. New t
 | 38 | 7 w · 2.99 s | 7.1 | 4.14 s | 3.1 s | 53 % | 0 of 24 (*eye*: fixed band at 1400) | 56.9 | 3 (the hall under the spell, a red shaft; the plain at a smoky red noon; the enclosure at noon through smoke) | 0 · 0 · 22 | 2.43 · 0.28 / 1.35 | -14.2 · -1.7 · **5.8** | 1 (1.06 s) | **-10.3 dB** | direct speech in medias res (Vasuki) / serpent cartouche | Adi 1.49–50 · none · ✓ | pure | 17.4 |
 | 39 | 8 w · 2.97 s | 36.5 | 4.12 s | 0.0 s | 47 % | 0 of 24 (*eye*: fixed band at 1400) | 56.8 | 2 (Indra's heaven under a rumour of smoke; the sky over the sacrifice with gold chant-ropes) | 0 · 0 · 24 | 2.2 · 0.27 / 1.35 | -14.1 · -1.6 · **5.1** | 1 (1.07 s) | **-10.3 dB** | statement card (the car dragged down) / serpent cartouche | Adi 1.51–53 (catalog refs widened) · none · ✓ | pure | 17.8 |
 | 40 | 7 w · 2.28 s | 23.4 | 3.43 s | 0.0 s | 47 % | 0 of 24 (*eye*: fixed band at 1400) | 58.0 | 2 (the enclosure after the fire, blue dusk and embers; Vasuki's hall at full gold dawn) + the night of the telling | 0 · 0 · 24 | 2.35 · 0.65 / 2.4 | -14.1 · -1.7 · **5.7** | 1 (1.04 s) | **-10.3 dB** | statement card over the fire sinking; arc-end card / serpent cartouche | Adi 1.51–53 · none · ✓ (ep 41 opens the Bhrigu tales) | pure | 19.7 |
+
+## Summary (episodes 31–40 against episodes 21–30, all measured on the mp4)
+
+| | Eps 21–30 (re-scored) | Eps 31–40 |
+|---|---|---|
+| Hook | 5–8 w · 2.2–3.6 s (3 misses over 3.0 s) | 5–8 w · 2.1–2.99 s (0 misses: the gate fails > 3.0 s) |
+| Story start | 3.5–4.9 s | 3.4–4.1 s |
+| Motion by 0.5 s | 7–62 | 7.1–36.5 (one miss: ep 34 at 2.3, before the gate checked it) |
+| Longest static hold | 1.1–4.8 s (2 misses) | 0–3.3 s (0 misses: the gate's frame pass) |
+| Turn | 44–60 % | 42–53 % |
+| Words/s | 2.39–2.77 (4 over 2.6) | 2.20–2.58 (0 over) |
+| Loudness / true peak | −14.1 to −14.2 / −1.6 to −1.9 | −14.1 to −14.2 / −1.6 to −1.8 |
+| **LRA** | **1.9–2.6 LU** (all ✗) | **4.8–6.1 LU** (all ✓) |
+| **Real silence ≥ 0.6 s at −45 dB** | **0 in all ten** | **1 in every episode** (0.94–1.10 s, before the turn) |
+| **Next vs body** | **−5.1 to −7.0 dB** (all ✗) | **−10.3 dB** in all |
+| Key-frame pHash min distance | 20–28 (mean 24.6) | 22–28 (about the same; no repeats at ≤ 10/64) |
+| New lights | 2–4 | 2–4 |
+| Share copies | 14.1–18.8 MB | 11.6–19.7 MB |
+| Captions | thin italic (the font files were swapped), position jumps | one fixed bold upright band at 1400, full contrast |
