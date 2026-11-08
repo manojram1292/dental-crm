@@ -30,8 +30,19 @@
     const T = P.T || 0, ph = po.phase ?? T * 2;
     return { T, ph, trunk: po.trunk ?? Math.sin(T * 1.3) * 0.5, fight: clamp(po.fight ?? (po.name === 'fight' ? po.k ?? 1 : 0)), seized: clamp(po.seized ?? (po.name === 'seized' ? po.k ?? 1 : 0)), walk: po.name === 'walk' ? 1 : 0, ear: Math.sin(T * 2.2) };
   }
+  // (ep 31 fix: the straight pillar legs read as blocks) a leg that tapers from a heavy thigh to the knee, swells a little at the
+  // knee, narrows at the ankle and spreads into a broad, flat round foot with a rounded front edge
   function legPath(g, x, y0, len, sw, w) {
-    g.moveTo(x - w / 2, y0); g.lineTo(x - w / 2 + sw, y0 + len - 30); g.quadraticCurveTo(x + sw, y0 + len + 6, x + w / 2 + sw, y0 + len - 30); g.lineTo(x + w / 2, y0); cut(g);
+    const k = y0 + len * 0.52, a = y0 + len * 0.86, f = y0 + len;
+    g.moveTo(x - w * 0.55, y0);
+    g.bezierCurveTo(x - w * 0.5 + sw * 0.2, y0 + len * 0.25, x - w * 0.36 + sw * 0.5, k - 40, x - w * 0.4 + sw * 0.55, k);
+    g.bezierCurveTo(x - w * 0.42 + sw * 0.6, k + 40, x - w * 0.32 + sw * 0.85, a - 30, x - w * 0.34 + sw, a);
+    g.bezierCurveTo(x - w * 0.52 + sw, a + 20, x - w * 0.6 + sw, f - 8, x - w * 0.5 + sw, f);
+    g.lineTo(x + w * 0.5 + sw, f);
+    g.bezierCurveTo(x + w * 0.6 + sw, f - 8, x + w * 0.52 + sw, a + 20, x + w * 0.34 + sw, a);
+    g.bezierCurveTo(x + w * 0.32 + sw * 0.85, a - 30, x + w * 0.42 + sw * 0.6, k + 40, x + w * 0.4 + sw * 0.55, k);
+    g.bezierCurveTo(x + w * 0.36 + sw * 0.5, k - 40, x + w * 0.5 + sw * 0.2, y0 + len * 0.25, x + w * 0.55, y0);
+    g.closePath(); cut(g);
   }
   function eShape(g, color, P, r) {
     g.fillStyle = color;

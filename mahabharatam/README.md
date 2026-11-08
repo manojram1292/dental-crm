@@ -15,7 +15,7 @@ Vertical YouTube Shorts (1080×1920, 30 fps). Every frame and every sound is gen
 | 9 | Two Wives, Two Wishes | Adi Parva 14 (Kashyapa's boons to Kadru and Vinata; a thousand eggs and two; five hundred years) | `episode09.mp4` (+ `episode09-share.mp4`), 56.2 s |
 | 10 | The Broken Egg | Adi Parva 14 (Vinata breaks an egg; Aruna's curse; the charioteer of the Sun) | `episode10.mp4` (+ `episode10-share.mp4`), 54.3 s |
 | 11 | The Horse from the Ocean | Adi Parva 15 (the sisters see Uchchaihshravas; Meru; Narayana's counsel to churn) | `episode11.mp4` (+ `episode11-share.mp4`), 56.1 s |
-| 12 | A Mountain for a Churning Stick | Adi Parva 16 (Ananta uproots Mandara; the Ocean's share; Akupara the tortoise king; Vasuki the rope) | `episode12.mp4` (+ `episode12-share.mp4`), 56.4 s |
+| 12 | A Mountain for a Churning Stick | Adi Parva 16 (Ananta uproots Mandara; the Ocean's share; Akupara the tortoise king; Vasuki the rope) | `episode12.mp4` (+ `episode12-share.mp4`), 57.7 s |
 | 13 | What Rose from the Ocean | Adi Parva 16 (fire, Indra's rain, milk and ghee; the Moon, Shri, Sura Devi, the horse, the Kaustubha, Dhanvantari); the cliffhanger's poison tagged | `episode13.mp4` (+ `episode13-share.mp4`), 57.4 s |
 | 14 | The Blue Throat | **As tradition tells it** (the kalakuta and Nilakantha are in the Southern/vulgate Adi 16, not the CE text); tagged on screen throughout | `episode14.mp4` (+ `episode14-share.mp4`), 54.3 s |
 | 15 | The Enchantress and Rahu | Adi Parva 16–17 (Narayana's illusion; Rahu; the Sun and the Moon; the discus; the eclipse) | `episode15.mp4` (+ `episode15-share.mp4`), 57.6 s |
@@ -35,6 +35,16 @@ Vertical YouTube Shorts (1080×1920, 30 fps). Every frame and every sound is gen
 | 28 | A Boon from Vishnu | Adi Parva 29 (Vishnu's boon; above him and deathless; the mount and the banner) | `episode28.mp4` (+ `episode28-share.mp4`), 55.3 s |
 | 29 | The Feather and the Thunderbolt | Adi Parva 29–30 (the vajra and the feather; Suparna; friendship; the serpents as food) | `episode29.mp4` (+ `episode29-share.mp4`), 58.2 s |
 | 30 | Forked Tongues | Adi Parva 30 (the kusha grass; Vinata freed; Indra takes the amrita; the forked tongues) | `episode30.mp4` (+ `episode30-share.mp4`), 57.1 s |
+| 31 | Shesha Holds the Earth | Adi Parva 32 (Shesha's austerities; Brahma's boon; he holds the earth; Garuda his friend) | `episode31.mp4` (+ `episode31-share.mp4`), 57.6 s |
+| 32 | Vasuki's Council | Adi Parva 33–35 (the serpents' plans; Elapatra recalls Brahma's word; Vasuki's sister) | `episode32.mp4` (+ `episode32-share.mp4`), 56.8 s |
+| 33 | The Ancestors in the Pit | Adi Parva 41–42 (and 1.13: the Yayavaras on one stalk, the rat that is time; the conditions) | `episode33.mp4` (+ `episode33-share.mp4`), 56.4 s |
+| 34 | The Bride with His Name | Adi Parva 42–43 (the cry in the forest; Vasuki's sister; the marriage on condition) | `episode34.mp4` (+ `episode34-share.mp4`), 56.1 s |
+| 35 | The Sunset Prayer | Adi Parva 43–44 (she wakes him for the evening rite; he leaves; "asti") | `episode35.mp4` (+ `episode35-share.mp4`), 55.8 s |
+| 36 | The Boy Called Astika | Adi Parva 44 (Astika born in Vasuki's house; taught by Chyavana) | `episode36.mp4` (+ `episode36-share.mp4`), 56.2 s |
+| 37 | The Witness in the Tree | Adi Parva 45–46 (Kashyapa the healer, Takshaka and the banyan, the man in the tree; reordered) | `episode37.mp4` (+ `episode37-share.mp4`), 55.5 s |
+| 38 | Astika at the Gate | Adi Parva 49–50 (Vasuki's plea; Astika praises the sacrifice and is let in) | `episode38.mp4` (+ `episode38-share.mp4`), 56.9 s |
+| 39 | Indra Lets Go | Adi Parva 51–53 (Indra dragged by the mantras; Takshaka falls; the boon; "Stay!") | `episode39.mp4` (+ `episode39-share.mp4`), 56.8 s |
+| 40 | The Sacrifice Stops | Adi Parva 51–53 (the boon granted; the builder's warning; the serpents' boon; the Mahabharata told) · the arc finale | `episode40.mp4` (+ `episode40-share.mp4`), 58.0 s |
 
 ## Continuity: one structure for every episode
 
@@ -105,6 +115,47 @@ The model sheet now clips every cell (Surya's disc no longer overflows) and rows
 - New character modules: `nishada.js` (`nishada`, `nishadi`, `brahmin`), `brothers.js` (`supratika`, `vibhavasu`),
   `valakhilya.js`, `brihaspati.js`, `vishvakarma.js`, `amrita-guards.js` (`guardsnake`); see `CHARACTERS.md`. `garuda.js` has a
   lit face mask, a gold beak and the collar moved low on the chest (episodes 19–20 were re-rendered with it).
+
+## From episode 31: the Astika arc, the honest scorecard and the pre-render gate
+
+`review/independent-21-30.md` was adopted item by item (decisions in `REVIEW_LOG.md`, numbers in `QUALITY_SCORECARD.md`).
+
+- **The gate.** `tools/gate.mjs --ep N [--frames] [--audio]` fails an episode before any final frame is rendered: hook ≤ 8 words
+  and spoken by ≤ 3.0 s, story by ≤ 5 s, turn (the line whose note says TURN) at 40–60 % after a ≥ 0.8 s rest, ≤ 59 s, Next
+  ≤ 1.2 s, no static hold > 4 s (a 1/8-size render pass), ≤ 2.6 words/s, ≤ 2 new proper names per 10 s, no undefined pronoun in
+  the hook, one fixed `captionBand`, and on the mix a silence ≥ 0.6 s at −45 dB, LRA ≥ 4 LU and the Next ≥ 8 dB under the body.
+  `tools/render.mjs` runs it (with frames and audio) after the score and the mix; `--no-gate` only for re-renders of older episodes.
+- **The honest scorecard.** `tools/scorecard.py` measures every audio number on the final mp4 (ebur128 I / TP / LRA,
+  silencedetect, the Next window by ebur128) and compares the 0.5 s, 3 s and last frames with the previous three episodes by pHash.
+- **The mix** (`tools/mix.py`, episodes ≥ 31): the Next window is set 10 dB under the body after mastering; everything is muted
+  in the rest before the turn (a real silence); a line's `"mixDb"` lifts or lowers the whole mix over it, deepened automatically
+  until the loudness range is ≥ 4.6 LU.
+- **Captions.** A script with `"captionBand": { "y": 1400 }` puts every caption in one fixed band, bold upright, the whole line at
+  full contrast. The two EB Garamond font files were found swapped (`EBGaramond.woff2` holds the Italic); `fonts/fonts.css` now
+  maps them correctly, so captions are upright in every render from now on.
+- **Lit faces.** The rig's light takes `fill` (a frontal fill on top of `front`); many characters got lighter `lit` colours
+  (Indra, Kashyapa, Vinata, Brihaspati, Vyasa, Brahma, Vasuki, the nagas, Sauti, the elder, Janamejaya, Takshaka, the priests,
+  the builder, Parikshit).
+- **Serpents.** Many-hooded serpents (Ananta, the three-hooded nagas) are drawn as one canopy with a crown of small heads, and
+  Takshaka's five hoods share a web: they no longer read as a hand. Vinata stands with her hands clasped low (not on her hip).
+- **The arc's own look.** `src/scenes/ep31/_common.js` (`EPA`) is shared by eps 31–40; `KIT.series.overlayNextScene({ style:
+  'serpent' })` is the arc's lapis cartouche for the Next; episode 40 ends with an arc-end card (`EP40.arcCard`).
+- **New characters** (`src/kit/characters/astika-arc.js`): Elapatra (`elapatra`), Jaratkaru the bride (`nagini`), Jaratkaru the
+  ascetic (`jaratkaru`), Astika (`astika`), Chyavana (`chyavana`), Kashyapa the healer (`healer`), the witness in the tree
+  (`woodman`). Voices: Shesha (am_echo −3 st), Vasuki (am_onyx −1.5), Elapatra (af_river −1), Jaratkaru (bm_george +1.5), the
+  bride (af_kore −0.5), Astika (af_sky −1.5).
+- **Old-episode fixes** (re-rendered with their existing scripts and audio, re-mixed with the current `mix.py`): ep 12 (Ananta's
+  canopy), ep 13 (the Moon luminous), ep 15 (Rahu's neck band as a flat seam of light, not a grin), ep 17 (the sisters moved
+  clear of the horse's head in the hook).
+
+### Kokoro files and voices used
+
+The narration is Kokoro-82M v1.0 (ONNX) from `onnx-community/Kokoro-82M-v1.0-ONNX`: `onnx/model.onnx` saved as `model.onnx`, and
+one `voices/<id>.bin` per voice; `tools/voice.py --model DIR` packs the `.bin` files it finds into `voices.npz`. The voice ids
+used by eps 0–40 (see `script/cast.json`): af_heart, af_kore, af_nicole, af_river, af_sky, am_adam, am_echo, am_eric, am_fenrir,
+am_liam, am_michael, am_onyx, am_puck, am_santa, bf_alice, bf_emma, bf_lily, bm_daniel, bm_fable, bm_george, bm_lewis (and
+bf_isabella reserved for the teacher's wife). Python: `kokoro_onnx`, `soundfile`, `imageio-ffmpeg`, numpy, scipy; run with
+`python3 -I`.
 
 ## How it is built (dubbing-ready, per episode)
 

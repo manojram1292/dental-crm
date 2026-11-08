@@ -863,6 +863,26 @@ outline, green forest over the rock, waterfalls and blossoms; roots and rock han
 | Signature light | **Iron and ember**; never Vasuki's violet or the nagas' olive. |
 | Voice | none |
 
+## The Astika arc (episodes 31–40) · `elapatra`, `nagini`, `jaratkaru`, `astika`, `chyavana`, `healer`, `woodman`
+
+All in `src/kit/characters/astika-arc.js`, built on shared bodies with their own light; every rule has a mid-tone lit fill so the
+face reads on bright grounds (the eps 21–30 weakness).
+
+| id | Who | Body | Light | Voice |
+|---|---|---|---|---|
+| `elapatra` | Elapatra, the young serpent who heard Brahma's word from his mother's lap (CE 1.34) | the naga body, slender (64), one hood | silver-teal: rim #7ad8d8 → #f0ffff, lit #3a7078 | `elapatra` (af_river −1 st) |
+| `nagini` | Jaratkaru, Vasuki's sister, the sage's bride, Astika's mother (1.35–44, 1.49) | Kadru's figure (CH.female), a small serpent diadem; standing hands clasped low | lapis-violet like her brother, rose jewels: rim #a890ff → #fff0fa, lit #5a4a8a | `nagini` (af_kore −0.5 st) |
+| `jaratkaru` | Jaratkaru the ascetic (1.13, 1.41–44) | Shamika's hermit body, gaunt | ash-grey with an ember glow: rim #c8bca8 → #fff8ec, lit #847868 | `jaratkaru` (bm_george +1.5 st) |
+| `astika` | Astika, their son (1.44–53) | Shringin's young body at a boy's scale | dawn-gold with lapis ornaments: rim #ffd890 → #fffbe8, lit #c89a5a | `astika` (af_sky −1.5 st) |
+| `chyavana` | Chyavana, son of Bhrigu, Astika's teacher (1.44) | the elder sage's body | ember-red (he was born blazing) | — |
+| `healer` | Kashyapa the healer, who could cure Takshaka's bite (1.38–39, 1.46); not Kashyapa the Prajapati | the young bard's body, sacred thread, a pouch of herbs | leaf-green and ivory | — |
+| `woodman` | The witness in the tree: burned with the banyan and revived with it (1.46) | the young man's body (`uttanka`) with a bundle of sticks | earth-brown and straw | — |
+
+Shesha (`ananta`) has a voice from ep 31 (`shesha`: am_echo −3 st) and Vasuki from ep 32 (`vasuki`: am_onyx −1.5 st). The many-hooded
+serpents (`ananta`, the three-hooded `naga` variants) are drawn as ONE canopy with a scalloped crown of small heads; Takshaka's five
+hoods share a web (no more "hand"). The frame-story figures (Sauti, the elder, Janamejaya, Takshaka, the priests, the builder,
+Parikshit) have lighter lit fills from ep 36.
+
 ### Locations and light
 
 Characters keep their signature light everywhere; the **environment and its key light change per

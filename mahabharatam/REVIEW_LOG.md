@@ -408,3 +408,60 @@ in the dark cavern; the montage of holy places is dark and the serpent small in 
 *Fix carried:* the fixed caption band means every subject is composed above y ≈ 1300 or large enough that the band crosses the
 legs (done in eps 32–36 by moving cameras and figures); the gate's LRA check failed ep 32 once, so `mix.py` now aims at 4.6 LU and
 every script marks its intimate lines with `mixDb`.
+
+**32 · Vasuki's Council (56.8 s).** *Works:* the hook is a question over the council seen from the vault (the frame chosen by the
+content, not by a rotation); the serpents' three plans as sepia vision panels in the jewel-fire's smoke; Vasuki's single hood very
+close for "No"; Brahma's memory in a cold silver-blue (a new light) with the sage, the bride and the boy as medallions; the sister
+large and lit at the end; the teal moonlit forest with eyes in the roots. LRA 6.1 LU, a real 1.04 s silence, Next −10.3 dB.
+*Weak:* the vision panels' figures are small; the hall is violet in three of its four shots; the gate refused the first render
+for LRA (3.4 LU). *Fix carried:* every later script marks two or three quiet lines with `mixDb`; `mix.py` aims at 4.6 LU.
+
+**33 · The Ancestors in the Pit (56.4 s).** *Works:* the hook is a statement card over the image itself (the rat at the root); the
+pit as a top-lit shaft (a new light) and the reveal "I am Jaratkaru" as a camera rise up the shaft; "the grass is our line · the
+rat is time · you are the last root" in three cuts on the beats; the three conditions as a short gold list on a dark panel; no
+Sauti cut (the template broken on purpose). *Weak:* the hanging ancestors (the Pitr design turned head-down) are pale and their
+faces small; the wilderness is a flat ochre; the ascetic is a pale grey on the dusk. *Fix carried:* figures in front of a fire
+or a sun are moved so the light is beside them, not behind (eps 34–40).
+
+**34 · The Bride with His Name (56.1 s).** *Works:* the green-gold forest with three rings of light for the three calls; the
+over-the-shoulder exchange (the sage's dark profile, the serpents in the light beyond) instead of a side-by-side; the wedding in
+the hall's gold lamps as a slow orbit; the sleeper and the watcher, and the sunset shaft crawling toward him for the cliffhanger.
+*Weak:* the forest's trunks read as a barcode; the bride and Vasuki share one colour family and merge when close. *Fix carried:*
+separate the two violet figures in depth (one foreground, one mid-ground) from ep 35 on.
+
+**35 · The Sunset Prayer (55.8 s).** *Works:* the hook states the stake ("Wake the sage, and lose him forever") over the moving
+image; the sandhya hour in the world above (a new light); Shaunaka himself asks "And what did she choose?" (the elder speaks for
+the first time in the arc); the turn is the sage's reversal after a real silence; the word "asti" on a plaque and the small gold
+flame of the promised child carried into the next episodes. *Weak:* the purple bride and the red shaft make many shots a similar
+magenta; the sage's anger is a pose, not a face. *Fix carried:* vary the palette per shot (ep 36: white-gold birth, green
+hermitage, blue moon).
+
+**36 · The Boy Called Astika (56.2 s).** *Works:* the question hook with the boy in a ring of opening eyes; the birth as a
+white-gold radiance (a new light); the waxing moon in four steps on the beats as the boy grows; Chyavana in an ember-lit green
+hermitage; Sauti telling Shaunaka that the teacher was of his own family (a bridge to the next arc). *Weak:* the boy's standing
+pose (Shringin's) keeps a hand on the hip; the court at the cliffhanger is dark. *Fix carried:* the frame-story figures got lighter
+lit fills (Sauti, the elder, Janamejaya, Takshaka, the priests, the builder, Parikshit).
+
+**37 · The Witness in the Tree (55.5 s).** *Works:* Kashyapa the healer appears at last (deferred since ep 7), leaf-green with his
+pouch of herbs; the road at blazing noon (a new light) with short black shadows; the banyan burning to a grey heap and regrowing
+sprout → leaves → tree in a green-gold light (another new light) as the turn; the man in the branches explains the hook's eye;
+the catalog corrected (he burned with the tree and came back with it; Vasuki is pulled toward the fire, not in it). Takshaka's
+five hoods now share a web and read as one canopy. *Weak:* the banyan's canopy is simple; the court at night repeats ep 36's
+framing. *Fix carried:* the noon sacrifice in ep 38 is graded daylit through smoke rather than the night crimson.
+
+**38 · Astika at the Gate (56.9 s).** *Works:* the hook in medias res (Vasuki: "My limbs are burning. Send your son!") with gold
+mantra bands closing on him; the hall under the spell with a red shaft through the cracked vault (a new light); the boy on the
+long road at a smoky red noon (a new light); the guards' crossed spears; the praise as the turn, the boy lit and set beside the
+fire, not in front of it. *Weak:* the sacrifice is orange in five shots; the priests read as grey ghosts at small size.
+
+**39 · Indra Lets Go (56.8 s).** *Works:* the chant as gold ropes of syllables spiralling up the smoke (a new light: storm-black
+lit from below); Indra's white-gold car dragged down; "And Indra let go" as a close on his hand after a real silence; Takshaka
+tumbling; "Stay! Stay! Stay!" with three rings of light; Takshaka held in the air in gold rings. *Weak:* Indra's car is a simple
+canopy on clouds; Takshaka is cropped at the top while falling.
+
+**40 · The Sacrifice Stops (58.0 s) · the arc finale.** *Works:* the hook over the fire sinking under the held serpent; the
+enclosure after the fire in a cool blue dusk with embers (the first cool light at the sacrifice); the builder of ep 8 nodding, his
+warning come true; the serpents' boon in Vasuki's hall at full gold (a new light); the review's finale rule: a 5.7 s lit payoff
+(the boy running into his mother's arms under Vasuki's hood) and an arc-end card ("The end of an arc · Astika · Episodes 31–40 ·
+the whole arc is in the Astika playlist") before the cliffhanger to Shaunaka's own family. *Weak:* the serpents' ring around the
+boy is crowded; the telling of the Mahabharata (Vaishampayana and the king at night) is small and dark.
