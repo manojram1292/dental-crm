@@ -470,3 +470,23 @@ boy is crowded; the telling of the Mahabharata (Vaishampayana and the king at ni
 The gate's frame pass now also measures Move@0.5 and fails an episode under 6. It caught eps 35 (3.7), 36 (0.9) and 39 (4.0)
 before they were rendered; their hooks now open on a fast ease-out move (19.4, 9.6, 35.6). The same pass caught static holds
 over 4 s in eps 33 (the conditions shot), 35 (the "asti" shot) and 40 (the serpents' boon); each got a camera push.
+
+### Remaining weaknesses (for whoever continues at episode 41)
+- **Palette runs.** Within an episode one hue can dominate several shots (violet in the hall for eps 32 and 34, orange at the
+  sacrifice for eps 38–39). Vary the light per shot as well as per location.
+- **Small or pale figures in places.** The hanging ancestors (ep 33) are pale with small faces; the priests read as grey at small
+  size; the telling at night (ep 40) is small. Shesha's white body blooms in the dark cavern (ep 31).
+- **Silhouettes against fire.** Janamejaya and Astika still go dark when the fire is directly behind them; the fix is to set the
+  fire beside the figure (done in eps 38–40), not more fill.
+- **Boys' poses.** Astika is built on Shringin's body, whose standing pose keeps a hand on the hip.
+- **Key-frame variety** is about the eps 21–30 level (pHash min distance 22–28 against a mean of 24.6): no repeats, but the hook
+  card at the top and the title under it are still the most common layout. Ep 41 should open with a different frame.
+- **Not re-rendered:** the throat coal in eps 21–22 (it reads as a second red eye); the elephant's legs are now tapered with knees
+  and feet in `brothers.js`, but no episode since ep 24 has used the elephant, so it is untested in a scene.
+- **Ep 34's hook** moved only 2.3 grey levels by 0.5 s (the only scorecard miss in eps 31–40); the gate now prevents it.
+
+### Next steps
+- Ep 41 opens the Bhrigu tales (catalog S01A06): Puloma, the rakshasa and Agni at Bhrigu's hermitage. Ep 36 already set up that
+  Chyavana was of Shaunaka's family, and ep 40's cliffhanger shows a woman and a boar in the smoke.
+- Keep `tools/gate.mjs` in the loop (it runs inside `tools/render.mjs`), and keep marking two or three intimate lines per script
+  with `mixDb` so the LRA stays above 4.

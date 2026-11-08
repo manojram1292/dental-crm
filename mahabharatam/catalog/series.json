@@ -5936,10 +5936,13 @@
         "theme-serpents",
         "theme-cosmology",
         "theme-boons",
-        "char-garuda"
+        "char-garuda",
+        "lang-en"
        ],
-       "status": "in_production",
-       "languages": {},
+       "status": "released",
+       "languages": {
+        "en": "released"
+       },
        "tradition_note": false,
        "reorder_note": null,
        "notes": null
@@ -5984,10 +5987,13 @@
         "theme-serpents",
         "theme-fate-and-time",
         "theme-curses",
-        "char-vasuki"
+        "char-vasuki",
+        "lang-en"
        ],
-       "status": "in_production",
-       "languages": {},
+       "status": "released",
+       "languages": {
+        "en": "released"
+       },
        "tradition_note": false,
        "reorder_note": null,
        "notes": null
@@ -6038,10 +6044,13 @@
         "theme-vows",
         "theme-sages",
         "theme-fate-and-time",
-        "theme-dharma-dilemmas"
+        "theme-dharma-dilemmas",
+        "lang-en"
        ],
-       "status": "in_production",
-       "languages": {},
+       "status": "released",
+       "languages": {
+        "en": "released"
+       },
        "tradition_note": false,
        "reorder_note": null,
        "notes": null
@@ -6088,10 +6097,13 @@
         "theme-vows",
         "theme-serpents",
         "theme-women-of-the-epic",
-        "char-vasuki"
+        "char-vasuki",
+        "lang-en"
        ],
-       "status": "in_production",
-       "languages": {},
+       "status": "released",
+       "languages": {
+        "en": "released"
+       },
        "tradition_note": false,
        "reorder_note": null,
        "notes": null
@@ -6134,10 +6146,13 @@
         "layer-main",
         "theme-dharma-dilemmas",
         "theme-women-of-the-epic",
-        "theme-love-stories"
+        "theme-love-stories",
+        "lang-en"
        ],
-       "status": "in_production",
-       "languages": {},
+       "status": "released",
+       "languages": {
+        "en": "released"
+       },
        "tradition_note": false,
        "reorder_note": null,
        "notes": null
@@ -6184,10 +6199,13 @@
         "theme-teachers-and-students",
         "theme-serpents",
         "char-astika",
-        "char-vasuki"
+        "char-vasuki",
+        "lang-en"
        ],
-       "status": "in_production",
-       "languages": {},
+       "status": "released",
+       "languages": {
+        "en": "released"
+       },
        "tradition_note": false,
        "reorder_note": null,
        "notes": null
@@ -6234,10 +6252,13 @@
         "theme-serpents",
         "theme-death-and-grief",
         "char-janamejaya",
-        "char-takshaka"
+        "char-takshaka",
+        "lang-en"
        ],
-       "status": "in_production",
-       "languages": {},
+       "status": "released",
+       "languages": {
+        "en": "released"
+       },
        "tradition_note": false,
        "reorder_note": "The witness account belongs to the ministers' report before the vow (1.45–46); we place it here as the last piece of the flashback, which returns to the sacrifice already under way (episode 8).",
        "notes": "Corrected Nov 7: the witness burned with the tree and was revived with it (CE 1.46); the cliffhanger no longer says Vasuki was burning in the fire (CE 1.49: his limbs burn as the mantras draw him toward it)."
@@ -6283,10 +6304,13 @@
         "theme-sacrifices",
         "char-astika",
         "char-vasuki",
-        "char-janamejaya"
+        "char-janamejaya",
+        "lang-en"
        ],
-       "status": "in_production",
-       "languages": {},
+       "status": "released",
+       "languages": {
+        "en": "released"
+       },
        "tradition_note": false,
        "reorder_note": null,
        "notes": null
@@ -6338,10 +6362,13 @@
         "char-astika",
         "char-janamejaya",
         "char-takshaka",
-        "char-indra"
+        "char-indra",
+        "lang-en"
        ],
-       "status": "in_production",
-       "languages": {},
+       "status": "released",
+       "languages": {
+        "en": "released"
+       },
        "tradition_note": false,
        "reorder_note": null,
        "notes": "Refs widened Nov 7: the threefold 'Stay!' and Takshaka held in the air are told as the boon is granted (1.51–53)."
@@ -6392,10 +6419,13 @@
         "char-astika",
         "char-janamejaya",
         "char-takshaka",
-        "char-vasuki"
+        "char-vasuki",
+        "lang-en"
        ],
-       "status": "in_production",
-       "languages": {},
+       "status": "released",
+       "languages": {
+        "en": "released"
+       },
        "tradition_note": false,
        "reorder_note": null,
        "notes": null

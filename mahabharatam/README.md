@@ -122,7 +122,7 @@ The model sheet now clips every cell (Surya's disc no longer overflows) and rows
 
 - **The gate.** `tools/gate.mjs --ep N [--frames] [--audio]` fails an episode before any final frame is rendered: hook ≤ 8 words
   and spoken by ≤ 3.0 s, story by ≤ 5 s, turn (the line whose note says TURN) at 40–60 % after a ≥ 0.8 s rest, ≤ 59 s, Next
-  ≤ 1.2 s, no static hold > 4 s (a 1/8-size render pass), ≤ 2.6 words/s, ≤ 2 new proper names per 10 s, no undefined pronoun in
+  ≤ 1.2 s, no static hold > 4 s and ≥ 6 grey levels of motion by 0.5 s (a 1/8-size render pass), ≤ 2.6 words/s, ≤ 2 new proper names per 10 s, no undefined pronoun in
   the hook, one fixed `captionBand`, and on the mix a silence ≥ 0.6 s at −45 dB, LRA ≥ 4 LU and the Next ≥ 8 dB under the body.
   `tools/render.mjs` runs it (with frames and audio) after the score and the mix; `--no-gate` only for re-renders of older episodes.
 - **The honest scorecard.** `tools/scorecard.py` measures every audio number on the final mp4 (ebur128 I / TP / LRA,
