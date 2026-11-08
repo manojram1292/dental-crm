@@ -9,7 +9,7 @@
     fadeIn: 0.2,
     draw(ctx, t, env) {
       const T = env.T, p = clamp(t / env.dur);
-      EP33.wild(ctx, T, { dawn: 1, cam: { zoom: 1.0 + 0.05 * p } , after: (g) => {
+      EP33.wild(ctx, T, { dawn: 1, cam: { zoom: 1.0 + 0.22 * p, dx: -60 + 120 * p } , after: (g) => {
         CH.jaratkaru.draw(g, { x: lerp(560, 640, p), y: 1520, scale: 0.42, facing: 'right', pose: { name: 'walk', phase: T * 2.4 }, light: { dir: -0.4, intensity: 1.1, front: 0.6, fill: 0.5 }, t: T, key: 't33-jk' });
       } });
       const pa = clamp((t - env.beats[0] + 0.2) / 0.3);
