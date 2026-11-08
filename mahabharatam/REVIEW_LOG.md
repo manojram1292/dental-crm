@@ -465,3 +465,8 @@ warning come true; the serpents' boon in Vasuki's hall at full gold (a new light
 (the boy running into his mother's arms under Vasuki's hood) and an arc-end card ("The end of an arc · Astika · Episodes 31–40 ·
 the whole arc is in the Astika playlist") before the cliffhanger to Shaunaka's own family. *Weak:* the serpents' ring around the
 boy is crowded; the telling of the Mahabharata (Vaishampayana and the king at night) is small and dark.
+
+**A miss, and the tooling fix.** Ep 34's hook moved only 2.3 grey levels by 0.5 s (target ≥ 6): the forest opens on a slow push.
+The gate's frame pass now also measures Move@0.5 and fails an episode under 6. It caught eps 35 (3.7), 36 (0.9) and 39 (4.0)
+before they were rendered; their hooks now open on a fast ease-out move (19.4, 9.6, 35.6). The same pass caught static holds
+over 4 s in eps 33 (the conditions shot), 35 (the "asti" shot) and 40 (the serpents' boon); each got a camera push.

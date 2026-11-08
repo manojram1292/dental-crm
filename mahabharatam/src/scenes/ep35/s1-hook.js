@@ -7,8 +7,8 @@
   R.scene({
     id: 'hook',
     draw(ctx, t, env) {
-      const T = env.T, u = clamp(t / 3.5);
-      EP34.chamber(ctx, T, { sun: 0.5 + 0.4 * u, cam: { zoom: 1.6 + 0.15 * u, dx: 120, dy: -820 }, after: (g) => EP34.sleep(g, T, { look: 0.1 }) });
+      const T = env.T, u = clamp(t / 3.5), fast = E.outCubic(clamp(t / 1.0));
+      EP34.chamber(ctx, T, { sun: 0.5 + 0.4 * u, cam: { zoom: lerp(2.4, 1.6, fast) + 0.15 * u, dx: 120, dy: lerp(-1000, -820, fast) }, after: (g) => EP34.sleep(g, T, { look: 0.1 }) });
       const sp = env.speech[1], out = clamp((t - sp - 0.05) / 0.3), line = env.script.lines[0];
       KIT.series.hookCard(ctx, T, 1, line.text, { y: 240, size: 82, gold: line.hookGold, out });
       const tk = clamp((t - sp - 0.15) / 0.7);

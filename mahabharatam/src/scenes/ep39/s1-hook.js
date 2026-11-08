@@ -7,9 +7,9 @@
   R.scene({
     id: 'hook',
     draw(ctx, t, env) {
-      const T = env.T, u = E.inOutSine(clamp(t / 3.5));
+      const T = env.T, u = E.outCubic(clamp(t / 3.0));
       EP39.storm(ctx, T, { cam: { zoom: 1.0 }, after: (g) => {
-        const y = lerp(720, 960, u);
+        const y = lerp(380, 960, u);
         EP39.car(g, 560, y + 120, 1.25, T, { tilt: -0.18 - 0.08 * u });
         CH.indra.draw(g, { x: 560, y: y + 70, scale: 0.6, facing: 'left', pose: { name: 'protect', k: 0.7 }, light: EP39.fireLit(560, y), t: T, key: 'h39-in' });
       } });

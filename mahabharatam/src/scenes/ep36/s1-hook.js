@@ -8,7 +8,8 @@
     id: 'hook',
     draw(ctx, t, env) {
       const T = env.T, u = clamp(t / 3.2);
-      EPA.hall(ctx, T, { mood: 'violet', cam: { zoom: 1.1 - 0.05 * u, dy: -380 }, after: (g) => {
+      const fast = E.outCubic(clamp(t / 1.0));
+      EPA.hall(ctx, T, { mood: 'violet', cam: { zoom: lerp(1.6, 1.1, fast) - 0.05 * u, dy: lerp(-700, -380, fast) }, after: (g) => {
         g.save(); g.globalAlpha = 0.6; g.fillStyle = '#04020c'; g.fillRect(-600, -900, R.W + 1200, R.H + 1800); g.restore();
         for (let k = 0; k < 28; k++) { const a = (k / 28) * Math.PI * 2, x = 540 + Math.cos(a) * 470, y = 1250 + Math.sin(a) * 300, op = clamp(t * 9 - k * 0.3); if (op <= 0) continue; g.globalAlpha = op; g.fillStyle = k % 3 ? '#c8ff90' : '#ffe080'; for (const d of [-10, 10]) { g.beginPath(); g.ellipse(x + d, y, 7, 4, 0, 0, Math.PI * 2); g.fill(); } KIT.glow(g, x, y, 30, '#c8ff90', 0.5 * op); }
         g.globalAlpha = 1;

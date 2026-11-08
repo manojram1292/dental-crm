@@ -9,7 +9,7 @@
     fadeIn: 0.15,
     draw(ctx, t, env) {
       const T = env.T, B = env.beats, fl = E.outCubic(clamp((t - B[2] + 0.3) / 0.6));
-      EP34.chamber(ctx, T, { sun: 0.9, lampX: 980, cam: { zoom: 1.35, dx: 0, dy: -460 }, after: (g) => {
+      EP34.chamber(ctx, T, { sun: 0.9, lampX: 980, cam: { zoom: 1.25 + 0.25 * clamp(t / env.dur), dx: 80 * clamp(t / env.dur), dy: -440 - 80 * clamp(t / env.dur) }, after: (g) => {
         g.fillStyle = '#05030a'; g.beginPath(); g.moveTo(80, 1700); g.lineTo(80, 1050); g.quadraticCurveTo(230, 900, 380, 1050); g.lineTo(380, 1700); g.fill();
         CH.jaratkaru.draw(g, { x: 230, y: 1700, scale: 0.7, facing: 'right', pose: { name: 'bless', k: 0.6 }, expression: { speak: EPA.mouth(env, t) }, light: EP35.red(230, 1400, 1.2), t: T, key: 'a35-jk' });
         CH.nagini.draw(g, { x: 760, y: 1720, scale: 0.72, facing: 'left', pose: { name: 'cradle', k: 1 }, light: EP34.lamp(760, 1500, 980, 1560, 1.2), t: T, key: 'a35-ng' });

@@ -9,7 +9,8 @@
  *   target: outside it is a warning) · the TURN line (note contains "TURN") starts at 40–60 % · one rest ≥ 0.8 s (a
  *   `pre` ≥ 800 ms) right before the turn · the Next line ≤ 1.2 s.
  * With --frames, also renders the whole episode at 1/8 size (135×240, no motion blur) and fails when any static hold
- * (frames whose 1 s grey-level change stays under 2.0, the scorecard's own rule) lasts longer than 4.0 s.
+ * (frames whose 1 s grey-level change stays under 2.0, the scorecard's own rule) lasts longer than 4.0 s, or (ep ≥ 31) when the
+ * picture moves less than 6 grey levels between 0 and 0.5 s (the scorecard's Move@0.5; added after ep 34 missed it).
  *
  * From episode 31 (independent review 21–30) also: speech ≤ 2.6 words/s over the voiced lines · at most 2 NEW proper
  * names (first mentions in the episode; names are the capitalised words of tools/voice.py's NAMES table, plus any
@@ -138,6 +139,9 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
         }
         return out;
       }, [n, fps]);
+      // motion in the first half-second (the scorecard's Move@0.5: mean |frame(0.5 s) − frame(0)| ≥ 6 grey levels): ep 34 missed it
+      { const A = means[Math.min(means.length - 1, Math.round(fps / 2))], B = means[0]; let s0 = 0; for (let k = 0; k < A.length; k++) s0 += Math.abs(A[k] - B[k]); const mv = s0 / A.length;
+        info.push(`motion by 0.5 s ${mv.toFixed(1)}`); if (ep >= 31 && mv < 6) fails.push(`motion by 0.5 s is ${mv.toFixed(1)} grey levels (min 6)`); }
       let run = 0, best = 0, at = 0;
       for (let i = fps; i < means.length; i++) {
         const A = means[i], B = means[i - fps];

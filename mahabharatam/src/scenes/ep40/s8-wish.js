@@ -9,7 +9,7 @@
     fadeIn: 0.15,
     draw(ctx, t, env) {
       const T = env.T, lift = E.outCubic(clamp((t - env.beats[1] + 0.2) / 0.5));
-      EP40.goldHall(ctx, T, { cam: { zoom: 1.55, dy: -560, dx: 60 }, after: (g) => {
+      EP40.goldHall(ctx, T, { cam: { zoom: 1.45 + 0.2 * clamp(t / env.dur), dy: -540, dx: 60 - 60 * clamp(t / env.dur) }, after: (g) => {
         for (let i = 0; i < 4; i++) { const x = 700 + i * 120; CH.naga.draw(g, { x, y: 1760 + (i % 2) * 40, scale: 0.34, facing: 'left', index: [0, 2, 0, 3][i], pose: { name: 'rise', k: lerp(0.45, 0.95, lift) }, light: EP40.goldLit(x, 1760), t: T + i, key: 'w40-n' + i }); }
         CH.astika.draw(g, { x: 420, y: 1820, scale: 0.85, facing: 'right', pose: { name: 'speak', k: 1 }, expression: { speak: EPA.mouth(env, t) }, light: EP40.goldLit(420, 1820, 1.3), t: T, key: 'w40-as' });
       } });

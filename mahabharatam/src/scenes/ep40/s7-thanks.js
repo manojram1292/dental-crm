@@ -12,7 +12,7 @@
     fadeIn: 0.1,
     draw(ctx, t, env) {
       const T = env.T, up = E.outCubic(clamp((t - env.beats[0] + 0.6) / 0.8)), bow = E.inOutSine(clamp((t - env.beats[2] + 0.6) / 0.8)), p = clamp(t / env.dur);
-      EP40.goldHall(ctx, T, { cam: { zoom: 1.05 + 0.06 * p, dy: -300 }, after: (g) => {
+      EP40.goldHall(ctx, T, { cam: { zoom: 0.98 + 0.25 * p, dy: -260 - 120 * p, dx: 50 * Math.sin(t * 0.8) }, after: (g) => {
         EP40.ring(g, T, t, bow * up);
         CH.astika.draw(g, { x: 540, y: 1660, scale: 0.6, facing: 'left', pose: { name: 'stand' }, light: EP40.goldLit(540, 1660, 1.25), t: T, key: 'th40-as' });
       } });
