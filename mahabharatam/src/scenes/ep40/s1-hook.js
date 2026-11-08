@@ -7,8 +7,8 @@
   R.scene({
     id: 'hook',
     draw(ctx, t, env) {
-      const T = env.T, k = E.inOutSine(clamp(t / 3.4));
-      EP40.embers(ctx, T, { k: 0.15 + 0.5 * k, cam: { zoom: 1.15, dy: -260 }, after: (g) => {
+      const T = env.T, k = E.inOutSine(clamp(t / 3.4)), fast = E.outCubic(clamp(t / 1.0));
+      EP40.embers(ctx, T, { k: 0.15 + 0.5 * k, cam: { zoom: lerp(1.6, 1.15, fast), dy: lerp(-560, -260, fast) }, after: (g) => {
         CH.takshaka.draw(g, { x: 540, y: 1200 + 8 * Math.sin(T * 1.5), scale: 0.45, facing: 'left', pose: { name: 'recoil', k: 0.8 }, light: { dir: Math.PI / 2, intensity: 1.15, front: 0.75, fill: 0.5 }, t: T, key: 'h40-tk' });
         EP39.rings(g, 540, 1060, 340, T, 1 - 0.5 * k);
       } });

@@ -7,8 +7,8 @@
   R.scene({
     id: 'hook',
     draw(ctx, t, env) {
-      const T = env.T, p = clamp(t / 3.4);
-      EP33.pit(ctx, T, { view: 'down', cam: { zoom: 1.0 + 0.15 * p } , after: (g) => {
+      const T = env.T, p = clamp(t / 3.4), fast = E.outCubic(clamp(t / 1.0));
+      EP33.pit(ctx, T, { view: 'down', cam: { zoom: lerp(1.7, 1.0, fast) + 0.15 * p, dy: lerp(420, 0, fast) } , after: (g) => {
         for (let i = 0; i < 4; i++) EP33.hanging(g, 315 + i * 150, 900 + (i % 2) * 60, 0.32, T, i, { alpha: 0.75, key: 'h33-p' });
         g.fillStyle = '#1a120c'; g.fillRect(-500, 300, 2000, 220);
         EP33.tuft(g, 480, 520, 1.6, T, { roots: 1 });
