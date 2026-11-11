@@ -1,0 +1,44 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8343,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.7134,
+   "words": 1,
+   "speed": 0.834,
+   "text": "Once,"
+  },
+  {
+   "t0": 0.7934,
+   "t1": 1.9051,
+   "words": 3,
+   "speed": 0.834,
+   "text": "as a joke,"
+  },
+  {
+   "t0": 1.9851,
+   "t1": 3.2379,
+   "words": 4,
+   "speed": 0.834,
+   "text": "he scared a friend"
+  },
+  {
+   "t0": 3.2979,
+   "t1": 4.8413,
+   "words": 5,
+   "speed": 0.834,
+   "text": "with a snake of grass."
+  },
+  {
+   "t0": 5.0913,
+   "t1": 6.6069,
+   "words": 4,
+   "speed": 0.834,
+   "text": "The friend cursed him."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

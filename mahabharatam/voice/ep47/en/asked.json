@@ -1,0 +1,23 @@
+{
+ "speaker": "janamejaya",
+ "voice": "am_michael",
+ "speed": 0.903,
+ "pitch": 1,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.0011,
+   "words": 6,
+   "speed": 0.903,
+   "text": "How did the cousins break apart?"
+  },
+  {
+   "t0": 2.2511,
+   "t1": 4.1119,
+   "words": 6,
+   "speed": 0.903,
+   "text": "How did that great war begin?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

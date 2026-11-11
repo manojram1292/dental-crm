@@ -1,0 +1,182 @@
+[
+ {
+  "line": "hook",
+  "cue": "steps",
+  "asked_s": 0.08,
+  "start_s": 0.08,
+  "onset_s": 0.08,
+  "peak_s": 0.578,
+  "peak_db": -15.8
+ },
+ {
+  "line": "hook",
+  "cue": "cloth@0",
+  "asked_s": 1.587,
+  "start_s": 1.382,
+  "onset_s": 1.449,
+  "peak_s": 1.586,
+  "peak_db": -30.1
+ },
+ {
+  "line": "sat",
+  "cue": "flame",
+  "asked_s": 4.019,
+  "start_s": 4.019,
+  "onset_s": 4.076,
+  "peak_s": 4.361,
+  "peak_db": -23.3
+ },
+ {
+  "line": "sat",
+  "cue": "chant",
+  "asked_s": 4.019,
+  "start_s": 4.019,
+  "onset_s": 4.128,
+  "peak_s": 6.923,
+  "peak_db": -29.4
+ },
+ {
+  "line": "came",
+  "cue": "steps",
+  "asked_s": 8.082,
+  "start_s": 8.082,
+  "onset_s": 8.082,
+  "peak_s": 12.501,
+  "peak_db": -16.3
+ },
+ {
+  "line": "came",
+  "cue": "staff@0",
+  "asked_s": 9.625,
+  "start_s": 9.625,
+  "onset_s": 9.625,
+  "peak_s": 9.63,
+  "peak_db": -15.3
+ },
+ {
+  "line": "who",
+  "cue": "staff@0",
+  "asked_s": 14.265,
+  "start_s": 14.265,
+  "onset_s": 14.265,
+  "peak_s": 14.27,
+  "peak_db": -16.5
+ },
+ {
+  "line": "who",
+  "cue": "water@0",
+  "asked_s": 14.265,
+  "start_s": 14.265,
+  "onset_s": 14.425,
+  "peak_s": 17.007,
+  "peak_db": -27.3
+ },
+ {
+  "line": "grand",
+  "cue": "hooves@0",
+  "asked_s": 19.765,
+  "start_s": 19.765,
+  "onset_s": 19.767,
+  "peak_s": 19.998,
+  "peak_db": -5.8
+ },
+ {
+  "line": "seat",
+  "cue": "cloth@0",
+  "asked_s": 23.68,
+  "start_s": 23.523,
+  "onset_s": 23.589,
+  "peak_s": 23.681,
+  "peak_db": -29.6
+ },
+ {
+  "line": "seat",
+  "cue": "pot@1",
+  "asked_s": 25.541,
+  "start_s": 25.541,
+  "onset_s": 25.541,
+  "peak_s": 25.547,
+  "peak_db": -26.1
+ },
+ {
+  "line": "seat",
+  "cue": "steps",
+  "asked_s": 22.758,
+  "start_s": 22.758,
+  "onset_s": 22.758,
+  "peak_s": 23.255,
+  "peak_db": -16.1
+ },
+ {
+  "line": "asked",
+  "cue": "flame",
+  "asked_s": 26.216,
+  "start_s": 26.216,
+  "onset_s": 26.274,
+  "peak_s": 27.295,
+  "peak_db": -23.3
+ },
+ {
+  "line": "asked",
+  "cue": "breath@0",
+  "asked_s": 27.644,
+  "start_s": 27.393,
+  "onset_s": 27.441,
+  "peak_s": 27.644,
+  "peak_db": -34.9
+ },
+ {
+  "line": "turned",
+  "cue": "cloth@1",
+  "asked_s": 34.206,
+  "start_s": 34.011,
+  "onset_s": 34.076,
+  "peak_s": 34.205,
+  "peak_db": -30.4
+ },
+ {
+  "line": "tell",
+  "cue": "cloth@0",
+  "asked_s": 37.213,
+  "start_s": 37.021,
+  "onset_s": 37.083,
+  "peak_s": 37.213,
+  "peak_db": -29.4
+ },
+ {
+  "line": "bowed",
+  "cue": "cloth@0",
+  "asked_s": 42.037,
+  "start_s": 41.823,
+  "onset_s": 41.893,
+  "peak_s": 42.037,
+  "peak_db": -29.6
+ },
+ {
+  "line": "frame",
+  "cue": "staff@0",
+  "asked_s": 46.471,
+  "start_s": 46.471,
+  "onset_s": 46.471,
+  "peak_s": 46.475,
+  "peak_db": -17.1
+ },
+ {
+  "line": "cliff",
+  "cue": "breath@1",
+  "asked_s": 54.5,
+  "start_s": 54.246,
+  "onset_s": 54.302,
+  "peak_s": 54.505,
+  "peak_db": -34.9
+ },
+ {
+  "line": "cliff",
+  "cue": "flame",
+  "asked_s": 50.803,
+  "start_s": 50.803,
+  "onset_s": 50.868,
+  "peak_s": 51.913,
+  "peak_db": -24.0
+ }
+]

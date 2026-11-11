@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1202,
+   "words": 4,
+   "speed": 0.891,
+   "text": "What can a snake"
+  },
+  {
+   "t0": 1.2002,
+   "t1": 2.3982,
+   "words": 3,
+   "speed": 0.891,
+   "text": "teach a sage?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

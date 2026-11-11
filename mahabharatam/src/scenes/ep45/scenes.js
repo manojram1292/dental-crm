@@ -12,7 +12,7 @@
 
   // the messenger of the gods: a luminous figure in a shaft of pale gold
   const shaft = (g, x, a, w = 300) => { if (a <= 0) return; g.save(); g.globalCompositeOperation = 'lighter'; g.globalAlpha = 0.45 * a; g.fillStyle = '#ffe9b0'; g.beginPath(); g.moveTo(x - w * 0.45, -600); g.lineTo(x + w * 0.45, -600); g.lineTo(x + w * 0.8, 1500); g.lineTo(x - w * 0.8, 1500); g.closePath(); g.fill(); g.restore(); KIT.glow(g, x, 500, 800 * a, '#ffe9b0', 0.45 * a); };
-  const messenger = (g, T, x, y, s, pose, ex, key) => CH.devaduta.draw(g, { x, y, scale: s, facing: 'right', pose, light: { dir: -Math.PI / 2, intensity: 1.4, front: 1, fill: 0.8, tint: ['#fff6d8', 0.5] }, expression: ex, t: T, key: key || 'dd' });
+  const messenger = (g, T, x, y, s, pose, ex, key) => CH.devaduta.draw(g, { x, y, scale: s, facing: 'right', pose, light: { dir: -Math.PI / 2, intensity: 1.5, front: 1, fill: 0.9, tint: ['#e6f2ff', 0.75] }, expression: ex, t: T, key: key || 'dd' });
   const ruruL = (p, x, k = 0) => ({ ...ST.light(p, { from: [300, 200], at: [x, GY], front: 0.4 + 0.4 * k, k: 1.15 }), tint: ['#ffe9b0', 0.5 * k] });
   // the thread of a life: gold, with a mark at its middle; part = 0..1 the half drifting away
   const thread = (g, T, x0, x1, y, a, part = 0) => { if (a <= 0) return; const xm = (x0 + x1) / 2; g.save(); g.globalAlpha = a; g.strokeStyle = '#ffe08a'; g.lineWidth = 7; g.lineCap = 'round'; g.shadowColor = '#ffd070'; g.shadowBlur = 18;
@@ -27,7 +27,7 @@
       ST.shot(ctx, T, { pal: 'messenger-dawn', cam, layers: [
         { z: 0, draw: (g, p) => ST.sky(g, p, { hz: HZ }) },
         { z: 0.3, draw: (g, p) => ST.treeline(g, p, { y: HZ + 10, h: 900, gap: 320, T, seed: 41, kind: 'sal' }) },
-        { z: 0.6, haze: false, draw: (g) => shaft(g, 300, 1, 380) },
+        { z: 0.6, haze: false, draw: (g) => shaft(g, 300, 0.75, 380) },
         { z: 1, haze: false, draw: (g, p) => { ST.ground(g, p, { y: GY - 20 });
           messenger(g, T, 290, GY - 120 + 14 * Math.sin(T * 1.2), 1.0, ACT.pose(t, [[0, 'stand'], [b0 - 0.4, 'bless', { act: 0.5 }]]), { emo: 'calm', speak: EP41.mouth(env, t), gaze: [0.6, 0.5] });
           CH.ruru.draw(g, { x: 950, y: GY + 16, scale: 0.86, facing: 'left', pose: ACT.pose(t, [[0, 'grieve'], [b0, 'attend', { act: 0.4 }]], { prop: false }), light: { ...ruruL(p, 950, 0), front: 0.06, fill: 0 }, expression: { emo: 'wonder', gaze: [0.5, -0.9], look: -0.2 }, t: T, key: 'hk-r' }); } },

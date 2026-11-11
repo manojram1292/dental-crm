@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8343,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7546,
+   "words": 5,
+   "speed": 0.834,
+   "text": "The snake's shape fell away,"
+  },
+  {
+   "t0": 1.9546,
+   "t1": 3.7234,
+   "words": 6,
+   "speed": 0.834,
+   "text": "and the sage stood in light."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

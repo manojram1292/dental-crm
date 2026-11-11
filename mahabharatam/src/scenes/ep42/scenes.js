@@ -82,7 +82,7 @@
         { z: 0.6, draw: (g, p) => ST.treeline(g, p, { y: HZ + 30, h: 700, T, seed: 7, kind: 'sal' }) },
         { z: 1, haze: false, draw: (g, p) => { ST.ground(g, p, { y: GY - 30 });
           // she is set down, clear of him, on "let her go"
-          CH.puloma.draw(g, { x: 70, y: GY + 16, scale: 0.98, facing: 'right', pose: ACT.pose(t, [[0, 'recoil'], [b0, 'shield', { act: 0.5 }]]), light: { ...ST.light(p, { from: [520, 900], at: [70, GY], front: 0.95, k: 1.3 }), tint: ['#fff0b0', 0.5] }, expression: { emo: ACT.emo(t, [[0, 'fear'], [b2, 'wonder']]), gaze: [0.7, 0.4] }, t: T, key: 'as-p' });
+          CH.pulomaMother.draw(g, { x: 70, y: GY + 16, scale: 0.98, facing: 'right', pose: ACT.pose(t, [[0, 'recoil'], [b0, 'shield', { act: 0.5 }]]), light: { ...ST.light(p, { from: [520, 900], at: [70, GY], front: 0.95, k: 1.3 }), tint: ['#fff0b0', 0.5] }, expression: { emo: ACT.emo(t, [[0, 'fear'], [b2, 'wonder']]), gaze: [0.7, 0.4] }, t: T, key: 'as-p' });
           EP42.child(g, T, 470, GY + 6, 1, 0.75);
           if (gone < 0.98) { g.save(); g.globalAlpha = 1 - gone;
             CH.puloman.draw(g, { x: 990, y: GY + 20, scale: 0.9, facing: 'left', pose: ACT.pose(t, [[0, 'stand'], [b0 - 0.2, 'recoil', { act: 0.35 }], [b1, 'collapse', { act: 0.9 }]]), light: { dir: Math.PI, intensity: 1.3, front: lerp(0.5, 0.05, burn), fill: 0.1, tint: [burn > 0.5 ? '#b8b8b8' : '#fff0b0', 0.8], wrap: 0.5 }, expression: { emo: 'shock' }, t: T, key: 'as-n' });
@@ -104,7 +104,7 @@
     { z: 1.3, haze: false, draw: (g) => ST.particles(g, T, { kind: 'pollen', count: 26, cam }) },
     { z: 1.9, haze: false, soft: 0.3, draw: (g, p) => ST.grass(g, p, { y: 1950, h: 300, T, count: 44 }) },
   ] });
-  const PS = 0.98, walker = (g, p, T, t, x, d) => CH.puloma.draw(g, { x, y: GY + 12, scale: PS, facing: 'left', pose: ACT.pose(t, [[0, 'carry']], { phase: ACT.stride(d, PS * 0.5), stride: 0.5 }), light: ST.light(p, { from: [200, 300], at: [x, GY], front: 0.55 }), expression: { emo: 'sorrow', gaze: [0.1, 0.5] }, t: T, key: 'wk-p' }), babe = (g, x) => { KIT.glow(g, x - 70, GY - 640, 170, '#ffe890', 0.75); KIT.glow(g, x - 70, GY - 640, 70, '#fffbe0', 1); };
+  const PS = 0.98, walker = (g, p, T, t, x, d) => CH.pulomaMother.draw(g, { x, y: GY + 12, scale: PS, facing: 'left', pose: ACT.pose(t, [[0, 'carry']], { phase: ACT.stride(d, PS * 0.5), stride: 0.5 }), light: ST.light(p, { from: [200, 300], at: [x, GY], front: 0.55 }), expression: { emo: 'sorrow', gaze: [0.1, 0.5] }, t: T, key: 'wk-p' }), babe = (g, x) => { KIT.glow(g, x - 70, GY - 640, 170, '#ffe890', 0.75); KIT.glow(g, x - 70, GY - 640, 70, '#fffbe0', 1); };
   R.scene({ id: 'walk', transition: { type: 'brush', dur: 0.5, angle: 0.2, color: '#cfe8d8' },
     draw(ctx, t, env) {
       const T = env.T, d = 70 * t, cam = CAM.slide(t / env.dur, { from: 120, to: -120, zoom: 1.12 });
@@ -135,7 +135,7 @@
       const d = 200 * E.outCubic(clamp(t / 1.6)), bs = 0.82;
       EP41.hermitage(ctx, T, cam, { hutX: -140,
         far: (g, p) => CH.bhrigu.draw(g, { x: 1150 - d, y: HZ + 150, scale: bs, facing: 'left', pose: ACT.pose(t, [[0, 'walk'], [b0 + 0.5, 'stand', { act: 0.4 }]], { phase: ACT.stride(d, bs), prop: t < b0 + 0.6 ? 'pot' : false }), light: ST.light(p, { from: [860, 400], at: [1000, HZ], front: 0.4 }), expression: { emo: 'calm' }, t: T, key: 'hm-b' }),
-        figs: (g, p) => { CH.puloma.draw(g, { x: 230, y: GY + 60, scale: 1.12, facing: 'right', pose: 'carry', light: ST.light(p, { from: [860, 400], at: [230, GY], front: 0.5 }), expression: { emo: 'sorrow', gaze: [0.8, 0] }, t: T, key: 'hm-p' }); KIT.glow(g, 310, GY - 680, 190, '#ffe890', 0.75); KIT.glow(g, 310, GY - 680, 80, '#fffbe0', 1); } });
+        figs: (g, p) => { CH.pulomaMother.draw(g, { x: 230, y: GY + 60, scale: 1.12, facing: 'right', pose: 'carry', light: ST.light(p, { from: [860, 400], at: [230, GY], front: 0.5 }), expression: { emo: 'sorrow', gaze: [0.8, 0] }, t: T, key: 'hm-p' }); KIT.glow(g, 310, GY - 680, 190, '#ffe890', 0.75); KIT.glow(g, 310, GY - 680, 80, '#fffbe0', 1); } });
       TY.plaque(ctx, T, clamp((t - 0.5) / 0.5), ...names(env, 'Bhrigu'), { x: 800, y: 330, out: clamp((t - (env.dur - 0.3)) / 0.25) });
       fin(ctx, T);
     },
@@ -163,7 +163,7 @@
     draw(ctx, t, env) {
       const T = env.T, b1 = env.beats[1] ?? 2.5, cam = CAM.tilt(clamp(t / 2.6), { from: -300, to: 90, zoom: 1.22, x: 60 });
       EP41.hearth(ctx, T, cam, { fire: 1.0, fs: 1.5, fx: 430, door: { x: 900, w: 320, h: 1000 }, figs: (g, p, fl) =>
-        CH.puloma.draw(g, { x: 900, y: GY + 10, scale: 0.9, facing: 'left', pose: ACT.pose(t, [[0, 'point', { act: 0.5 }], [b1 - 0.15, 'carry', { act: 0.5 }]]), light: { ...EP41.lit(900, fl, 0.5, 430), fill: 0.25 }, expression: { emo: 'sorrow', speak: EP41.mouth(env, t), ...ACT.lead(t, [[0, [0.8, 0.3]], [b1, [0.2, 0.8]]]) }, t: T, key: 'tl-p' }) });
+        CH.pulomaMother.draw(g, { x: 900, y: GY + 10, scale: 0.9, facing: 'left', pose: ACT.pose(t, [[0, 'point', { act: 0.5 }], [b1 - 0.15, 'carry', { act: 0.5 }]]), light: { ...EP41.lit(900, fl, 0.5, 430), fill: 0.25 }, expression: { emo: 'sorrow', speak: EP41.mouth(env, t), ...ACT.lead(t, [[0, [0.8, 0.3]], [b1, [0.2, 0.8]]]) }, t: T, key: 'tl-p' }) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.44, vignette: 0.5, paper: 0.3 }) });

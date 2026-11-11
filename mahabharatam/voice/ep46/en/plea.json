@@ -1,0 +1,23 @@
+{
+ "speaker": "sahasrapat",
+ "voice": "bm_lewis",
+ "speed": 0.7953999999999999,
+ "pitch": 1.0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9614,
+   "words": 6,
+   "speed": 0.795,
+   "text": "I have done you no harm."
+  },
+  {
+   "t0": 2.2114,
+   "t1": 4.9219,
+   "words": 6,
+   "speed": 0.795,
+   "text": "The snakes that bite are others."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

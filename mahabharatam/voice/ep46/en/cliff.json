@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8343,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9379,
+   "words": 6,
+   "speed": 0.834,
+   "text": "And while that fire still burned,"
+  },
+  {
+   "t0": 2.0579,
+   "t1": 5.2254,
+   "words": 7,
+   "speed": 0.834,
+   "text": "the Mahabharata was first told beside it."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

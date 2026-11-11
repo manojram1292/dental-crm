@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9396,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6481,
+   "words": 3,
+   "speed": 0.94,
+   "text": "The whole Mahabharata,"
+  },
+  {
+   "t0": 1.7481,
+   "t1": 2.8102,
+   "words": 3,
+   "speed": 0.94,
+   "text": "in one breath."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -115,7 +115,7 @@
       const T = env.T, b1 = env.beats[1] ?? 2.5, cam = CAM.slide(t / env.dur, { from: -130, to: 130, zoom: 1.14, y: 60 });
       land(ctx, T, cam, 'cold-slate', (i, u) => (u > 0.45 && u < 0.8 ? -1 : 0), { figs: (g, p) => {
         // two forest sages before a cold altar: one bowed, one with empty hands held out; the ladle's motion on "world" (foley: drip@1)
-        const L = (x) => ({ ...ST.light(p, { from: [540, 300], at: [x, 1380], front: 0.9, k: 1.3 }), tint: ['#dfe8ff', 0.5] });
+        const L = (x) => ({ ...ST.light(p, { from: [540, 300], at: [x, 1380], front: 0.8, k: 1.2 }), tint: ['#c8d4f0', 0.15] });
         CH.khagama.draw(g, { x: 250, y: 1385, scale: 0.9, facing: 'right', pose: ACT.pose(t, [[0, 'offer'], [b1 - 0.2, 'grieve', { act: 0.6 }]]), light: L(250), expression: { emo: 'sorrow', gaze: [0.4, 0.6] }, t: T, key: 'dk-1' });
         altar(g, 560, 1390, 1.7, T, 0, 5, 0, 1);
         CH.sahasrapat.draw(g, { x: 870, y: 1385, scale: 0.9, facing: 'left', pose: 'kneel', light: L(870), expression: { emo: 'sorrow', gaze: [0.3, 0.7] }, t: T, key: 'dk-2' });
@@ -185,7 +185,7 @@
   // 11 · CLIFF: a meadow path at dusk gone violet: an anklet in the near grass, out of focus; the focus racks to a small banded
   //      snake asleep across the path; it stirs on "snake"
   const cliff = (ctx, T, t, env, b0, b1) => {
-    const cam = CAM.rack(clamp((t - b0 + 0.2) / 0.9), { from: 1.9, to: 1.0, zoom: 1.12, y: 0 }), stir = Math.sin(Math.PI * clamp((t - b1) / 0.7));
+    const cam = CAM.rack(clamp((t - b0 + 0.2) / 0.9), { from: 1.9, to: 1.0, zoom: 1.12, y: 380 }), stir = Math.sin(Math.PI * clamp((t - b1) / 0.7));
     ST.shot(ctx, T, { pal: 'venom-violet', cam, layers: [
       { z: 0, draw: (g, p) => ST.sky(g, p, { hz: 940 }) },
       { z: 0.3, draw: (g, p) => ST.treeline(g, p, { y: 960, h: 640, T, seed: 31, kind: 'mixed' }) },

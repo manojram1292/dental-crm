@@ -580,3 +580,13 @@ Lessons carried to 42 on:
 - **Picture sync cannot be proved by frame differences.** Every cue's action is keyed in code to the same beat as the sound (0 frames by construction); the measured largest picture change lay within 2 frames of the cue for 6 of 22 cues, and 7 cues show no more change than a median frame (a staff tap, a breath, a first step, the flame bending). Those actions are too small; later episodes make them larger.
 
 Still weak in 41: the two frame-story shots are dark shapes beside a small fire (the old seated figures); the far rakshasa in `came` stays a little soft after the rack; the smoke puffs of the change are flat discs; the rider kneels calmly on a running boar.
+
+### Episode 42 · The Child Who Fell
+
+Rendered twice. The first render showed Puloma still with child in every shot after the birth (the walk, the river, the gate, the hut): a story error, seen on the contact sheet. A second figure, `pulomaMother` (the same woman, no longer with child), now carries episode 42 from `ash` on.
+
+Measured (mp4): 56.7 s; hook by 2.56 s; motion at 0.5 s 19.2; longest static hold 1.1 s; turn (Bhrigu's question, a close-up after a 1.1 s silence) at 56 %; -14.1 LUFS, -1.8 dBTP, LRA 5.1; eight lights on screen (hue run 2); key frames against 39–41: min 26, mean 31.6; no blank or near-white frame; 20 of 23 foley cues on their beat (the three others are sustained sounds: a flame, a growl, the river); share 18.4 MB.
+
+Lessons: check the body against the story after every event that changes it; a prop the character carries by default (Bhrigu's water-pot) turns up in close-ups and curses unless it is switched off (`pose.prop: false`); in the curse the pot read as a pan in his hand.
+
+Still weak: Brahma in the cloud is a small gold emblem; the river is a pale wedge more than water; the child is a standing boy in light, not a new-born.

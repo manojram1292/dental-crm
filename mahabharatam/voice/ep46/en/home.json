@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8343,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4569,
+   "words": 4,
+   "speed": 0.834,
+   "text": "His father told him"
+  },
+  {
+   "t0": 1.5169,
+   "t1": 3.6725,
+   "words": 7,
+   "speed": 0.834,
+   "text": "how a boy once saved the serpents"
+  },
+  {
+   "t0": 3.7525,
+   "t1": 5.2098,
+   "words": 4,
+   "speed": 0.834,
+   "text": "from a king's fire."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

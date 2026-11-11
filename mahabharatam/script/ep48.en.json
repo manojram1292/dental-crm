@@ -90,10 +90,10 @@
     },
     {
       "id": "before",
-      "speed": 1.04,
+      "speed": 1.12,
       "text": "Vyasa's student began: all of it, in brief.",
       "say": "Vyasa's student began: [p:200] all of it, [p:100] in brief.",
-      "est": 4.36,
+      "est": 4.21,
       "pre": 250,
       "post": 400,
       "emphasis": [
@@ -112,7 +112,7 @@
       "cam": "push",
       "tr": "smoke",
       "note": "STORY 0 with the unvoiced recap band (top): the teal hall: Vaishampayana (plaque: Vaishampayana · Vyasa's student) before the seated king, Vyasa in gold beside him; he opens his hands.",
-      "estVoice": 3.71
+      "estVoice": 3.56
     },
     {
       "id": "five",
@@ -342,10 +342,10 @@
     },
     {
       "id": "cliff",
-      "speed": 1.04,
+      "speed": 1.12,
       "text": "So he began again: with a king, a fish, and a ferry girl.",
       "say": "So he began again: [p:150] with a king, [p:80] a fish, [p:80] and a ferry girl.",
-      "est": 5.22,
+      "est": 5.02,
       "pre": 250,
       "post": 250,
       "beats": [
@@ -366,7 +366,7 @@
       "cam": "slide",
       "tr": "lamp",
       "note": "NEXT 1 (the catalog's cliffhanger): a lamp-glow match cut to deep river blue: three images on the three beats: a crown in the sky, a silver fish turning, a girl's hand on an oar. The source line (top).",
-      "estVoice": 4.72
+      "estVoice": 4.52
     },
     {
       "id": "next",

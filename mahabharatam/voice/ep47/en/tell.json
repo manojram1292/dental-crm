@@ -1,0 +1,23 @@
+{
+ "speaker": "vyasa",
+ "voice": "bm_george",
+ "speed": 0.8056000000000001,
+ "pitch": -2.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6422,
+   "words": 3,
+   "speed": 0.806,
+   "text": "Tell him everything,"
+  },
+  {
+   "t0": 1.7622,
+   "t1": 4.0507,
+   "words": 7,
+   "speed": 0.806,
+   "text": "just as you heard it from me."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

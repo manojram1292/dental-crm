@@ -29,7 +29,11 @@
    "onset_s": 0.123,
    "audio_offset_frames": 1.3,
    "peak_offset_frames": 5.8,
-   "peak_db": -39.7
+   "peak_db": -39.7,
+   "picture_peak_s": 0.367,
+   "picture_offset_frames": 9,
+   "picture_change_at_cue": 2.99,
+   "picture_change_median": 1.12
   },
   {
    "line": "hook",
@@ -38,7 +42,11 @@
    "onset_s": 0.687,
    "audio_offset_frames": -3.6,
    "peak_offset_frames": 0.3,
-   "peak_db": -37.6
+   "peak_db": -37.6,
+   "picture_peak_s": 0.9,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 4.63,
+   "picture_change_median": 1.12
   },
   {
    "line": "because",
@@ -47,7 +55,11 @@
    "onset_s": 3.645,
    "audio_offset_frames": 0.1,
    "peak_offset_frames": 7.1,
-   "peak_db": -19.7
+   "peak_db": -19.7,
+   "picture_peak_s": 3.867,
+   "picture_offset_frames": 7,
+   "picture_change_at_cue": 5.65,
+   "picture_change_median": 1.12
   },
   {
    "line": "because",
@@ -56,7 +68,11 @@
    "onset_s": 8.913,
    "audio_offset_frames": -3.5,
    "peak_offset_frames": -3.3,
-   "peak_db": -19.5
+   "peak_db": -19.5,
+   "picture_peak_s": 9.067,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 2.62,
+   "picture_change_median": 1.12
   },
   {
    "line": "curse",
@@ -65,7 +81,11 @@
    "onset_s": 10.865,
    "audio_offset_frames": -3.6,
    "peak_offset_frames": -0.7,
-   "peak_db": -41.5
+   "peak_db": -41.5,
+   "picture_peak_s": 11.033,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 18.8,
+   "picture_change_median": 1.12
   },
   {
    "line": "curse",
@@ -74,7 +94,11 @@
    "onset_s": 12.27,
    "audio_offset_frames": -0.0,
    "peak_offset_frames": 0.4,
-   "peak_db": -39.4
+   "peak_db": -39.4,
+   "picture_peak_s": 12.3,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 1.84,
+   "picture_change_median": 1.12
   },
   {
    "line": "truth",
@@ -83,7 +107,11 @@
    "onset_s": 13.566,
    "audio_offset_frames": 1.5,
    "peak_offset_frames": 6.5,
-   "peak_db": -39.3
+   "peak_db": -39.3,
+   "picture_peak_s": 13.633,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 6.39,
+   "picture_change_median": 1.12
   },
   {
    "line": "gone",
@@ -92,7 +120,11 @@
    "onset_s": 20.912,
    "audio_offset_frames": -3.6,
    "peak_offset_frames": -0.5,
-   "peak_db": -45.0
+   "peak_db": -45.0,
+   "picture_peak_s": 21.267,
+   "picture_offset_frames": 7,
+   "picture_change_at_cue": 1.37,
+   "picture_change_median": 1.12
   },
   {
    "line": "gone",
@@ -101,7 +133,11 @@
    "onset_s": 19.58,
    "audio_offset_frames": 3.0,
    "peak_offset_frames": 9.0,
-   "peak_db": -41.1
+   "peak_db": -41.1,
+   "picture_peak_s": 19.433,
+   "picture_offset_frames": -1,
+   "picture_change_at_cue": 5.39,
+   "picture_change_median": 1.12
   },
   {
    "line": "dark",
@@ -110,7 +146,11 @@
    "onset_s": 24.96,
    "audio_offset_frames": 3.4,
    "peak_offset_frames": 8.3,
-   "peak_db": -46.7
+   "peak_db": -46.7,
+   "picture_peak_s": 24.933,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 2.76,
+   "picture_change_median": 1.12
   },
   {
    "line": "dark",
@@ -119,7 +159,11 @@
    "onset_s": 27.341,
    "audio_offset_frames": 0.3,
    "peak_offset_frames": 1.1,
-   "peak_db": -61.9
+   "peak_db": -61.9,
+   "picture_peak_s": 27.167,
+   "picture_offset_frames": -5,
+   "picture_change_at_cue": 1.21,
+   "picture_change_median": 1.12
   },
   {
    "line": "went",
@@ -128,7 +172,11 @@
    "onset_s": 28.29,
    "audio_offset_frames": 0.1,
    "peak_offset_frames": 0.4,
-   "peak_db": -29.7
+   "peak_db": -29.7,
+   "picture_peak_s": 28.433,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 28.56,
+   "picture_change_median": 1.12
   },
   {
    "line": "went",
@@ -137,7 +185,11 @@
    "onset_s": 31.686,
    "audio_offset_frames": 5.0,
    "peak_offset_frames": 5.6,
-   "peak_db": -30.0
+   "peak_db": -30.0,
+   "picture_peak_s": 31.367,
+   "picture_offset_frames": -5,
+   "picture_change_at_cue": 0.86,
+   "picture_change_median": 1.12
   },
   {
    "line": "pure",
@@ -146,7 +198,11 @@
    "onset_s": 39.926,
    "audio_offset_frames": 1.7,
    "peak_offset_frames": 3.8,
-   "peak_db": -40.2
+   "peak_db": -40.2,
+   "picture_peak_s": 40.0,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 3.07,
+   "picture_change_median": 1.12
   },
   {
    "line": "back",
@@ -155,7 +211,11 @@
    "onset_s": 41.657,
    "audio_offset_frames": 2.2,
    "peak_offset_frames": 7.9,
-   "peak_db": -38.9
+   "peak_db": -38.9,
+   "picture_peak_s": 41.3,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 0.68,
+   "picture_change_median": 1.12
   },
   {
    "line": "back",
@@ -164,7 +224,11 @@
    "onset_s": 43.884,
    "audio_offset_frames": 1.6,
    "peak_offset_frames": 4.4,
-   "peak_db": -40.0
+   "peak_db": -40.0,
+   "picture_peak_s": 43.533,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 0.85,
+   "picture_change_median": 1.12
   },
   {
    "line": "back",
@@ -173,7 +237,11 @@
    "onset_s": 40.723,
    "audio_offset_frames": 0.0,
    "peak_offset_frames": 0.2,
-   "peak_db": -45.6
+   "peak_db": -45.6,
+   "picture_peak_s": 41.033,
+   "picture_offset_frames": 9,
+   "picture_change_at_cue": 2.0,
+   "picture_change_median": 1.12
   },
   {
    "line": "frame",
@@ -182,7 +250,11 @@
    "onset_s": 46.075,
    "audio_offset_frames": -0.0,
    "peak_offset_frames": 0.2,
-   "peak_db": -30.4
+   "peak_db": -30.4,
+   "picture_peak_s": 46.167,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 1.11,
+   "picture_change_median": 1.12
   },
   {
    "line": "cliff",
@@ -191,7 +263,11 @@
    "onset_s": 51.115,
    "audio_offset_frames": -3.6,
    "peak_offset_frames": 3.5,
-   "peak_db": -51.4
+   "peak_db": -51.4,
+   "picture_peak_s": 51.333,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 0.25,
+   "picture_change_median": 1.12
   },
   {
    "line": "cliff",
@@ -200,7 +276,11 @@
    "onset_s": 54.611,
    "audio_offset_frames": -3.6,
    "peak_offset_frames": 0.6,
-   "peak_db": -42.1
+   "peak_db": -42.1,
+   "picture_peak_s": 54.767,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 0.36,
+   "picture_change_median": 1.12
   }
  ],
  "ambience": [

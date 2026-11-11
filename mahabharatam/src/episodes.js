@@ -102,6 +102,8 @@
     43: ['ep41/_common', 'scenes'],
     44: ['ep41/_common', '_common', 'scenes'],
     45: ['ep41/_common', 'ep44/_common', 'scenes'],
+    46: ['ep41/_common', 'ep44/_common', '_common', 'scenes'],
+    47: ['ep41/_common', 'ep46/_common', '_common', 'scenes'],
     99: ['lab'],
   };
   const q = new URLSearchParams(location.search);

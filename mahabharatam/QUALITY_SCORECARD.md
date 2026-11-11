@@ -179,3 +179,4 @@ Foley column: cues whose onset or peak lies within 2 frames of the beat they wer
 | Ep | Dur | Hook | Move@0.5 | Turn | W/s | Lights · hue run | Camera · transitions | LUFS · TP · LRA | Silences | Next | Stems rms (amb · foley · mus) | Foley on the beat | Peak · clipped | Key frames min · mean | Share |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 41 | 57.7 | 7 w · 2.98 s | 16.0 | 46 % | 2.44 | 4 · 2 | 8 · 4 | -14.1 · -2.1 · 5.8 | 2 (1.03 s) | -10.4 dB | -35.1 · -37.5 · -26.6 | 19 of 22 | -2.5 dBFS · 0 | 22 · 28.4 | 19.2 |
+| 42 | 56.7 | 7 w · 2.56 s | 19.2 | 56 % | 2.30 | 8 · 2 | 8 · 4 | -14.1 · -1.8 · 5.1 | 2 (1.12 s) | -10.3 dB | -34.7 · -34.3 · -25.6 | 20 of 23 | -2.5 dBFS · 0 | 26 · 31.6 | 18.4 |

@@ -1,0 +1,30 @@
+{
+ "speaker": "sahasrapat",
+ "voice": "bm_lewis",
+ "speed": 0.7953999999999999,
+ "pitch": 1.0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.484,
+   "words": 4,
+   "speed": 0.795,
+   "text": "I was a sage,"
+  },
+  {
+   "t0": 1.584,
+   "t1": 2.9246,
+   "words": 1,
+   "speed": 0.795,
+   "text": "Sahasrapat,"
+  },
+  {
+   "t0": 3.0746,
+   "t1": 6.2865,
+   "words": 9,
+   "speed": 0.795,
+   "text": "cursed to be a snake until I met you."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
