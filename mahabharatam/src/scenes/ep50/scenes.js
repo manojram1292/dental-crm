@@ -11,7 +11,7 @@
   const fin = (ctx, T) => ST.finish(ctx, T, {});
   const names = (env, n) => [n, env.script.names[n]];
   const talk = (env, t) => EP41.mouth(env, t);
-  const BY = 1200;   // the boat's water line
+  const BY = 1130;   // the boat's water line
   // the two in the boat: she in the stern with the oar (right), he seated in the bow (left): a boat-length between them
   const crew = (g, p, T, t, o = {}) => { g.fillStyle = 'rgba(20,12,8,0.9)'; g.beginPath(); g.ellipse(-60, BY + 30, 200, 60, 0, 0, TAU); g.fill(); EP49.boat(g, 500, BY, 0.9);
     if (o.sage !== false) CH.parashara.draw(g, { x: o.sageX ?? 250, y: BY - 30, scale: 0.56, facing: 'right', pose: o.sagePose || { w: { sit: 1 }, prop: 'staff' }, light: o.sageL || ST.light(p, { from: [820, 300], at: [230, BY], front: o.front ?? 0.25 }), expression: o.sageEx || { emo: 'calm', gaze: [0.8, 0] }, t: T, key: 'cr-p' });
@@ -89,7 +89,7 @@
         { z: 0.6, haze: false, draw: (g, p) => { ST.water(g, p, { y0: 920, y1: 2000, T, flow: 56, count: 110 }); ST.mist(g, T, { y: 900, h: 500, alpha: 0.85 * m }); } },
         { z: 1, haze: false, draw: (g, p) => crew(g, p, T, t, { front: 0.12, girlPose: { w: { stand: 0.7, attend: 0.3 }, prop: 'oar' }, girlEx: { emo: 'wonder', gaze: [0.4, -0.4] }, sagePose: ACT.pose(t, [[0, 'sit'], [b0 - 0.5, 'bless', { act: 0.6 }]], { prop: 'staff' }), sageEx: { emo: 'resolve', gaze: [0.7, -0.3] } }) },
         { z: 1.5, haze: false, draw: (g) => ST.mist(g, T, { y: 1400, h: 600, alpha: 0.8 * m }) },
-        { z: 1.8, haze: false, draw: (g) => { for (let i = 0; i < 5; i++) { const u = (T * 0.05 + i / 5) % 1; g.globalAlpha = 0.5 * m * Math.sin(Math.PI * u); g.fillStyle = '#f4f0ff'; g.beginPath(); g.ellipse(-300 + 1700 * u, 400 + i * 300, 520, 110, 0, 0, TAU); g.fill(); } g.globalAlpha = 1; } },
+        { z: 1.8, haze: false, draw: (g) => { for (let i = 0; i < 5; i++) { const u = (T * 0.05 + i / 5) % 1; KIT.glow(g, -300 + 1700 * u, 400 + i * 300, 620, '#f4f0ff', 0.4 * m * Math.sin(Math.PI * u)); } g.globalAlpha = 1; } },
       ] });
       fin(ctx, T);
     },
