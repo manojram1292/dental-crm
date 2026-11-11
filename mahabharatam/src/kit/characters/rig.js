@@ -204,7 +204,11 @@
     const L = o.light || CH.LIGHTS.key;
     // fill (0..1): a soft frontal fill on top of `front`, so a figure against a bright ground never goes to a pure black
     // cut-out (episode 31 on; the remaining weakness of eps 21–30). Bright locations pass light.fill ≈ 0.3–0.5.
-    return { dir: L.dir ?? Math.PI, intensity: clamp(L.intensity ?? 1, 0, 1.5), front: clamp(L.front ?? 0, 0, 1), fill: clamp(L.fill ?? 0, 0, 1) };
+    // From episode 41 (the back-light rule): wrap (0..1) puts the rim on BOTH sides (a fire or a sun behind the figure),
+    // tint [colour, amount] colours the rim with the light's own colour, bounce [colour, amount] colours the fill with
+    // the ground's bounce light, minLum (0..1) is a floor for the fill's luminance: no black cut-outs in front of fire.
+    return { dir: L.dir ?? Math.PI, intensity: clamp(L.intensity ?? 1, 0, 1.5), front: clamp(L.front ?? 0, 0, 1), fill: clamp(L.fill ?? 0, 0, 1),
+      wrap: clamp(L.wrap ?? 0, 0, 1), tint: L.tint || null, bounce: L.bounce || null, minLum: clamp(L.minLum ?? 0, 0, 1) };
   }
   /** Rim width in screen px for a figure drawn at `scale` (bigger figures, wider rims; brighter light, wider rim). */
   const rimWidth = (scale, k, rule) => (rule.rimW || 1) * 7.0 * Math.pow(Math.max(0.05, scale), 0.36) * (0.72 + 0.28 * clamp(k));
@@ -258,9 +262,13 @@
 
     const w = rimWidth(P.s, k, rule);
     const dx = -Math.cos(L.dir) * w, dy = -Math.sin(L.dir) * w;
-    const fill = R.mix(rule.fill, rule.lit || rule.fill, clamp(L.front * k * (rule.litGain ?? 1) + L.fill * 0.6));
-    const rim = R.mix(rule.rim[0], rule.rim[1], clamp(k));
+    let fill = R.mix(rule.fill, rule.lit || rule.fill, clamp(L.front * k * (rule.litGain ?? 1) + L.fill * 0.6));
+    let rim = R.mix(rule.rim[0], rule.rim[1], clamp(k));
+    if (L.tint) rim = R.mix(rim, L.tint[0], clamp(L.tint[1] ?? 0.5));
+    if (L.bounce) fill = R.mix(fill, L.bounce[0], clamp(L.bounce[1] ?? 0.25));
+    if (L.minLum > 0) { for (let q = 0; q < 6 && lum(fill) < L.minLum; q++) fill = R.mix(fill, q < 3 ? (rule.lit || rule.fill) : '#f4e4c4', 0.35); }
     const key = `ch-${def.id}${opts.key ? '-' + opts.key : ''}`;
+    const probeBg = R.probe && R.probe.figures ? probeBox(ctx, x0, y0, bw, bh) : null;
     const buf = R.buffer(key, bw, bh);
     buf.clear();
     const g = buf.ctx;
@@ -273,7 +281,8 @@
       g.save(); g.translate(dx * 0.4, dy * 0.4); drawShape(g, rule.inner); g.restore();
       g.globalAlpha = 1;
     }
-    if (rule.halo) {
+    const halo = rule.halo || (L.wrap > 0 ? 0.35 + 0.65 * L.wrap : 0);
+    if (halo) {
       // luminous beings: a rim all round (the fill is the shape eroded from both sides),
       // brightest toward the light
       const fb = R.buffer(key + '-fill', bw, bh);
@@ -281,7 +290,7 @@
       fb.ctx.translate(-x0, -y0);
       fb.ctx.save(); fb.ctx.translate(dx, dy); drawShape(fb.ctx, fill); fb.ctx.restore();
       fb.ctx.globalCompositeOperation = 'destination-in';
-      fb.ctx.save(); fb.ctx.translate(-dx * rule.halo, -dy * rule.halo); drawShape(fb.ctx, '#000'); fb.ctx.restore();
+      fb.ctx.save(); fb.ctx.translate(-dx * halo, -dy * halo); drawShape(fb.ctx, '#000'); fb.ctx.restore();
       g.drawImage(fb.canvas, x0, y0, bw, bh);
     } else {
       g.save(); g.translate(dx, dy); drawShape(g, fill); g.restore();
@@ -322,7 +331,27 @@
     ctx.drawImage(buf.canvas, x0, y0, bw, bh);
     ctx.restore();
     if (def.after) def.after(ctx, P, rig, k);
+    if (probeBg) probeFigure(def.id, opts.key, buf, probeBg, Math.abs(syb - sya) / chh);
     return P;
+  }
+  // ── the gate's figure probe (tools/gate.mjs --frames, ep ≥ 41): mean colour of the figure and of the ground in its box ──
+  const lum = (hex) => { const [r, g, b] = R.hexToRgb(hex); return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255; };
+  function probeBox(ctx, x0, y0, bw, bh) {
+    try {
+      const tf = ctx.getTransform(), c = ctx.canvas;
+      const xs = [x0, x0 + bw].map((x) => tf.a * x + tf.e), ys = [y0, y0 + bh].map((y) => tf.d * y + tf.f);
+      const ax = Math.max(0, Math.floor(Math.min(...xs))), ay = Math.max(0, Math.floor(Math.min(...ys)));
+      const w = Math.min(c.width, Math.ceil(Math.max(...xs))) - ax, h = Math.min(c.height, Math.ceil(Math.max(...ys))) - ay;
+      if (w < 4 || h < 4) return null;
+      const d = ctx.getImageData(ax, ay, w, h).data; let r = 0, g = 0, b = 0, n = 0;
+      for (let i = 0; i < d.length; i += 16) { r += d[i]; g += d[i + 1]; b += d[i + 2]; n++; }
+      return { bg: [r / n, g / n, b / n], frac: (w * h) / (c.width * c.height) };
+    } catch { return null; }
+  }
+  function probeFigure(id, key, buf, pb, hFrac) {
+    const c = buf.canvas, d = buf.ctx.getImageData(0, 0, c.width, c.height).data; let r = 0, g = 0, b = 0, n = 0;
+    for (let i = 0; i < d.length; i += 16) { const a = d[i + 3] / 255; if (a > 0.5) { r += d[i]; g += d[i + 1]; b += d[i + 2]; n++; } }
+    if (n > 8) R.probe.figures.push({ id, key: key || '', fig: [r / n, g / n, b / n], bg: pb.bg, h: +hFrac.toFixed(3) });
   }
   const bounds0 = (def, P, rig) => def.bounds(P, rig)[1];
 
