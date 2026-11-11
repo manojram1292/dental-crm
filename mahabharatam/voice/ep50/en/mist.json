@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3673,
+   "words": 5,
+   "speed": 0.891,
+   "text": "So he raised a mist"
+  },
+  {
+   "t0": 1.4673,
+   "t1": 2.7246,
+   "words": 4,
+   "speed": 0.891,
+   "text": "that hid the river."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

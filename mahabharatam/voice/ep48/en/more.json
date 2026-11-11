@@ -1,0 +1,23 @@
+{
+ "speaker": "janamejaya",
+ "voice": "am_michael",
+ "speed": 0.9116000000000001,
+ "pitch": 1,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1104,
+   "words": 3,
+   "speed": 0.912,
+   "text": "That was brief."
+  },
+  {
+   "t0": 1.3604,
+   "t1": 2.8358,
+   "words": 6,
+   "speed": 0.912,
+   "text": "Now tell me all of it."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

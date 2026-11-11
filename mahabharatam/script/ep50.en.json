@@ -65,7 +65,7 @@
       "speed": 1.1,
       "text": "The poet was born on an island.",
       "say": "The poet [p:80] was born on an island.",
-      "est": 3.47,
+      "est": 3.0,
       "pre": 60,
       "post": 1100,
       "role": "hook",
@@ -86,15 +86,14 @@
       ],
       "pal": "island-gold",
       "cam": "crane",
-      "note": "COLD OPEN (a statement over the image): a small island in a wide river at gold dawn, seen from above and coming closer; on it a dark child standing in his own light. The card on the water, lower left.",
-      "estVoice": 2.31
+      "note": "COLD OPEN (a statement over the image): a small island in a wide river at gold dawn, seen from above and coming closer; on it a dark child standing in his own light. The card on the water, lower left."
     },
     {
       "id": "ferry",
-      "speed": 1.0,
+      "speed": 1.1,
       "text": "Satyavati, a fisherman's daughter, rowed a ferry.",
       "say": "Satyavati, [p:80] a fisherman's daughter, [p:100] rowed a ferry.",
-      "est": 4.59,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -112,15 +111,14 @@
       "pal": "yamuna-deep",
       "cam": "slide",
       "tr": "brush",
-      "note": "STORY 0 with the unvoiced recap band (top): the river at noon in deep blue: her boat crossing, she in the stern with the oar, a grown young woman (row: the body leans and returns) (plaques: Satyavati · a young woman, a fisherman's daughter; small: the Yamuna); a lateral track with reeds passing near.",
-      "estVoice": 4.04
+      "note": "STORY 0 with the unvoiced recap band (top): the river at noon in deep blue: her boat crossing, she in the stern with the oar, a grown young woman (row: the body leans and returns) (plaques: Satyavati · a young woman, a fisherman's daughter; small: the Yamuna); a lateral track with reeds passing near."
     },
     {
       "id": "sage",
-      "speed": 1.0,
+      "speed": 1.1,
       "text": "One day the sage Parashara, on pilgrimage, saw her, and desired her.",
       "say": "One day [p:60] the sage Parashara, [p:60] on pilgrimage, [p:60] saw her, [p:150] and desired her.",
-      "est": 6.06,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -140,16 +138,15 @@
       "pal": "fishers-coral",
       "cam": "push",
       "mixDb": -2,
-      "note": "STORY 1 (pays off episode 49's last line by 8 s): the boat at the bank at coral dusk: Parashara, rust cloth, black beard, a staff, on the bank and then seated in the bow, a full boat-length from her (plaque: Parashara · a great sage); his head turns to her and stays. The two are never drawn touching or overlapping in this episode.",
-      "estVoice": 5.51
+      "note": "STORY 1 (pays off episode 49's last line by 8 s): the boat at the bank at coral dusk: Parashara, rust cloth, black beard, a staff, on the bank and then seated in the bow, a full boat-length from her (plaque: Parashara · a great sage); his head turns to her and stays. The two are never drawn touching or overlapping in this episode."
     },
     {
       "id": "watching",
       "speaker": "satyavati",
-      "speed": 1.0,
+      "speed": 1.05,
       "text": "\"Holy one, sages are watching from both banks.\"",
-      "say": "Holy one, [p:150] sages are watching [p:60] from both banks.",
-      "est": 4.16,
+      "say": "Holy one, [p:120] sages are watching from both banks.",
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -163,15 +160,14 @@
       "pal": "yamuna-deep",
       "cam": "pull",
       "closeup": true,
-      "note": "STORY 2 · THE CLOSE-UP (first half): Satyavati's face, steady, her eyes going to one bank and the other (the gaze moves; the brow level); then a pull back: midstream, and on each far bank a row of small seated figures.",
-      "estVoice": 3.61
+      "note": "STORY 2 · THE CLOSE-UP (first half): Satyavati's face, steady, her eyes going to one bank and the other (the gaze moves; the brow level); then a pull back: midstream, and on each far bank a row of small seated figures."
     },
     {
       "id": "mist",
-      "speed": 1.0,
+      "speed": 1.1,
       "text": "So he raised a mist that hid the river.",
       "say": "So he raised a mist [p:100] that hid the river.",
-      "est": 3.46,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -187,16 +183,15 @@
       "cam": "orbit",
       "signature": true,
       "tr": "smoke",
-      "note": "STORY 3 · THE SIGNATURE SHOT · NEW LIGHT (mist-lavender): his hand lifts; mist rises off the water in bands, plane behind plane (five depths), a slow orbit round the boat until banks, sages and sky are gone and the boat hangs in white.",
-      "estVoice": 2.91
+      "note": "STORY 3 · THE SIGNATURE SHOT · NEW LIGHT (mist-lavender): his hand lifts; mist rises off the water in bands, plane behind plane (five depths), a slow orbit round the boat until banks, sages and sky are gone and the boat hangs in white."
     },
     {
       "id": "maiden",
       "speaker": "satyavati",
-      "speed": 1.0,
+      "speed": 1.05,
       "text": "\"I am a maiden. How can I go home?\"",
-      "say": "I am a maiden. [p:300] How can I go home?",
-      "est": 3.97,
+      "say": "I am a maiden. [p:240] How can I go home?",
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -212,16 +207,15 @@
       "cam": "push",
       "closeup": true,
       "mixDb": -4,
-      "note": "STORY 4 · THE CLOSE-UP (second half): her face in the mist: the steadiness gives way to worry (inner brows up, the eyes down), then lifts to him: she is bargaining, not pleading.",
-      "estVoice": 3.42
+      "note": "STORY 4 · THE CLOSE-UP (second half): her face in the mist: the steadiness gives way to worry (inner brows up, the eyes down), then lifts to him: she is bargaining, not pleading."
     },
     {
       "id": "gift",
       "speaker": "parashara",
-      "speed": 1.0,
+      "speed": 1.06,
       "text": "\"You will remain a maiden. Now choose a gift.\"",
-      "say": "You will remain a maiden. [p:350] Now choose a gift.",
-      "est": 5.34,
+      "say": "You will remain a maiden. [p:280] Now choose a gift.",
+      "est": 3.0,
       "pre": 900,
       "post": 300,
       "beats": [
@@ -238,15 +232,14 @@
       ],
       "pal": "release-gold",
       "cam": "push",
-      "note": "STORY 5 · THE TURN (≈ 50 %) after a real silence: Parashara, lit gold through the mist (release-gold), a hand raised in blessing; the mist behind him brightens. The word of the turn: CHOOSE.",
-      "estVoice": 4.14
+      "note": "STORY 5 · THE TURN (≈ 50 %) after a real silence: Parashara, lit gold through the mist (release-gold), a hand raised in blessing; the mist behind him brightens. The word of the turn: CHOOSE."
     },
     {
       "id": "scent",
-      "speed": 1.0,
+      "speed": 1.1,
       "text": "She chose a fragrance for her smell of fish, and gladly agreed.",
       "say": "She chose a fragrance [p:80] for her smell of fish, [p:200] and gladly agreed.",
-      "est": 5.23,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -264,15 +257,14 @@
       "pal": "brahma-rose",
       "cam": "tilt",
       "tr": "lamp",
-      "note": "STORY 6 · NEW LIGHT (brahma-rose): a tilt up from her joined hands: the grey-silver haze round her turns to rose and gold petals that drift away over the water, far (a plaque: her fragrance carried a league); her face lifts, glad (the text has it: pleased with her boon, she agreed); the mist closes over the boat.",
-      "estVoice": 4.68
+      "note": "STORY 6 · NEW LIGHT (brahma-rose): a tilt up from her joined hands: the grey-silver haze round her turns to rose and gold petals that drift away over the water, far (a plaque: her fragrance carried a league); her face lifts, glad (the text has it: pleased with her boon, she agreed); the mist closes over the boat."
     },
     {
       "id": "born",
-      "speed": 1.0,
+      "speed": 1.1,
       "text": "That same day, on an island, she bore a son.",
-      "say": "That same day, [p:100] on an island, [p:200] she bore a son.",
-      "est": 4.98,
+      "say": "That same day, [p:60] on an island, [p:140] she bore a son.",
+      "est": 3.0,
       "pre": 800,
       "post": 300,
       "beats": [
@@ -294,15 +286,14 @@
       "cam": "crane",
       "tr": "brush",
       "mixDb": 1,
-      "note": "STORY 7 (a second real silence before it; answers the hook): the mist opens on gold dawn: the island of the first frame, now from the water: she kneels in the reeds, a dark child in her arms with a gold aura (carry).",
-      "estVoice": 3.88
+      "note": "STORY 7 (a second real silence before it; answers the hook): the mist opens on gold dawn: the island of the first frame, now from the water: she kneels in the reeds, a dark child in her arms with a gold aura (carry)."
     },
     {
       "id": "grew",
-      "speed": 1.0,
+      "speed": 1.1,
       "text": "He grew at once: Dvaipayana, the island-born. We call him Vyasa.",
-      "say": "He grew at once: [p:200] Dvaipayana, [p:100] the island-born. [p:350] We call him Vyasa.",
-      "est": 6.15,
+      "say": "He grew at once: [p:120] Dvaipayana, [p:60] the island-born. [p:240] We call him Vyasa.",
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -321,8 +312,7 @@
       "music": "wonder",
       "pal": "island-gold",
       "cam": "tilt",
-      "note": "STORY 8: the child stands; in one tilt upward he is a boy, a youth in bark cloth (plaque: Dvaipayana · \"the island-born\"; then VYASA arrives in gold, as in episode 47).",
-      "estVoice": 5.6
+      "note": "STORY 8: the child stands; in one tilt upward he is a boy, a youth in bark cloth (plaque: Dvaipayana · \"the island-born\"; then VYASA arrives in gold, as in episode 47)."
     },
     {
       "id": "promise",
@@ -330,7 +320,7 @@
       "speed": 1.04,
       "text": "\"Mother, think of me, and I will come.\"",
       "say": "Mother, [p:150] think of me, [p:200] and I will come.",
-      "est": 4.17,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -348,15 +338,14 @@
       "pal": "exile-forest",
       "cam": "rack",
       "mixDb": -4,
-      "note": "STORY 9: the young Vyasa at the forest's edge, turned back toward her, palms joined; the focus racks from her hand in the foreground to him; then he walks in under the trees.",
-      "estVoice": 3.62
+      "note": "STORY 9: the young Vyasa at the forest's edge, turned back toward her, palms joined; the focus racks from her hand in the foreground to him; then he walks in under the trees."
     },
     {
       "id": "cliff",
-      "speed": 1.0,
+      "speed": 1.1,
       "text": "Then the king asked: why were these godlike heroes born on earth?",
       "say": "Then the king asked: [p:200] why were these godlike heroes [p:80] born on earth?",
-      "est": 5.44,
+      "est": 3.0,
       "pre": 250,
       "post": 400,
       "beats": [
@@ -373,8 +362,7 @@
       ],
       "pal": "war-iron",
       "cam": "pull",
-      "note": "NEXT 1 (hands on to episode 51, which answers it; the frame returns: plaque Janamejaya · the king who asked): the king's lifted face in the teal hall, then a night sky in iron blue: points of light fall from it like slow rain toward a dark, heavy earth. The source line (top).",
-      "estVoice": 4.79
+      "note": "NEXT 1 (hands on to episode 51, which answers it; the frame returns: plaque Janamejaya · the king who asked): the king's lifted face in the teal hall, then a night sky in iron blue: points of light fall from it like slow rain toward a dark, heavy earth. The source line (top)."
     },
     {
       "id": "next",

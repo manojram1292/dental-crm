@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8667000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.2797,
+   "words": 6,
+   "speed": 0.867,
+   "text": "It begins with the poet's grandfather:"
+  },
+  {
+   "t0": 2.4797,
+   "t1": 3.4623,
+   "words": 1,
+   "speed": 0.867,
+   "text": "Uparichara,"
+  },
+  {
+   "t0": 3.5423,
+   "t1": 5.4561,
+   "words": 6,
+   "speed": 0.867,
+   "text": "a king with a crystal chariot"
+  },
+  {
+   "t0": 5.5161,
+   "t1": 6.6049,
+   "words": 3,
+   "speed": 0.867,
+   "text": "of the sky."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

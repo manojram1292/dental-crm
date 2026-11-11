@@ -590,3 +590,11 @@ Measured (mp4): 56.7 s; hook by 2.56 s; motion at 0.5 s 19.2; longest static hol
 Lessons: check the body against the story after every event that changes it; a prop the character carries by default (Bhrigu's water-pot) turns up in close-ups and curses unless it is switched off (`pose.prop: false`); in the curse the pot read as a pan in his hand.
 
 Still weak: Brahma in the cloud is a small gold emblem; the river is a pale wedge more than water; the child is a standing boy in light, not a new-born.
+
+### Episode 43 · The Curse on Fire
+
+Rendered twice. The first render put the snake of the cliffhanger under the captions and lit the sages at the dead altars ghost-pale; the rack now ends higher and the light is toned down. From this episode the source line stays in one fixed place at the top (`TY.source`, y 110; it reports a face under it instead of moving).
+
+Measured (mp4): 56.9 s; hook (5 words) by 2.46 s; motion at 0.5 s 13.1; longest static hold 3.7 s (the cliffhanger); turn (Brahma's ruling) at 57 %; -14.1 LUFS, -2.3 dBTP, LRA 5.9; eight lights, hue run 2; key frames against 40–42: min 22, mean 32.0; no blank or near-white frame; 16 of 20 foley cues on their beat (the four others: a growl, a whoosh, a leaf and a rustle, all swelling sounds); ambience by place 994 / 1134 / 242 / 454 / 912 Hz; peak -2.5 dBFS, no clipped sample; share 17.8 MB.
+
+Still weak: Brahma is a flat gold shape on a lotus (a figure now, but without a face that reads at phone size); in the curse close-up the caption crosses Bhrigu's chest and pointing arm; the cliffhanger holds nearly still for 3.7 s; the first key frame is at the floor of the variety check (22) because three episodes in a row open on fire.

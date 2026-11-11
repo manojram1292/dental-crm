@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8667000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6691,
+   "words": 6,
+   "speed": 0.867,
+   "text": "She grew up rowing a ferry,"
+  },
+  {
+   "t0": 1.8191,
+   "t1": 3.3069,
+   "words": 4,
+   "speed": 0.867,
+   "text": "until a great sage"
+  },
+  {
+   "t0": 3.3869,
+   "t1": 4.5347,
+   "words": 4,
+   "speed": 0.867,
+   "text": "came to the river."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

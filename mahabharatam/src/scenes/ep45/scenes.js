@@ -45,7 +45,7 @@
   // 2 · DEAD: she lies as if asleep among fallen flowers, the colour drained; a pull back
   R.scene({ id: 'dead', transition: { type: 'smoke', dur: 0.7, dir: -Math.PI / 2, color: '#9a9aa0' },
     draw(ctx, t, env) {
-      const T = env.T, cam = CAM.pull(clamp(t / env.dur), { from: 1.3, to: 1.02, focus: [760, 960] });
+      const T = env.T, cam = CAM.pull(clamp(t / env.dur), { from: 1.3, to: 1.02, focus: [300, 960] });
       EP44.greyBed(ctx, T, cam, 1, { by: 1010 });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 3.2) / 0.4)), env.strings, { y: 190 });
       TY.plaque(ctx, T, clamp((t - 1.0) / 0.6), ...names(env, 'Pramadvara'), { x: 300, y: 620, out: clamp((t - (env.dur - 0.4)) / 0.3) });
@@ -148,8 +148,8 @@
     draw(ctx, t, env) {
       const T = env.T, b0 = env.beats[0] ?? 1.1, b1 = env.beats[1] ?? 3.3, cam = CAM.pull(clamp(t / env.dur), { from: 1.2, to: 1.02, focus: [600, 1100] }), up = E.inOutSine(clamp((t - b0) / 1.2));
       EP44.meadow(ctx, T, cam, { hz: 900, sun: [820, 380, 60], figs: (g, p) => {
-        g.save(); g.translate(430, 1380); g.rotate((-Math.PI / 2 + 0.06) * (1 - up)); g.translate(-430, -1380);
-        CH.pramadvara.draw(g, { x: 430, y: 1380 + 360 * (1 - up), scale: 0.95, facing: 'right', pose: ACT.pose(t, [[0, 'stand'], [b0 + 0.6, 'sit', { act: 0.7 }], [b1, 'attend', { act: 0.6 }]]), light: ST.light(p, { from: [820, 300], at: [430, 1300], front: 0.8, k: 1.2 }), expression: { emo: ACT.emo(t, [[0, 'calm'], [b0 + 0.4, 'wonder'], [b1, 'tender']]), blink: t < b0 ? 1 : 0, gaze: [0.7, 0] }, t: T, key: 'wk-p' });
+        const py = lerp(1210, 1380, up); g.save(); g.translate(430, py); g.rotate((-Math.PI / 2 + 0.06) * (1 - up)); g.translate(-430, -py);
+        CH.pramadvara.draw(g, { x: 430, y: py + 360 * (1 - up), scale: 0.95, facing: 'right', pose: ACT.pose(t, [[0, 'stand'], [b0 + 0.6, 'sit', { act: 0.7 }], [b1, 'attend', { act: 0.6 }]]), light: ST.light(p, { from: [820, 300], at: [430, 1300], front: 0.8, k: 1.2 }), expression: { emo: ACT.emo(t, [[0, 'calm'], [b0 + 0.4, 'wonder'], [b1, 'tender']]), blink: t < b0 ? 1 : 0, gaze: [0.7, 0] }, t: T, key: 'wk-p' });
         g.restore();
         CH.ruru.draw(g, { x: 930, y: 1390, scale: 0.9, facing: 'left', pose: { w: { kneel: 1 }, prop: false }, light: ST.light(p, { from: [820, 300], at: [930, 1300], front: 0.6 }), expression: { emo: ACT.emo(t, [[0, 'sorrow'], [b0 + 0.3, 'shock'], [b1 - 0.4, 'joy']]), gaze: [0.7, 0.2] }, t: T, key: 'wk-r' });
         thread(g, T, 430, 560, 760, Math.sin(Math.PI * clamp((t - b0) / 1.6)));

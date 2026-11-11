@@ -1,0 +1,18 @@
+{
+ "stamp": {
+  "episode": 49,
+  "lang": "en",
+  "timeline": "cb9af292adb222af",
+  "duration": 57.2667,
+  "score": "9c0973d24551"
+ },
+ "lufs": -22.0,
+ "true_peak_dbtp": -3.75,
+ "seconds": 57.2667,
+ "stems": {
+  "amb": -28.3,
+  "foley": -38.0,
+  "mus": -23.3
+ },
+ "note": "three stems (amb.wav, foley.wav, mus.wav) and their sum (music.wav); tools/mix.py ducks each stem by its own amount under the voice"
+}

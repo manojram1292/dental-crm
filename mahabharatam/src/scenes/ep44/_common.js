@@ -30,8 +30,8 @@
   // she lies as if asleep among fallen flowers; the colour drained (ash-grey). k: 0..1 the petals settled
   EP44.bed = (g, p, T, x, y, s, o = {}) => {
     for (let i = 0; i < 40; i++) { const u = clamp((o.k ?? 1) * 1.4 - hash(i, 71) * 0.4), px = x - 620 * s + 1240 * s * hash(i, 72), py = lerp(y - 600 * s * hash(i, 73) - 200, y + 30 - 60 * hash(i, 74), E.outCubic(u)); g.globalAlpha = 0.9; g.fillStyle = i % 3 ? '#d8d0d0' : '#f4ecec'; g.beginPath(); g.ellipse(px + 20 * Math.sin(T + i) * (1 - u), py, 13, 7, i, 0, TAU); g.fill(); } g.globalAlpha = 1;
-    g.save(); g.translate(x, y); g.rotate(-Math.PI / 2 + 0.06); g.translate(-x, -y);   // the standing figure laid on her back, face up: asleep
-    CH.pramadvara.draw(g, { x, y: y + 360 * s, scale: s, facing: 'left', pose: { w: { stand: 0.7, anjali: 0.3 }, still: !!o.still }, light: { ...ST.light(p, { from: [x, 200], at: [x, y], front: 0.85, k: 1.2 }), tint: [o.tint || '#e8e8f0', 0.6] }, expression: { emo: 'calm', blink: 1, gaze: [0, 0] }, t: o.still ? 0 : T, key: o.key || 'bed' });
+    g.save(); g.translate(x, y); g.rotate(-Math.PI / 2 + 0.06); g.translate(-x, -y);   // the standing figure (facing right) turned a quarter back: she lies on her back, head to the left, face up: asleep
+    CH.pramadvara.draw(g, { x, y: y + 360 * s, scale: s, facing: 'right', pose: { w: { stand: 0.7, anjali: 0.3 }, still: !!o.still }, light: { ...ST.light(p, { from: [x, 200], at: [x, y], front: 0.85, k: 1.2 }), tint: [o.tint || '#e8e8f0', 0.6] }, expression: { emo: 'calm', blink: 1, gaze: [0, 0] }, t: o.still ? 0 : T, key: o.key || 'bed' });
     g.restore();
   };
 

@@ -1,28 +1,28 @@
 {
  "speaker": "vaishampayana",
  "voice": "bm_daniel",
- "speed": 0.84,
+ "speed": 0.9575999999999999,
  "pitch": 1.0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 2.3169,
+   "t1": 1.8094,
    "words": 5,
-   "speed": 0.84,
+   "speed": 0.958,
    "text": "Twelve years in the forest."
   },
   {
-   "t0": 2.5669,
-   "t1": 3.6693,
+   "t0": 2.0594,
+   "t1": 2.9941,
    "words": 2,
-   "speed": 0.84,
+   "speed": 0.958,
    "text": "One more"
   },
   {
-   "t0": 3.7293,
-   "t1": 5.0335,
+   "t0": 3.0541,
+   "t1": 4.1524,
    "words": 2,
-   "speed": 0.84,
+   "speed": 0.958,
    "text": "in hiding."
   }
  ],

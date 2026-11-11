@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.0305,
+   "words": 1,
+   "speed": 0.891,
+   "text": "Satyavati,"
+  },
+  {
+   "t0": 1.1105,
+   "t1": 2.4885,
+   "words": 3,
+   "speed": 0.891,
+   "text": "a fisherman's daughter,"
+  },
+  {
+   "t0": 2.5885,
+   "t1": 3.6463,
+   "words": 3,
+   "speed": 0.891,
+   "text": "rowed a ferry."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

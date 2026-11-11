@@ -195,7 +195,7 @@
       { z: 1.9, haze: false, draw: (g, p) => { ST.grass(g, p, { y: 1960, h: 520, T: T + 2 * Math.sin(Math.PI * clamp((t - b0) / 0.6)), count: 40 });   // the grass moves on "later" (foley: rustle@0)
         g.strokeStyle = '#ffe08a'; g.lineWidth = 12; g.beginPath(); g.ellipse(250, 1700, 90, 34, -0.2, 0, TAU); g.stroke(); g.fillStyle = '#ffe08a'; for (let i = 0; i < 6; i++) { g.beginPath(); g.arc(250 + 90 * Math.cos(i * 1.05), 1700 + 40 * Math.sin(i * 1.05) + 14, 10, 0, TAU); g.fill(); } } },
     ] });
-    TY.source(ctx, T, clamp((t - 0.4) / 0.4), env.strings, { y: 150 });
+    TY.source(ctx, T, clamp((t - 0.4) / 0.4), env.strings, { y: 110 });
     fin(ctx, T);
   };
   const CL = { dur: 5.43, b: [1.17, 4.66] };

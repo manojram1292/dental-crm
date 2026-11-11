@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8667000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.8133,
+   "words": 2,
+   "speed": 0.867,
+   "text": "Her name"
+  },
+  {
+   "t0": 0.8733,
+   "t1": 2.134,
+   "words": 2,
+   "speed": 0.867,
+   "text": "was Satyavati:"
+  },
+  {
+   "t0": 2.314,
+   "t1": 3.1514,
+   "words": 2,
+   "speed": 0.867,
+   "text": "one day,"
+  },
+  {
+   "t0": 3.2314,
+   "t1": 5.0928,
+   "words": 5,
+   "speed": 0.867,
+   "text": "mother of the poet himself."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8667000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1719,
+   "words": 3,
+   "speed": 0.867,
+   "text": "Ten months later,"
+  },
+  {
+   "t0": 1.2719,
+   "t1": 3.0675,
+   "words": 4,
+   "speed": 0.867,
+   "text": "fishermen opened that fish,"
+  },
+  {
+   "t0": 3.3175,
+   "t1": 4.8765,
+   "words": 4,
+   "speed": 0.867,
+   "text": "and found two children."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

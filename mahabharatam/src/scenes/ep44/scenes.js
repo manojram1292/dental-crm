@@ -114,12 +114,12 @@
   R.scene({ id: 'play', transition: { type: 'dissolve', dur: 0.3 },
     draw(ctx, t, env) {
       const T = env.T, b0 = env.beats[0] ?? 0.8, cam = CAM.crane(t / env.dur, { from: 0.94, to: 1.14, y0: -260, y1: 60 }), d = 150 * t;
-      const bu = clamp((t - b0) / 1.3), bx = lerp(560, 200, bu), by = GY - 700 - 500 * Math.sin(Math.PI * bu);
+      const bu = clamp((t - b0) / 1.3), bx = lerp(900, 200, bu), by = GY - 700 - 500 * Math.sin(Math.PI * bu);
       EP44.meadow(ctx, T, cam, { sun: [820, 380, 60], figs: (g, p) => {
         CH.viper.draw(g, { x: 330, y: GY - 150, scale: 0.34, facing: 'left', pose: { name: 'strike', k: 0 }, light: ST.light(p, { from: [860, 300], at: [150, GY], front: 0.8 }), t: T, key: 'pl-v' });
-        CH.girika.draw(g, { x: 1010 - d * 0.22, y: GY - 60, scale: 0.72, facing: 'left', pose: ACT.pose(t, [[0, 'run']], { phase: ACT.stride(d * 0.22, 0.72), stride: 0.6, wind: 1 }), light: ST.light(p, { from: [860, 300], at: [900, GY], front: 0.6 }), expression: { emo: 'joy' }, t: T, key: 'pl-1' });
-        CH.panchali.draw(g, { x: 70 + d * 0.2, y: GY - 80, scale: 0.68, facing: 'right', pose: ACT.pose(t, [[0, 'run'], [b0 + 1.0, 'reach', { act: 0.3 }]], { phase: ACT.stride(d * 0.2, 0.68), stride: 0.6, wind: 1 }), light: ST.light(p, { from: [860, 300], at: [300, GY], front: 0.6 }), expression: { emo: 'joy' }, t: T, key: 'pl-2' });
-        girl(g, p, T, 640 - d * 0.18, GY + 20, 0.86, ACT.pose(t, [[0, 'run'], [b0 - 0.25, 'reach', { act: 0.25 }], [b0 + 0.3, 'run', { act: 0.4 }]], { phase: ACT.stride(d * 0.18, 0.86), stride: 0.6, wind: 1 }), { emo: 'joy' }, 'pl-p');
+        CH.girika.draw(g, { x: 1040 - d * 0.12, y: GY - 60, scale: 0.64, facing: 'left', pose: ACT.pose(t, [[0, 'run']], { phase: ACT.stride(d * 0.22, 0.72), stride: 0.6, wind: 1 }), light: ST.light(p, { from: [860, 300], at: [900, GY], front: 0.6 }), expression: { emo: 'joy' }, t: T, key: 'pl-1' });
+        CH.panchali.draw(g, { x: 40 + d * 0.1, y: GY - 80, scale: 0.62, facing: 'right', pose: ACT.pose(t, [[0, 'run']], { phase: ACT.stride(d * 0.2, 0.68), stride: 0.6, wind: 1 }), light: ST.light(p, { from: [860, 300], at: [300, GY], front: 0.6 }), expression: { emo: 'joy' }, t: T, key: 'pl-2' });
+        girl(g, p, T, 600 - d * 0.1, GY + 20, 0.8, ACT.pose(t, [[0, 'run']], { phase: ACT.stride(d * 0.18, 0.86), stride: 0.6, wind: 1 }), { emo: 'joy' }, 'pl-p');
         if (bu > 0 && bu < 1) { g.fillStyle = '#ff8aa8'; g.beginPath(); g.arc(bx, by, 26, 0, TAU); g.fill(); g.fillStyle = '#fff0c0'; for (let i = 0; i < 5; i++) { g.beginPath(); g.arc(bx + 20 * Math.cos(i * 1.26 + T * 6), by + 20 * Math.sin(i * 1.26 + T * 6), 9, 0, TAU); g.fill(); } }
       } });
       fin(ctx, T);
@@ -157,7 +157,7 @@
   const greyBed = EP44.greyBed;
   R.scene({ id: 'lay', transition: { type: 'ink', dur: 0.8, at: [560, 1100], color: '#8a8a90' },
     draw(ctx, t, env) {
-      const T = env.T, cam = CAM.push(t / env.dur, { from: 1.0, to: 1.22, focus: [760, 1120] });
+      const T = env.T, cam = CAM.push(t / env.dur, { from: 1.0, to: 1.22, focus: [300, 1120] });
       greyBed(ctx, T, cam, clamp(t / 2.2));
       fin(ctx, T);
     },

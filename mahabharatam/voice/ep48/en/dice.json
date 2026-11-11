@@ -1,21 +1,21 @@
 {
  "speaker": "vaishampayana",
  "voice": "bm_daniel",
- "speed": 0.84,
+ "speed": 0.9575999999999999,
  "pitch": 1.0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 2.3047,
+   "t1": 1.8479,
    "words": 6,
-   "speed": 0.84,
+   "speed": 0.958,
    "text": "Then a crooked game of dice"
   },
   {
-   "t0": 2.4047,
-   "t1": 3.7281,
+   "t0": 1.9479,
+   "t1": 3.0529,
    "words": 3,
-   "speed": 0.84,
+   "speed": 0.958,
    "text": "took it all."
   }
  ],

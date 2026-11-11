@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8667000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6205,
+   "words": 4,
+   "speed": 0.867,
+   "text": "Over the river Yamuna,"
+  },
+  {
+   "t0": 1.7205,
+   "t1": 3.1975,
+   "words": 4,
+   "speed": 0.867,
+   "text": "a rival hawk struck."
+  },
+  {
+   "t0": 3.4475,
+   "t1": 4.4855,
+   "words": 3,
+   "speed": 0.867,
+   "text": "The leaf fell."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

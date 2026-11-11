@@ -1,0 +1,218 @@
+[
+ {
+  "line": "hook",
+  "cue": "breath",
+  "asked_s": 0.08,
+  "start_s": 0.08,
+  "onset_s": 0.123,
+  "peak_s": 0.301,
+  "peak_db": -34.3
+ },
+ {
+  "line": "hook",
+  "cue": "flame@0",
+  "asked_s": 0.832,
+  "start_s": 0.832,
+  "onset_s": 0.888,
+  "peak_s": 1.369,
+  "peak_db": -24.2
+ },
+ {
+  "line": "before",
+  "cue": "cloth@0",
+  "asked_s": 3.82,
+  "start_s": 3.651,
+  "onset_s": 3.719,
+  "peak_s": 3.821,
+  "peak_db": -30.7
+ },
+ {
+  "line": "before",
+  "cue": "leaf",
+  "asked_s": 3.65,
+  "start_s": 3.65,
+  "onset_s": 3.754,
+  "peak_s": 3.949,
+  "peak_db": -35.3
+ },
+ {
+  "line": "five",
+  "cue": "steps@0",
+  "asked_s": 8.514,
+  "start_s": 8.514,
+  "onset_s": 8.514,
+  "peak_s": 12.896,
+  "peak_db": -15.4
+ },
+ {
+  "line": "five",
+  "cue": "anklet",
+  "asked_s": 7.903,
+  "start_s": 7.903,
+  "onset_s": 7.903,
+  "peak_s": 12.947,
+  "peak_db": -31.0
+ },
+ {
+  "line": "poison",
+  "cue": "drip@0",
+  "asked_s": 14.322,
+  "start_s": 14.322,
+  "onset_s": 14.336,
+  "peak_s": 14.363,
+  "peak_db": -45.1
+ },
+ {
+  "line": "poison",
+  "cue": "flame@1",
+  "asked_s": 16.853,
+  "start_s": 16.853,
+  "onset_s": 16.901,
+  "peak_s": 17.737,
+  "peak_db": -22.3
+ },
+ {
+  "line": "poison",
+  "cue": "steps@2",
+  "asked_s": 17.916,
+  "start_s": 17.916,
+  "onset_s": 17.916,
+  "peak_s": 17.942,
+  "peak_db": -18.3
+ },
+ {
+  "line": "won",
+  "cue": "anklet@0",
+  "asked_s": 20.337,
+  "start_s": 20.337,
+  "onset_s": 20.337,
+  "peak_s": 22.862,
+  "peak_db": -30.4
+ },
+ {
+  "line": "won",
+  "cue": "whoosh@0",
+  "asked_s": 20.337,
+  "start_s": 20.041,
+  "onset_s": 20.138,
+  "peak_s": 20.404,
+  "peak_db": -27.9
+ },
+ {
+  "line": "dice",
+  "cue": "snap@0",
+  "asked_s": 25.698,
+  "start_s": 25.698,
+  "onset_s": 25.698,
+  "peak_s": 25.704,
+  "peak_db": -28.5
+ },
+ {
+  "line": "dice",
+  "cue": "thud@1",
+  "asked_s": 26.852,
+  "start_s": 26.852,
+  "onset_s": 26.852,
+  "peak_s": 26.878,
+  "peak_db": -6.5
+ },
+ {
+  "line": "exile",
+  "cue": "steps",
+  "asked_s": 27.7,
+  "start_s": 27.7,
+  "onset_s": 27.7,
+  "peak_s": 28.199,
+  "peak_db": -15.3
+ },
+ {
+  "line": "exile",
+  "cue": "leaf@0",
+  "asked_s": 27.87,
+  "start_s": 27.603,
+  "onset_s": 27.717,
+  "peak_s": 27.869,
+  "peak_db": -34.5
+ },
+ {
+  "line": "war",
+  "cue": "hooves@2",
+  "asked_s": 36.721,
+  "start_s": 36.721,
+  "onset_s": 36.723,
+  "peak_s": 36.954,
+  "peak_db": -5.7
+ },
+ {
+  "line": "war",
+  "cue": "thunder@2",
+  "asked_s": 36.721,
+  "start_s": 36.721,
+  "onset_s": 36.721,
+  "peak_s": 36.727,
+  "peak_db": -14.9
+ },
+ {
+  "line": "war",
+  "cue": "ash@3",
+  "asked_s": 39.579,
+  "start_s": 39.284,
+  "onset_s": 39.39,
+  "peak_s": 39.578,
+  "peak_db": -32.1
+ },
+ {
+  "line": "more",
+  "cue": "cloth@0",
+  "asked_s": 41.898,
+  "start_s": 41.735,
+  "onset_s": 41.798,
+  "peak_s": 41.9,
+  "peak_db": -29.8
+ },
+ {
+  "line": "more",
+  "cue": "flame",
+  "asked_s": 40.505,
+  "start_s": 40.505,
+  "onset_s": 40.57,
+  "peak_s": 40.625,
+  "peak_db": -23.0
+ },
+ {
+  "line": "here",
+  "cue": "leaf@0",
+  "asked_s": 45.283,
+  "start_s": 45.004,
+  "onset_s": 45.109,
+  "peak_s": 45.279,
+  "peak_db": -33.5
+ },
+ {
+  "line": "cliff",
+  "cue": "water",
+  "asked_s": 50.132,
+  "start_s": 50.132,
+  "onset_s": 50.454,
+  "peak_s": 50.931,
+  "peak_db": -26.0
+ },
+ {
+  "line": "cliff",
+  "cue": "splash@1",
+  "asked_s": 52.758,
+  "start_s": 52.758,
+  "onset_s": 52.778,
+  "peak_s": 52.929,
+  "peak_db": -26.2
+ },
+ {
+  "line": "cliff",
+  "cue": "oar@2",
+  "asked_s": 54.109,
+  "start_s": 54.109,
+  "onset_s": 54.219,
+  "peak_s": 54.45,
+  "peak_db": -33.2
+ }
+]

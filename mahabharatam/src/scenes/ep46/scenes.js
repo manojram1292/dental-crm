@@ -164,13 +164,13 @@
     draw(ctx, t, env) {
       const T = env.T, cam = CAM.tilt(E.inOutSine(clamp(t / 3.4)), { from: 260, to: -30, zoom: 1.12 });
       tale(ctx, T, cam, t);
-      TY.plaque(ctx, T, clamp((t - 0.4) / 0.6), ...names(env, 'Pramati'), { x: 300, y: 1210, out: clamp((t - 3.4) / 0.3) });   // the two dark backs in the foreground: the father telling, the son listening
+      TY.plaque(ctx, T, clamp((t - 0.4) / 0.6), ...names(env, 'Pramati'), { x: 320, y: 430, out: clamp((t - 3.4) / 0.3) });   // the two dark backs in the foreground: the father telling, the son listening
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.42, vignette: 0.5, paper: 0.3 }) });
 
   // 10 · ARCEND (silent): the arc-end card over the sacrifice at night
-  R.scene({ id: 'arcend', draw(ctx, t, env) { const T = env.T; tale(ctx, T, CAM.still({ zoom: 1.12, y: -30 }), 6 + t); ctx.fillStyle = 'rgba(4,10,14,0.45)'; ctx.fillRect(0, 0, R.W, R.H); EP46.arcCard(ctx, T, clamp(t / 0.25) * (1 - clamp((t - (env.dur - 0.2)) / 0.2)), env.strings); fin(ctx, T); }, post: () => ({ bloom: 0.36, vignette: 0.5, paper: 0.3 }) });
+  R.scene({ id: 'arcend', draw(ctx, t, env) { const T = env.T; tale(ctx, T, CAM.still({ zoom: 1.12, y: -30 }), 6 + t); ctx.fillStyle = 'rgba(4,10,14,0.74)'; ctx.fillRect(0, 0, R.W, R.H); EP46.arcCard(ctx, T, clamp(t / 0.25) * (1 - clamp((t - (env.dur - 0.2)) / 0.2)), env.strings); fin(ctx, T); }, post: () => ({ bloom: 0.36, vignette: 0.5, paper: 0.3 }) });
 
   // 11 · CLIFF: the same sacrifice, its fire still high between the pillars, in umber and gold; far off a tall dark figure with a gold halo walks in
   const cliff = (ctx, T, t, env, b) => {

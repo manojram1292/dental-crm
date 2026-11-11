@@ -64,9 +64,9 @@
       "speed": 1.16,
       "text": "The whole Mahabharata, in one breath.",
       "say": "The whole Mahabharata, [p:100] in one breath.",
-      "est": 3.68,
+      "est": 3.0,
       "pre": 60,
-      "post": 800,
+      "post": 700,
       "role": "hook",
       "caption": false,
       "beats": [
@@ -85,15 +85,14 @@
       ],
       "pal": "dice-vermilion",
       "cam": "slide",
-      "note": "COLD OPEN (a number: one): a strip of small painted panels runs across the frame like a scroll being pulled: brothers, a burning house, dice, a forest, a field. The card under the strip.",
-      "estVoice": 2.82
+      "note": "COLD OPEN (a number: one): a strip of small painted panels runs across the frame like a scroll being pulled: brothers, a burning house, dice, a forest, a field. The card under the strip."
     },
     {
       "id": "before",
       "speed": 1.12,
       "text": "Vyasa's student began: all of it, in brief.",
       "say": "Vyasa's student began: [p:200] all of it, [p:100] in brief.",
-      "est": 4.21,
+      "est": 3.0,
       "pre": 250,
       "post": 400,
       "emphasis": [
@@ -111,16 +110,15 @@
       "pal": "satra-teal-night",
       "cam": "push",
       "tr": "smoke",
-      "note": "STORY 0 with the unvoiced recap band (top): the teal hall: Vaishampayana (plaque: Vaishampayana · Vyasa's student) before the seated king, Vyasa in gold beside him; he opens his hands.",
-      "estVoice": 3.56
+      "note": "STORY 0 with the unvoiced recap band (top): the teal hall: Vaishampayana (plaque: Vaishampayana · Vyasa's student) before the seated king, Vyasa in gold beside him; he opens his hands."
     },
     {
       "id": "five",
       "speaker": "vaishampayana",
-      "speed": 1.0,
+      "speed": 1.14,
       "text": "\"Five brothers. A jealous cousin, Duryodhana, who wanted them dead.\"",
-      "say": "Five brothers. [p:300] A jealous cousin, [p:100] Duryodhana, [p:100] who wanted them dead.",
-      "est": 6.12,
+      "say": "Five brothers. [p:180] A jealous cousin, [p:100] Duryodhana, [p:100] who wanted them dead.",
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -142,18 +140,17 @@
       "pal": "seat-ivory",
       "cam": "slide",
       "tr": "brush",
-      "note": "PANEL 1 (seat-ivory: a court): five young men in a row, one behind another, entering a pillared court; across from them one prince, turned away, his hand a fist (plaque: Duryodhana · the jealous cousin). Each panel has its own colour and its own move; brush wipes between.",
-      "estVoice": 5.57
+      "note": "PANEL 1 (seat-ivory: a court): five young men in a row, one behind another, entering a pillared court; across from them one prince, turned away, his hand a fist (plaque: Duryodhana · the jealous cousin). Each panel has its own colour and its own move; brush wipes between."
     },
     {
       "id": "poison",
       "speaker": "vaishampayana",
-      "speed": 1.0,
+      "speed": 1.14,
       "text": "\"Poison. A house built to burn. They lived.\"",
-      "say": "Poison. [p:300] A house built to burn. [p:300] They lived.",
-      "est": 5.12,
+      "say": "Poison. [p:180] A house built to burn. [p:180] They lived.",
+      "est": 3.0,
       "pre": 250,
-      "post": 300,
+      "post": 220,
       "beats": [
         0,
         5,
@@ -167,16 +164,15 @@
       "pal": "hearth-amber",
       "cam": "tilt",
       "tr": "ink",
-      "note": "PANEL 2 (hearth-amber): a cup; a great house of red lacquer going up in flames; under the ground line, in section, six small figures walking a tunnel, lit by one lamp. A tilt from the roof to the tunnel.",
-      "estVoice": 4.57
+      "note": "PANEL 2 (hearth-amber): a cup; a great house of red lacquer going up in flames; under the ground line, in section, six small figures walking a tunnel, lit by one lamp. A tilt from the roof to the tunnel."
     },
     {
       "id": "won",
       "speaker": "vaishampayana",
-      "speed": 1.0,
+      "speed": 1.14,
       "text": "\"A princess won, Draupadi. A kingdom built.\"",
-      "say": "A princess won, [p:100] Draupadi. [p:300] A kingdom built.",
-      "est": 4.65,
+      "say": "A princess won, [p:100] Draupadi. [p:180] A kingdom built.",
+      "est": 3.0,
       "pre": 250,
       "post": 350,
       "emphasis": [
@@ -197,16 +193,15 @@
       "pal": "crystal-sky",
       "cam": "crane",
       "tr": "brush",
-      "note": "PANEL 3 (crystal-sky): a bow drawn at a target high on a pole; a woman with a garland (plaque: Draupadi · princess of Panchala); a crane up to a white city on a river.",
-      "estVoice": 4.05
+      "note": "PANEL 3 (crystal-sky): a bow drawn at a target high on a pole; a woman with a garland (plaque: Draupadi · princess of Panchala); a crane up to a white city on a river."
     },
     {
       "id": "dice",
       "speaker": "vaishampayana",
-      "speed": 1.0,
+      "speed": 1.14,
       "text": "\"Then a crooked game of dice took it all.\"",
       "say": "Then a crooked game of dice [p:100] took it all.",
-      "est": 4.44,
+      "est": 3.0,
       "pre": 900,
       "post": 400,
       "beats": [
@@ -227,16 +222,15 @@
       "cam": "push",
       "signature": true,
       "mixDb": 1,
-      "note": "PANEL 4 · THE TURN (≈ 45 %) after a real silence · THE SIGNATURE SHOT (dice-vermilion): from directly above, a dicing cloth: the dice fall, turn and stop; on each side hands; the city, the crowns, the brothers' ornaments slide across the cloth to one side. A push in on the dice.",
-      "estVoice": 3.14
+      "note": "PANEL 4 · THE TURN (≈ 45 %) after a real silence · THE SIGNATURE SHOT (dice-vermilion): from directly above, a dicing cloth: the dice fall, turn and stop; on each side hands; the city, the crowns, the brothers' ornaments slide across the cloth to one side. A push in on the dice."
     },
     {
       "id": "exile",
       "speaker": "vaishampayana",
-      "speed": 1.0,
+      "speed": 1.14,
       "text": "\"Twelve years in the forest. One more in hiding.\"",
       "say": "Twelve years in the forest. [p:250] One more [p:60] in hiding.",
-      "est": 4.53,
+      "est": 3.0,
       "pre": 250,
       "post": 150,
       "beats": [
@@ -254,16 +248,15 @@
       "cam": "orbit",
       "tr": "smoke",
       "mixDb": -3,
-      "note": "PANEL 5 (exile-forest): six figures walking away under great trees, seen from behind; twelve small moons cross the canopy in an arc; a thirteenth is hidden by a leaf.",
-      "estVoice": 4.13
+      "note": "PANEL 5 (exile-forest): six figures walking away under great trees, seen from behind; twelve small moons cross the canopy in an arc; a thirteenth is hidden by a leaf."
     },
     {
       "id": "war",
       "speaker": "vaishampayana",
-      "speed": 1.0,
+      "speed": 1.14,
       "text": "\"They asked for their kingdom, and were refused. So came the war. They won back a land laid waste.\"",
-      "say": "They asked for their kingdom, [p:120] and were refused. [p:300] So came the war. [p:350] They won back [p:60] a land laid waste.",
-      "est": 8.6,
+      "say": "They asked for their kingdom, [p:120] and were refused. [p:180] So came the war. [p:240] They won back [p:60] a land laid waste.",
+      "est": 3.0,
       "pre": 250,
       "post": 350,
       "beats": [
@@ -285,16 +278,15 @@
       "pal": "war-iron",
       "cam": "tilt",
       "tr": "ink",
-      "note": "PANEL 6 (war-iron; answers the hook): an open hand held out, a closed door; then a tilt down from banners to two armies facing each other, small, innumerable, no blood; on \"laid waste\" the field is empty and grey: five small figures and one woman standing, a crown on the ground, empty houses behind; no triumph. The strip of panels closes.",
-      "estVoice": 8.0
+      "note": "PANEL 6 (war-iron; answers the hook): an open hand held out, a closed door; then a tilt down from banners to two armies facing each other, small, innumerable, no blood; on \"laid waste\" the field is empty and grey: five small figures and one woman standing, a crown on the ground, empty houses behind; no triumph. The strip of panels closes."
     },
     {
       "id": "more",
       "speaker": "janamejaya",
-      "speed": 1.0,
+      "speed": 1.06,
       "text": "\"That was brief. Now tell me all of it.\"",
-      "say": "That was brief. [p:300] Now tell me [p:60] all of it.",
-      "est": 4.78,
+      "say": "That was brief. [p:180] Now tell me all of it.",
+      "est": 3.0,
       "pre": 800,
       "post": 300,
       "beats": [
@@ -314,16 +306,15 @@
       "pal": "satra-teal-night",
       "cam": "push",
       "closeup": true,
-      "note": "STORY 8 (a second real silence before it) · THE CLOSE-UP: the king's face: struck, then hungry for more (the brows lift, he leans in, a breath) (plaque: Janamejaya · the king who asked).",
-      "estVoice": 3.68
+      "note": "STORY 8 (a second real silence before it) · THE CLOSE-UP: the king's face: struck, then hungry for more (the brows lift, he leans in, a breath) (plaque: Janamejaya · the king who asked)."
     },
     {
       "id": "here",
       "speaker": "vaishampayana",
-      "speed": 1.0,
+      "speed": 1.14,
       "text": "\"What is here is found elsewhere. What is not here is nowhere.\"",
       "say": "What is here [p:60] is found elsewhere. [p:250] What is not here [p:80] is nowhere.",
-      "est": 5.39,
+      "est": 3.0,
       "pre": 250,
       "post": 150,
       "beats": [
@@ -337,15 +328,14 @@
       "pal": "arrival-umber-gold",
       "cam": "orbit",
       "mixDb": -2,
-      "note": "STORY 9: Vaishampayana, an open hand lifted, reciting (no manuscript: the text has a recital); a slow orbit; behind him Vyasa, eyes closed, gold (plaques: Vyasa · composed it in three years; under the line, small: on law, wealth, love and freedom).",
-      "estVoice": 4.99
+      "note": "STORY 9: Vaishampayana, an open hand lifted, reciting (no manuscript: the text has a recital); a slow orbit; behind him Vyasa, eyes closed, gold (plaques: Vyasa · composed it in three years; under the line, small: on law, wealth, love and freedom)."
     },
     {
       "id": "cliff",
       "speed": 1.12,
       "text": "So he began again: with a king, a fish, and a ferry girl.",
       "say": "So he began again: [p:150] with a king, [p:80] a fish, [p:80] and a ferry girl.",
-      "est": 5.02,
+      "est": 3.0,
       "pre": 250,
       "post": 250,
       "beats": [
@@ -365,8 +355,7 @@
       "pal": "yamuna-deep",
       "cam": "slide",
       "tr": "lamp",
-      "note": "NEXT 1 (the catalog's cliffhanger): a lamp-glow match cut to deep river blue: three images on the three beats: a crown in the sky, a silver fish turning, a girl's hand on an oar. The source line (top).",
-      "estVoice": 4.52
+      "note": "NEXT 1 (the catalog's cliffhanger): a lamp-glow match cut to deep river blue: three images on the three beats: a crown in the sky, a silver fish turning, a girl's hand on an oar. The source line (top)."
     },
     {
       "id": "next",

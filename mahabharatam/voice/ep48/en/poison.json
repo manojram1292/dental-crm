@@ -1,28 +1,28 @@
 {
  "speaker": "vaishampayana",
  "voice": "bm_daniel",
- "speed": 0.84,
+ "speed": 0.9575999999999999,
  "pitch": 1.0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.0934,
+   "t1": 0.991,
    "words": 1,
-   "speed": 0.84,
+   "speed": 0.958,
    "text": "Poison."
   },
   {
-   "t0": 1.3934,
-   "t1": 3.4073,
+   "t0": 1.241,
+   "t1": 2.8859,
    "words": 5,
-   "speed": 0.84,
+   "speed": 0.958,
    "text": "A house built to burn."
   },
   {
-   "t0": 3.7073,
-   "t1": 4.9443,
+   "t0": 3.1359,
+   "t1": 4.1348,
    "words": 2,
-   "speed": 0.84,
+   "speed": 0.958,
    "text": "They lived."
   }
  ],

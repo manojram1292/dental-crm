@@ -149,7 +149,7 @@
    "peak_db": -46.7,
    "picture_peak_s": 24.933,
    "picture_offset_frames": 3,
-   "picture_change_at_cue": 2.76,
+   "picture_change_at_cue": 2.65,
    "picture_change_median": 1.12
   },
   {
@@ -162,7 +162,7 @@
    "peak_db": -61.9,
    "picture_peak_s": 27.167,
    "picture_offset_frames": -5,
-   "picture_change_at_cue": 1.21,
+   "picture_change_at_cue": 1.17,
    "picture_change_median": 1.12
   },
   {
@@ -175,7 +175,7 @@
    "peak_db": -29.7,
    "picture_peak_s": 28.433,
    "picture_offset_frames": 4,
-   "picture_change_at_cue": 28.56,
+   "picture_change_at_cue": 28.58,
    "picture_change_median": 1.12
   },
   {
@@ -266,7 +266,7 @@
    "peak_db": -51.4,
    "picture_peak_s": 51.333,
    "picture_offset_frames": 3,
-   "picture_change_at_cue": 0.25,
+   "picture_change_at_cue": 1.24,
    "picture_change_median": 1.12
   },
   {
@@ -279,7 +279,7 @@
    "peak_db": -42.1,
    "picture_peak_s": 54.767,
    "picture_offset_frames": 1,
-   "picture_change_at_cue": 0.36,
+   "picture_change_at_cue": 0.41,
    "picture_change_median": 1.12
   }
  ],

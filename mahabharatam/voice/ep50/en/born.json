@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.0246,
+   "words": 3,
+   "speed": 0.891,
+   "text": "That same day,"
+  },
+  {
+   "t0": 1.1046,
+   "t1": 2.1935,
+   "words": 3,
+   "speed": 0.891,
+   "text": "on an island,"
+  },
+  {
+   "t0": 2.3335,
+   "t1": 3.5628,
+   "words": 4,
+   "speed": 0.891,
+   "text": "she bore a son."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

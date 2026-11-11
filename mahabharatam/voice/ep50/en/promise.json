@@ -1,0 +1,30 @@
+{
+ "speaker": "vyasa",
+ "voice": "bm_george",
+ "speed": 0.7904,
+ "pitch": -2.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.8205,
+   "words": 1,
+   "speed": 0.79,
+   "text": "Mother,"
+  },
+  {
+   "t0": 0.9705,
+   "t1": 2.1585,
+   "words": 3,
+   "speed": 0.79,
+   "text": "think of me,"
+  },
+  {
+   "t0": 2.3585,
+   "t1": 4.0617,
+   "words": 4,
+   "speed": 0.79,
+   "text": "and I will come."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -118,12 +118,13 @@
   TY.plaque = (ctx, T, k, name, epithet, o = {}) => {
     if (k <= 0.003 || (o.out ?? 0) >= 0.997) return;
     note('type', 'plaque');
-    const x = o.x ?? KIT.CX, y = o.y ?? 420, size = o.size ?? 62, out = 1 - E.inOutSine(clamp(o.out ?? 0));
+    let x = o.x ?? KIT.CX; const y = o.y ?? 420, size = o.size ?? 62, out = 1 - E.inOutSine(clamp(o.out ?? 0));
     ctx.save(); ctx.font = R.font(size, 'display', 700); ctx.letterSpacing = `${size * 0.08}px`;
     const text = String(name).toUpperCase(), tw = ctx.measureText(text).width;
     ctx.font = R.font(size * 0.56, 'caption', 600, 'normal'); ctx.letterSpacing = '0px';
     const ew = epithet ? ctx.measureText(epithet).width : 0;
     const w = Math.max(tw, ew) + size * 1.5, h = size * (epithet ? 2.35 : 1.6);
+    x = Math.min(R.W - 24 - w / 2, Math.max(24 + w / 2, x));   // a plaque is never cut by the frame's edge
     const mv = TY.clear([x - w / 2, y - size * 1.12, x + w / 2, y - size * 1.12 + h], 'plaque'); ctx.restore(); ctx.save(); ctx.translate(mv[0], mv[1]); const x0 = x - w / 2, y0 = y - size * 1.12;
     // the lacquer band brushes on from the left, with a bristled leading edge
     const b = E.outCubic(clamp(k / 0.45)), bw = w * b;
@@ -173,7 +174,8 @@
     const l1 = S.sourceLine || '', l2 = S.madeLine || '';
     while (size > 24 && Math.max(ctx.measureText(l1).width, ctx.measureText(l2).width) + 48 > R.W - 72) { size -= 1; ctx.font = R.font(size, 'caption', 600); } // a longer source line (an honest note on the order of telling) shrinks to fit, never clips
     const w = Math.max(ctx.measureText(l1).width, ctx.measureText(l2).width) + 48;
-    const mv = TY.clear([x - w / 2, y - size * 1.05, x + w / 2, y + size * 1.55], 'source'); ctx.translate(mv[0], mv[1]);
+    // the source line keeps ONE fixed place (it never moves to dodge a figure): a face under it is reported to the gate, and the shot is re-staged
+    if (hits([x - w / 2, y - size * 1.05, x + w / 2, y + size * 1.55])) note('type', 'faceHit:source');
     ctx.fillStyle = 'rgba(12,8,6,0.7)'; ctx.beginPath(); ctx.roundRect(x - w / 2, y - size * 1.05, w, size * 2.6, 14); ctx.fill();
     ctx.fillStyle = PAL.goldPale; ctx.fillText(l1, x, y); ctx.fillStyle = PAL.cream; ctx.fillText(l2, x, y + size * 1.2);
     ctx.restore();

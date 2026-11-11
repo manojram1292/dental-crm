@@ -1,0 +1,390 @@
+{
+ "episode": 46,
+ "duration": 58.17,
+ "stems": {
+  "amb": {
+   "rms_db": -33.7,
+   "peak_db": -10.2,
+   "loudest_at_s": 40.38,
+   "loudest_rms_db": -24.2
+  },
+  "foley": {
+   "rms_db": -42.7,
+   "peak_db": -15.5,
+   "loudest_at_s": 29.96,
+   "loudest_rms_db": -26.2
+  },
+  "mus": {
+   "rms_db": -26.3,
+   "peak_db": -4.6,
+   "loudest_at_s": 4.78,
+   "loudest_rms_db": -17.0
+  }
+ },
+ "foley": [
+  {
+   "line": "hook",
+   "cue": "rustle",
+   "asked_s": 0.08,
+   "onset_s": 0.142,
+   "audio_offset_frames": 1.9,
+   "peak_offset_frames": 2.7,
+   "peak_db": -49.3,
+   "picture_peak_s": 0.067,
+   "picture_offset_frames": 0,
+   "picture_change_at_cue": 0.67,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "hook",
+   "cue": "staff@0",
+   "asked_s": 0.816,
+   "onset_s": 0.815,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.2,
+   "peak_db": -30.5,
+   "picture_peak_s": 0.833,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 1.21,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "vow",
+   "cue": "steps",
+   "asked_s": 3.438,
+   "onset_s": 3.44,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 0.4,
+   "peak_db": -30.0,
+   "picture_peak_s": 3.6,
+   "picture_offset_frames": 5,
+   "picture_change_at_cue": 7.26,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "vow",
+   "cue": "staff@1",
+   "asked_s": 5.397,
+   "onset_s": 5.361,
+   "audio_offset_frames": -1.1,
+   "peak_offset_frames": 0.2,
+   "peak_db": -28.7,
+   "picture_peak_s": 5.1,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 0.97,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "vow",
+   "cue": "rustle@2",
+   "asked_s": 7.166,
+   "onset_s": 7.297,
+   "audio_offset_frames": 3.9,
+   "peak_offset_frames": 4.3,
+   "peak_db": -32.2,
+   "picture_peak_s": 7.1,
+   "picture_offset_frames": -2,
+   "picture_change_at_cue": 5.23,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "plea",
+   "cue": "rustle@0",
+   "asked_s": 11.86,
+   "onset_s": 11.74,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 8.9,
+   "peak_db": -51.2,
+   "picture_peak_s": 12.133,
+   "picture_offset_frames": 8,
+   "picture_change_at_cue": 0.46,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "plea",
+   "cue": "leaf",
+   "asked_s": 10.114,
+   "onset_s": 9.993,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -4.5,
+   "peak_db": -42.5,
+   "picture_peak_s": 10.2,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 12.22,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "who",
+   "cue": "staff@0",
+   "asked_s": 15.755,
+   "onset_s": 15.754,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.2,
+   "peak_db": -30.8,
+   "picture_peak_s": 15.633,
+   "picture_offset_frames": -4,
+   "picture_change_at_cue": 8.45,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "was",
+   "cue": "leaf@0",
+   "asked_s": 20.009,
+   "onset_s": 19.889,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -0.0,
+   "peak_db": -47.2,
+   "picture_peak_s": 20.067,
+   "picture_offset_frames": 2,
+   "picture_change_at_cue": 1.62,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "grass",
+   "cue": "rustle@0",
+   "asked_s": 27.924,
+   "onset_s": 27.803,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 1.7,
+   "peak_db": -50.6,
+   "picture_peak_s": 28.133,
+   "picture_offset_frames": 6,
+   "picture_change_at_cue": 1.47,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "grass",
+   "cue": "flame",
+   "asked_s": 25.142,
+   "onset_s": 25.197,
+   "audio_offset_frames": 1.6,
+   "peak_offset_frames": 7.8,
+   "peak_db": -39.4,
+   "picture_peak_s": 25.233,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 8.87,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "grass",
+   "cue": "thud@1",
+   "asked_s": 29.76,
+   "onset_s": 29.761,
+   "audio_offset_frames": 0.0,
+   "peak_offset_frames": 0.3,
+   "peak_db": -20.5,
+   "picture_peak_s": 30.067,
+   "picture_offset_frames": 9,
+   "picture_change_at_cue": 1.05,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "freed",
+   "cue": "whoosh@0",
+   "asked_s": 34.546,
+   "onset_s": 34.426,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 0.1,
+   "peak_db": -41.4,
+   "picture_peak_s": 34.767,
+   "picture_offset_frames": 7,
+   "picture_change_at_cue": 2.23,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "freed",
+   "cue": "leaf@1",
+   "asked_s": 36.471,
+   "onset_s": 36.351,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -0.0,
+   "peak_db": -47.4,
+   "picture_peak_s": 36.7,
+   "picture_offset_frames": 7,
+   "picture_change_at_cue": 0.48,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "teach",
+   "cue": "breath@0",
+   "asked_s": 40.432,
+   "onset_s": 40.324,
+   "audio_offset_frames": -3.2,
+   "peak_offset_frames": 4.2,
+   "peak_db": -49.4,
+   "picture_peak_s": 40.467,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 0.63,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "teach",
+   "cue": "birds",
+   "asked_s": 38.822,
+   "onset_s": 38.83,
+   "audio_offset_frames": 0.2,
+   "peak_offset_frames": 6.3,
+   "peak_db": -35.2,
+   "picture_peak_s": 38.967,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 4.66,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "home",
+   "cue": "flame",
+   "asked_s": 43.752,
+   "onset_s": 43.794,
+   "audio_offset_frames": 1.3,
+   "peak_offset_frames": 6.5,
+   "peak_db": -37.9,
+   "picture_peak_s": 44.033,
+   "picture_offset_frames": 8,
+   "picture_change_at_cue": 4.63,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "home",
+   "cue": "chant",
+   "asked_s": 43.752,
+   "onset_s": 43.794,
+   "audio_offset_frames": 1.3,
+   "peak_offset_frames": 6.5,
+   "peak_db": -37.9,
+   "picture_peak_s": 44.033,
+   "picture_offset_frames": 8,
+   "picture_change_at_cue": 4.63,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "cliff",
+   "cue": "flame",
+   "asked_s": 51.012,
+   "onset_s": 51.052,
+   "audio_offset_frames": 1.2,
+   "peak_offset_frames": 5.4,
+   "peak_db": -38.7,
+   "picture_peak_s": 51.133,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 6.37,
+   "picture_change_median": 0.89
+  },
+  {
+   "line": "cliff",
+   "cue": "steps@0",
+   "asked_s": 52.716,
+   "onset_s": 52.719,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 1.1,
+   "peak_db": -30.4,
+   "picture_peak_s": 52.633,
+   "picture_offset_frames": -2,
+   "picture_change_at_cue": 4.27,
+   "picture_change_median": 0.89
+  }
+ ],
+ "ambience": [
+  {
+   "line": "hook",
+   "amb": "thicket",
+   "rms_db": -44.6,
+   "centroid_hz": 1226
+  },
+  {
+   "line": "vow",
+   "amb": "thicket",
+   "rms_db": -44.2,
+   "centroid_hz": 1339
+  },
+  {
+   "line": "plea",
+   "amb": "thicket",
+   "rms_db": -44.1,
+   "centroid_hz": 1256
+  },
+  {
+   "line": "who",
+   "amb": "thicket",
+   "rms_db": -44.1,
+   "centroid_hz": 1696
+  },
+  {
+   "line": "was",
+   "amb": "thicket",
+   "rms_db": -43.1,
+   "centroid_hz": 1251
+  },
+  {
+   "line": "grass",
+   "amb": "hearth",
+   "rms_db": -32.6,
+   "centroid_hz": 917
+  },
+  {
+   "line": "freed",
+   "amb": "forest-day",
+   "rms_db": -30.7,
+   "centroid_hz": 1937
+  },
+  {
+   "line": "teach",
+   "amb": "forest-day",
+   "rms_db": -28.4,
+   "centroid_hz": 1172
+  },
+  {
+   "line": "home",
+   "amb": "satra",
+   "rms_db": -32.8,
+   "centroid_hz": 226
+  },
+  {
+   "line": "arcend",
+   "amb": "satra",
+   "rms_db": -33.3,
+   "centroid_hz": 259
+  },
+  {
+   "line": "cliff",
+   "amb": "satra",
+   "rms_db": -32.8,
+   "centroid_hz": 203
+  },
+  {
+   "line": "next",
+   "amb": "satra",
+   "rms_db": -34.6,
+   "centroid_hz": 328
+  }
+ ],
+ "mix": {
+  "peak_db": -2.51,
+  "samples_at_full_scale": 0,
+  "seconds_under_-50dB": 2.3,
+  "energy_pct": {
+   "under_120": 9.74,
+   "120_500": 47.63,
+   "500_2k": 30.48,
+   "2k_6k": 8.94,
+   "over_6k": 3.21
+  }
+ },
+ "ambience_places": {
+  "thicket": {
+   "lines": 5,
+   "centroid_hz": 1354
+  },
+  "hearth": {
+   "lines": 1,
+   "centroid_hz": 917
+  },
+  "forest-day": {
+   "lines": 2,
+   "centroid_hz": 1554
+  },
+  "satra": {
+   "lines": 4,
+   "centroid_hz": 254
+  }
+ }
+}

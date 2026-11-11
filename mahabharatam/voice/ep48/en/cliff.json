@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9072000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3037,
+   "words": 4,
+   "speed": 0.907,
+   "text": "So he began again:"
+  },
+  {
+   "t0": 1.4537,
+   "t1": 2.3763,
+   "words": 3,
+   "speed": 0.907,
+   "text": "with a king,"
+  },
+  {
+   "t0": 2.4563,
+   "t1": 3.2384,
+   "words": 2,
+   "speed": 0.907,
+   "text": "a fish,"
+  },
+  {
+   "t0": 3.3184,
+   "t1": 4.5386,
+   "words": 4,
+   "speed": 0.907,
+   "text": "and a ferry girl."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

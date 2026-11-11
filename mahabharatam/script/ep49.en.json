@@ -66,7 +66,7 @@
       "speed": 1.1,
       "text": "Why was a girl found inside a fish?",
       "say": "Why was a girl [p:80] found inside a fish?",
-      "est": 3.66,
+      "est": 3.0,
       "pre": 60,
       "post": 1100,
       "role": "hook",
@@ -87,15 +87,14 @@
       ],
       "pal": "yamuna-deep",
       "cam": "tilt",
-      "note": "COLD OPEN (a question card over the image): under the river's surface, a great silver fish turning in a shaft of light, a pearl glow in her side; a net coming down from above. The card in the upper water.",
-      "estVoice": 2.5
+      "note": "COLD OPEN (a question card over the image): under the river's surface, a great silver fish turning in a shaft of light, a pearl glow in her side; a net coming down from above. The card in the upper water."
     },
     {
       "id": "king",
-      "speed": 1.0,
+      "speed": 1.07,
       "text": "It begins with the poet's grandfather: Uparichara, a king with a crystal chariot of the sky.",
       "say": "It begins with the poet's grandfather: [p:200] Uparichara, [p:80] a king with a crystal chariot [p:60] of the sky.",
-      "est": 7.09,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -116,15 +115,14 @@
       "pal": "crystal-sky",
       "cam": "orbit",
       "tr": "lamp",
-      "note": "STORY 0 with the unvoiced recap band (top) · NEW LIGHT (crystal-sky): a lamp-glow match cut from the pearl to the sun: a chariot like cut glass crossing bright cloud, the king in royal blue and gold (plaques: Uparichara · king of Chedi; small: a gift of Indra). Pays off episode 48's last line by 5 s.",
-      "estVoice": 6.54
+      "note": "STORY 0 with the unvoiced recap band (top) · NEW LIGHT (crystal-sky): a lamp-glow match cut from the pearl to the sun: a chariot like cut glass crossing bright cloud, the king in royal blue and gold (plaques: Uparichara · king of Chedi; small: a gift of Indra). Pays off episode 48's last line by 5 s."
     },
     {
       "id": "longed",
-      "speed": 1.0,
+      "speed": 1.07,
       "text": "Out hunting, he longed for his queen.",
       "say": "Out hunting, [p:120] he longed for his queen.",
-      "est": 3.64,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -142,15 +140,14 @@
       "closeup": true,
       "tr": "brush",
       "mixDb": -3,
-      "note": "STORY 1 · NEW LIGHT, the forest in spring (hunt-emerald, petals) · THE CLOSE-UP: the king's face under blossom: the hunter's set brow softens (resolve to tenderness), his eyes go far; in the petals, the faint shape of the queen (plaque: Girika · his queen).",
-      "estVoice": 3.09
+      "note": "STORY 1 · NEW LIGHT, the forest in spring (hunt-emerald, petals) · THE CLOSE-UP: the king's face under blossom: the hunter's set brow softens (resolve to tenderness), his eyes go far; in the petals, the faint shape of the queen (plaque: Girika · his queen)."
     },
     {
       "id": "leaf",
-      "speed": 1.0,
+      "speed": 1.07,
       "text": "He sealed his seed in a leaf, and sent it home with a hawk.",
       "say": "He sealed his seed in a leaf, [p:150] and sent it home [p:60] with a hawk.",
-      "est": 4.89,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -164,15 +161,14 @@
       "music": "calm",
       "pal": "hunt-emerald",
       "cam": "crane",
-      "note": "STORY 2: his two hands fold a broad leaf into a packet and tie it (hands and leaf only); a hawk on his wrist takes it; a crane up with the hawk through the canopy into the open.",
-      "estVoice": 4.34
+      "note": "STORY 2: his two hands fold a broad leaf into a packet and tie it (hands and leaf only); a hawk on his wrist takes it; a crane up with the hawk through the canopy into the open."
     },
     {
       "id": "fell",
-      "speed": 1.0,
+      "speed": 1.07,
       "text": "Over the river Yamuna, a rival hawk struck. The leaf fell.",
-      "say": "Over the river Yamuna, [p:100] a rival hawk struck. [p:350] The leaf fell.",
-      "est": 5.41,
+      "say": "Over the river Yamuna, [p:100] a rival hawk struck. [p:250] The leaf fell.",
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -193,15 +189,14 @@
       "pal": "crystal-sky",
       "cam": "tilt",
       "mixDb": 1,
-      "note": "STORY 3: two hawks tumbling against the bright sky; the green packet drops; a tilt down with it, cloud, air, the river's blue surface coming up (plaque: Yamuna · the river).",
-      "estVoice": 4.86
+      "note": "STORY 3: two hawks tumbling against the bright sky; the green packet drops; a tilt down with it, cloud, air, the river's blue surface coming up (plaque: Yamuna · the river)."
     },
     {
       "id": "fish",
-      "speed": 1.0,
+      "speed": 1.07,
       "text": "A fish swallowed it: an apsara under a curse.",
       "say": "A fish swallowed it: [p:250] an apsara [p:60] under a curse.",
-      "est": 4.26,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -219,15 +214,14 @@
       "cam": "rack",
       "signature": true,
       "tr": "smoke",
-      "note": "STORY 4 · THE SIGNATURE SHOT: under water: the focus racks from drifting weed in the foreground to the great silver fish rising to the sinking leaf; as she turns, for a moment her shadow on the river bed is a woman's with a diadem (plaque: Adrika · an apsara, a nymph of heaven, under a curse).",
-      "estVoice": 3.71
+      "note": "STORY 4 · THE SIGNATURE SHOT: under water: the focus racks from drifting weed in the foreground to the great silver fish rising to the sinking leaf; as she turns, for a moment her shadow on the river bed is a woman's with a diadem (plaque: Adrika · an apsara, a nymph of heaven, under a curse)."
     },
     {
       "id": "found",
-      "speed": 1.0,
+      "speed": 1.07,
       "text": "Ten months later, fishermen opened that fish, and found two children.",
       "say": "Ten months later, [p:100] fishermen opened that fish, [p:250] and found two children.",
-      "est": 6.61,
+      "est": 3.0,
       "pre": 900,
       "post": 350,
       "beats": [
@@ -249,15 +243,14 @@
       "music": "still",
       "pal": "fishers-coral",
       "cam": "push",
-      "note": "STORY 5 · THE TURN (≈ 50 %) after a real silence · NEW LIGHT, the fishers' shore at dusk (fishers-coral): nets, boats; the fisher chief kneeling, his face lit from below by a soft light in the basket before him: weary to wonder; two small bright heads. Answers the hook. (No knife, no wound: the light opens.)",
-      "estVoice": 5.36
+      "note": "STORY 5 · THE TURN (≈ 50 %) after a real silence · NEW LIGHT, the fishers' shore at dusk (fishers-coral): nets, boats; the fisher chief kneeling, his face lit from below by a soft light in the basket before him: weary to wonder; two small bright heads. Answers the hook. (No knife, no wound: the light opens.)"
     },
     {
       "id": "boy",
-      "speed": 1.0,
+      "speed": 1.07,
       "text": "The king kept the boy. The apsara, freed, rose to heaven.",
       "say": "The king kept the boy. [p:200] The apsara, [p:60] freed, [p:60] rose to heaven.",
-      "est": 5.47,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -276,15 +269,14 @@
       "pal": "riverbank-pearl",
       "cam": "tilt",
       "tr": "lamp",
-      "note": "STORY 6: fishermen at the palace steps with the two children (they took them to the king: seen, not said); the king lifts a boy (plaque: Matsya · the boy, later a king); a tilt up from them through pearl mist: the fish's silver skin falls back into the water and a luminous woman rises, not touching the ground.",
-      "estVoice": 4.92
+      "note": "STORY 6: fishermen at the palace steps with the two children (they took them to the king: seen, not said); the king lifts a boy (plaque: Matsya · the boy, later a king); a tilt up from them through pearl mist: the fish's silver skin falls back into the water and a luminous woman rises, not touching the ground."
     },
     {
       "id": "girl",
-      "speed": 1.0,
+      "speed": 1.07,
       "text": "The girl smelled of fish. He gave her to a fisherman.",
       "say": "The girl smelled of fish. [p:200] He gave her [p:60] to a fisherman.",
-      "est": 4.68,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -301,15 +293,14 @@
       "pal": "fishers-coral",
       "cam": "slide",
       "mixDb": -3,
-      "note": "STORY 7: the fisherman receives the small girl in both arms (offer, then carry: an eased blend) and turns away with her along the shore, past the hanging nets; a lateral track.",
-      "estVoice": 4.13
+      "note": "STORY 7: the fisherman receives the small girl in both arms (offer, then carry: an eased blend) and turns away with her along the shore, past the hanging nets; a lateral track."
     },
     {
       "id": "name",
-      "speed": 1.0,
+      "speed": 1.07,
       "text": "Her name was Satyavati: one day, mother of the poet himself.",
-      "say": "Her name [p:60] was Satyavati: [p:250] one day, [p:80] mother of the poet himself.",
-      "est": 6.03,
+      "say": "Her name [p:60] was Satyavati: [p:180] one day, [p:80] mother of the poet himself.",
+      "est": 3.0,
       "pre": 800,
       "post": 350,
       "rest": true,
@@ -330,15 +321,14 @@
       "pal": "fishers-coral",
       "cam": "orbit",
       "mixDb": -2,
-      "note": "STORY 8 (a second real silence before it): years in one orbit: the child, a girl, a young woman with an oar, standing in the stern of a boat (plaque: Satyavati · a fisherman's daughter); behind her, faint in the dusk, the tall haloed figure of episode 47 (answers episode 48's question: this is where the poet comes from).",
-      "estVoice": 4.88
+      "note": "STORY 8 (a second real silence before it): years in one orbit: the child, a girl, a young woman with an oar, standing in the stern of a boat (plaque: Satyavati · a fisherman's daughter); behind her, faint in the dusk, the tall haloed figure of episode 47 (answers episode 48's question: this is where the poet comes from)."
     },
     {
       "id": "cliff",
-      "speed": 1.0,
+      "speed": 1.07,
       "text": "She grew up rowing a ferry, until a great sage came to the river.",
       "say": "She grew up rowing a ferry, [p:150] until a great sage [p:80] came to the river.",
-      "est": 5.36,
+      "est": 3.0,
       "pre": 250,
       "post": 400,
       "beats": [
@@ -358,8 +348,7 @@
       "pal": "mist-lavender",
       "cam": "pull",
       "tr": "smoke",
-      "note": "NEXT 1 (the catalog's cliffhanger): the river in lavender mist: her boat at the bank, she small in its stern; on the bank path, back to us and far from her, a tall sage with a staff stops and looks out over the water (the text: he saw her as she plied the boat). The source line (top).",
-      "estVoice": 4.71
+      "note": "NEXT 1 (the catalog's cliffhanger): the river in lavender mist: her boat at the bank, she small in its stern; on the bank path, back to us and far from her, a tall sage with a staff stops and looks out over the water (the text: he saw her as she plied the boat). The source line (top)."
     },
     {
       "id": "next",

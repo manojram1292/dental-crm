@@ -1,0 +1,44 @@
+{
+ "speaker": "vaishampayana",
+ "voice": "bm_daniel",
+ "speed": 0.9575999999999999,
+ "pitch": 1.0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6162,
+   "words": 5,
+   "speed": 0.958,
+   "text": "They asked for their kingdom,"
+  },
+  {
+   "t0": 1.7362,
+   "t1": 3.0237,
+   "words": 3,
+   "speed": 0.958,
+   "text": "and were refused."
+  },
+  {
+   "t0": 3.2737,
+   "t1": 4.64,
+   "words": 4,
+   "speed": 0.958,
+   "text": "So came the war."
+  },
+  {
+   "t0": 4.89,
+   "t1": 5.9897,
+   "words": 3,
+   "speed": 0.958,
+   "text": "They won back"
+  },
+  {
+   "t0": 6.0497,
+   "t1": 7.653,
+   "words": 4,
+   "speed": 0.958,
+   "text": "a land laid waste."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

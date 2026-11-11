@@ -1,0 +1,227 @@
+[
+ {
+  "line": "hook",
+  "cue": "water",
+  "asked_s": 0.08,
+  "start_s": 0.08,
+  "onset_s": 0.3,
+  "peak_s": 1.232,
+  "peak_db": -27.6
+ },
+ {
+  "line": "hook",
+  "cue": "splash@0",
+  "asked_s": 0.79,
+  "start_s": 0.79,
+  "onset_s": 0.888,
+  "peak_s": 0.907,
+  "peak_db": -21.7
+ },
+ {
+  "line": "king",
+  "cue": "whoosh",
+  "asked_s": 3.85,
+  "start_s": 3.85,
+  "onset_s": 3.962,
+  "peak_s": 4.233,
+  "peak_db": -27.0
+ },
+ {
+  "line": "king",
+  "cue": "anklet@1",
+  "asked_s": 6.499,
+  "start_s": 6.499,
+  "onset_s": 6.499,
+  "peak_s": 6.504,
+  "peak_db": -30.5
+ },
+ {
+  "line": "longed",
+  "cue": "birds",
+  "asked_s": 11.005,
+  "start_s": 11.005,
+  "onset_s": 11.013,
+  "peak_s": 11.781,
+  "peak_db": -21.3
+ },
+ {
+  "line": "longed",
+  "cue": "leaf@0",
+  "asked_s": 11.526,
+  "start_s": 11.202,
+  "onset_s": 11.304,
+  "peak_s": 11.488,
+  "peak_db": -35.2
+ },
+ {
+  "line": "leaf",
+  "cue": "leaf@0",
+  "asked_s": 16.073,
+  "start_s": 15.806,
+  "onset_s": 15.914,
+  "peak_s": 16.072,
+  "peak_db": -34.7
+ },
+ {
+  "line": "leaf",
+  "cue": "wings@1",
+  "asked_s": 18.221,
+  "start_s": 17.871,
+  "onset_s": 17.933,
+  "peak_s": 18.588,
+  "peak_db": -30.4
+ },
+ {
+  "line": "fell",
+  "cue": "wings",
+  "asked_s": 19.256,
+  "start_s": 19.256,
+  "onset_s": 19.313,
+  "peak_s": 22.191,
+  "peak_db": -30.1
+ },
+ {
+  "line": "fell",
+  "cue": "whoosh@1",
+  "asked_s": 22.142,
+  "start_s": 21.794,
+  "onset_s": 21.888,
+  "peak_s": 22.143,
+  "peak_db": -26.8
+ },
+ {
+  "line": "fell",
+  "cue": "splash@2",
+  "asked_s": 23.543,
+  "start_s": 23.543,
+  "onset_s": 23.571,
+  "peak_s": 23.64,
+  "peak_db": -22.8
+ },
+ {
+  "line": "fish",
+  "cue": "water",
+  "asked_s": 24.292,
+  "start_s": 24.292,
+  "onset_s": 24.572,
+  "peak_s": 25.578,
+  "peak_db": -25.6
+ },
+ {
+  "line": "fish",
+  "cue": "drip@0",
+  "asked_s": 24.649,
+  "start_s": 24.649,
+  "onset_s": 24.663,
+  "peak_s": 24.688,
+  "peak_db": -44.7
+ },
+ {
+  "line": "found",
+  "cue": "oar@0",
+  "asked_s": 29.552,
+  "start_s": 29.552,
+  "onset_s": 29.632,
+  "peak_s": 31.096,
+  "peak_db": -29.7
+ },
+ {
+  "line": "found",
+  "cue": "water",
+  "asked_s": 28.447,
+  "start_s": 28.447,
+  "onset_s": 28.582,
+  "peak_s": 33.694,
+  "peak_db": -25.0
+ },
+ {
+  "line": "found",
+  "cue": "breath@2",
+  "asked_s": 33.551,
+  "start_s": 33.298,
+  "onset_s": 33.341,
+  "peak_s": 33.549,
+  "peak_db": -34.6
+ },
+ {
+  "line": "boy",
+  "cue": "cloth@0",
+  "asked_s": 35.694,
+  "start_s": 35.475,
+  "onset_s": 35.541,
+  "peak_s": 35.687,
+  "peak_db": -29.2
+ },
+ {
+  "line": "boy",
+  "cue": "whoosh@1",
+  "asked_s": 36.87,
+  "start_s": 36.52,
+  "onset_s": 36.618,
+  "peak_s": 36.89,
+  "peak_db": -27.6
+ },
+ {
+  "line": "boy",
+  "cue": "anklet",
+  "asked_s": 34.573,
+  "start_s": 34.573,
+  "onset_s": 34.573,
+  "peak_s": 37.098,
+  "peak_db": -30.4
+ },
+ {
+  "line": "girl",
+  "cue": "water",
+  "asked_s": 40.085,
+  "start_s": 40.085,
+  "onset_s": 40.209,
+  "peak_s": 40.644,
+  "peak_db": -26.7
+ },
+ {
+  "line": "girl",
+  "cue": "cloth@1",
+  "asked_s": 41.483,
+  "start_s": 41.302,
+  "onset_s": 41.364,
+  "peak_s": 41.48,
+  "peak_db": -29.6
+ },
+ {
+  "line": "name",
+  "cue": "oar@0",
+  "asked_s": 45.654,
+  "start_s": 45.654,
+  "onset_s": 45.754,
+  "peak_s": 48.437,
+  "peak_db": -31.7
+ },
+ {
+  "line": "cliff",
+  "cue": "oar",
+  "asked_s": 50.811,
+  "start_s": 50.811,
+  "onset_s": 50.9,
+  "peak_s": 52.314,
+  "peak_db": -29.2
+ },
+ {
+  "line": "cliff",
+  "cue": "steps@2",
+  "asked_s": 55.142,
+  "start_s": 55.142,
+  "onset_s": 55.142,
+  "peak_s": 55.169,
+  "peak_db": -18.1
+ },
+ {
+  "line": "cliff",
+  "cue": "staff@2",
+  "asked_s": 55.142,
+  "start_s": 55.142,
+  "onset_s": 55.142,
+  "peak_s": 55.147,
+  "peak_db": -15.7
+ }
+]
