@@ -23,7 +23,7 @@
   // 1 · HOOK: the messenger in his shaft of light, a hand held out, open; Ruru small below, looking up
   R.scene({ id: 'hook',
     draw(ctx, t, env) {
-      const T = env.T, b0 = env.beats[0] ?? 0.9, cam = CAM.drift(CAM.tilt(E.outCubic(clamp(t / 2.6)), { from: -330, to: 30, zoom: 1.16 }), T, 0.5);
+      const T = env.T, b0 = env.beats[0] ?? 0.9, cam = CAM.drift(CAM.mix(CAM.tilt(E.outCubic(clamp(t / 2.6)), { from: -260, to: 30, zoom: 1 }), CAM.pull(clamp(t / 3.2), { from: 1.75, to: 1.14, focus: [330, 520], ease: E.outCubic })), T, 0.5);
       ST.shot(ctx, T, { pal: 'messenger-dawn', cam, layers: [
         { z: 0, draw: (g, p) => ST.sky(g, p, { hz: HZ }) },
         { z: 0.3, draw: (g, p) => ST.treeline(g, p, { y: HZ + 10, h: 900, gap: 320, T, seed: 41, kind: 'sal' }) },
