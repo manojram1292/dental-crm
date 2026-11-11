@@ -511,6 +511,7 @@
     const fade = s && s.fadeIn && i > 0 ? s.fadeIn : 0;
     const k = fade ? (T - L.start) / fade : 1;
     if (REEL.probe) { REEL.probe.figures = []; REEL.probe.line = L.id; }
+    REEL.faces = [];   // face boxes of the acting figures drawn this frame (kit/act.js keeps text off them; the gate checks it)
     // From episode 41: a scene may set transition: { type: 'ink' | 'brush' | 'lamp' | 'smoke' | 'dissolve', dur, … } (KIT.transitions,
     // src/kit/stage.js): a cut born from the medium instead of a plain fade. The outgoing scene keeps playing under it.
     const tr = s && s.transition && i > 0 && window.KIT && window.KIT.transitions ? s.transition : null;

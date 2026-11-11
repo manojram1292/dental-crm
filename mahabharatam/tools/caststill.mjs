@@ -27,7 +27,7 @@ try {
       sh.rows.forEach((row, r) => row.forEach((it, i) => {
         const [id, pose] = it.split(':'), x = 190 + i * 350, y = 900 + r * 880;
         g.fillStyle = 'rgba(0,0,0,0.18)'; g.beginPath(); g.ellipse(x, y + 6, 150, 18, 0, 0, 7); g.fill();
-        CH[id].draw(g, { x, y, scale: 0.72, facing: i === 2 ? 'left' : 'right', pose: { name: pose, k: 1 }, light: ST.light(p, { from: [540, 100], at: [x, y], front: 0.75 }), expression: { emo: ['calm', 'tender', 'resolve'][i] }, t: 1.3 + i });
+        CH[id].draw(g, { x, y, scale: 0.72, facing: i === 2 ? 'left' : 'right', pose: { name: pose, k: 1 }, light: ST.light(p, { from: [i === 2 ? 100 : 980, 300], at: [x, y] }), expression: { emo: ['calm', 'tender', 'resolve'][i] }, t: 1.3 + i });
         KIT.type.tag(g, 0, 1, id, { x, y: y + 70, size: 30 });
       }));
       return c.toDataURL('image/png');

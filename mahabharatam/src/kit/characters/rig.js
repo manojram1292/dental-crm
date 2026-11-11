@@ -331,6 +331,7 @@
     ctx.drawImage(buf.canvas, x0, y0, bw, bh);
     ctx.restore();
     if (def.after) def.after(ctx, P, rig, k);
+    if (def.face && R.faces) { const f = def.face(P, rig), q = toScreen(f[0], f[1]); R.faces.push({ id: def.id, x: (tf.a * q[0] + tf.c * q[1] + tf.e) / R.scale, y: (tf.b * q[0] + tf.d * q[1] + tf.f) / R.scale, r: f[2] * P.s * Math.hypot(tf.a, tf.b) / R.scale }); }
     if (probeBg) probeFigure(def.id, opts.key, buf, probeBg, Math.abs(syb - sya) / chh);
     return P;
   }

@@ -109,15 +109,19 @@
   ST.light = (pal, o = {}) => {
     pal = ST.pal(pal);
     const [fx, fy] = o.from || [W * 0.2, 200], [x, y] = o.at || [540, 1200];
-    return { dir: Math.atan2(fy - (y - 550), fx - x), intensity: o.k ?? 1.08, front: o.front ?? 0.62, fill: o.fill ?? (pal.fig === 'light' ? 0.5 : 0.28),
-      tint: pal.rim, bounce: pal.bounce, minLum: o.minLum ?? (pal.fig === 'light' ? 0.3 : 0) };
+    // SILHOUETTE FIRST (visual review of kit 41): by default the figure is a dark, rich shape with a thin rim in the scene's
+    // light; on a dark ground it is lifted a little so it stands off. Pass front ≈ 0.7 for a close-up or a front-lit scene.
+    return { dir: Math.atan2(fy - (y - 550), fx - x), intensity: o.k ?? 1.05, front: o.front ?? (pal.fig === 'light' ? 0.34 : 0.16), fill: o.fill ?? (pal.fig === 'light' ? 0.2 : 0.06),
+      tint: [pal.rim[0], Math.min(0.5, pal.rim[1])], bounce: pal.bounce, minLum: o.minLum ?? 0 };
   };
-  /** THE BACK-LIGHT RULE: fire or sun behind the figure → rim on both sides + a cool fill + a luminance floor. */
+  /** THE BACK-LIGHT RULE: a fire or a sun behind the figure. The figure stays a dark shape (its own hues at about a third of
+   *  their value, never a black hole and never a washed mid-tone), with a thin rim in the fire's colour on BOTH edges and its
+   *  ornaments catching the light. o = { from, at, k (the flicker), warm } */
   ST.backlight = (pal, o = {}) => {
     pal = ST.pal(pal);
     const [fx, fy] = o.from || [540, 1100], [x, y] = o.at || [540, 1400];
-    return { dir: Math.atan2(fy - (y - 550), fx - x), intensity: (o.k ?? 1) * 1.15, front: o.front ?? 0.4, fill: o.fill ?? 0.55, wrap: o.wrap ?? 0.85,
-      tint: [o.warm || pal.key, 0.6], bounce: [o.cool || '#6a82c0', o.coolK ?? 0.3], minLum: o.minLum ?? 0.32 };
+    return { dir: Math.atan2(fy - (y - 550), fx - x), intensity: (o.k ?? 1) * 1.2, front: o.front ?? 0.1, fill: o.fill ?? 0.1, wrap: o.wrap ?? 0.6,
+      tint: [o.warm || '#ffb050', 0.75], bounce: [o.cool || '#3a4a80', 0.2], minLum: 0 };
   };
 
   // ─── Camera grammar ───────────────────────────────────────────────────────────────────────────────────────────

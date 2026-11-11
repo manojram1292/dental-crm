@@ -18,6 +18,13 @@
  *   opts.pose: 'stand' | { name, k } | KIT.act.pose(...) = { w: { pose: weight }, lag, lag2, phase, prop, wind }
  *   opts.expression: { emo (KIT.act.emo(...) or a name), gaze [x, y], speak (0..1), look (extra head pitch) }
  *
+ * THE LOOK (visual review of kit 41, adopted): SILHOUETTE FIRST. Unlit, a figure is a dark, rich shape (each local colour at
+ * about a third of its value) with a thin warm rim on the light side and its ornaments in gold line: the fire-lit mural of
+ * episodes 1–40. Local colour opens only as the light comes round to the front (`light.front`: close-ups, front-lit scenes).
+ * No outer glow. The whole figure is composited opaque in one buffer and blitted once (rig.js), so nothing shows through.
+ * Arms blend on ARCS about the shoulder (a hand never cuts across the face on its way up); every pose has a MOVING HOLD
+ * (breath, a slow weight shift, the head and hands alive, cloth and hair settling); a fast hand leaves a tapered SMEAR.
+ *
  * KEY POSES (blend freely): stand · attend · anjali · speak · point · bless · recoil · reach · grieve · kneel · sit ·
  *   carry · curse · raise · strike · collapse · bow · embrace · row · walk · run · shield · offer
  * Faces LEFT. (x, y) = the feet. scale 1 ≈ 1000 px to the crown of a grown man.
@@ -31,24 +38,24 @@
 
   // key poses: lean (forward +), look (head pitch, down +), drop (hips sink), hx (hips shift, back +), near/far hand
   // [x, y] with finger angle and kind, near/far ankle [x, y], pa (prop angle: the way a staff points, −π/2 = up)
-  const Pz = (o) => ({ lean: 0.03, look: 0, drop: 0, hx: 0, nh: [-26, -452], na: 1.62, nk: 'open', fh: [36, -458], fa: 1.6, fk: 'open', an: [-30, -22], af: [44, -22], pa: -PI / 2, st: 0, ...o });
+  const Pz = (o) => ({ lean: 0.03, look: 0, drop: 0, hx: 0, nh: [-34, -462], na: 1.75, nk: 'open', fh: [30, -466], fa: 1.7, fk: 'open', an: [-52, -22], af: [34, -22], pa: -PI / 2, st: 0, ...o });
   const POSES = {
     stand: Pz({}),
-    attend: Pz({ lean: 0.05, look: 0.04, nh: [-76, -520], na: 2.5, fh: [-66, -528], fa: 2.4 }),
+    attend: Pz({ lean: 0.05, look: 0.04, nh: [-88, -474], na: 2.3, fh: [-78, -480], fa: 2.2 }),
     anjali: Pz({ lean: 0.07, look: 0.08, nh: [-112, -690], na: -1.9, fh: [-104, -696], fa: -1.85 }),
-    speak: Pz({ lean: 0.05, look: -0.05, nh: [-236, -640], na: 2.9, fh: [-40, -500], fa: 2.0 }),
+    speak: Pz({ lean: 0.05, look: -0.05, nh: [-236, -640], na: 2.9, fh: [24, -468], fa: 1.7 }),
     point: Pz({ lean: 0.08, look: -0.04, nh: [-330, -742], na: 3.05, nk: 'point', fh: [30, -470], fa: 1.6 }),
-    bless: Pz({ lean: 0.04, look: 0.06, nh: [-196, -858], na: -1.62, nk: 'abhaya', fh: [-30, -500], fa: 2.0 }),
+    bless: Pz({ lean: 0.04, look: 0.06, nh: [-196, -858], na: -1.62, nk: 'abhaya', fh: [26, -468], fa: 1.7 }),
     recoil: Pz({ lean: -0.17, look: -0.14, hx: 34, nh: [-150, -838], na: -2.0, nk: 'abhaya', fh: [-84, -706], fa: -2.2, an: [-6, -22], af: [96, -22] }),
     shield: Pz({ lean: -0.07, look: 0.06, hx: 14, nh: [-176, -700], na: -2.3, nk: 'abhaya', fh: [-96, -560], fa: 2.7, an: [-10, -22], af: [70, -22] }),
     reach: Pz({ lean: 0.24, look: -0.1, nh: [-372, -706], na: 3.1, fh: [-300, -660], fa: 3.0, an: [-90, -22], af: [70, -22] }),
     offer: Pz({ lean: 0.14, look: 0.06, nh: [-250, -600], na: 2.95, nk: 'cup', fh: [-240, -590], fa: 2.9, fk: 'cup' }),
-    grieve: Pz({ lean: 0.2, look: 0.36, nh: [-84, -872], na: -1.2, fh: [20, -470], fa: 1.6 }),
+    grieve: Pz({ lean: 0.2, look: 0.36, nh: [-150, -850], na: -1.0, fh: [20, -470], fa: 1.6 }),
     kneel: Pz({ lean: 0.1, look: 0.05, drop: 230, nh: [-90, -500], na: 2.4, fh: [-70, -510], fa: 2.3, an: [-130, -22], af: [236, -30] }),
     sit: Pz({ lean: 0.04, look: 0.02, drop: 335, nh: [-150, -470], na: 2.6, nk: 'cup', fh: [-110, -476], fa: 2.5, fk: 'cup', an: [-78, -34], af: [-120, -40] }),
     carry: Pz({ lean: -0.03, look: 0.2, nh: [-96, -640], na: -2.7, nk: 'cup', fh: [-74, -610], fa: 2.9, fk: 'cup' }),
-    curse: Pz({ lean: 0.13, look: -0.08, nh: [-310, -612], na: 2.7, nk: 'point', fh: [128, -878], fa: -1.2, an: [-70, -22], af: [70, -22] }),
-    raise: Pz({ lean: -0.09, look: -0.12, nh: [-52, -1010], na: -1.5, nk: 'fist', fh: [-110, -640], fa: 2.6, pa: -0.9, an: [-50, -22], af: [80, -22] }),
+    curse: Pz({ lean: 0.15, look: -0.06, hx: -10, nh: [-312, -640], na: 2.85, nk: 'point', fh: [70, -500], fa: 1.2, an: [-84, -22], af: [70, -22] }),
+    raise: Pz({ lean: -0.12, look: -0.12, hx: 16, nh: [20, -1040], na: -1.5, nk: 'fist', fh: [-110, -640], fa: 2.6, pa: -0.9, an: [-50, -22], af: [80, -22] }),
     strike: Pz({ lean: 0.3, look: 0.12, nh: [-320, -520], na: 2.6, nk: 'fist', fh: [60, -560], fa: 1.2, pa: -2.75, an: [-110, -22], af: [90, -22] }),
     collapse: Pz({ lean: 0.62, look: 0.5, drop: 250, nh: [-240, -330], na: 2.2, fh: [-200, -320], fa: 2.0, an: [-110, -22], af: [220, -30] }),
     bow: Pz({ lean: 0.55, look: 0.28, nh: [-150, -640], na: -2.4, fh: [-142, -648], fa: -2.35 }),
@@ -57,7 +64,10 @@
     walk: Pz({ lean: 0.07, st: 1, nh: [-40, -470], fh: [50, -470] }),
     run: Pz({ lean: 0.24, look: -0.04, st: 1.75, nh: [-130, -560], na: 2.6, nk: 'fist', fh: [110, -520], fa: 0.9, fk: 'fist' }),
   };
-  const NUM = ['lean', 'look', 'drop', 'hx', 'na', 'fa', 'pa', 'st'], VEC = ['nh', 'fh', 'an', 'af'];
+  const NUM = ['lean', 'look', 'drop', 'hx', 'na', 'fa', 'pa', 'st'], VEC = ['an', 'af'];
+  // hands travel on ARCS about the shoulder: each pose's hand as (angle from straight down, forward positive; reach)
+  const SHO = [6, -770];
+  for (const p of Object.values(POSES)) for (const k of ['nh', 'fh']) p[k + 'P'] = [Math.atan2(-(p[k][0] - SHO[0]), p[k][1] - SHO[1]), Math.hypot(p[k][0] - SHO[0], p[k][1] - SHO[1])];
   function state(w) {
     const S = { nh: [0, 0], fh: [0, 0], an: [0, 0], af: [0, 0] }; for (const k of NUM) S[k] = 0;
     let sum = 0, best = -1, bn = 'stand';
@@ -69,9 +79,11 @@
       const p = POSES[n], k = ws[n];
       for (const f of NUM) S[f] += p[f] * k;
       for (const f of VEC) { S[f][0] += p[f][0] * k; S[f][1] += p[f][1] * k; }
+      for (const f of ['nh', 'fh']) { S[f][0] += p[f + 'P'][0] * k; S[f][1] += p[f + 'P'][1] * k; }
       if (k > best && n !== 'stand' || best < 0) { if (k > 0.5 || best < 0) { best = k; bn = n; } }
     }
     const top = Object.entries(ws).sort((a, b) => b[1] - a[1])[0][0];
+    for (const f of ['nh', 'fh']) { const [a, r] = S[f]; S[f] = [SHO[0] - Math.sin(a) * r, SHO[1] + Math.cos(a) * r]; }
     S.nk = POSES[top].nk; S.fk = POSES[top].fk; S.top = top;
     return S;
   }
@@ -84,6 +96,10 @@
     return function rig(P) {
       const po = P.po, T = P.T;
       const S = state(weightsOf(po)), SL = po.lag ? state(po.lag) : S, SL2 = po.lag2 ? state(po.lag2) : SL;
+      // THE MOVING HOLD: no pose is ever still: breath, a slow shift of weight, the head and the hands alive
+      const hold = po.still ? 0 : 1, sw = (f, q) => Math.sin(T * f + seed * q) * hold;
+      S.hx += 5 * sw(0.47, 1.3); S.lean += 0.012 * sw(0.61, 2.1) + 0.006 * sw(1.9, 0.7); S.look += 0.022 * sw(0.83, 3.3);
+      S.nh = [S.nh[0] + 6 * sw(0.9, 4.1), S.nh[1] + 5 * sw(1.3, 5.2)]; S.fh = [S.fh[0] + 5 * sw(0.8, 6.3), S.fh[1] + 4 * sw(1.1, 7.4)];
       const r = { S, T, b, HIP, seed };
       const ph = po.phase || 0, st = S.st * (po.stride ?? 1);
       // legs: ankles from the pose, plus the walk cycle; knees by IK (always forward)
@@ -96,11 +112,11 @@
         const reachMax = TH + SHN - 2, d = Math.hypot(ankle[0] - hip[0], ankle[1] - hip[1]);
         if (d > reachMax) { ankle[0] = hip[0] + (ankle[0] - hip[0]) * reachMax / d; ankle[1] = hip[1] + (ankle[1] - hip[1]) * reachMax / d; }
         const knee = ik(hip, ankle, TH, SHN, 1);
-        const fa = clamp(st * 0.35 * Math.sin(p + 2.2), -0.4, 0.5), ft = 70 * b.leg;
-        return { hip, knee, ankle, toe: [ankle[0] - Math.cos(fa) * ft, ankle[1] + 12 + Math.sin(fa) * ft], heel: [ankle[0] + 16, ankle[1] + 14] };
+        const fa = clamp(st * 0.35 * Math.sin(p + 2.2), -0.4, 0.5), ft = 104 * (0.5 + 0.5 * b.leg);
+        return { hip, knee, ankle, toe: [ankle[0] - Math.cos(fa) * ft, ankle[1] + 14 + Math.sin(fa) * ft], heel: [ankle[0] + 22, ankle[1] + 16] };
       });
       r.hip = hip;
-      r.breath = KIT.act ? KIT.act.breath(T, seed) : 0;
+      r.breath = (KIT.act ? KIT.act.breath(T, seed) : 0) * 1.6;
       r.lean = S.lean + st * 0.02 * Math.sin(ph * 2);
       r.look = S.look + (P.ex.look || 0);
       const c = Math.cos(-r.lean), s = Math.sin(-r.lean), PIV = -HIP;
@@ -113,12 +129,13 @@
       const scaleH = (v) => [6 + (v[0] - 6) * b.arm + hip[0] * 0.6, SHY + (v[1] + 770) * b.arm + dy];   // poses are drawn for a grown man: hands keep their place relative to the shoulder
       r.nh = scaleH(S.nh); r.fh = scaleH(S.fh);
       for (const [sh, key] of [[r.shN, 'nh'], [r.shF, 'fh']]) { const d = Math.hypot(r[key][0] - sh[0], r[key][1] - sh[1]), m = UP + FO - 3; if (d > m) r[key] = [sh[0] + (r[key][0] - sh[0]) * m / d, sh[1] + (r[key][1] - sh[1]) * m / d]; }
-      r.elN = ik(r.shN, r.nh, UP, FO, -1); r.elF = ik(r.shF, r.fh, UP, FO, 1);
+      r.elN = ik(r.shN, r.nh, UP, FO, -1); r.elF = ik(r.shF, r.fh, UP, FO, r.fh[0] < r.shF[0] - 40 ? -1 : 1);
+      if (po.sm) { const Q = state(po.sm), q = scaleH(Q.nh); if (Math.hypot(q[0] - r.nh[0], q[1] - r.nh[1]) > 70) r.smear = q; }   // a fast hand: a tapered blade from where it was 1½ frames ago
       r.head = r.rot([-6, NKY - 84 * b.head]);
       // follow-through: where the head and hips were a moment ago
       const headOf = (Q) => { const cc = Math.cos(-Q.lean), ss = Math.sin(-Q.lean); return [-6 * cc - (NKY - 84 - PIV) * ss + Q.hx, Q.drop + (-6 * ss + (NKY - 84 - PIV) * cc)]; };
       const h0 = headOf(S), h1 = headOf(SL), h2 = headOf(SL2);
-      const wind = (po.wind ?? 0.35), gust = Math.sin(T * 1.7 + seed) * 10 * wind + noise.n2(T * 0.8, seed) * 14 * wind;
+      const wind = (po.wind ?? 0.45), gust = Math.sin(T * 1.7 + seed) * 12 * wind + noise.n2(T * 0.8, seed) * 16 * wind;
       r.drag = [-(h0[0] - h1[0]) * 1.5 + (h1[0] - h2[0]) * 0.7 + gust + st * 26, -(h0[1] - h1[1]) * 0.9 + (h1[1] - h2[1]) * 0.4];
       r.dragLow = [-(S.hx - SL.hx) * 1.2 + gust * 0.7 + st * (18 + 14 * Math.sin(ph * 2)), 0];
       r.speak = P.ex.speak || 0;
@@ -162,7 +179,17 @@
     else if (st === 'flow') { lock(60, 0, 330, 66, 1); lock(40, 30, 250, 44, 0.75); }
     else if (st === 'curls') { for (let i = 0; i < 9; i++) { const a = -2.7 + i * 0.42; g.moveTo(14 + Math.cos(a) * 70 + 24, -14 + Math.sin(a) * 72); g.arc(14 + Math.cos(a) * 70, -14 + Math.sin(a) * 72, 24, 0, TAU); cut(g); } }
     else if (st === 'wild') { for (let i = 0; i < 11; i++) { const a = -2.9 + i * 0.36, rr = 96 + 44 * hash(i, r.seed) + (i > 5 ? Math.abs(dx) * 0.4 : 0); g.moveTo(14 + Math.cos(a - 0.2) * 62, -14 + Math.sin(a - 0.2) * 62); g.lineTo(14 + Math.cos(a) * rr + dx * 0.3, -14 + Math.sin(a) * rr); g.lineTo(14 + Math.cos(a + 0.2) * 62, -14 + Math.sin(a + 0.2) * 62); g.closePath(); cut(g); } lock(60, 10, 200, 70, 1); }
-    else if (st === 'crown') { g.moveTo(-50, -66); g.lineTo(-44, -108); g.lineTo(64, -118); g.lineTo(72, -66); g.closePath(); cut(g); g.moveTo(-30, -108); g.lineTo(-20, -152); g.lineTo(46, -160); g.lineTo(52, -114); g.closePath(); cut(g); g.moveTo(-6, -154); g.lineTo(12, -206); g.lineTo(30, -158); g.closePath(); cut(g); lock(62, 10, 110, 40, 0.8); }
+    else if (st === 'crown') {   // the kirita of the series' kings (janamejaya.js): a band, three narrowing tiers, a finial, a wing at the back
+      g.moveTo(-58, -58); g.lineTo(-54, -92); g.lineTo(74, -100); g.lineTo(80, -62); g.closePath(); cut(g);
+      for (const [y0, y1, w0, w1] of [[-92, -140, 54, 44], [-140, -186, 44, 33], [-186, -230, 33, 22]]) { g.moveTo(10 - w0, y0); g.lineTo(10 - w1, y1); g.lineTo(10 + w1, y1 - 4); g.lineTo(10 + w0, y0 - 4); g.closePath(); cut(g); }
+      g.moveTo(-6, -230); g.lineTo(10, -290); g.lineTo(26, -234); g.closePath(); cut(g); g.moveTo(18, -296); g.arc(10, -296, 9, 0, TAU); cut(g);
+      g.moveTo(70, -96); g.quadraticCurveTo(118, -120, 124, -170); g.quadraticCurveTo(100, -130, 72, -70); g.closePath(); cut(g);
+      for (let i = 0; i < 4; i++) { g.moveTo(74, -30 + i * 22); g.arc(62, -30 + i * 22, 14, 0, TAU); cut(g); }   // the curls at the nape
+    }
+    else if (st === 'longjata') {   // Vyasa (vyasa.js): a small knot on the crown and the matted hair falling down the back to the waist
+      g.moveTo(46, -104); g.ellipse(14, -104, 34, 26, -0.1, 0, TAU); cut(g); g.moveTo(30, -134); g.ellipse(12, -136, 20, 13, 0, 0, TAU); cut(g);
+      lock(58, -20, 420, 96, 0.9); lock(34, 20, 330, 60, 0.6);
+    }
   }
   function beardPath(g, r, B) {
     const len = B.beard ? B.beard.len : 0; if (!len) return;
@@ -180,13 +207,14 @@
   function lowerPath(g, r, B) {
     const kind = (B.lower && B.lower.kind) || 'dhoti'; if (kind === 'none') return;
     const b = r.b, [a, c] = r.legs, front = a.knee[0] < c.knee[0] ? a : c, back = front === a ? c : a, hip = r.hip;
-    const hemT = kind === 'sari' ? 0.92 : kind === 'short' || kind === 'bark' ? -0.25 : 0.55, fl = kind === 'sari' ? 1.25 : 1, [dx] = r.dragLow;
+    const hemT = kind === 'sari' ? 0.93 : kind === 'short' || kind === 'bark' ? -0.25 : 0.74, fl = kind === 'sari' ? 1.25 : 1, [dx] = r.dragLow;
     const pt = (leg, t) => (t >= 0 ? [lerp(leg.knee[0], leg.ankle[0], t), lerp(leg.knee[1], leg.ankle[1], t)] : [lerp(leg.knee[0], leg.hip[0], -t), lerp(leg.knee[1], leg.hip[1], -t)]);
     const hf = pt(front, hemT), hb = pt(back, hemT), wy = hip[1] + 6, wf = hip[0] - 40 * b.w * b.hipW, wb = hip[0] + 50 * b.w;
     g.moveTo(wf, wy);
     g.bezierCurveTo(wf - 16, wy + 60, front.knee[0] - 50 * fl, front.knee[1] - 90, front.knee[0] - 42 * fl, front.knee[1] - (hemT < 0 ? 60 : 0));
     g.lineTo(hf[0] - 36 * fl + dx, hf[1]);
-    g.quadraticCurveTo((hf[0] + hb[0]) / 2 + dx * 1.3, Math.max(hf[1], hb[1]) + 16, hb[0] + 44 * fl + dx * 1.6, hb[1] - 4);
+    { const x0 = hf[0] - 36 * fl + dx, x1 = hb[0] + 44 * fl + dx * 1.6, y0 = hf[1], y1 = hb[1] - 4, n = 4;   // a scalloped hem: four waves that sway
+      for (let i = 1; i <= n; i++) { const u0 = (i - 1) / n, u1 = i / n; g.quadraticCurveTo(lerp(x0, x1, (u0 + u1) / 2) + dx * 0.3, lerp(y0, y1, (u0 + u1) / 2) + 20 + 5 * Math.sin(r.T * 2.1 + i * 1.7), lerp(x0, x1, u1), lerp(y0, y1, u1)); } }
     g.bezierCurveTo(back.knee[0] + 56 * fl, back.knee[1] - 60, wb + 30, wy + 80, wb, wy);
     g.closePath(); cut(g);
     if (kind === 'dhoti') { const sw = dx * 1.4; g.moveTo(wf - 2, wy + 6); g.quadraticCurveTo(wf - 30 + sw * 0.5, wy + 130, wf - 26 + sw, wy + 250 * b.leg); g.lineTo(wf + 14 + sw * 0.6, wy + 232 * b.leg); g.quadraticCurveTo(wf + 8, wy + 110, wf + 26, wy + 4); g.closePath(); cut(g); }
@@ -209,10 +237,27 @@
       g.moveTo(24, SH - 8); g.bezierCurveTo(70 * b.w, SH - 4, 86 * b.w, SH + 60, tx, ty); g.lineTo(tx - 50, ty + 18); g.bezierCurveTo(60 * b.w + dx * 0.3, SH + 150, 50, SH + 60, 30, SH + 30); g.closePath(); cut(g);
     }
   }
+  /** Three real hands (local: fingers along +x): 'open' / 'abhaya' = the flat mudra hand (palm wedge, fingers as one tapered
+   *  block, the thumb apart); 'fist' / 'cup' = the grip (a rounded fist, the thumb across); 'point' = index out, the rest folded. */
+  function hnd(g, p, a, sz, kind) {
+    g.save(); g.translate(p[0], p[1]); g.rotate(a);
+    if (kind === 'fist' || kind === 'cup') {
+      g.moveTo(-sz * 0.2, -sz * 0.36); g.bezierCurveTo(sz * 0.5, -sz * 0.5, sz * 0.82, -sz * 0.3, sz * 0.8, 0); g.bezierCurveTo(sz * 0.8, sz * 0.36, sz * 0.4, sz * 0.46, -sz * 0.2, sz * 0.34); g.closePath(); cut(g);
+      g.moveTo(sz * 0.1, -sz * 0.4); g.quadraticCurveTo(sz * 0.52, -sz * 0.66, sz * 0.74, -sz * 0.34); g.quadraticCurveTo(sz * 0.44, -sz * 0.3, sz * 0.14, -sz * 0.22); g.closePath(); cut(g);
+    } else if (kind === 'point') {
+      g.moveTo(-sz * 0.2, -sz * 0.34); g.bezierCurveTo(sz * 0.4, -sz * 0.44, sz * 0.66, -sz * 0.2, sz * 0.64, sz * 0.1); g.bezierCurveTo(sz * 0.6, sz * 0.4, sz * 0.2, sz * 0.42, -sz * 0.2, sz * 0.32); g.closePath(); cut(g);
+      g.moveTo(sz * 0.4, -sz * 0.36); g.lineTo(sz * 1.5, -sz * 0.2); g.quadraticCurveTo(sz * 1.6, -sz * 0.1, sz * 1.5, -sz * 0.02); g.lineTo(sz * 0.5, -sz * 0.02); g.closePath(); cut(g);
+    } else {
+      g.moveTo(-sz * 0.2, -sz * 0.3); g.lineTo(sz * 0.55, -sz * 0.36); g.bezierCurveTo(sz * 1.0, -sz * 0.36, sz * 1.34, -sz * 0.2, sz * 1.42, -sz * 0.04); g.bezierCurveTo(sz * 1.36, sz * 0.14, sz * 1.0, sz * 0.26, sz * 0.55, sz * 0.3); g.lineTo(-sz * 0.2, sz * 0.28); g.closePath(); cut(g);
+      g.moveTo(sz * 0.08, -sz * 0.3); g.bezierCurveTo(sz * 0.3, -sz * 0.72, sz * 0.66, -sz * 0.86, sz * 0.8, -sz * 0.72); g.bezierCurveTo(sz * 0.66, -sz * 0.52, sz * 0.5, -sz * 0.4, sz * 0.44, -sz * 0.3); g.closePath(); cut(g);
+    }
+    g.restore();
+  }
   function armPath(g, r, near) {
     const b = r.b, sh = near ? r.shN : r.shF, el = near ? r.elN : r.elF, h = near ? r.nh : r.fh, t = (0.8 + 0.2 * b.w) * b.limb;
     limb(g, [sh, el, h], near ? [52 * t, 37 * t, 27 * t] : [48 * t, 34 * t, 25 * t]);
-    hand(g, h, near ? r.S.na : r.S.fa, 35 * (0.75 + 0.25 * b.arm) * (b.w > 1.25 ? 1.35 : 1), near ? r.S.nk : r.S.fk);
+    hnd(g, h, near ? r.S.na : r.S.fa, 56 * (0.7 + 0.3 * b.arm) * (b.w > 1.25 ? 1.3 : 1) * (b.head < 0.8 ? 0.7 : 1), near ? r.S.nk : r.S.fk);
+    if (near && r.smear) { const q = r.smear; g.moveTo(q[0], q[1]); g.lineTo(h[0] - (h[1] - q[1]) * 0.09, h[1] + (h[0] - q[0]) * 0.09); g.lineTo(h[0] + (h[1] - q[1]) * 0.09, h[1] - (h[0] - q[0]) * 0.09); g.closePath(); cut(g); }
   }
   function propPath(g, r) {
     const p = r.prop; if (!p) return;
@@ -225,6 +270,15 @@
     else if (p === 'bundle') { g.moveTo(hx + 60, hy - 30); g.ellipse(hx - 10, hy - 30, 84, 46, -0.2, 0, TAU); cut(g); g.moveTo(hx - 50, hy - 78); g.arc(hx - 78, hy - 70, 32, 0, TAU); cut(g); }
   }
 
+  function legsPath(g, r) {
+    const b = r.b, k = b.limb;
+    for (const l of r.legs) {
+      const calf = [lerp(l.knee[0], l.ankle[0], 0.36) + 9, lerp(l.knee[1], l.ankle[1], 0.36)];
+      limb(g, [l.hip, l.knee, calf, l.ankle], [74 * b.w * b.hipW, 50 * k, 46 * k, 26 * k]);
+      g.moveTo(l.heel[0], l.heel[1]); g.quadraticCurveTo(l.ankle[0] + 16, l.ankle[1] - 10, l.ankle[0] - 16, l.ankle[1] - 4);
+      g.quadraticCurveTo(lerp(l.ankle[0], l.toe[0], 0.6), l.toe[1] - 22, l.toe[0], l.toe[1] - 10); g.quadraticCurveTo(l.toe[0] - 12, l.toe[1], l.toe[0] - 2, l.toe[1] + 4); g.lineTo(l.heel[0], l.heel[1] + 4); g.closePath(); cut(g);
+    }
+  }
   function upper(g, r) { const PIV = -r.HIP; g.translate(r.hip[0], r.hip[1] + r.HIP); g.translate(0, PIV); g.rotate(-r.lean); g.translate(0, -PIV); }
   function headT(g, r) { g.translate(-6, r.NKY - 84 * r.b.head); g.rotate(r.look); g.scale(r.b.head, r.b.head); }
 
@@ -232,7 +286,7 @@
     return function shape(g, color, P, r) {
       g.fillStyle = color;
       g.beginPath(); armPath(g, r, false); g.fill();
-      g.beginPath(); CH.legs(g, r, [72 * r.b.w * r.b.hipW, 44 * r.b.limb, 24 * r.b.limb]); g.fill();
+      g.beginPath(); legsPath(g, r); g.fill();
       g.beginPath(); lowerPath(g, r, B); g.fill();
       g.save(); upper(g, r);
       g.beginPath(); torsoPath(g, r, B); g.fill();
@@ -249,8 +303,8 @@
   function makeOrnaments(B, rule) {
     return function ornaments(g, P, r, a, color) {
       const L = r.L, la = clamp(L.front * r.k * (rule.litGain ?? 1) + L.fill * 0.6);
-      const tone = (c, lit) => { let o = KIT.hex(rule.fill, lit || c, la); if (L.bounce) o = KIT.hex(o, L.bounce[0], clamp(L.bounce[1] ?? 0.25) * 0.5); return o; };
-      const fv = clamp(la * 1.7);   // how much of the face's drawing shows (none on a pure silhouette)
+      const tone = (c, lit) => { const col = lit || c; let o = KIT.hex(KIT.hex(col, '#070403', 0.66), col, la); if (L.bounce) o = KIT.hex(o, L.bounce[0], clamp(L.bounce[1] ?? 0.25) * 0.35 * (0.4 + la)); return o; };
+      const fv = clamp(0.35 + la * 1.3);   // the face's drawing: faint on a silhouette, full in the light   // how much of the face's drawing shows (none on a pure silhouette)
       // the colour blocks sit inside the silhouette, shifted away from the light so the rim stays on the lit side
       const w = CH.rimWidth(P.s, r.k, rule), lx = (-Math.cos(L.dir) * w) / (P.flip ? -P.s : P.s), ly = (-Math.sin(L.dir) * w) / P.s;
       g.save(); g.globalCompositeOperation = 'source-atop'; g.translate(lx, ly);
@@ -263,7 +317,7 @@
       g.restore(); g.restore();
       if (B.propColor && r.prop) { g.fillStyle = tone(B.propColor); g.beginPath(); propPath(g, r); g.fill(); }
       // the near arm again in skin, over the cloth
-      g.fillStyle = KIT.hex(rule.fill, rule.lit, la); if (L.bounce) g.fillStyle = KIT.hex(g.fillStyle, L.bounce[0], clamp(L.bounce[1] ?? 0.25));
+      g.fillStyle = tone(rule.lit);
       g.beginPath(); armPath(g, r, true); g.fill();
       g.restore();
       // ── the face (drawn for the close-up; fades out on a silhouette) ──
@@ -300,15 +354,33 @@
       const HIP = r.HIP, SH = r.SHY, b = r.b;
       if (J.thread) { g.lineWidth = 3.5; g.beginPath(); g.moveTo(24, SH - 6); g.quadraticCurveTo(-44 * b.w, SH + 150, -30 * b.w, -HIP - 6); g.stroke(); }
       if (J.mala) { CH.beads(g, [-20, SH + 6], [-56 * b.w - 16 * b.bust, SH + 96], [-10, SH + 150], 11, 5.5); }
-      if (J.necklace) { g.lineWidth = 5; g.beginPath(); g.moveTo(-18, SH + 4); g.quadraticCurveTo(-50 * b.w, SH + 46, 4, SH + 62); g.stroke(); g.beginPath(); g.arc(-34 * b.w, SH + 52, 8, 0, TAU); g.fill(); }
+      if (J.necklace) { CH.beads(g, [-16, SH + 2], [-52 * b.w, SH + 44], [6, SH + 60], 9, 4.6); CH.beads(g, [-20, SH + 8], [-60 * b.w - 14 * b.bust, SH + 110], [10, SH + 132], 13, 3.6); g.beginPath(); g.arc(-36 * b.w - 8 * b.bust, SH + 112, 9, 0, TAU); g.fill(); }
+      if (B.upper && B.upper.kind === 'pallu') { g.save(); g.globalCompositeOperation = 'source-atop'; g.globalAlpha *= 0.6; g.lineWidth = 2.6; for (let i = 0; i < 4; i++) { g.beginPath(); g.moveTo(-40 * b.w + i * 14, -HIP + 4); g.bezierCurveTo(-58 * b.w + i * 10, -HIP - 140, -40 * b.w + i * 12, SH + 80, 14 + i * 10, SH - 4); g.stroke(); } g.restore(); }
+      if (B.upper && (B.upper.kind === 'shawl' || B.upper.kind === 'pelt')) { g.save(); g.globalCompositeOperation = 'source-atop'; g.globalAlpha *= 0.55; g.lineWidth = 2.6; for (let i = 0; i < 3; i++) { g.beginPath(); g.moveTo(20 + i * 16, SH - 14); g.quadraticCurveTo(60 * b.w + i * 8 + r.drag[0] * 0.4, lerp(SH, -HIP, 0.5), 60 * b.w + i * 12 + r.drag[0] * 0.8, -HIP + 10); g.stroke(); } g.restore(); }
       if (J.sash) { g.lineWidth = 9; g.beginPath(); g.moveTo(-40 * b.w, -HIP + 6); g.lineTo(50 * b.w, -HIP + 2); g.stroke(); }
       if (B.lower && B.lower.border) { /* drawn below, in figure space */ }
       g.save(); headT(g, r);
       if (J.tilak) { g.beginPath(); g.ellipse(-58, -40, 3.5, 9, 0.2, 0, TAU); g.fill(); }
       if (J.earring) { g.beginPath(); g.arc(30, 36, 9, 0, TAU); g.fill(); g.lineWidth = 2.5; g.beginPath(); g.arc(30, 50, 9, 0, TAU); g.stroke(); }
-      if (J.crownGems) { for (const [x, y] of [[8, -88], [10, -134], [12, -182]]) { g.beginPath(); g.arc(x, y, 7, 0, TAU); g.fill(); } g.lineWidth = 4; g.beginPath(); g.moveTo(-48, -70); g.lineTo(70, -70); g.stroke(); }
+      if (J.crownGems) { const cr = B.hair && B.hair.style === 'crown'; for (const [x, y] of (cr ? [[10, -116], [10, -163], [10, -208]] : [[8, -88], [-20, -84], [36, -90]])) { g.beginPath(); g.arc(x, y, 6, 0, TAU); g.fill(); } g.lineWidth = 4; for (const [y, w] of (cr ? [[-60, 66], [-94, 62], [-140, 46], [-186, 35]] : [[-70, 60]])) { g.beginPath(); g.moveTo(10 - w, y); g.lineTo(10 + w, y - 4); g.stroke(); } }
       if (J.flower) { for (let i = 0; i < 5; i++) { g.beginPath(); g.arc(70 + Math.cos(i * 1.26) * 12, 0 + Math.sin(i * 1.26) * 12, 7, 0, TAU); g.fill(); } }
       g.restore(); g.restore();
+      // ── textile: the pleat fan, tension folds, a patterned border, small woven motifs (mural cloth is never plain) ──
+      if (B.lower && B.lower.kind !== 'none') {
+        const [l0, l1] = r.legs, f = l0.knee[0] < l1.knee[0] ? l0 : l1, bk = f === l0 ? l1 : l0, kind = B.lower.kind, hemT = kind === 'sari' ? 0.93 : kind === 'short' || kind === 'bark' ? -0.25 : 0.74, fl = kind === 'sari' ? 1.25 : 1, dx = r.dragLow[0];
+        const pt = (leg, t) => (t >= 0 ? CH.along(leg.knee, leg.ankle, t) : CH.along(leg.knee, leg.hip, -t));
+        const hf = pt(f, hemT), hb = pt(bk, hemT), wf = r.hip[0] - 40 * b.w * b.hipW, wb = r.hip[0] + 50 * b.w, wy = r.hip[1] + 6, x0 = hf[0] - 36 * fl + dx, x1 = hb[0] + 44 * fl + dx * 1.6;
+        g.save(); g.globalCompositeOperation = 'source-atop'; g.lineWidth = 2.6; g.globalAlpha *= 0.55;
+        if (kind === 'sari' || kind === 'dhoti') for (let i = 0; i < 6; i++) { const u = i / 5; g.beginPath(); g.moveTo(lerp(wf + 4, wf + 40, u * 0.6), wy + 8); g.quadraticCurveTo(lerp(wf - 26, f.knee[0] + 10, u) + dx * 0.4, lerp(wy, hf[1], 0.5), lerp(x0 + 8, lerp(x0, x1, 0.55), u), hf[1] + 6); g.stroke(); }
+        if (kind === 'dhoti') for (let i = 0; i < 3; i++) { g.beginPath(); g.moveTo(wb - 6, wy + 14 + i * 34); g.quadraticCurveTo(lerp(wb, wf, 0.5), wy + 70 + i * 50, bk.knee[0] + 30 + dx, bk.knee[1] - 60 + i * 60); g.stroke(); }
+        g.globalAlpha = a; g.lineWidth = 5;
+        if (kind !== 'bark' && kind !== 'short') for (const off of [-12, -26]) { g.beginPath(); g.moveTo(x0, hf[1] + off); for (let i = 1; i <= 4; i++) { const u0 = (i - 1) / 4, u1 = i / 4; g.quadraticCurveTo(lerp(x0, x1, (u0 + u1) / 2) + dx * 0.3, lerp(hf[1], hb[1] - 4, (u0 + u1) / 2) + 20 + off, lerp(x0, x1, u1), lerp(hf[1], hb[1] - 4, u1) + off); } g.lineWidth = off === -12 ? 5 : 2.2; g.stroke(); }
+        if (kind === 'sari') { g.globalAlpha = a * 0.7; for (let i = 0; i < 14; i++) { const u = hash(i, r.seed + 3), v = 0.12 + 0.7 * hash(i, r.seed + 4); g.beginPath(); g.arc(lerp(lerp(wf, wb, u), lerp(x0, x1, u), v), lerp(wy, hf[1], v), 4.2, 0, TAU); g.fill(); } }
+        if (kind === 'short' || kind === 'bark') { g.globalAlpha = a * 0.6; g.lineWidth = 3; for (let i = 0; i < 5; i++) { const x = lerp(wf + 6, wb - 6, i / 4); g.beginPath(); g.moveTo(x, wy + 14); g.lineTo(x + dx * 0.4, wy + 96); g.stroke(); } }
+        g.restore();
+        g.lineWidth = 8; g.beginPath(); g.moveTo(wf - 2, wy + 4); g.quadraticCurveTo(lerp(wf, wb, 0.5), wy + 14, wb + 2, wy); g.stroke();   // the waist band
+        g.beginPath(); g.arc(wf + 8, wy + 8, 8, 0, TAU); g.fill(); g.lineWidth = 3; g.beginPath(); g.moveTo(wf + 8, wy + 14); g.lineTo(wf + 2 + dx * 0.5, wy + 54); g.moveTo(wf + 12, wy + 14); g.lineTo(wf + 14 + dx * 0.5, wy + 50); g.stroke();   // its knot and tassels
+      }
       if (J.armlets) for (const [s0, e0, t] of [[r.shN, r.elN, 0.55]]) { const p = CH.along(s0, e0, t), ang = Math.atan2(e0[1] - s0[1], e0[0] - s0[0]); g.save(); g.translate(p[0], p[1]); g.rotate(ang + PI / 2); g.fillRect(-24, -5, 48, 10); g.restore(); }
       if (J.bangles) { const p = CH.along(r.elN, r.nh, 0.82), ang = Math.atan2(r.nh[1] - r.elN[1], r.nh[0] - r.elN[0]); g.save(); g.translate(p[0], p[1]); g.rotate(ang + PI / 2); g.fillRect(-16, -9, 32, 5); g.fillRect(-16, 1, 32, 5); g.restore(); }
       if (B.lower && B.lower.border) { const [l0, l1] = r.legs, f = l0.knee[0] < l1.knee[0] ? l0 : l1, bk = f === l0 ? l1 : l0, t = B.lower.kind === 'sari' ? 0.86 : 0.5, pf = CH.along(f.knee, f.ankle, t), pb = CH.along(bk.knee, bk.ankle, t); g.lineWidth = 7; g.beginPath(); g.moveTo(pf[0] - 34 + r.dragLow[0], pf[1]); g.quadraticCurveTo((pf[0] + pb[0]) / 2 + r.dragLow[0] * 1.3, Math.max(pf[1], pb[1]) + 10, pb[0] + 40 + r.dragLow[0] * 1.6, pb[1] - 6); g.stroke(); }
@@ -319,15 +391,21 @@
 
   /** Register an acting character. */
   CH.actor = (B) => {
-    const rule = { fill: B.skin[0], lit: B.skin[1], litGain: 0.95, rim: B.rim || ['#ffd8a0', '#fff8ea'], inner: B.inner || KIT.hex(B.skin[0], B.skin[1], 0.35), innerA: [0.8, 0.35], glow: B.glow ?? 0.7,
-      ornament: B.ornament || ['#d8a850', '#fff0c0'], ornamentA: [0.6, 1], ...(B.rule || {}) };
+    // SILHOUETTE FIRST: the unlit fill is the lit skin at about a third of its value; a thin warm rim; no outer glow, no inner pass
+    const rule = { fill: KIT.hex(B.skin[1], '#070403', 0.66), lit: B.skin[1], litGain: 0.95, rim: B.rim || ['#d8903e', '#ffe2a0'], inner: null, innerA: 0, glow: Math.min(B.glow ?? 0, 0.35), rimW: 0.62,
+      ornament: B.ornament || ['#c8902a', '#ffe08a'], ornamentA: [0.75, 1], ...(B.rule || {}) };
     const b = { h: 1, leg: 1, head: 1, ...B.build }, top = -(480 * b.leg + 318 * b.h + 84 * b.head + 230 * b.head);
     const def = {
       id: B.id, rule, rig: makeRig(B), shape: makeShape(B), ornaments: makeOrnaments(B, rule), defaultPose: B.defaultPose || 'stand',
       bounds: () => [-640, Math.min(top, -1120) - (B.tall || 0), 600, 70],
       bible: { poses: Object.keys(POSES).map((name) => ({ name })), ...B.bible },
     };
-    if (B.aura) def.before = (ctx, P, r, k) => KIT.glow(ctx, P.x + (P.flip ? -1 : 1) * r.hip[0] * P.s, P.y + (r.hip[1] - 200) * P.s, (B.aura.r || 500) * P.s, B.aura.color, (B.aura.a ?? 0.3) * (0.5 + 0.5 * k));
+    def.face = (P, r) => [r.head[0], r.head[1], 100 * (r.b.head || 1)];   // the face box (text must never cross it)
+    if (B.aura) def.before = (ctx, P, r, k) => {
+      const sx = P.flip ? -1 : 1, hx = P.x + sx * r.head[0] * P.s, hy = P.y + r.head[1] * P.s, cx = B.aura.ring ? hx : P.x + sx * r.hip[0] * P.s, cy = B.aura.ring ? hy : P.y + (r.hip[1] - 200) * P.s;
+      KIT.glow(ctx, cx, cy, (B.aura.r || 500) * P.s, B.aura.color, (B.aura.a ?? 0.3) * 0.6 * (0.5 + 0.5 * k));
+      if (B.aura.ring) { ctx.save(); ctx.strokeStyle = B.aura.color; ctx.globalAlpha = 0.7; ctx.lineWidth = 3 * P.s + 1; ctx.beginPath(); ctx.arc(hx, hy, 190 * P.s, 0, TAU); ctx.stroke(); ctx.globalAlpha = 0.3; ctx.beginPath(); ctx.arc(hx, hy, 214 * P.s, 0, TAU); ctx.stroke(); ctx.restore(); }   // the prabhavali ring of vyasa.js
+    };
     if (B.after) def.after = B.after;
     return CH.define(def);
   };
