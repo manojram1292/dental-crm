@@ -138,7 +138,7 @@
     ctx.save(); ctx.translate(mv[0], mv[1]); ctx.font = R.font(size, 'display', 700); ctx.letterSpacing = `${size * 0.08}px`; ctx.textBaseline = 'alphabetic';
     let cx = x - tw / 2;
     [...text].forEach((ch, i) => {
-      const lk = E.outBack ? E.outBack(clamp((k - 0.2 - i * 0.035) / 0.3)) : E.outCubic(clamp((k - 0.2 - i * 0.035) / 0.3));
+      const lk = E.outBack ? E.outBack(clamp((k - i * 0.02) / 0.28)) : E.outCubic(clamp((k - i * 0.02) / 0.28));
       const cw = ctx.measureText(ch).width;
       if (lk > 0) { ctx.globalAlpha = out * clamp(lk); ctx.fillStyle = KIT.hex(PAL.goldPale, '#ffffff', 0.5 * (1 - clamp(lk))); ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(8); ctx.fillText(ch, cx, y - (1 - lk) * 26); }
       cx += cw;
@@ -146,7 +146,7 @@
     ctx.restore();
     const ul = E.inOutCubic(clamp((k - 0.5) / 0.4));
     if (ul > 0) { ctx.save(); ctx.translate(mv[0], mv[1]); ctx.globalAlpha = out; ctx.fillStyle = PAL.gold; ctx.beginPath(); ctx.moveTo(x - tw / 2, y + 14); ctx.quadraticCurveTo(x - tw / 2 + tw * ul * 0.5, y + 8, x - tw / 2 + tw * ul, y + 13); ctx.quadraticCurveTo(x - tw / 2 + tw * ul * 0.5, y + 19, x - tw / 2, y + 20); ctx.fill(); ctx.restore(); }
-    if (epithet) { ctx.save(); ctx.translate(mv[0], mv[1]); ctx.globalAlpha = out * E.outCubic(clamp((k - 0.6) / 0.35)); ctx.font = R.font(size * 0.56, 'caption', 600); ctx.textAlign = 'center'; ctx.fillStyle = PAL.cream; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(6); ctx.fillText(epithet, x, y + size * 0.9); ctx.restore(); }
+    if (epithet) { ctx.save(); ctx.translate(mv[0], mv[1]); ctx.globalAlpha = out * E.outCubic(clamp((k - 0.35) / 0.35)); ctx.font = R.font(size * 0.56, 'caption', 600); ctx.textAlign = 'center'; ctx.fillStyle = PAL.cream; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(6); ctx.fillText(epithet, x, y + size * 0.9); ctx.restore(); }
   };
   /** THE WORD OF THE TURN: stamps in large with an ink ring; holds; o.out fades. */
   TY.turnWord = (ctx, T, k, word, o = {}) => {
