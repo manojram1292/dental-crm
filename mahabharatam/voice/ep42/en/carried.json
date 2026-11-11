@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8424,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9165,
+   "words": 2,
+   "speed": 0.842,
+   "text": "A demon,"
+  },
+  {
+   "t0": 0.9965,
+   "t1": 2.2948,
+   "words": 4,
+   "speed": 0.842,
+   "text": "in a boar's shape,"
+  },
+  {
+   "t0": 2.3748,
+   "t1": 3.9708,
+   "words": 4,
+   "speed": 0.842,
+   "text": "was carrying off Puloma,"
+  },
+  {
+   "t0": 4.0708,
+   "t1": 5.8729,
+   "words": 4,
+   "speed": 0.842,
+   "text": "the sage Bhrigu's wife."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,334 @@
+{
+ "episode": 41,
+ "duration": 57.7,
+ "stems": {
+  "amb": {
+   "rms_db": -35.1,
+   "peak_db": -15.1,
+   "loudest_at_s": 46.89,
+   "loudest_rms_db": -29.1
+  },
+  "foley": {
+   "rms_db": -37.5,
+   "peak_db": -16.6,
+   "loudest_at_s": 48.75,
+   "loudest_rms_db": -26.8
+  },
+  "mus": {
+   "rms_db": -26.6,
+   "peak_db": -2.8,
+   "loudest_at_s": 56.52,
+   "loudest_rms_db": -15.7
+  }
+ },
+ "foley": [
+  {
+   "line": "hook",
+   "cue": "flame",
+   "asked_s": 0.08,
+   "onset_s": 0.119,
+   "audio_offset_frames": 1.2,
+   "peak_offset_frames": 4.3,
+   "peak_db": -41.9
+  },
+  {
+   "line": "hook",
+   "cue": "step@0",
+   "asked_s": 0.81,
+   "onset_s": 0.812,
+   "audio_offset_frames": 0.0,
+   "peak_offset_frames": 0.3,
+   "peak_db": -30.8
+  },
+  {
+   "line": "ask",
+   "cue": "cloth",
+   "asked_s": 4.163,
+   "onset_s": 4.227,
+   "audio_offset_frames": 1.9,
+   "peak_offset_frames": 5.7,
+   "peak_db": -44.3
+  },
+  {
+   "line": "begin",
+   "cue": "staff@0",
+   "asked_s": 10.3,
+   "onset_s": 10.299,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.2,
+   "peak_db": -32.4
+  },
+  {
+   "line": "alone",
+   "cue": "birds",
+   "asked_s": 14.271,
+   "onset_s": 14.279,
+   "audio_offset_frames": 0.2,
+   "peak_offset_frames": 6.6,
+   "peak_db": -36.9
+  },
+  {
+   "line": "alone",
+   "cue": "steps@1",
+   "asked_s": 16.356,
+   "onset_s": 16.357,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 0.4,
+   "peak_db": -32.2
+  },
+  {
+   "line": "came",
+   "cue": "steps",
+   "asked_s": 18.499,
+   "onset_s": 18.502,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 0.4,
+   "peak_db": -32.2
+  },
+  {
+   "line": "came",
+   "cue": "rustle@0",
+   "asked_s": 18.945,
+   "onset_s": 18.973,
+   "audio_offset_frames": 0.8,
+   "peak_offset_frames": 1.0,
+   "peak_db": -32.2
+  },
+  {
+   "line": "given",
+   "cue": "flame",
+   "asked_s": 22.863,
+   "onset_s": 23.023,
+   "audio_offset_frames": 4.8,
+   "peak_offset_frames": 4.8,
+   "peak_db": -41.2
+  },
+  {
+   "line": "given",
+   "cue": "cloth@0",
+   "asked_s": 23.631,
+   "onset_s": 23.514,
+   "audio_offset_frames": -3.5,
+   "peak_offset_frames": 5.2,
+   "peak_db": -40.5
+  },
+  {
+   "line": "fire",
+   "cue": "flame@0",
+   "asked_s": 28.669,
+   "onset_s": 28.723,
+   "audio_offset_frames": 1.6,
+   "peak_offset_frames": 3.5,
+   "peak_db": -41.9
+  },
+  {
+   "line": "fire",
+   "cue": "step",
+   "asked_s": 26.416,
+   "onset_s": 26.417,
+   "audio_offset_frames": 0.0,
+   "peak_offset_frames": 0.4,
+   "peak_db": -31.7
+  },
+  {
+   "line": "press",
+   "cue": "flame",
+   "asked_s": 33.424,
+   "onset_s": 33.476,
+   "audio_offset_frames": 1.6,
+   "peak_offset_frames": 4.6,
+   "peak_db": -40.6
+  },
+  {
+   "line": "press",
+   "cue": "breath@1",
+   "asked_s": 37.008,
+   "onset_s": 37.062,
+   "audio_offset_frames": 1.6,
+   "peak_offset_frames": 7.6,
+   "peak_db": -50.4
+  },
+  {
+   "line": "fear",
+   "cue": "flame",
+   "asked_s": 37.818,
+   "onset_s": 37.875,
+   "audio_offset_frames": 1.7,
+   "peak_offset_frames": 5.3,
+   "peak_db": -41.0
+  },
+  {
+   "line": "truth",
+   "cue": "flame@0",
+   "asked_s": 44.593,
+   "onset_s": 44.628,
+   "audio_offset_frames": 1.1,
+   "peak_offset_frames": 3.4,
+   "peak_db": -42.4
+  },
+  {
+   "line": "truth",
+   "cue": "breath",
+   "asked_s": 41.951,
+   "onset_s": 41.999,
+   "audio_offset_frames": 1.4,
+   "peak_offset_frames": 7.2,
+   "peak_db": -50.2
+  },
+  {
+   "line": "boar",
+   "cue": "hooves",
+   "asked_s": 46.669,
+   "onset_s": 46.672,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 7.1,
+   "peak_db": -21.8
+  },
+  {
+   "line": "boar",
+   "cue": "growl@0",
+   "asked_s": 48.219,
+   "onset_s": 48.099,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -1.6,
+   "peak_db": -20.7
+  },
+  {
+   "line": "boar",
+   "cue": "whoosh@1",
+   "asked_s": 49.23,
+   "onset_s": 49.11,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 5.9,
+   "peak_db": -22.3
+  },
+  {
+   "line": "cliff",
+   "cue": "thud@0",
+   "asked_s": 52.239,
+   "onset_s": 52.24,
+   "audio_offset_frames": 0.0,
+   "peak_offset_frames": 0.3,
+   "peak_db": -22.0
+  },
+  {
+   "line": "cliff",
+   "cue": "flame@1",
+   "asked_s": 54.285,
+   "onset_s": 54.34,
+   "audio_offset_frames": 1.6,
+   "peak_offset_frames": 4.1,
+   "peak_db": -41.0
+  }
+ ],
+ "ambience": [
+  {
+   "line": "hook",
+   "amb": "hearth",
+   "rms_db": -39.0,
+   "centroid_hz": 786
+  },
+  {
+   "line": "ask",
+   "amb": "night-fire",
+   "rms_db": -39.3,
+   "centroid_hz": 732
+  },
+  {
+   "line": "begin",
+   "amb": "night-fire",
+   "rms_db": -38.7,
+   "centroid_hz": 1086
+  },
+  {
+   "line": "alone",
+   "amb": "forest-day",
+   "rms_db": -34.6,
+   "centroid_hz": 1482
+  },
+  {
+   "line": "came",
+   "amb": "forest-day",
+   "rms_db": -37.5,
+   "centroid_hz": 1715
+  },
+  {
+   "line": "given",
+   "amb": "hearth",
+   "rms_db": -38.9,
+   "centroid_hz": 1073
+  },
+  {
+   "line": "fire",
+   "amb": "hearth",
+   "rms_db": -38.2,
+   "centroid_hz": 1258
+  },
+  {
+   "line": "press",
+   "amb": "hearth",
+   "rms_db": -38.6,
+   "centroid_hz": 1142
+  },
+  {
+   "line": "fear",
+   "amb": "hearth",
+   "rms_db": -38.8,
+   "centroid_hz": 833
+  },
+  {
+   "line": "truth",
+   "amb": "hearth",
+   "rms_db": -38.3,
+   "centroid_hz": 850
+  },
+  {
+   "line": "boar",
+   "amb": "storm",
+   "rms_db": -30.0,
+   "centroid_hz": 1128
+  },
+  {
+   "line": "cliff",
+   "amb": "storm",
+   "rms_db": -30.1,
+   "centroid_hz": 1136
+  },
+  {
+   "line": "next",
+   "amb": "storm",
+   "rms_db": -32.5,
+   "centroid_hz": 1204
+  }
+ ],
+ "mix": {
+  "peak_db": -2.51,
+  "samples_at_full_scale": 0,
+  "seconds_under_-50dB": 2.12,
+  "energy_pct": {
+   "under_120": 10.93,
+   "120_500": 54.21,
+   "500_2k": 26.03,
+   "2k_6k": 5.85,
+   "over_6k": 2.97
+  }
+ },
+ "ambience_places": {
+  "hearth": {
+   "lines": 6,
+   "centroid_hz": 990
+  },
+  "night-fire": {
+   "lines": 2,
+   "centroid_hz": 909
+  },
+  "forest-day": {
+   "lines": 2,
+   "centroid_hz": 1598
+  },
+  "storm": {
+   "lines": 3,
+   "centroid_hz": 1156
+  }
+ }
+}

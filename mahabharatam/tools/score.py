@@ -2885,6 +2885,9 @@ def _segments(tl, SL, field, default):
     return out
 
 
+FOLEY_LOG = []
+
+
 def build_layers(tl):
     """Episode 41 on: three stems. Returns {'amb', 'foley', 'mus'} (each (2, N)); their sum is the music.wav bed."""
     D = tl['duration']
@@ -2924,6 +2927,14 @@ def build_layers(tl):
             at = (l['beats'][int(b)] if int(b) < len(l['beats']) else t0 + 0.1) if b else t0 + 0.08
             x = foley_hit(kind, (key, li, j), max(0.5, t1 - at))
             x = x if x.ndim == 2 else pan(x, rng('fp', key, li, j).uniform(-0.35, 0.35))
+            if b and kind in ('whoosh', 'cloth', 'growl', 'rustle', 'breath', 'leaf', 'wings', 'ash', 'hiss', 'creak'):
+                # a SWELL is placed by its peak, not its start: the loudest 10 ms lands on the beat (tools/soundcheck.py measures it)
+                m = np.abs(x).max(axis=0) if x.ndim == 2 else np.abs(x); w = max(1, smp(0.01)); e = np.convolve(m, np.ones(w) / w, mode='same')
+                at = max(0.0, at - min(0.35, float(np.argmax(e)) / SR))
+            # the cue sheet as laid (tools/soundcheck.py reads it): where the sound starts, where it first reaches a quarter of
+            # its peak (its audible onset) and where it peaks, measured on the sound alone before it is summed into the stem
+            m_ = np.abs(x).max(axis=0) if x.ndim == 2 else np.abs(x); w_ = max(1, smp(0.008)); e_ = np.convolve(m_, np.ones(w_) / w_, mode='same'); asked = (l['beats'][int(b)] if int(b) < len(l['beats']) else t0 + 0.1) if b else t0 + 0.08
+            FOLEY_LOG.append({'line': l['id'], 'cue': cue, 'asked_s': round(asked, 3), 'start_s': round(at, 3), 'onset_s': round(at + float(np.argmax(e_ > 0.25 * e_.max())) / SR, 3), 'peak_s': round(at + float(np.argmax(e_)) / SR, 3), 'peak_db': round(20 * np.log10(max(e_.max(), 1e-9)), 1)})
             add(fol, fade(x, 0.004, 0.08), at)
         for j, cue in enumerate(SL[l['id']].get('sfx', [])):
             kind, _, b = cue.partition('@')
@@ -3015,6 +3026,7 @@ def main():
             pass
     if ep >= 41:
         stems = build_layers(tl)
+        json.dump(FOLEY_LOG, open(os.path.join(ROOT, 'audio', tag, 'foley-cues.json'), 'w'), indent=1)
         for name, v in stems.items():
             write_wav(os.path.join(ROOT, 'audio', tag, f'{name}.wav'), v)
         x = sum(stems.values())

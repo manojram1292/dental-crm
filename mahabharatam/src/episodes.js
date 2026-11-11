@@ -97,6 +97,10 @@
     // episode 40 (the arc finale): the fire sinking, the enclosure after the fire (cool blue dusk, embers), Vasuki's hall at full gold dawn, the night of the telling, the arc-end card
     40: ['ep04/_common', 'ep05/_common', 'ep06/_common', 'ep07/_common', 'ep08/_common', 'ep09/_common', 'ep10/_common', 'ep11/_common', 'ep12/_common', 'ep13/_common', 'ep15/_common', 'ep17/_common', 'ep20/_common', 'ep31/_common', 'ep32/_common', 'ep33/_common', 'ep34/_common', 'ep35/_common', 'ep36/_common', 'ep37/_common', 'ep38/_common', 'ep39/_common', '_common', 's1-hook', 's2-urge', 's3-grant', 's4-embers', 's5-builder', 's6-frame', 's7-thanks', 's8-wish', 's9-payoff', 's10-told', 's11-arcend', 's12-cliff', 's13-next'],
     // 99: the KIT LAB REEL (episode 41 step-up): one shot per new kit feature; never published (script/ep99.en.json)
+    41: ['_common', 'scenes'],
+    42: ['ep41/_common', 'scenes'],
+    43: ['ep41/_common', 'scenes'],
+    44: ['ep41/_common', '_common', 'scenes'],
     99: ['lab'],
   };
   const q = new URLSearchParams(location.search);

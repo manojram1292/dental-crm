@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6807,
+   "words": 6,
+   "speed": 0.81,
+   "text": "She did not see the snake"
+  },
+  {
+   "t0": 1.7807,
+   "t1": 3.2275,
+   "words": 4,
+   "speed": 0.81,
+   "text": "asleep in her path."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

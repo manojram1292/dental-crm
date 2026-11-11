@@ -1,0 +1,37 @@
+{
+ "speaker": "agni",
+ "voice": "am_puck",
+ "speed": 0.8,
+ "pitch": -2.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1392,
+   "words": 4,
+   "speed": 0.8,
+   "text": "I told the truth."
+  },
+  {
+   "t0": 1.4392,
+   "t1": 2.9659,
+   "words": 7,
+   "speed": 0.8,
+   "text": "I am the mouth of the gods:"
+  },
+  {
+   "t0": 3.1659,
+   "t1": 4.3003,
+   "words": 4,
+   "speed": 0.8,
+   "text": "how can their mouth"
+  },
+  {
+   "t0": 4.3603,
+   "t1": 5.4145,
+   "words": 2,
+   "speed": 0.8,
+   "text": "eat everything?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

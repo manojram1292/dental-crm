@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8424,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7243,
+   "words": 5,
+   "speed": 0.842,
+   "text": "The demon became a boar,"
+  },
+  {
+   "t0": 1.8243,
+   "t1": 2.7314,
+   "words": 2,
+   "speed": 0.842,
+   "text": "seized her,"
+  },
+  {
+   "t0": 2.8314,
+   "t1": 4.292,
+   "words": 5,
+   "speed": 0.842,
+   "text": "and ran like the wind."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

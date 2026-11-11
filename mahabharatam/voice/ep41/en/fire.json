@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8424,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6596,
+   "words": 8,
+   "speed": 0.842,
+   "text": "He had to be sure it was she."
+  },
+  {
+   "t0": 1.9096,
+   "t1": 3.7991,
+   "words": 5,
+   "speed": 0.842,
+   "text": "He asked the household fire:"
+  },
+  {
+   "t0": 3.9491,
+   "t1": 4.7106,
+   "words": 1,
+   "speed": 0.842,
+   "text": "Agni,"
+  },
+  {
+   "t0": 4.7906,
+   "t1": 5.8073,
+   "words": 2,
+   "speed": 0.842,
+   "text": "the witness."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

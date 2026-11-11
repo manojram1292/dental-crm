@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3955,
+   "words": 2,
+   "speed": 0.891,
+   "text": "Generations later,"
+  },
+  {
+   "t0": 1.4955,
+   "t1": 4.8312,
+   "words": 10,
+   "speed": 0.891,
+   "text": "one of Bhrigu's line lost his bride to a snake."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

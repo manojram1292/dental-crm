@@ -1,0 +1,347 @@
+{
+ "episode": 42,
+ "duration": 56.73,
+ "stems": {
+  "amb": {
+   "rms_db": -34.7,
+   "peak_db": -17.4,
+   "loudest_at_s": 18.17,
+   "loudest_rms_db": -30.2
+  },
+  "foley": {
+   "rms_db": -34.3,
+   "peak_db": -14.6,
+   "loudest_at_s": 5.92,
+   "loudest_rms_db": -24.9
+  },
+  "mus": {
+   "rms_db": -25.6,
+   "peak_db": -2.7,
+   "loudest_at_s": 54.31,
+   "loudest_rms_db": -14.9
+  }
+ },
+ "foley": [
+  {
+   "line": "hook",
+   "cue": "thud",
+   "asked_s": 0.08,
+   "onset_s": 0.081,
+   "audio_offset_frames": 0.0,
+   "peak_offset_frames": 0.4,
+   "peak_db": -19.9
+  },
+  {
+   "line": "hook",
+   "cue": "flame@0",
+   "asked_s": 0.777,
+   "onset_s": 0.657,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 4.4,
+   "peak_db": -37.9
+  },
+  {
+   "line": "carried",
+   "cue": "hooves",
+   "asked_s": 3.736,
+   "onset_s": 3.738,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 7.1,
+   "peak_db": -19.9
+  },
+  {
+   "line": "carried",
+   "cue": "growl@0",
+   "asked_s": 5.779,
+   "onset_s": 5.67,
+   "audio_offset_frames": -3.3,
+   "peak_offset_frames": 8.8,
+   "peak_db": -19.7
+  },
+  {
+   "line": "fell",
+   "cue": "whoosh@0",
+   "asked_s": 10.73,
+   "onset_s": 10.61,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 0.0,
+   "peak_db": -41.1
+  },
+  {
+   "line": "fell",
+   "cue": "thud@1",
+   "asked_s": 13.254,
+   "onset_s": 13.255,
+   "audio_offset_frames": 0.0,
+   "peak_offset_frames": 0.4,
+   "peak_db": -20.5
+  },
+  {
+   "line": "ash",
+   "cue": "sizzle@1",
+   "asked_s": 16.854,
+   "onset_s": 16.853,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.3,
+   "peak_db": -40.1
+  },
+  {
+   "line": "ash",
+   "cue": "ash@2",
+   "asked_s": 18.372,
+   "onset_s": 18.252,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 1.8,
+   "peak_db": -45.6
+  },
+  {
+   "line": "walk",
+   "cue": "steps",
+   "asked_s": 19.077,
+   "onset_s": 19.079,
+   "audio_offset_frames": 0.0,
+   "peak_offset_frames": 0.4,
+   "peak_db": -30.2
+  },
+  {
+   "line": "walk",
+   "cue": "cloth@0",
+   "asked_s": 19.77,
+   "onset_s": 19.65,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -3.6,
+   "peak_db": -30.7
+  },
+  {
+   "line": "river",
+   "cue": "water",
+   "asked_s": 23.522,
+   "onset_s": 24.048,
+   "audio_offset_frames": 15.8,
+   "peak_offset_frames": -4.5,
+   "peak_db": -43.0
+  },
+  {
+   "line": "river",
+   "cue": "drip@0",
+   "asked_s": 25.107,
+   "onset_s": 24.99,
+   "audio_offset_frames": -3.5,
+   "peak_offset_frames": 8.2,
+   "peak_db": -41.8
+  },
+  {
+   "line": "home",
+   "cue": "steps",
+   "asked_s": 29.384,
+   "onset_s": 29.386,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 0.4,
+   "peak_db": -30.3
+  },
+  {
+   "line": "home",
+   "cue": "pot@0",
+   "asked_s": 29.953,
+   "onset_s": 29.859,
+   "audio_offset_frames": -2.8,
+   "peak_offset_frames": -1.8,
+   "peak_db": -30.3
+  },
+  {
+   "line": "who",
+   "cue": "breath@0",
+   "asked_s": 32.862,
+   "onset_s": 32.742,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -0.0,
+   "peak_db": -48.2
+  },
+  {
+   "line": "told",
+   "cue": "flame",
+   "asked_s": 35.64,
+   "onset_s": 35.704,
+   "audio_offset_frames": 1.9,
+   "peak_offset_frames": 7.9,
+   "peak_db": -39.0
+  },
+  {
+   "line": "told",
+   "cue": "cloth@1",
+   "asked_s": 38.088,
+   "onset_s": 37.968,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 0.0,
+   "peak_db": -43.2
+  },
+  {
+   "line": "named",
+   "cue": "staff@0",
+   "asked_s": 40.995,
+   "onset_s": 40.994,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.2,
+   "peak_db": -30.6
+  },
+  {
+   "line": "named",
+   "cue": "cloth",
+   "asked_s": 39.143,
+   "onset_s": 39.207,
+   "audio_offset_frames": 1.9,
+   "peak_offset_frames": 6.2,
+   "peak_db": -43.4
+  },
+  {
+   "line": "turned",
+   "cue": "steps",
+   "asked_s": 47.742,
+   "onset_s": 47.744,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 0.4,
+   "peak_db": -30.1
+  },
+  {
+   "line": "turned",
+   "cue": "flame@1",
+   "asked_s": 50.646,
+   "onset_s": 50.618,
+   "audio_offset_frames": -0.8,
+   "peak_offset_frames": 2.0,
+   "peak_db": -30.0
+  },
+  {
+   "line": "cliff",
+   "cue": "whoosh@0",
+   "asked_s": 52.618,
+   "onset_s": 52.498,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 0.6,
+   "peak_db": -41.6
+  },
+  {
+   "line": "cliff",
+   "cue": "sizzle@1",
+   "asked_s": 54.11,
+   "onset_s": 54.11,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.3,
+   "peak_db": -38.8
+  }
+ ],
+ "ambience": [
+  {
+   "line": "hook",
+   "amb": "storm",
+   "rms_db": -31.5,
+   "centroid_hz": 1159
+  },
+  {
+   "line": "carried",
+   "amb": "storm",
+   "rms_db": -31.1,
+   "centroid_hz": 1123
+  },
+  {
+   "line": "fell",
+   "amb": "storm",
+   "rms_db": -31.1,
+   "centroid_hz": 1155
+  },
+  {
+   "line": "ash",
+   "amb": "storm",
+   "rms_db": -31.1,
+   "centroid_hz": 1121
+  },
+  {
+   "line": "walk",
+   "amb": "river",
+   "rms_db": -36.7,
+   "centroid_hz": 1917
+  },
+  {
+   "line": "river",
+   "amb": "river",
+   "rms_db": -37.5,
+   "centroid_hz": 2048
+  },
+  {
+   "line": "home",
+   "amb": "forest-day",
+   "rms_db": -39.0,
+   "centroid_hz": 2989
+  },
+  {
+   "line": "who",
+   "amb": "forest-day",
+   "rms_db": -40.0,
+   "centroid_hz": 2406
+  },
+  {
+   "line": "told",
+   "amb": "hearth",
+   "rms_db": -39.9,
+   "centroid_hz": 742
+  },
+  {
+   "line": "named",
+   "amb": "night-fire",
+   "rms_db": -40.0,
+   "centroid_hz": 944
+  },
+  {
+   "line": "turned",
+   "amb": "night-fire",
+   "rms_db": -40.1,
+   "centroid_hz": 869
+  },
+  {
+   "line": "cliff",
+   "amb": "night-fire",
+   "rms_db": -39.9,
+   "centroid_hz": 882
+  },
+  {
+   "line": "next",
+   "amb": "night-fire",
+   "rms_db": -41.5,
+   "centroid_hz": 1352
+  }
+ ],
+ "mix": {
+  "peak_db": -2.51,
+  "samples_at_full_scale": 0,
+  "seconds_under_-50dB": 2.06,
+  "energy_pct": {
+   "under_120": 12.6,
+   "120_500": 51.19,
+   "500_2k": 26.63,
+   "2k_6k": 6.15,
+   "over_6k": 3.43
+  }
+ },
+ "ambience_places": {
+  "storm": {
+   "lines": 4,
+   "centroid_hz": 1140
+  },
+  "river": {
+   "lines": 2,
+   "centroid_hz": 1982
+  },
+  "forest-day": {
+   "lines": 2,
+   "centroid_hz": 2698
+  },
+  "hearth": {
+   "lines": 1,
+   "centroid_hz": 742
+  },
+  "night-fire": {
+   "lines": 4,
+   "centroid_hz": 1012
+  }
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "speaker": "brahma",
+ "voice": "bm_lewis",
+ "speed": 0.7992,
+ "pitch": -2,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.7807,
+   "words": 9,
+   "speed": 0.799,
+   "text": "Only a part of you shall eat all things."
+  },
+  {
+   "t0": 3.0307,
+   "t1": 5.4164,
+   "words": 5,
+   "speed": 0.799,
+   "text": "And whatever your flames burn"
+  },
+  {
+   "t0": 5.4764,
+   "t1": 7.019,
+   "words": 4,
+   "speed": 0.799,
+   "text": "will be made pure."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

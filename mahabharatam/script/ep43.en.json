@@ -63,7 +63,7 @@
       "speed": 1.1,
       "text": "Why does fire eat everything?",
       "say": "Why does fire [p:60] eat everything?",
-      "est": 3.37,
+      "est": 3.0,
       "pre": 60,
       "post": 1100,
       "role": "hook",
@@ -83,16 +83,15 @@
         "sizzle@0"
       ],
       "pal": "pure-flame",
-      "cam": "pull",
-      "note": "COLD OPEN (a question card over the answer image): a fire on its altar against lapis night, eating wood, cloth, a garland, a bone, each flaring; the card to the left of the flames, upright.",
-      "estVoice": 2.21
+      "cam": "push",
+      "note": "COLD OPEN (a question card over the answer image): a fire on its altar against lapis night, eating wood, cloth, a garland, a bone, each flaring; the card to the left of the flames, upright."
     },
     {
       "id": "because",
-      "speed": 1.04,
+      "speed": 1.1,
       "text": "The fire, Agni, told a demon the truth; the demon then carried off a sage's wife.",
-      "say": "The fire, [p:60] Agni, [p:60] told a demon the truth; [p:200] the demon then carried off a sage's wife.",
-      "est": 6.52,
+      "say": "The fire, Agni, told a demon the truth; [p:120] the demon then carried off a sage's wife.",
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -103,14 +102,14 @@
         13
       ],
       "foley": [
-        "flame",
-        "hooves@1"
+        "hooves",
+        "growl@1"
       ],
-      "pal": "hearth-amber",
+      "amb": "storm",
+      "pal": "boar-dusk",
       "cam": "slide",
       "tr": "smoke",
-      "note": "STORY 0 with the unvoiced recap band (top): the hut's fire on its altar (no face); in its smoke, the boar and the woman (a memory, one image).",
-      "estVoice": 5.97
+      "note": "STORY 0 with the unvoiced recap band (top): the memory, one image: the boar running with her through the bruised dusk of episode 41 (the fire itself is the next shot)."
     },
     {
       "id": "curse",
@@ -118,7 +117,7 @@
       "speed": 1.0,
       "text": "\"Then you shall eat everything!\"",
       "say": "Then you [p:80] shall eat [p:60] everything!",
-      "est": 3.24,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -126,7 +125,7 @@
         4
       ],
       "foley": [
-        "water@0",
+        "whoosh@0",
         "sizzle@1"
       ],
       "sfx": [
@@ -138,8 +137,7 @@
       "closeup": true,
       "tr": "ink",
       "mixDb": 2,
-      "note": "STORY 1 · THE CLOSE-UP: Bhrigu's face, wrath (brow down, mouth open), then the arm thrown forward, the palm open (plaque: Bhrigu · a great sage). Pays off episode 42's last line by 6 s.",
-      "estVoice": 2.69
+      "note": "STORY 1 · THE CLOSE-UP: Bhrigu's face, wrath (brow down, mouth open), then the arm thrown forward, the palm open (plaque: Bhrigu · a great sage). Pays off episode 42's last line by 6 s."
     },
     {
       "id": "truth",
@@ -147,7 +145,7 @@
       "speed": 1.0,
       "text": "\"I told the truth. I am the mouth of the gods: how can their mouth eat everything?\"",
       "say": "I told the truth. [p:300] I am the mouth of the gods: [p:200] how can their mouth [p:60] eat everything?",
-      "est": 7.22,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -162,15 +160,14 @@
       "pal": "hearth-amber",
       "cam": "tilt",
       "mixDb": -2,
-      "note": "STORY 2: the flame, drawn up tall and steady (Agni speaks as a voice from the fire; no face); above it, in its smoke, a row of small seated gods and ancestors receive the offering that rises through it; on \"everything\" a bone and a rag fall into the picture's edge.",
-      "estVoice": 6.67
+      "note": "STORY 2: the flame, drawn up tall and steady (Agni speaks as a voice from the fire; no face); above it, in its smoke, a row of small seated gods and ancestors receive the offering that rises through it; on \"everything\" a bone and a rag fall into the picture's edge."
     },
     {
       "id": "gone",
-      "speed": 1.04,
+      "speed": 1.1,
       "text": "Then Agni withdrew from every altar and every rite.",
       "say": "Then Agni withdrew [p:100] from every altar [p:60] and every rite.",
-      "est": 4.91,
+      "est": 3.0,
       "pre": 900,
       "post": 450,
       "emphasis": [
@@ -194,15 +191,14 @@
       "cam": "crane",
       "signature": true,
       "mixDb": -4,
-      "note": "STORY 3 · after a real silence · THE SIGNATURE SHOT · NEW LIGHT, the world without fire (cold-slate, almost colourless): a crane up over a land of altars and hearths; flame after flame goes out, far to near, each leaving a thread of grey smoke.",
-      "estVoice": 3.56
+      "note": "STORY 3 · after a real silence · THE SIGNATURE SHOT · NEW LIGHT, the world without fire (cold-slate, almost colourless): a crane up over a land of altars and hearths; flame after flame goes out, far to near, each leaving a thread of grey smoke."
     },
     {
       "id": "dark",
-      "speed": 1.04,
+      "speed": 1.1,
       "text": "No offering rose. The world suffered.",
       "say": "No offering rose. [p:250] The world suffered.",
-      "est": 3.75,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -216,15 +212,14 @@
       "pal": "cold-slate",
       "cam": "slide",
       "mixDb": -4,
-      "note": "STORY 4: priests with ladles over cold altars; a family round a dead hearth; a lateral track past them, their breath showing.",
-      "estVoice": 3.2
+      "note": "STORY 4: priests with ladles over cold altars; a family round a dead hearth; a lateral track past them, their breath showing."
     },
     {
       "id": "went",
-      "speed": 1.04,
+      "speed": 1.1,
       "text": "The sages went to the gods; the gods to Brahma.",
       "say": "The sages went to the gods; [p:200] the gods to Brahma.",
-      "est": 4.16,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -244,18 +239,17 @@
       "pal": "brahma-rose",
       "cam": "tilt",
       "tr": "brush",
-      "note": "STORY 5 · NEW LIGHT, Brahma's court (brahma-rose, a lotus sky): a tilt up from the grey earth through cloud to the rose-gold court: sages, then gods, then Brahma on his lotus (plaque: Brahma · the creator).",
-      "estVoice": 3.61
+      "note": "STORY 5 · NEW LIGHT, Brahma's court (brahma-rose, a lotus sky): a tilt up from the grey earth through cloud to the rose-gold court: sages, then gods, then Brahma on his lotus (plaque: Brahma · the creator)."
     },
     {
       "id": "pure",
       "speaker": "brahma",
-      "speed": 1.0,
+      "speed": 1.08,
       "text": "\"Only a part of you shall eat all things. And whatever your flames burn will be made pure.\"",
-      "say": "Only a part of you [p:60] shall eat all things. [p:300] And whatever your flames burn [p:100] will be made pure.",
-      "est": 8.6,
+      "say": "Only a part of you shall eat all things. [p:250] And whatever your flames burn [p:60] will be made pure.",
+      "est": 3.0,
       "pre": 900,
-      "post": 400,
+      "post": 350,
       "beats": [
         8,
         17
@@ -270,15 +264,14 @@
       ],
       "pal": "brahma-rose",
       "cam": "push",
-      "note": "STORY 6 · THE TURN (≈ 55 %) after a real silence: Brahma, calm, a hand open toward a small dark flame that stands before him; on \"pure\" the flame turns clear gold-white, as the sun's rays make clean what they touch (the text's own likeness, shown as a ray falling on it). The word of the turn: PURE.",
-      "estVoice": 7.3
+      "note": "STORY 6 · THE TURN (≈ 55 %) after a real silence: Brahma, calm, a hand open toward a small dark flame that stands before him; on \"pure\" the flame turns clear gold-white, as the sun's rays make clean what they touch (the text's own likeness, shown as a ray falling on it). The word of the turn: PURE."
     },
     {
       "id": "back",
-      "speed": 1.04,
+      "speed": 1.1,
       "text": "So Agni returned, and the fires were lit again.",
       "say": "So Agni returned, [p:120] and the fires were lit again.",
-      "est": 4.09,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -298,16 +291,15 @@
       "pal": "pure-flame",
       "cam": "orbit",
       "tr": "lamp",
-      "note": "STORY 8 · NEW LIGHT (pure-flame: clear gold on lapis): the hearths and altars light again, near to far, in the reverse of the signature shot; people lift their hands.",
-      "estVoice": 3.54
+      "note": "STORY 8 · NEW LIGHT (pure-flame: clear gold on lapis): the hearths and altars light again, near to far, in the reverse of the signature shot; people lift their hands."
     },
     {
       "id": "frame",
       "speaker": "sauti",
-      "speed": 1.0,
+      "speed": 1.06,
       "text": "So fire eats everything, and what it burns is clean.",
-      "say": "So fire eats everything, [p:200] and what it burns [p:60] is clean.",
-      "est": 5.46,
+      "say": "So fire eats everything, [p:150] and what it burns is clean.",
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -323,17 +315,16 @@
       "pal": "naimisha-firstlight",
       "cam": "push",
       "mixDb": -3,
-      "note": "FRAME (answers the hook): Sauti by the Naimisha fire at first light, a hand open to the flames; Shaunaka listening.",
-      "estVoice": 4.91
+      "note": "FRAME (answers the hook): Sauti by the Naimisha fire at first light, a hand open to the flames; Shaunaka listening."
     },
     {
       "id": "cliff",
-      "speed": 1.04,
+      "speed": 1.1,
       "text": "Generations later, one of Bhrigu's line lost his bride to a snake.",
-      "say": "Generations later, [p:120] one of Bhrigu's line [p:80] lost his bride to a snake.",
-      "est": 5.23,
+      "say": "Generations later, [p:100] one of Bhrigu's line lost his bride to a snake.",
+      "est": 3.0,
       "pre": 250,
-      "post": 400,
+      "post": 350,
       "beats": [
         1,
         11
@@ -348,8 +339,7 @@
       "cam": "rack",
       "tr": "smoke",
       "mixDb": -1,
-      "note": "NEXT 1 (the catalog's cliffhanger): a meadow path at dusk gone violet: a girl's anklet in the foreground grass, out of focus; the focus racks to a small banded snake asleep across the path. The source line (top).",
-      "estVoice": 4.58
+      "note": "NEXT 1 (the catalog's cliffhanger): a meadow path at dusk gone violet: a girl's anklet in the foreground grass, out of focus; the focus racks to a small banded snake asleep across the path. The source line (top)."
     },
     {
       "id": "next",

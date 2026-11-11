@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7075,
+   "words": 4,
+   "speed": 0.81,
+   "text": "He named her Pramadvara:"
+  },
+  {
+   "t0": 1.9075,
+   "t1": 3.5341,
+   "words": 4,
+   "speed": 0.81,
+   "text": "the finest of women."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

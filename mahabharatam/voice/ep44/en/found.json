@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3225,
+   "words": 4,
+   "speed": 0.81,
+   "text": "A sage found her"
+  },
+  {
+   "t0": 1.4225,
+   "t1": 3.2988,
+   "words": 6,
+   "speed": 0.81,
+   "text": "and raised her as his own."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

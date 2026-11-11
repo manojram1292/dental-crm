@@ -1,0 +1,30 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.83,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 3.0625,
+   "words": 7,
+   "speed": 0.83,
+   "text": "Your line begins with the sage Bhrigu"
+  },
+  {
+   "t0": 3.1225,
+   "t1": 4.4276,
+   "words": 3,
+   "speed": 0.83,
+   "text": "and his wife,"
+  },
+  {
+   "t0": 4.5076,
+   "t1": 5.6938,
+   "words": 1,
+   "speed": 0.83,
+   "text": "Puloma."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

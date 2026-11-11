@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8424,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6744,
+   "words": 4,
+   "speed": 0.842,
+   "text": "Puloma lifted her son"
+  },
+  {
+   "t0": 1.7544,
+   "t1": 2.9125,
+   "words": 3,
+   "speed": 0.842,
+   "text": "and walked on,"
+  },
+  {
+   "t0": 3.0325,
+   "t1": 3.8951,
+   "words": 1,
+   "speed": 0.842,
+   "text": "weeping."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

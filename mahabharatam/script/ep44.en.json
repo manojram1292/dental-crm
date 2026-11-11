@@ -61,10 +61,10 @@
   "lines": [
     {
       "id": "hook",
-      "speed": 1.12,
+      "speed": 1.18,
       "text": "A bride. A snake. A wedding.",
       "say": "A bride. A snake. A wedding.",
-      "est": 3.7,
+      "est": 3.0,
       "pre": 60,
       "post": 1000,
       "role": "hook",
@@ -86,15 +86,14 @@
       ],
       "pal": "venom-violet",
       "cam": "rack",
-      "note": "COLD OPEN (three fragments, each landing on its own image inside one moving shot): an anklet stepping through violet grass; a banded snake asleep across the path; a garland half made. The card builds word by word, centre-left.",
-      "estVoice": 2.64
+      "note": "COLD OPEN (three fragments, each landing on its own image inside one moving shot): an anklet stepping through violet grass; a banded snake asleep across the path; a garland half made. The card builds word by word, centre-left."
     },
     {
       "id": "family",
       "speed": 1.0,
       "text": "Ruru was a young sage of Bhrigu's line.",
       "say": "Ruru was a young sage [p:80] of Bhrigu's line.",
-      "est": 3.4,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -113,15 +112,14 @@
       "pal": "hermitage-green",
       "cam": "slide",
       "tr": "brush",
-      "note": "STORY 0 with the unvoiced recap band (top): Ruru walking through a hermitage wood with his staff (plaque: Ruru · a young sage of Bhrigu's line). Pays off episode 43's last line by 5 s.",
-      "estVoice": 2.85
+      "note": "STORY 0 with the unvoiced recap band (top): Ruru walking through a hermitage wood with his staff (plaque: Ruru · a young sage of Bhrigu's line). Pays off episode 43's last line by 5 s."
     },
     {
       "id": "left",
       "speed": 1.0,
       "text": "By a river, an apsara, a nymph of heaven, left her newborn daughter.",
       "say": "By a river, [p:80] an apsara, [p:60] a nymph of heaven, [p:100] left her newborn daughter.",
-      "est": 5.95,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -139,15 +137,14 @@
       "cam": "tilt",
       "tr": "lamp",
       "mixDb": -3,
-      "note": "STORY 1 · NEW LIGHT, the river bank in pearl mist (riverbank-pearl): a luminous woman lays a bundle among the reeds and rises, not quite touching the ground (plaque: Menaka · an apsara); a tilt from her down to the child.",
-      "estVoice": 5.4
+      "note": "STORY 1 · NEW LIGHT, the river bank in pearl mist (riverbank-pearl): a luminous woman lays a bundle among the reeds and rises, not quite touching the ground (plaque: Menaka · an apsara); a tilt from her down to the child."
     },
     {
       "id": "found",
       "speed": 1.0,
       "text": "A sage found her and raised her as his own.",
       "say": "A sage found her [p:100] and raised her as his own.",
-      "est": 3.67,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -160,15 +157,14 @@
       ],
       "pal": "riverbank-pearl",
       "cam": "push",
-      "note": "STORY 2: an old sage with a great mass of matted hair kneels in the reeds (kneel, then carry: an eased blend) and lifts the shining child (plaque: Sthulakesha · the sage who raised her).",
-      "estVoice": 3.12
+      "note": "STORY 2: an old sage with a great mass of matted hair kneels in the reeds (kneel, then carry: an eased blend) and lifts the shining child (plaque: Sthulakesha · the sage who raised her)."
     },
     {
       "id": "named",
       "speed": 1.0,
       "text": "He named her Pramadvara: the finest of women.",
       "say": "He named her Pramadvara: [p:200] the finest of women.",
-      "est": 4.17,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -187,15 +183,14 @@
       "pal": "meadow-spring",
       "cam": "orbit",
       "tr": "brush",
-      "note": "STORY 3 · NEW LIGHT, a spring meadow (meadow-spring, petals): the girl grown, turning among flowers; an orbit round her (plaque: Pramadvara · \"the finest of women\").",
-      "estVoice": 3.62
+      "note": "STORY 3 · NEW LIGHT, a spring meadow (meadow-spring, petals): the girl grown, turning among flowers; an orbit round her (plaque: Pramadvara · \"the finest of women\")."
     },
     {
       "id": "loved",
       "speed": 1.0,
       "text": "Ruru saw her, and loved her.",
       "say": "Ruru saw her, [p:300] and loved her.",
-      "est": 3.92,
+      "est": 3.0,
       "pre": 250,
       "post": 900,
       "emphasis": [
@@ -214,15 +209,14 @@
       "cam": "push",
       "closeup": true,
       "mixDb": -4,
-      "note": "STORY 4 · THE CLOSE-UP: Ruru's face between two trunks: calm to wonder to a small smile (brow up, eyes wide, the mouth's corner); his gaze follows her across; the shot holds on him after the words. Behind, small and out of focus, two old sages with joined palms and a garland between them: the wedding day is set (seen, not said).",
-      "estVoice": 2.77
+      "note": "STORY 4 · THE CLOSE-UP: Ruru's face between two trunks: calm to wonder to a small smile (brow up, eyes wide, the mouth's corner); his gaze follows her across; the shot holds on him after the words. Behind, small and out of focus, two old sages with joined palms and a garland between them: the wedding day is set (seen, not said)."
     },
     {
       "id": "play",
       "speed": 1.0,
       "text": "A few days before it, she was out playing with her friends.",
       "say": "A few days before it, [p:100] she was out playing with her friends.",
-      "est": 4.82,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -237,15 +231,14 @@
       ],
       "pal": "meadow-spring",
       "cam": "crane",
-      "note": "STORY 6: the meadow from above (a crane down): three girls running; a ball of flowers thrown; the grass moves. In the lower corner of the path, a small dark coil.",
-      "estVoice": 4.27
+      "note": "STORY 6: the meadow from above (a crane down): three girls running; a ball of flowers thrown; the grass moves. In the lower corner of the path, a small dark coil."
     },
     {
       "id": "snake",
       "speed": 1.0,
       "text": "She did not see the snake asleep in her path.",
       "say": "She did not see the snake [p:100] asleep in her path.",
-      "est": 4.49,
+      "est": 3.0,
       "pre": 900,
       "post": 350,
       "beats": [
@@ -265,15 +258,14 @@
       "cam": "frame",
       "signature": true,
       "mixDb": -3,
-      "note": "STORY 7 · THE TURN (≈ 52 %) after a real silence · THE SIGNATURE SHOT: frame-within-frame at ground level: through a dark arch of grass blades, her foot coming down in the middle distance, the small sleeping snake in the foreground a clear hand's breadth of ground away from it (the two shapes never touch or overlap in the frame), the light gone violet. cam: frame.",
-      "estVoice": 3.24
+      "note": "STORY 7 · THE TURN (≈ 52 %) after a real silence · THE SIGNATURE SHOT: frame-within-frame at ground level: through a dark arch of grass blades, her foot coming down in the middle distance, the small sleeping snake in the foreground a clear hand's breadth of ground away from it (the two shapes never touch or overlap in the frame), the light gone violet. cam: frame."
     },
     {
       "id": "bit",
       "speed": 1.0,
       "text": "It bit her, and she fell.",
       "say": "It bit her, [p:250] and she fell.",
-      "est": 3.29,
+      "est": 3.0,
       "pre": 250,
       "post": 500,
       "beats": [
@@ -290,15 +282,14 @@
       "pal": "venom-violet",
       "cam": "tilt",
       "mixDb": 1,
-      "note": "STORY 8 (answers the hook): one flash of the strike (two frames of green on black, no wound shown); the garland falls; a tilt down with it.",
-      "estVoice": 2.54
+      "note": "STORY 8 (answers the hook): one flash of the strike (two frames of green on black, no wound shown); the garland falls; a tilt down with it."
     },
     {
       "id": "lay",
       "speed": 1.0,
       "text": "She lay dead, as if asleep, lovelier than ever.",
       "say": "She lay dead, [p:250] as if asleep, [p:150] lovelier than ever.",
-      "est": 5.37,
+      "est": 3.0,
       "pre": 800,
       "post": 400,
       "rest": true,
@@ -316,15 +307,14 @@
       "cam": "push",
       "tr": "ink",
       "mixDb": -4,
-      "note": "STORY 9 (a second real silence before it; the text has it: lifeless, she was lovelier still): the colour drains (ash-grey): her face among fallen flowers, calm; petals settle; a slow push.",
-      "estVoice": 4.17
+      "note": "STORY 9 (a second real silence before it; the text has it: lifeless, she was lovelier still): the colour drains (ash-grey): her face among fallen flowers, calm; petals settle; a slow push."
     },
     {
       "id": "wept",
       "speed": 1.0,
       "text": "The sages of the forest gathered and wept.",
       "say": "The sages of the forest [p:80] gathered and wept.",
-      "est": 3.63,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -341,15 +331,14 @@
       "pal": "grief-blue",
       "cam": "pull",
       "mixDb": -3,
-      "note": "STORY 10 · NEW LIGHT, the forest at night (grief-blue, one lamp): a pull back from her face to the circle of seated sages, heads bowed; Ruru standing apart, at the edge of the light.",
-      "estVoice": 3.08
+      "note": "STORY 10 · NEW LIGHT, the forest at night (grief-blue, one lamp): a pull back from her face to the circle of seated sages, heads bowed; Ruru standing apart, at the edge of the light."
     },
     {
       "id": "cliff",
       "speed": 1.0,
       "text": "Ruru walked into the deep forest and cried out. And a messenger of the gods answered.",
       "say": "Ruru walked into the deep forest [p:80] and cried out. [p:350] And a messenger of the gods [p:100] answered.",
-      "est": 6.83,
+      "est": 3.0,
       "pre": 250,
       "post": 400,
       "emphasis": [
@@ -371,8 +360,7 @@
       "pal": "grief-blue",
       "cam": "slide",
       "mixDb": -1,
-      "note": "NEXT 1 (the catalog's cliffhanger): Ruru among black trunks, his head thrown back; on \"answered\" a shaft of pale gold comes down through the canopy. The source line (top).",
-      "estVoice": 6.18
+      "note": "NEXT 1 (the catalog's cliffhanger): Ruru among black trunks, his head thrown back; on \"answered\" a shaft of pale gold comes down through the canopy. The source line (top)."
     },
     {
       "id": "next",

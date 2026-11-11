@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8424,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4567,
+   "words": 3,
+   "speed": 0.842,
+   "text": "A rakshasa came:"
+  },
+  {
+   "t0": 1.6567,
+   "t1": 3.8144,
+   "words": 7,
+   "speed": 0.842,
+   "text": "a demon who had once chosen her."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

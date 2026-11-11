@@ -108,7 +108,10 @@
       hip[1] += bobW;
       r.legs = [[S.an, 0], [S.af, PI]].map(([a, off]) => {
         const p = ph + off, sw = st * 118 * b.leg;
-        const ankle = [a[0] * b.leg - sw * Math.cos(p) * (st ? 1 : 0) + (st ? 20 * b.leg : 0), a[1] - st * 46 * Math.max(0, Math.sin(p))];
+        // PLANTED FEET: the lifted foot swings from behind to in front on a cosine; the foot on the ground then travels back in a
+        // straight line at constant speed, so a body that advances 2·sw per half cycle (KIT.act.stride) does not slide
+        const u = ((p % TAU) + TAU) % TAU, fx = u < PI ? sw * Math.cos(u) : -sw + (2 * sw * (u - PI)) / PI;
+        const ankle = [a[0] * b.leg + fx * (st ? 1 : 0) + (st ? 20 * b.leg : 0), a[1] - st * 46 * Math.max(0, Math.sin(p))];
         const reachMax = TH + SHN - 2, d = Math.hypot(ankle[0] - hip[0], ankle[1] - hip[1]);
         if (d > reachMax) { ankle[0] = hip[0] + (ankle[0] - hip[0]) * reachMax / d; ankle[1] = hip[1] + (ankle[1] - hip[1]) * reachMax / d; }
         const knee = ik(hip, ankle, TH, SHN, 1);
@@ -142,7 +145,7 @@
       r.emo = KIT.act ? (typeof P.ex.emo === 'object' && P.ex.emo ? P.ex.emo : KIT.act.EMO[P.ex.emo || P.ex.mood] || KIT.act.EMO.calm) : null;
       r.blink = KIT.act ? KIT.act.blink(T, seed / 97) : 0;
       r.gaze = P.ex.gaze || [0, 0];
-      r.prop = po.prop ?? B.prop ?? null;
+      r.prop = po.prop === false ? null : (po.prop ?? B.prop ?? null);   // pose.prop: false = empty hands
       r.hold = po.hold;
       r.L = P.L; r.k = P.k; r.s = P.s; r.flip = P.flip;
       return r;
@@ -293,7 +296,7 @@
       g.beginPath(); torsoPath(g, r, B); g.fill();
       g.beginPath(); upperPath(g, r, B); g.fill();
       g.save(); headT(g, r); g.beginPath(); headPath(g, r, B); g.fill(); g.beginPath(); hairPath(g, r, B); g.fill(); g.beginPath(); beardPath(g, r, B); g.fill();
-      if (B.jewels && B.jewels.horns) { g.beginPath(); g.moveTo(-30, -70); g.quadraticCurveTo(-70, -150, -20, -190); g.quadraticCurveTo(-36, -130, 0, -84); g.closePath(); g.fill(); g.beginPath(); g.moveTo(30, -84); g.quadraticCurveTo(40, -170, 96, -180); g.quadraticCurveTo(60, -140, 62, -80); g.closePath(); g.fill(); }
+      if (B.jewels && B.jewels.horns) { /* two long horns swept back from the brow (a buffalo's sweep, not spikes): the near one full, the far one behind it */ for (const [ox, oy, k] of [[18, -6, 0.86], [0, 0, 1]]) { g.beginPath(); g.moveTo(-34 + ox, -66 + oy); g.bezierCurveTo(-60 + ox, -150 * k + oy, 20 + ox, -230 * k + oy, 150 * k + ox, -214 * k + oy); g.bezierCurveTo(60 + ox, -196 * k + oy, 10 + ox, -150 * k + oy, 6 + ox, -78 + oy); g.closePath(); g.fill(); } }
       g.restore();
       g.restore();
       g.beginPath(); armPath(g, r, true); g.fill();

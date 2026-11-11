@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.8672,
+   "words": 6,
+   "speed": 0.891,
+   "text": "The sages went to the gods;"
+  },
+  {
+   "t0": 2.0672,
+   "t1": 3.6159,
+   "words": 4,
+   "speed": 0.891,
+   "text": "the gods to Brahma."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

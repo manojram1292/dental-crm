@@ -1,0 +1,30 @@
+{
+ "speaker": "puloman",
+ "voice": "am_onyx",
+ "speed": 0.962,
+ "pitch": -3.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.6699,
+   "words": 2,
+   "speed": 0.962,
+   "text": "Tell me,"
+  },
+  {
+   "t0": 0.7499,
+   "t1": 1.3844,
+   "words": 1,
+   "speed": 0.962,
+   "text": "Fire:"
+  },
+  {
+   "t0": 1.4644,
+   "t1": 2.9227,
+   "words": 4,
+   "speed": 0.962,
+   "text": "whose wife is she?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

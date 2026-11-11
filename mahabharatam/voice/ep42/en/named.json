@@ -1,0 +1,37 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.83,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.4814,
+   "words": 5,
+   "speed": 0.83,
+   "text": "Her son is called Chyavana,"
+  },
+  {
+   "t0": 2.5814,
+   "t1": 4.3612,
+   "words": 3,
+   "speed": 0.83,
+   "text": "the fallen one."
+  },
+  {
+   "t0": 4.6112,
+   "t1": 5.8156,
+   "words": 1,
+   "speed": 0.83,
+   "text": "Shaunaka,"
+  },
+  {
+   "t0": 5.8956,
+   "t1": 8.0485,
+   "words": 4,
+   "speed": 0.83,
+   "text": "he is your ancestor."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

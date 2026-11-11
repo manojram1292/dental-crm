@@ -64,10 +64,10 @@
     {
       "id": "hook",
       "speaker": "puloman",
-      "speed": 1.2,
+      "speed": 1.3,
       "text": "\"Tell me, Fire: whose wife is she?\"",
-      "say": "Tell me, Fire: [p:60] whose wife is she?",
-      "est": 4.04,
+      "say": "Tell me, Fire: whose wife is she?",
+      "est": 3.0,
       "pre": 60,
       "post": 1100,
       "role": "hook",
@@ -88,8 +88,7 @@
       ],
       "pal": "hearth-amber",
       "cam": "push",
-      "note": "COLD OPEN (direct speech in medias res): inside the hut, the rakshasa (back-lit by the household fire, the new rim-and-fill rule) stands before the household fire (the series' layered flame on its altar; it has no face); Puloma, large and lit, behind, a clear gap between the three. The question as a card low in the frame, not at the top (a new first frame for the series).",
-      "estVoice": 2.88
+      "note": "COLD OPEN (direct speech in medias res): inside the hut, the rakshasa (back-lit by the household fire, the new rim-and-fill rule) stands before the household fire (the series' layered flame on its altar; it has no face); Puloma, large and lit, behind, a clear gap between the three. The question as a card low in the frame, not at the top (a new first frame for the series)."
     },
     {
       "id": "ask",
@@ -97,7 +96,7 @@
       "speed": 1.0,
       "text": "\"Sauti, tell me of my own family.\"",
       "say": "Sauti, [p:120] tell me of my own family.",
-      "est": 3.55,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -114,16 +113,15 @@
       "cam": "slide",
       "tr": "smoke",
       "mixDb": -3,
-      "note": "FRAME with the unvoiced recap band (top): the Naimisha fire at the blue hour; Shaunaka (plaque: Shaunaka · chief of the forest sages) turns to Sauti. A J-cut: the night fire is heard before the picture. Pays off episode 40's last line by 5 s.",
-      "estVoice": 3.0
+      "note": "FRAME with the unvoiced recap band (top): the Naimisha fire at the blue hour; Shaunaka (plaque: Shaunaka · chief of the forest sages) turns to Sauti. A J-cut: the night fire is heard before the picture. Pays off episode 40's last line by 5 s."
     },
     {
       "id": "begin",
       "speaker": "sauti",
       "speed": 1.0,
       "text": "Your line begins with the sage Bhrigu and his wife, Puloma.",
-      "say": "Your line begins [p:80] with the sage Bhrigu [p:100] and his wife, Puloma.",
-      "est": 5.97,
+      "say": "Your line begins with the sage Bhrigu [p:60] and his wife, Puloma.",
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -139,15 +137,14 @@
       ],
       "pal": "naimisha-bluehour",
       "cam": "push",
-      "note": "FRAME: Sauti answers; in the smoke over the fire two figures form: a tall sage and a woman with child (plaques: Bhrigu · a great sage; Puloma · his wife).",
-      "estVoice": 5.42
+      "note": "FRAME: Sauti answers; in the smoke over the fire two figures form: a tall sage and a woman with child (plaques: Bhrigu · a great sage; Puloma · his wife)."
     },
     {
       "id": "alone",
       "speed": 1.04,
       "text": "Puloma was with child. Bhrigu had gone to bathe.",
-      "say": "Puloma was with child. [p:200] Bhrigu had gone to bathe.",
-      "est": 4.27,
+      "say": "Puloma was with child. [p:150] Bhrigu had gone to bathe.",
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -167,15 +164,14 @@
       "pal": "hermitage-green",
       "cam": "crane",
       "tr": "ink",
-      "note": "STORY 1 · NEW LIGHT, the hermitage at morning (hermitage-green; five planes: sky, hills, tree line, the hut, foreground trunks; shafts and pollen). Puloma at the door, a hand on her belly; Bhrigu walks away toward the river with his water-pot. A crane down from the canopy.",
-      "estVoice": 3.72
+      "note": "STORY 1 · NEW LIGHT, the hermitage at morning (hermitage-green; five planes: sky, hills, tree line, the hut, foreground trunks; shafts and pollen). Puloma at the door, a hand on her belly; Bhrigu walks away toward the river with his water-pot. A crane down from the canopy."
     },
     {
       "id": "came",
       "speed": 1.04,
       "text": "A rakshasa came: a demon who had once chosen her.",
       "say": "A rakshasa came: [p:200] a demon who had once chosen her.",
-      "est": 4.27,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -189,15 +185,14 @@
       "music": "dread",
       "pal": "hermitage-green",
       "cam": "rack",
-      "note": "STORY 2: a rack focus from Puloma (near, lit) to the broad horned figure coming through the trees (plaque: Puloman · a rakshasa). She offers him fruit as a guest (the text has it).",
-      "estVoice": 3.72
+      "note": "STORY 2: a rack focus from Puloma (near, lit) to the broad horned figure coming through the trees (plaque: Puloman · a rakshasa). She offers him fruit as a guest (the text has it)."
     },
     {
       "id": "given",
       "speed": 1.04,
       "text": "But her father had given her to Bhrigu.",
       "say": "But her father [p:60] had given her to Bhrigu.",
-      "est": 3.35,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -214,17 +209,16 @@
       "cam": "slide",
       "tr": "lamp",
       "mixDb": -2,
-      "note": "STORY 3 · NEW LIGHT, inside the hut by the household fire (hearth-amber): a lamp-glow match cut from the sun to the fire. A small memory in the smoke: the marriage rite, hands joined over a fire.",
-      "estVoice": 2.8
+      "note": "STORY 3 · NEW LIGHT, inside the hut by the household fire (hearth-amber): a lamp-glow match cut from the sun to the fire. A small memory in the smoke: the marriage rite, hands joined over a fire."
     },
     {
       "id": "fire",
       "speed": 1.04,
       "text": "He had to be sure it was she. He asked the household fire: Agni, the witness.",
-      "say": "He had to be sure it was she. [p:250] He asked the household fire: [p:200] Agni, [p:80] the witness.",
-      "est": 7.3,
+      "say": "He had to be sure it was she. [p:200] He asked the household fire: [p:150] Agni, [p:60] the witness.",
+      "est": 3.0,
       "pre": 900,
-      "post": 350,
+      "post": 300,
       "rest": true,
       "sfx": [
         "silence"
@@ -243,8 +237,7 @@
       ],
       "pal": "hearth-amber",
       "cam": "push",
-      "note": "STORY 4 · THE TURN (≈ 47 %) after a real silence: a demon asks the truth of a witness. The flame rises and steadies as he speaks to it (plaque: Agni · the fire, witness of every rite); no face on the fire. The rakshasa back-lit, readable (rim on both sides, a cool fill).",
-      "estVoice": 6.05
+      "note": "STORY 4 · THE TURN (≈ 47 %) after a real silence: a demon asks the truth of a witness. The flame rises and steadies as he speaks to it (plaque: Agni · the fire, witness of every rite); no face on the fire. The rakshasa back-lit, readable (rim on both sides, a cool fill)."
     },
     {
       "id": "press",
@@ -252,7 +245,7 @@
       "speed": 1.0,
       "text": "\"You are truthful, Fire. Tell me the truth.\"",
       "say": "You are truthful, Fire. [p:250] Tell me the truth.",
-      "est": 4.78,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -267,15 +260,14 @@
       "cam": "push",
       "closeup": true,
       "tr": "brush",
-      "note": "STORY 5 · THE CLOSE-UP: Puloma's face in the doorway's green daylight as she hears him: calm to fear (brow, eyelid, a glance to the fire). The demon's voice over her face.",
-      "estVoice": 4.23
+      "note": "STORY 5 · THE CLOSE-UP: Puloma's face in the doorway's green daylight as she hears him: calm to fear (brow, eyelid, a glance to the fire). The demon's voice over her face."
     },
     {
       "id": "fear",
       "speed": 1.04,
       "text": "Agni feared to lie. He feared the sage's curse.",
       "say": "Agni feared to lie. [p:250] He feared the sage's curse.",
-      "est": 4.21,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -292,15 +284,14 @@
       "pal": "hearth-amber",
       "cam": "tilt",
       "mixDb": -4,
-      "note": "STORY 6: the fire troubled: the flames sink, lean away and waver; a tilt down from the smoke to the flame's heart.",
-      "estVoice": 3.66
+      "note": "STORY 6: the fire troubled: the flames sink, lean away and waver; a tilt down from the smoke to the flame's heart."
     },
     {
       "id": "truth",
       "speed": 1.04,
       "text": "Softly, the fire told him who she was.",
       "say": "Softly, [p:250] the fire told him who she was.",
-      "est": 4.54,
+      "est": 3.0,
       "pre": 900,
       "post": 450,
       "beats": [
@@ -320,15 +311,14 @@
       "cam": "frame",
       "signature": true,
       "mixDb": -3,
-      "note": "STORY 7 (a second real silence before it) · THE SIGNATURE SHOT: frame-within-frame, the three of them seen through the hut's dark doorway; the flame bends once toward the rakshasa and one tongue of it points at her; the word of the turn: TRUTH, placed clear of every face. cam: frame.",
-      "estVoice": 3.19
+      "note": "STORY 7 (a second real silence before it) · THE SIGNATURE SHOT: frame-within-frame, the three of them seen through the hut's dark doorway; the flame bends once toward the rakshasa and one tongue of it points at her; the word of the turn: TRUTH, placed clear of every face. cam: frame."
     },
     {
       "id": "boar",
       "speed": 1.04,
       "text": "The demon became a boar, seized her, and ran like the wind.",
       "say": "The demon became a boar, [p:100] seized her, [p:100] and ran like the wind.",
-      "est": 5.04,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -348,15 +338,14 @@
       "cam": "orbit",
       "tr": "smoke",
       "mixDb": 1,
-      "note": "STORY 8 · NEW LIGHT, a bruised dusk (boar-dusk): a smoke carry out of the hut; the great boar runs across the frame with her carried on its shoulders, small and upright against the sky (no grappling, no overlap of her body with its head), trunks passing in the foreground (parallax), leaves in the wind.",
-      "estVoice": 4.49
+      "note": "STORY 8 · NEW LIGHT, a bruised dusk (boar-dusk): a smoke carry out of the hut; the great boar runs across the frame with her carried on its shoulders, small and upright against the sky (no grappling, no overlap of her body with its head), trunks passing in the foreground (parallax), leaves in the wind."
     },
     {
       "id": "cliff",
       "speed": 1.04,
       "text": "Then the child in her womb fell to the ground, blazing.",
       "say": "Then the child in her womb [p:100] fell to the ground, [p:250] blazing.",
-      "est": 4.84,
+      "est": 3.0,
       "pre": 250,
       "post": 400,
       "beats": [
@@ -374,8 +363,7 @@
       "music": "awe",
       "pal": "boar-dusk",
       "cam": "pull",
-      "note": "NEXT 1 (the catalog's cliffhanger): a white-gold light bursts under the boar; it rears. A pull back. The source line appears (top).",
-      "estVoice": 4.19
+      "note": "NEXT 1 (the catalog's cliffhanger): a white-gold light bursts under the boar; it rears. A pull back. The source line appears (top)."
     },
     {
       "id": "next",

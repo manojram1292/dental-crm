@@ -86,6 +86,11 @@
     for (let i = 1; i < keys.length; i++) { const [t0, n, ko = {}] = keys[i]; if (t <= t0) break; e = mixE(e, asE(n), E.inOutSine(clamp((t - t0) / (ko.dur ?? o.dur ?? 0.45)))); }
     return e;
   };
+  /** EYES LEAD THE HEAD: the pupils go to the new target first and the head follows 4 frames later.
+   *  expression: { ...A.lead(t, keys) } → { gaze, look } (look: the head's pitch, a part of the gaze's y). */
+  A.lead = (t, keys, dur = 0.3, head = 0.16) => { const g = A.gaze(t + 0.13, keys, dur * 0.7), h = A.gaze(t, keys, dur * 1.5); return { gaze: [g[0] - h[0] * 0.35, g[1] - h[1] * 0.35], look: h[1] * head }; };
+  /** PLANTED FEET: the walk phase for a body that has travelled `dist` px (scene units) at draw scale `scale`. */
+  A.stride = (dist, scale = 1, leg = 1) => (Math.PI * dist) / (236 * leg * scale);
   A.gaze = (t, keys, dur = 0.3) => {
     let g = keys[0][1];
     for (let i = 1; i < keys.length; i++) { const [t0, v] = keys[i]; if (t <= t0) break; const k = E.outCubic(clamp((t - t0) / dur)); g = [lerp(g[0], v[0], k), lerp(g[1], v[1], k)]; }

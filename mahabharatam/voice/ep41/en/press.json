@@ -1,0 +1,30 @@
+{
+ "speaker": "puloman",
+ "voice": "am_onyx",
+ "speed": 0.74,
+ "pitch": -3.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4276,
+   "words": 3,
+   "speed": 0.74,
+   "text": "You are truthful,"
+  },
+  {
+   "t0": 1.5076,
+   "t1": 2.2721,
+   "words": 1,
+   "speed": 0.74,
+   "text": "Fire."
+  },
+  {
+   "t0": 2.5221,
+   "t1": 3.8447,
+   "words": 4,
+   "speed": 0.74,
+   "text": "Tell me the truth."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

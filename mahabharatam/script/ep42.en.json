@@ -66,7 +66,7 @@
       "speed": 1.16,
       "text": "The child fell, shining like the sun.",
       "say": "The child fell, [p:100] shining like the sun.",
-      "est": 3.96,
+      "est": 3.0,
       "pre": 60,
       "post": 1100,
       "role": "hook",
@@ -87,15 +87,14 @@
       ],
       "pal": "sun-white",
       "cam": "pull",
-      "note": "COLD OPEN (a statement over the image; it answers episode 41's last line at 0 s): a small child on the ground, blazing white-gold; everything else thrown into deep blue shadow. The card sits in the lower third.",
-      "estVoice": 2.8
+      "note": "COLD OPEN (a statement over the image; it answers episode 41's last line at 0 s): a small child on the ground, blazing white-gold; everything else thrown into deep blue shadow. The card sits in the lower third."
     },
     {
       "id": "carried",
       "speed": 1.04,
       "text": "A demon, in a boar's shape, was carrying off Puloma, the sage Bhrigu's wife.",
       "say": "A demon, [p:80] in a boar's shape, [p:80] was carrying off Puloma, [p:100] the sage Bhrigu's wife.",
-      "est": 6.16,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -114,15 +113,14 @@
       "pal": "boar-dusk",
       "cam": "slide",
       "tr": "smoke",
-      "note": "STORY 0 with the unvoiced recap band (top): a moment earlier: the boar running with her through the dusk (a lateral track, trunks passing).",
-      "estVoice": 5.61
+      "note": "STORY 0 with the unvoiced recap band (top): a moment earlier: the boar running with her through the dusk (a lateral track, trunks passing)."
     },
     {
       "id": "fell",
       "speed": 1.04,
       "text": "In fury, her unborn son dropped from her womb.",
       "say": "In fury, [p:120] her unborn son [p:60] dropped from her womb.",
-      "est": 4.1,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -137,15 +135,14 @@
       "pal": "sun-white",
       "cam": "tilt",
       "tr": "lamp",
-      "note": "STORY 1: a lamp-glow match cut into the light: the child (plaque later) falls, turning, a comet of white gold; a tilt down with him.",
-      "estVoice": 3.55
+      "note": "STORY 1: a lamp-glow match cut into the light: the child (plaque later) falls, turning, a comet of white gold; a tilt down with him."
     },
     {
       "id": "ash",
       "speed": 1.04,
       "text": "The demon saw him, let her go, and burned to ash.",
       "say": "The demon saw him, [p:100] let her go, [p:100] and burned to ash.",
-      "est": 4.5,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -164,15 +161,14 @@
       "pal": "ash-grey",
       "cam": "push",
       "mixDb": 1,
-      "note": "STORY 2 · NEW LIGHT, ash (ash-grey: the colour drains): the boar's shape becomes the rakshasa's, greys, and blows away as ash on the wind; the child bright in the middle. Answers the hook.",
-      "estVoice": 3.95
+      "note": "STORY 2 · NEW LIGHT, ash (ash-grey: the colour drains): the boar's shape becomes the rakshasa's, greys, and blows away as ash on the wind; the child bright in the middle. Answers the hook."
     },
     {
       "id": "walk",
       "speed": 1.04,
       "text": "Puloma lifted her son and walked on, weeping.",
       "say": "Puloma lifted her son [p:80] and walked on, [p:120] weeping.",
-      "est": 4.08,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -191,15 +187,14 @@
       "pal": "river-jade",
       "cam": "slide",
       "tr": "brush",
-      "note": "STORY 3 · NEW LIGHT (river-jade): Puloma, the child held high on her shoulder, walks small across the frame, a tear line on her cheek; above the trees, half seen in the cloud, a great calm four-faced figure looks down (Brahma sees her and comforts her: the text has it).",
-      "estVoice": 3.53
+      "note": "STORY 3 · NEW LIGHT (river-jade): Puloma, the child held high on her shoulder, walks small across the frame, a tear line on her cheek; above the trees, half seen in the cloud, a great calm four-faced figure looks down (Brahma sees her and comforts her: the text has it)."
     },
     {
       "id": "river",
       "speed": 1.04,
       "text": "Her tears became a river. Brahma himself named it: Vadhusara.",
       "say": "Her tears became a river. [p:250] Brahma himself named it: [p:200] Vadhusara.",
-      "est": 5.53,
+      "est": 3.0,
       "pre": 250,
       "post": 350,
       "sfx": [
@@ -221,15 +216,14 @@
       "pal": "river-jade",
       "cam": "crane",
       "signature": true,
-      "note": "STORY 4 · THE SIGNATURE SHOT: a crane up and back: a bright thread of water runs out behind her steps and widens into a river through the green land (plaques: Brahma · the creator; Vadhusara · \"the daughter-in-law's stream\"). A grace note, not the turn.",
-      "estVoice": 4.93
+      "note": "STORY 4 · THE SIGNATURE SHOT: a crane up and back: a bright thread of water runs out behind her steps and widens into a river through the green land (plaques: Brahma · the creator; Vadhusara · \"the daughter-in-law's stream\"). A grace note, not the turn."
     },
     {
       "id": "home",
       "speed": 1.04,
       "text": "Then Bhrigu came home.",
       "say": "Then Bhrigu came home.",
-      "est": 2.41,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -247,8 +241,7 @@
       "pal": "hermitage-green",
       "cam": "rack",
       "mixDb": -2,
-      "note": "STORY 5: the hermitage: a rack focus from the new-born in the foreground to Bhrigu arriving at the gate, his water-pot in hand (plaque: Bhrigu · a great sage).",
-      "estVoice": 1.86
+      "note": "STORY 5: the hermitage: a rack focus from the new-born in the foreground to Bhrigu arriving at the gate, his water-pot in hand (plaque: Bhrigu · a great sage)."
     },
     {
       "id": "who",
@@ -256,7 +249,7 @@
       "speed": 1.0,
       "text": "\"Who told that demon you were my wife?\"",
       "say": "Who told that demon [p:120] you were my wife?",
-      "est": 4.59,
+      "est": 3.0,
       "pre": 1000,
       "post": 450,
       "beats": [
@@ -268,14 +261,13 @@
         "silence"
       ],
       "foley": [
-        "pot@0"
+        "breath@0"
       ],
       "music": "dread",
       "pal": "hermitage-green",
       "cam": "push",
       "closeup": true,
-      "note": "STORY 6 · THE TURN (≈ 55 %) after a real silence · THE CLOSE-UP: a rescue becomes a hunt for someone to blame. Bhrigu's face fills the frame: relief at his son, then the brow comes down and the eyes harden; the question with a sharp turn of the head toward her. The word of the turn: WHO, clear of his face.",
-      "estVoice": 3.14
+      "note": "STORY 6 · THE TURN (≈ 55 %) after a real silence · THE CLOSE-UP: a rescue becomes a hunt for someone to blame. Bhrigu's face fills the frame: relief at his son, then the brow comes down and the eyes harden; the question with a sharp turn of the head toward her. The word of the turn: WHO, clear of his face."
     },
     {
       "id": "told",
@@ -283,7 +275,7 @@
       "speed": 1.0,
       "text": "\"The fire told him. Your son saved me.\"",
       "say": "The fire told him. [p:300] Your son saved me.",
-      "est": 4.14,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "beats": [
@@ -299,8 +291,7 @@
       "pal": "hearth-amber",
       "cam": "tilt",
       "mixDb": -4,
-      "note": "STORY 7: she looks toward the hut; a tilt from her hand to the household fire burning inside; then down to the child in her arms.",
-      "estVoice": 3.59
+      "note": "STORY 7: she looks toward the hut; a tilt from her hand to the household fire burning inside; then down to the child in her arms."
     },
     {
       "id": "named",
@@ -308,7 +299,7 @@
       "speed": 1.0,
       "text": "Her son is called Chyavana, the fallen one. Shaunaka, he is your ancestor.",
       "say": "Her son is called Chyavana, [p:100] the fallen one. [p:250] Shaunaka, [p:80] he is your ancestor.",
-      "est": 7.76,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -327,15 +318,14 @@
       "pal": "naimisha-bluehour",
       "cam": "orbit",
       "mixDb": -3,
-      "note": "FRAME: Sauti at the Naimisha fire, to Shaunaka, who lowers his head (plaque: Chyavana · \"the fallen one\"). A J-cut: the night fire first.",
-      "estVoice": 7.21
+      "note": "FRAME: Sauti at the Naimisha fire, to Shaunaka, who lowers his head (plaque: Chyavana · \"the fallen one\"). A J-cut: the night fire first."
     },
     {
       "id": "turned",
       "speed": 1.04,
       "text": "Bhrigu turned to his own hearth, in a rage.",
       "say": "Bhrigu turned to his own hearth, [p:120] in a rage.",
-      "est": 3.87,
+      "est": 3.0,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -353,15 +343,14 @@
       "pal": "wrath-crimson",
       "cam": "frame",
       "tr": "ink",
-      "note": "STORY 8 · NEW LIGHT (wrath-crimson, an ink bleed spreading from his figure): seen from inside the hut through the doorway: Bhrigu fills the door, the fire small between us and him.",
-      "estVoice": 3.32
+      "note": "STORY 8 · NEW LIGHT (wrath-crimson, an ink bleed spreading from his figure): seen from inside the hut through the doorway: Bhrigu fills the door, the fire small between us and him."
     },
     {
       "id": "cliff",
       "speed": 1.04,
       "text": "And Bhrigu cursed the fire itself.",
       "say": "And Bhrigu [p:80] cursed the fire itself.",
-      "est": 3.78,
+      "est": 3.0,
       "pre": 800,
       "post": 400,
       "rest": true,
@@ -374,7 +363,7 @@
       ],
       "role": "next",
       "foley": [
-        "water@0",
+        "whoosh@0",
         "sizzle@1"
       ],
       "sfx": [
@@ -383,8 +372,7 @@
       "pal": "wrath-crimson",
       "cam": "push",
       "mixDb": 1,
-      "note": "NEXT 1 (the catalog's cliffhanger): raise, then the arm thrown forward at the flames, the palm open (anticipation, action, follow-through; beard and shawl arrive late; no water: the text has only the words). The source line (top).",
-      "estVoice": 2.58
+      "note": "NEXT 1 (the catalog's cliffhanger): raise, then the arm thrown forward at the flames, the palm open (anticipation, action, follow-through; beard and shawl arrive late; no water: the text has only the words). The source line (top)."
     },
     {
       "id": "next",
