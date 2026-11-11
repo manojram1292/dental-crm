@@ -560,3 +560,23 @@ All in `script/ARC-41-50.md` section 9: the order of telling said on screen (9.1
 Two things the CE pass found that no reviewer had: the rakshasa never says "You are the mouth of the gods" (removed from 41), and aired episode 36's "from the sage Chyavana" follows the vulgate where the CE reads "Chyavana's son" (1.44.18; catalog note; not re-voiced).
 
 Kit changes made for the scripts: a recap line longer than 62 characters breaks into two lines (`KIT.series.recapBand`; shorter ones draw as before), and a long source line shrinks to fit (`KIT.type.source`). Still: `lab/kit41/v2/kit-13-recap-two-lines-and-order-note.png`.
+
+## Episodes 41–50 · production log (Nov 11 on)
+
+### Episode 41 · The Bride and the Demon (the pilot)
+
+Before it: the fire gap was closed (`EP41.hearth`: a flame 1.6–1.75 × the kit's, a glow on the wall and on the ground, embers, a warm rim; figures side-lit by the fire with a cool bounce so a dark body stands off an orange wall); Puloman was redrawn as a rakshasa lord (taller, a heavy mane, two long horns swept back, a blood-red cloth, gold); eyes lead a head turn (`KIT.act.lead`); feet are planted in a walk (`KIT.act.stride`, a linear stance phase; the old cycle walked backwards and was put right).
+
+Rendered twice. The first render was looked at on a 24-frame contact sheet and 30 fps strips (`lab/review/ep41/`) and failed on: Puloma cropped to half a face in the hook; the boar's head hidden behind the caption band, so that the rider seemed to kneel on a black hill; a 0.4 s cross-dissolve into the doorway shot that read as see-through figures; the memory cloud cut by the top edge. All four were fixed (the chase has its own, higher ground line; the dissolve is 0.2 s) and the episode re-rendered.
+
+What the measurements say (mp4): 57.7 s; hook spoken by 2.98 s; motion at 0.5 s 16.0; no static hold; turn at 46 %; -14.1 LUFS, -2.1 dBTP, LRA 5.8; two silences (1.03 s); Next 10.4 dB under the body; no blank or near-white frame (brightest frame mean 114 of 255); peak -2.5 dBFS, no clipped sample; ambience differs by place (spectral centroid: hearth 990 Hz, night fire 909 Hz, forest 1598 Hz, storm 1156 Hz); share copy 19.2 MB (capped at 2.5 Mbit/s: the uncapped CRF 23 copy was 26 MB, the fire is expensive).
+
+Lessons carried to 42 on:
+- **The voice-length prediction is not safe.** Episode 41 came in 1.2 s over, 43 at 2.7 s over and 45 at 4.7 s over (the slow voices and the narrator at speed 1.0). Voice first, then trim; the narrator runs at 1.1 where an episode is long.
+- **The figure-against-ground check is a mean colour against a mean colour.** A blue-black body in a red cloth averages to brown and fails against an orange wall although the eye separates it. What works: a cool bounce light on a dark figure before fire; a figure as a rim-lit silhouette against the flame itself; a strong front light on a figure against a dark ground.
+- **The outgoing shot is still drawn during a transition**, and is measured as part of the next line: a figure must still stand off its ground after its line ends.
+- **Captions hide the bottom 27 %.** Low heads (a boar, a lying figure, a snake) go above y = 1250 or the ground line is raised.
+- **A swelling sound is laid by its peak** (`tools/score.py`), and each cue is logged as laid (`foley-cues.json`), because onsets cannot be read from a summed stem.
+- **Picture sync cannot be proved by frame differences.** Every cue's action is keyed in code to the same beat as the sound (0 frames by construction); the measured largest picture change lay within 2 frames of the cue for 6 of 22 cues, and 7 cues show no more change than a median frame (a staff tap, a breath, a first step, the flame bending). Those actions are too small; later episodes make them larger.
+
+Still weak in 41: the two frame-story shots are dark shapes beside a small fire (the old seated figures); the far rakshasa in `came` stays a little soft after the rack; the smoke puffs of the change are flat discs; the rider kneels calmly on a running boar.

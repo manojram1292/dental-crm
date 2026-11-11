@@ -1,0 +1,30 @@
+{
+ "speaker": "ruru",
+ "voice": "am_liam",
+ "speed": 0.86,
+ "pitch": 1.0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3774,
+   "words": 4,
+   "speed": 0.86,
+   "text": "If I have given,"
+  },
+  {
+   "t0": 1.4974,
+   "t1": 3.6992,
+   "words": 8,
+   "speed": 0.86,
+   "text": "if I have kept my vows from birth,"
+  },
+  {
+   "t0": 3.8992,
+   "t1": 5.3088,
+   "words": 3,
+   "speed": 0.86,
+   "text": "let her rise!"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -171,3 +171,11 @@ frames to be deliberately unlike, not merely different, so the mean is the targe
 three stems, music −15 dB under the voice; −2.2 dBTP; Next −10.5 dB. Its picture and sound were not judged as an episode.
 
 **Phase B additions to the gate (F = `--frames`).** Text on a face: a plaque, turn-word, source line or caption that crosses a figure's face box in more than 2 sampled frames fails the episode. `tools/opacity.mjs`: figures over two grounds must not change by more than 2/255 (measured 1/255), and the stillest second of a held pose must still move (measured 1.2 grey levels). The lab reel after the rework: 7 camera moves, 4 transitions, shot hues 25 / 103 / 307 / 6 / 89 / 30 / 129 / 128, 418 figure samples all standing off their grounds, no text on a face, consecutive shots pHash min 20, mean 25.1. Scripts 41–50 after the story review: 54.6–58.5 s predicted, turns at 41–57 %, 2.23–2.55 words/s.
+
+## Rows from episode 41 (measured on the mp4: `tools/scorecard.py`, `tools/soundcheck.py`, `tools/review.py`)
+
+Foley column: cues whose onset or peak lies within 2 frames of the beat they were asked for, of all cues (from episode 42 each sound is measured alone, before it is summed into the stem: `audio/epNN/foley-cues.json`; episode 41 was measured in the summed stem). Lights: distinct palettes on screen. Key frames: pHash against the three episodes before.
+
+| Ep | Dur | Hook | Move@0.5 | Turn | W/s | Lights · hue run | Camera · transitions | LUFS · TP · LRA | Silences | Next | Stems rms (amb · foley · mus) | Foley on the beat | Peak · clipped | Key frames min · mean | Share |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 41 | 57.7 | 7 w · 2.98 s | 16.0 | 46 % | 2.44 | 4 · 2 | 8 · 4 | -14.1 · -2.1 · 5.8 | 2 (1.03 s) | -10.4 dB | -35.1 · -37.5 · -26.6 | 19 of 22 | -2.5 dBFS · 0 | 22 · 28.4 | 19.2 |

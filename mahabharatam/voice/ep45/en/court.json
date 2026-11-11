@@ -1,0 +1,44 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4788,
+   "words": 4,
+   "speed": 0.891,
+   "text": "Her father by birth,"
+  },
+  {
+   "t0": 1.5588,
+   "t1": 2.8926,
+   "words": 3,
+   "speed": 0.891,
+   "text": "a gandharva king,"
+  },
+  {
+   "t0": 2.9726,
+   "t1": 5.2723,
+   "words": 6,
+   "speed": 0.891,
+   "text": "went with the messenger to Dharmaraja,"
+  },
+  {
+   "t0": 5.3523,
+   "t1": 6.469,
+   "words": 4,
+   "speed": 0.891,
+   "text": "lord of the dead."
+  },
+  {
+   "t0": 6.769,
+   "t1": 7.8055,
+   "words": 2,
+   "speed": 0.891,
+   "text": "He agreed."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

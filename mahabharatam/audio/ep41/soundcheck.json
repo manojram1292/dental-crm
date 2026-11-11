@@ -29,7 +29,11 @@
    "onset_s": 0.119,
    "audio_offset_frames": 1.2,
    "peak_offset_frames": 4.3,
-   "peak_db": -41.9
+   "peak_db": -41.9,
+   "picture_peak_s": 0.033,
+   "picture_offset_frames": -1,
+   "picture_change_at_cue": 4.13,
+   "picture_change_median": 2.0
   },
   {
    "line": "hook",
@@ -38,7 +42,11 @@
    "onset_s": 0.812,
    "audio_offset_frames": 0.0,
    "peak_offset_frames": 0.3,
-   "peak_db": -30.8
+   "peak_db": -30.8,
+   "picture_peak_s": 1.0,
+   "picture_offset_frames": 6,
+   "picture_change_at_cue": 4.71,
+   "picture_change_median": 2.0
   },
   {
    "line": "ask",
@@ -47,7 +55,11 @@
    "onset_s": 4.227,
    "audio_offset_frames": 1.9,
    "peak_offset_frames": 5.7,
-   "peak_db": -44.3
+   "peak_db": -44.3,
+   "picture_peak_s": 4.4,
+   "picture_offset_frames": 7,
+   "picture_change_at_cue": 4.53,
+   "picture_change_median": 2.0
   },
   {
    "line": "begin",
@@ -56,7 +68,11 @@
    "onset_s": 10.299,
    "audio_offset_frames": -0.0,
    "peak_offset_frames": 0.2,
-   "peak_db": -32.4
+   "peak_db": -32.4,
+   "picture_peak_s": 10.133,
+   "picture_offset_frames": -5,
+   "picture_change_at_cue": 2.42,
+   "picture_change_median": 2.0
   },
   {
    "line": "alone",
@@ -65,7 +81,11 @@
    "onset_s": 14.279,
    "audio_offset_frames": 0.2,
    "peak_offset_frames": 6.6,
-   "peak_db": -36.9
+   "peak_db": -36.9,
+   "picture_peak_s": 14.367,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 10.15,
+   "picture_change_median": 2.0
   },
   {
    "line": "alone",
@@ -74,7 +94,11 @@
    "onset_s": 16.357,
    "audio_offset_frames": 0.1,
    "peak_offset_frames": 0.4,
-   "peak_db": -32.2
+   "peak_db": -32.2,
+   "picture_peak_s": 16.633,
+   "picture_offset_frames": 8,
+   "picture_change_at_cue": 2.35,
+   "picture_change_median": 2.0
   },
   {
    "line": "came",
@@ -83,7 +107,11 @@
    "onset_s": 18.502,
    "audio_offset_frames": 0.1,
    "peak_offset_frames": 0.4,
-   "peak_db": -32.2
+   "peak_db": -32.2,
+   "picture_peak_s": 18.567,
+   "picture_offset_frames": 2,
+   "picture_change_at_cue": 4.53,
+   "picture_change_median": 2.0
   },
   {
    "line": "came",
@@ -92,7 +120,11 @@
    "onset_s": 18.973,
    "audio_offset_frames": 0.8,
    "peak_offset_frames": 1.0,
-   "peak_db": -32.2
+   "peak_db": -32.2,
+   "picture_peak_s": 18.633,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 0.47,
+   "picture_change_median": 2.0
   },
   {
    "line": "given",
@@ -101,7 +133,11 @@
    "onset_s": 23.023,
    "audio_offset_frames": 4.8,
    "peak_offset_frames": 4.8,
-   "peak_db": -41.2
+   "peak_db": -41.2,
+   "picture_peak_s": 23.0,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 6.08,
+   "picture_change_median": 2.0
   },
   {
    "line": "given",
@@ -110,7 +146,11 @@
    "onset_s": 23.514,
    "audio_offset_frames": -3.5,
    "peak_offset_frames": 5.2,
-   "peak_db": -40.5
+   "peak_db": -40.5,
+   "picture_peak_s": 23.367,
+   "picture_offset_frames": -8,
+   "picture_change_at_cue": 3.68,
+   "picture_change_median": 2.0
   },
   {
    "line": "fire",
@@ -119,7 +159,11 @@
    "onset_s": 28.723,
    "audio_offset_frames": 1.6,
    "peak_offset_frames": 3.5,
-   "peak_db": -41.9
+   "peak_db": -41.9,
+   "picture_peak_s": 28.7,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 6.41,
+   "picture_change_median": 2.0
   },
   {
    "line": "fire",
@@ -128,7 +172,11 @@
    "onset_s": 26.417,
    "audio_offset_frames": 0.0,
    "peak_offset_frames": 0.4,
-   "peak_db": -31.7
+   "peak_db": -31.7,
+   "picture_peak_s": 26.533,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 5.28,
+   "picture_change_median": 2.0
   },
   {
    "line": "press",
@@ -137,7 +185,11 @@
    "onset_s": 33.476,
    "audio_offset_frames": 1.6,
    "peak_offset_frames": 4.6,
-   "peak_db": -40.6
+   "peak_db": -40.6,
+   "picture_peak_s": 33.5,
+   "picture_offset_frames": 2,
+   "picture_change_at_cue": 13.65,
+   "picture_change_median": 2.0
   },
   {
    "line": "press",
@@ -146,7 +198,11 @@
    "onset_s": 37.062,
    "audio_offset_frames": 1.6,
    "peak_offset_frames": 7.6,
-   "peak_db": -50.4
+   "peak_db": -50.4,
+   "picture_peak_s": 37.267,
+   "picture_offset_frames": 8,
+   "picture_change_at_cue": 1.09,
+   "picture_change_median": 2.0
   },
   {
    "line": "fear",
@@ -155,7 +211,11 @@
    "onset_s": 37.875,
    "audio_offset_frames": 1.7,
    "peak_offset_frames": 5.3,
-   "peak_db": -41.0
+   "peak_db": -41.0,
+   "picture_peak_s": 37.933,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 9.07,
+   "picture_change_median": 2.0
   },
   {
    "line": "truth",
@@ -164,7 +224,11 @@
    "onset_s": 44.628,
    "audio_offset_frames": 1.1,
    "peak_offset_frames": 3.4,
-   "peak_db": -42.4
+   "peak_db": -42.4,
+   "picture_peak_s": 44.4,
+   "picture_offset_frames": -6,
+   "picture_change_at_cue": 1.51,
+   "picture_change_median": 2.0
   },
   {
    "line": "truth",
@@ -173,7 +237,11 @@
    "onset_s": 41.999,
    "audio_offset_frames": 1.4,
    "peak_offset_frames": 7.2,
-   "peak_db": -50.2
+   "peak_db": -50.2,
+   "picture_peak_s": 41.967,
+   "picture_offset_frames": 0,
+   "picture_change_at_cue": 12.52,
+   "picture_change_median": 2.0
   },
   {
    "line": "boar",
@@ -182,7 +250,11 @@
    "onset_s": 46.672,
    "audio_offset_frames": 0.1,
    "peak_offset_frames": 7.1,
-   "peak_db": -21.8
+   "peak_db": -21.8,
+   "picture_peak_s": 46.933,
+   "picture_offset_frames": 8,
+   "picture_change_at_cue": 4.15,
+   "picture_change_median": 2.0
   },
   {
    "line": "boar",
@@ -191,7 +263,11 @@
    "onset_s": 48.099,
    "audio_offset_frames": -3.6,
    "peak_offset_frames": -1.6,
-   "peak_db": -20.7
+   "peak_db": -20.7,
+   "picture_peak_s": 48.533,
+   "picture_offset_frames": 9,
+   "picture_change_at_cue": 1.28,
+   "picture_change_median": 2.0
   },
   {
    "line": "boar",
@@ -200,7 +276,11 @@
    "onset_s": 49.11,
    "audio_offset_frames": -3.6,
    "peak_offset_frames": 5.9,
-   "peak_db": -22.3
+   "peak_db": -22.3,
+   "picture_peak_s": 49.1,
+   "picture_offset_frames": -4,
+   "picture_change_at_cue": 1.76,
+   "picture_change_median": 2.0
   },
   {
    "line": "cliff",
@@ -209,7 +289,11 @@
    "onset_s": 52.24,
    "audio_offset_frames": 0.0,
    "peak_offset_frames": 0.3,
-   "peak_db": -22.0
+   "peak_db": -22.0,
+   "picture_peak_s": 52.233,
+   "picture_offset_frames": 0,
+   "picture_change_at_cue": 4.02,
+   "picture_change_median": 2.0
   },
   {
    "line": "cliff",
@@ -218,7 +302,11 @@
    "onset_s": 54.34,
    "audio_offset_frames": 1.6,
    "peak_offset_frames": 4.1,
-   "peak_db": -41.0
+   "peak_db": -41.0,
+   "picture_peak_s": 54.4,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 4.37,
+   "picture_change_median": 2.0
   }
  ],
  "ambience": [

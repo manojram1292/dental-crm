@@ -61,7 +61,7 @@
       bank(ctx, T, cam, (g, p) => {
         babe(g, 620, 1290, clamp((t - b0) / 0.4));
         g.save(); g.globalAlpha = 1;
-        CH.menaka.draw(g, { x: 330, y: 1320 - 60 * rise, scale: 0.88, facing: 'right', pose: ACT.pose(t, [[0, 'carry'], [b0 - 0.3, 'kneel', { act: 0.5 }], [b1 - 0.5, 'stand', { act: 0.8 }]]), light: { ...ST.light(p, { from: [540, 100], at: [330, 1300], front: 0.9, k: 1.3 }) }, expression: { emo: 'sorrow', gaze: [0.6, 0.6] }, t: T, key: 'lf-m' });
+        CH.menaka.draw(g, { x: 330, y: 1320 - 60 * rise, scale: 0.88, facing: 'right', pose: ACT.pose(t, [[0, 'carry'], [b0 - 0.3, 'kneel', { act: 0.5 }], [b1 - 0.5, 'stand', { act: 0.8 }]]), light: { ...ST.light(p, { from: [540, 100], at: [330, 1300], front: 0.35, k: 1.0 }) }, expression: { emo: 'sorrow', gaze: [0.6, 0.6] }, t: T, key: 'lf-m' });
         g.restore();
       });
       TY.plaque(ctx, T, clamp((t - b0 - 0.3) / 0.6), ...names(env, 'Menaka'), { x: 760, y: 420, out: clamp((t - (env.dur - 0.4)) / 0.3) });
@@ -88,7 +88,7 @@
       EP44.meadow(ctx, T, cam, { sun: [820, 380, 60], figs: (g, p) => { const flip = t > b0;
         girl(g, p, T, 560, GY - 6, 1.12, ACT.pose(t, [[0, 'reach'], [b0 - 0.15, 'attend', { act: 0.4 }], [b0 + 0.9, 'offer', { act: 0.6 }]], { wind: 0.8 }), { emo: 'joy', facing: flip ? 'right' : 'left', ...ACT.lead(t, [[0, [0.3, -0.3]], [b0 + 0.2, [0.7, 0]]]) }, 'nm-p');
         garland(g, flip ? 700 : 420, GY - 700, 0.6, 0.2 * Math.sin(T * 2)); } });
-      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Pramadvara'), { x: 280, y: 330, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Pramadvara'), { x: 300, y: 1230, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.3, vignette: 0.38, paper: 0.3 }) });
@@ -97,7 +97,7 @@
   R.scene({ id: 'loved', transition: { type: 'dissolve', dur: 0.3 },
     draw(ctx, t, env) {
       const T = env.T, b0 = env.beats[0] ?? 1, b1 = env.beats[1] ?? 2.6, cam = CAM.push(t / env.dur, { from: 1.0, to: 1.1, focus: [520, 760] });
-      ST.shot(ctx, T, { pal: 'hunt-emerald', cam, layers: [
+      ST.shot(ctx, T, { pal: 'riverbank-pearl', cam, layers: [
         { z: 0, draw: (g, p) => ST.sky(g, p, { hz: 1500 }) },
         { z: 0.3, soft: 0.45, draw: (g, p) => ST.treeline(g, p, { y: 1500, h: 1400, gap: 440, T, seed: 19, kind: 'mixed' }) },
         { z: 0.8, haze: false, draw: (g) => ST.shafts(g, T, { x: 700, angle: -0.35, alpha: 0.14 }) },

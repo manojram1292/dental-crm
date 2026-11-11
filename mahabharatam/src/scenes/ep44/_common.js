@@ -38,8 +38,17 @@
   const greyBed = (ctx, T, cam, k, o = {}) => ST.shot(ctx, T, { pal: 'ash-grey', cam, layers: [
     { z: 0, draw: (g, p) => ST.sky(g, p, { hz: 900 }) },
     { z: 0.4, draw: (g, p) => ST.treeline(g, p, { y: 920, h: 600, T, seed: 15, kind: 'flame' }) },
-    { z: 1, haze: false, draw: (g, p) => { ST.ground(g, p, { y: 910 }); EP44.bed(g, p, T, 560, 1150, 0.95, { k, ...o }); } },
+    { z: 1, haze: false, draw: (g, p) => { ST.ground(g, p, { y: 910 }); EP44.bed(g, p, T, 560, o.by ?? 1150, 0.95, { k, ...o }); } },
     { z: 1.9, haze: false, soft: 0.3, draw: (g, p) => ST.grass(g, p, { y: 1960, h: 380, T, count: 40 }) },
   ] });
   EP44.greyBed = greyBed;
+  // the dry wood at noon (noon-ochre): Ruru and the old snake, a waist-up two-shot, clear ground between them
+  EP44.wood = (ctx, T, cam, figs, o = {}) => ST.shot(ctx, T, { pal: o.pal || 'noon-ochre', cam, layers: [
+    { z: 0, draw: (g, p) => ST.sky(g, p, { hz: HZ, sun: [300, 300, 70] }) },
+    { z: 0.35, draw: (g, p) => ST.treeline(g, p, { y: HZ + 20, h: 1000, gap: 340, T, seed: 12, kind: 'sal' }) },
+    { z: 0.8, haze: false, draw: (g) => ST.shafts(g, T, { x: 300, angle: 0.3, alpha: 0.12, color: '#fff4c0' }) },
+    { z: 1, haze: false, draw: (g, p) => { ST.ground(g, p, { y: GY - 20 }); figs(g, p); } },
+    { z: 1.3, haze: false, draw: (g) => ST.particles(g, T, { kind: 'dust', count: 30, cam }) },
+    { z: 1.8, haze: false, soft: 0.3, draw: (g, p) => ST.grass(g, p, { y: 1940, h: 320, T, count: 46 }) },
+  ] });
 })();

@@ -1,0 +1,182 @@
+[
+ {
+  "line": "hook",
+  "cue": "whoosh",
+  "asked_s": 0.08,
+  "start_s": 0.08,
+  "onset_s": 0.187,
+  "peak_s": 0.401,
+  "peak_db": -27.6
+ },
+ {
+  "line": "hook",
+  "cue": "leaf@0",
+  "asked_s": 0.904,
+  "start_s": 0.594,
+  "onset_s": 0.697,
+  "peak_s": 0.905,
+  "peak_db": -35.6
+ },
+ {
+  "line": "dead",
+  "cue": "cloth",
+  "asked_s": 4.008,
+  "start_s": 4.008,
+  "onset_s": 4.07,
+  "peak_s": 4.208,
+  "peak_db": -30.6
+ },
+ {
+  "line": "dead",
+  "cue": "leaf@0",
+  "asked_s": 5.343,
+  "start_s": 5.068,
+  "onset_s": 5.174,
+  "peak_s": 5.305,
+  "peak_db": -33.5
+ },
+ {
+  "line": "lament",
+  "cue": "steps@0",
+  "asked_s": 11.176,
+  "start_s": 11.176,
+  "onset_s": 11.176,
+  "peak_s": 14.549,
+  "peak_db": -16.3
+ },
+ {
+  "line": "lament",
+  "cue": "breath@1",
+  "asked_s": 13.602,
+  "start_s": 13.343,
+  "onset_s": 13.384,
+  "peak_s": 13.531,
+  "peak_db": -35.3
+ },
+ {
+  "line": "came",
+  "cue": "whoosh@0",
+  "asked_s": 16.344,
+  "start_s": 16.066,
+  "onset_s": 16.16,
+  "peak_s": 16.342,
+  "peak_db": -28.9
+ },
+ {
+  "line": "came",
+  "cue": "anklet@1",
+  "asked_s": 18.368,
+  "start_s": 18.368,
+  "onset_s": 18.368,
+  "peak_s": 20.893,
+  "peak_db": -29.8
+ },
+ {
+  "line": "vain",
+  "cue": "leaf",
+  "asked_s": 19.214,
+  "start_s": 19.214,
+  "onset_s": 19.319,
+  "peak_s": 19.504,
+  "peak_db": -34.9
+ },
+ {
+  "line": "vain",
+  "cue": "breath@1",
+  "asked_s": 23.703,
+  "start_s": 23.478,
+  "onset_s": 23.528,
+  "peak_s": 23.704,
+  "peak_db": -34.5
+ },
+ {
+  "line": "give",
+  "cue": "breath@0",
+  "asked_s": 25.914,
+  "start_s": 25.697,
+  "onset_s": 25.75,
+  "peak_s": 25.912,
+  "peak_db": -35.9
+ },
+ {
+  "line": "court",
+  "cue": "steps",
+  "asked_s": 28.648,
+  "start_s": 28.648,
+  "onset_s": 28.648,
+  "peak_s": 33.925,
+  "peak_db": -15.1
+ },
+ {
+  "line": "court",
+  "cue": "staff@1",
+  "asked_s": 34.17,
+  "start_s": 34.17,
+  "onset_s": 34.17,
+  "peak_s": 34.175,
+  "peak_db": -16.3
+ },
+ {
+  "line": "woke",
+  "cue": "breath@0",
+  "asked_s": 38.029,
+  "start_s": 37.723,
+  "onset_s": 37.768,
+  "peak_s": 38.03,
+  "peak_db": -35.5
+ },
+ {
+  "line": "woke",
+  "cue": "birds@1",
+  "asked_s": 40.216,
+  "start_s": 40.216,
+  "onset_s": 40.223,
+  "peak_s": 40.663,
+  "peak_db": -20.8
+ },
+ {
+  "line": "woke",
+  "cue": "cloth",
+  "asked_s": 37.004,
+  "start_s": 37.004,
+  "onset_s": 37.07,
+  "peak_s": 37.193,
+  "peak_db": -29.3
+ },
+ {
+  "line": "son",
+  "cue": "flame@0",
+  "asked_s": 42.08,
+  "start_s": 42.08,
+  "onset_s": 42.135,
+  "peak_s": 42.847,
+  "peak_db": -22.9
+ },
+ {
+  "line": "son",
+  "cue": "anklet@0",
+  "asked_s": 42.08,
+  "start_s": 42.08,
+  "onset_s": 42.08,
+  "peak_s": 42.084,
+  "peak_db": -30.4
+ },
+ {
+  "line": "cliff",
+  "cue": "staff@0",
+  "asked_s": 48.563,
+  "start_s": 48.563,
+  "onset_s": 48.563,
+  "peak_s": 48.568,
+  "peak_db": -16.2
+ },
+ {
+  "line": "cliff",
+  "cue": "rustle@1",
+  "asked_s": 50.095,
+  "start_s": 49.745,
+  "onset_s": 49.784,
+  "peak_s": 50.922,
+  "peak_db": -37.9
+ }
+]

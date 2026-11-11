@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.1447,
+   "words": 7,
+   "speed": 0.891,
+   "text": "But Ruru swore to kill every snake."
+  },
+  {
+   "t0": 2.3947,
+   "t1": 4.5734,
+   "words": 8,
+   "speed": 0.891,
+   "text": "He raised his staff over an old one."
+  },
+  {
+   "t0": 4.8234,
+   "t1": 5.8734,
+   "words": 3,
+   "speed": 0.891,
+   "text": "And it spoke."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,37 @@
+{
+ "speaker": "sauti",
+ "voice": "bm_fable",
+ "speed": 0.8798,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3815,
+   "words": 3,
+   "speed": 0.88,
+   "text": "They were married."
+  },
+  {
+   "t0": 1.6315,
+   "t1": 2.7153,
+   "words": 1,
+   "speed": 0.88,
+   "text": "Shaunaka,"
+  },
+  {
+   "t0": 2.7953,
+   "t1": 4.805,
+   "words": 4,
+   "speed": 0.88,
+   "text": "their son was Shunaka,"
+  },
+  {
+   "t0": 4.885,
+   "t1": 6.462,
+   "words": 2,
+   "speed": 0.88,
+   "text": "your forefather."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

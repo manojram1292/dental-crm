@@ -1,0 +1,23 @@
+{
+ "speaker": "devaduta",
+ "voice": "am_echo",
+ "speed": 0.8904,
+ "pitch": 2.0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.0243,
+   "words": 5,
+   "speed": 0.89,
+   "text": "The dead do not return."
+  },
+  {
+   "t0": 2.3243,
+   "t1": 4.6174,
+   "words": 7,
+   "speed": 0.89,
+   "text": "But the gods have left one way."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
