@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9072000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.5401,
+   "words": 3,
+   "speed": 0.907,
+   "text": "Vyasa's student began:"
+  },
+  {
+   "t0": 1.7401,
+   "t1": 2.5706,
+   "words": 3,
+   "speed": 0.907,
+   "text": "all of it,"
+  },
+  {
+   "t0": 2.6706,
+   "t1": 3.6025,
+   "words": 2,
+   "speed": 0.907,
+   "text": "in brief."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,30 @@
+{
+ "speaker": "vaishampayana",
+ "voice": "bm_daniel",
+ "speed": 0.84,
+ "pitch": 1.0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.3169,
+   "words": 5,
+   "speed": 0.84,
+   "text": "Twelve years in the forest."
+  },
+  {
+   "t0": 2.5669,
+   "t1": 3.6693,
+   "words": 2,
+   "speed": 0.84,
+   "text": "One more"
+  },
+  {
+   "t0": 3.7293,
+   "t1": 5.0335,
+   "words": 2,
+   "speed": 0.84,
+   "text": "in hiding."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
