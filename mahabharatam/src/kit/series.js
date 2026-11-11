@@ -489,6 +489,18 @@
     const head = `${str(S, 'previouslyLabel').toUpperCase()} · ${str(S, 'prevEpisodeLabel')}`;
     ctx.font = R.font(40, 'caption', 600);
     const line = S.recapLine || str(S, 'prevEpisodeTitle');
+    if (line.length > 62) { // a long recap (episodes 41 on) breaks into two lines at the word nearest its middle; shorter ones are drawn as before
+      const ws = line.split(' '); let cut = 1, best = 1e9;
+      for (let i = 1; i < ws.length; i++) { const d = Math.abs(ws.slice(0, i).join(' ').length - line.length / 2); if (d < best) { best = d; cut = i; } }
+      const l1 = ws.slice(0, cut).join(' '), l2 = ws.slice(cut).join(' '), w2 = Math.max(ctx.measureText(l1).width, ctx.measureText(l2).width, 520) + 80;
+      ctx.fillStyle = 'rgba(16,8,6,0.8)'; ctx.beginPath(); ctx.roundRect(cx - w2 / 2, y - 50, w2, 172, 16); ctx.fill();
+      ctx.strokeStyle = 'rgba(216,168,80,0.85)'; ctx.lineWidth = 3; ctx.stroke();
+      ctx.textAlign = 'center'; ctx.fillStyle = PAL.goldPale; ctx.font = R.font(32, 'display', 600); ctx.letterSpacing = '4px';
+      ctx.fillText(head, cx, y - 6);
+      ctx.letterSpacing = '0px'; ctx.font = R.font(40, 'caption', 600); ctx.fillStyle = PAL.cream;
+      ctx.fillText(l1, cx, y + 48); ctx.fillText(l2, cx, y + 96);
+      ctx.restore(); return;
+    }
     const w = Math.max(ctx.measureText(line).width, 520) + 80;
     ctx.fillStyle = 'rgba(16,8,6,0.8)'; ctx.beginPath(); ctx.roundRect(cx - w / 2, y - 50, w, 124, 16); ctx.fill();
     ctx.strokeStyle = 'rgba(216,168,80,0.85)'; ctx.lineWidth = 3; ctx.stroke();

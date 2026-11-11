@@ -24,7 +24,7 @@
     "kinetic": true
   },
   "episode": 44,
-  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Pauloma sub-parva, adhyaya 8: Chyavana's son Pramati, Pramati's son Ruru; the apsara Menaka bears a daughter to the gandharva king Vishvavasu and leaves the new-born on a river bank near the hermitage of the sage Sthulakesha, who finds her shining there, raises her and names her Pramadvara because she surpasses all women; Ruru sees her and loves her; through his friends his father Pramati asks Sthulakesha for her, and the wedding day is set; a few days before it, playing with her friends, she does not see a sleeping snake and steps on it; it bites her and she falls dead; the sages gather and weep; Ruru goes out in grief (1.9 opens with his cry in the deep forest and the messenger of the gods). The names Menaka, Vishvavasu, Sthulakesha and Pramati are on plaques, not spoken (≤ 2 new names per 10 s).",
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Pauloma sub-parva. CHECKED AGAINST CE 1.8.1–22 and 1.9.1: Chyavana's son by Sukanya is Pramati; Pramati's son by Ghritachi is Ruru; Ruru's son by Pramadvara is Shunaka (1.8.1–2); the apsara Menaka conceives by the gandharva king Vishvavasu (1.8.5) and leaves the new-born on a river bank by the hermitage of the sage Sthulakesha (1.8.6–7); he sees her abandoned there, shining, takes her up in pity and raises her (1.8.8–9); he names her Pramadvara because she is the best of women (1.8.10); Ruru sees her in the hermitage and is overcome by love (1.8.11); through his friends he lets his father know, Pramati asks Sthulakesha, and the wedding is fixed under the stars of Bhaga (1.8.12–13; in the picture only); a few days before it, playing with her friends, she does not see a sleeping snake lying across her way and steps on it (1.8.14–15); it bites her (1.8.16); she falls lifeless, and lifeless is lovelier than ever, as if asleep (1.8.17–18: `lay` now says \"dead\"); her father and the ascetics see her; the sages gather and weep, and Ruru goes out in his pain (1.8.19–22); he cries out in the deep forest (1.9.1) and a messenger of the gods speaks (1.9.6). Great-grandson of Bhrigu: Bhrigu, Chyavana, Pramati, Ruru (1.5.7). The names Menaka and Sthulakesha are on plaques, not spoken; Vishvavasu is first named on episode 45's plaque.",
   "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
   "hookStyle": "fragments",
   "names": {
@@ -32,12 +32,11 @@
     "Bhrigu": "a great sage",
     "Pramadvara": "\"the finest of women\"",
     "Menaka": "an apsara",
-    "Sthulakesha": "the sage who raised her",
-    "Pramati": "Ruru's father"
+    "Sthulakesha": "the sage who raised her"
   },
   "loop": {
     "hookQuestion": "What happened to the bride?",
-    "answeredBy": "bit",
+    "answeredBy": "lay",
     "prevQuestion": "How did one of Bhrigu's line lose his bride to a snake?",
     "prevAnsweredBy": "family",
     "openQuestion": "What did the messenger of the gods tell Ruru?"
@@ -195,10 +194,10 @@
       "id": "loved",
       "speed": 1.0,
       "text": "Ruru saw her, and loved her.",
-      "say": "Ruru saw her, [p:200] and loved her.",
-      "est": 3.22,
+      "say": "Ruru saw her, [p:300] and loved her.",
+      "est": 3.92,
       "pre": 250,
-      "post": 300,
+      "post": 900,
       "emphasis": [
         "Ruru"
       ],
@@ -211,35 +210,12 @@
         "leaf"
       ],
       "music": "tender",
-      "pal": "meadow-spring",
+      "pal": "hunt-emerald",
       "cam": "push",
       "closeup": true,
       "mixDb": -4,
-      "note": "STORY 4 · THE CLOSE-UP: Ruru's face between two trunks: calm to wonder to a small smile (brow up, eyes wide, the mouth's corner); his gaze follows her across.",
-      "estVoice": 2.67
-    },
-    {
-      "id": "set",
-      "speed": 1.0,
-      "text": "Their fathers set the wedding day.",
-      "say": "Their fathers [p:60] set the wedding day.",
-      "est": 3.18,
-      "pre": 250,
-      "post": 300,
-      "beats": [
-        1,
-        5
-      ],
-      "amb": "hearth",
-      "foley": [
-        "flame",
-        "pot@0"
-      ],
-      "music": "calm",
-      "pal": "hearth-amber",
-      "cam": "slide",
-      "note": "STORY 5: two old sages seated by a small fire, palms joined, a garland and a pot between them (plaques: Pramati · Ruru's father; Sthulakesha).",
-      "estVoice": 2.63
+      "note": "STORY 4 · THE CLOSE-UP: Ruru's face between two trunks: calm to wonder to a small smile (brow up, eyes wide, the mouth's corner); his gaze follows her across; the shot holds on him after the words. Behind, small and out of focus, two old sages with joined palms and a garland between them: the wedding day is set (seen, not said).",
+      "estVoice": 2.77
     },
     {
       "id": "play",
@@ -289,7 +265,7 @@
       "cam": "frame",
       "signature": true,
       "mixDb": -3,
-      "note": "STORY 7 · THE TURN (≈ 52 %) after a real silence · THE SIGNATURE SHOT: frame-within-frame at ground level: through a dark arch of grass blades, her foot coming down, the sleeping snake in the foreground, the light gone violet. cam: frame.",
+      "note": "STORY 7 · THE TURN (≈ 52 %) after a real silence · THE SIGNATURE SHOT: frame-within-frame at ground level: through a dark arch of grass blades, her foot coming down in the middle distance, the small sleeping snake in the foreground a clear hand's breadth of ground away from it (the two shapes never touch or overlap in the frame), the light gone violet. cam: frame.",
       "estVoice": 3.24
     },
     {
@@ -320,14 +296,15 @@
     {
       "id": "lay",
       "speed": 1.0,
-      "text": "She lay as if asleep, more beautiful than ever.",
-      "say": "She lay as if asleep, [p:200] more beautiful than ever.",
-      "est": 4.92,
+      "text": "She lay dead, as if asleep, lovelier than ever.",
+      "say": "She lay dead, [p:250] as if asleep, [p:150] lovelier than ever.",
+      "est": 5.37,
       "pre": 800,
       "post": 400,
       "rest": true,
       "beats": [
-        4,
+        2,
+        5,
         8
       ],
       "foley": [
@@ -340,7 +317,7 @@
       "tr": "ink",
       "mixDb": -4,
       "note": "STORY 9 (a second real silence before it; the text has it: lifeless, she was lovelier still): the colour drains (ash-grey): her face among fallen flowers, calm; petals settle; a slow push.",
-      "estVoice": 3.72
+      "estVoice": 4.17
     },
     {
       "id": "wept",

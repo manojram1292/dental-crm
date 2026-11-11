@@ -55,7 +55,7 @@
     sit: Pz({ lean: 0.04, look: 0.02, drop: 335, nh: [-150, -470], na: 2.6, nk: 'cup', fh: [-110, -476], fa: 2.5, fk: 'cup', an: [-78, -34], af: [-120, -40] }),
     carry: Pz({ lean: -0.03, look: 0.2, nh: [-96, -640], na: -2.7, nk: 'cup', fh: [-74, -610], fa: 2.9, fk: 'cup' }),
     curse: Pz({ lean: 0.15, look: -0.06, hx: -10, nh: [-312, -640], na: 2.85, nk: 'point', fh: [70, -500], fa: 1.2, an: [-84, -22], af: [70, -22] }),
-    raise: Pz({ lean: -0.12, look: -0.12, hx: 16, nh: [20, -1040], na: -1.5, nk: 'fist', fh: [-110, -640], fa: 2.6, pa: -0.9, an: [-50, -22], af: [80, -22] }),
+    raise: Pz({ lean: -0.12, look: -0.12, hx: 16, nh: [-14, -1046], na: -1.5, nk: 'fist', fh: [-110, -640], fa: 2.6, pa: -0.9, an: [-50, -22], af: [80, -22] }),
     strike: Pz({ lean: 0.3, look: 0.12, nh: [-320, -520], na: 2.6, nk: 'fist', fh: [60, -560], fa: 1.2, pa: -2.75, an: [-110, -22], af: [90, -22] }),
     collapse: Pz({ lean: 0.62, look: 0.5, drop: 250, nh: [-240, -330], na: 2.2, fh: [-200, -320], fa: 2.0, an: [-110, -22], af: [220, -30] }),
     bow: Pz({ lean: 0.55, look: 0.28, nh: [-150, -640], na: -2.4, fh: [-142, -648], fa: -2.35 }),
@@ -257,7 +257,7 @@
     const b = r.b, sh = near ? r.shN : r.shF, el = near ? r.elN : r.elF, h = near ? r.nh : r.fh, t = (0.8 + 0.2 * b.w) * b.limb;
     limb(g, [sh, el, h], near ? [52 * t, 37 * t, 27 * t] : [48 * t, 34 * t, 25 * t]);
     hnd(g, h, near ? r.S.na : r.S.fa, 56 * (0.7 + 0.3 * b.arm) * (b.w > 1.25 ? 1.3 : 1) * (b.head < 0.8 ? 0.7 : 1), near ? r.S.nk : r.S.fk);
-    if (near && r.smear) { const q = r.smear; g.moveTo(q[0], q[1]); g.lineTo(h[0] - (h[1] - q[1]) * 0.09, h[1] + (h[0] - q[0]) * 0.09); g.lineTo(h[0] + (h[1] - q[1]) * 0.09, h[1] - (h[0] - q[0]) * 0.09); g.closePath(); cut(g); }
+    if (near && r.smear) { const q = [lerp(r.smear[0], h[0], 0.5), lerp(r.smear[1], h[1], 0.5)]; g.moveTo(q[0], q[1]); g.lineTo(h[0] - (h[1] - q[1]) * 0.09, h[1] + (h[0] - q[0]) * 0.09); g.lineTo(h[0] + (h[1] - q[1]) * 0.09, h[1] - (h[0] - q[0]) * 0.09); g.closePath(); cut(g); }
   }
   function propPath(g, r) {
     const p = r.prop; if (!p) return;
@@ -265,7 +265,7 @@
     if (p === 'staff') limb(g, [[hx - cx * 430, hy - sy * 430], [hx + cx * 560, hy + sy * 560]], [14, 18]);
     else if (p === 'club') { limb(g, [[hx - cx * 60, hy - sy * 60], [hx + cx * 250, hy + sy * 250], [hx + cx * 420, hy + sy * 420]], [20, 44, 70]); }
     else if (p === 'oar') { limb(g, [[hx - cx * 260, hy - sy * 260], [hx + cx * 520, hy + sy * 520]], [14, 14]); g.moveTo(hx + cx * 520, hy + sy * 520); g.ellipse(hx + cx * 600, hy + sy * 600, 90, 26, a, 0, TAU); cut(g); }
-    else if (p === 'pot') { g.moveTo(hx + 34, hy + 64); g.ellipse(hx, hy + 64, 36, 42, 0, 0, TAU); cut(g); g.moveTo(hx - 12, hy + 16); g.rect(hx - 12, hy + 6, 24, 22); cut(g); g.moveTo(hx - 34, hy + 50); g.quadraticCurveTo(hx - 74, hy + 30, hx - 66, hy + 4); g.lineTo(hx - 56, hy + 6); g.quadraticCurveTo(hx - 58, hy + 30, hx - 30, hy + 60); g.closePath(); cut(g); }
+    else if (p === 'pot') { g.moveTo(hx + 30, hy + 44); g.lineTo(hx + 74, hy + 22); g.lineTo(hx + 78, hy + 34); g.lineTo(hx + 34, hy + 62); g.closePath(); cut(g); g.moveTo(hx + 34, hy + 64); g.ellipse(hx, hy + 64, 36, 42, 0, 0, TAU); cut(g); g.moveTo(hx - 12, hy + 16); g.rect(hx - 12, hy + 6, 24, 22); cut(g); g.moveTo(hx - 34, hy + 50); g.quadraticCurveTo(hx - 74, hy + 30, hx - 66, hy + 4); g.lineTo(hx - 56, hy + 6); g.quadraticCurveTo(hx - 58, hy + 30, hx - 30, hy + 60); g.closePath(); cut(g); }
     else if (p === 'leaves') { g.save(); g.translate(hx - 20, hy - 8); g.rotate(-0.12); g.moveTo(-90, -14); g.rect(-90, -14, 170, 30); cut(g); g.restore(); }
     else if (p === 'bundle') { g.moveTo(hx + 60, hy - 30); g.ellipse(hx - 10, hy - 30, 84, 46, -0.2, 0, TAU); cut(g); g.moveTo(hx - 50, hy - 78); g.arc(hx - 78, hy - 70, 32, 0, TAU); cut(g); }
   }
@@ -288,6 +288,7 @@
       g.beginPath(); armPath(g, r, false); g.fill();
       g.beginPath(); legsPath(g, r); g.fill();
       g.beginPath(); lowerPath(g, r, B); g.fill();
+      g.beginPath(); propPath(g, r); g.fill();   // a staff or an oar passes behind the body and the head; the near hand closes over it
       g.save(); upper(g, r);
       g.beginPath(); torsoPath(g, r, B); g.fill();
       g.beginPath(); upperPath(g, r, B); g.fill();
@@ -295,7 +296,6 @@
       if (B.jewels && B.jewels.horns) { g.beginPath(); g.moveTo(-30, -70); g.quadraticCurveTo(-70, -150, -20, -190); g.quadraticCurveTo(-36, -130, 0, -84); g.closePath(); g.fill(); g.beginPath(); g.moveTo(30, -84); g.quadraticCurveTo(40, -170, 96, -180); g.quadraticCurveTo(60, -140, 62, -80); g.closePath(); g.fill(); }
       g.restore();
       g.restore();
-      g.beginPath(); propPath(g, r); g.fill();
       g.beginPath(); armPath(g, r, true); g.fill();
     };
   }
@@ -308,6 +308,7 @@
       // the colour blocks sit inside the silhouette, shifted away from the light so the rim stays on the lit side
       const w = CH.rimWidth(P.s, r.k, rule), lx = (-Math.cos(L.dir) * w) / (P.flip ? -P.s : P.s), ly = (-Math.sin(L.dir) * w) / P.s;
       g.save(); g.globalCompositeOperation = 'source-atop'; g.translate(lx, ly);
+      if (B.propColor && r.prop) { g.fillStyle = tone(B.propColor); g.beginPath(); propPath(g, r); g.fill(); g.fillStyle = tone(rule.lit); g.beginPath(); legsPath(g, r); g.fill(); g.save(); upper(g, r); g.beginPath(); torsoPath(g, r, B); g.fill(); g.save(); headT(g, r); g.beginPath(); headPath(g, r, B); g.fill(); g.restore(); g.restore(); }
       if (B.lower && B.lower.color) { g.fillStyle = tone(B.lower.color); g.beginPath(); lowerPath(g, r, B); g.fill(); }
       g.save(); upper(g, r);
       if (B.upper && B.upper.color) { g.fillStyle = tone(B.upper.color); g.beginPath(); upperPath(g, r, B); g.fill(); }
@@ -315,7 +316,6 @@
       if (B.hair) { g.fillStyle = tone(B.hair.color, B.hair.lit); g.beginPath(); hairPath(g, r, B); g.fill(); }
       if (B.beard && B.beard.len) { g.fillStyle = tone(B.beard.color || (B.hair && B.hair.color), B.beard.lit); g.beginPath(); beardPath(g, r, B); g.fill(); }
       g.restore(); g.restore();
-      if (B.propColor && r.prop) { g.fillStyle = tone(B.propColor); g.beginPath(); propPath(g, r); g.fill(); }
       // the near arm again in skin, over the cloth
       g.fillStyle = tone(rule.lit);
       g.beginPath(); armPath(g, r, true); g.fill();

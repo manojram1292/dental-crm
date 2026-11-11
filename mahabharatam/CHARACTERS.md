@@ -981,11 +981,17 @@ Each has one signature (two colours, one ornament, one silhouette trait) that do
 
 Creatures (`creatures.js`): `boar` (Puloman as a boar, 1.6: storm-slate, a ridge of bristles, tusks, a red eye), `dundubha` (the old harmless snake,
 1.9–11: drab with a pale belly, a mild eye that blinks; `rise` 0…1), `viper` (the snake that bit Pramadvara, 1.8), `hawk` (1.57; `packet`: the leaf),
-`fish` (the cursed apsara Adrika, 1.57: silver, a pearl glow), and `hearthfire`: **Agni as the witness**, the household fire with a face (1.5–7),
-which is not rim-lit because it is the light; `k` 0 = withdrawn … 1.4, `pure` 0…1 turns the flames clear gold-white. Episode 19's `agni` (a deva's
+`fish` (the cursed apsara Adrika, 1.57: silver, a pearl glow), and `hearthfire`: **Agni as the witness**, the household fire (1.5–7): the series' layered teardrop flame on its altar, with NO face (the first
+draft's face was removed after the visual review); he speaks as a voice from the fire. It is not rim-lit because it is the light; `k` 0 = withdrawn … 1.4, `pure` 0…1 turns the flames clear gold-white. Episode 19's `agni` (a deva's
 body) is a different drawing of the same god in a different role; the voice is the same.
 
-Known weak points (see REVIEW_LOG.md): spiky flames, a flat boar, mitten hands, stiff knees.
+Known weak points after the Phase B rework (see REVIEW_LOG.md): the figures are still flat paper-cut bodies with a short stride; hands are three fixed shapes;
+feet are not planted during a walk; the pupil does not lead a head turn.
+
+**One body per person (Phase B).** `vyasaSage`, `vaishampayanaSage` and `kingJanamejaya` follow the bibles of `vyasa.js`, `vaishampayana.js` and `janamejaya.js`:
+Vyasa has the halo ring, the top-knot and waist-long hair, a chest-long beard and a long bark-coloured cloth; Vaishampayana the high bun, a short beard and dawn-rose cloth;
+Janamejaya the tiered crown, no beard, saffron and gold. They are closer to the old silhouettes, not identical (stockier, painted faces, no manuscript: the text has a recital).
+Proof: `lab/kit41/v2/m13-one-body-old-vs-new.png`. Skin tones are spread across ranks; no single dark figure of low status; Vyasa is dark brown, not deity-blue.
 
 ## Narrator · `narrator`
 

@@ -290,7 +290,13 @@
       fb.ctx.translate(-x0, -y0);
       fb.ctx.save(); fb.ctx.translate(dx, dy); drawShape(fb.ctx, fill); fb.ctx.restore();
       fb.ctx.globalCompositeOperation = 'destination-in';
-      fb.ctx.save(); fb.ctx.translate(-dx * halo, -dy * halo); drawShape(fb.ctx, '#000'); fb.ctx.restore();
+      if (rule.halo) { fb.ctx.save(); fb.ctx.translate(-dx * halo, -dy * halo); drawShape(fb.ctx, '#000'); fb.ctx.restore(); }
+      else {
+        // light.wrap (episode 41 on): the mask is the WHOLE figure as one opaque shape (a figure built from many sub-fills would
+        // otherwise be cut down to their intersection), so the fill keeps its body and only a thin far-side rim is uncovered
+        const mb = R.buffer(key + '-mask', bw, bh); mb.clear(); mb.ctx.translate(-x0, -y0); drawShape(mb.ctx, '#000'); R.resetCtx(mb.ctx);
+        fb.ctx.drawImage(mb.canvas, x0 - dx * halo, y0 - dy * halo, bw, bh);
+      }
       g.drawImage(fb.canvas, x0, y0, bw, bh);
     } else {
       g.save(); g.translate(dx, dy); drawShape(g, fill); g.restore();

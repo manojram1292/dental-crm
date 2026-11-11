@@ -34,31 +34,37 @@
   const note = (bag, k) => { if (R.probe) { R.probe[bag] = R.probe[bag] || {}; R.probe[bag][k] = (R.probe[bag][k] || 0) + 1; } };
   const A = (KIT.act = {});
 
-  /** 0 → 1 with anticipation (dips to −antic first) and follow-through (peaks at 1 + over, then settles). */
-  A.arc = (u, o = {}) => {
-    u = clamp(u);
-    const an = o.antic ?? 0.12, ov = o.over ?? 0.1, a = 0.2, b = 0.72;
-    if (u < a) return -an * Math.sin(Math.PI * (u / a));
-    if (u < b) return (1 + ov) * E.inOutCubic((u - a) / (b - a));
-    const v = (u - b) / (1 - b);
-    return 1 + ov * Math.cos(v * Math.PI * 1.5) * (1 - v);
+  /**
+   * 0 → 1 over REAL TIME (dt in seconds since the key), in three phases (visual review of kit 41, M2):
+   *   anticipation  `antic` s (default 0.24 = 7 frames): eases OUT to −an and stays there (the body goes the other way first)
+   *   action        `act` s (default 0.3; a strike: 0.12 = 3–4 frames, with the rig's smear): −an → 1 + ov
+   *   settle        `settle` s (default 0.4 = 12 frames): a damped overshoot back to 1
+   * Never a 2-frame twitch: every phase is at least 3 frames long.
+   */
+  A.arc = (dt, o = {}) => {
+    const an = o.an ?? 0.1, ov = o.over ?? 0.09, ta = Math.max(0.1, o.antic ?? 0.24), tb = Math.max(0.1, o.act ?? 0.3), tc = Math.max(0.2, o.settle ?? 0.4);
+    if (dt <= 0) return 0;
+    if (dt < ta) return -an * E.outCubic(dt / ta);
+    if (dt < ta + tb) { const u = (dt - ta) / tb; return -an + (1 + ov + an) * (tb < 0.2 ? u * u * (3 - 2 * u) : E.inOutSine(u)); }
+    const v = Math.min(1, (dt - ta - tb) / tc);
+    return 1 + ov * Math.exp(-4.2 * v) * Math.cos(v * Math.PI * 2.2) * (1 - v);
   };
   const asW = (p) => (typeof p === 'string' ? { [p]: 1 } : p);
   const mixW = (a, b, k) => { const o = {}; for (const n of new Set([...Object.keys(a), ...Object.keys(b)])) { const v = lerp(a[n] || 0, b[n] || 0, k); if (Math.abs(v) > 1e-4) o[n] = v; } return o; };
-  /** Pose weights at t from keys [[time, pose, { dur, antic, over }]]: each key is REACHED at its time + dur (default 0.55 s). */
+  /** Pose weights at t from keys [[time, pose, { antic, act, settle, an, over }]]: each key STARTS at its time (anticipation first). */
   A.keys = (t, keys, o = {}) => {
     let w = asW(keys[0][1]);
     for (let i = 1; i < keys.length; i++) {
-      const [t0, p, ko = {}] = keys[i], dur = ko.dur ?? o.dur ?? 0.55;
+      const [t0, p, ko = {}] = keys[i];
       if (t <= t0) break;
-      w = mixW(w, asW(p), A.arc((t - t0) / dur, { antic: ko.antic ?? o.antic, over: ko.over ?? o.over }));
+      w = mixW(w, asW(p), A.arc(t - t0, { ...o, ...ko }));
     }
     return w;
   };
-  /** The full pose object for the actor rig: weights now and a moment ago (the cloth and the hair read the past). */
+  /** The full pose object for the actor rig: the weights now, a moment ago (cloth and hair read the past), and 1½ frames ago (the smear). */
   A.pose = (t, keys, o = {}) => {
     const lag = o.lag ?? 0.13;
-    return { w: A.keys(t, keys, o), lag: A.keys(t - lag, keys, o), lag2: A.keys(t - 2 * lag, keys, o), phase: o.phase || 0, stride: o.stride, wind: o.wind, prop: o.prop, hold: o.hold };
+    return { w: A.keys(t, keys, o), lag: A.keys(t - lag, keys, o), lag2: A.keys(t - 2 * lag, keys, o), sm: A.keys(t - 0.05, keys, o), phase: o.phase || 0, stride: o.stride, wind: o.wind, prop: o.prop, hold: o.hold };
   };
   A.blink = (T, seed = 0) => {
     const per = 2.4 + 2.6 * hash(Math.floor(seed * 13) + 3, 5), ph = hash(Math.floor(seed * 7) + 1, 9) * per;
@@ -77,7 +83,7 @@
   const asE = (e) => (typeof e === 'string' ? A.EMO[e] || A.EMO.calm : { ...A.EMO.calm, ...e });
   A.emo = (t, keys, o = {}) => {
     let e = asE(keys[0][1]);
-    for (let i = 1; i < keys.length; i++) { const [t0, n, ko = {}] = keys[i]; if (t <= t0) break; e = mixE(e, asE(n), A.arc((t - t0) / (ko.dur ?? o.dur ?? 0.5), { antic: 0.06, over: 0.08 })); }
+    for (let i = 1; i < keys.length; i++) { const [t0, n, ko = {}] = keys[i]; if (t <= t0) break; e = mixE(e, asE(n), E.inOutSine(clamp((t - t0) / (ko.dur ?? o.dur ?? 0.45)))); }
     return e;
   };
   A.gaze = (t, keys, dur = 0.3) => {
@@ -88,6 +94,21 @@
 
   // ─── Typography in motion ─────────────────────────────────────────────────────────────────────────────────────
   const TY = (KIT.type = {});
+  /** TEXT NEVER CROSSES A FACE. rect = [x0, y0, x1, y1] (logical px). Returns [dx, dy] to a clear place (tries the mirror side,
+   *  then up and down), or reports the hit to the gate's probe when there is none. Faces come from the acting figures drawn
+   *  earlier in the same frame (REEL.faces). */
+  const hits = (r) => (R.faces || []).some((f) => f.x + f.r > r[0] && f.x - f.r < r[2] && f.y + f.r > r[1] && f.y - f.r < r[3]);
+  TY.hits = hits;
+  TY.clear = (r, name) => {
+    if (!hits(r)) return [0, 0];
+    const w = r[2] - r[0], cx = (r[0] + r[2]) / 2;
+    for (const [dx, dy] of [[R.W - 2 * cx + (cx < R.W / 2 ? -90 : 0), 0], [0, -220], [0, 220], [0, -420], [0, 420], [R.W - 2 * cx, -220], [R.W - 2 * cx, 220]]) {
+      const q = [r[0] + dx, r[1] + dy, r[2] + dx, r[3] + dy];
+      if (q[0] > 20 && q[2] < R.W - 20 && q[1] > 190 && q[3] < 1250 && !hits(q)) { void w; return [dx, dy]; }
+    }
+    note('type', 'faceHit:' + name);
+    return [0, 0];
+  };
   /** A name plaque that ARRIVES. k = 0..1 intro (≈ 0.7 s), o.out = 0..1. */
   TY.plaque = (ctx, T, k, name, epithet, o = {}) => {
     if (k <= 0.003 || (o.out ?? 0) >= 0.997) return;
@@ -97,7 +118,8 @@
     const text = String(name).toUpperCase(), tw = ctx.measureText(text).width;
     ctx.font = R.font(size * 0.56, 'caption', 600, 'normal'); ctx.letterSpacing = '0px';
     const ew = epithet ? ctx.measureText(epithet).width : 0;
-    const w = Math.max(tw, ew) + size * 1.5, h = size * (epithet ? 2.35 : 1.6), x0 = x - w / 2, y0 = y - size * 1.12;
+    const w = Math.max(tw, ew) + size * 1.5, h = size * (epithet ? 2.35 : 1.6);
+    const mv = TY.clear([x - w / 2, y - size * 1.12, x + w / 2, y - size * 1.12 + h], 'plaque'); ctx.restore(); ctx.save(); ctx.translate(mv[0], mv[1]); const x0 = x - w / 2, y0 = y - size * 1.12;
     // the lacquer band brushes on from the left, with a bristled leading edge
     const b = E.outCubic(clamp(k / 0.45)), bw = w * b;
     ctx.globalAlpha = out * 0.9; ctx.fillStyle = o.color || 'rgba(14,8,6,0.86)';
@@ -107,7 +129,7 @@
     ctx.globalAlpha = out * b; ctx.fillStyle = o.edge || PAL.gold; ctx.fillRect(x0, y0, bw, 4); ctx.fillRect(x0, y0 + h - 4, bw, 4);
     ctx.restore();
     // the letters land one by one (each drops a few px and warms in)
-    ctx.save(); ctx.font = R.font(size, 'display', 700); ctx.letterSpacing = `${size * 0.08}px`; ctx.textBaseline = 'alphabetic';
+    ctx.save(); ctx.translate(mv[0], mv[1]); ctx.font = R.font(size, 'display', 700); ctx.letterSpacing = `${size * 0.08}px`; ctx.textBaseline = 'alphabetic';
     let cx = x - tw / 2;
     [...text].forEach((ch, i) => {
       const lk = E.outBack ? E.outBack(clamp((k - 0.2 - i * 0.035) / 0.3)) : E.outCubic(clamp((k - 0.2 - i * 0.035) / 0.3));
@@ -117,20 +139,22 @@
     });
     ctx.restore();
     const ul = E.inOutCubic(clamp((k - 0.5) / 0.4));
-    if (ul > 0) { ctx.save(); ctx.globalAlpha = out; ctx.fillStyle = PAL.gold; ctx.beginPath(); ctx.moveTo(x - tw / 2, y + 14); ctx.quadraticCurveTo(x - tw / 2 + tw * ul * 0.5, y + 8, x - tw / 2 + tw * ul, y + 13); ctx.quadraticCurveTo(x - tw / 2 + tw * ul * 0.5, y + 19, x - tw / 2, y + 20); ctx.fill(); ctx.restore(); }
-    if (epithet) { ctx.save(); ctx.globalAlpha = out * E.outCubic(clamp((k - 0.6) / 0.35)); ctx.font = R.font(size * 0.56, 'caption', 600); ctx.textAlign = 'center'; ctx.fillStyle = PAL.cream; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(6); ctx.fillText(epithet, x, y + size * 0.9); ctx.restore(); }
+    if (ul > 0) { ctx.save(); ctx.translate(mv[0], mv[1]); ctx.globalAlpha = out; ctx.fillStyle = PAL.gold; ctx.beginPath(); ctx.moveTo(x - tw / 2, y + 14); ctx.quadraticCurveTo(x - tw / 2 + tw * ul * 0.5, y + 8, x - tw / 2 + tw * ul, y + 13); ctx.quadraticCurveTo(x - tw / 2 + tw * ul * 0.5, y + 19, x - tw / 2, y + 20); ctx.fill(); ctx.restore(); }
+    if (epithet) { ctx.save(); ctx.translate(mv[0], mv[1]); ctx.globalAlpha = out * E.outCubic(clamp((k - 0.6) / 0.35)); ctx.font = R.font(size * 0.56, 'caption', 600); ctx.textAlign = 'center'; ctx.fillStyle = PAL.cream; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(6); ctx.fillText(epithet, x, y + size * 0.9); ctx.restore(); }
   };
   /** THE WORD OF THE TURN: stamps in large with an ink ring; holds; o.out fades. */
   TY.turnWord = (ctx, T, k, word, o = {}) => {
     if (k <= 0.003 || (o.out ?? 0) >= 0.997) return;
     note('type', 'turnWord');
-    const x = o.x ?? KIT.CX, y = o.y ?? 620, size = o.size ?? 150, out = 1 - E.inOutSine(clamp(o.out ?? 0));
-    const st = clamp(k / 0.28), sc = lerp(1.9, 1, E.outCubic(st)) * (1 + 0.04 * Math.sin(Math.PI * clamp((k - 0.28) / 0.3)));
-    const ring = E.outCubic(clamp((k - 0.12) / 0.6));
-    ctx.save(); ctx.globalAlpha = out * 0.5 * (1 - ring * 0.6); ctx.strokeStyle = o.ink || '#120a08'; ctx.lineWidth = lerp(60, 10, ring);
-    ctx.beginPath(); KIT.scallopPath(ctx, x, y - size * 0.3, size * (1.2 + 1.6 * ring), size * (0.7 + 0.8 * ring), 13, 4, 0.1); ctx.stroke(); ctx.restore();
+    const size = o.size ?? 130, out = 1 - E.inOutSine(clamp(o.out ?? 0)), text = String(word).toUpperCase();
+    ctx.save(); ctx.font = R.font(size, 'display', 700); ctx.letterSpacing = `${size * 0.06}px`; const tw = ctx.measureText(text).width; ctx.restore();
+    let x = clamp(o.x ?? KIT.CX, tw / 2 + 70, R.W - tw / 2 - 70), y = o.y ?? 620;
+    const mv = TY.clear([x - tw / 2 - 20, y - size, x + tw / 2 + 20, y + (o.sub ? size * 0.6 : size * 0.2)], 'turnWord'); x += mv[0]; y += mv[1];
+    const st = clamp(k / 0.3), sc = lerp(1.28, 1, E.outCubic(st)) * (1 + 0.03 * Math.sin(Math.PI * clamp((k - 0.3) / 0.3)));
+    // a soft dark ground of brushed lacquer behind the word (no ring: a ring round a head reads as a noose)
+    ctx.save(); ctx.globalAlpha = out * 0.55 * clamp(st * 1.4); ctx.fillStyle = '#120a08'; ctx.beginPath(); ctx.roundRect(x - tw / 2 - 40, y - size * 0.98, tw + 80, size * (o.sub ? 1.62 : 1.26), 18); ctx.fill(); ctx.restore();
     ctx.save(); ctx.translate(x, y - size * 0.3); ctx.scale(sc, sc); ctx.translate(-x, -(y - size * 0.3));
-    KIT.goldText(ctx, String(word).toUpperCase(), x, y, { size, spacing: size * 0.06, weight: 700, alpha: out * clamp(st * 1.5), glow: 0.35, sheen: clamp((k - 0.3) / 0.6) * 1.6 - 0.3, key: o.key || 'turnword' });
+    KIT.goldText(ctx, text, x, y, { size, spacing: size * 0.06, weight: 700, alpha: out * clamp(st * 1.5), glow: 0.3, sheen: clamp((k - 0.3) / 0.6) * 1.6 - 0.3, key: o.key || 'turnword' });
     ctx.restore();
     if (o.sub) { ctx.save(); ctx.globalAlpha = out * E.outCubic(clamp((k - 0.5) / 0.4)); ctx.font = R.font(size * 0.3, 'caption', 600, 'italic'); ctx.textAlign = 'center'; ctx.fillStyle = PAL.cream; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(8); ctx.fillText(o.sub, x, y + size * 0.42); ctx.restore(); }
   };
@@ -139,9 +163,12 @@
   TY.source = (ctx, T, a, S, o = {}) => {
     if (a <= 0.003 || !S) return;
     note('type', 'source');
-    const x = o.x ?? KIT.CX, y = o.y ?? 236, size = o.size ?? 34;
+    const x = o.x ?? KIT.CX, y = o.y ?? 236; let size = o.size ?? 34;
     ctx.save(); ctx.globalAlpha = clamp(a); ctx.textAlign = 'center'; ctx.font = R.font(size, 'caption', 600);
-    const l1 = S.sourceLine || '', l2 = S.madeLine || '', w = Math.max(ctx.measureText(l1).width, ctx.measureText(l2).width) + 48;
+    const l1 = S.sourceLine || '', l2 = S.madeLine || '';
+    while (size > 24 && Math.max(ctx.measureText(l1).width, ctx.measureText(l2).width) + 48 > R.W - 72) { size -= 1; ctx.font = R.font(size, 'caption', 600); } // a longer source line (an honest note on the order of telling) shrinks to fit, never clips
+    const w = Math.max(ctx.measureText(l1).width, ctx.measureText(l2).width) + 48;
+    const mv = TY.clear([x - w / 2, y - size * 1.05, x + w / 2, y + size * 1.55], 'source'); ctx.translate(mv[0], mv[1]);
     ctx.fillStyle = 'rgba(12,8,6,0.7)'; ctx.beginPath(); ctx.roundRect(x - w / 2, y - size * 1.05, w, size * 2.6, 14); ctx.fill();
     ctx.fillStyle = PAL.goldPale; ctx.fillText(l1, x, y); ctx.fillStyle = PAL.cream; ctx.fillText(l2, x, y + size * 1.2);
     ctx.restore();

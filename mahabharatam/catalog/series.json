@@ -6208,7 +6208,7 @@
        },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "FIDELITY NOTE added after airing (2026-11, CE check): the voiced line \"He learned the sacred texts from the sage Chyavana\" follows the vulgate reading (as in Ganguli). The Critical Edition, 1.44.18, reads bhargavac cyavanatmajat: \"from the Bhargava, Chyavana's SON\" (unnamed there; Pramati is Chyavana's son at 1.8.1). The episode is released and is not re-voiced; the owner may add a one-line correction to its description. id, number and title unchanged."
       },
       {
        "id": "S01E037",
@@ -6428,7 +6428,7 @@
        },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "ORDER-OF-TELLING NOTE added after airing (2026-11): this episode's last line (\"But Sauti had another family to speak of: Shaunaka's own\") and episode 36's plaque for Chyavana imply that the Bhrigu tales are told AFTER the serpent tales. In the text they come first (Pauloma parva, Adi 1.4–12, before the Astika parva, 1.13–53). Not re-voiced; episode 41 says the true order on screen (recap band and source line) and episode 46's source line repeats it. Its other line, \"in the pauses of that great sacrifice, the Mahabharata was told\", is CE 1.53.31–33. id, number and title unchanged."
       }
      ]
     },
@@ -6513,11 +6513,11 @@
          "parva": 1,
          "adhyaya_from": 5,
          "adhyaya_to": 6,
-         "approx": true,
-         "label": "Adi 1.5–6 (approx.)"
+         "approx": false,
+         "label": "Adi 1.5–6"
         }
        ],
-       "synopsis": "Shaunaka asks Sauti for the story of his own family, the Bhrigus. Bhrigu's wife Puloma is with child and alone when a rakshasa, Puloman, comes to the hermitage: he had chosen her long before, but her father gave her to Bhrigu. He asks the household fire, Agni, the witness, whose wife she is; Agni, afraid of lying and afraid of the sage's curse, slowly tells him the truth. The rakshasa takes the form of a boar and carries her off.",
+       "synopsis": "Shaunaka asks Sauti for the story of his own family, the Bhrigus (in the text this tale is told before the serpent tales). Bhrigu's wife Puloma is with child, and Bhrigu has gone to bathe, when a rakshasa, Puloman, comes to the hermitage: he had once chosen her, but her father gave her to Bhrigu. To be sure it is she, he asks the household fire, Agni, the witness, whose wife she is; Agni, afraid of lying and afraid of the sage's curse, softly tells him. The rakshasa takes the form of a boar and carries her off.",
        "cliffhanger": "Then the child in her womb fell to the ground, blazing.",
        "characters": [
         "sauti",
@@ -6551,8 +6551,8 @@
         "en": "in_production"
        },
        "tradition_note": false,
-       "reorder_note": null,
-       "notes": "UNCERTAIN: the CE gives no words for Agni's answer (the vulgate adds a speech: chosen by you first, but wedded to Bhrigu by rite); the script says only that the fire told him who she was, which Bhrigu's question and Puloma's reply in 1.6 confirm. The rakshasa's name is on a plaque and not spoken (it differs from Puloma's by one sound). Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
+       "reorder_note": "In the text the Pauloma parva (Adi 1.4–12) is told before the Astika parva (1.13–53); the series tells it after. Said on screen in episode 41 (recap band, source line) and episode 46 (source line).",
+       "notes": "Checked against CE 1.5.1–26, 1.6.1–2 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed); Ganguli (vulgate) used only as a reading aid). Shaunaka asks to hear the Bhargava line first (1.5.3). RESOLVED, Agni's words: the constituted text gives Agni NO reply at 1.5.26 (afraid of untruth and of Bhrigu's curse he \"spoke softly\"); the reply itself is star passage 220* and the narrator's betrothal account is 217*, both vulgate, neither used. The rakshasa's own words are CE: \"tell me, Agni, whose wife is this; you are truthful, tell me the truth\" (1.5.18, the hook and `press`), \"I chose her first; afterwards her father gave her to Bhrigu\" (1.5.19), and he asks again and again because he doubts she is Bhrigu's wife (1.5.22). Removed after the check: \"You are the mouth of the gods\" (not in his speech; it is Agni's own image at 1.7.10–11). ORDER OF TELLING: in the text this parva (1.4–12) stands before the Astika parva; the recap band and the source line now say so on screen. Still unverified: nothing in this episode."
       },
       {
        "id": "S01E042",
@@ -6571,7 +6571,7 @@
          "label": "Adi 1.6"
         }
        ],
-       "synopsis": "In anger the child drops from Puloma's womb (and is called Chyavana, \"the fallen\"), shining like the sun; the rakshasa lets her go and burns to ash. Puloma walks home weeping, and her tears become a river, the Vadhusara. Bhrigu asks who made her known to the demon; she answers: the fire.",
+       "synopsis": "In anger the child drops from Puloma's womb (and is called Chyavana, \"the fallen\"), shining like the sun; the rakshasa lets her go and burns to ash. Puloma walks on weeping, and her tears become a river, which Brahma himself names Vadhusara. Bhrigu comes home and asks who told the demon she was his wife; she answers that the fire did. Sauti tells Shaunaka that Chyavana is his ancestor.",
        "cliffhanger": "And Bhrigu cursed the fire itself.",
        "characters": [
         "chyavana",
@@ -6601,7 +6601,7 @@
        },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": "UNCERTAIN: in the CE Brahma sees her and names the river; this is from the scriptwriter's reading and is neither said nor shown. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
+       "notes": "Checked against CE 1.6.1–13 (with 1.5.7–8) (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed); Ganguli (vulgate) used only as a reading aid). RESOLVED, who names Vadhusara: Brahma sees Puloma weeping, comforts her (1.6.5), and himself names the river that follows her, by Chyavana's hermitage (1.6.6–7); now voiced. vadhu = daughter-in-law (plaque: \"the daughter-in-law's stream\"). Bhrigu's question (1.6.9: who made you known to that rakshasa; he did not know you as my wife) is now the turn. Puloma's answer 1.6.11–12; the curse 1.6.13. The CE has no water thrown with the curse; removed from the picture notes. Still unverified: nothing."
       },
       {
        "id": "S01E043",
@@ -6620,7 +6620,7 @@
          "label": "Adi 1.6–7"
         }
        ],
-       "synopsis": "Bhrigu curses Agni to eat everything. Agni answers that he was asked and told the truth (a lying witness ruins seven generations), and withdraws from every altar and rite; no offering rises and the world suffers. The sages go to the gods and the gods to Brahma, who settles it: Agni will not eat all things with his whole body, and whatever his flames burn will be made pure.",
+       "synopsis": "Bhrigu curses Agni to eat everything. Agni answers that he told the truth, and that he is the mouth of the gods: how can their mouth eat everything? He withdraws from every altar, no offering rises and the world suffers. The sages go to the gods and the gods to Brahma, who rules that only a part of Agni shall eat all things, and that whatever his flames burn will be made pure. Agni returns.",
        "cliffhanger": "Generations later, one of Bhrigu's line lost his bride to a snake.",
        "characters": [
         "agni",
@@ -6650,7 +6650,7 @@
        },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": "The speeches are condensed paraphrase; \"eat everything\" renders sarvabhaksha. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
+       "notes": "Checked against CE 1.6.13, 1.7.1–26 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed); Ganguli (vulgate) used only as a reading aid). Agni's defence, \"I am called the mouth of gods and ancestors; how shall I, their mouth, be all-eating\": 1.7.10–11. Withdrawal 1.7.12–13; sages to the gods 1.7.14; to Brahma 1.7.15–16; \"not with your whole body\" 1.7.20; \"as what the sun's rays touch is pure\" 1.7.21; return 1.7.23–25. Left out of the voice: the witness verse (seven before and seven after, 1.7.3). CE against vulgate: 1.7.20 reads upadane in the CE; Ganguli's \"viler parts\" follows the vulgate; we say only \"a part of you\". Still unverified: nothing."
       },
       {
        "id": "S01E044",
@@ -6669,7 +6669,7 @@
          "label": "Adi 1.8"
         }
        ],
-       "synopsis": "Pramadvara, daughter of the apsara Menaka and the Gandharva king Vishvavasu, was left at the hermitage of the sage Sthulakesha and raised there. She is betrothed to Ruru, Chyavana's grandson. Days before the wedding she steps on a sleeping snake and dies of its bite.",
+       "synopsis": "Ruru is a young sage of Bhrigu's line. An apsara leaves her newborn daughter by a river; the sage Sthulakesha raises her and names her Pramadvara. Ruru sees her and loves her, and the wedding day is set. Days before it, playing with her friends, she steps on a sleeping snake; it bites her, and she lies dead, as if asleep. The sages weep.",
        "cliffhanger": "Ruru walked into the deep forest and cried out. And a messenger of the gods answered.",
        "characters": [
         "ruru",
@@ -6699,7 +6699,7 @@
        },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": "Menaka, Vishvavasu, Sthulakesha and Pramati are named on plaques, not in the voice (≤ 2 new names per 10 s). Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
+       "notes": "Checked against CE 1.8.1–22, 1.9.1 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed); Ganguli (vulgate) used only as a reading aid). Menaka and the gandharva king Vishvavasu 1.8.5; left on the river bank 1.8.6–7; Sthulakesha raises and names her 1.8.8–10; Ruru's love 1.8.11; the fathers fix the day 1.8.12–13 (picture only); the sleeping snake stepped on 1.8.14–15; the bite 1.8.16; \"lifeless … as if asleep … lovelier still\" 1.8.17–18 (the line now says \"dead\"); the sages weep, Ruru goes out 1.8.20–22. Still unverified: nothing."
       },
       {
        "id": "S01E045",
@@ -6718,8 +6718,8 @@
          "label": "Adi 1.9"
         }
        ],
-       "synopsis": "Ruru, lamenting, offers whatever merit he has to bring her back. A messenger of the gods tells him there is one way: give her half of his own life. Ruru gives it; Dharma, lord of the dead, agrees, and Pramadvara wakes. They marry. But Ruru swears to kill every snake he meets.",
-       "cliffhanger": "One day he raised his staff over an old snake. And the snake spoke.",
+       "synopsis": "A messenger of the gods tells the grieving Ruru that the dead do not return, but that the gods have left one way: half his own life. Ruru gives it. Her father by birth, a gandharva king, goes with the messenger to Dharmaraja, lord of the dead, who agrees, and Pramadvara wakes as if from sleep. They marry; their son is Shunaka, Shaunaka's forefather. But Ruru swears to kill every snake.",
+       "cliffhanger": "But Ruru swore to kill every snake. One day he raised his staff over an old one. And the snake spoke.",
        "characters": [
         "ruru",
         "pramadvara",
@@ -6750,7 +6750,7 @@
        },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": "The speeches are condensed paraphrase. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
+       "notes": "Checked against CE 1.9.1–22 (with 1.5.8, 1.8.2, 1.8.5) (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed); Ganguli (vulgate) used only as a reading aid). RESOLVED, the devaduta / Dharmaraja exchange: the messenger says that words spoken in grief are vain, that a mortal whose life is spent has none, but that the gods have laid down a means (1.9.6–8): half of Ruru's life (1.9.10); Ruru gives it (1.9.11); the gandharva king and the messenger go to Dharmaraja (1.9.12–13); Dharmaraja agrees (1.9.14); she rises as if from sleep (1.9.15). The text's word is dharmaraja (now voiced); the name Yama is not in the passage and is not used. RESOLVED, Shunaka: son of Ruru and Pramadvara and Shaunaka's forefather (1.5.8, 1.8.2); voiced by Sauti in `son`. The CE's verb at 1.9.21 has Ruru strike or strike at the dundubha; the script says only that he raised his staff. Dharmaraja's own line was folded into the narration (\"He agreed\") to keep the episode under 58.5 s. Still unverified: nothing."
       },
       {
        "id": "S01E046",
@@ -6765,12 +6765,12 @@
          "parva": 1,
          "adhyaya_from": 9,
          "adhyaya_to": 12,
-         "approx": true,
-         "label": "Adi 1.9–12 (approx.)"
+         "approx": false,
+         "label": "Adi 1.9–12"
         }
        ],
-       "synopsis": "The old harmless snake (a dundubha) Ruru is about to kill says the snakes that bite are others, and reveals he is the sage Sahasrapat, cursed by a friend he once frightened in play with a snake of grass, until he should meet Ruru. Freed, he teaches that not harming living beings is the highest law, and tells Ruru to hear how the serpents were saved at Janamejaya's sacrifice. Ruru's father Pramati tells him that story. The arc's finale.",
-       "cliffhanger": "Beside that same fire, the Mahabharata was about to be told.",
+       "synopsis": "Ruru raises his staff over an old, harmless snake (a dundubha). It says the snakes that bite are others, and reveals that it is the sage Sahasrapat, cursed by a friend he once scared, as a joke, with a snake of grass, until he should meet Ruru. Freed, he teaches that not harming the living is the highest law. Ruru's father tells him how a boy once saved the serpents from a king's fire. The arc's finale.",
+       "cliffhanger": "And while that fire still burned, the Mahabharata was first told beside it.",
        "characters": [
         "ruru",
         "sahasrapat",
@@ -6801,7 +6801,7 @@
        },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": "UNCERTAIN: van Buitenen renders dundubha as \"lizard\"; Ganguli and the text's own contrast with \"the snakes that bite\" support a harmless snake; the script says \"an old snake\". The old cliffhanger (\"Vyasa rose to speak at Janamejaya's court\") was wrong on two counts and was replaced: Vyasa comes during the rite, not after the serpents were saved, and he does not tell the story himself. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
+       "notes": "Checked against CE 1.9.18–22, 1.10.1–8, 1.11.1–17, 1.12.1–5 (with 1.53.31–33) (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed); Ganguli (vulgate) used only as a reading aid). RESOLVED, dundubha: the CE itself calls it bhujaga / uraga (snake) and has it say \"the snakes that bite men are others\" (1.10.3); Khagama's curse makes it a snake as powerless as the grass one (1.11.4); so a harmless snake, not a lizard (van Buitenen's \"lizard\" is not followed). Sahasrapat 1.10.7; the grass snake, in play, in youth, at the fire-offering 1.11.2; \"a joke\" 1.11.6; release on seeing Ruru 1.11.10–11; non-harm the highest law 1.11.12 (pressed on Ruru as a brahmin, 1.11.13–15; no plaque widens it); Astika named 1.11.17; the father tells the tale 1.12.5. ORDER OF TELLING: in the text this is the door into the Astika parva; the source line says \"in the text, the serpent tales follow\". Not used, though the CE supports a tie: Astika's teacher was \"the Bhargava, Chyavana's son\" (1.44.18), who may be this same Pramati; the text does not name him, so nothing is claimed. Still unverified: nothing."
       }
      ]
     },
@@ -6903,12 +6903,12 @@
          "parva": 1,
          "adhyaya_from": 53,
          "adhyaya_to": 54,
-         "approx": true,
-         "label": "Adi 1.53–54 (approx.)"
+         "approx": false,
+         "label": "Adi 1.53–54"
         }
        ],
-       "synopsis": "In a pause of the snake sacrifice Vyasa, the dark sage born on a river island and grandfather of the war's heroes, arrives with his students. King Janamejaya rises, gives him a golden seat, and asks how the break between the cousins and the great war began. Vyasa does not answer himself: he turns to his student Vaishampayana: tell him everything, as you heard it from me.",
-       "cliffhanger": "And he began by telling the whole story in one breath.",
+       "synopsis": "While King Janamejaya's snake sacrifice is still burning, Vyasa, the poet of the Mahabharata, walks into the hall with his students. The king gives him a golden seat and asks how the cousins broke apart and how the great war began. Vyasa turns to his student Vaishampayana: tell him everything, as you heard it from me. Sauti, who was there, heard it told.",
+       "cliffhanger": "And Vaishampayana began with the whole story in one breath.",
        "characters": [
         "vyasa",
         "vaishampayana",
@@ -6939,7 +6939,7 @@
        },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": "Sauti's \"I was there, I heard it told\" rests on Adi 1.1. The speeches are condensed paraphrase. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
+       "notes": "Checked against CE 1.53.27–36, 1.54.1–24, 1.55.1–3 (with 1.48.7, 1.1.8–10) (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed); Ganguli (vulgate) used only as a reading aid). RESOLVED, where Vyasa arrives: at the sacrificial hall, while the rite is in session; he comes on hearing that Janamejaya is consecrated (1.54.1) and enters the sadas with his students (1.54.7); he is also listed among the sadasyas (1.48.7); the Bharata was told \"in the pauses of the rite\" (1.53.31–33). Golden seat 1.54.11; the king's question 1.54.18–20; Vyasa hands the telling to Vaishampayana 1.54.21–22; the student bows first 1.55.1. Sauti's \"I was there\": 1.1.8–10. No manuscript is drawn (oral recital). Still unverified: nothing."
       },
       {
        "id": "S01E048",
@@ -6954,11 +6954,11 @@
          "parva": 1,
          "adhyaya_from": 55,
          "adhyaya_to": 56,
-         "approx": true,
-         "label": "Adi 1.55–56 (approx.)"
+         "approx": false,
+         "label": "Adi 1.55–56"
         }
        ],
-       "synopsis": "Vaishampayana's summary of the epic: five brothers and a jealous cousin; the poison and the house built to burn; Draupadi won and a kingdom made great; the crooked game of dice; twelve years in the forest and one in hiding; the kingdom refused; the war, and the victory. Janamejaya asks for all of it, and Vaishampayana praises the work: what is here is found elsewhere; what is not here is nowhere. The series' trailer, inside the story.",
+       "synopsis": "Vaishampayana first tells the whole story in brief: five brothers, a jealous cousin, poison and a house built to burn, a princess won and a kingdom built, a crooked game of dice, twelve years in the forest and one in hiding, the refusal, the war, and a land won back laid waste. The king asks for all of it. What is here is found elsewhere; what is not here is nowhere.",
        "cliffhanger": "So he began again: with a king, a fish, and a ferry girl.",
        "characters": [
         "vaishampayana",
@@ -6994,7 +6994,7 @@
        },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": "UNCERTAIN: the order and wording of 1.55 and the \"three years\" of 1.56 (a plaque) are from the scriptwriter's reading of the CE; the vulgate's summary is longer. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
+       "notes": "Checked against CE 1.55.1–43, 1.56.1–33 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed); Ganguli (vulgate) used only as a reading aid). RESOLVED, the order of 1.55 in the CE: return from the forest; jealousy; poison, the Ganga, snakes (Bhima); the lac house and tunnel; Hidimba; Ekachakra and Baka; Draupadi; Khandavaprastha; the conquest of the quarters; Arjuna's year and a month away, Subhadra; Khandava, Gandiva, Maya's hall; the dice by deceit; twelve years and a thirteenth; the refusal; war; a kingdom regained \"most of whose people were gone\" (1.55.42), hence \"a land laid waste\", not \"they won\". RESOLVED, 1.56: \"in three years, rising daily\" is 1.56.32; \"on dharma, artha, kama and moksha: what is here is elsewhere, what is not here is nowhere\" is 1.56.33 (the four ends are on the plaque). CE against vulgate: the vulgate summary is longer; Arjuna's absence is a year and a month in the CE (not voiced). Still unverified: nothing."
       },
       {
        "id": "S01E049",
@@ -7013,8 +7013,8 @@
          "label": "Adi 1.57"
         }
        ],
-       "synopsis": "King Uparichara Vasu of Chedi, friend of Indra, rides a crystal chariot in the sky. Away hunting, he thinks of his wife and sends his seed to her by a hawk; it falls into the Yamuna and is swallowed by a fish, an apsara under a curse. The fishermen find twins inside her: a boy who becomes King Matsya, and a girl who smells of fish, raised by the fisher chief: Satyavati.",
-       "cliffhanger": "She grew up rowing a ferry, until a great sage stepped into her boat.",
+       "synopsis": "The full telling begins with the poet's grandfather: King Uparichara, with his crystal chariot of the sky. Out hunting, he longs for his queen, seals his seed in a leaf and sends it home with a hawk; a rival hawk strikes over the Yamuna and a fish swallows it: an apsara under a curse. Ten months later fishermen find two children in her. The king keeps the boy; the girl, who smells of fish, he gives to a fisherman. Her name is Satyavati: one day, mother of the poet himself.",
+       "cliffhanger": "She grew up rowing a ferry, until a great sage came to the river.",
        "characters": [
         "uparichara-vasu",
         "satyavati",
@@ -7045,7 +7045,7 @@
        },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": "UNCERTAIN: whose curse made the apsara Adrika a fish is left unsaid. Indra, Girika, Adrika and Matsya are named on plaques, not in the voice. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
+       "notes": "Checked against CE 1.57.1–56 (with 1.54.2) (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed); Ganguli (vulgate) used only as a reading aid). RESOLVED, Uparichara / Adrika: the crystal sky-going car is Indra's gift (1.57.13–14, 31); Girika's season and the hunt 1.57.36–38; the seed caught on a leaf and sent by a hawk 1.57.39–44; the second hawk, the fight, the fall into the Yamuna 1.57.45–46; Adrika, an apsara made a fish by BRAHMA's curse (1.57.47, brahmashapat), swallows it 1.57.48; fishermen, tenth month, a girl and a boy 1.57.49; reported to the king 1.57.50; the boy is Matsya 1.57.51; the apsara freed 1.57.52–53; the girl given to a fisherman (dasha; not \"chief\" in this passage) 1.57.54; Satyavati 1.57.55; she plies a boat for her father and Parashara sees her 1.57.56 (the CE does not say he boarded her boat: cliffhanger reworded). \"The poet's grandfather\" is our inference from 1.57 (Satyavati is the king's daughter; Vyasa her son), not a phrase of the text. Still unverified: nothing."
       },
       {
        "id": "S01E050",
@@ -7064,8 +7064,8 @@
          "label": "Adi 1.57"
         }
        ],
-       "synopsis": "The sage Parashara, crossing the river in Satyavati's ferry, desires her. She says sages are watching from both banks; he raises a mist. She says she is a maiden; he promises she will remain one and offers a gift: her fish-smell becomes a fragrance. That day, on a river island, she bears a son who grows at once: Dvaipayana, the island-born: Vyasa. He goes to the forest, promising to come whenever his mother thinks of him.",
-       "cliffhanger": "His poem is full of gods born as men. Why did they come down?",
+       "synopsis": "Satyavati, a young woman, rows a ferry. The sage Parashara, on pilgrimage, sees her and desires her. She says that sages are watching from both banks, and he raises a mist; she says she is a maiden, and he promises she will remain one and bids her choose a gift. She chooses a fragrance for her smell of fish, and gladly agrees. That same day, on an island, she bears a son who grows at once: Dvaipayana, the island-born, whom we call Vyasa. He promises to come whenever she thinks of him.",
+       "cliffhanger": "Then the king asked: why were these godlike heroes born on earth?",
        "characters": [
         "parashara",
         "satyavati",
@@ -7099,7 +7099,7 @@
        },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": "The promise is a long plant (paid off in the Kuru line arc, Adi 1.99), so it is not the cliffhanger: the last line hands on to episode 51 (why gods were born on earth). \"Grew at once\" is from 1.54. The union is not shown. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
+       "notes": "Checked against CE 1.57.54–75, 1.54.2–5, 1.58.1–2 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed); Ganguli (vulgate) used only as a reading aid). RESOLVED, Parashara's boons and Satyavati's consent: she objects that sages watch from both banks (1.57.58); he makes a mist (1.57.59); she objects that she is a maiden under her father's rule (1.57.61–62); he promises, unasked, that she will be a maiden still and bids her choose a boon (1.57.63–64); the boon she chooses is fragrance (1.57.65); \"then, having her boon, glad, she went to union with the sage\" (1.57.66): her consent is the text's and is now voiced. Born the same day on an island in the Yamuna 1.57.69; \"remembered, I will appear when there is need\" 1.57.70; Dvaipayana 1.57.71; Vyasa 1.57.73; grew at once 1.54.3. The cliffhanger is the king's question at 1.58.1–2 (why these godlike warriors were born on earth). She is drawn as a grown young woman; the union is not shown. Still unverified: nothing."
       },
       {
        "id": "S01E051",

@@ -24,14 +24,15 @@
     "kinetic": true
   },
   "episode": 42,
-  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Pauloma sub-parva, adhyaya 6: the rakshasa in a boar's form carries Puloma off; in anger the child drops from her womb, and is therefore called Chyavana (\"the fallen\"); seeing him fallen, bright as the sun, the rakshasa lets her go and falls, burned to ash; Puloma takes up her son and walks away weeping; her tears become a river that follows her (the CE has Brahma see her and name it Vadhusara, by Chyavana's hermitage: we give the name and its sense, not who named it); Bhrigu sees his son and his wife and asks in anger who made her known to the rakshasa; she answers that Agni did, and that her son's splendour freed her; Bhrigu, in a rage, curses Agni: you shall eat everything (the cliffhanger). UNCERTAIN: Brahma naming the river is from the writer's reading of the CE; the search summaries opened this session (vulgate) list the river's creation but not who names it, so it is not said or shown.",
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Pauloma sub-parva. CHECKED AGAINST CE 1.6.1–13: the rakshasa in a boar's form carries her off (1.6.1); in anger the child drops (cyuta) from the womb and is therefore Chyavana (1.6.2); seeing him fallen, bright as the sun, the rakshasa lets her go and falls, turned to ash (1.6.3); Puloma takes up her son and goes on, faint with grief (1.6.4); Brahma himself sees her weeping and comforts her (1.6.5); a great river rises from her tears and follows her path (1.6.6); Brahma names it Vadhusara, by Chyavana's hermitage (1.6.7): RESOLVED, it is Brahma who names the river, and he is now named in the voice; Bhrigu sees his son and his wife (1.6.8) and asks in anger who made her known to the rakshasa, for the rakshasa did not know her as his wife, and says he will curse that one (1.6.9–10: `who`, the turn); she answers that Agni made her known and that her son's splendour freed her (1.6.11–12); Bhrigu, in great wrath, curses Agni: you shall eat everything (1.6.13, the cliffhanger). vadhu here is the daughter-in-law (Bhrigu is Brahma's son): the plaque reads \"the daughter-in-law's stream\". Chyavana as Shaunaka's forefather: 1.5.7–8. The CE does not say that Bhrigu throws water with the curse; the picture shows only the arm.",
   "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
   "hookStyle": "statement",
   "names": {
     "Puloma": "wife of the sage Bhrigu",
     "Chyavana": "\"the fallen one\"",
     "Shaunaka": "chief of the forest sages",
-    "Vadhusara": "\"the bride's river\"",
+    "Brahma": "the creator",
+    "Vadhusara": "\"the daughter-in-law's stream\"",
     "Bhrigu": "a great sage",
     "Sauti": "the storyteller"
   },
@@ -92,13 +93,14 @@
     {
       "id": "carried",
       "speed": 1.04,
-      "text": "A demon, in a boar's shape, was carrying off Puloma, a sage's wife.",
-      "say": "A demon, [p:80] in a boar's shape, [p:80] was carrying off Puloma, [p:100] a sage's wife.",
-      "est": 5.67,
+      "text": "A demon, in a boar's shape, was carrying off Puloma, the sage Bhrigu's wife.",
+      "say": "A demon, [p:80] in a boar's shape, [p:80] was carrying off Puloma, [p:100] the sage Bhrigu's wife.",
+      "est": 6.16,
       "pre": 250,
       "post": 300,
       "emphasis": [
-        "Puloma"
+        "Puloma",
+        "Bhrigu's"
       ],
       "beats": [
         5,
@@ -113,7 +115,7 @@
       "cam": "slide",
       "tr": "smoke",
       "note": "STORY 0 with the unvoiced recap band (top): a moment earlier: the boar running with her through the dusk (a lateral track, trunks passing).",
-      "estVoice": 5.12
+      "estVoice": 5.61
     },
     {
       "id": "fell",
@@ -166,39 +168,11 @@
       "estVoice": 3.95
     },
     {
-      "id": "named",
-      "speaker": "sauti",
-      "speed": 1.0,
-      "text": "So he is called Chyavana, the fallen one. Shaunaka, he is your ancestor.",
-      "say": "So he is called Chyavana, [p:100] the fallen one. [p:250] Shaunaka, [p:80] he is your ancestor.",
-      "est": 7.58,
-      "pre": 250,
-      "post": 300,
-      "emphasis": [
-        "Chyavana,"
-      ],
-      "beats": [
-        4,
-        12
-      ],
-      "amb": "night-fire",
-      "ambLead": 300,
-      "foley": [
-        "staff@0",
-        "cloth"
-      ],
-      "pal": "naimisha-bluehour",
-      "cam": "orbit",
-      "mixDb": -3,
-      "note": "FRAME: Sauti at the Naimisha fire, to Shaunaka, who lowers his head (plaque: Chyavana · \"the fallen one\"). A J-cut: the night fire first.",
-      "estVoice": 7.03
-    },
-    {
       "id": "walk",
       "speed": 1.04,
-      "text": "Puloma lifted her son and walked home, weeping.",
-      "say": "Puloma lifted her son [p:80] and walked home, [p:120] weeping.",
-      "est": 4.19,
+      "text": "Puloma lifted her son and walked on, weeping.",
+      "say": "Puloma lifted her son [p:80] and walked on, [p:120] weeping.",
+      "est": 4.08,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -217,29 +191,27 @@
       "pal": "river-jade",
       "cam": "slide",
       "tr": "brush",
-      "closeup": true,
-      "note": "STORY 3 · NEW LIGHT (river-jade) · THE CLOSE-UP: Puloma's face over the child she carries: fear easing into sorrow, a tear line; then she walks, small, across the frame.",
-      "estVoice": 3.64
+      "note": "STORY 3 · NEW LIGHT (river-jade): Puloma, the child held high on her shoulder, walks small across the frame, a tear line on her cheek; above the trees, half seen in the cloud, a great calm four-faced figure looks down (Brahma sees her and comforts her: the text has it).",
+      "estVoice": 3.53
     },
     {
       "id": "river",
       "speed": 1.04,
-      "text": "Her tears became a river: Vadhusara, the bride's river.",
-      "say": "Her tears became a river: [p:300] Vadhusara, [p:100] the bride's river.",
-      "est": 5.81,
-      "pre": 900,
-      "post": 450,
-      "rest": true,
+      "text": "Her tears became a river. Brahma himself named it: Vadhusara.",
+      "say": "Her tears became a river. [p:250] Brahma himself named it: [p:200] Vadhusara.",
+      "est": 5.53,
+      "pre": 250,
+      "post": 350,
       "sfx": [
-        "silence",
         "bell@1"
       ],
       "emphasis": [
-        "Vadhusara,"
+        "Vadhusara."
       ],
       "beats": [
         4,
-        5
+        5,
+        9
       ],
       "foley": [
         "water",
@@ -249,8 +221,8 @@
       "pal": "river-jade",
       "cam": "crane",
       "signature": true,
-      "note": "STORY 4 · THE TURN (≈ 48 %) after a real silence · THE SIGNATURE SHOT: a crane up and back: a bright thread of water runs out behind her steps and widens into a river through the green land (plaque: Vadhusara · \"the bride's river\"). (The CE has Brahma see her and name the river; left out of the voice: unverified this session.)",
-      "estVoice": 4.46
+      "note": "STORY 4 · THE SIGNATURE SHOT: a crane up and back: a bright thread of water runs out behind her steps and widens into a river through the green land (plaques: Brahma · the creator; Vadhusara · \"the daughter-in-law's stream\"). A grace note, not the turn.",
+      "estVoice": 4.93
     },
     {
       "id": "home",
@@ -282,14 +254,14 @@
       "id": "who",
       "speaker": "bhrigu",
       "speed": 1.0,
-      "text": "\"Who told the demon who you were?\"",
-      "say": "Who told the demon [p:100] who you were?",
-      "est": 4.07,
-      "pre": 900,
-      "post": 350,
+      "text": "\"Who told that demon you were my wife?\"",
+      "say": "Who told that demon [p:120] you were my wife?",
+      "est": 4.59,
+      "pre": 1000,
+      "post": 450,
       "beats": [
         1,
-        6
+        7
       ],
       "rest": true,
       "sfx": [
@@ -301,8 +273,9 @@
       "music": "dread",
       "pal": "hermitage-green",
       "cam": "push",
-      "note": "STORY 6 (a second real silence before it): Bhrigu, over his wife and son; anticipation, then the question with a sharp turn of the head.",
-      "estVoice": 2.82
+      "closeup": true,
+      "note": "STORY 6 · THE TURN (≈ 55 %) after a real silence · THE CLOSE-UP: a rescue becomes a hunt for someone to blame. Bhrigu's face fills the frame: relief at his son, then the brow comes down and the eyes harden; the question with a sharp turn of the head toward her. The word of the turn: WHO, clear of his face.",
+      "estVoice": 3.14
     },
     {
       "id": "told",
@@ -328,6 +301,34 @@
       "mixDb": -4,
       "note": "STORY 7: she looks toward the hut; a tilt from her hand to the household fire burning inside; then down to the child in her arms.",
       "estVoice": 3.59
+    },
+    {
+      "id": "named",
+      "speaker": "sauti",
+      "speed": 1.0,
+      "text": "Her son is called Chyavana, the fallen one. Shaunaka, he is your ancestor.",
+      "say": "Her son is called Chyavana, [p:100] the fallen one. [p:250] Shaunaka, [p:80] he is your ancestor.",
+      "est": 7.76,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Chyavana,"
+      ],
+      "beats": [
+        4,
+        12
+      ],
+      "amb": "night-fire",
+      "ambLead": 300,
+      "foley": [
+        "staff@0",
+        "cloth"
+      ],
+      "pal": "naimisha-bluehour",
+      "cam": "orbit",
+      "mixDb": -3,
+      "note": "FRAME: Sauti at the Naimisha fire, to Shaunaka, who lowers his head (plaque: Chyavana · \"the fallen one\"). A J-cut: the night fire first.",
+      "estVoice": 7.21
     },
     {
       "id": "turned",
@@ -360,9 +361,10 @@
       "speed": 1.04,
       "text": "And Bhrigu cursed the fire itself.",
       "say": "And Bhrigu [p:80] cursed the fire itself.",
-      "est": 3.23,
-      "pre": 250,
+      "est": 3.78,
+      "pre": 800,
       "post": 400,
+      "rest": true,
       "emphasis": [
         "Bhrigu"
       ],
@@ -381,7 +383,7 @@
       "pal": "wrath-crimson",
       "cam": "push",
       "mixDb": 1,
-      "note": "NEXT 1 (the catalog's cliffhanger): raise, then the arm thrown forward: water from his pot flies at the flames (anticipation, action, follow-through; beard and shawl arrive late). The source line (top).",
+      "note": "NEXT 1 (the catalog's cliffhanger): raise, then the arm thrown forward at the flames, the palm open (anticipation, action, follow-through; beard and shawl arrive late; no water: the text has only the words). The source line (top).",
       "estVoice": 2.58
     },
     {

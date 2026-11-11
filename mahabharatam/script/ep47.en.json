@@ -24,7 +24,7 @@
     "kinetic": true
   },
   "episode": 47,
-  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, the end of the Astika sub-parva (1.53: in the intervals of the snake sacrifice the Mahabharata was told) and the Adivamshavatarana sub-parva, adhyaya 54: hearing that Janamejaya sits consecrated for the snake sacrifice, Krishna Dvaipayana (Vyasa) comes: born of the maiden Kali (Satyavati) by Parashara on an island in the Yamuna, grandfather of the Pandavas; he enters the hall with his students; the king, among his assembly of kings and priests, rises, gives him a golden seat with the assembly's consent, and honours him with water for the feet and the guest's gifts; with joined hands he asks how the breach between the Kurus and the Pandavas arose, and the great war, for Vyasa saw them with his own eyes; Vyasa turns to his student Vaishampayana, seated beside him: tell him all, as you heard it from me; Vaishampayana begins (1.55 opens with his bow to his teacher). Sauti's \"I was there\" rests on 1.1 (he heard Vaishampayana tell it at that sacrifice). The king's and Vyasa's speeches are condensed paraphrase.",
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, the end of the Astika sub-parva and the Adivamshavatarana sub-parva. CHECKED AGAINST CE 1.53.27–36, 1.54.1–24, 1.55.1–3, with 1.48.7 and 1.1.8–10: in the pauses of the snake sacrifice (karmantareshu) the brahmins told Vedic tales and Vyasa had the great Bharata told (1.53.31–33); hearing that Janamejaya is consecrated for the snake sacrifice, Krishna Dvaipayana comes (1.54.1); born of the maiden Kali by Parashara on an island in the Yamuna, grandfather of the Pandavas (1.54.2), father of Pandu, Dhritarashtra and Vidura (1.54.6); he enters the sacrificial hall with his students (1.54.7); the king rises with his people to meet him and gives him a golden seat with the assembly's consent (1.54.10–11), water for the feet and the guest's gifts (1.54.13); with joined hands he asks: you saw the Kurus and the Pandavas with your own eyes; how did the breach arise, and that great war (1.54.17–20: `asked`); Vyasa instructs his student Vaishampayana, seated beside him: tell him all, as you heard it from me (1.54.21–22: `turned`, `tell`); Vaishampayana first bows to his teacher (1.55.1: `bowed`). RESOLVED (where Vyasa arrives): at the sacrificial hall itself, while the rite is in session (1.54.1, 7); he is also listed among its sadasyas, with his son and students (1.48.7). The series showed the rite stopped in episode 40; hook, `sat` and `came` now say that the telling belongs to the time the fire burned. Sauti's \"I was there, I heard it told\": 1.1.8–10 (he heard Vaishampayana's telling at Janamejaya's snake sacrifice). No manuscript is shown: the text has an oral recital. The king's and Vyasa's speeches are condensed paraphrase.",
   "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
   "hookStyle": "statement",
   "names": {
@@ -37,7 +37,7 @@
   "loop": {
     "hookQuestion": "Why has the poet come, and will he tell his own story?",
     "answeredBy": "tell",
-    "prevQuestion": "Who told the Mahabharata beside that fire?",
+    "prevQuestion": "Who told the Mahabharata while that fire burned?",
     "prevAnsweredBy": "came",
     "openQuestion": "How do you tell the whole Mahabharata in one breath?"
   },
@@ -52,7 +52,7 @@
     "traditionNote": "As tradition tells it",
     "prevEpisodeLabel": "Episode 46",
     "prevEpisodeTitle": "The Snake Who Was a Sage",
-    "recapLine": "A boy saved the serpents from a king's fire. At that fire, a poet arrives.",
+    "recapLine": "In the pauses of the snake sacrifice, stories were told.",
     "nextEpisodeLabel": "Episode 48",
     "nextTitle": "The Whole Story in One Breath",
     "sourceLine": "Adi Parva 1.53–54 · BORI Critical Edition",
@@ -62,20 +62,20 @@
     {
       "id": "hook",
       "speed": 1.1,
-      "text": "Then the poet himself walked in.",
-      "say": "Then the poet himself [p:60] walked in.",
-      "est": 3.51,
+      "text": "The Mahabharata's own poet walked in.",
+      "say": "The Mahabharata's own poet [p:80] walked in.",
+      "est": 3.74,
       "pre": 60,
       "post": 1100,
       "role": "hook",
       "caption": false,
       "beats": [
-        2,
+        3,
         5
       ],
       "hookGold": [
-        "poet",
-        "himself"
+        "own",
+        "poet"
       ],
       "amb": "satra",
       "music": "awe",
@@ -86,18 +86,18 @@
       "pal": "arrival-umber-gold",
       "cam": "push",
       "note": "COLD OPEN (a statement over the image; it answers episode 46's last line at 0 s): between two great pillars, far off and coming on, a tall dark figure with a soft gold halo, his face not yet seen; every head in the hall turning. The card low and left, clear of him.",
-      "estVoice": 2.35
+      "estVoice": 2.58
     },
     {
       "id": "sat",
       "speed": 1.04,
-      "text": "King Janamejaya sat at his great sacrifice.",
-      "say": "King Janamejaya [p:60] sat at his great sacrifice.",
-      "est": 3.59,
+      "text": "King Janamejaya's snake sacrifice was still burning.",
+      "say": "King Janamejaya's snake sacrifice [p:80] was still burning.",
+      "est": 4.06,
       "pre": 250,
       "post": 300,
       "emphasis": [
-        "Janamejaya"
+        "Janamejaya's"
       ],
       "beats": [
         1,
@@ -111,8 +111,8 @@
       "pal": "satra-teal-night",
       "cam": "crane",
       "tr": "smoke",
-      "note": "STORY 0 with the unvoiced recap band (top): the hall at night in teal (never the old orange): a crane down over ranks of seated kings and priests to the king (plaque: Janamejaya · king of the snake sacrifice); the fire low and to one side.",
-      "estVoice": 3.04
+      "note": "STORY 0 with the unvoiced recap band (top): the hall at night in teal (never the old orange): a crane down over ranks of seated kings and priests to the king (plaque: Janamejaya · king of the snake sacrifice); the fire high and to one side, the rite in session.",
+      "estVoice": 3.51
     },
     {
       "id": "came",
@@ -316,7 +316,7 @@
       "music": "tender",
       "pal": "satra-teal-night",
       "cam": "tilt",
-      "note": "STORY 7: Vaishampayana, in dawn-rose against the teal hall, bows (bow: an eased blend), palm leaves under his arm (plaque: Vaishampayana · Vyasa's student).",
+      "note": "STORY 7: Vaishampayana, in dawn-rose against the teal hall, bows (bow: an eased blend), his hands empty and joined: he carries the poem by heart (no manuscript: the text has a recital) (plaque: Vaishampayana · Vyasa's student).",
       "estVoice": 4.0
     },
     {
@@ -348,14 +348,17 @@
     {
       "id": "cliff",
       "speed": 1.04,
-      "text": "And he began by telling the whole story in one breath.",
-      "say": "And he began [p:80] by telling the whole story [p:120] in one breath.",
-      "est": 4.38,
+      "text": "And Vaishampayana began with the whole story in one breath.",
+      "say": "And Vaishampayana began [p:80] with the whole story [p:120] in one breath.",
+      "est": 4.68,
       "pre": 250,
       "post": 400,
+      "emphasis": [
+        "Vaishampayana"
+      ],
       "beats": [
         2,
-        10
+        9
       ],
       "role": "next",
       "amb": "satra",
@@ -370,7 +373,7 @@
       "pal": "dice-vermilion",
       "cam": "push",
       "note": "NEXT 1 (the catalog's cliffhanger): Vaishampayana draws breath; behind him the hall's wall opens into a strip of small bright panels (dice, a forest, a field) rushing past. The source line (top).",
-      "estVoice": 3.73
+      "estVoice": 4.03
     },
     {
       "id": "next",

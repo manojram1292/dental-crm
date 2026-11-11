@@ -525,6 +525,38 @@ stills; the scripts were tested by the script gate on predicted voice lengths.
 
 `script/ARC-41-50.md` is the plan; all ten scripts pass `node tools/gate.mjs --ep N` (41–50) on predicted voice lengths: 54.8–58.6 s, hooks 5–8 words spoken by 2.3–2.9 s,
 turns at 42–57 %, 2.20–2.57 words/s, two rests each, 6–9 palettes with no hue for more than two lines, 5–8 camera moves, 4 medium transitions.
-The catalog changes are listed in each episode's `notes`. What could not be verified: the CE text hosts could not be opened in this session, so the
-chapters were checked against web-search summaries of the Ganguli (vulgate) text only; every CE-specific point rests on the scriptwriter's
-reading and is marked UNCERTAIN in the catalog or the script's `source`.
+The catalog changes are listed in each episode's `notes`. (At the time of Phase A the CE hosts could not be opened; that was put right in Phase B, below.)
+
+## Episodes 41–50 · Phase B: the visual rework, the story review and the CE pass (Nov 11)
+
+Nothing in 41–50 is voiced or rendered yet. Episodes 1–40 draw exactly as before (`tools/regress.mjs`: 13 episodes × 10 frames identical).
+
+### The visual review (review/independent-kit41-visual.md)
+
+Proof is in `lab/kit41/v2/`: `before-after-540.jpg`, `before-after-phone-360.jpg`, `phone-360-all.jpg`, `side-by-side-ep39-40-vs-kit41v2.jpg`, `strips/*.png` (30 fps), `m13-one-body-old-vs-new.png`, `kit-*.png`, `cast-*.png`; the first kit's stills are in `before/`.
+
+| Finding | What was done | Honest state |
+|---|---|---|
+| B1 translucent figures | Measured: the figures were opaque (`tools/opacity.mjs`: worst change 1/255). The see-through look came from blending a blurred and a sharp copy of each layer, from inner-glow discs and from pale fills with an outer glow. Layers are now composited opaque and blitted once; blur is a real filter; inner discs and outer glow are gone for the acting figures | fixed |
+| B2 snake at the groin | Restaged: clear ground, the snake rears on an S-curve to chest height, a waist-up two-shot; a staging rule in script/ARC-41-50.md 9.2 and in the picture notes of 45–46 | fixed in the lab; the rule must be kept when the scenes are written |
+| B3 emoji fire | No face. `hearthfire` is the series' altar and layered flame | fixed |
+| B4 poster look | Silhouette-first lighting (dark, rich fill; thin rim; no outer glow), darker mural palettes, plaster and bristle texture, textile and jewellery detail | better; still flatter than a painted mural |
+| M1/M2 acting | Moving holds (stillest second moves 1.2 grey levels), real-time anticipation / action / settle, polar arm blends, a smear frame | better; judged only on strips and one clip |
+| M3 hands, M9 legs and feet, M10 cloth | Three hand shapes, calf and wedge feet, child proportions, pleats, folds, borders, lag | better; hands are still simple, feet are not planted in a walk |
+| M4 text on faces | Face boxes per figure; plaques, turn-word and source line move clear; the frame gate fails on a hit | fixed (gate: "no text on a face") |
+| M5 framing | Lower horizon, larger figures, filled foreground | better; the back-light test shot is still emptier than episode 40's fire shots |
+| M7/M8 creatures | Boar rebuilt from masses with a four-phase gallop; spline snakes with a face | better |
+| M11 transitions | No blank or near-white frame; brush has a dry bristle edge; smoke and lamp cross-dissolve underneath | fixed |
+| M12 rack focus | All layers blur by depth | fixed |
+| M13 one body per person | Vyasa, Vaishampayana, Janamejaya brought to their bibles (above) | closer, not identical |
+| M14 skin | Natural range across ranks; Vyasa dark brown; Menaka no longer grey | fixed |
+
+Not done: the pupil leading a head turn (m1), planted feet (m5). Does the new look beat episodes 39–40? On variety of colour, depth, readable faces, staging and text it does. On the fire-lit shots it does not clearly: episode 39–40's big fires and glowing silhouettes are still the more dramatic frames, and the new figures read as flat cut-outs beside them. A real answer needs one rendered episode judged at phone size.
+
+### The story review and the CE pass
+
+All in `script/ARC-41-50.md` section 9: the order of telling said on screen (9.1), the staging rules (9.2), every item of the story review with what was done (9.3), and the fidelity pass against the Critical Edition with verse numbers (9.4). Scripts: 54.6–58.5 s predicted, all pass the script gate. The CE text (GRETIL e-text) is in `lab/ce/` and is git-ignored.
+
+Two things the CE pass found that no reviewer had: the rakshasa never says "You are the mouth of the gods" (removed from 41), and aired episode 36's "from the sage Chyavana" follows the vulgate where the CE reads "Chyavana's son" (1.44.18; catalog note; not re-voiced).
+
+Kit changes made for the scripts: a recap line longer than 62 characters breaks into two lines (`KIT.series.recapBand`; shorter ones draw as before), and a long source line shrinks to fit (`KIT.type.source`). Still: `lab/kit41/v2/kit-13-recap-two-lines-and-order-note.png`.

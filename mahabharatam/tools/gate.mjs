@@ -37,7 +37,8 @@
  *   moves ≥ 4 and medium transitions ≥ 2 actually used · the dominant hue of every shot's midpoint frame (run ≤ 2) ·
  *   every figure ≥ 10 % of the frame's height against the ground in its own box (CIE ΔE ≥ 20; on a ground of its own
  *   hue, |ΔL*| ≥ 25) · a close-up really drawn (a figure box ≥ 1.4 frame heights) in a "closeup" line · the source line
- *   on screen ≥ 1.0 s · SHOT VARIETY: pHash of the 0.5 s / 3 s / last frames against the previous three episodes (fail
+ *   on screen ≥ 1.0 s · no plaque, turn-word, source line or caption crossing a face box (more than 2 sampled frames
+ *   fails) · SHOT VARIETY: pHash of the 0.5 s / 3 s / last frames against the previous three episodes (fail
  *   under 22; target min ≥ 28, mean ≥ 32) and of consecutive shots (fail ≤ 12).
  * With --audio: the mix's report (audio/epNN/mix.<lang>.json): three stems, the music ≥ 6 dB lower under the voice,
  *   true peak ≤ −1.5 dBTP, and silencedetect finds ≥ 1 silence (2 is the target).
@@ -205,6 +206,10 @@ async function frameChecks41({ ep, lang, fps, means, L, SL, page }) {
   }
   info.push(`${nfig} figure samples${worst ? '' : ', all stand off their grounds'}`);
   if (worst) fails.push(`${worst.msg} (min ΔE 20; on its own hue |ΔL*| ≥ 25)`);
+  // text never crosses a face (the kit moves a plaque, the turn-word and the source line clear; a hit means it found no room)
+  const fh = Object.entries(probe.type).filter(([k]) => /^faceHit|^captionFace/.test(k));
+  for (const [k, n] of fh) if (n > 2) fails.push(`text crosses a face in ${n} sampled frames (${k.replace('faceHit:', '').replace('captionFace', 'the caption band')})`);
+  if (!fh.length) info.push('no text on a face');
   // the close-up and the source line
   const cu = Object.entries(probe.byLine).some(([id, bl]) => SL[id] && SL[id].closeup && bl.figs.some((f) => f.h >= 1.4));
   if (!cu) fails.push('no close-up on screen (a figure ≥ 1.4 frame heights in a line marked "closeup")');

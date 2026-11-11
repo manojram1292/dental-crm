@@ -24,22 +24,23 @@
     "kinetic": true
   },
   "episode": 50,
-  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Adivamshavatarana sub-parva, adhyaya 57 (second part), with 1.54 for \"grew at once\": Satyavati plies her father's ferry on the Yamuna; the sage Parashara, on pilgrimage, sees her and desires her; she says that sages stand on both banks watching; he makes a mist that covers the place; she says she is a maiden under her father's rule and asks how she could go home; he promises that she will be a maiden still and offers a boon; she chooses that her body be fragrant, and is known afterwards as Gandhavati and Yojanagandha, for her scent carried a league; the same day she bears his son on an island in the Yamuna; he sets his mind on austerity with his mother's leave, saying that when remembered he will appear when there is need; he is Dvaipayana, the island-born; and Vyasa, because he divided the Vedas. He grew his body by his own will as soon as he was born (1.54). The speeches are condensed paraphrase. The union is not shown (the mist). The promise is a long plant: it is paid off when Satyavati calls him (Adi 1.99, the Kuru line arc), not in episode 51.",
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Adivamshavatarana sub-parva. CHECKED AGAINST CE 1.57.54–75, 1.54.2–5 and 1.58.1–2: Satyavati plies the boat to serve her father (1.57.56); Parashara, going round the fords on pilgrimage, sees her and desires her (1.57.56–57); she says: see, holy one, the sages standing on both banks; how can we come together while they watch (1.57.58: `watching`); he makes a mist, and the whole place is as if dark (1.57.59: `mist`); she, amazed and ashamed, says she is a maiden under her father's rule, that her maidenhood would be spoiled, and asks how she could go home (1.57.60–62: `maiden`); he, pleased, says that having done what he wishes she will be a maiden still, and bids her choose a boon (1.57.63–64: `gift`); she chooses a perfect fragrance for her body, and he grants it (1.57.65); then, having her boon, glad, she goes to union with the sage (1.57.66: tato labdhavara prita … jagama saha samsargam: `scent`, \"and gladly agreed\"); she is known as Gandhavati and Yojanagandha, her scent carrying a league (1.57.67–68); that same day she bears his son on an island in the Yamuna (1.57.69: `born`); he stands before his mother, sets his mind on austerity and says: remembered, I will appear when there is need (1.57.70: `promise`); because he was laid on an island as a child he is Dvaipayana (1.57.71); because he divided the Vedas he is Vyasa (1.57.73); as soon as born he made his body grow by his will (1.54.3: `grew`); he taught Sumantu, Jaimini, Paila, his son Shuka and Vaishampayana (1.57.74–75). RESOLVED (Parashara's boons and her consent): in the CE the promise that she remains a maiden comes first, unasked; the one boon she CHOOSES is the fragrance; her consent is stated (1.57.66). The king's next question, why these godlike warriors were born on earth (1.58.1–2), is the cliffhanger. The speeches are condensed paraphrase. The union is not shown (the mist). She is drawn as a grown young woman. The promise is a long plant: it is paid off when Satyavati calls him (the Kuru line arc), not in episode 51.",
   "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
   "hookStyle": "statement",
   "names": {
-    "Satyavati": "a fisherman's daughter",
+    "Satyavati": "a young woman, a fisherman's daughter",
     "Yamuna": "the river",
     "Parashara": "a great sage",
     "Dvaipayana": "\"the island-born\"",
-    "Vyasa": "the poet of the Mahabharata"
+    "Vyasa": "the poet of the Mahabharata",
+    "Janamejaya": "the king who asked"
   },
   "loop": {
     "hookQuestion": "How was the poet born on an island?",
     "answeredBy": "born",
-    "prevQuestion": "Who stepped into Satyavati's boat?",
+    "prevQuestion": "Which sage came to Satyavati's river?",
     "prevAnsweredBy": "sage",
-    "openQuestion": "Why were gods born on earth as men?"
+    "openQuestion": "Why were godlike heroes born on earth?"
   },
   "strings": {
     "seriesTitle": "Mahabharatam",
@@ -111,19 +112,19 @@
       "pal": "yamuna-deep",
       "cam": "slide",
       "tr": "brush",
-      "note": "STORY 0 with the unvoiced recap band (top): the river at noon in deep blue: her boat crossing, she in the stern with the oar (row: the body leans and returns) (plaques: Satyavati · a fisherman's daughter; small: the Yamuna); a lateral track with reeds passing near.",
+      "note": "STORY 0 with the unvoiced recap band (top): the river at noon in deep blue: her boat crossing, she in the stern with the oar, a grown young woman (row: the body leans and returns) (plaques: Satyavati · a young woman, a fisherman's daughter; small: the Yamuna); a lateral track with reeds passing near.",
       "estVoice": 4.04
     },
     {
       "id": "sage",
       "speed": 1.0,
-      "text": "One day the sage Parashara stepped into her boat, and desired her.",
-      "say": "One day [p:60] the sage Parashara [p:80] stepped into her boat, [p:250] and desired her.",
-      "est": 5.51,
+      "text": "One day the sage Parashara, on pilgrimage, saw her, and desired her.",
+      "say": "One day [p:60] the sage Parashara, [p:60] on pilgrimage, [p:60] saw her, [p:150] and desired her.",
+      "est": 6.06,
       "pre": 250,
       "post": 300,
       "emphasis": [
-        "Parashara"
+        "Parashara,"
       ],
       "beats": [
         4,
@@ -139,8 +140,8 @@
       "pal": "fishers-coral",
       "cam": "push",
       "mixDb": -2,
-      "note": "STORY 1 (pays off episode 49's last line by 8 s): the boat at the bank at coral dusk: Parashara, rust cloth, black beard, a staff, seated in the bow (plaque: Parashara · a great sage); his head turns to her and stays.",
-      "estVoice": 4.96
+      "note": "STORY 1 (pays off episode 49's last line by 8 s): the boat at the bank at coral dusk: Parashara, rust cloth, black beard, a staff, on the bank and then seated in the bow, a full boat-length from her (plaque: Parashara · a great sage); his head turns to her and stays. The two are never drawn touching or overlapping in this episode.",
+      "estVoice": 5.51
     },
     {
       "id": "watching",
@@ -220,9 +221,9 @@
       "speed": 1.0,
       "text": "\"You will remain a maiden. Now choose a gift.\"",
       "say": "You will remain a maiden. [p:350] Now choose a gift.",
-      "est": 5.44,
+      "est": 5.34,
       "pre": 900,
-      "post": 400,
+      "post": 300,
       "beats": [
         4,
         8
@@ -243,14 +244,15 @@
     {
       "id": "scent",
       "speed": 1.0,
-      "text": "She asked that her smell of fish become a fragrance.",
-      "say": "She asked [p:60] that her smell of fish [p:80] become a fragrance.",
-      "est": 4.24,
+      "text": "She chose a fragrance for her smell of fish, and gladly agreed.",
+      "say": "She chose a fragrance [p:80] for her smell of fish, [p:200] and gladly agreed.",
+      "est": 5.23,
       "pre": 250,
       "post": 300,
       "beats": [
-        5,
-        9
+        3,
+        8,
+        11
       ],
       "amb": "meadow",
       "ambLead": 200,
@@ -262,21 +264,21 @@
       "pal": "brahma-rose",
       "cam": "tilt",
       "tr": "lamp",
-      "note": "STORY 6 · NEW LIGHT (brahma-rose): a tilt up from her joined hands: the grey-silver haze round her turns to rose and gold petals that drift away over the water, far (a plaque: her fragrance carried a league).",
-      "estVoice": 3.69
+      "note": "STORY 6 · NEW LIGHT (brahma-rose): a tilt up from her joined hands: the grey-silver haze round her turns to rose and gold petals that drift away over the water, far (a plaque: her fragrance carried a league); her face lifts, glad (the text has it: pleased with her boon, she agreed); the mist closes over the boat.",
+      "estVoice": 4.68
     },
     {
       "id": "born",
       "speed": 1.0,
-      "text": "That same day, on a river island, she bore a son.",
-      "say": "That same day, [p:100] on a river island, [p:200] she bore a son.",
-      "est": 5.25,
+      "text": "That same day, on an island, she bore a son.",
+      "say": "That same day, [p:100] on an island, [p:200] she bore a son.",
+      "est": 4.98,
       "pre": 800,
       "post": 300,
       "beats": [
         2,
-        6,
-        10
+        5,
+        9
       ],
       "rest": true,
       "amb": "river",
@@ -293,7 +295,7 @@
       "tr": "brush",
       "mixDb": 1,
       "note": "STORY 7 (a second real silence before it; answers the hook): the mist opens on gold dawn: the island of the first frame, now from the water: she kneels in the reeds, a dark child in her arms with a gold aura (carry).",
-      "estVoice": 4.15
+      "estVoice": 3.88
     },
     {
       "id": "grew",
@@ -352,15 +354,15 @@
     {
       "id": "cliff",
       "speed": 1.0,
-      "text": "His poem is full of gods born as men. Why did they come down?",
-      "say": "His poem is full of gods [p:80] born as men. [p:350] Why did they come down?",
-      "est": 5.37,
+      "text": "Then the king asked: why were these godlike heroes born on earth?",
+      "say": "Then the king asked: [p:200] why were these godlike heroes [p:80] born on earth?",
+      "est": 5.44,
       "pre": 250,
       "post": 400,
       "beats": [
-        5,
+        3,
         8,
-        13
+        11
       ],
       "role": "next",
       "amb": "sky",
@@ -371,8 +373,8 @@
       ],
       "pal": "war-iron",
       "cam": "pull",
-      "note": "NEXT 1 (hands on to episode 51, which answers it): a night sky in iron blue: points of light fall from it like slow rain toward a dark, heavy earth. The source line (top).",
-      "estVoice": 4.72
+      "note": "NEXT 1 (hands on to episode 51, which answers it; the frame returns: plaque Janamejaya · the king who asked): the king's lifted face in the teal hall, then a night sky in iron blue: points of light fall from it like slow rain toward a dark, heavy earth. The source line (top).",
+      "estVoice": 4.79
     },
     {
       "id": "next",

@@ -24,7 +24,7 @@
     "kinetic": true
   },
   "episode": 48,
-  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Adivamshavatarana sub-parva, adhyayas 55–56: Vaishampayana bows to his teacher and tells the whole in brief: the sons of Pandu come home from the forest when their father dies; Duryodhana, with Karna and Shakuni, cannot bear their fortune and fame and persecutes them: poison in Bhima's food, Bhima bound and thrown into the Ganga, snakes, the house of lac at Varanavata from which they escape by a tunnel on Vidura's counsel; Hidimba and Baka are killed; they win Draupadi; they are given Khandavaprastha and make it great; Arjuna's exile, Subhadra, the burning of Khandava; the hall; the dice won by deceit; twelve years in the forest and a thirteenth unknown; in the fourteenth they ask for their own and are refused; war; they destroy the warrior kings, kill Duryodhana and win the kingdom back. Janamejaya says it was told in brief and asks for the whole (1.56); Vaishampayana praises the work: Vyasa made it in three years, rising daily; what is here on law, profit, pleasure and release is found elsewhere, and what is not here is nowhere. The summary is condensed further (Hidimba, Baka, Arjuna's exile and Khandava are in the pictures or left to their own arcs); only two of its names are spoken. UNCERTAIN: the order and wording of 1.55, and the \"three years\" of 1.56 shown on a plaque, are from the writer's reading of the CE (not re-opened this session); the vulgate's summary is longer.",
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Adivamshavatarana sub-parva. CHECKED AGAINST CE 1.55.1–43 and 1.56.1–33. RESOLVED (the order of 1.55 in the CE): the father dead, the heroes come home from the forest and soon master Veda and bow (1.55.6); the Kurus cannot bear their fortune and fame (1.55.7); Duryodhana, Karna and Shakuni persecute them (1.55.8); poison for Bhima, who digests it (1.55.9); Bhima bound asleep and thrown into the Ganga (1.55.10–11); bitten by black snakes (1.55.12); Vidura watchful (1.55.13–14); the house of lac, the fire, the tunnel by Vidura's word (1.55.16–18); Hidimba killed (1.55.19); Ekachakra, Baka (1.55.20–21); Draupadi won; a year there; the return to Hastinapura (1.55.22); sent to Khandavaprastha (1.55.23–25), where they live many years and bring other kings under them (1.55.26–30); Arjuna in the forest a year and a month, then Dvaraka and Subhadra (1.55.31–34); the burning of Khandava, the bow Gandiva, Maya and the hall (1.55.35–38); Duryodhana's greed; Yudhishthira cheated at dice by Shakuni (1.55.39); the forest for twelve years and a thirteenth unknown (1.55.40); in the fourteenth they ask for their own and do not get it; then war (1.55.41); having destroyed everything and killed king Duryodhana, the Pandavas regain a kingdom most of whose people are gone (1.55.42, rajyam vidrutabhuyishtham: `war`, \"a land laid waste\"). Janamejaya: you have told it in brief; tell it again in full (1.56.1–3: `more`). RESOLVED (1.56): \"in three years, rising daily, the sage Krishna Dvaipayana made this Mahabharata\" is CE 1.56.32 (the plaque); \"on law, profit, pleasure and release: what is here is elsewhere; what is not here is nowhere\" is CE 1.56.33 (`here`; the four ends are on the plaque). The script's summary keeps the CE's order and leaves out Hidimba, Baka, Arjuna's exile and Khandava (pictures, or their own arcs); only two of its names are spoken. CE AGAINST VULGATE: the vulgate's summary is longer and Ganguli has Arjuna away eleven years and months; the CE has a year and a month (not voiced). No manuscript is shown.",
   "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
   "hookStyle": "number",
   "names": {
@@ -64,9 +64,9 @@
       "speed": 1.16,
       "text": "The whole Mahabharata, in one breath.",
       "say": "The whole Mahabharata, [p:100] in one breath.",
-      "est": 3.78,
+      "est": 3.68,
       "pre": 60,
-      "post": 900,
+      "post": 800,
       "role": "hook",
       "caption": false,
       "beats": [
@@ -91,17 +91,17 @@
     {
       "id": "before",
       "speed": 1.04,
-      "text": "Before the king, Vyasa's student began with a summary.",
-      "say": "Before the king, [p:80] Vyasa's student [p:60] began with a summary.",
-      "est": 4.55,
+      "text": "Vyasa's student began: all of it, in brief.",
+      "say": "Vyasa's student began: [p:200] all of it, [p:100] in brief.",
+      "est": 4.36,
       "pre": 250,
       "post": 400,
       "emphasis": [
         "Vyasa's"
       ],
       "beats": [
-        2,
-        8
+        0,
+        7
       ],
       "foley": [
         "cloth@0",
@@ -112,7 +112,7 @@
       "cam": "push",
       "tr": "smoke",
       "note": "STORY 0 with the unvoiced recap band (top): the teal hall: Vaishampayana (plaque: Vaishampayana · Vyasa's student) before the seated king, Vyasa in gold beside him; he opens his hands.",
-      "estVoice": 3.9
+      "estVoice": 3.71
     },
     {
       "id": "five",
@@ -151,9 +151,9 @@
       "speed": 1.0,
       "text": "\"Poison. A house built to burn. They lived.\"",
       "say": "Poison. [p:300] A house built to burn. [p:300] They lived.",
-      "est": 5.27,
+      "est": 5.12,
       "pre": 250,
-      "post": 450,
+      "post": 300,
       "beats": [
         0,
         5,
@@ -174,17 +174,17 @@
       "id": "won",
       "speaker": "vaishampayana",
       "speed": 1.0,
-      "text": "\"A princess won, Draupadi. A kingdom made great.\"",
-      "say": "A princess won, [p:100] Draupadi. [p:300] A kingdom made great.",
-      "est": 5.08,
+      "text": "\"A princess won, Draupadi. A kingdom built.\"",
+      "say": "A princess won, [p:100] Draupadi. [p:300] A kingdom built.",
+      "est": 4.65,
       "pre": 250,
-      "post": 500,
+      "post": 350,
       "emphasis": [
         "Draupadi."
       ],
       "beats": [
         3,
-        7
+        6
       ],
       "foley": [
         "anklet@0",
@@ -198,7 +198,7 @@
       "cam": "crane",
       "tr": "brush",
       "note": "PANEL 3 (crystal-sky): a bow drawn at a target high on a pole; a woman with a garland (plaque: Draupadi · princess of Panchala); a crane up to a white city on a river.",
-      "estVoice": 4.33
+      "estVoice": 4.05
     },
     {
       "id": "dice",
@@ -235,10 +235,10 @@
       "speaker": "vaishampayana",
       "speed": 1.0,
       "text": "\"Twelve years in the forest. One more in hiding.\"",
-      "say": "Twelve years in the forest. [p:300] One more [p:60] in hiding.",
-      "est": 4.68,
+      "say": "Twelve years in the forest. [p:250] One more [p:60] in hiding.",
+      "est": 4.53,
       "pre": 250,
-      "post": 250,
+      "post": 150,
       "beats": [
         0,
         5
@@ -255,22 +255,22 @@
       "tr": "smoke",
       "mixDb": -3,
       "note": "PANEL 5 (exile-forest): six figures walking away under great trees, seen from behind; twelve small moons cross the canopy in an arc; a thirteenth is hidden by a leaf.",
-      "estVoice": 4.18
+      "estVoice": 4.13
     },
     {
       "id": "war",
       "speaker": "vaishampayana",
       "speed": 1.0,
-      "text": "\"They asked for their kingdom, and were refused. So came the war. And they won.\"",
-      "say": "They asked for their kingdom, [p:120] and were refused. [p:300] So came the war. [p:350] And they won.",
-      "est": 7.43,
+      "text": "\"They asked for their kingdom, and were refused. So came the war. They won back a land laid waste.\"",
+      "say": "They asked for their kingdom, [p:120] and were refused. [p:300] So came the war. [p:350] They won back [p:60] a land laid waste.",
+      "est": 8.6,
       "pre": 250,
-      "post": 300,
+      "post": 350,
       "beats": [
         4,
         7,
         11,
-        14
+        18
       ],
       "amb": "sky",
       "foley": [
@@ -285,8 +285,8 @@
       "pal": "war-iron",
       "cam": "tilt",
       "tr": "ink",
-      "note": "PANEL 6 (war-iron; answers the hook): an open hand held out, a closed door; then a tilt down from banners to two armies facing each other, small, innumerable, no blood; on \"won\" the field is empty: five small figures and one woman standing, a crown on the ground. The strip of panels closes.",
-      "estVoice": 6.88
+      "note": "PANEL 6 (war-iron; answers the hook): an open hand held out, a closed door; then a tilt down from banners to two armies facing each other, small, innumerable, no blood; on \"laid waste\" the field is empty and grey: five small figures and one woman standing, a crown on the ground, empty houses behind; no triumph. The strip of panels closes.",
+      "estVoice": 8.0
     },
     {
       "id": "more",
@@ -294,8 +294,8 @@
       "speed": 1.0,
       "text": "\"That was brief. Now tell me all of it.\"",
       "say": "That was brief. [p:300] Now tell me [p:60] all of it.",
-      "est": 4.88,
-      "pre": 900,
+      "est": 4.78,
+      "pre": 800,
       "post": 300,
       "beats": [
         2,
@@ -322,10 +322,10 @@
       "speaker": "vaishampayana",
       "speed": 1.0,
       "text": "\"What is here is found elsewhere. What is not here is nowhere.\"",
-      "say": "What is here [p:60] is found elsewhere. [p:300] What is not here [p:80] is nowhere.",
-      "est": 5.54,
+      "say": "What is here [p:60] is found elsewhere. [p:250] What is not here [p:80] is nowhere.",
+      "est": 5.39,
       "pre": 250,
-      "post": 250,
+      "post": 150,
       "beats": [
         2,
         10
@@ -337,17 +337,17 @@
       "pal": "arrival-umber-gold",
       "cam": "orbit",
       "mixDb": -2,
-      "note": "STORY 9: Vaishampayana lifts the bound palm leaves; a slow orbit; behind him Vyasa, eyes closed, gold; on \"three years\" (the plaque: Vyasa · composed it in three years) the manuscript's pages fan open.",
-      "estVoice": 5.04
+      "note": "STORY 9: Vaishampayana, an open hand lifted, reciting (no manuscript: the text has a recital); a slow orbit; behind him Vyasa, eyes closed, gold (plaques: Vyasa · composed it in three years; under the line, small: on law, wealth, love and freedom).",
+      "estVoice": 4.99
     },
     {
       "id": "cliff",
       "speed": 1.04,
       "text": "So he began again: with a king, a fish, and a ferry girl.",
-      "say": "So he began again: [p:200] with a king, [p:120] a fish, [p:120] and a ferry girl.",
-      "est": 5.45,
+      "say": "So he began again: [p:150] with a king, [p:80] a fish, [p:80] and a ferry girl.",
+      "est": 5.22,
       "pre": 250,
-      "post": 350,
+      "post": 250,
       "beats": [
         5,
         7,
@@ -366,7 +366,7 @@
       "cam": "slide",
       "tr": "lamp",
       "note": "NEXT 1 (the catalog's cliffhanger): a lamp-glow match cut to deep river blue: three images on the three beats: a crown in the sky, a silver fish turning, a girl's hand on an oar. The source line (top).",
-      "estVoice": 4.85
+      "estVoice": 4.72
     },
     {
       "id": "next",

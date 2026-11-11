@@ -69,6 +69,7 @@
     const n = lay.rows.length;
     const bottom = BAND ? BAND.y : L.captionY === 'high' ? 560 : (typeof L.captionY === 'number' ? L.captionY : CFG.bottom);
     const top = bottom - (n - 1) * CFG.lineH;
+    if (R.probe && R.faces && R.faces.some((f) => f.y + f.r * 0.8 > top - CFG.size && f.y - f.r * 0.8 < bottom + 14 && Math.abs(f.x - KIT.CX) < Math.max(...lay.rows.map((q) => q.width)) / 2 + f.r * 0.8)) R.probe.type.captionFace = (R.probe.type.captionFace || 0) + 1;   // the gate: a caption must not cross a face
     // painted scrim behind the caption block
     ctx.save();
     ctx.globalAlpha = vis * (BAND ? 0.95 : 0.78);

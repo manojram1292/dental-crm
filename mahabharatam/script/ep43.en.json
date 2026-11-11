@@ -24,7 +24,7 @@
     "kinetic": true
   },
   "episode": 43,
-  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Pauloma sub-parva, adhyayas 6 (end) and 7: Bhrigu curses Agni: you shall eat everything (sarvabhaksha); Agni answers in anger that, asked, he told the truth: a witness who knowingly speaks falsely ruins seven generations of his line before and after; he could curse Bhrigu in return but honours brahmins; he is the mouth through which gods and ancestors are fed; he withdraws from the fire-offerings, sacrifices and rites, and without the sacred calls all creatures suffer; the sages go to the gods and the gods to Brahma; Brahma calls Agni and speaks gently: he will not eat all things with his whole body, and as everything touched by the sun's rays becomes pure, whatever his flames burn will be pure; Agni agrees and returns, and gods and sages rejoice. Bhrigu's and Agni's speeches are condensed paraphrase. UNCERTAIN: \"eat everything\" renders sarvabhaksha; the gloss \"pure and impure\" is not spoken here.",
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Pauloma sub-parva. CHECKED AGAINST CE 1.6.13 and 1.7.1–26: Bhrigu curses Agni: you shall be all-eating, sarvabhaksha (1.6.13); Agni, angry, answers: what is this rashness; asked, I spoke the truth, where is my fault (1.7.1–2); a witness who knows and speaks otherwise destroys seven of his line before and seven after (1.7.3; left out of the voice); I could curse you too, but brahmins are to be honoured by me (1.7.5); what is offered in me feeds gods and ancestors; I am called their mouth; how shall I, their mouth, be all-eating (1.7.7–11: `truth`); he withdraws himself from the fire-offerings and rites (1.7.12); without the sacred calls all creatures are in misery (1.7.13); the sages go to the gods (1.7.14) and sages and gods to Brahma (1.7.15–16); Brahma calls Agni and speaks gently (1.7.17): you will not be all-eating with your whole body (1.7.20: `pure`, \"only a part of you\"); as all that the sun's rays touch is pure, all that your flames burn will be pure (1.7.21); Agni agrees and goes (1.7.23); sages perform the rites as before and the gods rejoice (1.7.24–25). The speeches are condensed paraphrase. CE AGAINST VULGATE: at 1.7.20 the CE reads upādāne (the flames \"in your taking\"); the vulgate's reading is the base of Ganguli's \"the flames in thy viler parts\"; we say only \"a part of you\". Ruru as fourth from Bhrigu (Bhrigu, Chyavana, Pramati, Ruru): 1.5.7, 1.8.1–2.",
   "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
   "hookStyle": "question",
   "names": {
@@ -90,9 +90,9 @@
     {
       "id": "because",
       "speed": 1.04,
-      "text": "The fire, Agni, told a demon the truth, and a sage's wife was carried off.",
-      "say": "The fire, [p:60] Agni, [p:60] told a demon the truth, [p:150] and a sage's wife was carried off.",
-      "est": 6.09,
+      "text": "The fire, Agni, told a demon the truth; the demon then carried off a sage's wife.",
+      "say": "The fire, [p:60] Agni, [p:60] told a demon the truth; [p:200] the demon then carried off a sage's wife.",
+      "est": 6.52,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -109,8 +109,8 @@
       "pal": "hearth-amber",
       "cam": "slide",
       "tr": "smoke",
-      "note": "STORY 0 with the unvoiced recap band (top): the hut's fire with its face; in its smoke, the boar and the woman (a memory, one image).",
-      "estVoice": 5.54
+      "note": "STORY 0 with the unvoiced recap band (top): the hut's fire on its altar (no face); in its smoke, the boar and the woman (a memory, one image).",
+      "estVoice": 5.97
     },
     {
       "id": "curse",
@@ -138,21 +138,22 @@
       "closeup": true,
       "tr": "ink",
       "mixDb": 2,
-      "note": "STORY 1 · THE CLOSE-UP: Bhrigu's face, wrath (brow down, mouth open), then the arm thrown forward and the water from his pot (plaque: Bhrigu · a great sage). Pays off episode 42's last line by 6 s.",
+      "note": "STORY 1 · THE CLOSE-UP: Bhrigu's face, wrath (brow down, mouth open), then the arm thrown forward, the palm open (plaque: Bhrigu · a great sage). Pays off episode 42's last line by 6 s.",
       "estVoice": 2.69
     },
     {
       "id": "truth",
       "speaker": "agni",
       "speed": 1.0,
-      "text": "\"I was asked. I told the truth. A lying witness ruins seven generations.\"",
-      "say": "I was asked. [p:200] I told the truth. [p:300] A lying witness [p:80] ruins seven generations.",
-      "est": 6.88,
+      "text": "\"I told the truth. I am the mouth of the gods: how can their mouth eat everything?\"",
+      "say": "I told the truth. [p:300] I am the mouth of the gods: [p:200] how can their mouth [p:60] eat everything?",
+      "est": 7.22,
       "pre": 250,
       "post": 300,
       "beats": [
-        6,
-        12
+        4,
+        10,
+        17
       ],
       "foley": [
         "flame"
@@ -161,8 +162,8 @@
       "pal": "hearth-amber",
       "cam": "tilt",
       "mixDb": -2,
-      "note": "STORY 2: the fire's face, hurt and steady; behind it, seven faint figures in a row dim one by one on \"seven generations\".",
-      "estVoice": 6.33
+      "note": "STORY 2: the flame, drawn up tall and steady (Agni speaks as a voice from the fire; no face); above it, in its smoke, a row of small seated gods and ancestors receive the offering that rises through it; on \"everything\" a bone and a rag fall into the picture's edge.",
+      "estVoice": 6.67
     },
     {
       "id": "gone",
@@ -199,14 +200,14 @@
     {
       "id": "dark",
       "speed": 1.04,
-      "text": "No offering rose. The whole world suffered.",
-      "say": "No offering rose. [p:250] The whole world suffered.",
-      "est": 4.07,
+      "text": "No offering rose. The world suffered.",
+      "say": "No offering rose. [p:250] The world suffered.",
+      "est": 3.75,
       "pre": 250,
       "post": 300,
       "beats": [
         2,
-        6
+        5
       ],
       "foley": [
         "leaf",
@@ -216,14 +217,14 @@
       "cam": "slide",
       "mixDb": -4,
       "note": "STORY 4: priests with ladles over cold altars; a family round a dead hearth; a lateral track past them, their breath showing.",
-      "estVoice": 3.52
+      "estVoice": 3.2
     },
     {
       "id": "went",
       "speed": 1.04,
-      "text": "The sages went to the gods, and the gods to Brahma.",
-      "say": "The sages went to the gods, [p:120] and the gods to Brahma.",
-      "est": 4.28,
+      "text": "The sages went to the gods; the gods to Brahma.",
+      "say": "The sages went to the gods; [p:200] the gods to Brahma.",
+      "est": 4.16,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -231,7 +232,7 @@
       ],
       "beats": [
         5,
-        10
+        9
       ],
       "amb": "heaven",
       "ambLead": 300,
@@ -244,20 +245,20 @@
       "cam": "tilt",
       "tr": "brush",
       "note": "STORY 5 · NEW LIGHT, Brahma's court (brahma-rose, a lotus sky): a tilt up from the grey earth through cloud to the rose-gold court: sages, then gods, then Brahma on his lotus (plaque: Brahma · the creator).",
-      "estVoice": 3.73
+      "estVoice": 3.61
     },
     {
       "id": "pure",
       "speaker": "brahma",
       "speed": 1.0,
-      "text": "\"Not all of you will eat all things. And whatever your flames burn will be made pure.\"",
-      "say": "Not all of you [p:60] will eat all things. [p:300] And whatever your flames burn [p:100] will be made pure.",
-      "est": 8.28,
+      "text": "\"Only a part of you shall eat all things. And whatever your flames burn will be made pure.\"",
+      "say": "Only a part of you [p:60] shall eat all things. [p:300] And whatever your flames burn [p:100] will be made pure.",
+      "est": 8.6,
       "pre": 900,
       "post": 400,
       "beats": [
-        7,
-        16
+        8,
+        17
       ],
       "rest": true,
       "sfx": [
@@ -270,7 +271,7 @@
       "pal": "brahma-rose",
       "cam": "push",
       "note": "STORY 6 · THE TURN (≈ 55 %) after a real silence: Brahma, calm, a hand open toward a small dark flame that stands before him; on \"pure\" the flame turns clear gold-white, as the sun's rays make clean what they touch (the text's own likeness, shown as a ray falling on it). The word of the turn: PURE.",
-      "estVoice": 6.98
+      "estVoice": 7.3
     },
     {
       "id": "back",

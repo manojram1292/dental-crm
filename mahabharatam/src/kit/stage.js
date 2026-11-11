@@ -62,46 +62,46 @@
     'naimisha-bluehour': P(222, ['#0c1230', '#243a6a', '#6a86a8'], '#31476e', '#1c2a4a', '#0e1630', '#7f9cc0', '#ffb060', '#c8d4f0', '#ffb547', 'light', ['#ffb060', 0.45], ['#5a78b0', 0.3]),
     'naimisha-firstlight': P(28, ['#3a4a7a', '#c88a7a', '#ffd9a0'], '#8a6a6a', '#5a3a34', '#2a1814', '#f0c8a0', '#fff0c8', '#ffe8d0', '#e7b54a', 'dark', ['#fff0c8', 0.4], ['#c88a7a', 0.25]),
     // ep 41: the hermitage and the abduction
-    'hermitage-green': P(96, ['#bfe0c8', '#e4f0c0', '#fbf6d8'], '#8fb88a', '#4f8a50', '#1f4a2a', '#d8ecc0', '#fff6c0', '#f0ffe0', '#e86a3a', 'dark', ['#fff6c0', 0.35], ['#8fd080', 0.22]),
+    'hermitage-green': P(96, ['#16402a', '#4f8a44', '#e8e6a0'], '#5f9a58', '#2f6a38', '#123a20', '#b8d498', '#fff0b0', '#eef8d8', '#e86a3a', 'dark', ['#fff0b0', 0.35], ['#8fd080', 0.22]),
     'hearth-amber': P(32, ['#2a1408', '#5a2c10', '#a05a1c'], '#6a3a14', '#48240c', '#221006', '#c07a30', '#ffc060', '#ffe0b0', '#7ad8d8', 'light', ['#ffc060', 0.5], ['#6a7ab0', 0.25]),
     'boar-dusk': P(306, ['#12061c', '#4a1650', '#b04a8a'], '#5a1c5a', '#38103c', '#16061a', '#a05a98', '#ffd8f0', '#f0c8e8', '#7affd8', 'light', ['#ffd0f0', 0.35], ['#ff8a6a', 0.18]),
     // ep 42: the child, the ash, the river
     'sun-white': P(48, ['#101a48', '#3a4a8a', '#ffe8a0'], '#5a5a8a', '#2a2a5a', '#10102e', '#ffe8b0', '#ffffff', '#fff4d8', '#ffd040', 'light', ['#ffffff', 0.5], ['#8a9ad8', 0.2]),
-    'ash-grey': P(-1, ['#8a8a8a', '#b8b4ae', '#dcd8d0'], '#9a968e', '#6a665e', '#3a3632', '#c8c4bc', '#ffffff', '#e8e4dc', '#ff5a20', 'dark', ['#ffffff', 0.3], ['#a09a90', 0.2]),
-    'river-jade': P(162, ['#c8ece0', '#a8dcd0', '#e8f8e8'], '#7ac0a8', '#3a9080', '#125248', '#c0e8dc', '#ffffff', '#e0fff4', '#ff9a7a', 'dark', ['#ffffff', 0.35], ['#7ad0c0', 0.25]),
+    'ash-grey': P(-1, ['#3a3836', '#8a8680', '#d8d4cc'], '#7a766e', '#4e4a44', '#26221e', '#b8b4ac', '#fffbf0', '#e0dcd4', '#ff5a20', 'dark', ['#fffbf0', 0.3], ['#a09a90', 0.2]),
+    'river-jade': P(162, ['#0e4a44', '#3a9a88', '#d8f0d0'], '#4aa890', '#1e7262', '#0a3c36', '#a8dcc8', '#fffbe0', '#dcf4ec', '#ff9a7a', 'dark', ['#fffbe0', 0.35], ['#7ad0c0', 0.25]),
     // ep 43: the curse, the world without fire, Brahma
     'wrath-crimson': P(356, ['#1c0408', '#5a0c18', '#b02a2a'], '#7a1420', '#4a0a14', '#20040a', '#c04a40', '#ffd0a0', '#ffc8c0', '#ffe060', 'light', ['#ffb090', 0.45], ['#6a2a8a', 0.2]),
     'cold-slate': P(226, ['#10141c', '#2a3240', '#586474'], '#3a4452', '#262e3a', '#12161e', '#6a7686', '#c8d8f0', '#c0c8d8', '#f08a24', 'light', ['#c8d8f0', 0.4], ['#586474', 0.3]),
-    'brahma-rose': P(338, ['#f8c8d0', '#ffe0d0', '#fff4e0'], '#e8a0b0', '#c06a88', '#7a2a50', '#ffe0e0', '#fff8e0', '#ffe8ec', '#e7b54a', 'dark', ['#fff8e0', 0.35], ['#ffb0c0', 0.25]),
+    'brahma-rose': P(338, ['#6a1a44', '#d86a88', '#ffe0c0'], '#c85a80', '#8a2a58', '#4a1232', '#f0b8c0', '#fff4d0', '#ffe0e4', '#e7b54a', 'dark', ['#fff4d0', 0.35], ['#ffb0c0', 0.25]),
     'pure-flame': P(236, ['#060a30', '#14208a', '#3a50c0'], '#1a2a8a', '#0e1860', '#060a34', '#5a70d0', '#fff0b0', '#d0d8ff', '#ffd060', 'light', ['#fff0b0', 0.5], ['#5a70d0', 0.25]),
     // ep 44: the foundling, the meadow, the bite
-    'riverbank-pearl': P(204, ['#d8e4f0', '#e8eef4', '#fbf8f0'], '#b0c4d8', '#7a98b4', '#3a5a78', '#e4ecf4', '#ffffff', '#eef4fb', '#ff8ab0', 'dark', ['#ffffff', 0.3], ['#b0c4d8', 0.25]),
-    'meadow-spring': P(74, ['#8ad0f0', '#d0f0d0', '#fbf8b0'], '#b8d86a', '#7ab03a', '#3a6a1a', '#e8f4b0', '#fffbd0', '#f8ffd8', '#ff5a8a', 'dark', ['#fffbd0', 0.35], ['#b8d86a', 0.25]),
+    'riverbank-pearl': P(204, ['#1e3a5a', '#6a94b8', '#eef0e4'], '#6a90b0', '#3a6488', '#16304c', '#c4d8e8', '#ffffff', '#e4eef8', '#ff8ab0', 'dark', ['#ffffff', 0.3], ['#b0c4d8', 0.25]),
+    'meadow-spring': P(74, ['#2a6a8a', '#a8d078', '#fbf4a0'], '#8ab848', '#4f8a26', '#234a10', '#d8e898', '#fff8c0', '#f4fbd0', '#ff5a8a', 'dark', ['#fff8c0', 0.35], ['#b8d86a', 0.25]),
     'venom-violet': P(284, ['#08040e', '#24103a', '#4a2a6a'], '#34184e', '#1e0c30', '#0c0414', '#5a3a7a', '#b0ffa0', '#d8c8f0', '#7aff5a', 'light', ['#b0ffa0', 0.4], ['#6a4a9a', 0.25]),
     // ep 45: the lament, the messenger, Dharma, the wedding
     'grief-blue': P(214, ['#04081a', '#0c1c44', '#1e3a70'], '#12285a', '#0a1838', '#040a1c', '#2a4a80', '#a8c8ff', '#b8c8e8', '#ffb547', 'light', ['#a8c8ff', 0.45], ['#2a4a80', 0.3]),
     'messenger-dawn': P(56, ['#2a2408', '#b89a3a', '#fff6c8'], '#c8a84a', '#8a7020', '#3a2e0a', '#fff0b0', '#ffffff', '#fff8d8', '#7ac8ff', 'dark', ['#ffffff', 0.5], ['#b89a3a', 0.2]),
     'dharma-copper': P(18, ['#0a0604', '#2a140c', '#6a3018'], '#4a2414', '#2c140a', '#120804', '#8a4a2a', '#ffb070', '#f0c8b0', '#5ad8c8', 'light', ['#ffb070', 0.45], ['#2a6a6a', 0.25]),
-    'wedding-turmeric': P(50, ['#f8d040', '#fbe480', '#fff6c8'], '#e8b020', '#c8801a', '#7a3a10', '#fbe8a0', '#ffffff', '#fff4c8', '#d8202a', 'dark', ['#ffffff', 0.3], ['#f8d040', 0.25]),
+    'wedding-turmeric': P(50, ['#8a4a0a', '#e8a820', '#fff0b0'], '#d89a18', '#a86a10', '#5a300a', '#f8dc90', '#fffbe8', '#fff0c0', '#d8202a', 'dark', ['#fffbe8', 0.3], ['#f8d040', 0.25]),
     // ep 46: the hunter of snakes, the old snake, the memory, the release
-    'noon-ochre': P(36, ['#e8d8b0', '#f0deb0', '#f8ecd0'], '#d0a868', '#a87838', '#5a3a14', '#f0e0b8', '#ffffff', '#fff0d0', '#3a8a5a', 'dark', ['#ffffff', 0.3], ['#d0a868', 0.25]),
+    'noon-ochre': P(36, ['#8a5a1a', '#d8a850', '#f8e8c0'], '#c0903e', '#8a5e22', '#4a2e0e', '#e8d0a0', '#fffbe8', '#fbecd0', '#3a8a5a', 'dark', ['#fffbe8', 0.3], ['#d0a868', 0.25]),
     'thicket-shade': P(166, ['#04140e', '#0c3a2a', '#1e6a4a'], '#124a34', '#0a3020', '#04160e', '#2a7a5a', '#f0ffb0', '#c0e8d0', '#ff7a4a', 'light', ['#f0ffb0', 0.4], ['#1e6a4a', 0.25]),
-    'memory-indigo': P(236, ['#b8c0e0', '#ccd2ea', '#e4e8f4'], '#98a2d0', '#6a74b0', '#2a3270', '#d0d6ee', '#ffffff', '#e4e8f8', '#b0522d', 'dark', ['#ffffff', 0.25], ['#98a2d0', 0.2]),
+    'memory-indigo': P(236, ['#1a2060', '#5a66b0', '#d8dcf0'], '#6a76b8', '#3a4488', '#161c50', '#b8c0e4', '#ffffff', '#dce0f4', '#b0522d', 'dark', ['#ffffff', 0.25], ['#98a2d0', 0.2]),
     'release-gold': P(52, ['#3a2a08', '#c89a20', '#fff4b0'], '#c8a030', '#8a6a14', '#3a2a08', '#ffe890', '#ffffff', '#fff8d0', '#3ab0a8', 'dark', ['#ffffff', 0.5], ['#c89a20', 0.2]),
     // ep 47–48: the sacrifice at rest (never the old orange), Vyasa's arrival, the panels of the summary
     'satra-teal-night': P(192, ['#04121a', '#0c3040', '#1c5a68'], '#124250', '#0a2a36', '#04141a', '#2a6a78', '#ffc878', '#b8e0e8', '#ff8a3a', 'light', ['#ffc878', 0.45], ['#2a6a78', 0.3]),
     'arrival-umber-gold': P(40, ['#140c04', '#3a2408', '#8a5a10'], '#5a3a0c', '#3a2408', '#180e04', '#a87820', '#ffe090', '#f8e0b0', '#7a9aff', 'light', ['#ffe090', 0.5], ['#5a6aa8', 0.22]),
-    'seat-ivory': P(52, ['#f0e8d0', '#f8f0dc', '#fffbf0'], '#e0d0a8', '#c0a870', '#7a5a2a', '#f8f0dc', '#ffffff', '#fff8e8', '#b0522d', 'dark', ['#ffffff', 0.3], ['#e0d0a8', 0.2]),
+    'seat-ivory': P(52, ['#6a5020', '#d0b068', '#fbf0d0'], '#c8a860', '#8a6c30', '#4a3812', '#f0e0b8', '#fffbf0', '#fbf0d8', '#b0522d', 'dark', ['#fffbf0', 0.3], ['#e0d0a8', 0.2]),
     'dice-vermilion': P(8, ['#3a0806', '#8a1c10', '#d84a20'], '#a02a14', '#6a1408', '#2a0604', '#d86a40', '#ffe0a0', '#ffd0c0', '#f7dc9c', 'light', ['#ffe0a0', 0.45], ['#6a2a6a', 0.2]),
     'exile-forest': P(140, ['#061a10', '#104a2a', '#3a8a50'], '#1a5a34', '#0c3a20', '#041a0e', '#4a9a6a', '#e0ffc0', '#c8f0d0', '#ffb547', 'light', ['#e0ffc0', 0.4], ['#104a2a', 0.3]),
     'war-iron': P(250, ['#0a0a14', '#22223a', '#4a4a6a'], '#2e2e4a', '#1c1c30', '#0a0a16', '#5a5a7a', '#ffd0a0', '#c8c8e0', '#ff4a2a', 'light', ['#ffd0a0', 0.4], ['#4a4a6a', 0.3]),
     // ep 49–50: Chedi's sky, the hunt, the Yamuna, the fishers, the mist, the island
-    'crystal-sky': P(196, ['#3a9ad8', '#8ad0f0', '#e8fbff'], '#a8dcf0', '#6ab8e0', '#2a78a8', '#d8f4ff', '#ffffff', '#e8f8ff', '#e7b54a', 'dark', ['#ffffff', 0.35], ['#8ad0f0', 0.25]),
+    'crystal-sky': P(196, ['#0e4a80', '#4aa8d8', '#e0f8ff'], '#5ab0d8', '#2a7aa8', '#103e62', '#c0e8f8', '#ffffff', '#e0f4ff', '#e7b54a', 'dark', ['#ffffff', 0.35], ['#8ad0f0', 0.25]),
     'hunt-emerald': P(128, ['#0a2a14', '#1c6a30', '#6ac060'], '#2a7a3a', '#145024', '#06260e', '#6ab070', '#fff8b0', '#d0f4c8', '#ff6a8a', 'light', ['#fff8b0', 0.4], ['#1c6a30', 0.3]),
     'yamuna-deep': P(208, ['#062a4a', '#0c5a8a', '#3a9ac8'], '#0e5a88', '#083e62', '#041e34', '#4a9ac0', '#d8f8ff', '#c0e4f8', '#f0f0f8', 'light', ['#d8f8ff', 0.4], ['#0c5a8a', 0.3]),
-    'fishers-coral': P(14, ['#3a2a5a', '#d86a5a', '#ffc890'], '#b8585a', '#7a3440', '#3a1620', '#f0a888', '#fff0d0', '#ffe0d0', '#5ad8e8', 'dark', ['#fff0d0', 0.4], ['#d86a5a', 0.25]),
-    'mist-lavender': P(262, ['#c8c0e8', '#dcd8f0', '#f4f2fb'], '#b8b0dc', '#8a80b8', '#4a4078', '#e4e0f4', '#ffffff', '#f0ecfb', '#ffd060', 'dark', ['#ffffff', 0.3], ['#b8b0dc', 0.3]),
-    'island-gold': P(44, ['#5a3a8a', '#f09a50', '#ffe8a0'], '#d88a3a', '#9a5a20', '#4a2a0c', '#ffd898', '#fffbe0', '#fff0c8', '#3a9ac8', 'dark', ['#fffbe0', 0.45], ['#f09a50', 0.25]),
+    'fishers-coral': P(14, ['#2a1a4a', '#c8584a', '#ffc890'], '#a84a4c', '#6a2c38', '#32121c', '#e89a7a', '#fff0d0', '#ffdccc', '#5ad8e8', 'dark', ['#fff0d0', 0.4], ['#d86a5a', 0.25]),
+    'mist-lavender': P(262, ['#3a2e70', '#9a8ed0', '#ece8fb'], '#8a7ec0', '#5a4e98', '#2a2058', '#d0c8ec', '#ffffff', '#e8e4f8', '#ffd060', 'dark', ['#ffffff', 0.3], ['#b8b0dc', 0.3]),
+    'island-gold': P(44, ['#3a2468', '#e08a40', '#ffe8a0'], '#c87a30', '#8a4e18', '#40220a', '#fcd090', '#fffbe0', '#fff0c8', '#3a9ac8', 'dark', ['#fffbe0', 0.45], ['#f09a50', 0.25]),
   };
   ST.pal = (id) => { const p = typeof id === 'string' ? ST.PAL[id] : id; if (!p) throw new Error(`KIT.stage: unknown palette "${id}"`); if (typeof id === 'string') note('palettes', id); return p; };
 
@@ -112,7 +112,7 @@
     // SILHOUETTE FIRST (visual review of kit 41): by default the figure is a dark, rich shape with a thin rim in the scene's
     // light; on a dark ground it is lifted a little so it stands off. Pass front ≈ 0.7 for a close-up or a front-lit scene.
     return { dir: Math.atan2(fy - (y - 550), fx - x), intensity: o.k ?? 1.05, front: o.front ?? (pal.fig === 'light' ? 0.34 : 0.16), fill: o.fill ?? (pal.fig === 'light' ? 0.2 : 0.06),
-      tint: [pal.rim[0], Math.min(0.5, pal.rim[1])], bounce: pal.bounce, minLum: o.minLum ?? 0 };
+      tint: [pal.rim[0], Math.min(0.5, pal.rim[1])], bounce: [pal.bounce[0], pal.bounce[1] * 0.35], minLum: o.minLum ?? 0 };
   };
   /** THE BACK-LIGHT RULE: a fire or a sun behind the figure. The figure stays a dark shape (its own hues at about a third of
    *  their value, never a black hole and never a washed mid-tone), with a thin rim in the fire's colour on BOTH edges and its
@@ -164,12 +164,12 @@
    */
   ST.shot = (ctx, T, o) => {
     const pal = ST.pal(o.pal), c = o.cam || KIT.cam.still();
-    const layers = [...o.layers].sort((a, b) => a.z - b.z);
+    const layers = [...o.layers].sort((a, b) => a.z - b.z).filter((L) => !ST.debugOnly || (L.z >= ST.debugOnly[0] && L.z <= ST.debugOnly[1]));   // tools/opacity.mjs draws chosen planes only
     const hazeK = o.haze ?? 0.55;
     layers.forEach((L, i) => {
       const depth = clamp(1 - L.z);
       const hz = L.haze === false || L.z < 0.02 ? 0 : hazeK * depth * 0.85;
-      const blur = clamp((L.soft || 0) + (c.focus != null ? Math.abs(L.z - c.focus) * 0.9 * (c.soft || 1) : 0));
+      const blur = L.z < 0.02 ? 0 : clamp((L.soft || 0) + (c.focus != null ? Math.min(1, Math.abs(L.z - c.focus)) * 0.75 * (c.soft || 1) : 0));
       if (hz < 0.02 && blur < 0.06) {
         ctx.save(); ST.layerTransform(ctx, c, L.z); L.draw(ctx, pal, c, T); ctx.restore();
         return;
@@ -181,11 +181,8 @@
       R.resetCtx(g);
       if (hz >= 0.02) { g.globalCompositeOperation = 'source-atop'; g.globalAlpha = hz; g.fillStyle = pal.haze; g.fillRect(0, 0, W, H); g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; }
       if (blur >= 0.06) {
-        // a cheap, wide blur: down-sample and draw back up (twice for a strong one)
-        const f = blur > 0.5 ? 10 : 5, sw = Math.ceil(W / f), sh = Math.ceil(H / f);
-        const sb = R.buffer(`st-soft-${f}`, sw, sh);
-        sb.clear(); sb.ctx.drawImage(b.canvas, 0, 0, sw, sh);
-        ctx.save(); ctx.globalAlpha = clamp(blur * 1.6); ctx.drawImage(sb.canvas, 0, 0, W, H); ctx.globalAlpha = 1 - clamp(blur * 1.6); if (ctx.globalAlpha > 0.01) ctx.drawImage(b.canvas, 0, 0, W, H); ctx.restore();
+        // a real lens blur, radius by the layer's distance from the focus; the layer stays opaque (one blit)
+        ctx.save(); ctx.filter = R.blur(2 + 20 * blur); ctx.drawImage(b.canvas, 0, 0, W, H); ctx.restore();
       } else ctx.drawImage(b.canvas, 0, 0, W, H);
     });
     if (o.grade ?? 0.5) ST.grade(ctx, pal, o.grade ?? 0.5);
@@ -242,11 +239,19 @@
         for (let k = 0; k < 7; k++) { const a = -Math.PI / 2 + (k - 3) * 0.5; g.beginPath(); g.moveTo(x + sw + 8, y - hh); g.quadraticCurveTo(x + sw + Math.cos(a) * 90, y - hh + Math.sin(a) * 90 - 20, x + sw + Math.cos(a) * 170, y - hh + Math.sin(a) * 110 + 60); g.quadraticCurveTo(x + sw + Math.cos(a) * 80, y - hh + Math.sin(a) * 60 + 10, x + sw + 8, y - hh + 14); g.fill(); }
         continue;
       }
-      g.beginPath(); g.moveTo(x - 14, y); g.quadraticCurveTo(x - 4, y - hh * 0.4, x - 8 + sw * 0.4, y - hh * 0.62); g.lineTo(x + 10 + sw * 0.4, y - hh * 0.62); g.quadraticCurveTo(x + 6, y - hh * 0.4, x + 16, y); g.fill();
-      const n = o.kind === 'sal' ? 2 : 3;
-      for (let k = 0; k < n; k++) { const cx = x + sw + (k - (n - 1) / 2) * hh * 0.2, cy = y - hh * (0.72 + 0.12 * (k % 2)), rx = hh * (o.kind === 'sal' ? 0.16 : 0.24), ry = hh * (o.kind === 'sal' ? 0.3 : 0.2);
+      const kind = o.kind === 'mixed' ? ['round', 'banyan', 'flame', 'sal'][Math.floor(hash(i, seed + 9) * 4)] : (o.kind || 'round'), tw = hh * 0.05 + 8;
+      g.beginPath(); g.moveTo(x - tw * 1.8, y); g.quadraticCurveTo(x - tw * 0.5, y - hh * 0.3, x - tw * 0.5 + sw * 0.4, y - hh * 0.66); g.lineTo(x + tw * 0.5 + sw * 0.4, y - hh * 0.66); g.quadraticCurveTo(x + tw * 0.5, y - hh * 0.3, x + tw * 1.9, y); g.fill();
+      g.beginPath(); g.moveTo(x - tw * 0.3, y - hh * 0.5); g.quadraticCurveTo(x - hh * 0.12, y - hh * 0.6, x - hh * 0.2 + sw, y - hh * 0.74); g.lineTo(x - hh * 0.17 + sw, y - hh * 0.76); g.quadraticCurveTo(x - hh * 0.08, y - hh * 0.56, x + tw * 0.3, y - hh * 0.46); g.fill();   // a branch
+      if (kind === 'banyan') { g.strokeStyle = col; g.lineWidth = 4; for (let k = 0; k < 6; k++) { const ax = x + (k - 2.5) * hh * 0.11; g.beginPath(); g.moveTo(ax + sw, y - hh * 0.62); g.quadraticCurveTo(ax + sw * 0.3 + 6, y - hh * 0.3, ax, y - hh * (0.04 + 0.2 * hash(k, i))); g.stroke(); } }
+      if (kind === 'banyan' || kind === 'flame') {
+        const fc = kind === 'flame' ? KIT.hex(col, pal.accent, 0.55) : col;
+        for (let k = 0; k < 5; k++) { const cx = x + sw + (k - 2) * hh * 0.17, cy = y - hh * (0.74 + 0.1 * Math.sin(k * 1.9)), rx = hh * 0.2, ry = hh * 0.15; g.fillStyle = k % 2 ? fc : col; g.beginPath(); KIT.scallopPath(g, cx, cy, rx, ry, 10, i * 5 + k, 0.26); g.fill(); g.fillStyle = hi; g.globalAlpha = 0.4; g.beginPath(); KIT.scallopPath(g, cx - rx * 0.2, cy - ry * 0.3, rx * 0.5, ry * 0.45, 7, i * 5 + k + 2, 0.24); g.fill(); g.globalAlpha = 1; }
+        g.fillStyle = col; continue;
+      }
+      const n = kind === 'sal' ? 2 : 3;
+      for (let k = 0; k < n; k++) { const cx = x + sw + (k - (n - 1) / 2) * hh * 0.2, cy = y - hh * (0.72 + 0.12 * (k % 2)), rx = hh * (kind === 'sal' ? 0.16 : 0.24), ry = hh * (kind === 'sal' ? 0.3 : 0.2);
         g.fillStyle = col; g.beginPath(); KIT.scallopPath(g, cx, cy, rx, ry, 9, i * 5 + k, 0.24); g.fill();
-        g.fillStyle = hi; g.globalAlpha = 0.5; g.beginPath(); KIT.scallopPath(g, cx - rx * 0.22, cy - ry * 0.3, rx * 0.55, ry * 0.5, 7, i * 5 + k + 2, 0.24); g.fill(); g.globalAlpha = 1; }
+        g.fillStyle = hi; g.globalAlpha = 0.5; g.beginPath(); KIT.scallopPath(g, cx - rx * 0.22, cy - ry * 0.3, rx * 0.55, ry * 0.5, 7, i * 5 + k + 2, 0.24); g.fill(); g.globalAlpha = 0.35; for (let q = 0; q < 7; q++) { g.beginPath(); g.ellipse(cx + (hash(q, i + k) - 0.5) * rx * 1.4, cy + (hash(q, i + k + 3) - 0.5) * ry * 1.3, rx * 0.12, ry * 0.07, hash(q, k) * 3, 0, TAU); g.fill(); } g.globalAlpha = 1; }
     }
   };
   /** Tall foreground trunks (z > 1): dark verticals that the camera slides past. o = { xs: [...], color, w } */
@@ -261,7 +266,12 @@
     KIT.vgrad(g, y, H + 900, [[0, o.color || pal.mid], [1, o.color2 || pal.near]], BIG[0], BIG[0] + BIG[2]);
     g.fillStyle = o.color || pal.mid; g.beginPath(); g.moveTo(BIG[0], y + 6);
     for (let x = BIG[0]; x <= BIG[0] + BIG[2]; x += 80) g.lineTo(x, y - 14 * noise.n2(x * 0.004, (o.seed || 0) + 2) - 8); g.lineTo(BIG[0] + BIG[2], y + 40); g.lineTo(BIG[0], y + 40); g.fill();
-    for (let i = 0; i < (o.bands ?? 5); i++) { g.globalAlpha = 0.14; g.fillStyle = i % 2 ? pal.near : pal.key; const yy = y + 60 + i * 110; g.beginPath(); g.ellipse(200 + hash(i, 41) * 700, yy, 500 + 300 * hash(i, 42), 16, 0, 0, TAU); g.fill(); }
+    for (let i = 0; i < (o.tufts ?? 16); i++) {   // the ground is painted: tufts and small stones, larger toward us
+      const v = hash(i, (o.seed || 0) + 41), x = BIG[0] + 300 + hash(i, 42) * (W + 500), yy = y + 30 + v * v * 520, sc = 0.5 + v * 1.4;
+      g.fillStyle = KIT.hex(o.color2 || pal.near, i % 3 ? '#000000' : pal.key, i % 3 ? 0.25 : 0.2); g.globalAlpha = 0.8;
+      if (i % 4 === 0) { g.beginPath(); g.ellipse(x, yy, 26 * sc, 10 * sc, 0, Math.PI, 0); g.fill(); }
+      else for (let k = -2; k <= 2; k++) { g.beginPath(); g.moveTo(x + k * 7 * sc - 4 * sc, yy); g.quadraticCurveTo(x + k * 12 * sc, yy - 30 * sc, x + k * 16 * sc, yy - (34 + 10 * hash(i + k, 7)) * sc); g.quadraticCurveTo(x + k * 10 * sc, yy - 18 * sc, x + k * 7 * sc + 4 * sc, yy); g.fill(); }
+    }
     g.globalAlpha = 1;
   };
   /** Water (a river or a lake) between y0 and y1 with moving glints. o = { y0, y1, color, glint, T, flow } */
@@ -278,13 +288,20 @@
   };
   /** A thatched hermitage hut (parnashala). o = { x, y, s, color, lit (0..1: the doorway glows) } */
   ST.hut = (g, pal, o = {}) => {
-    pal = ST.pal(pal); const x = o.x ?? 760, y = o.y ?? 1500, s = o.s ?? 1, col = o.color || pal.near;
+    pal = ST.pal(pal); const x = o.x ?? 760, y = o.y ?? 1500, s = o.s ?? 1, col = o.color || pal.near, hi = KIT.hex(col, pal.key, 0.3);
     g.save(); g.translate(x, y); g.scale(s, s);
-    g.fillStyle = KIT.hex(col, pal.mid, 0.35); g.fillRect(-190, -250, 380, 250);
-    g.fillStyle = col; g.beginPath(); g.moveTo(-270, -230); g.quadraticCurveTo(-120, -470, 0, -520); g.quadraticCurveTo(120, -470, 270, -230); g.quadraticCurveTo(0, -280, -270, -230); g.fill();
-    g.strokeStyle = KIT.hex(col, pal.key, 0.3); g.lineWidth = 4; for (let i = -5; i <= 5; i++) { g.beginPath(); g.moveTo(i * 8, -510); g.quadraticCurveTo(i * 30, -380, i * 48, -246); g.stroke(); }
-    g.fillStyle = KIT.hex('#1a0c04', pal.key, 0.75 * (o.lit ?? 0)); g.beginPath(); g.moveTo(-56, 0); g.lineTo(-56, -150); g.quadraticCurveTo(0, -200, 56, -150); g.lineTo(56, 0); g.fill();
-    if (o.lit) KIT.glow(g, 0, -90, 260, pal.key, 0.55 * o.lit);
+    g.fillStyle = KIT.hex(col, pal.mid, 0.4); g.fillRect(-200, -260, 400, 260);
+    g.strokeStyle = KIT.hex(col, '#000000', 0.3); g.lineWidth = 3; for (let i = -4; i <= 4; i++) { g.beginPath(); g.moveTo(i * 46, -260); g.lineTo(i * 46, 0); g.stroke(); } for (let k = 1; k < 4; k++) { g.beginPath(); g.moveTo(-200, -k * 66); g.lineTo(200, -k * 66); g.stroke(); }   // wattle
+    for (let k = 0; k < 4; k++) {   // four layers of thatch, each with a ragged eave
+      const u0 = k / 4, u1 = (k + 1) / 4, w0 = lerp(40, 290, u0), w1 = lerp(40, 290, u1) + 14, y0 = lerp(-560, -250, u0), y1 = lerp(-560, -250, u1) + 16;
+      g.fillStyle = k % 2 ? col : KIT.hex(col, pal.key, 0.1); g.beginPath(); g.moveTo(-w0, y0); g.lineTo(w0, y0); g.lineTo(w1, y1);
+      for (let q = 12; q >= 0; q--) g.lineTo(lerp(-w1, w1, q / 12), y1 + (q % 2 ? 12 : 0)); g.closePath(); g.fill();
+      g.strokeStyle = hi; g.globalAlpha = 0.5; g.lineWidth = 2.5; for (let q = 0; q < 9; q++) { const u = (q + 0.5) / 9; g.beginPath(); g.moveTo(lerp(-w0, w0, u), y0 + 4); g.lineTo(lerp(-w1, w1, u), y1 - 2); g.stroke(); } g.globalAlpha = 1;
+    }
+    g.fillStyle = col; g.beginPath(); g.arc(0, -566, 22, 0, TAU); g.fill();
+    g.fillStyle = KIT.hex('#140a04', pal.key, 0.8 * (o.lit ?? 0)); g.beginPath(); g.moveTo(-60, 0); g.lineTo(-60, -160); g.quadraticCurveTo(0, -214, 60, -160); g.lineTo(60, 0); g.fill();
+    g.strokeStyle = hi; g.lineWidth = 9; g.beginPath(); g.moveTo(-66, 0); g.lineTo(-66, -162); g.quadraticCurveTo(0, -222, 66, -162); g.lineTo(66, 0); g.stroke();   // the door frame
+    if (o.lit) KIT.glow(g, 0, -90, 240, pal.key, 0.5 * o.lit);
     g.restore();
   };
   /** A hall of pillars in one-point perspective (a court, a sacrificial hall). o = { y (floor), n, color, cap } */
@@ -295,6 +312,8 @@
       g.fillStyle = KIT.hex(col, pal.haze, u * 0.55); g.fillRect(x - w / 2, top, w, base - top);
       g.fillStyle = KIT.hex(col, pal.key, 0.22 + 0.2 * u); g.fillRect(x - w / 2 + (sgn > 0 ? 0 : w * 0.82), top, w * 0.18, base - top);
       g.fillStyle = KIT.hex(pal.accent, col, 0.5); g.fillRect(x - w * 0.7, base - w * 0.3, w * 1.4, w * 0.3); g.fillRect(x - w * 0.7, top + (o.cap ?? 0), w * 1.4, w * 0.26);
+      g.fillStyle = KIT.hex(R.PAL.gold, col, 0.35 + 0.4 * u);   // painted bands: lotus-petal rings up the shaft (the old episodes' ornament)
+      for (let q = 1; q < 6; q++) { const yy = lerp(base - w * 0.3, Math.max(top, -200), q / 6); g.fillRect(x - w / 2, yy, w, Math.max(3, w * 0.05)); for (let d = 0; d < 4; d++) { g.beginPath(); g.arc(x - w / 2 + (d + 0.5) * w / 4, yy - w * 0.1, w * 0.07, 0, TAU); g.fill(); } }
     }
   };
   /** Grass or reed blades along a line (foreground: they sway). o = { y, h, color, count, T, seed, x0, x1 } */
@@ -356,7 +375,7 @@
       if (a < 0.02) continue;
       const s = (o.size ?? K.size) * z * (z > 1.4 ? 2.2 : 1);   // the nearest motes are big and soft (out of focus)
       g.globalAlpha = a; g.fillStyle = col;
-      if (K.streak) { g.strokeStyle = col; g.lineWidth = s; g.beginPath(); g.moveTo(x, y); g.lineTo(x + K.vx / K.vy * K.streak * z, y + K.streak * z); g.stroke(); }
+      if (K.streak) { const ln = K.streak * z * (0.5 + 1.2 * hash(i, seed + 8)), sl = (K.vx + (o.wind || 0) * 6) / K.vy; g.globalAlpha = a * (0.35 + 0.65 * hash(i, seed + 9)); g.strokeStyle = col; g.lineWidth = s * (0.6 + 0.6 * hash(i, seed + 7)); g.beginPath(); g.moveTo(x, y); g.lineTo(x + sl * ln, y + ln); g.stroke(); }
       else if (K.petal) { g.save(); g.translate(x, y); g.rotate(T * (1 + hash(i, seed + 4)) + i); g.beginPath(); g.ellipse(0, 0, s, s * 0.45, 0, 0, TAU); g.fill(); g.restore(); }
       else { g.beginPath(); g.arc(x, y, s, 0, TAU); g.fill(); }
       if (K.glow) KIT.glow(g, x, y, s * K.glow, col, a * 0.5);
@@ -390,14 +409,30 @@
     for (let i = 0; i < 2600; i++) { const x = r() * 540, y = r() * 960, l = 30 + r() * 150, a = -0.5 + (r() - 0.5) * 0.5; g.strokeStyle = r() < 0.5 ? `rgba(255,255,255,${0.03 + r() * 0.07})` : `rgba(0,0,0,${0.03 + r() * 0.08})`; g.lineWidth = 0.6 + r() * 2.2; g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + Math.cos(a) * l * 0.5, y + Math.sin(a) * l * 0.5 + (r() - 0.5) * 8, x + Math.cos(a) * l, y + Math.sin(a) * l); g.stroke(); }
     bristle = c;
   }
+  let plaster = null;
+  function buildPlaster() {
+    const c = document.createElement('canvas'); c.width = 540; c.height = 960; const g = c.getContext('2d'), img = g.createImageData(540, 960), d = img.data, r = R.rng(9191);
+    for (let y = 0; y < 960; y++) for (let x = 0; x < 540; x++) { const m = noise.fbm2(x / 70, y / 70, 4) * 0.5 + noise.fbm2(x / 9 + 30, y / 9, 2) * 0.3, v = 214 + m * 60 + r.gauss() * 7, i = (y * 540 + x) * 4; d[i] = v + 4; d[i + 1] = v; d[i + 2] = v - 8; d[i + 3] = 255; }
+    g.putImageData(img, 0, 0); g.lineCap = 'round';
+    for (let k = 0; k < 22; k++) { let x = r() * 540, y = r() * 960, a = r() * TAU; g.beginPath(); g.moveTo(x, y); for (let q = 0; q < 30 + r() * 50; q++) { a += (r() - 0.5) * 0.9; x += Math.cos(a) * 4; y += Math.sin(a) * 4; g.lineTo(x, y); } g.strokeStyle = `rgba(90,70,50,${0.18 + r() * 0.25})`; g.lineWidth = 0.5 + r() * 0.7; g.stroke(); }
+    plaster = c;
+  }
+  /** Mural finish: lime plaster under the paint (a multiply pass, strong enough to read on bright palettes), brush-edge grain,
+   *  and (o.frieze) the painted border of a mural panel: two gold lines and a running row of lotus buds, top and bottom. */
   ST.finish = (g, T, o = {}) => {
     if (!bristle) buildBristle();
+    if (!plaster) buildPlaster();
     g.save(); g.setTransform(1, 0, 0, 1, 0, 0);
+    g.globalCompositeOperation = 'multiply'; g.globalAlpha = o.plaster ?? 0.55; g.drawImage(plaster, 0, 0, g.canvas.width, g.canvas.height);
     g.globalCompositeOperation = 'overlay'; g.globalAlpha = o.grain ?? 0.35; g.drawImage(bristle, 0, 0, g.canvas.width, g.canvas.height);
     g.restore();
-    if (o.border ?? 0) {
-      g.save(); g.setTransform(R.scale, 0, 0, R.scale, 0, 0); g.globalAlpha = o.border; g.strokeStyle = o.borderColor || '#1a0e08'; g.lineWidth = 26; g.strokeRect(0, 0, W, H);
-      g.strokeStyle = R.PAL.goldDeep; g.lineWidth = 3; g.strokeRect(22, 22, W - 44, H - 44); g.restore();
+    if (o.frieze ?? 0) {
+      g.save(); g.setTransform(R.scale, 0, 0, R.scale, 0, 0); g.globalAlpha = o.frieze; const gold = R.PAL.gold;
+      for (const y of [150, H - 330]) {
+        g.fillStyle = 'rgba(14,8,6,0.55)'; g.fillRect(0, y - 26, W, 52); g.fillStyle = gold; g.fillRect(0, y - 26, W, 3); g.fillRect(0, y + 23, W, 3);
+        for (let x = 30; x < W; x += 60) { g.beginPath(); g.moveTo(x, y - 14); g.bezierCurveTo(x + 12, y - 4, x + 12, y + 8, x, y + 14); g.bezierCurveTo(x - 12, y + 8, x - 12, y - 4, x, y - 14); g.fill(); g.beginPath(); g.arc(x + 30, y, 3.5, 0, TAU); g.fill(); }
+      }
+      g.restore();
     }
   };
 
@@ -421,7 +456,13 @@
     if (o.shape === 'leaves') { g.globalCompositeOperation = 'source-atop'; for (let i = 0; i < 60; i++) { g.fillStyle = KIT.hex(pal.near, pal.mid, hash(i, 5)); g.globalAlpha = 0.5; g.beginPath(); g.ellipse(hash(i, 1) * W, hash(i, 2) * H, 60 + 80 * hash(i, 3), 22, hash(i, 4) * 3, 0, TAU); g.fill(); } g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; }
     ctx.restore();
     ctx.drawImage(b.canvas, 0, 0, W, H);
-    ctx.save(); ctx.strokeStyle = KIT.hex(pal.key, pal.accent, 0.3); ctx.globalAlpha = 0.55; ctx.lineWidth = 5; path(ctx); ctx.stroke(); ctx.restore();
+    ctx.save(); ctx.strokeStyle = o.shape === 'leaves' || o.shape === 'cave' ? KIT.hex(pal.key, pal.accent, 0.3) : R.PAL.gold; ctx.globalAlpha = 0.7; ctx.lineWidth = 6; path(ctx); ctx.stroke();
+    if (o.shape !== 'leaves' && o.shape !== 'cave') {   // a carved frame: an outer line and a row of buds round the opening (the old recap niche)
+      ctx.globalAlpha = 0.5; ctx.lineWidth = 3; ctx.translate(x + w / 2, y + h / 2); ctx.scale(1.045, 1.03); ctx.translate(-(x + w / 2), -(y + h / 2)); path(ctx); ctx.stroke();
+      ctx.setTransform(R.scale, 0, 0, R.scale, 0, 0); ctx.fillStyle = R.PAL.gold; ctx.globalAlpha = 0.7;
+      for (let i = 0; i <= 12; i++) for (const xx of [x - 34, x + w + 34]) { const yy = y + h * 0.3 + (h * 0.68 * i) / 12; ctx.beginPath(); ctx.ellipse(xx, yy, 7, 12, 0, 0, TAU); ctx.fill(); }
+    }
+    ctx.restore();
   };
 
   // ─── Transitions born from the medium ─────────────────────────────────────────────────────────────────────────
@@ -441,19 +482,21 @@
       if (k > 0.93) { g.globalAlpha = (k - 0.93) / 0.07; g.fillRect(-10, -10, W + 20, H + 20); g.globalAlpha = 1; }
     },
     brush(g, k, T, o) {
-      const n = o.strokes ?? 6, ang = o.angle ?? -0.2;
+      // 4 broad strokes, each a bundle of bristles of unequal reach (a dry-brush edge: ragged, with gaps), laid one after another
+      const n = o.strokes ?? 4, ang = o.angle ?? -0.2, B = 46;
       g.save(); g.translate(W / 2, H / 2); g.rotate(ang); g.fillStyle = '#000';
-      const span = H * 1.25, sw = span / n;
+      const span = H * 1.3, sw = span / n;
       for (let i = 0; i < n; i++) {
-        const st = (i / n) * 0.55, kk = E.inOutCubic(clamp((k - st) / 0.45)); if (kk <= 0) continue;
-        const dir = i % 2 ? -1 : 1, y = -span / 2 + (i + 0.5) * sw, len = (W * 1.7) * kk, x0 = -dir * W * 0.85;
-        g.beginPath(); g.moveTo(x0, y - sw * 0.62);
-        const tip = x0 + dir * len;
-        g.lineTo(tip - dir * 60, y - sw * 0.62);
-        for (let q = 0; q <= 8; q++) { const v = q / 8, by = y - sw * 0.62 + v * sw * 1.24; g.lineTo(tip + dir * (30 * hash(i * 9 + q, 5) + (q % 2 ? 46 : 0)), by); }
-        g.lineTo(x0, y + sw * 0.62); g.closePath(); g.fill();
+        const st = (i / n) * 0.5, kk = E.inOutSine(clamp((k - st) / 0.5)); if (kk <= 0) continue;
+        const dir = i % 2 ? -1 : 1, y0 = -span / 2 + i * sw - sw * 0.12, len = W * 1.9 * kk, x0 = -dir * W * 0.95;
+        for (let q = 0; q < B; q++) {
+          const h1 = hash(i * 97 + q, 5), h2 = hash(i * 97 + q, 6), reach = len * (0.82 + 0.18 * h1) - 120 * h2 * (1 - kk), bh = (sw * 1.24) / B;
+          if (reach <= 0) continue;
+          g.globalAlpha = kk > 0.97 ? 1 : (h2 > 0.9 ? 0.55 : 1);   // a few thin, half-loaded bristles
+          const yy = y0 + q * bh; g.beginPath(); g.moveTo(x0, yy); g.lineTo(x0 + dir * (reach - 40), yy); g.quadraticCurveTo(x0 + dir * reach, yy + bh * 0.5, x0 + dir * (reach - 40), yy + bh + 1); g.lineTo(x0, yy + bh + 1); g.closePath(); g.fill();
+        }
       }
-      g.restore();
+      g.restore(); g.globalAlpha = 1;
       if (k > 0.95) { g.globalAlpha = (k - 0.95) / 0.05; g.fillRect(-10, -10, W + 20, H + 20); g.globalAlpha = 1; }
     },
     lamp(g, k, T, o) {
@@ -471,17 +514,25 @@
     A.clear('#0b0806'); drawOld(A.ctx); R.resetCtx(A.ctx);
     B.clear('#0b0806'); drawNew(B.ctx); R.resetCtx(B.ctx);
     if (type === 'dissolve') { full(ctx, A.canvas); ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = E.inOutSine(k); ctx.drawImage(B.canvas, 0, 0); ctx.restore(); return; }
-    if (type === 'smoke') {
-      // smoke rolls in from one side, hides the frame at its thickest, and thins out on the new picture
-      full(ctx, k < 0.5 ? A.canvas : B.canvas);
-      const dir = tr.dir ?? -Math.PI / 2, col = tr.color || '#b8b0a8', dens = Math.sin(Math.PI * clamp(k)) ** 0.6;
+    if (type === 'smoke' || type === 'lamp') {
+      // NEVER A BLANK FRAME: the two pictures cross-dissolve underneath (k 0.3 → 0.7) while the smoke or the glow passes over;
+      // the veil never hides more than about 70 %, and the lamp is a warm cream, never white.
+      full(ctx, A.canvas);
+      ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = E.inOutSine(clamp((k - 0.3) / 0.4)); ctx.drawImage(B.canvas, 0, 0); ctx.restore();
+      const dens = Math.sin(Math.PI * clamp(k));
       ctx.save(); R.resetCtx(ctx);
-      for (let i = 0; i < 34; i++) {
-        const u = hash(i, 101), v = hash(i, 102), travel = (k - 0.5) * 1500 + (hash(i, 103) - 0.5) * 500;
-        const x = u * W + Math.cos(dir) * travel + Math.sin(T * 0.8 + i) * 30, y = v * H + Math.sin(dir) * travel;
-        KIT.glow(ctx, x, y, 420 + 380 * hash(i, 104), i % 3 ? col : KIT.hex(col, '#ffffff', 0.4), clamp(dens * 1.5 * (0.5 + 0.5 * hash(i, 105))), 'source-over', 0.8);
+      if (type === 'smoke') {
+        const dir = tr.dir ?? -Math.PI / 2, col = tr.color || '#b8b0a8';
+        for (let i = 0; i < 30; i++) {
+          const u = hash(i, 101), v = hash(i, 102), travel = (k - 0.5) * 1500 + (hash(i, 103) - 0.5) * 500;
+          const x = u * W + Math.cos(dir) * travel + Math.sin(T * 0.8 + i) * 30, y = v * H + Math.sin(dir) * travel;
+          KIT.glow(ctx, x, y, 380 + 360 * hash(i, 104), i % 3 ? col : KIT.hex(col, '#ffffff', 0.35), clamp(dens * 0.7 * (0.4 + 0.6 * hash(i, 105))), 'source-over', 0.8);
+        }
+      } else {
+        const [ax, ay] = tr.from || [540, 900], [bx, by] = tr.to || [540, 900], px = lerp(ax, bx, E.inOutSine(k)), py = lerp(ay, by, E.inOutSine(k)), col = tr.color || '#f4dca8';
+        KIT.glow(ctx, px, py, 260 + 1500 * dens, col, clamp(dens * 0.78), 'source-over');
+        KIT.glow(ctx, px, py, 120 + 500 * dens, '#fff2d0', clamp(dens * 0.6), 'source-over');
       }
-      ctx.globalAlpha = clamp(dens * 1.25 - 0.3); ctx.fillStyle = col; ctx.fillRect(0, 0, W, H);
       ctx.restore();
       return;
     }

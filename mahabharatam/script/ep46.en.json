@@ -24,7 +24,7 @@
     "kinetic": true
   },
   "episode": 46,
-  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Pauloma sub-parva, adhyayas 9 (end) to 12: the old dundubha asks why Ruru strikes one who has done him no harm; Ruru tells of his wife and his vow; the dundubha answers that the snakes that bite men are others, and that dundubhas should not be killed for a mere likeness to snakes; Ruru, taking him for a sage, holds his hand and asks who he is; he was the sage Sahasrapat, turned into a snake by the curse of a brahmin, his friend Khagama, whom in youthful play he had frightened at his fire-offering with a snake made of grass; the curse was to be a snake without venom, and, when he begged, to be freed on seeing Ruru, Pramati's son; he regains his own form and teaches that not harming living beings is the highest law, and tells Ruru to hear how the serpents were destroyed at Janamejaya's sacrifice and saved by a brahmin; he vanishes; Ruru goes home and his father tells him the whole story. THE ARC FINALE: a ≥ 4 s lit payoff (the sage in his own form), then the arc-end card. The friend's name, Khagama, and the father's, Pramati, are on plaques, not spoken. UNCERTAIN: van Buitenen renders dundubha \"lizard\"; Ganguli and the text's own contrast with \"the snakes that bite\" support a harmless snake; we say \"an old snake\".",
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Pauloma sub-parva. CHECKED AGAINST CE 1.9.18–22, 1.10.1–8, 1.11.1–17, 1.12.1–5: Ruru's vow, and that he struck at every snake he saw (1.9.18–19); the aged dundubha lying in the forest; the raised staff (1.9.20–21); I have done you no wrong, ascetic, why do you strike me in anger (1.9.22: `plea`); Ruru tells of his wife and his vow (1.10.1–2); the snakes that bite men are others; do not harm dundubhas for the mere smell of snake (1.10.3: `plea`); Ruru, afraid, taking him for a sage, does not kill him and asks who he is (1.10.5–6: `who`); I was the sage Sahasrapat, a snake by a brahmin's curse (1.10.7: `was`); the friend Khagama; in play, in youth, he made a snake of grass and frightened him at his fire-offering; Khagama fainted and, recovering, cursed him: as powerless as the snake you made, so powerless a snake shall you be (1.11.1–4: `grass`; hence a HARMLESS snake); he pleaded that it was done laughing, as a joke (1.11.6); the curse would end on seeing Ruru, Pramati's son (1.11.9–10); he regains his own form (1.11.11: `freed`); non-harm is the highest law of all that breathe, and a brahmin above all should harm none (1.11.12–14: `teach`); the warrior's duty is other; hear how the snakes were slain at Janamejaya's sacrifice and saved by the brahmin Astika (1.11.15–17); you will hear it from brahmins, he says, and vanishes (1.12.3); Ruru searches, falls, comes home, asks his father, and his father tells him all (1.12.4–5: `home`). RESOLVED (dundubha): the CE itself calls it a bhujaga and an uraga (snake: 1.10.5–6, 1.11.4) and sets it against \"the snakes that bite\"; it is a snake without venom, not a lizard; we say \"an old, harmless one\". ORDER OF TELLING: in the text this ending is the door INTO the Astika parva (Ruru's question at 1.12.1–2 is what the serpent tales answer); the series told those tales first (episodes 5–40), so `home` looks back at them and the source line says the order. The telling \"in the pauses of that sacrifice\": 1.53.31–33 (karmantareshu). THE ARC FINALE: a ≥ 4 s lit payoff, then the arc-end card. The friend's name, Khagama, and the father's, Pramati, are on plaques, not spoken.",
   "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
   "hookStyle": "question",
   "names": {
@@ -38,7 +38,7 @@
     "answeredBy": "teach",
     "prevQuestion": "What did the snake say?",
     "prevAnsweredBy": "plea",
-    "openQuestion": "Who told the Mahabharata beside that fire?"
+    "openQuestion": "Who told the Mahabharata while that fire burned?"
   },
   "strings": {
     "seriesTitle": "Mahabharatam",
@@ -54,7 +54,7 @@
     "recapLine": "Ruru gave half his life for his bride, and swore to kill every snake.",
     "nextEpisodeLabel": "Episode 47",
     "nextTitle": "Vyasa Comes to the Sacrifice",
-    "sourceLine": "Adi Parva 1.9–12 · BORI Critical Edition",
+    "sourceLine": "Adi Parva 1.9–12 · in the text, the serpent tales follow · BORI Critical Edition",
     "madeLine": "Voices: synthetic · Drawn in code",
     "arcLabel": "The end of an arc",
     "arcTitle": "The Bhrigus",
@@ -94,9 +94,9 @@
     {
       "id": "vow",
       "speed": 0.97,
-      "text": "Ruru hated snakes: one had bitten his bride.",
-      "say": "Ruru hated snakes: [p:200] one had bitten his bride.",
-      "est": 4.19,
+      "text": "Ruru killed every snake he saw. He raised his staff over an old, harmless one.",
+      "say": "Ruru killed every snake he saw. [p:300] He raised his staff [p:80] over an old, [p:60] harmless one.",
+      "est": 6.62,
       "pre": 250,
       "post": 300,
       "emphasis": [
@@ -104,39 +104,21 @@
       ],
       "beats": [
         0,
-        7
+        4,
+        9,
+        14
       ],
       "foley": [
         "steps",
-        "staff@0"
+        "staff@1",
+        "rustle@2"
       ],
       "music": "wrath",
       "pal": "noon-ochre",
-      "cam": "slide",
-      "tr": "brush",
-      "note": "STORY 0 with the unvoiced recap band (top): Ruru striding through a dry wood at noon, staff in hand (plaque: Ruru · a young sage); a lateral track.",
-      "estVoice": 3.64
-    },
-    {
-      "id": "found",
-      "speed": 0.97,
-      "text": "He raised his staff over an old one.",
-      "say": "He raised his staff [p:80] over an old one.",
-      "est": 3.34,
-      "pre": 250,
-      "post": 300,
-      "beats": [
-        1,
-        7
-      ],
-      "foley": [
-        "staff@0",
-        "rustle@1"
-      ],
-      "pal": "noon-ochre",
       "cam": "crane",
-      "note": "STORY 1: raise (anticipation: the weight goes back first); a crane down the staff to the snake lying stretched across the path.",
-      "estVoice": 2.79
+      "tr": "brush",
+      "note": "STORY 0 with the unvoiced recap band (top): Ruru striding through a dry wood at noon, staff in hand (plaque: Ruru · a young sage); then raise (anticipation: the weight goes back first) and a crane down to the two of them. STAGING RULE (snake and man): a two-shot from the waist up on clear ground; the snake two body-widths in front of him, rearing on an S-curve until its head is at his chest height; its head never overlaps his body below the chest, and no caption or plaque crosses either face.",
+      "estVoice": 6.07
     },
     {
       "id": "plea",
@@ -159,7 +141,7 @@
       "pal": "thicket-shade",
       "cam": "push",
       "mixDb": -3,
-      "note": "STORY 2 (pays off episode 45's last line by 9 s): the snake's head rises level with the frame (rise 0 → 1), its mouth moving with the words; green shade, one shaft on its head.",
+      "note": "STORY 2 (pays off episode 45's last line by 9 s): the snake alone in the frame, reared on its S-curve, its mild eye and its mouth moving with the words; green shade, one shaft on its head; Ruru is out of frame (his staff's shadow only).",
       "estVoice": 5.1
     },
     {
@@ -217,14 +199,15 @@
     {
       "id": "grass",
       "speed": 0.97,
-      "text": "Once, in play, he had frightened a friend with a snake made of grass.",
-      "say": "Once, [p:60] in play, [p:80] he had frightened a friend [p:60] with a snake made of grass.",
-      "est": 5.82,
+      "text": "Once, as a joke, he scared a friend with a snake of grass. The friend cursed him.",
+      "say": "Once, [p:60] as a joke, [p:80] he scared a friend [p:60] with a snake of grass. [p:300] The friend cursed him.",
+      "est": 7.07,
       "pre": 250,
       "post": 300,
       "beats": [
         6,
-        13
+        12,
+        15
       ],
       "amb": "hearth",
       "ambLead": 250,
@@ -238,7 +221,7 @@
       "cam": "slide",
       "tr": "ink",
       "note": "STORY 5 · NEW LIGHT, the memory as an ink-wash panel (memory-indigo): an ink bleed opens it: two young sages; one twists grass into a snake and throws it by the other's fire-offering; the friend falls back, then rises, an arm out, the curse (plaque: Khagama · his friend); the first figure shrinks into a snake's line.",
-      "estVoice": 5.27
+      "estVoice": 6.52
     },
     {
       "id": "freed",
@@ -291,7 +274,7 @@
       "pal": "release-gold",
       "cam": "push",
       "mixDb": -2,
-      "note": "STORY 7 (answers the hook): the sage, a hand raised in blessing over Ruru, who has laid his staff on the ground. The word of the turn stays out: this line is plain.",
+      "note": "STORY 7 (answers the hook): the sage, an open hand raised (abhaya), facing Ruru across a clear gap, both waist-up; Ruru has laid his staff on the ground. No plaque that widens the rule (the text presses it on Ruru as a brahmin). The word of the turn stays out: this line is plain.",
       "estVoice": 4.47
     },
     {
@@ -317,7 +300,7 @@
       "pal": "satra-teal-night",
       "cam": "tilt",
       "tr": "smoke",
-      "note": "STORY 8: father and son by a lamp (plaque: Pramati · Ruru's father); a smoke carry lifts into the picture he describes: the great sacrifice at night in teal, a boy before the king (episodes 31–40 in one image).",
+      "note": "STORY 8: father and son by a lamp (plaque: Pramati · Ruru's father); a smoke carry lifts into the picture he describes: the great sacrifice at night in teal, the fire high, a boy before the king (episodes 31–40 in one image; the fire is burning, not out).",
       "estVoice": 4.88
     },
     {
@@ -333,14 +316,15 @@
     {
       "id": "cliff",
       "speed": 0.97,
-      "text": "Beside that same fire, the Mahabharata was about to be told.",
-      "say": "Beside that same fire, [p:150] the Mahabharata [p:60] was about to be told.",
-      "est": 5.2,
+      "text": "And while that fire still burned, the Mahabharata was first told beside it.",
+      "say": "And while that fire still burned, [p:200] the Mahabharata [p:60] was first told beside it.",
+      "est": 6.11,
       "pre": 250,
       "post": 400,
       "beats": [
-        3,
-        5
+        5,
+        7,
+        10
       ],
       "role": "next",
       "foley": [
@@ -354,8 +338,8 @@
       "pal": "arrival-umber-gold",
       "cam": "push",
       "mixDb": -1,
-      "note": "NEXT 1: the sacrificial hall's pillars in umber and gold; between them, far off, a tall dark figure with a gold halo walks in. The source line (top).",
-      "estVoice": 4.55
+      "note": "NEXT 1: the same sacrifice, its fire still high between the hall's pillars in umber and gold; far off between them a tall dark figure with a gold halo walks in. The source line (top).",
+      "estVoice": 5.46
     },
     {
       "id": "next",

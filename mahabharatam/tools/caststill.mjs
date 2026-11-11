@@ -7,7 +7,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT, args, openReel, dataUrlToBuffer } from './lib.mjs';
-const a = args(), outdir = path.resolve(ROOT, a.outdir || 'lab/kit41');
+const a = args(), outdir = path.resolve(ROOT, a.outdir || 'lab/kit41/v2');
 fs.mkdirSync(outdir, { recursive: true });
 const reel = await openReel({ scale: 0.5, ep: 99, grain: 0 });
 const SHEETS = {
@@ -43,12 +43,13 @@ try {
     const L = (x, y) => ST.light(p, { from: [540, 0], at: [x, y], front: 0.8 });
     CH.boar.draw(g, { x: 560, y: 470, scale: 0.6, pose: { name: 'run', phase: 1 }, light: L(560, 470), t: 1 });
     CH.dundubha.draw(g, { x: 300, y: 820, scale: 0.6, facing: 'right', pose: { name: 'rise', k: 1 }, light: L(300, 820), t: 1 });
-    CH.viper.draw(g, { x: 820, y: 820, scale: 0.6, pose: { name: 'strike', k: 0 }, light: L(820, 820), t: 1 });
+    CH.viper.draw(g, { x: 800, y: 820, scale: 0.7, pose: { name: 'strike', k: 0 }, light: L(820, 820), t: 1 });
     CH.hawk.draw(g, { x: 300, y: 1180, scale: 0.42, pose: { name: 'fly', phase: 0.6, packet: true }, light: L(300, 1100), t: 1 });
     CH.fish.draw(g, { x: 760, y: 1200, scale: 0.44, pose: { name: 'swim', phase: 1 }, light: L(760, 1100), t: 1 });
-    CH.hearthfire.draw(g, { x: 300, y: 1800, scale: 0.6, t: 1.2, k: 1, expression: { emo: 'fear' } });
-    CH.hearthfire.draw(g, { x: 800, y: 1800, scale: 0.6, t: 2.2, k: 1, pure: 1, expression: { emo: 'calm' } });
-    for (const [id, x, y] of [['boar', 560, 520], ['dundubha', 300, 870], ['viper', 820, 870], ['hawk', 300, 1320], ['fish', 760, 1320], ['hearthfire', 300, 1860], ['hearthfire · pure', 800, 1860]]) KIT.type.tag(g, 0, 1, id, { x, y, size: 28 });
+    CH.hearthfire.draw(g, { x: 200, y: 1800, scale: 0.5, t: 1.2, k: 1, key: 'a' });
+    CH.hearthfire.draw(g, { x: 540, y: 1800, scale: 0.5, t: 1.6, k: 0.55, dark: 0.8, key: 'b' });
+    CH.hearthfire.draw(g, { x: 880, y: 1800, scale: 0.5, t: 2.2, k: 1, pure: 1, key: 'c' });
+    for (const [id, x, y] of [['boar', 560, 520], ['dundubha', 300, 870], ['viper', 820, 870], ['hawk', 300, 1320], ['fish', 760, 1320], ['hearthfire', 200, 1860], ['cursed', 540, 1860], ['pure', 880, 1860]]) KIT.type.tag(g, 0, 1, id, { x, y, size: 28 });
     return c.toDataURL('image/png');
   });
   fs.writeFileSync(path.join(outdir, 'cast-creatures.png'), dataUrlToBuffer(url2));

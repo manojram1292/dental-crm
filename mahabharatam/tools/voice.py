@@ -185,6 +185,8 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "Ruru's": "ɾˈʊɾʊz",
     "Pramadvara": "pɾəmˈʌdvəɾɑː",                        # pra-MAD-va-raa (Pramadvarā)
     "Dharma": "dˈʌɾmə",                                  # DHUR-ma (Dharmarāja, lord of the dead)
+    "Dharmaraja": "dˌʌɾməɾˈɑːʤə",                        # dhur-ma-RAA-ja (Dharmarāja)
+    "Shunaka": "ʃˈʊnəkə",                                # SHU-na-ka (Śunaka; short u, against Shaunaka's SHOW-)
     "Sahasrapat": "səhˈʌsɾəpɑːt",                        # sa-HUS-ra-paat (Sahasrapāt)
     "Uparichara": "ˌʊpəɾɪʧˈʌɾə",                         # u-pa-ri-CHA-ra
     "Yamuna": "jˈʌmʊnɑː",                                # YA-mu-naa (Yamunā)
