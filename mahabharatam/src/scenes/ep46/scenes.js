@@ -174,7 +174,7 @@
 
   // 11 · CLIFF: the same sacrifice, its fire still high between the pillars, in umber and gold; far off a tall dark figure with a gold halo walks in
   const cliff = (ctx, T, t, env, b) => {
-    const cam = CAM.push(clamp(t / 6), { from: 1.04, to: 1.26, focus: [640, 900] }), d = 130 * E.outCubic(clamp((t - b[0]) / 3));
+    const cam = CAM.drift(CAM.push(clamp(t / 6), { from: 1.04, to: 1.26, focus: [640, 900] }), T, 1.8), d = 130 * E.outCubic(clamp((t - b[0]) / 3));
     EP46.hall(ctx, T, cam, { pal: 'arrival-umber-gold', fx: 240, fire: 1.2, fs: 1.3, back: (g, p) => { if (t < b[0] - 0.1) return;
       KIT.glow(g, 700 - d * 0.5, 760, 260, '#ffcf7a', 0.2 * clamp((t - b[0]) / 0.8));
       CH.vyasaSage.draw(g, { x: 700 - d * 0.5, y: 1330, scale: 0.5, facing: 'left', pose: ACT.pose(t, [[0, 'walk']], { phase: ACT.stride(d * 0.5, 0.5), prop: false }), light: { dir: -Math.PI / 2, intensity: 1.5, front: 1, fill: 0.85, tint: ['#fff0c8', 0.6], minLum: 0.5 }, expression: { emo: 'calm' }, t: T, key: 'cl-v' }); } });

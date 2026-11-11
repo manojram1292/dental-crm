@@ -184,7 +184,7 @@
 
   // 12 · CLIFF: the frame returns: the king's lifted face; a night sky in iron blue: points of light fall like slow rain toward a dark earth
   const cliff = (ctx, T, t, env, b) => {
-    const cam = CAM.pull(clamp(t / 5.6), { from: 1.3, to: 1.02, focus: [300, 1100] });
+    const cam = CAM.drift(CAM.pull(clamp(t / 5.6), { from: 1.3, to: 1.02, focus: [300, 1100] }), T, 1.8);
     ST.shot(ctx, T, { pal: 'war-iron', cam, layers: [
       { z: 0, draw: (g, p) => ST.sky(g, p, { hz: 1500 }) },
       { z: 0.2, haze: false, draw: (g) => { const a = clamp((t - b[1] + 0.4) / 0.8); for (let i = 0; i < 46; i++) { const u = (T * 0.07 * (0.5 + hash(i, 1)) + hash(i, 2)) % 1, x = 1080 * hash(i, 3), y = -100 + 1500 * u; g.globalAlpha = a * (1 - u * 0.6); g.strokeStyle = '#fff0c0'; g.lineWidth = 3; g.beginPath(); g.moveTo(x, y - 70); g.lineTo(x, y); g.stroke(); g.fillStyle = '#ffffff'; g.beginPath(); g.arc(x, y, 5 + 4 * hash(i, 4), 0, TAU); g.fill(); } g.globalAlpha = 1; } },

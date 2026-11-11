@@ -101,7 +101,7 @@
         { z: 0, draw: (g, p) => ST.sky(g, p, { hz: 1500 }) },
         { z: 0.3, soft: 0.45, draw: (g, p) => ST.treeline(g, p, { y: 1500, h: 1400, gap: 440, T, seed: 19, kind: 'mixed' }) },
         { z: 0.8, haze: false, draw: (g) => ST.shafts(g, T, { x: 700, angle: -0.35, alpha: 0.14 }) },
-        { z: 1, haze: false, draw: (g, p) => CH.ruru.draw(g, { x: 430, y: 3150, scale: 2.5, facing: 'right', pose: ACT.pose(t, [[0, 'stand']], { prop: false }), light: ST.light(p, { from: [960, 300], at: [520, 1200], k: 1.1, front: 0.75 }),
+        { z: 1, haze: false, draw: (g, p) => CH.ruru.draw(g, { x: 430, y: 3080, scale: 2.5, facing: 'right', pose: ACT.pose(t, [[0, 'stand']], { prop: false }), light: ST.light(p, { from: [960, 300], at: [520, 1200], k: 1.1, front: 0.75 }),
           expression: { emo: ACT.emo(t, [[0, 'calm'], [b0 - 0.2, 'wonder', { dur: 0.4 }], [b1, 'joy', { dur: 0.6 }]]), ...ACT.lead(t, [[0, [0.2, 0.3]], [b0 - 0.3, [0.9, -0.1]], [b1, [0.6, 0.1]], [b1 + 0.9, [0.95, 0]]], 0.4, 0.1) }, t: T, key: 'lv-r' }) },
         { z: 1.4, haze: false, draw: (g) => ST.particles(g, T, { kind: 'pollen', count: 26, cam }) },
         { z: 2.0, haze: false, soft: 0.5, draw: (g, p) => ST.trunks(g, p, { xs: [-120, 1180], w: 260 }) },

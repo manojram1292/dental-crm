@@ -61,7 +61,7 @@
     { z: 1, haze: false, draw: (g, p) => draw(g, p) },
     { z: 1.4, haze: false, draw: (g) => ST.particles(g, T, { kind: 'dust', count: 20, cam }) },
   ] });
-  const face = (g, p, T, t, emo, lead, lit, speak, key) => CH.ruru.draw(g, { x: 660, y: 3040, scale: 2.5, facing: 'left', pose: ACT.pose(t, [[0, 'stand']], { prop: false }), light: { ...ST.light(p, { from: [200, 200], at: [600, 1200], k: 1.15, front: 0.7 }), tint: ['#ffe9b0', 0.5 * (lit || 0)] }, expression: { emo, speak, ...lead }, t: T, key });
+  const face = (g, p, T, t, emo, lead, lit, speak, key) => CH.ruru.draw(g, { x: 660, y: 2980, scale: 2.5, facing: 'left', pose: ACT.pose(t, [[0, 'stand']], { prop: false }), light: { ...ST.light(p, { from: [200, 200], at: [600, 1200], k: 1.15, front: 0.7 }), tint: ['#ffe9b0', 0.5 * (lit || 0)] }, expression: { emo, speak, ...lead }, t: T, key });
 
   // 3 · LAMENT (close-up, first half): his face lifted in the blue night: sorrow, then pleading
   R.scene({ id: 'lament', transition: { type: 'ink', dur: 0.7, at: [600, 760], color: '#1c2a52' },
@@ -182,7 +182,7 @@
   EP45.wood = EP44.wood;
   // 10 · CLIFF: he swears; he raises his staff over the old snake (staff@0 on "swore": his hand closes on it); it rears and speaks
   const cliff = (ctx, T, t, env, b) => {
-    const cam = CAM.mix(CAM.rack(clamp((t - b[1] + 0.3) / 0.9), { from: 1.0, to: 1.0, zoom: 1.0 }), CAM.push(clamp(t / 6.5), { from: 1.14, to: 1.3, focus: [600, 1050] }));
+    const cam = CAM.drift(CAM.mix(CAM.rack(clamp((t - b[1] + 0.3) / 0.9), { from: 1.0, to: 1.0, zoom: 1.0 }), CAM.push(clamp(t / 6.5), { from: 1.14, to: 1.3, focus: [600, 1050] })), T, 1.8);
     EP45.wood(ctx, T, cam, (g, p) => {
       CH.ruru.draw(g, { x: 840, y: GY + 10, scale: 1.08, facing: 'left', pose: ACT.pose(t, [[0, 'stand'], [b[0] - 0.2, 'attend', { act: 0.3 }], [b[2] - 0.6, 'raise', { act: 0.5, an: 0.1 }], [b[3] - 0.1, 'recoil', { act: 0.4 }]], { prop: 'staff' }), light: ST.light(p, { from: [300, 300], at: [840, GY], front: 0.08, fill: 0 }), expression: { emo: ACT.emo(t, [[0, 'wrath'], [b[3], 'wonder']]), gaze: [0.2, 0.6] }, t: T, key: 'cl-r' });
       CH.dundubha.draw(g, { x: 290, y: GY - 30, scale: 0.95, facing: 'right', pose: { name: 'rise', k: lerp(0.62, 1, E.inOutSine(clamp((t - b[1] - 0.2) / 1.6))) }, light: ST.light(p, { from: [300, 300], at: [290, GY], front: 0.05, fill: 0, k: 1.0 }), expression: { speak: t > b[3] - 0.2 ? 0.5 + 0.5 * Math.sin(T * 12) : 0 }, t: T, key: 'cl-s' });

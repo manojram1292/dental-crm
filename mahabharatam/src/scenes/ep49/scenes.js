@@ -205,7 +205,7 @@
   // 11 · CLIFF: the river in lavender mist: her boat at the bank, she small in its stern; on the far path, back to us, a tall
   //      sage with a staff stops and looks out over the water (the text: he saw her as she plied the boat)
   const cliff = (ctx, T, t, env, b) => {
-    const cam = CAM.pull(clamp(t / 5.5), { from: 1.34, to: 1.02, focus: [700, 1150] }), come = E.outCubic(clamp((t - b[2] + 0.5) / 1.4));
+    const cam = CAM.drift(CAM.pull(clamp(t / 5.5), { from: 1.34, to: 1.02, focus: [700, 1150] }), T, 1.8), come = E.outCubic(clamp((t - b[2] + 0.5) / 1.4));
     EP49.river(ctx, T, cam, { pal: 'mist-lavender', hz: 860, mist: 0.5,
       far: (g, p) => { g.fillStyle = p.near; g.fillRect(-900, 860, 2880, 40); const sx = lerp(-200, 190, come); CH.parashara.draw(g, { x: sx, y: 884, scale: 0.36, facing: 'right', pose: ACT.pose(t, [[0, 'walk'], [b[2] + 0.5, 'stand', { act: 0.5 }]], { phase: ACT.stride(390 * come, 0.36), prop: 'staff' }), light: { dir: -Math.PI / 2, intensity: 1.1, front: 0.04, fill: 0 }, expression: { emo: 'calm' }, t: T, key: 'cl-p' }); },
       figs: (g, p) => { EP49.boat(g, 700, 1290, 0.9); CH.satyavati.draw(g, { x: 880, y: 1240, scale: 0.8, facing: 'left', pose: ACT.pose(t, [[0, 'row']], { prop: 'oar', phase: T * 1.6 }), light: { ...ST.light(p, { from: [300, 300], at: [880, 1240], front: 0.2 }) }, expression: { emo: 'calm', gaze: [0.6, 0.1] }, t: T, key: 'cl-s' }); } });

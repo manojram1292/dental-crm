@@ -227,7 +227,7 @@
 
   // 11 · CLIFF: deep river blue: three images on the three beats: a crown in the sky, a silver fish turning, a hand on an oar
   const cliff = (ctx, T, t, env, b) => {
-    const cam = CAM.slide(clamp(t / 5.2), { from: 110, to: -110, zoom: 1.1 }), a0 = E.outCubic(clamp((t - b[0] + 0.15) / 0.4)), a1 = clamp((t - b[1] + 0.15) / 0.3), a2 = E.outCubic(clamp((t - b[2] + 0.15) / 0.4));
+    const cam = CAM.drift(CAM.slide(clamp(t / 5.2), { from: 110, to: -110, zoom: 1.1 }), T, 1.8), a0 = E.outCubic(clamp((t - b[0] + 0.15) / 0.4)), a1 = clamp((t - b[1] + 0.15) / 0.3), a2 = E.outCubic(clamp((t - b[2] + 0.15) / 0.4));
     ST.shot(ctx, T, { pal: 'yamuna-deep', cam, layers: [
       { z: 0, draw: (g, p) => ST.sky(g, p, { hz: 760 }) },
       { z: 0.2, draw: (g, p) => { ST.cloudBank(g, p, T, { y: 300, count: 4, size: 1.3 }); ST.hills(g, p, { y: 760, h: 240, seed: 95 }); } },
