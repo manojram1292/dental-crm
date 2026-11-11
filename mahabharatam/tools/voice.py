@@ -177,6 +177,26 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "Takshaka's": "tˈʌkʃəkəz",
     "Shesha's": "ʃˈeɪʃəz",
     # English words espeak gets wrong for these voices (audited with --dry)
+    # episodes 41–50 (the Bhrigu tales; Vyasa begins)
+    "Puloma": "pʊlˈoʊmɑː",                               # pu-LO-maa (Pulomā)
+    "Bhrigu's": "bʰɾˈɪɡuːz",
+    "Vadhusara": "vˌʌdʰuːsˈʌɾɑː",                        # va-dhoo-SA-raa (Vadhūsarā)
+    "Ruru": "ɾˈʊɾʊ",                                     # RU-ru
+    "Ruru's": "ɾˈʊɾʊz",
+    "Pramadvara": "pɾəmˈʌdvəɾɑː",                        # pra-MAD-va-raa (Pramadvarā)
+    "Dharma": "dˈʌɾmə",                                  # DHUR-ma (Dharmarāja, lord of the dead)
+    "Sahasrapat": "səhˈʌsɾəpɑːt",                        # sa-HUS-ra-paat (Sahasrapāt)
+    "Uparichara": "ˌʊpəɾɪʧˈʌɾə",                         # u-pa-ri-CHA-ra
+    "Yamuna": "jˈʌmʊnɑː",                                # YA-mu-naa (Yamunā)
+    "Satyavati": "sˌʌtjəvˈʌtiː",                         # sat-ya-VA-tee (Satyavatī)
+    "Parashara": "pəɾˈɑːʃəɾə",                           # pa-RAA-sha-ra (Parāśara)
+    "Dvaipayana": "dvaɪpˈɑːjənə",                        # dvai-PAA-ya-na (Dvaipāyana)
+    "Duryodhana": "dʊɾjˈoʊdʰənə",                        # dur-YO-dha-na
+    "Bhima": "bʰˈiːmə",                                  # BHEE-ma
+    "Draupadi": "dɾˈaʊpədiː",                            # DROW-pa-dee (Draupadī)
+    "rakshasa": "ɾˈɑːkʃəsə",                             # RAAK-sha-sa (rākṣasa)
+    "apsara": "ˈʌpsəɾɑː",                                # UP-sa-raa (apsarā)
+    "gandharvas": "ɡəndʰˈʌɾvəz",                         # gan-DHAR-vas
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
     "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"
     "heard": {"en-us": "hˈɜɹd", "en-gb": "hˈɜːd"},       # espeak en-us gives the British "hˈɜːd"

@@ -490,3 +490,41 @@ over 4 s in eps 33 (the conditions shot), 35 (the "asti" shot) and 40 (the serpe
   Chyavana was of Shaunaka's family, and ep 40's cliffhanger shows a woman and a boar in the smoke.
 - Keep `tools/gate.mjs` in the loop (it runs inside `tools/render.mjs`), and keep marking two or three intimate lines per script
   with `mixDb` so the LRA stays above 4.
+
+## Episodes 41–50 · Phase A: the kit step-up and the scripts (Nov 11)
+
+Nothing in this section has been voiced or rendered as an episode. The kit was tested on a lab reel (`--ep 99`, 27 s, voiced and mixed) and on
+stills; the scripts were tested by the script gate on predicted voice lengths.
+
+### The remaining weaknesses of episodes 31–40, and what was built for each
+
+| Weakness (above) | What was built | Test still (`lab/kit41/`) | What was looked at |
+|---|---|---|---|
+| Palette runs (violet hall, orange sacrifice) | `KIT.stage.PAL`: one palette per scene section; the script names a palette on every line; the gate fails a hue that runs more than two lines (script) or two shots (measured on frames) | `kit-02-colour-depth-slide-*`, `kit-03-*`, `kit-04-*` | Five neighbouring shots in amber, green, purple, crimson, green: none shares a hue. The gate measured 25°, 104°, 301°, 6°, 84°, 211°, 135°, 133° on the lab reel. |
+| A figure on a ground of its own hue (the gold boy in the gold hall) | The gate's figure probe: each figure's mean colour against the ground in its own box (ΔE ≥ 20; on its own hue, ΔL* ≥ 25) | `kit-02-colour-depth-slide-b` | The probe FAILED the first design: Puloma's green sari in her green hermitage (ΔE 14). Her sari is now indigo. The slate boar on a teal storm and the olive snake in an olive thicket were also caught by eye; the storm is now a purple dusk and the snake is paler on a dark green shade. |
+| Silhouettes against fire | `KIT.stage.backlight`: a rim on both sides in the fire's colour, a cool bounce fill, a floor on the fill's luminance (`light.wrap / tint / bounce / minLum` in the rig) | `kit-01-backlight-old-vs-new` | The same figure twice in front of the same fire: left, the old rule, a black cut-out; right, face, horns, pelt and arm all readable at 400 px wide. |
+| Flat depth | `KIT.stage.shot`: layers with a depth under one camera (pan × depth, zoom × depth), depth haze, rack focus; shafts, particles with depth, mist, vignette, a bristle-grain finish | `kit-02-*` (a slide: the hut and near trunks move against the hills), `kit-03-*` (an orbit), `kit-06-frame-within-rack-a/b` (rack focus) | Between the a and b stills the near trunk crosses from the left edge to the right while the hut and the figure shift only a little and the hills hardly at all; the parallax is real but modest at this camera travel. In the rack pair the figure and far bank are soft in a and sharp in b; the foreground reeds do not visibly soften in b, so the rack reads as a focus pull on the subject only. |
+| Poses, not acting; the hand on the hip | `KIT.act` and the acting figure (`characters/actor.js`): 23 key poses that blend with anticipation and overshoot; blink, breath, gaze; cloth, hair and beard on the pose of 0.13 s ago; no pose keeps a hand on the hip | `kit-04-acting-1-anticipation`, `-2-action`, `-3-follow-through-turnword` | The arm goes back and up before the throw; in the third still the shawl and beard are still travelling. Checked on stills and a frame strip only; the two test clips (`clip-acting-ink.mp4`, `clip-closeup-rack.mp4`) were rendered but not watched in motion. |
+| Small or pale faces | A face drawn for the close-up (eye with lid, iris and gaze; brow; mouth; a tear), keyed by `KIT.act.emo` | `kit-05-closeup-a-tender`, `kit-05-closeup-b-fear`, `cast-faces` | Tender (a small smile, lids low) against fear (brows up and pinched, eye wide, mouth open) reads at 400 px wide. Weary, wrath and sorrow read apart on three other faces. |
+| One layout for every hook and title | Camera moves as named functions (`KIT.cam`), frame-within-frame (`KIT.stage.within`), four transitions born from the medium; each script fixes where its hook card sits | `kit-06-*`, `kit-09-transition-smoke`, `kit-10-transition-ink`, `kit-11-transition-brush`, `kit-12-transition-lamp` | Ink: blots with a dark wet edge. Brush: diagonal bristle bands. Lamp: the frame blooms to white-gold and opens on the next shot. Smoke: at its thickest the still is a flat field of the smoke's colour (by design, 0.1 s). |
+| Type | `KIT.type.plaque` (the band brushes on, letters land, an underline draws), `turnWord`, `source`; kinetic emphasis in the fixed caption band (a 6 % swell and an underline on gilded names only) | `kit-07-plaque-kinetic-caption`, `kit-08-creature-source-line`, `kit-04-acting-3-*` | The plaque reads at phone size once moved clear of the face (the first placement covered Ruru's head). The source line is small (34 px) by intent and legible; in the lab cliffhanger it touches the figure's top-knot: scenes must keep the top of the frame clear for it. The caption band did not move. |
+| Sound: one bed, no place | Three stems (ambience per place, foley, music by mood); the music 11 dB lower under the voice; a silence before every `rest` line; J-cuts by `ambLead` | (lab reel audio) | Measured, not listened to: music −15 dB under the voice, two silences (1.33 s longest), LRA 7.4 LU, −13.9 LUFS, −2.2 dBTP, Next −10.5 dB. Nobody has listened to the new instruments or the foley; they are synthesised from the old generators and may sound crude. |
+
+### Things the tests showed that are NOT fixed
+
+- **The flames are spiky.** The household fire (Agni as the witness) is seven sharp tongues; it reads as fire with a face, but it is cruder than the figures.
+- **The boar is a flat grey mass** with simple legs; in the orbit still the foreground trunk hides part of it.
+- **The viper is a small worm** at rest; it needs a scene to scale it.
+- **The hand shapes** (the open palm especially) read as a mitten with a thumb.
+- **Standing figures** are still a little stiff at the knees, and the women's saris are one simple bell.
+- **The acting was judged on stills.** Anticipation and follow-through need to be watched in motion before episode 41 is rendered.
+- **Vyasa, Vaishampayana and Janamejaya have two bodies now** (the old modules, and the acting figures from episode 47).
+- **Key-frame variety.** A 64-bit pHash of two unrelated frames averages 32; the old "min distance vs the last three episodes" (22–28) was already at chance level and cannot be pushed "clearly above 24.6" by better pictures. The gate now fails under 22, warns under min 28 / mean 32, and also checks consecutive shots (fail ≤ 12). The honest target is the mean.
+
+### The scripts
+
+`script/ARC-41-50.md` is the plan; all ten scripts pass `node tools/gate.mjs --ep N` (41–50) on predicted voice lengths: 54.8–58.6 s, hooks 5–8 words spoken by 2.3–2.9 s,
+turns at 42–57 %, 2.20–2.57 words/s, two rests each, 6–9 palettes with no hue for more than two lines, 5–8 camera moves, 4 medium transitions.
+The catalog changes are listed in each episode's `notes`. What could not be verified: the CE text hosts could not be opened in this session, so the
+chapters were checked against web-search summaries of the Ganguli (vulgate) text only; every CE-specific point rests on the scriptwriter's
+reading and is marked UNCERTAIN in the catalog or the script's `source`.

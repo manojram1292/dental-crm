@@ -113,11 +113,11 @@
   "notes": "Episode 4: Ganesha, the scribe. A warm, unhurried American voice (median F0 ≈ 114 Hz: between the narrator and the elder), distinct from every other cast voice."
  },
  "vaishampayana": {
-  "voice": "bm_fable",
-  "speed": 0.86,
-  "pitch": 1.5,
+  "voice": "bm_daniel",
+  "speed": 0.84,
+  "pitch": 1.0,
   "g2p": "en-gb",
-  "notes": "Episode 4+: Vaishampayana, Vyasa's disciple. Reserved (he does not speak in episode 4): a younger, brighter bard's voice."
+  "notes": "Episode 47+: Vaishampayana, Vyasa's student, the first teller. Changed before first use (the bible had bm_fable +1.5, Sauti's own voice: two nested narrators must not sound alike): bm_daniel raised 1 st, British like his teacher (bm_george)."
  },
  "parikshit": {
   "voice": "am_eric",
@@ -335,5 +335,68 @@
   "pitch": -1.5,
   "g2p": "en-us",
   "notes": "Episode 38+: Astika, the boy. af_sky lowered 1.5 st: a boy's clear voice, unhurried (the pup uses it +3)."
+ },
+ "bhrigu": {
+  "voice": "am_fenrir",
+  "speed": 0.78,
+  "pitch": -1.5,
+  "g2p": "en-us",
+  "notes": "Episodes 42–43: Bhrigu. am_fenrir lowered 1.5 st: a deep, hard old voice (Takshaka uses it −3, Vishnu −1; neither speaks in these episodes). The Bhrigus speak American, as the narrator does."
+ },
+ "puloma": {
+  "voice": "af_sarah",
+  "speed": 0.84,
+  "pitch": 0.0,
+  "g2p": "en-us",
+  "notes": "Episode 42: Puloma, Bhrigu's wife. af_sarah (a new voice id): clear and tired."
+ },
+ "puloman": {
+  "voice": "am_onyx",
+  "speed": 0.74,
+  "pitch": -3.5,
+  "g2p": "en-us",
+  "notes": "Episode 41: the rakshasa Puloman. am_onyx lowered 3.5 st, slow."
+ },
+ "ruru": {
+  "voice": "am_liam",
+  "speed": 0.86,
+  "pitch": 1.0,
+  "g2p": "en-us",
+  "notes": "Episodes 45–46: Ruru, the young sage. am_liam raised 1 st (Garuda uses it −1.5)."
+ },
+ "devaduta": {
+  "voice": "am_echo",
+  "speed": 0.84,
+  "pitch": 2.0,
+  "g2p": "en-us",
+  "notes": "Episode 45: the messenger of the gods. am_echo raised 2 st: light, even."
+ },
+ "dharma": {
+  "voice": "am_santa",
+  "speed": 0.78,
+  "pitch": -3.0,
+  "g2p": "en-us",
+  "notes": "Episode 45: Dharmaraja, lord of the dead. am_santa lowered 3 st: grave, unhurried."
+ },
+ "sahasrapat": {
+  "voice": "bm_lewis",
+  "speed": 0.82,
+  "pitch": 1.0,
+  "g2p": "en-gb",
+  "notes": "Episode 46: the old snake who was the sage Sahasrapat (one voice for both shapes). bm_lewis raised 1 st: old and mild (Shaunaka uses it unshifted and does not speak in ep 46)."
+ },
+ "parashara": {
+  "voice": "bm_lewis",
+  "speed": 0.8,
+  "pitch": -1.0,
+  "g2p": "en-gb",
+  "notes": "Episode 50: the sage Parashara. bm_lewis lowered 1 st; British, as his son Vyasa (bm_george)."
+ },
+ "satyavati": {
+  "voice": "bf_emma",
+  "speed": 0.84,
+  "pitch": 0.5,
+  "g2p": "en-gb",
+  "notes": "Episode 50: Satyavati, the ferry girl. bf_emma raised 0.5 st (King Paushya's queen used it unshifted in ep 6)."
  }
 }

@@ -1,0 +1,209 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 99,
+  "source": "KIT LAB REEL (not an episode, never published): one shot per kit feature added for episodes 41–50, so every feature has a test still and the new gate checks can run end to end. node tools/preview.mjs frames --ep 99 --times …",
+  "names": {
+    "Puloma": "wife of the sage Bhrigu",
+    "Bhrigu": "a great sage",
+    "Ruru": "a young ascetic"
+  },
+  "loop": {
+    "hookQuestion": "Does the kit read at phone size?",
+    "answeredBy": "acting",
+    "openQuestion": "none (lab reel)",
+    "prevAnsweredBy": "colour"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Kit lab",
+    "episodeTitle": "The Step-Up",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 40",
+    "prevEpisodeTitle": "The Sacrifice Stops",
+    "recapLine": "Kit lab reel.",
+    "nextEpisodeLabel": "Episode 41",
+    "nextTitle": "The Bride and the Demon",
+    "sourceLine": "Adi Parva 1.5–6 · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "text": "Does the fire tell the truth?",
+      "est": 3.0,
+      "role": "hook",
+      "caption": false,
+      "amb": "hearth",
+      "music": "dread",
+      "foley": [
+        "flame@0"
+      ],
+      "note": "LAB 1 · BACK-LIGHT: the same figure in front of the fire, old rule (left) and new rule (right).",
+      "pal": "hearth-amber",
+      "cam": "push",
+      "mixDb": 2
+    },
+    {
+      "id": "colour",
+      "text": "Puloma waited alone in the hermitage.",
+      "emphasis": [
+        "Puloma"
+      ],
+      "est": 3.6,
+      "amb": "forest-day",
+      "music": "calm",
+      "foley": [
+        "cloth@0",
+        "birds"
+      ],
+      "beats": [
+        0
+      ],
+      "note": "LAB 2 · COLOUR SCRIPT + DEPTH: hermitage-green, five layers, shafts, pollen, a slide.",
+      "pal": "hermitage-green",
+      "cam": "slide",
+      "tr": "dissolve"
+    },
+    {
+      "id": "depth",
+      "text": "A boar broke out of the storm.",
+      "est": 3.6,
+      "amb": "storm",
+      "music": "chase",
+      "foley": [
+        "hooves",
+        "thunder@0"
+      ],
+      "transition": "smoke",
+      "note": "LAB 3 · PARALLAX: boar-storm; foreground trunks pass; rain; an orbit.",
+      "pal": "boar-dusk",
+      "cam": "orbit",
+      "tr": "smoke",
+      "ambLead": 300
+    },
+    {
+      "id": "acting",
+      "text": "Then Bhrigu raised his hand and cursed the fire.",
+      "emphasis": [
+        "Bhrigu"
+      ],
+      "est": 4.2,
+      "pre": 900,
+      "rest": true,
+      "amb": "hearth",
+      "music": "dread",
+      "foley": [
+        "cloth@0",
+        "water@1"
+      ],
+      "beats": [
+        2,
+        6
+      ],
+      "sfx": [
+        "silence"
+      ],
+      "note": "LAB 4 · ACTING: anticipation, action, follow-through; the beard and shawl arrive late. Ink-bleed transition in. A real rest before it.",
+      "pal": "wrath-crimson",
+      "cam": "push+tilt",
+      "tr": "ink",
+      "signature": true,
+      "post": 600,
+      "mixDb": 2
+    },
+    {
+      "id": "closeup",
+      "text": "She saw him, and her face changed.",
+      "est": 4.0,
+      "amb": "forest-day",
+      "music": "tender",
+      "foley": [
+        "breath@0"
+      ],
+      "note": "LAB 5 · THE TURN (for the gate) · FACE CLOSE-UP: calm to fear, the eye moves, a blink; a push in. Brush wipe in. A real rest before it.",
+      "pal": "hermitage-green",
+      "cam": "push",
+      "tr": "brush",
+      "closeup": true,
+      "pre": 900,
+      "mixDb": -5,
+      "post": 600
+    },
+    {
+      "id": "camera",
+      "text": "Her tears became a river.",
+      "est": 3.8,
+      "amb": "river",
+      "music": "grief",
+      "foley": [
+        "water"
+      ],
+      "note": "LAB 6 · CAMERA: frame-within-frame (an arch of leaves) and a rack focus from the reeds to the far bank. The voice leads the picture (a J-cut).",
+      "pal": "riverbank-pearl",
+      "cam": "frame+rack",
+      "tr": "dissolve",
+      "jcut": 300,
+      "mixDb": -3
+    },
+    {
+      "id": "type",
+      "text": "Ruru raised his staff over a harmless snake.",
+      "emphasis": [
+        "Ruru"
+      ],
+      "est": 4.0,
+      "amb": "thicket",
+      "music": "still",
+      "foley": [
+        "staff@0",
+        "rustle"
+      ],
+      "note": "LAB 7 · TYPE + CREATURES: a name plaque arrives; the word of the turn; the dundubha rises. Lamp-glow match cut in.",
+      "pal": "thicket-shade",
+      "cam": "crane",
+      "tr": "lamp"
+    },
+    {
+      "id": "cliff",
+      "text": "And the snake spoke.",
+      "est": 3.0,
+      "role": "next",
+      "amb": "thicket",
+      "music": "wonder",
+      "foley": [
+        "rustle@0"
+      ],
+      "note": "LAB 8 · the cliffhanger with the source line.",
+      "pal": "thicket-shade",
+      "cam": "push"
+    },
+    {
+      "id": "next",
+      "text": "Next: The Bride and the Demon",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "note": "The Next band."
+    }
+  ],
+  "hookStyle": "question-card"
+}

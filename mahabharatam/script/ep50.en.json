@@ -1,0 +1,388 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 50,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Adivamshavatarana sub-parva, adhyaya 57 (second part), with 1.54 for \"grew at once\": Satyavati plies her father's ferry on the Yamuna; the sage Parashara, on pilgrimage, sees her and desires her; she says that sages stand on both banks watching; he makes a mist that covers the place; she says she is a maiden under her father's rule and asks how she could go home; he promises that she will be a maiden still and offers a boon; she chooses that her body be fragrant, and is known afterwards as Gandhavati and Yojanagandha, for her scent carried a league; the same day she bears his son on an island in the Yamuna; he sets his mind on austerity with his mother's leave, saying that when remembered he will appear when there is need; he is Dvaipayana, the island-born; and Vyasa, because he divided the Vedas. He grew his body by his own will as soon as he was born (1.54). The speeches are condensed paraphrase. The union is not shown (the mist). The promise is a long plant: it is paid off when Satyavati calls him (Adi 1.99, the Kuru line arc), not in episode 51.",
+  "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
+  "hookStyle": "statement",
+  "names": {
+    "Satyavati": "a fisherman's daughter",
+    "Yamuna": "the river",
+    "Parashara": "a great sage",
+    "Dvaipayana": "\"the island-born\"",
+    "Vyasa": "the poet of the Mahabharata"
+  },
+  "loop": {
+    "hookQuestion": "How was the poet born on an island?",
+    "answeredBy": "born",
+    "prevQuestion": "Who stepped into Satyavati's boat?",
+    "prevAnsweredBy": "sage",
+    "openQuestion": "Why were gods born on earth as men?"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 50",
+    "episodeTitle": "Born on an Island",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 49",
+    "prevEpisodeTitle": "The King, the Fish and the Ferry Girl",
+    "recapLine": "A girl found inside a fish grew up rowing a ferry: Satyavati.",
+    "nextEpisodeLabel": "Episode 51",
+    "nextTitle": "The Burden of the Earth",
+    "sourceLine": "Adi Parva 1.57 · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.1,
+      "text": "The poet was born on an island.",
+      "say": "The poet [p:80] was born on an island.",
+      "est": 3.47,
+      "pre": 60,
+      "post": 1100,
+      "role": "hook",
+      "caption": false,
+      "beats": [
+        1,
+        6
+      ],
+      "hookGold": [
+        "poet",
+        "island."
+      ],
+      "amb": "river",
+      "music": "wonder",
+      "foley": [
+        "water",
+        "oar@0"
+      ],
+      "pal": "island-gold",
+      "cam": "crane",
+      "note": "COLD OPEN (a statement over the image): a small island in a wide river at gold dawn, seen from above and coming closer; on it a dark child standing in his own light. The card on the water, lower left.",
+      "estVoice": 2.31
+    },
+    {
+      "id": "ferry",
+      "speed": 1.0,
+      "text": "Satyavati, a fisherman's daughter, rowed a ferry.",
+      "say": "Satyavati, [p:80] a fisherman's daughter, [p:100] rowed a ferry.",
+      "est": 4.59,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Satyavati,"
+      ],
+      "beats": [
+        0,
+        6
+      ],
+      "foley": [
+        "oar",
+        "water"
+      ],
+      "music": "calm",
+      "pal": "yamuna-deep",
+      "cam": "slide",
+      "tr": "brush",
+      "note": "STORY 0 with the unvoiced recap band (top): the river at noon in deep blue: her boat crossing, she in the stern with the oar (row: the body leans and returns) (plaques: Satyavati · a fisherman's daughter; small: the Yamuna); a lateral track with reeds passing near.",
+      "estVoice": 4.04
+    },
+    {
+      "id": "sage",
+      "speed": 1.0,
+      "text": "One day the sage Parashara stepped into her boat, and desired her.",
+      "say": "One day [p:60] the sage Parashara [p:80] stepped into her boat, [p:250] and desired her.",
+      "est": 5.51,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Parashara"
+      ],
+      "beats": [
+        4,
+        8,
+        11
+      ],
+      "foley": [
+        "steps@1",
+        "creak@1",
+        "staff@0"
+      ],
+      "music": "still",
+      "pal": "fishers-coral",
+      "cam": "push",
+      "mixDb": -2,
+      "note": "STORY 1 (pays off episode 49's last line by 8 s): the boat at the bank at coral dusk: Parashara, rust cloth, black beard, a staff, seated in the bow (plaque: Parashara · a great sage); his head turns to her and stays.",
+      "estVoice": 4.96
+    },
+    {
+      "id": "watching",
+      "speaker": "satyavati",
+      "speed": 1.0,
+      "text": "\"Holy one, sages are watching from both banks.\"",
+      "say": "Holy one, [p:150] sages are watching [p:60] from both banks.",
+      "est": 4.16,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        7
+      ],
+      "foley": [
+        "oar@0",
+        "water"
+      ],
+      "pal": "yamuna-deep",
+      "cam": "pull",
+      "closeup": true,
+      "note": "STORY 2 · THE CLOSE-UP (first half): Satyavati's face, steady, her eyes going to one bank and the other (the gaze moves; the brow level); then a pull back: midstream, and on each far bank a row of small seated figures.",
+      "estVoice": 3.61
+    },
+    {
+      "id": "mist",
+      "speed": 1.0,
+      "text": "So he raised a mist that hid the river.",
+      "say": "So he raised a mist [p:100] that hid the river.",
+      "est": 3.46,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        8
+      ],
+      "foley": [
+        "whoosh@0",
+        "water"
+      ],
+      "music": "wonder",
+      "pal": "mist-lavender",
+      "cam": "orbit",
+      "signature": true,
+      "tr": "smoke",
+      "note": "STORY 3 · THE SIGNATURE SHOT · NEW LIGHT (mist-lavender): his hand lifts; mist rises off the water in bands, plane behind plane (five depths), a slow orbit round the boat until banks, sages and sky are gone and the boat hangs in white.",
+      "estVoice": 2.91
+    },
+    {
+      "id": "maiden",
+      "speaker": "satyavati",
+      "speed": 1.0,
+      "text": "\"I am a maiden. How can I go home?\"",
+      "say": "I am a maiden. [p:300] How can I go home?",
+      "est": 3.97,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        8
+      ],
+      "foley": [
+        "breath@0",
+        "drip"
+      ],
+      "music": "tender",
+      "pal": "mist-lavender",
+      "cam": "push",
+      "closeup": true,
+      "mixDb": -4,
+      "note": "STORY 4 · THE CLOSE-UP (second half): her face in the mist: the steadiness gives way to worry (inner brows up, the eyes down), then lifts to him: she is bargaining, not pleading.",
+      "estVoice": 3.42
+    },
+    {
+      "id": "gift",
+      "speaker": "parashara",
+      "speed": 1.0,
+      "text": "\"You will remain a maiden. Now choose a gift.\"",
+      "say": "You will remain a maiden. [p:350] Now choose a gift.",
+      "est": 5.44,
+      "pre": 900,
+      "post": 400,
+      "beats": [
+        4,
+        8
+      ],
+      "rest": true,
+      "sfx": [
+        "silence",
+        "bell@1"
+      ],
+      "foley": [
+        "staff@0"
+      ],
+      "pal": "release-gold",
+      "cam": "push",
+      "note": "STORY 5 · THE TURN (≈ 50 %) after a real silence: Parashara, lit gold through the mist (release-gold), a hand raised in blessing; the mist behind him brightens. The word of the turn: CHOOSE.",
+      "estVoice": 4.14
+    },
+    {
+      "id": "scent",
+      "speed": 1.0,
+      "text": "She asked that her smell of fish become a fragrance.",
+      "say": "She asked [p:60] that her smell of fish [p:80] become a fragrance.",
+      "est": 4.24,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        5,
+        9
+      ],
+      "amb": "meadow",
+      "ambLead": 200,
+      "music": "joy",
+      "foley": [
+        "anklet@0",
+        "leaf@1"
+      ],
+      "pal": "brahma-rose",
+      "cam": "tilt",
+      "tr": "lamp",
+      "note": "STORY 6 · NEW LIGHT (brahma-rose): a tilt up from her joined hands: the grey-silver haze round her turns to rose and gold petals that drift away over the water, far (a plaque: her fragrance carried a league).",
+      "estVoice": 3.69
+    },
+    {
+      "id": "born",
+      "speed": 1.0,
+      "text": "That same day, on a river island, she bore a son.",
+      "say": "That same day, [p:100] on a river island, [p:200] she bore a son.",
+      "est": 5.25,
+      "pre": 800,
+      "post": 300,
+      "beats": [
+        2,
+        6,
+        10
+      ],
+      "rest": true,
+      "amb": "river",
+      "music": "awe",
+      "foley": [
+        "water",
+        "breath@2"
+      ],
+      "sfx": [
+        "conch@2"
+      ],
+      "pal": "island-gold",
+      "cam": "crane",
+      "tr": "brush",
+      "mixDb": 1,
+      "note": "STORY 7 (a second real silence before it; answers the hook): the mist opens on gold dawn: the island of the first frame, now from the water: she kneels in the reeds, a dark child in her arms with a gold aura (carry).",
+      "estVoice": 4.15
+    },
+    {
+      "id": "grew",
+      "speed": 1.0,
+      "text": "He grew at once: Dvaipayana, the island-born. We call him Vyasa.",
+      "say": "He grew at once: [p:200] Dvaipayana, [p:100] the island-born. [p:350] We call him Vyasa.",
+      "est": 6.15,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Dvaipayana,",
+        "Vyasa."
+      ],
+      "beats": [
+        1,
+        4,
+        10
+      ],
+      "foley": [
+        "whoosh@0",
+        "leaf@1"
+      ],
+      "music": "wonder",
+      "pal": "island-gold",
+      "cam": "tilt",
+      "note": "STORY 8: the child stands; in one tilt upward he is a boy, a youth in bark cloth (plaque: Dvaipayana · \"the island-born\"; then VYASA arrives in gold, as in episode 47).",
+      "estVoice": 5.6
+    },
+    {
+      "id": "promise",
+      "speaker": "vyasa",
+      "speed": 1.04,
+      "text": "\"Mother, think of me, and I will come.\"",
+      "say": "Mother, [p:150] think of me, [p:200] and I will come.",
+      "est": 4.17,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        0,
+        3,
+        7
+      ],
+      "amb": "forest-day",
+      "ambLead": 250,
+      "foley": [
+        "steps@2",
+        "birds"
+      ],
+      "music": "tender",
+      "pal": "exile-forest",
+      "cam": "rack",
+      "mixDb": -4,
+      "note": "STORY 9: the young Vyasa at the forest's edge, turned back toward her, palms joined; the focus racks from her hand in the foreground to him; then he walks in under the trees.",
+      "estVoice": 3.62
+    },
+    {
+      "id": "cliff",
+      "speed": 1.0,
+      "text": "His poem is full of gods born as men. Why did they come down?",
+      "say": "His poem is full of gods [p:80] born as men. [p:350] Why did they come down?",
+      "est": 5.37,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        5,
+        8,
+        13
+      ],
+      "role": "next",
+      "amb": "sky",
+      "music": "dread",
+      "foley": [
+        "thunder@1",
+        "whoosh@2"
+      ],
+      "pal": "war-iron",
+      "cam": "pull",
+      "note": "NEXT 1 (hands on to episode 51, which answers it): a night sky in iron blue: points of light fall from it like slow rain toward a dark, heavy earth. The source line (top).",
+      "estVoice": 4.72
+    },
+    {
+      "id": "next",
+      "text": "Next: The Burden of the Earth",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "cam": "push",
+      "note": "The NEXT › band over the cliffhanger image, with the source line; dissolve into frame 1."
+    }
+  ]
+}

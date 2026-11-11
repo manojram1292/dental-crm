@@ -69,18 +69,21 @@ export function buildTimeline(lang = 'en', { quiet = false, ep = 1 } = {}) {
     const words = line.text.trim().split(/\s+/);
     const wf = path.join(ROOT, 'voice', tag, lang, `${line.id}.wav`);
     let voice = null, voiceDur = 0, dur, speechStart, speechDur, chunks = null;
-    if (fs.existsSync(wf)) {
-      voiceDur = wavDuration(wf);
-      voice = path.relative(ROOT, wf);
-      voiced++;
-      sig.update(`${line.id}:${voiceDur}`);
+    // From episode 41: a line may carry "estVoice" (s: the voice's predicted length, written by tools/estimate.py), so an
+    // unvoiced script is timed exactly as it will be once voiced; and "jcut" / "lcut" (ms): the voice starts before its
+    // picture (J) or runs on over the next picture (L). Scripts without these fields are timed as before.
+    const hasWav = fs.existsSync(wf);
+    if (hasWav || (line.estVoice != null && line.voice !== false)) {
+      voiceDur = hasWav ? wavDuration(wf) : line.estVoice;
+      if (hasWav) { voice = path.relative(ROOT, wf); voiced++; sig.update(`${line.id}:${voiceDur}`); }
       const lead = line.pre != null ? line.pre / 1000 : tm.voiceLead;
       const gap = line.post != null ? line.post / 1000 : tm.voiceGap;
-      speechStart = t + lead;
+      const j = (line.jcut || 0) / 1000, lc = (line.lcut || 0) / 1000;
+      speechStart = j ? t - j : t + lead;
       speechDur = voiceDur;
-      dur = lead + voiceDur + gap + (line.hold || 0);
+      dur = (j ? voiceDur - j + gap : lead + voiceDur + (lc ? -lc : gap)) + (line.hold || 0);
       const side = wf.replace(/\.wav$/, '.json');
-      if (fs.existsSync(side)) {
+      if (hasWav && fs.existsSync(side)) {
         const sc = JSON.parse(fs.readFileSync(side, 'utf8')).chunks || [];
         // usable only if the chunks' words add up to the caption's words
         if (sc.length > 1 && sc.reduce((n, c) => n + c.words, 0) === words.length) chunks = sc;
@@ -127,7 +130,7 @@ export function buildTimeline(lang = 'en', { quiet = false, ep = 1 } = {}) {
     out.push({
       id: line.id, start: +t.toFixed(4), end: +(t + dur).toFixed(4),
       speechStart: +speechStart.toFixed(4), speechEnd: +(speechStart + speechDur).toFixed(4),
-      voice, voiceDur: +voiceDur.toFixed(4), words: wt, beats, ...(ticks.length ? { ticks } : {}), ...(chunks ? { chunks: chunks.length } : {}),
+      voice, ...(+ep >= 41 && line.voice !== false && (voice || line.estVoice != null) ? { spoken: true } : {}), voiceDur: +voiceDur.toFixed(4), words: wt, beats, ...(ticks.length ? { ticks } : {}), ...(chunks ? { chunks: chunks.length } : {}),
     });
     t += dur;
   });

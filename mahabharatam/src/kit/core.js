@@ -19,6 +19,11 @@
   const { TAU, clamp, lerp, noise, hash, PAL } = R;
   const KIT = (window.KIT = window.KIT || {});
 
+  /** Mix two colours ('#rgb', '#rrggbb' or 'rgb(a)(…)') → '#rrggbb' (safe to nest and to pass to KIT.glow; uncached). */
+  const parseC = (c) => { if (c[0] === '#') { let h = c.slice(1); if (h.length === 3) h = h.split('').map((x) => x + x).join(''); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; } const m = c.match(/[\d.]+/g); return [+m[0], +m[1], +m[2]]; };
+  KIT.rgb = parseC;
+  KIT.hex = (a, b, t = 0) => { const A = parseC(a), B = b ? parseC(b) : A, k = clamp(t); return '#' + [0, 1, 2].map((i) => Math.round(lerp(A[i], B[i], k)).toString(16).padStart(2, '0')).join(''); };
+
   /** The sacred fire's light, 0.72..1, continuous in T. Same seed → same flicker everywhere. */
   KIT.flicker = (T, seed = 0) => {
     const n = noise.n2(T * 3.1, seed * 7.3) * 0.55 + noise.n2(T * 7.7, seed * 7.3 + 30) * 0.3 + noise.n2(T * 17, seed + 61) * 0.15;

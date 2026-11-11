@@ -157,6 +157,38 @@ am_liam, am_michael, am_onyx, am_puck, am_santa, bf_alice, bf_emma, bf_lily, bm_
 bf_isabella reserved for the teacher's wife). Python: `kokoro_onnx`, `soundfile`, `imageio-ffmpeg`, numpy, scipy; run with
 `python3 -I`.
 
+## From episode 41: the step-up (kit, gate, sound) · Phase A
+
+Episodes 41–50 are scripted and gated (`script/ep41…50.en.json`, `script/ARC-41-50.md`) but not yet voiced or rendered. What changed in the kit and
+the tools for them (episodes 0–40 draw and mix exactly as before: `node tools/regress.mjs --check`, and `tools/mix.py --ep 40` is byte-identical):
+
+- **`src/kit/stage.js`** · colour scripting (`KIT.stage.PAL`: 35 named palettes, each with its hue, air, light, rim and bounce; `KIT.stage.light`,
+  `KIT.stage.backlight`: the fire/back-light rule, a rim on both sides plus a cool fill and a luminance floor), **real multi-layer parallax**
+  (`KIT.stage.shot`: layers with a depth, depth haze, rack focus), layer painters (sky, hills, tree line, trunks, ground, water, hut, pillars, clouds,
+  grass), atmosphere (light shafts, particles with their own depth that keep off the caption band, mist, a coloured vignette, a bristle-grain mural
+  finish), the **camera grammar** (`KIT.cam.push / pull / tilt / slide / orbit / rack / crane`, `KIT.stage.within` for frame-within-frame) and
+  **transitions born from the medium** (a scene's `transition: { type: 'ink' | 'brush' | 'lamp' | 'smoke', dur }`, run by the engine).
+- **`src/kit/act.js`** · acting (`KIT.act.pose`: keyed pose blends with anticipation and follow-through, never a pose switch; `blink`, `breath`,
+  `emo` and `gaze` for a readable change of face) and typography in motion (`KIT.type.plaque`, `turnWord`, `tag`, `source`). Captions stay in one
+  fixed band; `"captionBand": { "kinetic": true }` lets a gilded name swell 6 % as it is spoken and draws a brushed underline.
+- **`src/kit/characters/actor.js`** · the acting figure: 23 key poses that blend, hair, beard and cloth that arrive late, a face drawn for close-ups,
+  and painted colour blocks (skin, hair, cloth) inside the silhouette. **`bhrigu-arc.js`** (25 characters for 41–50) and **`creatures.js`** (the boar,
+  the old snake, the viper, the hawk, the fish, and Agni as the household fire with a face).
+- **`characters/rig.js`** · a light may now carry `wrap`, `tint`, `bounce` and `minLum` (unused by older scenes), and reports each figure's colour
+  and the ground behind it to the gate's probe.
+- **Sound** · `tools/score.py` builds three stems from episode 41 (`amb.wav`: an ambience bed per place; `foley.wav`: a cue for every action;
+  `mus.wav`: music by mood with veena, bansuri, reeds, mridangam, conch) from the script's `amb`, `foley`, `music` (and `ambLead` / `ambLag` for J- and
+  L-cuts). `tools/mix.py` ducks the music 11 dB, the ambience 5 dB and the foley 2 dB under the voice, mutes a real silence before every line marked
+  TURN or `"rest": true`, limits to −1.5 dBTP, and writes a report (`audio/epNN/mix.<lang>.json`).
+- **`tools/estimate.py`** predicts each line's voice length (fitted on episodes 21–40; mean error 0.22 s a line) and stores it as `estVoice`, so
+  `tools/timeline.mjs` times an unvoiced script as it will be once voiced and the gate can run on a script alone. `jcut` / `lcut` (ms) let a voice
+  lead or trail its picture.
+- **`tools/gate.mjs`** · new checks from episode 41, on the script and (with `--frames`, `--audio`) on the picture and the mix: see its header and
+  `QUALITY_SCORECARD.md`. **`tools/scorecard.py`** adds the shot-hue run and the mean key-frame distance on the mp4.
+- **The kit lab reel** (`--ep 99`, `script/ep99.en.json`, `src/scenes/ep99/lab.js`; never published): one shot per feature. It is voiced, scored,
+  mixed and passes the whole gate, so the new checks are tested end to end. `node tools/kitstills.mjs` and `node tools/caststill.mjs` write the test
+  stills to `lab/kit41/`.
+
 ## How it is built (dubbing-ready, per episode)
 
 ```

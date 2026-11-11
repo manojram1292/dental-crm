@@ -1,0 +1,28 @@
+{
+ "music_under_voice_db": -15.0,
+ "stems": [
+  "mus",
+  "amb",
+  "foley"
+ ],
+ "duck_db": {
+  "mus": 11.0,
+  "amb": 5.0,
+  "foley": 2.0
+ },
+ "rests": [
+  {
+   "before": "acting",
+   "seconds": 1.16
+  },
+  {
+   "before": "closeup",
+   "seconds": 1.41
+  }
+ ],
+ "lufs": -13.95,
+ "true_peak_dbtp": -2.23,
+ "lra": 7.3,
+ "timeline": "1063a593d701e1b5",
+ "voiced": 8
+}

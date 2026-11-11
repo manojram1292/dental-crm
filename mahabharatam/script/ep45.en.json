@@ -1,0 +1,369 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 45,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Pauloma sub-parva, adhyaya 9: Ruru laments in the deep forest and calls on his own merit (gifts, austerities, vows) to raise Pramadvara; a messenger of the gods tells him that his words are in vain, for one whose life is done does not return, but that the gods have provided one means: let him give her half of his own life; Ruru gives it; the gandharva king (her father) and the messenger go to Dharmaraja, who agrees that she may rise with half of Ruru's life; she rises as if from sleep; on a lucky day they are married; Ruru vows the destruction of snakes and kills every one he sees; one day in a forest he raises his staff over an old dundubha (a harmless snake), which speaks (the cliffhanger). The speeches are condensed paraphrase. The gandharva king's name, Vishvavasu, is on his plaque, not spoken.",
+  "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
+  "hookStyle": "speech",
+  "names": {
+    "Pramadvara": "Ruru's bride",
+    "Ruru": "a young sage",
+    "Dharma": "lord of the dead",
+    "Vishvavasu": "king of the gandharvas"
+  },
+  "loop": {
+    "hookQuestion": "What does it cost to bring her back?",
+    "answeredBy": "give",
+    "prevQuestion": "What did the messenger of the gods tell Ruru?",
+    "prevAnsweredBy": "hook",
+    "openQuestion": "What did the snake say?"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 45",
+    "episodeTitle": "Half a Life",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 44",
+    "prevEpisodeTitle": "Ruru and Pramadvara",
+    "recapLine": "Days before the wedding, a snake bit Ruru's bride.",
+    "nextEpisodeLabel": "Episode 46",
+    "nextTitle": "The Snake Who Was a Sage",
+    "sourceLine": "Adi Parva 1.9 · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "devaduta",
+      "speed": 1.04,
+      "text": "\"Give your bride half your life.\"",
+      "say": "Give your bride [p:100] half your life.",
+      "est": 3.7,
+      "pre": 60,
+      "post": 1100,
+      "role": "hook",
+      "caption": false,
+      "beats": [
+        2,
+        5
+      ],
+      "hookGold": [
+        "half",
+        "life."
+      ],
+      "amb": "forest-night",
+      "music": "awe",
+      "foley": [
+        "whoosh",
+        "leaf@0"
+      ],
+      "pal": "messenger-dawn",
+      "cam": "tilt",
+      "note": "COLD OPEN (direct speech; it answers episode 44's last line at 0 s): a luminous figure in a shaft of pale gold, a hand held out, open; Ruru small below, looking up. The card rides the shaft, right of centre.",
+      "estVoice": 2.54
+    },
+    {
+      "id": "dead",
+      "speed": 0.97,
+      "text": "Ruru's bride, Pramadvara, lay dead of a snake's bite, days before their wedding.",
+      "say": "Ruru's bride, [p:80] Pramadvara, [p:100] lay dead of a snake's bite, [p:150] days before their wedding.",
+      "est": 6.75,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Ruru's",
+        "Pramadvara,"
+      ],
+      "beats": [
+        2,
+        8
+      ],
+      "foley": [
+        "cloth",
+        "leaf@0"
+      ],
+      "music": "grief",
+      "pal": "ash-grey",
+      "cam": "pull",
+      "tr": "smoke",
+      "mixDb": -3,
+      "note": "STORY 0 with the unvoiced recap band (top): she lies as if asleep among fallen flowers, the colour drained; a pull back (plaque: Pramadvara · Ruru's bride).",
+      "estVoice": 6.2
+    },
+    {
+      "id": "lament",
+      "speaker": "ruru",
+      "speed": 1.0,
+      "text": "\"If I have given, if I have kept my vows, let her rise!\"",
+      "say": "If I have given, [p:120] if I have kept my vows, [p:200] let her rise!",
+      "est": 4.94,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        9,
+        12
+      ],
+      "foley": [
+        "steps@0",
+        "breath@1"
+      ],
+      "pal": "grief-blue",
+      "cam": "push",
+      "closeup": true,
+      "tr": "ink",
+      "note": "STORY 1 · THE CLOSE-UP (first half): Ruru's face lifted in the blue night: sorrow, a tear line, then pleading (inner brows up, mouth open) (plaque: Ruru · a young sage).",
+      "estVoice": 4.39
+    },
+    {
+      "id": "came",
+      "speed": 1.0,
+      "text": "A messenger of the gods came down.",
+      "say": "A messenger of the gods [p:80] came down.",
+      "est": 3.18,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        6
+      ],
+      "foley": [
+        "whoosh@0",
+        "anklet@1"
+      ],
+      "music": "wonder",
+      "pal": "messenger-dawn",
+      "cam": "crane",
+      "tr": "lamp",
+      "note": "STORY 2 · NEW LIGHT (messenger-dawn: pale gold filling the frame): a lamp-glow match cut from his tear to the light; the messenger descends, fading at the feet; a crane down with him.",
+      "estVoice": 2.63
+    },
+    {
+      "id": "vain",
+      "speaker": "devaduta",
+      "speed": 1.0,
+      "text": "\"The dead do not return. But there is one way: half your own life.\"",
+      "say": "The dead do not return. [p:300] But there is one way: [p:250] half your own life.",
+      "est": 6.1,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        9,
+        13
+      ],
+      "foley": [
+        "leaf",
+        "breath@1"
+      ],
+      "music": "still",
+      "pal": "grief-blue",
+      "cam": "orbit",
+      "mixDb": -2,
+      "note": "STORY 3: a slow orbit round the two: Ruru dark blue against the night, the messenger the only light; between them, in the air, a thin gold thread: a life, with a mark at its middle.",
+      "estVoice": 5.55
+    },
+    {
+      "id": "give",
+      "speaker": "ruru",
+      "speed": 1.0,
+      "text": "\"Then I give her half my life.\"",
+      "say": "Then I give her [p:150] half my life.",
+      "est": 3.9,
+      "pre": 900,
+      "post": 450,
+      "beats": [
+        2,
+        6
+      ],
+      "rest": true,
+      "sfx": [
+        "silence",
+        "bell@1"
+      ],
+      "foley": [
+        "breath@0"
+      ],
+      "music": "tender",
+      "pal": "grief-blue",
+      "cam": "push",
+      "closeup": true,
+      "signature": true,
+      "mixDb": -2,
+      "note": "STORY 4 · THE TURN (≈ 47 %) after a real silence · THE SIGNATURE SHOT · THE CLOSE-UP (second half): Ruru's face: grief settles into resolve (the brow comes down level, the eyes open, the mouth closes); the gold thread parts in two in front of him and half drifts away. The word of the turn: HALF.",
+      "estVoice": 2.55
+    },
+    {
+      "id": "court",
+      "speed": 0.97,
+      "text": "Her father, a king of the gandharvas, went with the messenger to Dharma, lord of the dead.",
+      "say": "Her father, [p:60] a king of the gandharvas, [p:100] went with the messenger [p:80] to Dharma, [p:80] lord of the dead.",
+      "est": 7.39,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Dharma,"
+      ],
+      "beats": [
+        1,
+        12
+      ],
+      "amb": "underworld",
+      "ambLead": 300,
+      "music": "dread",
+      "foley": [
+        "steps",
+        "staff@1"
+      ],
+      "pal": "dharma-copper",
+      "cam": "tilt",
+      "tr": "smoke",
+      "note": "STORY 5 · NEW LIGHT, Dharma's court (dharma-copper: black and copper, one teal lamp): a tilt down a great stair; two bright figures small before a heavy seated king with a staff (plaques: Vishvavasu · king of the gandharvas; Dharma · lord of the dead).",
+      "estVoice": 6.84
+    },
+    {
+      "id": "grant",
+      "speaker": "dharma",
+      "speed": 1.0,
+      "text": "\"Let her rise, with half his life.\"",
+      "say": "Let her rise, [p:200] with half his life.",
+      "est": 3.66,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        6
+      ],
+      "foley": [
+        "staff@0"
+      ],
+      "sfx": [
+        "bell-low@0"
+      ],
+      "pal": "dharma-copper",
+      "cam": "push",
+      "note": "STORY 6: Dharma, lit copper from below (the back-light rule: readable against his own fire), lifts his staff and sets it down once.",
+      "estVoice": 3.11
+    },
+    {
+      "id": "woke",
+      "speed": 1.0,
+      "text": "And Pramadvara woke, as if from sleep.",
+      "say": "And Pramadvara woke, [p:200] as if from sleep.",
+      "est": 4.93,
+      "pre": 800,
+      "post": 900,
+      "emphasis": [
+        "Pramadvara"
+      ],
+      "beats": [
+        1,
+        6
+      ],
+      "rest": true,
+      "amb": "meadow",
+      "music": "tender",
+      "foley": [
+        "breath@0",
+        "birds@1",
+        "cloth"
+      ],
+      "pal": "meadow-spring",
+      "cam": "pull",
+      "tr": "brush",
+      "mixDb": -3,
+      "note": "STORY 7 (a second real silence before it): dawn colour floods back into the grey (meadow-spring): her eyes open, she sits up among the flowers; the half thread of gold settles on her; a pull back to Ruru kneeling.",
+      "estVoice": 3.23
+    },
+    {
+      "id": "vow",
+      "speed": 1.0,
+      "text": "They were married. But Ruru swore to kill every snake he saw.",
+      "say": "They were married. [p:300] But Ruru swore [p:80] to kill every snake he saw.",
+      "est": 5.25,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Ruru"
+      ],
+      "beats": [
+        2,
+        5,
+        9
+      ],
+      "amb": "hearth",
+      "music": "wrath",
+      "foley": [
+        "flame@0",
+        "staff@1"
+      ],
+      "pal": "wedding-turmeric",
+      "cam": "slide",
+      "note": "STORY 8 · NEW LIGHT (wedding-turmeric): the two walk round the wedding fire, their cloths knotted; then the track runs on past the fire to Ruru's staff, and his hand closing on it.",
+      "estVoice": 4.7
+    },
+    {
+      "id": "cliff",
+      "speed": 1.0,
+      "text": "One day he raised his staff over an old snake. And the snake spoke.",
+      "say": "One day [p:60] he raised his staff over an old snake. [p:400] And the snake spoke.",
+      "est": 5.75,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        4,
+        9,
+        13
+      ],
+      "role": "next",
+      "amb": "thicket",
+      "ambLead": 200,
+      "music": "still",
+      "foley": [
+        "staff@0",
+        "rustle@1"
+      ],
+      "pal": "noon-ochre",
+      "cam": "rack",
+      "mixDb": -1,
+      "note": "NEXT 1 (the catalog's cliffhanger): a dry wood at noon: Ruru's staff high (raise: anticipation); the focus racks to the old, thick, drab snake at his feet, which lifts its head. The source line (top).",
+      "estVoice": 5.1
+    },
+    {
+      "id": "next",
+      "text": "Next: The Snake Who Was a Sage",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "cam": "push",
+      "note": "The NEXT › band over the cliffhanger image, with the source line; dissolve into frame 1."
+    }
+  ]
+}

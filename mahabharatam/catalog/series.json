@@ -293,7 +293,7 @@
      "Dharmaraja"
     ],
     "major": false,
-    "bible": null
+    "bible": "dharma"
    },
    "vayu": {
     "name": "Vayu",
@@ -448,49 +448,49 @@
     "name": "Bhrigu",
     "aliases": [],
     "major": false,
-    "bible": null
+    "bible": "bhrigu"
    },
    "puloma": {
     "name": "Puloma",
     "aliases": [],
     "major": false,
-    "bible": null
+    "bible": "puloma"
    },
    "chyavana": {
     "name": "Chyavana",
     "aliases": [],
     "major": false,
-    "bible": null
+    "bible": "chyavana"
    },
    "ruru": {
     "name": "Ruru",
     "aliases": [],
     "major": false,
-    "bible": null
+    "bible": "ruru"
    },
    "pramadvara": {
     "name": "Pramadvara",
     "aliases": [],
     "major": false,
-    "bible": null
+    "bible": "pramadvara"
    },
    "sahasrapat": {
     "name": "Sahasrapat (the dundubha)",
     "aliases": [],
     "major": false,
-    "bible": null
+    "bible": "sahasrapat"
    },
    "pramati": {
     "name": "Pramati",
     "aliases": [],
     "major": false,
-    "bible": null
+    "bible": "pramati"
    },
    "uparichara-vasu": {
     "name": "Uparichara Vasu",
     "aliases": [],
     "major": false,
-    "bible": null
+    "bible": "uparichara"
    },
    "satyavati": {
     "name": "Satyavati",
@@ -500,13 +500,13 @@
      "Gandhakali"
     ],
     "major": true,
-    "bible": null
+    "bible": "satyavati"
    },
    "parashara": {
     "name": "Parashara",
     "aliases": [],
     "major": false,
-    "bible": null
+    "bible": "parashara"
    },
    "dushyanta": {
     "name": "Dushyanta",
@@ -530,7 +530,7 @@
     "name": "Menaka",
     "aliases": [],
     "major": false,
-    "bible": null
+    "bible": "menaka"
    },
    "vishvamitra": {
     "name": "Vishvamitra",
@@ -652,7 +652,7 @@
     "name": "The fisher chief",
     "aliases": [],
     "major": false,
-    "bible": null
+    "bible": "dasha"
    },
    "chitrangada": {
     "name": "Chitrangada (Kuru king)",
@@ -6511,13 +6511,13 @@
        "refs": [
         {
          "parva": 1,
-         "adhyaya_from": 4,
-         "adhyaya_to": 5,
+         "adhyaya_from": 5,
+         "adhyaya_to": 6,
          "approx": true,
-         "label": "Adi 1.4–5 (approx.)"
+         "label": "Adi 1.5–6 (approx.)"
         }
        ],
-       "synopsis": "Shaunaka asks Sauti for the story of his own ancestors, the Bhrigus. Bhrigu's pregnant wife Puloma is alone when the rakshasa Puloman, to whom she had once been promised, comes for her. He asks the household fire, Agni, whose wife she truly is; Agni, afraid of lying and afraid of the truth, admits she was first promised to the demon. The rakshasa takes the form of a boar and carries her off.",
+       "synopsis": "Shaunaka asks Sauti for the story of his own family, the Bhrigus. Bhrigu's wife Puloma is with child and alone when a rakshasa, Puloman, comes to the hermitage: he had chosen her long before, but her father gave her to Bhrigu. He asks the household fire, Agni, the witness, whose wife she is; Agni, afraid of lying and afraid of the sage's curse, slowly tells him the truth. The rakshasa takes the form of a boar and carries her off.",
        "cliffhanger": "Then the child in her womb fell to the ground, blazing.",
        "characters": [
         "sauti",
@@ -6546,11 +6546,13 @@
         "theme-truth",
         "char-sauti"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "UNCERTAIN: the CE gives no words for Agni's answer (the vulgate adds a speech: chosen by you first, but wedded to Bhrigu by rite); the script says only that the fire told him who she was, which Bhrigu's question and Puloma's reply in 1.6 confirm. The rakshasa's name is on a plaque and not spoken (it differs from Puloma's by one sound). Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
       },
       {
        "id": "S01E042",
@@ -6569,7 +6571,7 @@
          "label": "Adi 1.6"
         }
        ],
-       "synopsis": "The child slips from Puloma's womb (and is named Chyavana, \"the fallen\"), shining like the sun, and the rakshasa burns to ash. Puloma walks home weeping, and her tears become a river, the Vadhusara. Bhrigu learns that Agni betrayed her.",
+       "synopsis": "In anger the child drops from Puloma's womb (and is called Chyavana, \"the fallen\"), shining like the sun; the rakshasa lets her go and burns to ash. Puloma walks home weeping, and her tears become a river, the Vadhusara. Bhrigu asks who made her known to the demon; she answers: the fire.",
        "cliffhanger": "And Bhrigu cursed the fire itself.",
        "characters": [
         "chyavana",
@@ -6593,11 +6595,13 @@
         "theme-demons-and-rakshasas",
         "theme-women-of-the-epic"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "UNCERTAIN: in the CE Brahma sees her and names the river; this is from the scriptwriter's reading and is neither said nor shown. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
       },
       {
        "id": "S01E043",
@@ -6616,8 +6620,8 @@
          "label": "Adi 1.6–7"
         }
        ],
-       "synopsis": "Bhrigu curses Agni to devour everything, pure and impure. Hurt (he had only told the truth), Agni withdraws from the world, and the sacrifices stop. Brahma resolves it: Agni will consume everything, and whatever he consumes will be made pure.",
-       "cliffhanger": "Generations later, a descendant of Bhrigu lost his bride to a snake.",
+       "synopsis": "Bhrigu curses Agni to eat everything. Agni answers that he was asked and told the truth (a lying witness ruins seven generations), and withdraws from every altar and rite; no offering rises and the world suffers. The sages go to the gods and the gods to Brahma, who settles it: Agni will not eat all things with his whole body, and whatever his flames burn will be made pure.",
+       "cliffhanger": "Generations later, one of Bhrigu's line lost his bride to a snake.",
        "characters": [
         "agni",
         "bhrigu",
@@ -6640,11 +6644,13 @@
         "theme-gods",
         "theme-dharma-dilemmas"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "The speeches are condensed paraphrase; \"eat everything\" renders sarvabhaksha. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
       },
       {
        "id": "S01E044",
@@ -6664,7 +6670,7 @@
         }
        ],
        "synopsis": "Pramadvara, daughter of the apsara Menaka and the Gandharva king Vishvavasu, was left at the hermitage of the sage Sthulakesha and raised there. She is betrothed to Ruru, Chyavana's grandson. Days before the wedding she steps on a sleeping snake and dies of its bite.",
-       "cliffhanger": "Ruru went into the forest to grieve, and a messenger of the gods answered him.",
+       "cliffhanger": "Ruru walked into the deep forest and cried out. And a messenger of the gods answered.",
        "characters": [
         "ruru",
         "pramadvara",
@@ -6687,11 +6693,13 @@
         "theme-serpents",
         "theme-death-and-grief"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "Menaka, Vishvavasu, Sthulakesha and Pramati are named on plaques, not in the voice (≤ 2 new names per 10 s). Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
       },
       {
        "id": "S01E045",
@@ -6711,7 +6719,7 @@
         }
        ],
        "synopsis": "Ruru, lamenting, offers whatever merit he has to bring her back. A messenger of the gods tells him there is one way: give her half of his own life. Ruru gives it; Dharma, lord of the dead, agrees, and Pramadvara wakes. They marry. But Ruru swears to kill every snake he meets.",
-       "cliffhanger": "He raised his staff over a harmless snake. And the snake spoke.",
+       "cliffhanger": "One day he raised his staff over an old snake. And the snake spoke.",
        "characters": [
         "ruru",
         "pramadvara",
@@ -6736,11 +6744,13 @@
         "theme-boons",
         "theme-vows"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "The speeches are condensed paraphrase. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
       },
       {
        "id": "S01E046",
@@ -6759,8 +6769,8 @@
          "label": "Adi 1.9–12 (approx.)"
         }
        ],
-       "synopsis": "The old dundubha snake Ruru is about to kill reveals he is the sage Sahasrapat, cursed by a friend he once frightened with a grass snake. Freed by meeting Ruru, he teaches that not harming living beings is a brahmin's highest duty, and tells him to learn how the serpents were saved at Janamejaya's sacrifice. Ruru's father Pramati tells him the story we have just heard.",
-       "cliffhanger": "With the serpents saved, Vyasa rose to speak at Janamejaya's court.",
+       "synopsis": "The old harmless snake (a dundubha) Ruru is about to kill says the snakes that bite are others, and reveals he is the sage Sahasrapat, cursed by a friend he once frightened in play with a snake of grass, until he should meet Ruru. Freed, he teaches that not harming living beings is the highest law, and tells Ruru to hear how the serpents were saved at Janamejaya's sacrifice. Ruru's father Pramati tells him that story. The arc's finale.",
+       "cliffhanger": "Beside that same fire, the Mahabharata was about to be told.",
        "characters": [
         "ruru",
         "sahasrapat",
@@ -6785,11 +6795,13 @@
         "theme-serpents",
         "theme-sages"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "UNCERTAIN: van Buitenen renders dundubha as \"lizard\"; Ganguli and the text's own contrast with \"the snakes that bite\" support a harmless snake; the script says \"an old snake\". The old cliffhanger (\"Vyasa rose to speak at Janamejaya's court\") was wrong on two counts and was replaced: Vyasa comes during the rite, not after the serpents were saved, and he does not tell the story himself. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
       }
      ]
     },
@@ -6889,14 +6901,14 @@
        "refs": [
         {
          "parva": 1,
-         "adhyaya_from": 54,
+         "adhyaya_from": 53,
          "adhyaya_to": 54,
-         "approx": false,
-         "label": "Adi 1.54"
+         "approx": true,
+         "label": "Adi 1.53–54 (approx.)"
         }
        ],
-       "synopsis": "Vyasa, the dark sage born on an island, arrives at Janamejaya's sacrifice with his disciples. The king honours him and asks how the quarrel between the Kurus and the Pandavas began. Vyasa turns to his disciple Vaishampayana: tell him everything, as you heard it from me.",
-       "cliffhanger": "And Vaishampayana began by telling the whole story in one breath.",
+       "synopsis": "In a pause of the snake sacrifice Vyasa, the dark sage born on a river island and grandfather of the war's heroes, arrives with his students. King Janamejaya rises, gives him a golden seat, and asks how the break between the cousins and the great war began. Vyasa does not answer himself: he turns to his student Vaishampayana: tell him everything, as you heard it from me.",
+       "cliffhanger": "And he began by telling the whole story in one breath.",
        "characters": [
         "vyasa",
         "vaishampayana",
@@ -6921,11 +6933,13 @@
         "char-vyasa",
         "char-janamejaya"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "Sauti's \"I was there, I heard it told\" rests on Adi 1.1. The speeches are condensed paraphrase. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
       },
       {
        "id": "S01E048",
@@ -6939,13 +6953,13 @@
         {
          "parva": 1,
          "adhyaya_from": 55,
-         "adhyaya_to": 55,
-         "approx": false,
-         "label": "Adi 1.55"
+         "adhyaya_to": 56,
+         "approx": true,
+         "label": "Adi 1.55–56 (approx.)"
         }
        ],
-       "synopsis": "Vaishampayana's summary of the epic: the cousins raised together, Duryodhana's envy, the poison and the house of lac, Draupadi won, the kingdom split, the game of dice, thirteen years of exile, the war, and the victory. The series' trailer, inside the story.",
-       "cliffhanger": "To understand it, we must go back to a fish, a king and a ferry girl.",
+       "synopsis": "Vaishampayana's summary of the epic: five brothers and a jealous cousin; the poison and the house built to burn; Draupadi won and a kingdom made great; the crooked game of dice; twelve years in the forest and one in hiding; the kingdom refused; the war, and the victory. Janamejaya asks for all of it, and Vaishampayana praises the work: what is here is found elsewhere; what is not here is nowhere. The series' trailer, inside the story.",
+       "cliffhanger": "So he began again: with a king, a fish, and a ferry girl.",
        "characters": [
         "vaishampayana",
         "janamejaya",
@@ -6974,11 +6988,13 @@
         "char-draupadi",
         "char-krishna"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "UNCERTAIN: the order and wording of 1.55 and the \"three years\" of 1.56 (a plaque) are from the scriptwriter's reading of the CE; the vulgate's summary is longer. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
       },
       {
        "id": "S01E049",
@@ -7023,11 +7039,13 @@
         "theme-animals-and-birds",
         "char-satyavati"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "UNCERTAIN: whose curse made the apsara Adrika a fish is left unsaid. Indra, Girika, Adrika and Matsya are named on plaques, not in the voice. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
       },
       {
        "id": "S01E050",
@@ -7046,8 +7064,8 @@
          "label": "Adi 1.57"
         }
        ],
-       "synopsis": "The sage Parashara, crossing the Yamuna in Satyavati's boat, desires her. She sets conditions: a mist hides them, her virginity is restored, and her fish-smell turns to a fragrance carried for miles. Their son is born on an island in the river and grows up at once: Krishna Dvaipayana, Vyasa. He goes to the forest, promising to come whenever his mother thinks of him.",
-       "cliffhanger": "That promise would one day save the Kuru line.",
+       "synopsis": "The sage Parashara, crossing the river in Satyavati's ferry, desires her. She says sages are watching from both banks; he raises a mist. She says she is a maiden; he promises she will remain one and offers a gift: her fish-smell becomes a fragrance. That day, on a river island, she bears a son who grows at once: Dvaipayana, the island-born: Vyasa. He goes to the forest, promising to come whenever his mother thinks of him.",
+       "cliffhanger": "His poem is full of gods born as men. Why did they come down?",
        "characters": [
         "parashara",
         "satyavati",
@@ -7075,11 +7093,13 @@
         "char-satyavati",
         "char-vyasa"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "The promise is a long plant (paid off in the Kuru line arc, Adi 1.99), so it is not the cliffhanger: the last line hands on to episode 51 (why gods were born on earth). \"Grew at once\" is from 1.54. The union is not shown. Checked on 11 Nov 2026 against web-search summaries of the Ganguli (vulgate) chapters only: the CE text hosts could not be opened; CE wording is from the scriptwriter's reading of the CE and van Buitenen."
       },
       {
        "id": "S01E051",

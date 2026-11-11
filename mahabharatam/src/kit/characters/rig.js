@@ -264,9 +264,9 @@
     const dx = -Math.cos(L.dir) * w, dy = -Math.sin(L.dir) * w;
     let fill = R.mix(rule.fill, rule.lit || rule.fill, clamp(L.front * k * (rule.litGain ?? 1) + L.fill * 0.6));
     let rim = R.mix(rule.rim[0], rule.rim[1], clamp(k));
-    if (L.tint) rim = R.mix(rim, L.tint[0], clamp(L.tint[1] ?? 0.5));
-    if (L.bounce) fill = R.mix(fill, L.bounce[0], clamp(L.bounce[1] ?? 0.25));
-    if (L.minLum > 0) { for (let q = 0; q < 6 && lum(fill) < L.minLum; q++) fill = R.mix(fill, q < 3 ? (rule.lit || rule.fill) : '#f4e4c4', 0.35); }
+    if (L.tint) rim = KIT.hex(rim, L.tint[0], L.tint[1] ?? 0.5);
+    if (L.bounce) fill = KIT.hex(fill, L.bounce[0], L.bounce[1] ?? 0.25);
+    if (L.minLum > 0) { for (let q = 0; q < 6 && lum(fill) < L.minLum; q++) fill = KIT.hex(fill, q < 3 ? (rule.lit || rule.fill) : '#f4e4c4', 0.35); }
     const key = `ch-${def.id}${opts.key ? '-' + opts.key : ''}`;
     const probeBg = R.probe && R.probe.figures ? probeBox(ctx, x0, y0, bw, bh) : null;
     const buf = R.buffer(key, bw, bh);
@@ -335,7 +335,7 @@
     return P;
   }
   // ── the gate's figure probe (tools/gate.mjs --frames, ep ≥ 41): mean colour of the figure and of the ground in its box ──
-  const lum = (hex) => { const [r, g, b] = R.hexToRgb(hex); return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255; };
+  const lum = (hex) => { const [r, g, b] = KIT.rgb(hex); return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255; };
   function probeBox(ctx, x0, y0, bw, bh) {
     try {
       const tf = ctx.getTransform(), c = ctx.canvas;

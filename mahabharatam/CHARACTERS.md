@@ -943,6 +943,50 @@ cloud-sea** and **a white-gold sky** for Vishnu's banner (`EP28`); **a silver no
 the storm with a rainbow** (`EP29`); **Ramaniyaka at dawn**, pink and misted, with the **kusha grass at ground level** (`EP30`).
 
 
+## Episodes 41–50 · the acting figures (`actor.js`, `bhrigu-arc.js`) and the creatures (`creatures.js`)
+
+From episode 41 new characters are **acting figures**: one profile body whose pose is always a blend of key poses (`KIT.act.pose`: anticipation,
+action, follow-through), that blinks and breathes, whose eye looks where the scene says, whose hair, beard and cloth arrive late, and whose face
+is drawn to be read in a close-up (`expression.emo`: calm, tender, joy, wonder, fear, shock, plead, sorrow, wrath, resolve, weary). They are
+painted inside the silhouette (skin, hair, cloth), each colour mixed from the dark toward its lit tone by the light, with the rim kept on the lit
+side. Key poses: stand, attend, anjali, speak, point, bless, recoil, shield, reach, offer, grieve, kneel, sit, carry, curse, raise, strike,
+collapse, bow, embrace, row, walk, run. None keeps a hand on the hip.
+
+Each has one signature (two colours, one ornament, one silhouette trait) that does not change. Test stills: `lab/kit41/cast-*.png`.
+
+| id | Who (CE) | Signature | Voice |
+|---|---|---|---|
+| `bhrigu` | Bhrigu, the great sage (1.5–7) | saffron bark, long white beard, the high double jata, a water-pot | bhrigu (am_fenrir −1.5) |
+| `puloma` | Puloma, his wife, with child (1.5–6) | indigo sari with a gold border (never the green of her own hermitage), a low bun with a flower, a hand near the child | puloma (af_sarah) |
+| `puloman` | Puloman, the rakshasa (1.5–6) | storm-slate skin, a wild mane, tusks and horns, a tawny pelt, a red eye | puloman (am_onyx −3.5) |
+| `chyavanaChild` | Chyavana, new-born (1.6) | white-gold, curls, an aura | none |
+| `pramati` | Pramati, Ruru's father (1.8, 1.12) | teal cloth, an ivory shawl, a short black beard | none |
+| `ruru` | Ruru (1.8–12) | white dhoti with a lapis border, the thread, a staff | ruru (am_liam +1) |
+| `pramadvara` | Pramadvara (1.8–9) | a rose sari, long loose hair with flowers | none |
+| `sthulakesha` | Sthulakesha, her foster father (1.8) | olive bark, a great grey jata | none |
+| `menaka` | Menaka the apsara (1.8) | pearl-aqua, a diadem, an aura, fading at the feet | none |
+| `vishvavasu` | Vishvavasu, king of the gandharvas (1.8–9) | crimson and silver, a crown | none |
+| `devaduta` | the messenger of the gods (1.9) | silver-white, luminous, fading at the feet | devaduta (am_echo +2) |
+| `dharma` | Dharmaraja, lord of the dead (1.9) | deep green skin, copper-red cloth, a crown, the staff | dharma (am_santa −3) |
+| `sahasrapat` | Sahasrapat, the sage who was a snake (1.10–12) | aqua-white, a long white beard | sahasrapat (bm_lewis +1) |
+| `khagama` | Khagama, his friend (1.11) | ochre, a top-knot | none |
+| `uparichara` | Uparichara Vasu, king of Chedi (1.57) | royal blue and gold, a tall crown, Indra's garland | none |
+| `girika` | Girika, his queen (1.57) | a crimson sari, a jewelled bun | none |
+| `dasha` | the chief of the fishermen (1.57) | dark, short curls, an indigo loincloth, an oar | none |
+| `satyavati` | Satyavati, the ferry girl (1.57) | dusky, a river-teal sari, an oar | satyavati (bf_emma +0.5) |
+| `parashara` | Parashara (1.57) | rust cloth, a black beard, a staff | parashara (bm_lewis −1) |
+| `vyasaChild` | Krishna Dvaipayana as a child (1.57) | a dark boy in bark cloth with a gold aura | vyasa |
+| `vyasaSage`, `vaishampayanaSage`, `kingJanamejaya` | the frame of episodes 47–50 as acting figures, in the bible colours of `vyasa`, `vaishampayana`, `janamejaya` (which keep episodes 1–40) | blue-black skin and a gold halo · dawn-rose · saffron and gold | vyasa · vaishampayana (now bm_daniel +1: changed before first use, it was Sauti's voice) · janamejaya |
+| `kuruPrince`, `panchali` | provisional panel figures for the one-breath summary (1.55) | provisional | none |
+
+Creatures (`creatures.js`): `boar` (Puloman as a boar, 1.6: storm-slate, a ridge of bristles, tusks, a red eye), `dundubha` (the old harmless snake,
+1.9–11: drab with a pale belly, a mild eye that blinks; `rise` 0…1), `viper` (the snake that bit Pramadvara, 1.8), `hawk` (1.57; `packet`: the leaf),
+`fish` (the cursed apsara Adrika, 1.57: silver, a pearl glow), and `hearthfire`: **Agni as the witness**, the household fire with a face (1.5–7),
+which is not rim-lit because it is the light; `k` 0 = withdrawn … 1.4, `pure` 0…1 turns the flames clear gold-white. Episode 19's `agni` (a deva's
+body) is a different drawing of the same god in a different role; the voice is the same.
+
+Known weak points (see REVIEW_LOG.md): spiky flames, a flat boar, mitten hands, stiff knees.
+
 ## Narrator · `narrator`
 
 **Voice:** am_michael, 0.81× (was 0.9×), pitch 0 (median F0 ≈ 129 Hz). This is episode 1's voice. The narrator has

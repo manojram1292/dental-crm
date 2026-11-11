@@ -1,0 +1,389 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 41,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Pauloma sub-parva, adhyayas 5–6 (opening): Shaunaka asks Sauti to tell the Bhargava line first (1.5.1–3); Bhrigu's wife Puloma is with child; while Bhrigu is away at his ablutions the rakshasa Puloman comes to the hermitage, is received as a guest, and burns with desire for her: he had chosen her first, but her father gave her to Bhrigu by rite; he asks the household fire, Agni, the witness, whose wife she is; Agni, afraid of a lie and afraid of Bhrigu's curse, answers slowly (the CE gives no words for the answer; the vulgate adds a speech, which we do not use); the rakshasa takes a boar's form and carries her off with the speed of mind and wind (1.6.1); the child falls from her womb (1.6.2, the cliffhanger). REORDERED: in the CE the Pauloma parva stands before the Astika parva (catalog reorder note). The rakshasa's name, Puloman, is shown on his plaque and not spoken (it differs from Puloma's by one sound). Checked this session against search summaries of the Ganguli (vulgate) chapters only; the CE wording is from the writer's reading of the CE and van Buitenen and could not be re-opened (hosts blocked).",
+  "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
+  "hookStyle": "speech",
+  "names": {
+    "Sauti": "the storyteller",
+    "Shaunaka": "chief of the forest sages",
+    "Bhrigu": "a great sage",
+    "Puloma": "wife of the sage Bhrigu",
+    "Agni": "the fire, witness of every rite",
+    "Puloman": "a rakshasa"
+  },
+  "loop": {
+    "hookQuestion": "Whose wife is this, and will the fire say so?",
+    "answeredBy": "truth",
+    "prevQuestion": "",
+    "prevAnsweredBy": "ask",
+    "openQuestion": "What can an unborn child do against a demon?"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 41",
+    "episodeTitle": "The Bride and the Demon",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 40",
+    "prevEpisodeTitle": "The Sacrifice Stops",
+    "recapLine": "A boy stopped a king's sacrifice. Now Shaunaka asks for his own family's story.",
+    "nextEpisodeLabel": "Episode 42",
+    "nextTitle": "The Child Who Fell",
+    "sourceLine": "Adi Parva 1.5–6 · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "puloman",
+      "speed": 1.1,
+      "text": "\"Fire! Whose wife is this?\"",
+      "say": "Fire! [p:100] Whose wife is this?",
+      "est": 3.91,
+      "pre": 60,
+      "post": 1100,
+      "role": "hook",
+      "caption": false,
+      "beats": [
+        0,
+        4
+      ],
+      "hookGold": [
+        "Fire!",
+        "wife"
+      ],
+      "amb": "hearth",
+      "music": "dread",
+      "foley": [
+        "flame",
+        "step@0"
+      ],
+      "pal": "hearth-amber",
+      "cam": "push",
+      "note": "COLD OPEN (direct speech in medias res): inside the hut, the rakshasa (back-lit by the household fire, the new rim-and-fill rule) leans over the fire; the fire has a face; Puloma, large and lit, behind. The question as a card low in the frame, not at the top (a new first frame for the series).",
+      "estVoice": 2.75
+    },
+    {
+      "id": "ask",
+      "speaker": "elder_sage",
+      "speed": 1.0,
+      "text": "\"Sauti, tell me of my own family.\"",
+      "say": "Sauti, [p:120] tell me of my own family.",
+      "est": 3.55,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        6
+      ],
+      "amb": "night-fire",
+      "ambLead": 300,
+      "music": "still",
+      "foley": [
+        "cloth"
+      ],
+      "pal": "naimisha-bluehour",
+      "cam": "slide",
+      "tr": "smoke",
+      "mixDb": -3,
+      "note": "FRAME with the unvoiced recap band (top): the Naimisha fire at the blue hour; Shaunaka (plaque: Shaunaka · chief of the forest sages) turns to Sauti. A J-cut: the night fire is heard before the picture. Pays off episode 40's last line by 5 s.",
+      "estVoice": 3.0
+    },
+    {
+      "id": "begin",
+      "speaker": "sauti",
+      "speed": 1.0,
+      "text": "Your line begins with the sage Bhrigu and his wife, Puloma.",
+      "say": "Your line begins [p:80] with the sage Bhrigu [p:100] and his wife, Puloma.",
+      "est": 5.97,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Bhrigu",
+        "Puloma"
+      ],
+      "beats": [
+        5,
+        10
+      ],
+      "foley": [
+        "staff@0"
+      ],
+      "pal": "naimisha-bluehour",
+      "cam": "push",
+      "note": "FRAME: Sauti answers; in the smoke over the fire two figures form: a tall sage and a woman with child (plaques: Bhrigu · a great sage; Puloma · his wife).",
+      "estVoice": 5.42
+    },
+    {
+      "id": "alone",
+      "speed": 1.04,
+      "text": "Puloma was with child. One morning, Bhrigu went to bathe.",
+      "say": "Puloma was with child. [p:200] One morning, [p:80] Bhrigu went to bathe.",
+      "est": 5.08,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Puloma",
+        "Bhrigu"
+      ],
+      "beats": [
+        0,
+        9
+      ],
+      "amb": "forest-day",
+      "music": "calm",
+      "foley": [
+        "birds",
+        "steps@1"
+      ],
+      "pal": "hermitage-green",
+      "cam": "crane",
+      "tr": "ink",
+      "note": "STORY 1 · NEW LIGHT, the hermitage at morning (hermitage-green; five planes: sky, hills, tree line, the hut, foreground trunks; shafts and pollen). Puloma at the door, a hand on her belly; Bhrigu walks away toward the river with his water-pot. A crane down from the canopy.",
+      "estVoice": 4.53
+    },
+    {
+      "id": "came",
+      "speed": 1.04,
+      "text": "A rakshasa came: a demon who had chosen her long before.",
+      "say": "A rakshasa came: [p:200] a demon who had chosen her [p:60] long before.",
+      "est": 4.7,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        4
+      ],
+      "foley": [
+        "steps",
+        "rustle@0"
+      ],
+      "music": "dread",
+      "pal": "hermitage-green",
+      "cam": "rack",
+      "note": "STORY 2: a rack focus from Puloma (near, lit) to the broad horned figure coming through the trees (plaque: Puloman · a rakshasa). She offers him fruit as a guest (the text has it).",
+      "estVoice": 4.15
+    },
+    {
+      "id": "given",
+      "speed": 1.04,
+      "text": "But her father had given her to Bhrigu.",
+      "say": "But her father [p:60] had given her to Bhrigu.",
+      "est": 3.35,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        7
+      ],
+      "amb": "hearth",
+      "ambLead": 250,
+      "foley": [
+        "flame",
+        "cloth@0"
+      ],
+      "pal": "hearth-amber",
+      "cam": "slide",
+      "tr": "lamp",
+      "mixDb": -2,
+      "note": "STORY 3 · NEW LIGHT, inside the hut by the household fire (hearth-amber): a lamp-glow match cut from the sun to the fire. A small memory in the smoke: the marriage rite, hands joined over a fire.",
+      "estVoice": 2.8
+    },
+    {
+      "id": "fire",
+      "speed": 1.04,
+      "text": "He turned to the household fire: Agni, the witness.",
+      "say": "He turned to the household fire: [p:200] Agni, [p:80] the witness.",
+      "est": 5.42,
+      "pre": 900,
+      "post": 350,
+      "rest": true,
+      "sfx": [
+        "silence"
+      ],
+      "emphasis": [
+        "Agni"
+      ],
+      "beats": [
+        5,
+        6
+      ],
+      "foley": [
+        "flame@0",
+        "step"
+      ],
+      "pal": "hearth-amber",
+      "cam": "push",
+      "note": "STORY 4 · THE TURN (≈ 47 %) after a real silence: a demon asks the truth of a witness. The fire's face opens its eyes (plaque: Agni · the fire, witness of every rite). The rakshasa back-lit, readable (rim on both sides, a cool fill).",
+      "estVoice": 4.17
+    },
+    {
+      "id": "press",
+      "speaker": "puloman",
+      "speed": 1.0,
+      "text": "\"You are the mouth of the gods. Speak the truth.\"",
+      "say": "You are the mouth of the gods. [p:250] Speak the truth.",
+      "est": 5.0,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        9
+      ],
+      "foley": [
+        "flame",
+        "breath@1"
+      ],
+      "pal": "hermitage-green",
+      "cam": "push",
+      "closeup": true,
+      "tr": "brush",
+      "note": "STORY 5 · THE CLOSE-UP: Puloma's face in the doorway's green daylight as she hears him: calm to fear (brow, eyelid, a glance to the fire). The demon's voice over her face.",
+      "estVoice": 4.45
+    },
+    {
+      "id": "fear",
+      "speed": 1.04,
+      "text": "Agni feared to lie. He feared the sage's curse.",
+      "say": "Agni feared to lie. [p:250] He feared the sage's curse.",
+      "est": 4.21,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Agni"
+      ],
+      "beats": [
+        3,
+        8
+      ],
+      "foley": [
+        "flame"
+      ],
+      "music": "still",
+      "pal": "hearth-amber",
+      "cam": "tilt",
+      "mixDb": -4,
+      "note": "STORY 6: the fire's face, troubled: the flames sink and waver; a tilt down from the smoke to the face.",
+      "estVoice": 3.66
+    },
+    {
+      "id": "truth",
+      "speed": 1.04,
+      "text": "Slowly, softly, the fire told him who she was.",
+      "say": "Slowly, [p:200] softly, [p:200] the fire told him who she was.",
+      "est": 5.37,
+      "pre": 900,
+      "post": 450,
+      "beats": [
+        4,
+        8
+      ],
+      "rest": true,
+      "sfx": [
+        "silence"
+      ],
+      "foley": [
+        "flame@0",
+        "breath"
+      ],
+      "music": "still",
+      "pal": "hearth-amber",
+      "cam": "frame",
+      "signature": true,
+      "mixDb": -3,
+      "note": "STORY 7 (a second real silence before it) · THE SIGNATURE SHOT: frame-within-frame, the three of them seen through the hut's dark doorway; the fire's mouth opens; the word of the turn: TRUTH. cam: frame.",
+      "estVoice": 4.02
+    },
+    {
+      "id": "boar",
+      "speed": 1.04,
+      "text": "The demon became a boar, seized her, and ran like the wind.",
+      "say": "The demon became a boar, [p:100] seized her, [p:100] and ran like the wind.",
+      "est": 5.04,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        6,
+        11
+      ],
+      "amb": "storm",
+      "ambLead": 200,
+      "music": "chase",
+      "foley": [
+        "hooves",
+        "growl@0",
+        "whoosh@1"
+      ],
+      "pal": "boar-dusk",
+      "cam": "orbit",
+      "tr": "smoke",
+      "mixDb": 1,
+      "note": "STORY 8 · NEW LIGHT, a bruised dusk (boar-dusk): a smoke carry out of the hut; the great boar runs with her across the frame, trunks passing in the foreground (parallax), leaves in the wind.",
+      "estVoice": 4.49
+    },
+    {
+      "id": "cliff",
+      "speed": 1.04,
+      "text": "Then the child in her womb fell to the ground, blazing.",
+      "say": "Then the child in her womb [p:100] fell to the ground, [p:250] blazing.",
+      "est": 4.84,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        2,
+        9
+      ],
+      "role": "next",
+      "foley": [
+        "thud@0",
+        "flame@1"
+      ],
+      "sfx": [
+        "bell-low@1"
+      ],
+      "music": "awe",
+      "pal": "boar-dusk",
+      "cam": "pull",
+      "note": "NEXT 1 (the catalog's cliffhanger): a white-gold light bursts under the boar; it rears. A pull back. The source line appears (top).",
+      "estVoice": 4.19
+    },
+    {
+      "id": "next",
+      "text": "Next: The Child Who Fell",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "cam": "push",
+      "note": "The NEXT › band over the cliffhanger image, with the source line; dissolve into frame 1."
+    }
+  ]
+}

@@ -1,0 +1,373 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 49,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Adivamshavatarana sub-parva, adhyaya 57 (first part): King Uparichara Vasu of Chedi, friend of Indra, who gives him a crystal sky-going chariot, an unfading garland and a bamboo pole; one day in spring, sent hunting by his ancestors on the day of his queen Girika's season, he thinks of her and his seed falls; he catches it on a leaf, consecrates it and gives it to a hawk to carry to her; another hawk attacks it, taking the leaf for meat, and the seed falls into the Yamuna, where a fish swallows it: Adrika, an apsara turned into a fish by a curse; in the tenth month fishermen catch her and find a boy and a girl in her; the king takes the boy (later King Matsya); the apsara, freed by bearing two human children, returns to heaven; the girl, who smells of fish, the king gives to the fisherman; she is Satyavati, and to serve her father she plies a boat on the river. The names Indra, Girika, Adrika and Matsya are on plaques, not spoken. UNCERTAIN: whose curse made Adrika a fish (the writer reads Brahma's in the CE; left unsaid). The words \"his seed\" are the text's own and are said once, plainly.",
+  "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
+  "hookStyle": "question",
+  "names": {
+    "Uparichara": "king of Chedi",
+    "Yamuna": "the river",
+    "Satyavati": "the fishermen's daughter",
+    "Indra": "king of the gods",
+    "Girika": "his queen",
+    "Adrika": "an apsara under a curse",
+    "Matsya": "the boy, later a king"
+  },
+  "loop": {
+    "hookQuestion": "Why was a girl found inside a fish?",
+    "answeredBy": "found",
+    "prevQuestion": "Why does the full story begin with a king, a fish and a ferry girl?",
+    "prevAnsweredBy": "king",
+    "openQuestion": "Who stepped into Satyavati's boat?"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 49",
+    "episodeTitle": "The King, the Fish and the Ferry Girl",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 48",
+    "prevEpisodeTitle": "The Whole Story in One Breath",
+    "recapLine": "To tell the whole Mahabharata, the teller went back to its beginning.",
+    "nextEpisodeLabel": "Episode 50",
+    "nextTitle": "Born on an Island",
+    "sourceLine": "Adi Parva 1.57 · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.1,
+      "text": "Why was a girl found inside a fish?",
+      "say": "Why was a girl [p:80] found inside a fish?",
+      "est": 3.66,
+      "pre": 60,
+      "post": 1100,
+      "role": "hook",
+      "caption": false,
+      "beats": [
+        3,
+        7
+      ],
+      "hookGold": [
+        "girl",
+        "fish?"
+      ],
+      "amb": "river",
+      "music": "wonder",
+      "foley": [
+        "water",
+        "splash@0"
+      ],
+      "pal": "yamuna-deep",
+      "cam": "tilt",
+      "note": "COLD OPEN (a question card over the image): under the river's surface, a great silver fish turning in a shaft of light, a pearl glow in her side; a net coming down from above. The card in the upper water.",
+      "estVoice": 2.5
+    },
+    {
+      "id": "king",
+      "speed": 1.0,
+      "text": "It begins with a king, Uparichara, who rode a crystal chariot through the sky.",
+      "say": "It begins with a king, [p:100] Uparichara, [p:100] who rode a crystal chariot [p:60] through the sky.",
+      "est": 6.29,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Uparichara,"
+      ],
+      "beats": [
+        5,
+        10
+      ],
+      "amb": "sky",
+      "ambLead": 250,
+      "music": "awe",
+      "foley": [
+        "whoosh",
+        "anklet@1"
+      ],
+      "pal": "crystal-sky",
+      "cam": "orbit",
+      "tr": "lamp",
+      "note": "STORY 0 with the unvoiced recap band (top) · NEW LIGHT (crystal-sky): a lamp-glow match cut from the pearl to the sun: a chariot like cut glass crossing bright cloud, the king in royal blue and gold (plaques: Uparichara · king of Chedi; small: a gift of Indra). Pays off episode 48's last line by 5 s.",
+      "estVoice": 5.74
+    },
+    {
+      "id": "longed",
+      "speed": 1.0,
+      "text": "Out hunting, he longed for his queen.",
+      "say": "Out hunting, [p:120] he longed for his queen.",
+      "est": 3.64,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        6
+      ],
+      "amb": "forest-day",
+      "music": "tender",
+      "foley": [
+        "birds",
+        "leaf@0"
+      ],
+      "pal": "hunt-emerald",
+      "cam": "push",
+      "closeup": true,
+      "tr": "brush",
+      "mixDb": -3,
+      "note": "STORY 1 · NEW LIGHT, the forest in spring (hunt-emerald, petals) · THE CLOSE-UP: the king's face under blossom: the hunter's set brow softens (resolve to tenderness), his eyes go far; in the petals, the faint shape of the queen (plaque: Girika · his queen).",
+      "estVoice": 3.09
+    },
+    {
+      "id": "leaf",
+      "speed": 1.0,
+      "text": "He sealed his seed in a leaf, and sent it home with a hawk.",
+      "say": "He sealed his seed in a leaf, [p:150] and sent it home [p:60] with a hawk.",
+      "est": 4.89,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        6,
+        12
+      ],
+      "foley": [
+        "leaf@0",
+        "wings@1"
+      ],
+      "music": "calm",
+      "pal": "hunt-emerald",
+      "cam": "crane",
+      "note": "STORY 2: his two hands fold a broad leaf into a packet and tie it (hands and leaf only); a hawk on his wrist takes it; a crane up with the hawk through the canopy into the open.",
+      "estVoice": 4.34
+    },
+    {
+      "id": "fell",
+      "speed": 1.0,
+      "text": "Over the river Yamuna, a rival hawk struck. The leaf fell.",
+      "say": "Over the river Yamuna, [p:100] a rival hawk struck. [p:350] The leaf fell.",
+      "est": 5.41,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Yamuna,"
+      ],
+      "beats": [
+        3,
+        7,
+        10
+      ],
+      "amb": "sky",
+      "music": "chase",
+      "foley": [
+        "wings",
+        "whoosh@1",
+        "splash@2"
+      ],
+      "pal": "crystal-sky",
+      "cam": "tilt",
+      "mixDb": 1,
+      "note": "STORY 3: two hawks tumbling against the bright sky; the green packet drops; a tilt down with it, cloud, air, the river's blue surface coming up (plaque: Yamuna · the river).",
+      "estVoice": 4.86
+    },
+    {
+      "id": "fish",
+      "speed": 1.0,
+      "text": "A fish swallowed it: an apsara, a nymph of heaven, under a curse.",
+      "say": "A fish swallowed it: [p:200] an apsara, [p:60] a nymph of heaven, [p:100] under a curse.",
+      "est": 5.9,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        5,
+        12
+      ],
+      "amb": "river",
+      "music": "wonder",
+      "foley": [
+        "water",
+        "drip@0"
+      ],
+      "pal": "yamuna-deep",
+      "cam": "rack",
+      "signature": true,
+      "tr": "smoke",
+      "note": "STORY 4 · THE SIGNATURE SHOT: under water: the focus racks from drifting weed in the foreground to the great silver fish rising to the sinking leaf; as she turns, for a moment her shadow on the river bed is a woman's with a diadem (plaque: Adrika · an apsara under a curse).",
+      "estVoice": 5.35
+    },
+    {
+      "id": "found",
+      "speed": 1.0,
+      "text": "Ten months later, fishermen opened that fish, and found two children.",
+      "say": "Ten months later, [p:100] fishermen opened that fish, [p:250] and found two children.",
+      "est": 6.71,
+      "pre": 900,
+      "post": 450,
+      "beats": [
+        1,
+        5,
+        10
+      ],
+      "rest": true,
+      "sfx": [
+        "silence",
+        "bell@2"
+      ],
+      "amb": "shore",
+      "foley": [
+        "oar@0",
+        "water",
+        "breath@2"
+      ],
+      "music": "still",
+      "pal": "fishers-coral",
+      "cam": "push",
+      "note": "STORY 5 · THE TURN (≈ 50 %) after a real silence · NEW LIGHT, the fishers' shore at dusk (fishers-coral): nets, boats; the fisher chief kneeling, his face lit from below by a soft light in the basket before him: weary to wonder; two small bright heads. Answers the hook. (No knife, no wound: the light opens.)",
+      "estVoice": 5.36
+    },
+    {
+      "id": "boy",
+      "speed": 1.0,
+      "text": "The king kept the boy. The apsara, freed, rose to heaven.",
+      "say": "The king kept the boy. [p:300] The apsara, [p:60] freed, [p:60] rose to heaven.",
+      "est": 5.57,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        6,
+        9
+      ],
+      "amb": "heaven",
+      "ambLead": 200,
+      "music": "joy",
+      "foley": [
+        "cloth@0",
+        "whoosh@1",
+        "anklet"
+      ],
+      "pal": "riverbank-pearl",
+      "cam": "tilt",
+      "tr": "lamp",
+      "note": "STORY 6: the king lifts a boy (plaque: Matsya · the boy, later a king); a tilt up from them through pearl mist: the fish's silver skin falls back into the water and a luminous woman rises, not touching the ground.",
+      "estVoice": 5.02
+    },
+    {
+      "id": "girl",
+      "speed": 1.0,
+      "text": "The girl smelled of fish. He gave her to the fishermen's chief.",
+      "say": "The girl smelled of fish. [p:300] He gave her [p:60] to the fishermen's chief.",
+      "est": 5.29,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        4,
+        10
+      ],
+      "amb": "shore",
+      "foley": [
+        "water",
+        "cloth@1"
+      ],
+      "music": "tender",
+      "pal": "fishers-coral",
+      "cam": "slide",
+      "mixDb": -3,
+      "note": "STORY 7: the fisher chief receives the small girl in both arms (offer, then carry: an eased blend) and turns away with her along the shore, past the hanging nets; a lateral track.",
+      "estVoice": 4.74
+    },
+    {
+      "id": "name",
+      "speed": 1.0,
+      "text": "Her name was Satyavati.",
+      "say": "Her name [p:60] was Satyavati.",
+      "est": 3.28,
+      "pre": 800,
+      "post": 450,
+      "rest": true,
+      "emphasis": [
+        "Satyavati."
+      ],
+      "beats": [
+        1,
+        3
+      ],
+      "foley": [
+        "oar@0"
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "pal": "fishers-coral",
+      "cam": "orbit",
+      "mixDb": -2,
+      "note": "STORY 8 (a second real silence before it): years in one orbit: the child, a girl, a young woman with an oar, standing in the stern of a boat (plaque: Satyavati · the fishermen's daughter).",
+      "estVoice": 2.03
+    },
+    {
+      "id": "cliff",
+      "speed": 1.0,
+      "text": "She grew up rowing a ferry, until a great sage stepped into her boat.",
+      "say": "She grew up rowing a ferry, [p:200] until a great sage [p:80] stepped into her boat.",
+      "est": 5.64,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        5,
+        9,
+        13
+      ],
+      "role": "next",
+      "amb": "river",
+      "ambLead": 250,
+      "music": "still",
+      "foley": [
+        "oar",
+        "steps@2",
+        "creak@2"
+      ],
+      "pal": "mist-lavender",
+      "cam": "pull",
+      "tr": "smoke",
+      "note": "NEXT 1 (the catalog's cliffhanger): the river in lavender mist: her boat at the bank; a foot in a wooden sandal comes down on the gunwale, a staff beside it; the boat dips. The source line (top).",
+      "estVoice": 4.99
+    },
+    {
+      "id": "next",
+      "text": "Next: Born on an Island",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "cam": "push",
+      "note": "The NEXT › band over the cliffhanger image, with the source line; dissolve into frame 1."
+    }
+  ]
+}

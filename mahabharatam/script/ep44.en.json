@@ -1,0 +1,411 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 44,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Pauloma sub-parva, adhyaya 8: Chyavana's son Pramati, Pramati's son Ruru; the apsara Menaka bears a daughter to the gandharva king Vishvavasu and leaves the new-born on a river bank near the hermitage of the sage Sthulakesha, who finds her shining there, raises her and names her Pramadvara because she surpasses all women; Ruru sees her and loves her; through his friends his father Pramati asks Sthulakesha for her, and the wedding day is set; a few days before it, playing with her friends, she does not see a sleeping snake and steps on it; it bites her and she falls dead; the sages gather and weep; Ruru goes out in grief (1.9 opens with his cry in the deep forest and the messenger of the gods). The names Menaka, Vishvavasu, Sthulakesha and Pramati are on plaques, not spoken (≤ 2 new names per 10 s).",
+  "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
+  "hookStyle": "fragments",
+  "names": {
+    "Ruru": "a young sage of Bhrigu's line",
+    "Bhrigu": "a great sage",
+    "Pramadvara": "\"the finest of women\"",
+    "Menaka": "an apsara",
+    "Sthulakesha": "the sage who raised her",
+    "Pramati": "Ruru's father"
+  },
+  "loop": {
+    "hookQuestion": "What happened to the bride?",
+    "answeredBy": "bit",
+    "prevQuestion": "How did one of Bhrigu's line lose his bride to a snake?",
+    "prevAnsweredBy": "family",
+    "openQuestion": "What did the messenger of the gods tell Ruru?"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 44",
+    "episodeTitle": "Ruru and Pramadvara",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 43",
+    "prevEpisodeTitle": "The Curse on Fire",
+    "recapLine": "A sage's curse made fire eat everything. This is his great-grandson's story.",
+    "nextEpisodeLabel": "Episode 45",
+    "nextTitle": "Half a Life",
+    "sourceLine": "Adi Parva 1.8 · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.12,
+      "text": "A bride. A snake. A wedding.",
+      "say": "A bride. A snake. A wedding.",
+      "est": 3.7,
+      "pre": 60,
+      "post": 1000,
+      "role": "hook",
+      "caption": false,
+      "beats": [
+        1,
+        3,
+        5
+      ],
+      "hookGold": [
+        "bride.",
+        "snake."
+      ],
+      "amb": "thicket",
+      "music": "dread",
+      "foley": [
+        "anklet@0",
+        "hiss@1"
+      ],
+      "pal": "venom-violet",
+      "cam": "rack",
+      "note": "COLD OPEN (three fragments, each landing on its own image inside one moving shot): an anklet stepping through violet grass; a banded snake asleep across the path; a garland half made. The card builds word by word, centre-left.",
+      "estVoice": 2.64
+    },
+    {
+      "id": "family",
+      "speed": 1.0,
+      "text": "Ruru was a young sage of Bhrigu's line.",
+      "say": "Ruru was a young sage [p:80] of Bhrigu's line.",
+      "est": 3.4,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Ruru"
+      ],
+      "beats": [
+        0,
+        6
+      ],
+      "amb": "forest-day",
+      "music": "calm",
+      "foley": [
+        "steps",
+        "staff@0"
+      ],
+      "pal": "hermitage-green",
+      "cam": "slide",
+      "tr": "brush",
+      "note": "STORY 0 with the unvoiced recap band (top): Ruru walking through a hermitage wood with his staff (plaque: Ruru · a young sage of Bhrigu's line). Pays off episode 43's last line by 5 s.",
+      "estVoice": 2.85
+    },
+    {
+      "id": "left",
+      "speed": 1.0,
+      "text": "By a river, an apsara, a nymph of heaven, left her newborn daughter.",
+      "say": "By a river, [p:80] an apsara, [p:60] a nymph of heaven, [p:100] left her newborn daughter.",
+      "est": 5.95,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        11
+      ],
+      "amb": "river",
+      "ambLead": 250,
+      "music": "tender",
+      "foley": [
+        "water",
+        "cloth@0"
+      ],
+      "pal": "riverbank-pearl",
+      "cam": "tilt",
+      "tr": "lamp",
+      "mixDb": -3,
+      "note": "STORY 1 · NEW LIGHT, the river bank in pearl mist (riverbank-pearl): a luminous woman lays a bundle among the reeds and rises, not quite touching the ground (plaque: Menaka · an apsara); a tilt from her down to the child.",
+      "estVoice": 5.4
+    },
+    {
+      "id": "found",
+      "speed": 1.0,
+      "text": "A sage found her and raised her as his own.",
+      "say": "A sage found her [p:100] and raised her as his own.",
+      "est": 3.67,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        5
+      ],
+      "foley": [
+        "steps@0",
+        "cloth@1"
+      ],
+      "pal": "riverbank-pearl",
+      "cam": "push",
+      "note": "STORY 2: an old sage with a great mass of matted hair kneels in the reeds (kneel, then carry: an eased blend) and lifts the shining child (plaque: Sthulakesha · the sage who raised her).",
+      "estVoice": 3.12
+    },
+    {
+      "id": "named",
+      "speed": 1.0,
+      "text": "He named her Pramadvara: the finest of women.",
+      "say": "He named her Pramadvara: [p:200] the finest of women.",
+      "est": 4.17,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Pramadvara"
+      ],
+      "beats": [
+        3,
+        7
+      ],
+      "amb": "meadow",
+      "music": "joy",
+      "foley": [
+        "birds",
+        "anklet@0"
+      ],
+      "pal": "meadow-spring",
+      "cam": "orbit",
+      "tr": "brush",
+      "note": "STORY 3 · NEW LIGHT, a spring meadow (meadow-spring, petals): the girl grown, turning among flowers; an orbit round her (plaque: Pramadvara · \"the finest of women\").",
+      "estVoice": 3.62
+    },
+    {
+      "id": "loved",
+      "speed": 1.0,
+      "text": "Ruru saw her, and loved her.",
+      "say": "Ruru saw her, [p:200] and loved her.",
+      "est": 3.22,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Ruru"
+      ],
+      "beats": [
+        2,
+        5
+      ],
+      "foley": [
+        "breath@0",
+        "leaf"
+      ],
+      "music": "tender",
+      "pal": "meadow-spring",
+      "cam": "push",
+      "closeup": true,
+      "mixDb": -4,
+      "note": "STORY 4 · THE CLOSE-UP: Ruru's face between two trunks: calm to wonder to a small smile (brow up, eyes wide, the mouth's corner); his gaze follows her across.",
+      "estVoice": 2.67
+    },
+    {
+      "id": "set",
+      "speed": 1.0,
+      "text": "Their fathers set the wedding day.",
+      "say": "Their fathers [p:60] set the wedding day.",
+      "est": 3.18,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        5
+      ],
+      "amb": "hearth",
+      "foley": [
+        "flame",
+        "pot@0"
+      ],
+      "music": "calm",
+      "pal": "hearth-amber",
+      "cam": "slide",
+      "note": "STORY 5: two old sages seated by a small fire, palms joined, a garland and a pot between them (plaques: Pramati · Ruru's father; Sthulakesha).",
+      "estVoice": 2.63
+    },
+    {
+      "id": "play",
+      "speed": 1.0,
+      "text": "A few days before it, she was out playing with her friends.",
+      "say": "A few days before it, [p:100] she was out playing with her friends.",
+      "est": 4.82,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        8
+      ],
+      "amb": "meadow",
+      "music": "joy",
+      "foley": [
+        "anklet",
+        "birds@0"
+      ],
+      "pal": "meadow-spring",
+      "cam": "crane",
+      "note": "STORY 6: the meadow from above (a crane down): three girls running; a ball of flowers thrown; the grass moves. In the lower corner of the path, a small dark coil.",
+      "estVoice": 4.27
+    },
+    {
+      "id": "snake",
+      "speed": 1.0,
+      "text": "She did not see the snake asleep in her path.",
+      "say": "She did not see the snake [p:100] asleep in her path.",
+      "est": 4.49,
+      "pre": 900,
+      "post": 350,
+      "beats": [
+        5,
+        9
+      ],
+      "rest": true,
+      "sfx": [
+        "silence"
+      ],
+      "foley": [
+        "anklet@0",
+        "rustle@1"
+      ],
+      "music": "none",
+      "pal": "venom-violet",
+      "cam": "frame",
+      "signature": true,
+      "mixDb": -3,
+      "note": "STORY 7 · THE TURN (≈ 52 %) after a real silence · THE SIGNATURE SHOT: frame-within-frame at ground level: through a dark arch of grass blades, her foot coming down, the sleeping snake in the foreground, the light gone violet. cam: frame.",
+      "estVoice": 3.24
+    },
+    {
+      "id": "bit",
+      "speed": 1.0,
+      "text": "It bit her, and she fell.",
+      "say": "It bit her, [p:250] and she fell.",
+      "est": 3.29,
+      "pre": 250,
+      "post": 500,
+      "beats": [
+        1,
+        5
+      ],
+      "foley": [
+        "hiss@0",
+        "thud@1"
+      ],
+      "sfx": [
+        "drum@0"
+      ],
+      "pal": "venom-violet",
+      "cam": "tilt",
+      "mixDb": 1,
+      "note": "STORY 8 (answers the hook): one flash of the strike (two frames of green on black, no wound shown); the garland falls; a tilt down with it.",
+      "estVoice": 2.54
+    },
+    {
+      "id": "lay",
+      "speed": 1.0,
+      "text": "She lay as if asleep, more beautiful than ever.",
+      "say": "She lay as if asleep, [p:200] more beautiful than ever.",
+      "est": 4.92,
+      "pre": 800,
+      "post": 400,
+      "rest": true,
+      "beats": [
+        4,
+        8
+      ],
+      "foley": [
+        "leaf@0",
+        "cloth"
+      ],
+      "music": "grief",
+      "pal": "ash-grey",
+      "cam": "push",
+      "tr": "ink",
+      "mixDb": -4,
+      "note": "STORY 9 (a second real silence before it; the text has it: lifeless, she was lovelier still): the colour drains (ash-grey): her face among fallen flowers, calm; petals settle; a slow push.",
+      "estVoice": 3.72
+    },
+    {
+      "id": "wept",
+      "speed": 1.0,
+      "text": "The sages of the forest gathered and wept.",
+      "say": "The sages of the forest [p:80] gathered and wept.",
+      "est": 3.63,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        7
+      ],
+      "amb": "forest-night",
+      "ambLead": 300,
+      "music": "grief",
+      "foley": [
+        "steps",
+        "cloth@0"
+      ],
+      "pal": "grief-blue",
+      "cam": "pull",
+      "mixDb": -3,
+      "note": "STORY 10 · NEW LIGHT, the forest at night (grief-blue, one lamp): a pull back from her face to the circle of seated sages, heads bowed; Ruru standing apart, at the edge of the light.",
+      "estVoice": 3.08
+    },
+    {
+      "id": "cliff",
+      "speed": 1.0,
+      "text": "Ruru walked into the deep forest and cried out. And a messenger of the gods answered.",
+      "say": "Ruru walked into the deep forest [p:80] and cried out. [p:350] And a messenger of the gods [p:100] answered.",
+      "est": 6.83,
+      "pre": 250,
+      "post": 400,
+      "emphasis": [
+        "Ruru"
+      ],
+      "beats": [
+        1,
+        8,
+        15
+      ],
+      "role": "next",
+      "foley": [
+        "steps",
+        "whoosh@2"
+      ],
+      "sfx": [
+        "bell@2"
+      ],
+      "pal": "grief-blue",
+      "cam": "slide",
+      "mixDb": -1,
+      "note": "NEXT 1 (the catalog's cliffhanger): Ruru among black trunks, his head thrown back; on \"answered\" a shaft of pale gold comes down through the canopy. The source line (top).",
+      "estVoice": 6.18
+    },
+    {
+      "id": "next",
+      "text": "Next: Half a Life",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "cam": "push",
+      "note": "The NEXT › band over the cliffhanger image, with the source line; dissolve into frame 1."
+    }
+  ]
+}

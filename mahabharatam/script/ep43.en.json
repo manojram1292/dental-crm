@@ -1,0 +1,364 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 43,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Pauloma sub-parva, adhyayas 6 (end) and 7: Bhrigu curses Agni: you shall eat everything (sarvabhaksha); Agni answers in anger that, asked, he told the truth: a witness who knowingly speaks falsely ruins seven generations of his line before and after; he could curse Bhrigu in return but honours brahmins; he is the mouth through which gods and ancestors are fed; he withdraws from the fire-offerings, sacrifices and rites, and without the sacred calls all creatures suffer; the sages go to the gods and the gods to Brahma; Brahma calls Agni and speaks gently: he will not eat all things with his whole body, and as everything touched by the sun's rays becomes pure, whatever his flames burn will be pure; Agni agrees and returns, and gods and sages rejoice. Bhrigu's and Agni's speeches are condensed paraphrase. UNCERTAIN: \"eat everything\" renders sarvabhaksha; the gloss \"pure and impure\" is not spoken here.",
+  "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
+  "hookStyle": "question",
+  "names": {
+    "Agni": "the fire, witness of every rite",
+    "Brahma": "the creator",
+    "Bhrigu": "a great sage",
+    "Sauti": "the storyteller"
+  },
+  "loop": {
+    "hookQuestion": "Why does fire eat everything?",
+    "answeredBy": "frame",
+    "prevQuestion": "What does it mean to curse fire itself?",
+    "prevAnsweredBy": "curse",
+    "openQuestion": "How did one of Bhrigu's line lose his bride to a snake?"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 43",
+    "episodeTitle": "The Curse on Fire",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 42",
+    "prevEpisodeTitle": "The Child Who Fell",
+    "recapLine": "A sage's wife was carried off. The fire had told the truth.",
+    "nextEpisodeLabel": "Episode 44",
+    "nextTitle": "Ruru and Pramadvara",
+    "sourceLine": "Adi Parva 1.6–7 · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.1,
+      "text": "Why does fire eat everything?",
+      "say": "Why does fire [p:60] eat everything?",
+      "est": 3.37,
+      "pre": 60,
+      "post": 1100,
+      "role": "hook",
+      "caption": false,
+      "beats": [
+        2,
+        4
+      ],
+      "hookGold": [
+        "fire",
+        "everything?"
+      ],
+      "amb": "hearth",
+      "music": "dread",
+      "foley": [
+        "flame",
+        "sizzle@0"
+      ],
+      "pal": "pure-flame",
+      "cam": "pull",
+      "note": "COLD OPEN (a question card over the answer image): a fire on its altar against lapis night, eating wood, cloth, a garland, a bone, each flaring; the card to the left of the flames, upright.",
+      "estVoice": 2.21
+    },
+    {
+      "id": "because",
+      "speed": 1.04,
+      "text": "The fire, Agni, told a demon the truth, and a sage's wife was carried off.",
+      "say": "The fire, [p:60] Agni, [p:60] told a demon the truth, [p:150] and a sage's wife was carried off.",
+      "est": 6.09,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Agni"
+      ],
+      "beats": [
+        2,
+        13
+      ],
+      "foley": [
+        "flame",
+        "hooves@1"
+      ],
+      "pal": "hearth-amber",
+      "cam": "slide",
+      "tr": "smoke",
+      "note": "STORY 0 with the unvoiced recap band (top): the hut's fire with its face; in its smoke, the boar and the woman (a memory, one image).",
+      "estVoice": 5.54
+    },
+    {
+      "id": "curse",
+      "speaker": "bhrigu",
+      "speed": 1.0,
+      "text": "\"Then you shall eat everything!\"",
+      "say": "Then you [p:80] shall eat [p:60] everything!",
+      "est": 3.24,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        4
+      ],
+      "foley": [
+        "water@0",
+        "sizzle@1"
+      ],
+      "sfx": [
+        "drum@1"
+      ],
+      "music": "wrath",
+      "pal": "wrath-crimson",
+      "cam": "push",
+      "closeup": true,
+      "tr": "ink",
+      "mixDb": 2,
+      "note": "STORY 1 · THE CLOSE-UP: Bhrigu's face, wrath (brow down, mouth open), then the arm thrown forward and the water from his pot (plaque: Bhrigu · a great sage). Pays off episode 42's last line by 6 s.",
+      "estVoice": 2.69
+    },
+    {
+      "id": "truth",
+      "speaker": "agni",
+      "speed": 1.0,
+      "text": "\"I was asked. I told the truth. A lying witness ruins seven generations.\"",
+      "say": "I was asked. [p:200] I told the truth. [p:300] A lying witness [p:80] ruins seven generations.",
+      "est": 6.88,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        6,
+        12
+      ],
+      "foley": [
+        "flame"
+      ],
+      "music": "still",
+      "pal": "hearth-amber",
+      "cam": "tilt",
+      "mixDb": -2,
+      "note": "STORY 2: the fire's face, hurt and steady; behind it, seven faint figures in a row dim one by one on \"seven generations\".",
+      "estVoice": 6.33
+    },
+    {
+      "id": "gone",
+      "speed": 1.04,
+      "text": "Then Agni withdrew from every altar and every rite.",
+      "say": "Then Agni withdrew [p:100] from every altar [p:60] and every rite.",
+      "est": 4.91,
+      "pre": 900,
+      "post": 450,
+      "emphasis": [
+        "Agni"
+      ],
+      "beats": [
+        2,
+        5
+      ],
+      "rest": true,
+      "sfx": [
+        "silence"
+      ],
+      "amb": "void",
+      "music": "none",
+      "foley": [
+        "ash@0",
+        "whoosh"
+      ],
+      "pal": "cold-slate",
+      "cam": "crane",
+      "signature": true,
+      "mixDb": -4,
+      "note": "STORY 3 · after a real silence · THE SIGNATURE SHOT · NEW LIGHT, the world without fire (cold-slate, almost colourless): a crane up over a land of altars and hearths; flame after flame goes out, far to near, each leaving a thread of grey smoke.",
+      "estVoice": 3.56
+    },
+    {
+      "id": "dark",
+      "speed": 1.04,
+      "text": "No offering rose. The whole world suffered.",
+      "say": "No offering rose. [p:250] The whole world suffered.",
+      "est": 4.07,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        6
+      ],
+      "foley": [
+        "leaf",
+        "drip@1"
+      ],
+      "pal": "cold-slate",
+      "cam": "slide",
+      "mixDb": -4,
+      "note": "STORY 4: priests with ladles over cold altars; a family round a dead hearth; a lateral track past them, their breath showing.",
+      "estVoice": 3.52
+    },
+    {
+      "id": "went",
+      "speed": 1.04,
+      "text": "The sages went to the gods, and the gods to Brahma.",
+      "say": "The sages went to the gods, [p:120] and the gods to Brahma.",
+      "est": 4.28,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Brahma."
+      ],
+      "beats": [
+        5,
+        10
+      ],
+      "amb": "heaven",
+      "ambLead": 300,
+      "music": "wonder",
+      "foley": [
+        "steps",
+        "anklet@1"
+      ],
+      "pal": "brahma-rose",
+      "cam": "tilt",
+      "tr": "brush",
+      "note": "STORY 5 · NEW LIGHT, Brahma's court (brahma-rose, a lotus sky): a tilt up from the grey earth through cloud to the rose-gold court: sages, then gods, then Brahma on his lotus (plaque: Brahma · the creator).",
+      "estVoice": 3.73
+    },
+    {
+      "id": "pure",
+      "speaker": "brahma",
+      "speed": 1.0,
+      "text": "\"Not all of you will eat all things. And whatever your flames burn will be made pure.\"",
+      "say": "Not all of you [p:60] will eat all things. [p:300] And whatever your flames burn [p:100] will be made pure.",
+      "est": 8.28,
+      "pre": 900,
+      "post": 400,
+      "beats": [
+        7,
+        16
+      ],
+      "rest": true,
+      "sfx": [
+        "silence",
+        "bell@1"
+      ],
+      "foley": [
+        "flame@1"
+      ],
+      "pal": "brahma-rose",
+      "cam": "push",
+      "note": "STORY 6 · THE TURN (≈ 55 %) after a real silence: Brahma, calm, a hand open toward a small dark flame that stands before him; on \"pure\" the flame turns clear gold-white, as the sun's rays make clean what they touch (the text's own likeness, shown as a ray falling on it). The word of the turn: PURE.",
+      "estVoice": 6.98
+    },
+    {
+      "id": "back",
+      "speed": 1.04,
+      "text": "So Agni returned, and the fires were lit again.",
+      "say": "So Agni returned, [p:120] and the fires were lit again.",
+      "est": 4.09,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Agni"
+      ],
+      "beats": [
+        2,
+        8
+      ],
+      "amb": "hearth",
+      "music": "joy",
+      "foley": [
+        "flame@0",
+        "flame@1",
+        "anklet"
+      ],
+      "pal": "pure-flame",
+      "cam": "orbit",
+      "tr": "lamp",
+      "note": "STORY 8 · NEW LIGHT (pure-flame: clear gold on lapis): the hearths and altars light again, near to far, in the reverse of the signature shot; people lift their hands.",
+      "estVoice": 3.54
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.0,
+      "text": "So fire eats everything, and what it burns is clean.",
+      "say": "So fire eats everything, [p:200] and what it burns [p:60] is clean.",
+      "est": 5.46,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        9
+      ],
+      "amb": "night-fire",
+      "ambLead": 250,
+      "music": "still",
+      "foley": [
+        "staff@0"
+      ],
+      "pal": "naimisha-firstlight",
+      "cam": "push",
+      "mixDb": -3,
+      "note": "FRAME (answers the hook): Sauti by the Naimisha fire at first light, a hand open to the flames; Shaunaka listening.",
+      "estVoice": 4.91
+    },
+    {
+      "id": "cliff",
+      "speed": 1.04,
+      "text": "Generations later, one of Bhrigu's line lost his bride to a snake.",
+      "say": "Generations later, [p:120] one of Bhrigu's line [p:80] lost his bride to a snake.",
+      "est": 5.23,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        1,
+        11
+      ],
+      "role": "next",
+      "foley": [
+        "rustle@0",
+        "hiss@1"
+      ],
+      "music": "dread",
+      "pal": "venom-violet",
+      "cam": "rack",
+      "tr": "smoke",
+      "mixDb": -1,
+      "note": "NEXT 1 (the catalog's cliffhanger): a meadow path at dusk gone violet: a girl's anklet in the foreground grass, out of focus; the focus racks to a small banded snake asleep across the path. The source line (top).",
+      "estVoice": 4.58
+    },
+    {
+      "id": "next",
+      "text": "Next: Ruru and Pramadvara",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "cam": "push",
+      "note": "The NEXT › band over the cliffhanger image, with the source line; dissolve into frame 1."
+    }
+  ]
+}

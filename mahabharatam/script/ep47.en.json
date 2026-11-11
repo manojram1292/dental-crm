@@ -1,0 +1,386 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 47,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, the end of the Astika sub-parva (1.53: in the intervals of the snake sacrifice the Mahabharata was told) and the Adivamshavatarana sub-parva, adhyaya 54: hearing that Janamejaya sits consecrated for the snake sacrifice, Krishna Dvaipayana (Vyasa) comes: born of the maiden Kali (Satyavati) by Parashara on an island in the Yamuna, grandfather of the Pandavas; he enters the hall with his students; the king, among his assembly of kings and priests, rises, gives him a golden seat with the assembly's consent, and honours him with water for the feet and the guest's gifts; with joined hands he asks how the breach between the Kurus and the Pandavas arose, and the great war, for Vyasa saw them with his own eyes; Vyasa turns to his student Vaishampayana, seated beside him: tell him all, as you heard it from me; Vaishampayana begins (1.55 opens with his bow to his teacher). Sauti's \"I was there\" rests on 1.1 (he heard Vaishampayana tell it at that sacrifice). The king's and Vyasa's speeches are condensed paraphrase.",
+  "structure": "From episode 41 (the step-up; script/ARC-41-50.md): COLD OPEN (≤ 8 words, spoken by ≤ 2.8 s; the hook style rotates and never repeats the episode before) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
+  "hookStyle": "statement",
+  "names": {
+    "Janamejaya": "king of the snake sacrifice",
+    "Vyasa": "the poet of the Mahabharata",
+    "Vaishampayana": "Vyasa's student",
+    "Sauti": "the storyteller",
+    "Shaunaka": "chief of the forest sages"
+  },
+  "loop": {
+    "hookQuestion": "Why has the poet come, and will he tell his own story?",
+    "answeredBy": "tell",
+    "prevQuestion": "Who told the Mahabharata beside that fire?",
+    "prevAnsweredBy": "came",
+    "openQuestion": "How do you tell the whole Mahabharata in one breath?"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 47",
+    "episodeTitle": "Vyasa Comes to the Sacrifice",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 46",
+    "prevEpisodeTitle": "The Snake Who Was a Sage",
+    "recapLine": "A boy saved the serpents from a king's fire. At that fire, a poet arrives.",
+    "nextEpisodeLabel": "Episode 48",
+    "nextTitle": "The Whole Story in One Breath",
+    "sourceLine": "Adi Parva 1.53–54 · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.1,
+      "text": "Then the poet himself walked in.",
+      "say": "Then the poet himself [p:60] walked in.",
+      "est": 3.51,
+      "pre": 60,
+      "post": 1100,
+      "role": "hook",
+      "caption": false,
+      "beats": [
+        2,
+        5
+      ],
+      "hookGold": [
+        "poet",
+        "himself"
+      ],
+      "amb": "satra",
+      "music": "awe",
+      "foley": [
+        "steps",
+        "staff@0"
+      ],
+      "pal": "arrival-umber-gold",
+      "cam": "push",
+      "note": "COLD OPEN (a statement over the image; it answers episode 46's last line at 0 s): between two great pillars, far off and coming on, a tall dark figure with a soft gold halo, his face not yet seen; every head in the hall turning. The card low and left, clear of him.",
+      "estVoice": 2.35
+    },
+    {
+      "id": "sat",
+      "speed": 1.04,
+      "text": "King Janamejaya sat at his great sacrifice.",
+      "say": "King Janamejaya [p:60] sat at his great sacrifice.",
+      "est": 3.59,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Janamejaya"
+      ],
+      "beats": [
+        1,
+        6
+      ],
+      "foley": [
+        "flame",
+        "chant"
+      ],
+      "music": "calm",
+      "pal": "satra-teal-night",
+      "cam": "crane",
+      "tr": "smoke",
+      "note": "STORY 0 with the unvoiced recap band (top): the hall at night in teal (never the old orange): a crane down over ranks of seated kings and priests to the king (plaque: Janamejaya · king of the snake sacrifice); the fire low and to one side.",
+      "estVoice": 3.04
+    },
+    {
+      "id": "came",
+      "speed": 1.04,
+      "text": "Between the rites, a sage walked in with his students: Vyasa.",
+      "say": "Between the rites, [p:100] a sage walked in with his students: [p:300] Vyasa.",
+      "est": 5.37,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Vyasa."
+      ],
+      "beats": [
+        4,
+        10
+      ],
+      "foley": [
+        "steps",
+        "staff@0"
+      ],
+      "sfx": [
+        "conch@1"
+      ],
+      "music": "awe",
+      "pal": "arrival-umber-gold",
+      "cam": "frame",
+      "signature": true,
+      "tr": "lamp",
+      "note": "STORY 1 · THE SIGNATURE SHOT: frame-within-frame: the hook's figure now near and lit: between the two pillars (umber and gold), Vyasa walks toward us out of a lamp's glow, dark-skinned, grey jata, a soft gold halo, students behind (plaque arrives: VYASA · the poet of the Mahabharata).",
+      "estVoice": 4.82
+    },
+    {
+      "id": "who",
+      "speaker": "sauti",
+      "speed": 1.0,
+      "text": "Vyasa: born on a river island, the poet of the Mahabharata.",
+      "say": "Vyasa: [p:200] born on a river island, [p:120] the poet of the Mahabharata.",
+      "est": 6.08,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Vyasa:"
+      ],
+      "beats": [
+        1,
+        9
+      ],
+      "amb": "night-fire",
+      "ambLead": 300,
+      "music": "still",
+      "foley": [
+        "staff@0",
+        "water@0"
+      ],
+      "pal": "mist-lavender",
+      "cam": "slide",
+      "tr": "ink",
+      "mixDb": -3,
+      "note": "FRAME: Sauti's voice over a small ink-wash vision (mist-lavender): an island in a river in mist, a dark child standing on it; then Sauti himself by the Naimisha fire.",
+      "estVoice": 5.53
+    },
+    {
+      "id": "grand",
+      "speed": 1.04,
+      "text": "And grandfather to the heroes of its war.",
+      "say": "And grandfather [p:80] to the heroes of its war.",
+      "est": 3.49,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        7
+      ],
+      "foley": [
+        "hooves@0"
+      ],
+      "music": "dread",
+      "pal": "war-iron",
+      "cam": "tilt",
+      "mixDb": -2,
+      "note": "STORY 2 · NEW LIGHT (war-iron): a tilt down a painted family tree: Vyasa at the top, and at the foot two lines of small armed figures facing each other across a field.",
+      "estVoice": 2.94
+    },
+    {
+      "id": "seat",
+      "speed": 1.04,
+      "text": "The king rose and gave him a golden seat.",
+      "say": "The king rose [p:80] and gave him a golden seat.",
+      "est": 3.47,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        8
+      ],
+      "amb": "satra",
+      "foley": [
+        "cloth@0",
+        "pot@1",
+        "steps"
+      ],
+      "music": "calm",
+      "pal": "seat-ivory",
+      "cam": "orbit",
+      "tr": "brush",
+      "note": "STORY 3 · NEW LIGHT (seat-ivory: the hall's pale stone at lamp height): the king rises (anticipation, the cloth arriving late), the golden seat is carried in, Vyasa sits; a slow orbit; water is poured over his feet (seen, not said).",
+      "estVoice": 2.92
+    },
+    {
+      "id": "asked",
+      "speaker": "janamejaya",
+      "speed": 1.0,
+      "text": "\"How did the cousins break apart? How did that great war begin?\"",
+      "say": "How did the cousins break apart? [p:300] How did that great war begin?",
+      "est": 5.43,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        11
+      ],
+      "foley": [
+        "flame",
+        "breath@0"
+      ],
+      "pal": "satra-teal-night",
+      "cam": "push",
+      "note": "STORY 4: the king, hands joined, the fire's teal-and-ember light on him from the side (the back-light rule keeps him readable); the assembly leaning in behind.",
+      "estVoice": 4.88
+    },
+    {
+      "id": "turned",
+      "speed": 1.04,
+      "text": "Vyasa did not answer. He turned to the student beside him.",
+      "say": "Vyasa did not answer. [p:350] He turned to the student [p:60] beside him.",
+      "est": 5.8,
+      "pre": 900,
+      "post": 450,
+      "emphasis": [
+        "Vyasa"
+      ],
+      "beats": [
+        3,
+        6
+      ],
+      "rest": true,
+      "sfx": [
+        "silence"
+      ],
+      "foley": [
+        "cloth@1"
+      ],
+      "music": "still",
+      "pal": "arrival-umber-gold",
+      "cam": "push",
+      "closeup": true,
+      "mixDb": -4,
+      "note": "STORY 5 · THE TURN (≈ 55 %) after a real silence · THE CLOSE-UP: Vyasa's face fills the frame, lit gold on blue-black: weary, then a small warmth (the eyelids lift, the mouth's corner); his eye moves from the king to his left, and the head follows.",
+      "estVoice": 4.45
+    },
+    {
+      "id": "tell",
+      "speaker": "vyasa",
+      "speed": 1.0,
+      "text": "\"Tell him everything, just as you heard it from me.\"",
+      "say": "Tell him everything, [p:200] just as you heard it [p:60] from me.",
+      "est": 4.81,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        9
+      ],
+      "foley": [
+        "leaf@0"
+      ],
+      "pal": "arrival-umber-gold",
+      "cam": "rack",
+      "mixDb": -2,
+      "note": "STORY 6 (answers the hook: not he, his student): a rack focus from Vyasa's raised hand to the young man beside him, who looks up, startled.",
+      "estVoice": 4.26
+    },
+    {
+      "id": "bowed",
+      "speed": 1.04,
+      "text": "The student, Vaishampayana, bowed to his teacher.",
+      "say": "The student, [p:80] Vaishampayana, [p:100] bowed to his teacher.",
+      "est": 4.55,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Vaishampayana,"
+      ],
+      "beats": [
+        2,
+        3
+      ],
+      "foley": [
+        "cloth@0"
+      ],
+      "music": "tender",
+      "pal": "satra-teal-night",
+      "cam": "tilt",
+      "note": "STORY 7: Vaishampayana, in dawn-rose against the teal hall, bows (bow: an eased blend), palm leaves under his arm (plaque: Vaishampayana · Vyasa's student).",
+      "estVoice": 4.0
+    },
+    {
+      "id": "frame",
+      "speaker": "sauti",
+      "speed": 1.0,
+      "text": "I was there, Shaunaka. I heard it told.",
+      "say": "I was there, [p:100] Shaunaka. [p:300] I heard it told.",
+      "est": 5.33,
+      "pre": 800,
+      "post": 300,
+      "rest": true,
+      "beats": [
+        2,
+        7
+      ],
+      "amb": "night-fire",
+      "ambLead": 250,
+      "music": "still",
+      "foley": [
+        "staff@0"
+      ],
+      "pal": "naimisha-bluehour",
+      "cam": "pull",
+      "mixDb": -4,
+      "note": "FRAME (a second real silence before it): Sauti by the Naimisha fire, a hand on his chest; Shaunaka and the sages very still. A pull back until the fire is small: the whole frame story in one picture.",
+      "estVoice": 4.23
+    },
+    {
+      "id": "cliff",
+      "speed": 1.04,
+      "text": "And he began by telling the whole story in one breath.",
+      "say": "And he began [p:80] by telling the whole story [p:120] in one breath.",
+      "est": 4.38,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        2,
+        10
+      ],
+      "role": "next",
+      "amb": "satra",
+      "foley": [
+        "breath@1",
+        "flame"
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "music": "awe",
+      "pal": "dice-vermilion",
+      "cam": "push",
+      "note": "NEXT 1 (the catalog's cliffhanger): Vaishampayana draws breath; behind him the hall's wall opens into a strip of small bright panels (dice, a forest, a field) rushing past. The source line (top).",
+      "estVoice": 3.73
+    },
+    {
+      "id": "next",
+      "text": "Next: The Whole Story in One Breath",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "cam": "push",
+      "note": "The NEXT › band over the cliffhanger image, with the source line; dissolve into frame 1."
+    }
+  ]
+}

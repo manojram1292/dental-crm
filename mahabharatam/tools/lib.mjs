@@ -57,7 +57,7 @@ export async function openReel({ scale = 1, pages: nPages = 1, captions = true, 
   for (let i = 0; i < nPages; i++) {
     const page = await browser.newPage({ viewport: { width: Math.ceil(1080 * scale), height: Math.ceil(1920 * scale) } });
     page.on('pageerror', (e) => errors.push(`pageerror: ${e.message}`));
-    page.on('console', (m) => { if ((m.type() === 'error' || m.type() === 'warning') && !/Failed to load resource|GL Driver Message|GPU stall/.test(m.text())) errors.push(`console.${m.type()}: ${m.text()}`); });
+    page.on('console', (m) => { if ((m.type() === 'error' || m.type() === 'warning') && !/Failed to load resource|GL Driver Message|GPU stall|willReadFrequently/.test(m.text())) errors.push(`console.${m.type()}: ${m.text()}`); });
     page.on('response', (r) => { if (r.status() >= 400) errors.push(`HTTP ${r.status()}: ${r.url()}`); });
     await page.goto(`http://127.0.0.1:${port}/${pagePath}?${qs}`);
     await page.waitForFunction(() => window.__reel, null, { timeout: 30000 });

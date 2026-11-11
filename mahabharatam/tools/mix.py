@@ -128,17 +128,20 @@ def limit(x, ceil_db=CEIL):
     return x * g
 
 
-def master(x):
+def master(x, ceil=CEIL):
     for _ in range(4):
         x = x * db(TARGET_LUFS_MASTER - lufs(x))
-        x = limit(x)
-        if abs(lufs(x) - TARGET_LUFS_MASTER) < 0.2 and true_peak_db(x) <= CEIL:
+        x = limit(x, ceil)
+        if abs(lufs(x) - TARGET_LUFS_MASTER) < 0.2 and true_peak_db(x) <= ceil:
             break
-    if true_peak_db(x) > CEIL:
-        x = x * db(CEIL - 0.05 - true_peak_db(x))
+    if true_peak_db(x) > ceil:
+        x = x * db(ceil - 0.05 - true_peak_db(x))
     return x
 
 
+STEM_DUCK = {'mus': 11.0, 'amb': 5.0, 'foley': 2.0}   # dB under the voice (episode 41 on)
+CEIL_41 = -1.5   # true-peak ceiling from episode 41 (measured on the mix; the AAC headroom is inside limit())
+report = {}
 NEXT_UNDER = 10.0
 LRA_MIN = 4.6   # a margin over the gate's 4.0 (ffmpeg's ebur128 and this estimate differ by a few tenths)
 
@@ -208,6 +211,22 @@ def main():
         hold = maximum_filter1d(key, int(0.4 * SR))                      # bridge the gaps between words
         g_db = -DUCK_DB * uniform_filter1d(hold, int(0.06 * SR))
         mix = music * db(g_db) + voice
+        # FROM EPISODE 41: three stems, each ducked by its own amount under the voice (music hardest, the place a little,
+        # the foley hardly at all: an action you see must still be heard under a line)
+        stem_paths = {n_: os.path.join(ROOT, 'audio', tag, f'{n_}.wav') for n_ in ('amb', 'foley', 'mus')}
+        if ep >= 41 and all(os.path.exists(q) for q in stem_paths.values()):
+            sm = uniform_filter1d(hold, int(0.06 * SR))
+            mix = voice.copy()
+            for n_, d_ in STEM_DUCK.items():
+                st_ = read_wav(stem_paths[n_])[:, :N]
+                st_ = np.pad(st_, ((0, 0), (0, N - st_.shape[1])))
+                mix += st_ * db(-d_ * sm)
+                if n_ == 'mus':
+                    on, offm = sm > 0.9, sm < 0.1
+                    rms = lambda z: 10 * np.log10(np.mean(z ** 2) + 1e-12)
+                    report['music_under_voice_db'] = round(float(rms((st_ * db(-d_ * sm))[:, on]) - rms(st_[:, offm])), 1) if on.any() and offm.any() else None
+            report['stems'] = list(STEM_DUCK)
+            report['duck_db'] = STEM_DUCK
     else:
         mix = music.copy()
     # the silent Next card(s) at the end: 9 dB down, faded in over 0.25 s
@@ -226,8 +245,9 @@ def main():
     SL = {l['id']: l for l in json.load(open(scp))['lines']} if os.path.exists(scp) else {}
     new_rules = ep >= 31
     pre = mix
+    ceil = CEIL_41 if ep >= 41 else CEIL
     for mult in ((1.0, 1.5, 2.0, 2.6) if new_rules else (1.0,)):
-        mix = master(pre * line_gains(tl, SL, N, mult)) if new_rules else master(pre)
+        mix = master(pre * line_gains(tl, SL, N, mult), ceil) if new_rules else master(pre)
         if not new_rules or lra(mix) >= LRA_MIN:
             break
     if new_rules:
@@ -246,9 +266,13 @@ def main():
                 g[i0:] = k
                 mix = mix * g
         ti = next((i for i, l in enumerate(L) if 'TURN' in SL.get(l['id'], {}).get('note', '')), None)
-        if ti:
+        # episode 41 on: every line marked "rest": true gets the same real silence before it (two per episode where the story allows)
+        rests = [i for i, l in enumerate(L) if i and (i == ti or (ep >= 41 and SL.get(l['id'], {}).get('rest')))]
+        report['rests'] = []
+        for ti in rests:
             prev = next((l for l in reversed(L[:ti]) if l.get('voice')), None)
             a, b = (prev['speechEnd'] if prev else L[ti]['start']) + 0.06, L[ti]['speechStart'] - 0.03
+            report['rests'].append({'before': L[ti]['id'], 'seconds': round(max(0, b - a), 2)})
             if b - a >= 0.3:
                 g = np.ones(N)
                 i0, i1, r = int(a * SR), int(b * SR), int(0.05 * SR)
@@ -259,6 +283,9 @@ def main():
         print(f'  ep{ep}: LRA {lra(mix):.1f} LU · Next {lufs(mix[:, :int(nx["start"] * SR)]) - lufs(mix[:, int(nx["start"] * SR):]) if nx else 0:.1f} dB under the body · silence before the turn {max(0, b - a) if ti else 0:.2f} s')
     out = os.path.join(ROOT, 'audio', tag, f'mix.{lang}.wav')
     write_wav(out, mix)
+    if ep >= 41:
+        report.update({'lufs': round(float(lufs(mix)), 2), 'true_peak_dbtp': round(float(true_peak_db(mix)), 2), 'lra': round(lra(mix), 1), 'timeline': tl['signature'], 'voiced': len(placed)})
+        json.dump(report, open(os.path.join(ROOT, 'audio', tag, f'mix.{lang}.json'), 'w'), indent=1)
     print(f'wrote audio/{tag}/mix.{lang}.wav  {tl["duration"]:.2f} s  {lufs(mix):.1f} LUFS  {true_peak_db(mix):.2f} dBTP  '
           f'voice lines: {", ".join(placed) if placed else "none (music only)"}')
 

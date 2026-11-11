@@ -2662,6 +2662,320 @@ def build_auto(tl):
     return _tb_master(bus_dry, bus_wet, bed, D, N)
 
 
+# ─── FROM EPISODE 41: THREE LAYERS (ambience bed per location · foley for every visible action · music by scene) ─────────
+# Script fields per line:  "amb": kind (holds until the next line that sets one), "ambLead": ms (the next place is HEARD
+# before it is seen: a J-cut), "ambLag": ms (the last place lingers under the new picture: an L-cut),
+# "foley": ["kind@beat", …] (no @ = from the line's start, through the line for the continuous kinds),
+# "music": mood (holds until changed), plus the old "sfx" list. Three stems are written (amb.wav, foley.wav, mus.wav) so
+# tools/mix.py can duck the MUSIC hardest under the voice, the ambience a little, the foley hardly at all.
+AMB_KINDS = ('hearth', 'night-fire', 'forest-day', 'forest-night', 'meadow', 'storm', 'river', 'thicket', 'satra', 'heaven', 'void', 'underworld', 'sky', 'court', 'shore')
+FOLEY_KINDS = ('step', 'steps', 'cloth', 'thud', 'splash', 'water', 'rustle', 'staff', 'flame', 'sizzle', 'hooves', 'breath', 'snap', 'wings', 'hiss', 'oar', 'pot', 'anklet', 'birds', 'thunder', 'growl', 'drip', 'whoosh', 'ash', 'leaf', 'chant', 'pour', 'creak')
+MUSIC_KINDS = ('still', 'calm', 'tender', 'dread', 'chase', 'grief', 'wonder', 'awe', 'wrath', 'joy', 'none')
+
+
+def _loop_env(n, a=0.5, r=0.5):
+    return env_curve([(0, 0), (a, 1), (max(a, n / SR - r), 1), (n / SR, 0)], n)
+
+
+def amb_bed(kind, n, key):
+    """A location's ambience, (2, n), about unit level (the layer gain is set in build_layers)."""
+    r = rng('amb', kind, key)
+    st = lambda x, roll=1777: np.stack([x, np.roll(x, roll)])
+    if kind in ('hearth', 'night-fire'):
+        x = st(crackle(n, ('h', key), 7.0) * 0.8)
+        if kind == 'night-fire':
+            x += st(crickets(n, ('c', key), 0.5), 900) * 0.5
+        return x
+    if kind in ('forest-day', 'meadow'):
+        x = st(lpf(wind(n, ('w', key), 0.5), 900) * 0.5, 2100)
+        t = 0.4
+        while t < n / SR - 1.5:
+            b = koel((key, t)) if r.random() < 0.25 else twitter((key, t))
+            add(x, pan(b * (0.5 if kind == 'meadow' else 0.35), r.uniform(-0.8, 0.8)), t)
+            t += r.uniform(0.7, 1.9) * (0.7 if kind == 'meadow' else 1.0)
+        return x
+    if kind == 'forest-night':
+        return st(crickets(n, ('c', key), 0.9), 900) + st(lpf(wind(n, ('w', key), 0.4), 600) * 0.4, 2100)
+    if kind == 'thicket':
+        return st(cicadas(n, ('ci', key), 0.6), 700) + st(lpf(wind(n, ('w', key), 0.3), 700) * 0.3, 2100)
+    if kind == 'storm':
+        rn = bpf(r.standard_normal(n), 1200, 8000) * 0.06
+        return st(lpf(wind(n, ('w', key), 1.0), 1600) * 0.9, 2100) + st(rn, 311)
+    if kind in ('river', 'shore'):
+        return st(water(n, ('wa', key)) * (1.0 if kind == 'river' else 1.3), 1600)
+    if kind in ('satra', 'court'):
+        mur = bpf(r.standard_normal(n), 180, 700) * 0.05 * (0.6 + 0.4 * np.sin(2 * np.pi * 0.23 * tvec(n)))
+        return st(roar(n, ('r', key), 0.5) * (0.5 if kind == 'satra' else 0.12), 900) + st(mur, 1300)
+    if kind == 'heaven':
+        tt = tvec(n)
+        pad = sum(np.sin(2 * np.pi * f * tt + q) for q, f in enumerate((SA * 2, SA * 3, SA * 4))) * 0.02 * (0.7 + 0.3 * np.sin(2 * np.pi * 0.11 * tt))
+        return st(pad, 500) + st(naga_shimmer(n, ('s', key), 0.25), 700)
+    if kind == 'void':
+        return st(lpf(wind(n, ('w', key), 0.5), 300) * 0.5, 2100)
+    if kind == 'underworld':
+        tt = tvec(n)
+        return st(np.sin(2 * np.pi * 55 * tt) * 0.06 * (0.7 + 0.3 * np.sin(2 * np.pi * 0.17 * tt)), 300) + st(lpf(wind(n, ('w', key), 0.3), 250) * 0.4, 2100)
+    if kind == 'sky':
+        return st(hpf(lpf(wind(n, ('w', key), 0.8), 2600), 300) * 0.7, 2100)
+    raise SystemExit(f'score: unknown amb "{kind}" (one of {", ".join(AMB_KINDS)})')
+
+
+def foley_hit(kind, key, span):
+    """One foley sound: mono or (2, n). `span` = seconds left in the line (the continuous kinds fill it)."""
+    r = rng('foley', kind, key)
+    burst = lambda dur, lo, hi, sh=2.0: bpf(r.standard_normal(smp(dur)), lo, hi) * np.sin(np.pi * tvec(smp(dur)) / dur) ** sh
+    if kind == 'step':
+        return lpf(mridangam('thom', key, 0.3), 400)
+    if kind == 'steps':
+        out, t, k = np.zeros(smp(span)), 0.0, 0
+        while t < span - 0.3:
+            x = lpf(mridangam('thom', (key, k), 0.22 + 0.05 * (k % 2)), 380)
+            i0 = smp(t)
+            m = min(len(x), len(out) - i0)
+            out[i0:i0 + m] += x[:m]
+            t += 0.46 + 0.04 * r.random()
+            k += 1
+        return out
+    if kind == 'hooves':
+        out, t, k = np.zeros(smp(span)), 0.0, 0
+        while t < span - 0.2:
+            x = lpf(mridangam('thom', (key, k), 0.5), 320)
+            i0 = smp(t)
+            m = min(len(x), len(out) - i0)
+            out[i0:i0 + m] += x[:m]
+            t += (0.11, 0.11, 0.2)[k % 3]
+            k += 1
+        return out
+    if kind in ('cloth', 'leaf', 'ash'):
+        return burst(0.38 if kind == 'cloth' else 0.6, 700 if kind != 'ash' else 2000, 5200 if kind != 'ash' else 9000) * (0.1 if kind == 'cloth' else 0.06)
+    if kind == 'whoosh':
+        return burst(0.7, 250, 2200, 1.4) * 0.16
+    if kind == 'wings':
+        return np.concatenate([burst(0.28, 200, 1500) * 0.14 for _ in range(max(2, int(span / 0.3)))])[:smp(max(0.6, span))]
+    if kind == 'thud':
+        return mridangam('thom', key, 0.9)
+    if kind == 'staff':
+        return mridangam('ta', key, 0.6)
+    if kind == 'snap':
+        return crackle(smp(0.25), key, 60.0) * 0.5
+    if kind in ('splash', 'pour', 'water', 'drip'):
+        if kind == 'drip':
+            return glide(key, 1800, 900, 0.09, 0.25)
+        d = {'splash': 0.7, 'pour': 1.2, 'water': max(1.0, span)}[kind]
+        return water(smp(d), key) * _loop_env(smp(d), 0.05 if kind == 'splash' else 0.3, 0.4) * (0.9 if kind == 'splash' else 0.5)
+    if kind == 'oar':
+        return np.concatenate([np.concatenate([water(smp(0.5), (key, i)) * np.sin(np.pi * tvec(smp(0.5)) / 0.5) ** 2 * 0.5, np.zeros(smp(0.8))]) for i in range(max(1, int(span / 1.3)))])
+    if kind == 'rustle':
+        d = max(0.6, min(span, 2.5))
+        return crackle(smp(d), key, 26.0) * 0.12 * _loop_env(smp(d), 0.1, 0.3) + bpf(r.standard_normal(smp(d)), 1500, 7000) * 0.02 * _loop_env(smp(d), 0.1, 0.3)
+    if kind == 'flame':
+        d = min(max(span, 0.8), 2.0)
+        return roar(smp(d), key, 1.0) * _loop_env(smp(d), 0.12, 0.6) * 0.35
+    if kind == 'sizzle':
+        return bpf(r.standard_normal(smp(0.9)), 3000, 11000) * np.exp(-tvec(smp(0.9)) / 0.25) * 0.12
+    if kind == 'breath':
+        return burst(0.5, 500, 2600, 1.0) * 0.07
+    if kind == 'hiss':
+        d = min(max(span, 0.7), 1.6)
+        return bpf(r.standard_normal(smp(d)), 4000, 12000) * _loop_env(smp(d), 0.08, 0.5) * 0.08
+    if kind == 'pot':
+        return ghanta(520.0, 0.5, key, 0.12)
+    if kind == 'anklet':
+        return np.concatenate([np.pad(manjira((key, i), 0.12), (0, smp(0.12))) for i in range(3)])
+    if kind == 'birds':
+        return np.concatenate([twitter((key, i)) for i in range(2)]) * 0.5
+    if kind == 'thunder':
+        return thunder(key, 3.0, 0.9) * 0.6
+    if kind == 'growl':
+        d = 1.1
+        tt = tvec(smp(d))
+        return lpf(np.sign(np.sin(2 * np.pi * (62 + 14 * np.sin(2 * np.pi * 3 * tt)) * tt)) * (1 + 0.5 * r.standard_normal(smp(d))), 420) * np.sin(np.pi * tt / d) ** 1.5 * 0.2
+    if kind == 'chant':
+        d = max(1.2, span)
+        tt = tvec(smp(d))
+        v = sum(np.sin(2 * np.pi * f * tt * (1 + 0.002 * np.sin(2 * np.pi * 4.5 * tt + q))) for q, f in enumerate((SA, SA * 1.5, SA * 2))) * (0.6 + 0.4 * np.sign(np.sin(2 * np.pi * 2.2 * tt)))
+        return bpf(v, 150, 1200) * 0.03 * _loop_env(smp(d), 0.3, 0.5)
+    if kind == 'creak':
+        tt = tvec(smp(0.5))
+        return np.sin(2 * np.pi * (260 + 120 * tt) * tt) * (0.5 + 0.5 * np.sign(np.sin(2 * np.pi * 38 * tt))) * np.sin(np.pi * tt / 0.5) * 0.06
+    raise SystemExit(f'score: unknown foley "{kind}" (one of {", ".join(FOLEY_KINDS)})')
+
+
+def veena(f0s, durs, key, vel=1.0):
+    """A plucked veena phrase: bright plucks with a little glide into each note."""
+    out = np.zeros(smp(sum(durs) + 2.5))
+    t = 0.0
+    for k, (f, d) in enumerate(zip(f0s, durs)):
+        x = tanpura_pluck(f, min(2.6, d + 1.6), (key, k), bright=1.6) * 2.2
+        i0 = smp(t)
+        out[i0:i0 + len(x)] += x[:len(out) - i0]
+        t += d
+    return out * vel
+
+
+def music_bed(kind, n, key):
+    """The music for one stretch of one mood: (dry (2, n), wet (2, n)). Instruments by scene: tanpura under everything,
+    veena for calm and wonder, bansuri for tenderness and grief, reeds and a slow drum for dread, mridangam and manjira
+    for a chase, the conch for awe, low bells and heavy drums for wrath."""
+    D = n / SR
+    dry, wet = np.zeros((2, n)), np.zeros((2, n))
+    if kind == 'none':
+        return dry, wet
+    S2 = SA * 2
+    lvl = {'still': 0.5, 'calm': 0.6, 'tender': 0.5, 'dread': 0.25, 'chase': 0.35, 'grief': 0.45, 'wonder': 0.6, 'awe': 0.6, 'wrath': 0.3, 'joy': 0.6}[kind]
+    dry += tanpura_bed(n, D, ('tb', key), notes=(SA * 1.5, S2, S2, SA) if kind not in ('dread', 'grief', 'wrath') else (SA * 4 / 3, S2, S2, SA)) * lvl
+    r = rng('music', kind, key)
+    if kind in ('calm', 'joy', 'wonder'):
+        scale = [1, 9 / 8, 5 / 4, 3 / 2, 5 / 3, 2]
+        t = 0.3
+        while t < D - 2.0:
+            m = 4 if kind != 'calm' else 3
+            idx = sorted(r.choice(len(scale), m, replace=False)) if kind == 'wonder' else list(r.choice(len(scale), m))
+            add(wet, pan(veena([S2 * scale[i] for i in idx], [0.3 if kind == 'joy' else 0.5] * m, (key, t), 0.5), r.uniform(-0.3, 0.3)), t)
+            if kind == 'joy':
+                add(dry, pan(manjira((key, t), 0.25), 0.4), t + 0.6)
+            t += r.uniform(2.6, 3.8) * (0.7 if kind == 'joy' else 1.0)
+        if kind == 'wonder':
+            for i, f in enumerate((880.0, 1174.7, 1318.5)):
+                x = ghanta(f, 4.0, (key, 'b', i), 0.08)
+                add(wet, pan(x, -0.3 + 0.3 * i), 0.15 + 0.22 * i)
+    if kind in ('tender', 'grief'):
+        t = 0.4
+        while t < D - 2.2:
+            ph = [S2 * 3 / 2, S2 * 5 / 4, S2 * 9 / 8, S2] if kind == 'tender' else [S2 * 3 / 2, S2 * 6 / 5, S2 * 16 / 15, S2 * 15 / 16]
+            add(wet, pan(bansuri(ph, [0.7, 0.6, 0.6, 1.5], (key, t), 0.6) * 0.7, 0.15), t)
+            t += r.uniform(4.2, 5.4)
+    if kind in ('dread', 'wrath'):
+        dr = reed_drone(n, (SA / 2, SA * 0.5 * 16 / 15), ('rd', key))
+        wet += np.stack([dr, np.roll(dr, 700)]) * 0.05 * _loop_env(n, 0.6, 0.6)
+        t = 0.2
+        while t < D - 0.6:
+            add(dry, pan(mridangam('thom', (key, t), 0.5 if kind == 'dread' else 0.85), 0.0), t)
+            if kind == 'wrath':
+                add(dry, pan(mridangam('din', (key, t, 1), 0.3), 0.2), t + 0.33)
+            t += 1.5 if kind == 'dread' else 0.66
+        if kind == 'wrath':
+            add(wet, pan(ghanta(73.4, 5.0, (key, 'low'), 0.3), 0.0), 0.05)
+    if kind == 'chase':
+        t, k = 0.1, 0
+        while t < D - 0.3:
+            add(dry, pan(mridangam(('thom', 'ki', 'ta', 'ki', 'din', 'ki', 'ta', 'ki')[k % 8], (key, k), 0.35 if k % 8 else 0.6), -0.25 + 0.5 * (k % 2)), t)
+            if k % 4 == 2:
+                add(dry, pan(manjira((key, k), 0.14), 0.5), t)
+            t += 0.16
+            k += 1
+    if kind == 'awe':
+        add(wet, pan(conch((key, 'c'), 233.08, min(2.6, D), 0.5), 0.0), 0.1)
+        tt = tvec(n)
+        pad = (np.sin(2 * np.pi * SA * tt) + np.sin(2 * np.pi * SA * 1.5 * tt + 0.4)) * 0.02 * _loop_env(n, 0.8, 0.8)
+        wet += np.stack([pad, np.roll(pad, 500)])
+    return dry, wet
+
+
+def _segments(tl, SL, field, default):
+    """Runs of consecutive lines with the same value of a holding field → [(value, t0, t1, first line)]."""
+    out, cur = [], default
+    for l in tl['lines']:
+        v = SL[l['id']].get(field, cur)
+        if out and v == out[-1][0]:
+            out[-1][2] = l['end']
+        else:
+            out.append([v, l['start'], l['end'], l])
+        cur = v
+    return out
+
+
+def build_layers(tl):
+    """Episode 41 on: three stems. Returns {'amb', 'foley', 'mus'} (each (2, N)); their sum is the music.wav bed."""
+    D = tl['duration']
+    N = smp(D)
+    ep = tl['episode']
+    key = f'v2-{ep:02d}'
+    sc = json.load(open(os.path.join(ROOT, 'script', f'ep{ep:02d}.{tl["lang"]}.json')))
+    SL = {l['id']: l for l in sc['lines']}
+    L = {l['id']: l for l in tl['lines']}
+    amb, fol = np.zeros((2, N)), np.zeros((2, N))
+    bus_dry, bus_wet, _bed, bell, hit, stereo = _tb_buses(N)
+    # 1 · ambience: one bed per location, cross-faded 0.5 s; ambLead / ambLag move the audio cut off the picture cut
+    segs = _segments(tl, SL, 'amb', 'night-fire')
+    for i, (kind, t0, t1, first) in enumerate(segs):
+        lead = SL[first['id']].get('ambLead', 0) / 1000 if i else 0
+        lag = (SL[segs[i + 1][3]['id']].get('ambLag', 0) / 1000) if i + 1 < len(segs) else 0
+        a, b = max(0, t0 - lead - 0.25), min(D, t1 + lag + 0.25)
+        n = smp(b - a)
+        x = amb_bed(kind, n, (key, i)) * _loop_env(n, 0.5, 0.5)
+        add(amb, x, a)
+    # 2 · music by mood
+    for i, (kind, t0, t1, _f) in enumerate(_segments(tl, SL, 'music', 'still')):
+        a, b = max(0, t0 - 0.3), min(D, t1 + 0.6)
+        n = smp(b - a)
+        dry, wet = music_bed(kind, n, (key, i))
+        e = _loop_env(n, 0.6, 0.9)
+        add(bus_dry, dry * e, a)
+        add(bus_wet, wet * e, a)
+    # 3 · foley and the older sfx cues
+    tt0 = L['hook']['speechEnd'] + 0.3 if 'hook' in L else 0.5
+    for i, f in enumerate((293.66, 440.0, 587.33)):
+        bell(tt0 + 0.12 * i, f, 0.16 - 0.03 * i, -0.2 + 0.2 * i, ('title' + key, i))
+    for li, l in enumerate(tl['lines']):
+        t0, t1 = l['start'], l['end']
+        for j, cue in enumerate(SL[l['id']].get('foley', [])):
+            kind, _, b = cue.partition('@')
+            at = (l['beats'][int(b)] if int(b) < len(l['beats']) else t0 + 0.1) if b else t0 + 0.08
+            x = foley_hit(kind, (key, li, j), max(0.5, t1 - at))
+            x = x if x.ndim == 2 else pan(x, rng('fp', key, li, j).uniform(-0.35, 0.35))
+            add(fol, fade(x, 0.004, 0.08), at)
+        for j, cue in enumerate(SL[l['id']].get('sfx', [])):
+            kind, _, b = cue.partition('@')
+            at = (l['beats'][int(b)] if int(b) < len(l['beats']) else t0 + 0.1) if b else t0 + 0.05
+            k = (key, 's', li, j)
+            if kind == 'bell':
+                bell(at, 880.0, 0.14, 0.1, k)
+            elif kind == 'bell-low':
+                bell(at, 146.83, 0.24, 0.0, k)
+            elif kind == 'drum':
+                hit(at, k, 0.8, din=False, boom=0.7)
+            elif kind == 'conch':
+                add(bus_wet, pan(conch(k, 233.08, 2.0, 0.6), 0.0), at)
+            elif kind == 'bansuri':
+                add(bus_wet, pan(bansuri([SA * 2, SA * 2.25, SA * 2.5, SA * 3], [0.35, 0.35, 0.4, 1.3], k, 0.7) * 0.6, 0.2), at)
+            elif kind == 'chord':
+                n = smp(max(0.5, t1 - at))
+                tt = tvec(n)
+                ch = sum(np.sin(2 * np.pi * f * tt + q) for q, f in enumerate((SA / 2, SA * 3 / 4, SA))) * np.sin(np.pi * tt / tt[-1]) * 0.03
+                add(bus_wet, fade(np.stack([ch, np.roll(ch, 500)]), 0.3, 0.5), at)
+            elif kind == 'silence':
+                pass   # tools/mix.py mutes the rest before a line marked TURN or "rest": true
+            elif kind in FOLEY_KINDS:
+                x = foley_hit(kind, k, max(0.5, t1 - at))
+                add(fol, fade(x if x.ndim == 2 else pan(x, 0.0), 0.004, 0.08), at)
+            else:
+                raise SystemExit(f'score: sfx "{kind}" is not available in the three-layer score (line {l["id"]})')
+    if 'next' in L:
+        series_next_sting(bus_dry, bus_wet, L['next'])
+    mus = bus_dry + reverb(bus_wet, make_ir(3.2, 4.0, 'hall')) * 0.55 + bus_wet * 0.25
+    b_, a_ = sps.iirpeak(2600, 1.2, fs=SR)
+    mus = mus - 0.25 * sps.lfilter(b_, a_, mus, axis=-1)
+    fol = fol + reverb(fol, make_ir(1.2, 1.6, 'room2')) * 0.18
+    edge = env_curve([(0, 0), (0.05, 1), (D - 0.7, 1), (D - 0.02, 0), (D, 0)], N)
+    # balance: music −24, ambience −29 LUFS; the foley is set by its peaks (−15 dBFS: sparse sounds have no meaningful LUFS)
+    mus = hpf(mus, 30) * edge
+    amb = hpf(amb, 40) * edge
+    fol = hpf(fol, 40) * edge
+    mus *= db(-24.0 - lufs(mus)) if np.abs(mus).max() > 1e-6 else 1
+    amb *= db(-29.0 - lufs(amb)) if np.abs(amb).max() > 1e-6 else 1
+    pk = np.abs(fol).max()
+    fol *= db(-15.0) / pk if pk > 1e-6 else 1
+    tot = mus + amb + fol
+    k = db(TARGET_LUFS - lufs(tot))
+    stems = {'amb': amb * k, 'foley': fol * k, 'mus': mus * k}
+    tp = true_peak_db(tot * k)
+    if tp > CEIL_DBTP:
+        q = db(CEIL_DBTP - 0.3 - tp)
+        stems = {n_: v * q for n_, v in stems.items()}
+    return stems
+
+
 def write_wav(path, x):
     x = np.clip(x, -1, 1)
     r = rng('dither')
@@ -2699,6 +3013,17 @@ def main():
                 return
         except Exception:
             pass
+    if ep >= 41:
+        stems = build_layers(tl)
+        for name, v in stems.items():
+            write_wav(os.path.join(ROOT, 'audio', tag, f'{name}.wav'), v)
+        x = sum(stems.values())
+        write_wav(out_wav, x)
+        meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'], 'stems': {n_: round(lufs(v), 1) for n_, v in stems.items()},
+                'note': 'three stems (amb.wav, foley.wav, mus.wav) and their sum (music.wav); tools/mix.py ducks each stem by its own amount under the voice'}
+        json.dump(meta, open(side, 'w'), indent=1)
+        print(f'wrote audio/{tag}/music.wav + amb/foley/mus stems  {tl["duration"]:.2f} s  {meta["lufs"]} LUFS  stems {meta["stems"]}')
+        return
     x = {1: build, 2: build_ep2, 3: build_ep3, 4: build_ep4, 5: build_ep5, 6: build_ep6, 7: build_ep7, 8: build_ep8, 9: build_ep9, 10: build_ep10, 11: build_ep11, 12: build_ep12, 13: build_ep13, 14: build_ep14, 15: build_ep15, 16: build_ep16, 17: build_ep17, 18: build_ep18, 19: build_ep19, 20: build_ep20}.get(ep, build_auto)(tl)
     write_wav(out_wav, x)
     meta = {'stamp': stamp, 'lufs': round(lufs(x), 2), 'true_peak_dbtp': round(true_peak_db(x), 2), 'seconds': tl['duration'],

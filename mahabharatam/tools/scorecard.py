@@ -149,6 +149,7 @@ if v:
         out['next_vs_body_db'] = round(nxt['I'] - body['I'], 1) if 'I' in nxt and 'I' in body else None
     # repeats on the key frames (0.5 s, 3 s, last) by pHash
     kr, mk, dmin = [], {k: phash(f) for k, f in keyframes(F).items()}, 64
+    same = []
     for e in range(max(1, ep - prev), ep):
         pv = video_for(e)
         if not pv:
@@ -160,9 +161,39 @@ if v:
                 d = int((h1 != h2).sum())
                 if k1 == k2:
                     dmin = min(dmin, d)
+                    same.append(d)
                 if d <= 10:
                     kr.append(f'{k1}~ep{e}.{k2}({d})')
     out['key_repeats'] = kr
+    # FROM EPISODE 41: the colour script measured on the mp4: the dominant hue of every shot's midpoint frame (chroma-weighted
+    # mean hue on a 54×96 RGB decode; a shot under 16 mean chroma is neutral) and the longest run of consecutive shots within
+    # 30° (target ≤ 2); and the MEAN same-slot key-frame distance (target ≥ 32, with min ≥ 28: a 64-bit pHash of unrelated
+    # frames averages 32, so the old 'min' alone sat at chance level, 22–28, however varied the episodes were).
+    if ep >= 41:
+        pr = subprocess.run([FF, '-v', 'error', '-i', v, '-vf', 'fps=10,scale=54:96', '-pix_fmt', 'rgb24', '-f', 'rawvideo', '-'], capture_output=True)
+        C = np.frombuffer(pr.stdout, np.uint8).reshape(-1, 96, 54, 3).astype(np.float32)
+        hues = []
+        for _i, t in mids(ep):
+            f = C[min(len(C) - 1, int(t * 10))].reshape(-1, 3)
+            mx, mn = f.max(1), f.min(1)
+            ch = mx - mn
+            r, g, b = f[:, 0], f[:, 1], f[:, 2]
+            h = np.where(mx == r, ((g - b) / np.maximum(ch, 1e-6)) % 6, np.where(mx == g, (b - r) / np.maximum(ch, 1e-6) + 2, (r - g) / np.maximum(ch, 1e-6) + 4)) * np.pi / 3
+            w = np.where(ch < 8, 0, ch)
+            sx, sy = float((np.cos(h) * w).sum()), float((np.sin(h) * w).sum())
+            hues.append(None if ch.mean() < 16 or np.hypot(sx, sy) / max(w.sum(), 1e-6) < 0.25 else (np.degrees(np.arctan2(sy, sx)) + 360) % 360)
+        run = best = 0
+        first = None
+        for hh in hues:
+            gap = None if hh is None or first is None else min(abs(hh - first) % 360, 360 - abs(hh - first) % 360)
+            if hh is not None and gap is not None and gap < 30:
+                run += 1
+            else:
+                run, first = (1, hh) if hh is not None else (0, None)
+            best = max(best, run)
+        out['shot_hues'] = [None if x is None else int(round(x)) for x in hues]
+        out['hue_run'] = best
+    out['key_mean_dist'] = round(float(np.mean(same)), 1) if same else None
     out['key_min_dist'] = dmin   # the smallest pHash distance between same-slot key frames (0.5 s / 3 s / last) and the previous episodes: higher = more varied
     out['share_mb'] = round(os.path.getsize(os.path.join(ROOT, f'episode{ep:02d}-share.mp4')) / 1e6, 1) if os.path.exists(os.path.join(ROOT, f'episode{ep:02d}-share.mp4')) else None
 print(json.dumps(out, ensure_ascii=False) if '--json' in args else '\n'.join(f'{k}: {v}' for k, v in out.items()))

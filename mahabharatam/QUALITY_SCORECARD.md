@@ -132,3 +132,40 @@ silence ≥ 0.6 s at −45 dB, LRA ≥ 4 LU, Next ≥ 8 dB under the body. New t
 | New lights | 2–4 | 2–4 |
 | Share copies | 14.1–18.8 MB | 11.6–19.7 MB |
 | Captions | thin italic (the font files were swapped), position jumps | one fixed bold upright band at 1400, full contrast |
+
+## Targets from episode 41 (the step-up; no rows yet: nothing is rendered)
+
+Everything above stays. Added by `tools/gate.mjs` (S = on the script alone, F = `--frames`, A = `--audio`) and `tools/scorecard.py` (M = on the mp4):
+
+| Check | Target | Fails at | Where |
+|---|---|---|---|
+| Hook spoken | ≤ 2.8 s (aim) | > 3.0 s | S |
+| Caption hold | every captioned line on screen ≥ 1.8 s | < 1.8 s | S |
+| Names | every new name has a 1–6 word identifier (`names`); no "as we saw" | any missing | S |
+| Loop | the hook's question answered in the episode; the previous episode's by 15 s | > 15 s, or a question that does not match | S |
+| Titles | `episodeTitle`, `nextTitle` equal the catalog's | any mismatch | S |
+| Source line | `sourceLine` + `madeLine` ("synthetic"); on screen ≥ 1.0 s | missing / < 1.0 s | S / F |
+| Colour script | a palette on every line; ≥ 2 the episode before did not use | hue run > 2 lines | S |
+| Shot hues | dominant hue of each shot's midpoint frame | run > 2 shots | F, M (`hue_run`) |
+| Figure vs ground | CIE ΔE between a figure (≥ 10 % of frame height) and the ground in its box | ΔE < 20, or on its own hue with ΔL* < 25 | F |
+| Camera | ≥ 4 distinct moves; one signature shot | < 4 | S, F (probe) |
+| Transitions | ≥ 2 distinct of ink / brush / lamp / smoke | < 2 | S, F (probe) |
+| Close-up | one face close-up with a change of emotion; a figure ≥ 1.4 frame heights in that line | none | S, F |
+| Sound layers | ambience on every line (≥ 2 places), ≥ 3 music moods, a foley cue on every spoken line | any missing | S |
+| J / L cuts | ≥ 2 (≥ 150 ms), no overlapping speech | < 2 | S |
+| Rests | 2 real silences | 0 (1 warns) | S, A |
+| Stems | three stems; the music ≥ 6 dB lower under the voice | < 6 dB | A |
+| True peak | ≤ −1.5 dBTP on the mix | > −1.5 | A |
+| Key frames vs the previous 3 episodes | pHash min ≥ 28 and mean ≥ 32 | min < 22 | F, M (`key_min_dist`, `key_mean_dist`) |
+| Consecutive shots | pHash mean ≥ 28 | any pair ≤ 12 | F |
+
+Unchanged: −14 LUFS (±1), LRA ≥ 4, Next ≥ 8 dB under the body, hook ≤ 8 words, motion by 0.5 s ≥ 6, story by 5 s, turn 40–60 %, no static hold > 4 s, ≤ 2.6 words/s,
+≤ 2 new names per 10 s, Next ≤ 1.2 s.
+
+**On key-frame variety.** Two unrelated frames differ by 32 of 64 pHash bits on average, and the smallest of nine such pairs is about 26. Episodes
+21–40 scored a min of 20–28 (mean of the mins 24.6): chance level. Episode 40 measures min 24, mean 30.4. A min "clearly above 24.6" would need the
+frames to be deliberately unlike, not merely different, so the mean is the target and the min only guards against a near-repeat.
+
+**The kit lab reel (ep 99; 27 s; not an episode)** through the whole gate, to show the new checks run: 7 camera moves and 4 medium transitions seen by the probe; shot hues 25 / 104 / 301 / 6 / 84 / 211 / 135 / 133°
+(run ≤ 2); 419 figure samples, all standing off their grounds; source line 3.3 s; consecutive shots pHash min 22, mean 26.9; 2 silences (longest 1.33 s); LRA 7.4 LU;
+three stems, music −15 dB under the voice; −2.2 dBTP; Next −10.5 dB. Its picture and sound were not judged as an episode.

@@ -510,7 +510,15 @@
     const s = scenes.get(L.id);
     const fade = s && s.fadeIn && i > 0 ? s.fadeIn : 0;
     const k = fade ? (T - L.start) / fade : 1;
-    if (k < 1) {
+    if (REEL.probe) { REEL.probe.figures = []; REEL.probe.line = L.id; }
+    // From episode 41: a scene may set transition: { type: 'ink' | 'brush' | 'lamp' | 'smoke' | 'dissolve', dur, … } (KIT.transitions,
+    // src/kit/stage.js): a cut born from the medium instead of a plain fade. The outgoing scene keeps playing under it.
+    const tr = s && s.transition && i > 0 && window.KIT && window.KIT.transitions ? s.transition : null;
+    const kt = tr ? (T - L.start) / (tr.dur || 0.5) : 1;
+    if (tr && kt < 1) {
+      window.KIT.transitions.run(ctx, tr, clamp(kt), T, (g) => drawScene(g, i - 1, T), (g) => drawScene(g, i, T));
+      resetCtx(ctx);
+    } else if (k < 1) {
       // Cross-dissolve: the outgoing scene keeps playing past its end (p > 1).
       drawScene(ctx, i - 1, T);
       const b = buffer('xfade');
@@ -677,6 +685,8 @@
     /** 'ep01', 'ep02', …: the episode's file tag (script/, voice/, build/, audio/, src/scenes/). */
     epTag: (ep = REEL.ep) => `ep${String(+ep === 0 ? 0 : (+ep || 1)).padStart(2, '0')}`,
     scale: 1, grain: 0.14, showCaptions: true, errors: [], live: false,
+    /** The gate's probe (tools/gate.mjs sets it): { figures: [], moves: {}, transitions: {}, type: {} }; null in normal renders. */
+    probe: null,
     /** Sub-pixel camera jitter [x, y] in backing px, set per motion-blur sub-sample by the runtime. */
     jitter: [0, 0],
     overlay: null, onInit: [],
