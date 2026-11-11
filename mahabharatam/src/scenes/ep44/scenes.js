@@ -36,9 +36,9 @@
   R.scene({ id: 'family', transition: { type: 'brush', dur: 0.5, angle: 0.25, color: '#d8ecc0' },
     draw(ctx, t, env) {
       const T = env.T, b0 = env.beats[0] ?? 0.3, d = 110 * t, cam = CAM.slide(t / env.dur, { from: 140, to: -140, zoom: 1.1 });
-      EP41.hermitage(ctx, T, cam, { hutX: 1500, figs: (g, p) => CH.ruru.draw(g, { x: 800 - d, y: GY + 12, scale: 1.06, facing: 'left', pose: ACT.pose(t, [[0, 'walk']], { phase: ACT.stride(d, 1.06), prop: 'staff' }), light: ST.light(p, { from: [860, 400], at: [700, GY], front: 0.5 }), expression: { emo: 'calm', gaze: [0.5, 0] }, t: T, key: 'fm-r' }) });
+      EP41.hermitage(ctx, T, cam, { hutX: 1500, figs: (g, p) => CH.ruru.draw(g, { x: 740 - d, y: GY + 12, scale: 1.06, facing: 'left', pose: ACT.pose(t, [[0, 'walk']], { phase: ACT.stride(d, 1.06), prop: 'staff' }), light: ST.light(p, { from: [860, 400], at: [700, GY], front: 0.5 }), expression: { emo: 'calm', gaze: [0.5, 0] }, t: T, key: 'fm-r' }) });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 3.2) / 0.4)), env.strings, { y: 190 });
-      TY.plaque(ctx, T, clamp((t - b0 - 0.2) / 0.6), ...names(env, 'Ruru'), { x: 300, y: 520, out: clamp((t - (env.dur - 0.35)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b0 - 0.2) / 0.6), ...names(env, 'Ruru'), { x: 270, y: 640, out: clamp((t - (env.dur - 0.35)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.26, vignette: 0.4, paper: 0.3 }) });
@@ -56,12 +56,12 @@
   const babe = (g, x, y, k = 1) => { KIT.glow(g, x, y, 240 * k, '#fff0c0', 0.8); KIT.glow(g, x, y, 90 * k, '#ffffff', 1); g.fillStyle = '#fff6e0'; g.beginPath(); g.ellipse(x, y, 46, 26, 0.1, 0, TAU); g.fill(); };
   R.scene({ id: 'left', transition: { type: 'lamp', dur: 0.8, from: [300, 800], to: [620, 1250] },
     draw(ctx, t, env) {
-      const T = env.T, b0 = env.beats[0] ?? 1.4, b1 = env.beats[1] ?? 4.7, cam = CAM.tilt(E.inOutSine(clamp((t - b1 + 0.6) / 1.4)), { from: -200, to: 150, zoom: 1.16 });
+      const T = env.T, b0 = env.beats[0] ?? 1.4, b1 = env.beats[1] ?? 4.7, cam = CAM.tilt(E.inOutSine(clamp((t - b1 + 0.6) / 1.4)), { from: -120, to: 150, zoom: 1.12 });
       const rise = E.inOutSine(clamp((t - b1 + 0.4) / 1.6));
       bank(ctx, T, cam, (g, p) => {
         babe(g, 620, 1290, clamp((t - b0) / 0.4));
         g.save(); g.globalAlpha = 1;
-        CH.menaka.draw(g, { x: 330, y: 1320 - 150 * rise, scale: 1.0, facing: 'right', pose: ACT.pose(t, [[0, 'carry'], [b0 - 0.3, 'kneel', { act: 0.5 }], [b1 - 0.5, 'stand', { act: 0.8 }]]), light: { ...ST.light(p, { from: [540, 100], at: [330, 1300], front: 0.9, k: 1.3 }) }, expression: { emo: 'sorrow', gaze: [0.6, 0.6] }, t: T, key: 'lf-m' });
+        CH.menaka.draw(g, { x: 330, y: 1320 - 60 * rise, scale: 0.88, facing: 'right', pose: ACT.pose(t, [[0, 'carry'], [b0 - 0.3, 'kneel', { act: 0.5 }], [b1 - 0.5, 'stand', { act: 0.8 }]]), light: { ...ST.light(p, { from: [540, 100], at: [330, 1300], front: 0.9, k: 1.3 }) }, expression: { emo: 'sorrow', gaze: [0.6, 0.6] }, t: T, key: 'lf-m' });
         g.restore();
       });
       TY.plaque(ctx, T, clamp((t - b0 - 0.3) / 0.6), ...names(env, 'Menaka'), { x: 760, y: 420, out: clamp((t - (env.dur - 0.4)) / 0.3) });
@@ -88,7 +88,7 @@
       EP44.meadow(ctx, T, cam, { sun: [820, 380, 60], figs: (g, p) => { const flip = t > b0;
         girl(g, p, T, 560, GY - 6, 1.12, ACT.pose(t, [[0, 'reach'], [b0 - 0.15, 'attend', { act: 0.4 }], [b0 + 0.9, 'offer', { act: 0.6 }]], { wind: 0.8 }), { emo: 'joy', facing: flip ? 'right' : 'left', ...ACT.lead(t, [[0, [0.3, -0.3]], [b0 + 0.2, [0.7, 0]]]) }, 'nm-p');
         garland(g, flip ? 700 : 420, GY - 700, 0.6, 0.2 * Math.sin(T * 2)); } });
-      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Pramadvara'), { x: 540, y: 250, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Pramadvara'), { x: 280, y: 330, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.3, vignette: 0.38, paper: 0.3 }) });
@@ -114,12 +114,12 @@
   R.scene({ id: 'play', transition: { type: 'dissolve', dur: 0.3 },
     draw(ctx, t, env) {
       const T = env.T, b0 = env.beats[0] ?? 0.8, cam = CAM.crane(t / env.dur, { from: 0.94, to: 1.14, y0: -260, y1: 60 }), d = 150 * t;
-      const bu = clamp((t - b0) / 1.3), bx = lerp(820, 330, bu), by = GY - 700 - 500 * Math.sin(Math.PI * bu);
+      const bu = clamp((t - b0) / 1.3), bx = lerp(560, 200, bu), by = GY - 700 - 500 * Math.sin(Math.PI * bu);
       EP44.meadow(ctx, T, cam, { sun: [820, 380, 60], figs: (g, p) => {
-        CH.viper.draw(g, { x: 150, y: GY + 150, scale: 0.4, facing: 'left', pose: { name: 'strike', k: 0 }, light: ST.light(p, { from: [860, 300], at: [150, GY], front: 0.8 }), t: T, key: 'pl-v' });
-        CH.girika.draw(g, { x: 1150 - d * 0.8, y: GY - 40, scale: 0.72, facing: 'left', pose: ACT.pose(t, [[0, 'run']], { phase: ACT.stride(d * 0.8, 0.72) * 0.6, wind: 1 }), light: ST.light(p, { from: [860, 300], at: [900, GY], front: 0.6 }), expression: { emo: 'joy' }, t: T, key: 'pl-1' });
-        CH.panchali.draw(g, { x: 150 + d * 0.5, y: GY - 70, scale: 0.68, facing: 'right', pose: ACT.pose(t, [[0, 'run'], [b0 + 1.0, 'reach', { act: 0.3 }]], { phase: ACT.stride(d * 0.5, 0.68) * 0.6, wind: 1 }), light: ST.light(p, { from: [860, 300], at: [300, GY], front: 0.6 }), expression: { emo: 'joy' }, t: T, key: 'pl-2' });
-        girl(g, p, T, 950 - d * 0.6, GY + 20, 0.86, ACT.pose(t, [[0, 'run'], [b0 - 0.25, 'reach', { act: 0.25 }], [b0 + 0.3, 'run', { act: 0.4 }]], { phase: ACT.stride(d * 0.6, 0.86) * 0.6, wind: 1 }), { emo: 'joy' }, 'pl-p');
+        CH.viper.draw(g, { x: 330, y: GY - 150, scale: 0.34, facing: 'left', pose: { name: 'strike', k: 0 }, light: ST.light(p, { from: [860, 300], at: [150, GY], front: 0.8 }), t: T, key: 'pl-v' });
+        CH.girika.draw(g, { x: 1010 - d * 0.22, y: GY - 60, scale: 0.72, facing: 'left', pose: ACT.pose(t, [[0, 'run']], { phase: ACT.stride(d * 0.22, 0.72), stride: 0.6, wind: 1 }), light: ST.light(p, { from: [860, 300], at: [900, GY], front: 0.6 }), expression: { emo: 'joy' }, t: T, key: 'pl-1' });
+        CH.panchali.draw(g, { x: 70 + d * 0.2, y: GY - 80, scale: 0.68, facing: 'right', pose: ACT.pose(t, [[0, 'run'], [b0 + 1.0, 'reach', { act: 0.3 }]], { phase: ACT.stride(d * 0.2, 0.68), stride: 0.6, wind: 1 }), light: ST.light(p, { from: [860, 300], at: [300, GY], front: 0.6 }), expression: { emo: 'joy' }, t: T, key: 'pl-2' });
+        girl(g, p, T, 640 - d * 0.18, GY + 20, 0.86, ACT.pose(t, [[0, 'run'], [b0 - 0.25, 'reach', { act: 0.25 }], [b0 + 0.3, 'run', { act: 0.4 }]], { phase: ACT.stride(d * 0.18, 0.86), stride: 0.6, wind: 1 }), { emo: 'joy' }, 'pl-p');
         if (bu > 0 && bu < 1) { g.fillStyle = '#ff8aa8'; g.beginPath(); g.arc(bx, by, 26, 0, TAU); g.fill(); g.fillStyle = '#fff0c0'; for (let i = 0; i < 5; i++) { g.beginPath(); g.arc(bx + 20 * Math.cos(i * 1.26 + T * 6), by + 20 * Math.sin(i * 1.26 + T * 6), 9, 0, TAU); g.fill(); } }
       } });
       fin(ctx, T);
