@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9377,
+   "words": 2,
+   "speed": 0.891,
+   "text": "Her father?"
+  },
+  {
+   "t0": 1.2377,
+   "t1": 1.9069,
+   "words": 1,
+   "speed": 0.891,
+   "text": "Kanva"
+  },
+  {
+   "t0": 1.9669,
+   "t1": 3.5873,
+   "words": 4,
+   "speed": 0.891,
+   "text": "was sworn to celibacy."
+  },
+  {
+   "t0": 3.8872,
+   "t1": 4.9052,
+   "words": 3,
+   "speed": 0.891,
+   "text": "Who was she?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

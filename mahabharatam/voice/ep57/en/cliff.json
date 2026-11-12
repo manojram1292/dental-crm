@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3532,
+   "words": 4,
+   "speed": 0.81,
+   "text": "She turned to go."
+  },
+  {
+   "t0": 1.7532,
+   "t1": 2.8557,
+   "words": 3,
+   "speed": 0.81,
+   "text": "Then a voice"
+  },
+  {
+   "t0": 2.9357,
+   "t1": 4.5269,
+   "words": 4,
+   "speed": 0.81,
+   "text": "spoke from the sky."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

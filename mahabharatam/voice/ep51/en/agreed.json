@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4955,
+   "words": 5,
+   "speed": 0.891,
+   "text": "Asked to come down too,"
+  },
+  {
+   "t0": 1.6155,
+   "t1": 3.0057,
+   "words": 2,
+   "speed": 0.891,
+   "text": "Narayana himself"
+  },
+  {
+   "t0": 3.1058,
+   "t1": 3.9838,
+   "words": 1,
+   "speed": 0.891,
+   "text": "agreed."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

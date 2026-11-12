@@ -1,0 +1,44 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.2622,
+   "words": 3,
+   "speed": 0.891,
+   "text": "He bound tigers,"
+  },
+  {
+   "t0": 1.3422,
+   "t1": 2.1299,
+   "words": 1,
+   "speed": 0.891,
+   "text": "lions,"
+  },
+  {
+   "t0": 2.2099,
+   "t1": 2.9266,
+   "words": 1,
+   "speed": 0.891,
+   "text": "boars"
+  },
+  {
+   "t0": 2.9866,
+   "t1": 4.7115,
+   "words": 5,
+   "speed": 0.891,
+   "text": "and elephants to the trees,"
+  },
+  {
+   "t0": 4.9115,
+   "t1": 5.9392,
+   "words": 3,
+   "speed": 0.891,
+   "text": "and rode them."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

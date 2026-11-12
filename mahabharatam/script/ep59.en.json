@@ -24,7 +24,7 @@
     "kinetic": true
   },
   "episode": 59,
-  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Yayati tale (the story of Kacha). CHECKED AGAINST CE 1.71.1–26 (GRETIL e-text of the constituted text, lab/ce; star passages and appendix lines are apparatus and were not used; Ganguli (vulgate) only as a reading aid): Janamejaya asks how Yayati, tenth from Prajapati, won Shukra's daughter (1.71.1: the recap band); gods and asuras strove for lordship of the three worlds (1.71.5: `war`); to win, the gods chose the seer of Angiras's line (Brihaspati, named at 1.71.8) as their priest, the others chose Kavya Ushanas (1.71.6: `priests`; the text calls him Kavya, Ushanas and Shukra: 1.71.11, 19, 20; we say Shukra throughout); the danavas the gods killed in battle Kavya brought back to life by the power of his knowledge, and they rose and fought again (1.71.7: `revive`); the gods the asuras killed Brihaspati could not revive, for he did not know the knowledge that Kavya knew, the samjivani (1.71.8–9: `not`); the gods, afraid, went to Kacha, Brihaspati's eldest son: fetch that knowledge quickly and you shall share with us (1.71.10–11: `send`, the turn); he is to be found near Vrishaparvan (the asura king; not voiced) (1.71.12); you can win him and his dear daughter Devayani; when Devayani is pleased you will surely get that knowledge (1.71.13–14: `how`); Kacha went to the asura king's city and said to Shukra: I am the grandson of the seer Angiras and Brihaspati's own son, Kacha by name; take me as your student; I will keep the student's vow with you for a thousand years (1.71.15–18: `came`; he hides nothing); Shukra: welcome, Kacha; I accept; in honouring you let Brihaspati be honoured (1.71.19: `welcome`); he served his teacher and Devayani; young, he pleased her with singing, dancing and music, with flowers, fruit and errands (1.71.21–23: `served`); and she, singing after him, attended him in private (1.71.24: \"and she grew fond of him\"); when five hundred years of his vow had passed the danavas understood (buddhva) and, seeing him alone herding cattle in the wood, killed him, out of hatred of Brihaspati and to guard the knowledge (1.71.25–26: the cliffhanger). CE AGAINST THE CATALOG PLAN: the plan said \"the asuras saw through him\": he was never in disguise (1.71.17); the line now says they understood why he had come. The speeches are condensed paraphrase.",
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Yayati tale (the story of Kacha). CHECKED AGAINST CE 1.71.1–26 (GRETIL e-text of the constituted text, lab/ce; star passages and appendix lines are apparatus and were not used; Ganguli (vulgate) only as a reading aid): Janamejaya asks how Yayati, tenth from Prajapati, won Shukra's daughter (1.71.1: the recap band); gods and asuras strove for lordship of the three worlds (1.71.5: `war`); to win, the gods chose the seer of Angiras's line (Brihaspati, named at 1.71.8) as their priest, the others chose Kavya Ushanas (1.71.6: `priests`; the text calls him Kavya, Ushanas and Shukra: 1.71.11, 19, 20; we say Shukra throughout); the danavas the gods killed in battle Kavya brought back to life by the power of his knowledge, and they rose and fought again (1.71.7: `revive`); the gods the asuras killed Brihaspati could not revive, for he did not know the knowledge that Kavya knew, the samjivani (1.71.8–9: `not`; the gods' dead are in the picture); the gods, afraid, went to Kacha, Brihaspati's eldest son: fetch that knowledge quickly and you shall share with us (1.71.10–11: `send`, the turn); he is to be found near Vrishaparvan (the asura king; not voiced) (1.71.12); you can win him and his dear daughter Devayani; when Devayani is pleased you will surely get that knowledge (1.71.13–14: in the picture of `send`: the gods show him her likeness); Kacha went to the asura king's city and said to Shukra: I am the grandson of the seer Angiras and Brihaspati's own son, Kacha by name; take me as your student; I will keep the student's vow with you for a thousand years (1.71.15–18: `came`; he hides nothing); Shukra: welcome, Kacha; I accept; in honouring you let Brihaspati be honoured (1.71.19: `welcome`); he served his teacher and Devayani; young, he pleased her with singing, dancing and music, with flowers, fruit and errands (1.71.21–23: `served`); and she, singing after him, attended him in private (1.71.24: in the picture); when five hundred years of his vow had passed the danavas understood (buddhva) and, seeing him alone herding cattle in the wood, killed him, out of hatred of Brihaspati and to guard the knowledge (1.71.25–26: the cliffhanger). CE AGAINST THE CATALOG PLAN: the plan said \"the asuras saw through him\": he was never in disguise (1.71.17); the line now says they understood why he had come. The speeches are condensed paraphrase.",
   "structure": "As from episode 41 (script/ARC-41-50.md, script/ARC-51-60.md): COLD OPEN (≤ 8 words; the hook style rotates and never repeats the episode before; no episode of this batch opens on fire) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
   "hookStyle": "question",
   "names": {
@@ -64,7 +64,7 @@
       "speed": 1.15,
       "text": "Who could bring the dead back to life?",
       "say": "Who could bring the dead [p:60] back to life?",
-      "est": 3.72,
+      "est": 3.0,
       "pre": 60,
       "post": 1100,
       "role": "hook",
@@ -85,21 +85,20 @@
       ],
       "pal": "thicket-shade",
       "cam": "push",
-      "note": "COLD OPEN (a question card; no fire): a battlefield at green dusk, seen low along the ground: a fallen warrior's open hand in the foreground; a pale green light passes over it and the fingers close. The card in the upper third.",
-      "estVoice": 2.56
+      "note": "COLD OPEN (a question card; no fire): a battlefield at green dusk, seen low along the ground: a fallen warrior's open hand in the foreground; a pale green light passes over it and the fingers close. The card in the upper third."
     },
     {
       "id": "war",
       "speed": 1.1,
-      "text": "It begins with a war: gods against asuras, for the three worlds.",
-      "say": "It begins with a war: [p:200] gods against asuras, [p:120] for the three worlds.",
-      "est": 5.26,
-      "pre": 250,
-      "post": 300,
+      "text": "The answer begins with a war: gods against asuras, for the three worlds.",
+      "say": "The answer begins with a war: [p:200] gods against asuras, [p:120] for the three worlds.",
+      "est": 3.0,
+      "pre": 220,
+      "post": 260,
       "beats": [
-        4,
-        7,
-        11
+        5,
+        8,
+        12
       ],
       "amb": "storm",
       "music": "chase",
@@ -111,17 +110,16 @@
       "cam": "slide",
       "tr": "smoke",
       "mixDb": 1,
-      "note": "STORY 0 with the unvoiced recap band (top) (war-iron): two hosts crash across the frame: bright gods from the left, dark horned asuras from the right, three bands of world behind them (sky, earth, underworld). A lateral track (tag: asuras · the gods' rivals).",
-      "estVoice": 4.71
+      "note": "STORY 0 with the unvoiced recap band (top) (war-iron): two hosts crash across the frame: bright gods from the left, dark horned asuras from the right, three bands of world behind them (sky, earth, underworld). A lateral track (tag: asuras · the gods' rivals)."
     },
     {
       "id": "priests",
       "speed": 1.1,
       "text": "The gods' priest was Brihaspati. The asuras' was Shukra.",
       "say": "The gods' priest [p:60] was Brihaspati. [p:300] The asuras' [p:60] was Shukra.",
-      "est": 4.67,
-      "pre": 250,
-      "post": 300,
+      "est": 3.0,
+      "pre": 220,
+      "post": 260,
       "emphasis": [
         "Brihaspati.",
         "Shukra."
@@ -139,23 +137,23 @@
       "cam": "rack",
       "tr": "brush",
       "note": "STORY 1 · NEW LIGHT (seat-ivory: a pale neutral ground, the two as on a painted panel; answers episode 58's question by 10 s): a rack focus from a gold-robed sage on the left (plaque: Brihaspati · priest of the gods) to a white-robed, white-haired sage on the right with a hard, clever face (plaque: Shukra · priest of the asuras).",
-      "estVoice": 4.12
+      "mixDb": -3
     },
     {
       "id": "revive",
       "speed": 1.1,
-      "text": "Every asura the gods struck down, Shukra raised again, by the art called sanjivani.",
-      "say": "Every asura the gods struck down, [p:150] Shukra raised again, [p:200] by the art [p:60] called sanjivani.",
-      "est": 6.32,
-      "pre": 250,
-      "post": 300,
+      "text": "Every asura the gods killed, Shukra raised again, by the art called sanjivani.",
+      "say": "Every asura the gods killed, [p:150] Shukra raised again, [p:200] by the art [p:60] called sanjivani.",
+      "est": 3.0,
+      "pre": 220,
+      "post": 260,
       "emphasis": [
         "sanjivani."
       ],
       "beats": [
-        5,
-        8,
-        13
+        4,
+        7,
+        12
       ],
       "amb": "void",
       "music": "awe",
@@ -172,19 +170,19 @@
       "signature": true,
       "tr": "ink",
       "note": "STORY 2 · THE SIGNATURE SHOT (thicket-shade; answers the hook): the hook's field from above: Shukra stands among the fallen with a hand raised; a ring of pale green light spreads from him over the ground, and as it passes, warrior after warrior sits up, stands, lifts his weapon. A crane up (tag: sanjivani · the art of raising the dead).",
-      "estVoice": 5.77
+      "mixDb": 1
     },
     {
       "id": "not",
       "speed": 1.1,
-      "text": "Brihaspati did not know it. The gods' dead stayed dead.",
-      "say": "Brihaspati did not know it. [p:300] The gods' dead [p:80] stayed dead.",
-      "est": 4.62,
-      "pre": 250,
-      "post": 300,
+      "text": "Brihaspati did not know it.",
+      "say": "Brihaspati [p:60] did not know it.",
+      "est": 3.0,
+      "pre": 220,
+      "post": 800,
       "beats": [
-        4,
-        9
+        0,
+        4
       ],
       "amb": "heaven",
       "music": "grief",
@@ -195,17 +193,16 @@
       "pal": "grief-blue",
       "cam": "tilt",
       "mixDb": -2,
-      "note": "STORY 3 · NEW LIGHT (grief-blue): a tilt down from Brihaspati, his hands open and empty, to bright fallen gods laid in a row, still; the living gods stand over them with bowed heads.",
-      "estVoice": 4.07
+      "note": "STORY 3 · NEW LIGHT (grief-blue): a tilt down from Brihaspati, his hands open and empty, to bright fallen gods laid in a row, still; the living gods stand over them with bowed heads (the gods' dead stayed dead: seen)."
     },
     {
       "id": "send",
       "speed": 1.1,
-      "text": "So the gods went to Kacha, Brihaspati's eldest son: bring us that knowledge.",
-      "say": "So the gods went to Kacha, [p:100] Brihaspati's eldest son: [p:260] bring us that knowledge.",
-      "est": 6.62,
+      "text": "So the gods sent Kacha, Brihaspati's eldest son, to win that knowledge.",
+      "say": "So the gods sent Kacha, [p:100] Brihaspati's eldest son, [p:200] to win that knowledge.",
+      "est": 3.0,
       "pre": 950,
-      "post": 350,
+      "post": 450,
       "rest": true,
       "sfx": [
         "silence"
@@ -214,9 +211,9 @@
         "Kacha,"
       ],
       "beats": [
-        5,
-        8,
-        12
+        4,
+        7,
+        11
       ],
       "music": "still",
       "foley": [
@@ -225,78 +222,49 @@
       ],
       "pal": "crystal-sky",
       "cam": "push",
-      "note": "STORY 4 · THE TURN (≈ 45 %) after a real silence · NEW LIGHT (crystal-sky): a ring of tall gods round one slight young man in a student's white, who looks from face to face (plaque: Kacha · Brihaspati's eldest son). The word of the turn: GO.",
-      "estVoice": 5.32
-    },
-    {
-      "id": "how",
-      "speaker": "devas",
-      "speed": 1.0,
-      "text": "\"Win his daughter, Devayani, and it is yours.\"",
-      "say": "Win his daughter, [p:100] Devayani, [p:250] and it is yours.",
-      "est": 4.39,
-      "pre": 250,
-      "post": 300,
-      "emphasis": [
-        "Devayani,"
-      ],
-      "beats": [
-        2,
-        3,
-        7
-      ],
-      "music": "wonder",
-      "foley": [
-        "cloth",
-        "anklet@1"
-      ],
-      "pal": "brahma-rose",
-      "cam": "orbit",
-      "tr": "lamp",
-      "mixDb": -2,
-      "note": "STORY 5 (brahma-rose): in a rose glow between the gods' hands, a small bright picture: a young woman with flowers in her long hair, head high (plaque: Devayani · Shukra's daughter). Kacha looks at it, uneasy. A slow orbit.",
-      "estVoice": 3.84
+      "note": "STORY 4 · THE TURN (≈ 45 %) after a real silence · NEW LIGHT (crystal-sky): a ring of tall gods round one slight young man in a student's white, who looks from face to face (plaque: Kacha · Brihaspati's eldest son); between the gods' hands, in a small rose glow, a young woman with flowers in her long hair, head high (plaque: Devayani · Shukra's daughter). The word of the turn: GO.",
+      "mixDb": -3
     },
     {
       "id": "came",
       "speaker": "kacha",
-      "speed": 1.0,
-      "text": "\"I am Kacha, son of Brihaspati. Take me as your student.\"",
-      "say": "I am Kacha, [p:100] son of Brihaspati. [p:300] Take me as your student.",
-      "est": 5.37,
-      "pre": 250,
-      "post": 300,
+      "speed": 1.06,
+      "text": "\"I am Kacha, Brihaspati's son. Take me as your student.\"",
+      "say": "I am Kacha, [p:100] Brihaspati's son. [p:300] Take me as your student.",
+      "est": 3.0,
+      "pre": 220,
+      "post": 260,
       "beats": [
         2,
-        5,
-        10
+        4,
+        9
       ],
       "amb": "hearth",
       "ambLead": 250,
-      "music": "still",
+      "music": "wonder",
       "foley": [
         "steps@0",
         "cloth@2"
       ],
       "pal": "dharma-copper",
-      "cam": "frame",
-      "tr": "brush",
+      "cam": "orbit",
+      "tr": "lamp",
       "note": "STORY 6 · NEW LIGHT (dharma-copper: the asura king's city, dark copper walls): seen through a heavy gateway: Kacha, alone and small, bows with joined palms before Shukra's seat; huge horned guards on either side lean to look at him. He hides nothing (tag: he names his father · Adi 1.71.17).",
-      "estVoice": 4.82
+      "mixDb": -1.5
     },
     {
       "id": "welcome",
       "speaker": "shukra",
-      "speed": 1.0,
-      "text": "\"Welcome, Kacha. In honouring you, I honour your father.\"",
-      "say": "Welcome, Kacha. [p:300] In honouring you, [p:100] I honour your father.",
-      "est": 5.67,
-      "pre": 250,
-      "post": 300,
+      "speed": 1.1,
+      "text": "\"Welcome. In honouring you, I honour your father.\"",
+      "say": "Welcome. [p:300] In honouring you, [p:100] I honour your father.",
+      "est": 3.0,
+      "pre": 220,
+      "post": 260,
       "beats": [
         0,
-        4,
-        7
+        3,
+        6
       ],
       "music": "tender",
       "foley": [
@@ -307,22 +275,23 @@
       "cam": "push",
       "closeup": true,
       "mixDb": -2,
-      "note": "STORY 7 · THE CLOSE-UP: Shukra's face fills the frame: hard and measuring, one brow up; then it opens (the eyes warm, a corner of the mouth lifts) and he inclines his head.",
-      "estVoice": 5.12
+      "note": "STORY 7 · THE CLOSE-UP: Shukra's face fills the frame: hard and measuring, one brow up; then it opens (the eyes warm, a corner of the mouth lifts) and he inclines his head."
     },
     {
       "id": "served",
       "speed": 1.1,
-      "text": "He served his teacher, and sang and danced for Devayani. She grew fond of him.",
-      "say": "He served his teacher, [p:120] and sang and danced for Devayani. [p:350] She grew fond of him.",
-      "est": 6.7,
+      "text": "He served his teacher, and sang and danced for his daughter, Devayani.",
+      "say": "He served his teacher, [p:120] and sang and danced [p:60] for his daughter, [p:100] Devayani.",
+      "est": 3.0,
       "pre": 800,
-      "post": 300,
+      "post": 400,
       "rest": true,
+      "emphasis": [
+        "Devayani."
+      ],
       "beats": [
         1,
         6,
-        9,
         11
       ],
       "amb": "meadow",
@@ -335,22 +304,22 @@
       "pal": "meadow-spring",
       "cam": "slide",
       "tr": "lamp",
-      "note": "STORY 8 (a second real silence before it) · NEW LIGHT (meadow-spring): a garden: Kacha carries firewood past, then offers Devayani flowers, then dances a turn, a small drum at his hip; she, seated, tries not to smile and then does, singing with him (sub: a vow of a thousand years · Adi 1.71.18). A lateral track through the three moments.",
-      "estVoice": 5.6
+      "note": "STORY 8 (a second real silence before it) · NEW LIGHT (meadow-spring): a garden: Kacha carries firewood past, then offers Devayani flowers, then dances a turn, a small drum at his hip; she, seated, tries not to smile and then does, singing with him (the text: she sang after him and waited on him) (sub: a vow of a thousand years · Adi 1.71.18). A lateral track through the three moments.",
+      "mixDb": 1
     },
     {
       "id": "cliff",
       "speed": 1.1,
-      "text": "Five hundred years passed. Then the asuras understood why he had come, and killed him.",
-      "say": "Five hundred years passed. [p:350] Then the asuras understood [p:80] why he had come, [p:300] and killed him.",
-      "est": 6.93,
-      "pre": 250,
+      "text": "Five hundred years on, the asuras understood why he had come, and killed him.",
+      "say": "Five hundred years on, [p:250] the asuras understood [p:80] why he had come, [p:300] and killed him.",
+      "est": 3.0,
+      "pre": 220,
       "post": 400,
       "beats": [
         2,
-        7,
-        11,
-        14
+        6,
+        10,
+        13
       ],
       "role": "next",
       "amb": "forest-night",
@@ -368,7 +337,7 @@
       "cam": "pull",
       "tr": "smoke",
       "note": "NEXT 1 (CE 1.71.25–26): a wood at violet dusk: Kacha alone with a few white cows, his back to us; among the trunks, horned shapes closing in from three sides; the cows lift their heads. A pull back; the blow is not shown. The source line (top).",
-      "estVoice": 6.28
+      "mixDb": -0.5
     },
     {
       "id": "next",

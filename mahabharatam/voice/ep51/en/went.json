@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.8182,
+   "words": 1,
+   "speed": 0.891,
+   "text": "Afraid,"
+  },
+  {
+   "t0": 0.9382,
+   "t1": 2.3467,
+   "words": 4,
+   "speed": 0.891,
+   "text": "she went to Brahma,"
+  },
+  {
+   "t0": 2.4267,
+   "t1": 3.4217,
+   "words": 2,
+   "speed": 0.891,
+   "text": "the creator."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

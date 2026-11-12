@@ -1,0 +1,37 @@
+{
+ "speaker": "kanva",
+ "voice": "bm_george",
+ "speed": 0.8480000000000001,
+ "pitch": 0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3398,
+   "words": 3,
+   "speed": 0.848,
+   "text": "It is time"
+  },
+  {
+   "t0": 1.4198,
+   "t1": 3.4595,
+   "words": 5,
+   "speed": 0.848,
+   "text": "he was made crown prince."
+  },
+  {
+   "t0": 3.7595,
+   "t1": 5.627,
+   "words": 5,
+   "speed": 0.848,
+   "text": "Take them to the king"
+  },
+  {
+   "t0": 5.687,
+   "t1": 6.6939,
+   "words": 1,
+   "speed": 0.848,
+   "text": "today."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

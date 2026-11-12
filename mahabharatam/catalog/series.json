@@ -7118,8 +7118,8 @@
          "label": "Adi 1.58"
         }
        ],
-       "synopsis": "After Parashurama's slaughter, the kshatriya line is reborn and the earth knows a golden age. Then the asuras, defeated in heaven, begin to be born on earth as proud kings and creatures, and the Earth, weighed down, goes to Brahma for help. He tells the gods to be born on earth in part to relieve her.",
-       "cliffhanger": "So the gods came down, in disguise, as the heroes and villains of this story.",
+       "synopsis": "Asked why godlike heroes were born on earth, the teller answers: to lift a burden from the Earth. A new line of kings had ruled justly and the world had filled with life; then the asuras, beaten by the gods, began to be born on earth, as beasts and as proud kings who crushed everyone. The Earth could not bear her own weight and went, afraid, to Brahma, who already knew why she had come. He told the gods to be born on earth, each in part, and lift her burden; and Narayana himself agreed to come down.",
+       "cliffhanger": "So gods and demons were born as men: this story's heroes and villains.",
        "characters": [
         "earth-goddess",
         "brahma",
@@ -7145,11 +7145,13 @@
         "theme-fate-and-time",
         "char-parashurama"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "Checked against CE 1.58.1–51 and 1.59.1–4 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed)). The Earth has no words in the CE (1.58.40) and none here; she is a woman, never a cow (not in the text). Parashurama's twenty-one wars (1.58.4) are on a plaque. Brahma's command is 1.58.46 (\"to fight\", virodhaya, on a tag). CORRECTED against the plan: the cliffhanger said the gods became \"the heroes and villains\"; the villains are asuras and Kali (1.58.25–31, 1.61): now \"gods and demons\". Still unverified: nothing in the script; the e-text has no second witness."
       },
       {
        "id": "S01E052",
@@ -7168,16 +7170,15 @@
          "label": "Adi 1.61"
         }
        ],
-       "synopsis": "Vaishampayana names who was a portion of whom: Duryodhana of Kali, Karna of the Sun, Drona of Brihaspati, Bhishma of one of the Vasus, Vidura of Dharma, Krishna of Narayana, Balarama of Shesha, and many more, gods, asuras and rakshasas alike. The cast of the epic, revealed in advance.",
-       "cliffhanger": "But first, the line those heroes were born into: it began in a hermitage.",
+       "synopsis": "The king asks which god was born as whom. The five Pandava brothers each carried part of a god: the god of right, the wind, the gods' king, and the twin horsemen. Karna, born in armour, was part of the sun; of Narayana, god of gods, a part was born as Krishna. But dark powers came down too: Duryodhana, who lit the feud, was born from Kali, the spirit of strife; old danavas were born as kings. A part of the goddess of fortune rose from an altar: Draupadi. Whoever hears this, says the teller, will not lose heart in hard times.",
+       "cliffhanger": "Then the king asked for his own family's story.",
        "characters": [
         "vaishampayana",
         "janamejaya",
         "krishna",
         "karna",
         "duryodhana",
-        "bhishma",
-        "vidura"
+        "bhishma"
        ],
        "themes": [
         "gods",
@@ -7199,14 +7200,15 @@
         "char-krishna",
         "char-karna",
         "char-duryodhana",
-        "char-bhishma",
-        "char-vidura"
+        "char-bhishma"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
-       "reorder_note": "The CE's creation genealogies (1.59–60) are summarised rather than dramatised.",
-       "notes": null
+       "reorder_note": "The CE's creation genealogies (1.59–60) are passed over, not dramatised; the source line says so.",
+       "notes": "Checked against CE 1.61.1–102, 1.62.1–3, 1.63.1 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed)). CORRECTED against the plan: \"Vidura of Dharma\" is not in this chapter (1.61.79 reads Atri): Vidura is left out; Balarama (1.61.91) is not used; Bhishma (1.61.68–69) and Drona (1.61.63) are on plaques. The text says Vasudeva (1.61.90); we say Krishna. The voice says \"the spirit of strife\"; the plaque reads KALI · the spirit of strife · not the goddess Kālī. Order: the CE lists danavas first; we open on the five brothers. Chapters 1.59–60 are passed over (said in the source line) and were not read beyond 1.59.1–11. Arc finale: lit payoff (1.61.101–102) and arc-end card. The warriors are provisional panel figures. Still unverified: nothing in the script."
       }
      ]
     },
@@ -7279,13 +7281,13 @@
         {
          "parva": 1,
          "adhyaya_from": 62,
-         "adhyaya_to": 64,
+         "adhyaya_to": 65,
          "approx": false,
-         "label": "Adi 1.62–64"
+         "label": "Adi 1.62–65"
         }
        ],
-       "synopsis": "King Dushyanta of the Puru line, hunting with a great army, comes to a hermitage on the Malini river, full of birds, flowers and chanting. He leaves his men behind and goes in alone to pay his respects to the sage Kanva.",
-       "cliffhanger": "The sage was away. A young woman came out to greet him.",
+       "synopsis": "The story of the epic's royal house begins with Dushyanta, of Puru's line. Hunting with hundreds of horses and elephants, hungry and thirsty, he comes to another forest; by the river Malini, in a wood loud with birds, stands the hermitage of the sage Kanva. He leaves his army at the forest's edge, lays aside the signs of a king, and walks in among sacred fires and chanting. The sage's own hut is empty. A young woman in a hermit's dress comes out and welcomes him: her father, she says, is gathering fruit.",
+       "cliffhanger": "Her father? Kanva was sworn to celibacy. Who was she?",
        "characters": [
         "dushyanta",
         "kanva"
@@ -7307,11 +7309,13 @@
         "theme-love-stories",
         "theme-sages"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "Checked against CE 1.62.1–14, 1.63.1–26, 1.64.1–42, 1.65.1–17 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed)). The CE spells the king Duhshanta; we say Dushyanta and the plaque gives both. The cold open is 1.65.2 (\"who is here?\"). The cliffhanger is the king's own question (1.65.16–17: the seer is a celibate; how are you his daughter?), which replaces the plan's \"A young woman came out to greet him\" (now inside the episode). She is not named in this episode. Still unverified: nothing."
       },
       {
        "id": "S01E054",
@@ -7330,8 +7334,8 @@
          "label": "Adi 1.65–66"
         }
        ],
-       "synopsis": "Shakuntala welcomes the king and tells him her origin as Kanva told it: Indra, frightened by Vishvamitra's austerities, sent the apsara Menaka to distract him; their daughter was left by the river, sheltered by birds (shakunta), and Kanva found her and named her Shakuntala.",
-       "cliffhanger": "The king asked her to marry him, there and then.",
+       "synopsis": "How can a celibate sage have a daughter? The hermit girl tells the king what she heard Kanva tell: the penance of the sage Vishvamitra frightened the king of the gods, who sent Menaka, a nymph of heaven, to break it. The sage saw her and desired her. By the river Malini a daughter was born; Menaka left her there and went back to heaven. In a forest of lions and tigers, birds ringed the child and kept her safe, until Kanva found her and raised her as his own. Guarded by birds, shakuntas: so he named her Shakuntala.",
+       "cliffhanger": "The king listened. Then he said: be my wife.",
        "characters": [
         "shakuntala",
         "dushyanta",
@@ -7362,11 +7366,13 @@
         "char-vishvamitra",
         "char-indra"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "Checked against CE 1.65.12–42, 1.66.1–17, 1.67.1 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed)). The tale is Shakuntala's, at second hand (1.65.18–19). The CE says the birds stood round and guarded her (1.66.10–11), not that they fed or sheltered her: the picture shows a ring of birds. Indra and Dushyanta are on plaques, not in the voice. The new-born is drawn as a swaddled infant. Still unverified: nothing."
       },
       {
        "id": "S01E055",
@@ -7385,8 +7391,8 @@
          "label": "Adi 1.67"
         }
        ],
-       "synopsis": "Dushyanta proposes a Gandharva marriage, by mutual consent alone. Shakuntala agrees on one condition: her son will be his heir. He promises, marries her, and leaves, saying he will send an army to bring her to the city. Kanva returns and, knowing all by his insight, blesses her.",
-       "cliffhanger": "Years passed. No army came.",
+       "synopsis": "\"Be my wife. My kingdom is yours.\" Shakuntala asks the king to wait for her father; he answers that she is her own mistress and may give herself: a gandharva marriage, their own choice, no rite, no witness. Then promise me, she says: my son shall be king after you. He agrees at once, takes her hand, and they are married. He leaves, promising to send an army for her. Her foster father Kanva comes home, knows it all, and blesses her: she has done no wrong, and her son will rule the whole earth.",
+       "cliffhanger": "Years later she was still there: with a son who tied up lions.",
        "characters": [
         "shakuntala",
         "dushyanta",
@@ -7410,11 +7416,13 @@
         "theme-women-of-the-epic",
         "char-shakuntala"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "Checked against CE 1.67.1–33 and 1.68.1–10 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed)). CORRECTED against the plan: the cliffhanger was \"Years passed. No army came.\" The CE never says so; it says she and the boy were still at the hermitage when he was six (1.68.5–10). The gloss of the gandharva form is Kanva's own (1.67.26). \"Without deliberating\" is 1.67.18 (avicarayan). The union is not shown; the joined hands are the only touch. Still unverified: nothing."
       },
       {
        "id": "S01E056",
@@ -7433,8 +7441,8 @@
          "label": "Adi 1.68"
         }
        ],
-       "synopsis": "Shakuntala's son grows up in the hermitage. At six he catches lions, tigers and elephants and ties them to the trees, and the hermits name him Sarvadamana, \"the tamer of all\". Kanva decides it is time: he sends mother and son to the king.",
-       "cliffhanger": "In the royal court, the king looked at her and said: I do not know you.",
+       "synopsis": "In a forest hermitage Shakuntala bears a king's son. He grows fast, built like a lion; at six he binds tigers, lions, boars and elephants to the trees and rides them, and the hermits name him Sarvadamana, tamer of all. Kanva says it is time he was made crown prince and sends them to the king that day. Mother and son set out for Hastinapura. Led before the king, she says: this is your son; remember your promise. The king remembers everything.",
+       "cliffhanger": "But he said: \"I remember nothing. Whose are you, wicked woman?\"",
        "characters": [
         "shakuntala",
         "bharata",
@@ -7456,11 +7464,13 @@
         "theme-animals-and-birds",
         "char-shakuntala"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "Checked against CE 1.68.1–19 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed)). \"After three full years\" (1.68.2) is on a plaque. The king's words are 1.68.18–19 (na smarami; kasya tvam dushtatapasi); \"though he remembered\" (smarann api) is on a tag. Against the popular story: he does not forget; no ring, no curse (Kalidasa's). Buffalo (1.68.5) are left out of the list of beasts. Still unverified: nothing."
       },
       {
        "id": "S01E057",
@@ -7479,8 +7489,8 @@
          "label": "Adi 1.68–69"
         }
        ],
-       "synopsis": "Before the whole court Dushyanta denies her and insults her birth. Shakuntala answers with one of the great speeches of the epic: on truth, on a wife as half of a man, on a son as one's own self reborn. She turns to leave.",
-       "cliffhanger": "Then a voice spoke from the sky.",
+       "synopsis": "The king remembered her, and denied her. Shakuntala stands like a pillar, her eyes red with anger, and answers him: you think you are alone, but the ancient witness sits in your own heart; a wife is half of a man, a son is his own self born again; see yourself in him, as in clear water. The king answers that he knows no son of hers, that women lie, that her own mother threw her away like a faded garland. She tells him that truth outweighs a thousand horse-sacrifices, and that even without him her son will rule this earth.",
+       "cliffhanger": "She turned to go. Then a voice spoke from the sky.",
        "characters": [
         "shakuntala",
         "dushyanta",
@@ -7506,11 +7516,13 @@
         "theme-love-stories",
         "char-shakuntala"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": "On screen: \"In the epic, he does not forget her. (The ring and the curse come from Kalidasa's play.)\""
+       "notes": "Checked against CE 1.68.18–80 and 1.69.1–28 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed)), told in the text's order; each speech is one verse in paraphrase, cited on screen (1.68.27, 40, 47, 64, 72–73; 1.69.22, 27). On screen (tag and source line): in the epic he never forgets her; the ring and the curse are Kalidasa's. He names Menaka in the insult; we say \"your own mother\". Still unverified: nothing."
       },
       {
        "id": "S01E058",
@@ -7524,13 +7536,13 @@
         {
          "parva": 1,
          "adhyaya_from": 69,
-         "adhyaya_to": 69,
+         "adhyaya_to": 71,
          "approx": false,
-         "label": "Adi 1.69"
+         "label": "Adi 1.69–71"
         }
        ],
-       "synopsis": "A voice from heaven declares: she speaks the truth, this is your son; support him (bhara). Dushyanta embraces them and admits he knew all along but needed the world to hear it. The boy is named Bharata and becomes a universal king, and from him the Bharatas, and the land, take their name.",
-       "cliffhanger": "Generations before Bharata, his ancestor Yayati had paid a terrible price for desire.",
+       "synopsis": "A bodiless voice from the sky: Dushyanta, support your son; Shakuntala has spoken the truth; you must support him, so let his name be Bharata. Overjoyed, the king tells his court that he too knew the boy was his son: on her word alone, the people would have doubted him. He holds his son close and honours her as his queen. Bharata becomes a king of kings, and from him this line is called the Bharatas.",
+       "cliffhanger": "Long before Bharata, his forefather Yayati married the daughter of a sage who raised the dead.",
        "characters": [
         "dushyanta",
         "shakuntala",
@@ -7554,11 +7566,13 @@
         "theme-truth",
         "char-shakuntala"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": "Genealogically Yayati comes before Dushyanta; the CE also tells Shakuntala first (1.62–69) and then Yayati (1.70–88), so we follow its order.",
-       "notes": null
+       "notes": "Checked against CE 1.69.28–51, 1.70.28–46 and 1.71.1–9 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed)). In the CE it is the king who \"forgives\" her angry words (1.69.42); no apology of his is recorded; this is on a tag, not voiced. CORRECTED against the plan: \"and the land\" is not in 1.69.49 (the family and its fame) and is not said; the cliffhanger \"Yayati had paid a terrible price for desire\" (1.70.33–46, 1.78–80) is replaced by the king's actual next question (1.71.1), which episode 59 answers. Arc finale: lit payoff and arc-end card. Still unverified: nothing."
       }
      ]
     },
@@ -7648,8 +7662,8 @@
          "label": "Adi 1.71"
         }
        ],
-       "synopsis": "Gods and asuras are at war, and only the asuras' guru, Shukra, knows the sanjivani, the art of raising the dead. The gods send Kacha, son of their own guru Brihaspati, to become Shukra's student. He serves the teacher and charms his daughter, Devayani.",
-       "cliffhanger": "The asuras saw through him, and killed him.",
+       "synopsis": "Who could bring the dead back to life? Gods and asuras fought for the three worlds. The gods' priest was Brihaspati, the asuras' was Shukra; every asura the gods killed, Shukra raised again by the art called sanjivani, and Brihaspati did not know it. So the gods sent Kacha, Brihaspati's eldest son, to win that knowledge. He named his father at Shukra's door and asked to be his student, and Shukra welcomed him. He served his teacher, and sang and danced for his daughter, Devayani.",
+       "cliffhanger": "Five hundred years on, the asuras understood why he had come, and killed him.",
        "characters": [
         "kacha",
         "shukra",
@@ -7673,11 +7687,13 @@
         "theme-demons-and-rakshasas",
         "char-devayani"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "Checked against CE 1.71.1–26 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed)). The text calls the priest Kavya, Ushanas and Shukra; we say Shukra. CORRECTED against the plan: \"the asuras saw through him\": he was never in disguise (1.71.17); now \"understood why he had come\" (1.71.25, buddhva). The gods' advice to win Devayani (1.71.13–14) is in the picture. Still unverified: nothing."
       },
       {
        "id": "S01E060",
@@ -7696,8 +7712,8 @@
          "label": "Adi 1.71"
         }
        ],
-       "synopsis": "The asuras kill Kacha twice; each time Devayani weeps and Shukra brings him back. The third time they burn him, grind his ashes into wine and serve it to Shukra. To save Kacha, Shukra must teach him the sanjivani inside his own belly; Kacha bursts out and revives his teacher. Shukra declares wine forbidden to brahmins.",
-       "cliffhanger": "His studies over, Kacha came to say goodbye. Devayani had other plans.",
+       "synopsis": "Killed twice, raised twice. To guard their priest's art of raising the dead, the asuras kill his student Kacha; Devayani tells her father the cows came home without him, and Shukra calls: Come! Kacha stands there, whole. Next they burn him to powder and stir him into Shukra's wine. Shukra calls again, and Kacha answers softly from inside his teacher's belly. If he dies I cannot bear it, says Devayani; if you die I cannot live. So Shukra teaches Kacha the art; Kacha comes out like a rising full moon, and raises his teacher.",
+       "cliffhanger": "When Kacha took his leave, Devayani had something to ask.",
        "characters": [
         "kacha",
         "shukra",
@@ -7721,11 +7737,13 @@
         "theme-boons",
         "char-devayani"
        ],
-       "status": "planned",
-       "languages": {},
+       "status": "in_production",
+       "languages": {
+        "en": "in_production"
+       },
        "tradition_note": false,
        "reorder_note": null,
-       "notes": null
+       "notes": "Checked against CE 1.71.25–58 and 1.72.1–5 (GRETIL e-text of the BORI Critical Edition (constituted text; star passages and appendix lines are apparatus and were not used), read in lab/ce (not committed)). RETITLED from \"Kacha Dies Three Times\": the constituted text has TWO deaths (1.71.26 in the wood; 1.71.33 in the wine). The middle death of later tellings (pounded, mixed into the sea) is star passage 701* (apparatus). Said on screen (source line and a tag). The jackals (shalavrika, 1.71.26), Shukra's ban on wine (1.71.54) and the thousand years (1.71.58) are on tags. Neither killing is drawn; Kacha comes out through light (his teacher's right side, 1.71.49). Still unverified: \"jackals\" is the usual rendering of shalavrika (wolves or hyenas are possible)."
       },
       {
        "id": "S01E061",

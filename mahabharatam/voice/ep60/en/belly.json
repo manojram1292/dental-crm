@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3388,
+   "words": 3,
+   "speed": 0.891,
+   "text": "Shukra called again."
+  },
+  {
+   "t0": 1.7388,
+   "t1": 3.3155,
+   "words": 3,
+   "speed": 0.891,
+   "text": "Kacha answered softly,"
+  },
+  {
+   "t0": 3.5155,
+   "t1": 5.5831,
+   "words": 5,
+   "speed": 0.891,
+   "text": "from inside his teacher's belly."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

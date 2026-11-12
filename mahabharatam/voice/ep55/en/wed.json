@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8262,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4741,
+   "words": 4,
+   "speed": 0.826,
+   "text": "He agreed at once,"
+  },
+  {
+   "t0": 1.6741,
+   "t1": 2.7141,
+   "words": 3,
+   "speed": 0.826,
+   "text": "took her hand,"
+  },
+  {
+   "t0": 2.9141,
+   "t1": 4.221,
+   "words": 4,
+   "speed": 0.826,
+   "text": "and they were married."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

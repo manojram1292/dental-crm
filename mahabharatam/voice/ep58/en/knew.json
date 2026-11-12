@@ -1,0 +1,30 @@
+{
+ "speaker": "dushyanta",
+ "voice": "am_adam",
+ "speed": 0.8904,
+ "pitch": 0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.8449,
+   "words": 6,
+   "speed": 0.89,
+   "text": "Hear the messenger of the gods!"
+  },
+  {
+   "t0": 2.1949,
+   "t1": 3.0865,
+   "words": 3,
+   "speed": 0.89,
+   "text": "I too knew"
+  },
+  {
+   "t0": 3.1665,
+   "t1": 4.3805,
+   "words": 4,
+   "speed": 0.89,
+   "text": "he was my son."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

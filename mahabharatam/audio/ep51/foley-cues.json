@@ -1,0 +1,200 @@
+[
+ {
+  "line": "hook",
+  "cue": "thunder",
+  "asked_s": 0.08,
+  "start_s": 0.08,
+  "onset_s": 0.08,
+  "peak_s": 0.088,
+  "peak_db": -16.1
+ },
+ {
+  "line": "hook",
+  "cue": "breath@0",
+  "asked_s": 0.819,
+  "start_s": 0.56,
+  "onset_s": 0.61,
+  "peak_s": 0.818,
+  "peak_db": -35.0
+ },
+ {
+  "line": "secret",
+  "cue": "cloth",
+  "asked_s": 3.599,
+  "start_s": 3.599,
+  "onset_s": 3.665,
+  "peak_s": 3.81,
+  "peak_db": -29.1
+ },
+ {
+  "line": "secret",
+  "cue": "flame@1",
+  "asked_s": 6.565,
+  "start_s": 6.565,
+  "onset_s": 6.619,
+  "peak_s": 7.31,
+  "peak_db": -21.9
+ },
+ {
+  "line": "kings",
+  "cue": "birds",
+  "asked_s": 8.496,
+  "start_s": 8.496,
+  "onset_s": 8.503,
+  "peak_s": 9.059,
+  "peak_db": -20.7
+ },
+ {
+  "line": "kings",
+  "cue": "steps@1",
+  "asked_s": 10.804,
+  "start_s": 10.804,
+  "onset_s": 10.804,
+  "peak_s": 13.25,
+  "peak_db": -17.1
+ },
+ {
+  "line": "asuras",
+  "cue": "thunder@0",
+  "asked_s": 14.691,
+  "start_s": 14.691,
+  "onset_s": 14.691,
+  "peak_s": 14.701,
+  "peak_db": -14.0
+ },
+ {
+  "line": "asuras",
+  "cue": "whoosh@2",
+  "asked_s": 18.127,
+  "start_s": 17.777,
+  "onset_s": 17.878,
+  "peak_s": 18.154,
+  "peak_db": -28.0
+ },
+ {
+  "line": "crushed",
+  "cue": "hooves",
+  "asked_s": 19.118,
+  "start_s": 19.118,
+  "onset_s": 19.121,
+  "peak_s": 19.351,
+  "peak_db": -6.0
+ },
+ {
+  "line": "crushed",
+  "cue": "growl@1",
+  "asked_s": 21.806,
+  "start_s": 21.456,
+  "onset_s": 21.603,
+  "peak_s": 22.018,
+  "peak_db": -15.7
+ },
+ {
+  "line": "crushed",
+  "cue": "thud@2",
+  "asked_s": 22.568,
+  "start_s": 22.568,
+  "onset_s": 22.568,
+  "peak_s": 22.594,
+  "peak_db": -7.2
+ },
+ {
+  "line": "weight",
+  "cue": "breath@0",
+  "asked_s": 25.269,
+  "start_s": 25.052,
+  "onset_s": 25.104,
+  "peak_s": 25.271,
+  "peak_db": -34.3
+ },
+ {
+  "line": "weight",
+  "cue": "creak@1",
+  "asked_s": 27.179,
+  "start_s": 26.935,
+  "onset_s": 26.989,
+  "peak_s": 27.203,
+  "peak_db": -30.0
+ },
+ {
+  "line": "went",
+  "cue": "steps",
+  "asked_s": 28.059,
+  "start_s": 28.059,
+  "onset_s": 28.06,
+  "peak_s": 28.575,
+  "peak_db": -16.3
+ },
+ {
+  "line": "went",
+  "cue": "anklet@1",
+  "asked_s": 30.043,
+  "start_s": 30.043,
+  "onset_s": 30.043,
+  "peak_s": 35.092,
+  "peak_db": -32.4
+ },
+ {
+  "line": "knew",
+  "cue": "cloth@0",
+  "asked_s": 32.892,
+  "start_s": 32.723,
+  "onset_s": 32.795,
+  "peak_s": 32.892,
+  "peak_db": -30.4
+ },
+ {
+  "line": "command",
+  "cue": "thunder@0",
+  "asked_s": 35.083,
+  "start_s": 35.083,
+  "onset_s": 35.083,
+  "peak_s": 35.149,
+  "peak_db": -15.1
+ },
+ {
+  "line": "command",
+  "cue": "cloth",
+  "asked_s": 34.943,
+  "start_s": 34.943,
+  "onset_s": 35.011,
+  "peak_s": 35.141,
+  "peak_db": -28.7
+ },
+ {
+  "line": "agreed",
+  "cue": "water",
+  "asked_s": 41.282,
+  "start_s": 41.282,
+  "onset_s": 41.39,
+  "peak_s": 43.755,
+  "peak_db": -27.6
+ },
+ {
+  "line": "agreed",
+  "cue": "whoosh@1",
+  "asked_s": 43.617,
+  "start_s": 43.267,
+  "onset_s": 43.354,
+  "peak_s": 43.663,
+  "peak_db": -29.8
+ },
+ {
+  "line": "cliff",
+  "cue": "whoosh",
+  "asked_s": 46.325,
+  "start_s": 46.325,
+  "onset_s": 46.42,
+  "peak_s": 46.742,
+  "peak_db": -27.8
+ },
+ {
+  "line": "cliff",
+  "cue": "steps@1",
+  "asked_s": 48.8,
+  "start_s": 48.8,
+  "onset_s": 48.8,
+  "peak_s": 51.216,
+  "peak_db": -15.3
+ }
+]

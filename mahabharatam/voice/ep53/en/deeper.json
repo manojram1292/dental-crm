@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.0255,
+   "words": 2,
+   "speed": 0.891,
+   "text": "Chasing deer,"
+  },
+  {
+   "t0": 1.1255,
+   "t1": 2.5624,
+   "words": 3,
+   "speed": 0.891,
+   "text": "hungry and thirsty,"
+  },
+  {
+   "t0": 2.6824,
+   "t1": 4.4235,
+   "words": 5,
+   "speed": 0.891,
+   "text": "he came to another forest."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

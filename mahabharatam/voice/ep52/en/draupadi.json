@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9414,
+   "words": 7,
+   "speed": 0.891,
+   "text": "A part of the goddess of fortune"
+  },
+  {
+   "t0": 2.0414,
+   "t1": 3.4343,
+   "words": 4,
+   "speed": 0.891,
+   "text": "rose from an altar:"
+  },
+  {
+   "t0": 3.6943,
+   "t1": 4.6347,
+   "words": 1,
+   "speed": 0.891,
+   "text": "Draupadi."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

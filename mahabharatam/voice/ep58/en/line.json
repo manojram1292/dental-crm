@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.0846,
+   "words": 6,
+   "speed": 0.891,
+   "text": "Bharata became a king of kings."
+  },
+  {
+   "t0": 2.4346,
+   "t1": 3.2968,
+   "words": 2,
+   "speed": 0.891,
+   "text": "From him,"
+  },
+  {
+   "t0": 3.3968,
+   "t1": 4.2598,
+   "words": 2,
+   "speed": 0.891,
+   "text": "this line"
+  },
+  {
+   "t0": 4.3398,
+   "t1": 5.9663,
+   "words": 4,
+   "speed": 0.891,
+   "text": "is called the Bharatas."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

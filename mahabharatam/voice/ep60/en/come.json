@@ -1,0 +1,51 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9293,
+   "words": 2,
+   "speed": 0.891,
+   "text": "Her father,"
+  },
+  {
+   "t0": 1.0092,
+   "t1": 1.7612,
+   "words": 1,
+   "speed": 0.891,
+   "text": "Shukra,"
+  },
+  {
+   "t0": 1.8413,
+   "t1": 2.5385,
+   "words": 1,
+   "speed": 0.891,
+   "text": "called:"
+  },
+  {
+   "t0": 2.7385,
+   "t1": 3.3437,
+   "words": 1,
+   "speed": 0.891,
+   "text": "Come!"
+  },
+  {
+   "t0": 3.6437,
+   "t1": 4.9919,
+   "words": 4,
+   "speed": 0.891,
+   "text": "And Kacha stood there,"
+  },
+  {
+   "t0": 5.1419,
+   "t1": 5.8495,
+   "words": 1,
+   "speed": 0.891,
+   "text": "whole."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

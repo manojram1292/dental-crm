@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8262,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.9757,
+   "words": 2,
+   "speed": 0.826,
+   "text": "Years later"
+  },
+  {
+   "t0": 1.0757,
+   "t1": 2.3497,
+   "words": 4,
+   "speed": 0.826,
+   "text": "she was still there:"
+  },
+  {
+   "t0": 2.6497,
+   "t1": 3.6282,
+   "words": 3,
+   "speed": 0.826,
+   "text": "with a son"
+  },
+  {
+   "t0": 3.6883,
+   "t1": 5.2894,
+   "words": 4,
+   "speed": 0.826,
+   "text": "who tied up lions."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

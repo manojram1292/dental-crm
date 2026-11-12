@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.5464,
+   "words": 5,
+   "speed": 0.891,
+   "text": "To guard their priest's art"
+  },
+  {
+   "t0": 1.6064,
+   "t1": 2.9907,
+   "words": 4,
+   "speed": 0.891,
+   "text": "of raising the dead,"
+  },
+  {
+   "t0": 3.1407,
+   "t1": 4.893,
+   "words": 5,
+   "speed": 0.891,
+   "text": "the asuras killed his student,"
+  },
+  {
+   "t0": 5.043,
+   "t1": 5.839,
+   "words": 1,
+   "speed": 0.891,
+   "text": "Kacha."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

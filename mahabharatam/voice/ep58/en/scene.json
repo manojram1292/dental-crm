@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4082,
+   "words": 4,
+   "speed": 0.891,
+   "text": "Before his whole court,"
+  },
+  {
+   "t0": 1.5082,
+   "t1": 3.4335,
+   "words": 5,
+   "speed": 0.891,
+   "text": "the king had denied Shakuntala"
+  },
+  {
+   "t0": 3.4935,
+   "t1": 4.5156,
+   "words": 3,
+   "speed": 0.891,
+   "text": "and their son."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

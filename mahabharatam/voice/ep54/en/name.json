@@ -1,0 +1,30 @@
+{
+ "speaker": "shakuntala",
+ "voice": "af_bella",
+ "speed": 0.84,
+ "pitch": 0.0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.2323,
+   "words": 3,
+   "speed": 0.84,
+   "text": "Guarded by birds,"
+  },
+  {
+   "t0": 1.3323,
+   "t1": 2.4772,
+   "words": 2,
+   "speed": 0.84,
+   "text": "by shakuntas:"
+  },
+  {
+   "t0": 2.7372,
+   "t1": 4.3124,
+   "words": 5,
+   "speed": 0.84,
+   "text": "so he named me Shakuntala."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

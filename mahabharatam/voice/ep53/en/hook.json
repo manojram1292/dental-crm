@@ -1,0 +1,16 @@
+{
+ "speaker": "dushyanta",
+ "voice": "am_adam",
+ "speed": 0.84,
+ "pitch": 0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.3188,
+   "words": 3,
+   "speed": 0.84,
+   "text": "Is anyone here?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

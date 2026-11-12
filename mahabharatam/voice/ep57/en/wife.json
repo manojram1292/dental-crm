@@ -1,0 +1,37 @@
+{
+ "speaker": "shakuntala",
+ "voice": "af_bella",
+ "speed": 0.7728,
+ "pitch": 0.0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.7624,
+   "words": 7,
+   "speed": 0.773,
+   "text": "A wife is half of a man."
+  },
+  {
+   "t0": 2.1124,
+   "t1": 2.8733,
+   "words": 2,
+   "speed": 0.773,
+   "text": "A son"
+  },
+  {
+   "t0": 2.9333,
+   "t1": 4.3019,
+   "words": 4,
+   "speed": 0.773,
+   "text": "is his own self,"
+  },
+  {
+   "t0": 4.4019,
+   "t1": 5.442,
+   "words": 2,
+   "speed": 0.773,
+   "text": "born again."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

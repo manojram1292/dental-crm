@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.0535,
+   "words": 6,
+   "speed": 0.891,
+   "text": "But dark powers came down too."
+  },
+  {
+   "t0": 2.3535,
+   "t1": 3.304,
+   "words": 1,
+   "speed": 0.891,
+   "text": "Duryodhana,"
+  },
+  {
+   "t0": 3.384,
+   "t1": 4.5743,
+   "words": 4,
+   "speed": 0.891,
+   "text": "who lit the feud,"
+  },
+  {
+   "t0": 4.6943,
+   "t1": 6.8452,
+   "words": 7,
+   "speed": 0.891,
+   "text": "was born from the spirit of strife."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

@@ -1,0 +1,58 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.0442,
+   "words": 3,
+   "speed": 0.891,
+   "text": "A young woman"
+  },
+  {
+   "t0": 1.1042,
+   "t1": 2.3589,
+   "words": 4,
+   "speed": 0.891,
+   "text": "in a hermit's dress"
+  },
+  {
+   "t0": 2.4189,
+   "t1": 3.2525,
+   "words": 2,
+   "speed": 0.891,
+   "text": "came out"
+  },
+  {
+   "t0": 3.3125,
+   "t1": 4.4656,
+   "words": 3,
+   "speed": 0.891,
+   "text": "and welcomed him."
+  },
+  {
+   "t0": 4.8156,
+   "t1": 5.7448,
+   "words": 2,
+   "speed": 0.891,
+   "text": "Her father,"
+  },
+  {
+   "t0": 5.8248,
+   "t1": 6.6444,
+   "words": 2,
+   "speed": 0.891,
+   "text": "she said,"
+  },
+  {
+   "t0": 6.7244,
+   "t1": 8.0966,
+   "words": 3,
+   "speed": 0.891,
+   "text": "was gathering fruit."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

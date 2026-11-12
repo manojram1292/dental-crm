@@ -1,0 +1,30 @@
+{
+ "speaker": "kanva",
+ "voice": "bm_george",
+ "speed": 0.8,
+ "pitch": 0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9167,
+   "words": 5,
+   "speed": 0.8,
+   "text": "You have done no wrong."
+  },
+  {
+   "t0": 2.2667,
+   "t1": 3.4207,
+   "words": 2,
+   "speed": 0.8,
+   "text": "Your son"
+  },
+  {
+   "t0": 3.4807,
+   "t1": 5.8931,
+   "words": 5,
+   "speed": 0.8,
+   "text": "will rule the whole earth."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

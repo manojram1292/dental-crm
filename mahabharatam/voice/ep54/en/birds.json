@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.81,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.1272,
+   "words": 3,
+   "speed": 0.81,
+   "text": "In a forest"
+  },
+  {
+   "t0": 1.1872,
+   "t1": 2.9992,
+   "words": 4,
+   "speed": 0.81,
+   "text": "of lions and tigers,"
+  },
+  {
+   "t0": 3.1992,
+   "t1": 4.8777,
+   "words": 4,
+   "speed": 0.81,
+   "text": "birds ringed the child"
+  },
+  {
+   "t0": 4.9777,
+   "t1": 6.3782,
+   "words": 4,
+   "speed": 0.81,
+   "text": "and kept her safe."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

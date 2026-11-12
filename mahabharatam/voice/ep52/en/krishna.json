@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4671,
+   "words": 5,
+   "speed": 0.891,
+   "text": "And the god of gods?"
+  },
+  {
+   "t0": 1.7671,
+   "t1": 2.6063,
+   "words": 3,
+   "speed": 0.891,
+   "text": "Part of him"
+  },
+  {
+   "t0": 2.6663,
+   "t1": 4.1673,
+   "words": 4,
+   "speed": 0.891,
+   "text": "was born as Krishna."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

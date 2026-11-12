@@ -1,0 +1,30 @@
+{
+ "speaker": "devayani",
+ "voice": "af_heart",
+ "speed": 0.924,
+ "pitch": 1.0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.6525,
+   "words": 1,
+   "speed": 0.924,
+   "text": "Father,"
+  },
+  {
+   "t0": 0.8025,
+   "t1": 1.9864,
+   "words": 4,
+   "speed": 0.924,
+   "text": "the cows came home"
+  },
+  {
+   "t0": 2.0664,
+   "t1": 2.8762,
+   "words": 2,
+   "speed": 0.924,
+   "text": "without him."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

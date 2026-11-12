@@ -1,0 +1,44 @@
+{
+ "speaker": "dushyanta",
+ "voice": "am_adam",
+ "speed": 0.7979999999999999,
+ "pitch": 0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.9986,
+   "words": 6,
+   "speed": 0.798,
+   "text": "I know no son of yours."
+  },
+  {
+   "t0": 2.2486,
+   "t1": 3.3729,
+   "words": 2,
+   "speed": 0.798,
+   "text": "Women lie."
+  },
+  {
+   "t0": 3.6729,
+   "t1": 4.7678,
+   "words": 3,
+   "speed": 0.798,
+   "text": "Your own mother"
+  },
+  {
+   "t0": 4.8278,
+   "t1": 6.0204,
+   "words": 3,
+   "speed": 0.798,
+   "text": "threw you away"
+  },
+  {
+   "t0": 6.0804,
+   "t1": 7.9098,
+   "words": 4,
+   "speed": 0.798,
+   "text": "like a faded garland."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

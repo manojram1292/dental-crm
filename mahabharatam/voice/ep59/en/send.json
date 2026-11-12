@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6275,
+   "words": 5,
+   "speed": 0.891,
+   "text": "So the gods sent Kacha,"
+  },
+  {
+   "t0": 1.7275,
+   "t1": 3.4175,
+   "words": 3,
+   "speed": 0.891,
+   "text": "Brihaspati's eldest son,"
+  },
+  {
+   "t0": 3.6175,
+   "t1": 5.0021,
+   "words": 4,
+   "speed": 0.891,
+   "text": "to win that knowledge."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

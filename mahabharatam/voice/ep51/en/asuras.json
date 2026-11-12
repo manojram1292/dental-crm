@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.278,
+   "words": 3,
+   "speed": 0.891,
+   "text": "Then the asuras,"
+  },
+  {
+   "t0": 1.378,
+   "t1": 2.7794,
+   "words": 4,
+   "speed": 0.891,
+   "text": "beaten by the gods,"
+  },
+  {
+   "t0": 2.9294,
+   "t1": 4.8173,
+   "words": 6,
+   "speed": 0.891,
+   "text": "began to be born on earth."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

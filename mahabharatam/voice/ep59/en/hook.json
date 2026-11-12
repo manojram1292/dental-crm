@@ -1,0 +1,23 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9315,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.2802,
+   "words": 5,
+   "speed": 0.931,
+   "text": "Who could bring the dead"
+  },
+  {
+   "t0": 1.3402,
+   "t1": 2.4012,
+   "words": 3,
+   "speed": 0.931,
+   "text": "back to life?"
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

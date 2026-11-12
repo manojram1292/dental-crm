@@ -107,6 +107,17 @@
     48: ['ep41/_common', 'ep46/_common', 'ep47/_common', 'scenes'],
     49: ['ep41/_common', 'ep44/_common', '_common', 'scenes'],
     50: ['ep41/_common', 'ep46/_common', 'ep47/_common', 'ep49/_common', 'scenes'],
+    // 51–60 (the burden of the Earth, the descent of the portions; Shakuntala; Kacha): places and beasts in ep51/_common
+    51: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', '_common', 'scenes'],
+    52: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
+    53: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
+    54: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
+    55: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
+    56: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
+    57: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
+    58: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
+    59: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
+    60: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
     // 98: THE SERIES INTRODUCTION reel (script/intro.en.json, scenes in src/scenes/intro/; never a numbered episode)
     98: ['ep41/_common', 'ep46/_common', 'ep49/_common', 'intro/scenes'],
     99: ['lab'],

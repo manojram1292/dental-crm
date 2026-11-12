@@ -1,0 +1,23 @@
+{
+ "speaker": "dushyanta",
+ "voice": "am_adam",
+ "speed": 1.008,
+ "pitch": 0.5,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.8627,
+   "words": 3,
+   "speed": 1.008,
+   "text": "Be my wife."
+  },
+  {
+   "t0": 1.1127,
+   "t1": 2.3985,
+   "words": 4,
+   "speed": 1.008,
+   "text": "My kingdom is yours."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

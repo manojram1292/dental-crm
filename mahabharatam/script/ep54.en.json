@@ -24,7 +24,7 @@
     "kinetic": true
   },
   "episode": 54,
-  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Shakuntala sub-parva. CHECKED AGAINST CE 1.65.12–42 and 1.66.1–17, 1.67.1 (GRETIL e-text of the constituted text, lab/ce; star passages and appendix lines are apparatus and were not used; Ganguli (vulgate) only as a reading aid): the king asks who she is and whose (1.65.12–13: `asked`); she is held to be Kanva's daughter (1.65.15); he: the holy one is a celibate; how are you his daughter (1.65.16–17: the hook); she tells what she heard Kanva tell a seer who asked about her birth (1.65.18–19: `said`; the whole tale is hers, at second hand); Vishvamitra's great austerity troubled Indra, lord of the gods, who feared to be shaken from his seat (1.65.20–21: `tapas`); Indra tells Menaka, who excels the apsarases in divine qualities, to tempt him and hinder his austerity (1.65.22–26: `sent`); she is afraid of his anger and his power and asks that the Wind and the god of love go with her (1.65.27–42; one phrase, \"the wind helped her\"); she plays before the seer and the wind carries off her garment (1.66.1–4; not shown); he sees her, desires her and invites her; she is willing; they live together a long time as if it were a day (1.66.5–7: `saw`); he begets Shakuntala on her on a ridge of the Himalaya by the river Malini (1.66.8); Menaka leaves the new-born by the Malini and goes quickly to Indra's court, her task done (1.66.9: `left`, the turn); in that lonely forest full of lions and tigers, birds (shakunta) surround the child so that no flesh-eater may harm her (1.66.10–11: `birds`); Kanva, going to bathe, sees her lying surrounded by birds, brings her home and makes her his daughter (1.66.12: `found`); because she was guarded by shakuntas he named her Shakuntala (1.66.14: `name`); she knows no other father (1.66.17); the king: be my wife (1.67.1: the cliffhanger). The CE does not say the birds fed her or sheltered her with their wings, only that they stood round and guarded her: the picture shows a ring of birds. Indra and the king are on plaques, not named in the voice (the names-per-10-s rule).",
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Shakuntala sub-parva. CHECKED AGAINST CE 1.65.12–42 and 1.66.1–17, 1.67.1 (GRETIL e-text of the constituted text, lab/ce; star passages and appendix lines are apparatus and were not used; Ganguli (vulgate) only as a reading aid): the king asks who she is and whose (1.65.12–13: `asked`); she is held to be Kanva's daughter (1.65.15); he: the holy one is a celibate; how are you his daughter (1.65.16–17: the hook); she tells what she heard Kanva tell a seer who asked about her birth (1.65.18–19: `said`; the whole tale is hers, at second hand); Vishvamitra's great austerity troubled Indra, lord of the gods, who feared to be shaken from his seat (1.65.20–21: `tapas`); Indra tells Menaka, who excels the apsarases in divine qualities, to tempt him and hinder his austerity (1.65.22–26: `sent`); she is afraid of his anger and his power and asks that the Wind and the god of love go with her (1.65.27–42; in the picture, not voiced); she plays before the seer and the wind carries off her garment (1.66.1–4; not shown); he sees her, desires her and invites her; she is willing; they live together a long time as if it were a day (1.66.5–7: `saw`); he begets Shakuntala on her on a ridge of the Himalaya by the river Malini (1.66.8); Menaka leaves the new-born by the Malini and goes quickly to Indra's court, her task done (1.66.9: `left`, the turn); in that lonely forest full of lions and tigers, birds (shakunta) surround the child so that no flesh-eater may harm her (1.66.10–11: `birds`); Kanva, going to bathe, sees her lying surrounded by birds, brings her home and makes her his daughter (1.66.12: `found`); because she was guarded by shakuntas he named her Shakuntala (1.66.14: `name`); she knows no other father (1.66.17); the king: be my wife (1.67.1: the cliffhanger). The CE does not say the birds fed her or sheltered her with their wings, only that they stood round and guarded her: the picture shows a ring of birds. Indra and the king are on plaques, not named in the voice (the names-per-10-s rule).",
   "structure": "As from episode 41 (script/ARC-41-50.md, script/ARC-51-60.md): COLD OPEN (≤ 8 words; the hook style rotates and never repeats the episode before; no episode of this batch opens on fire) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
   "hookStyle": "question",
   "names": {
@@ -41,7 +41,7 @@
     "answeredBy": "found",
     "prevQuestion": "How can a celibate sage have a daughter?",
     "prevAnsweredBy": "said",
-    "openQuestion": "Will she marry a king she met an hour ago?"
+    "openQuestion": "Will she marry a king she has only just met?"
   },
   "strings": {
     "seriesTitle": "Mahabharatam",
@@ -66,7 +66,7 @@
       "speed": 1.2,
       "text": "How can a celibate sage have a daughter?",
       "say": "How can a celibate sage [p:60] have a daughter?",
-      "est": 3.74,
+      "est": 3.0,
       "pre": 60,
       "post": 1100,
       "role": "hook",
@@ -87,17 +87,16 @@
       ],
       "pal": "riverbank-pearl",
       "cam": "crane",
-      "note": "COLD OPEN (a question card; no fire): from high above, a river bank: a tiny bundle on the grass, ringed by a great wheel of birds of every kind, standing wing to wing. A crane down toward it. The card in the upper third.",
-      "estVoice": 2.58
+      "note": "COLD OPEN (a question card; no fire): from high above, a river bank: a tiny bundle on the grass, ringed by a great wheel of birds of every kind, standing wing to wing. A crane down toward it. The card in the upper third."
     },
     {
       "id": "asked",
-      "speed": 1.1,
+      "speed": 1.0,
       "text": "A king asked a hermit girl who she was.",
       "say": "A king asked a hermit girl [p:100] who she was.",
-      "est": 3.27,
-      "pre": 250,
-      "post": 300,
+      "est": 3.0,
+      "pre": 220,
+      "post": 260,
       "beats": [
         1,
         5
@@ -113,17 +112,17 @@
       "cam": "slide",
       "tr": "brush",
       "note": "STORY 0 with the unvoiced recap band (top): the hermitage yard: the king seated on a grass seat, plainly dressed (plaque: Dushyanta · a king of Puru's line), the girl standing three paces off with a water jar; a slow track.",
-      "estVoice": 2.72
+      "mixDb": -1.5
     },
     {
       "id": "said",
       "speaker": "shakuntala",
       "speed": 1.0,
-      "text": "\"People call me the sage's daughter. Hear how I came here.\"",
-      "say": "People call me the sage's daughter. [p:260] Hear how I came here.",
-      "est": 5.14,
-      "pre": 250,
-      "post": 300,
+      "text": "\"People call me the sage's daughter. Hear why.\"",
+      "say": "People call me the sage's daughter. [p:260] Hear why.",
+      "est": 3.0,
+      "pre": 220,
+      "post": 260,
       "beats": [
         2,
         7
@@ -136,52 +135,51 @@
       "cam": "push",
       "closeup": true,
       "note": "STORY 1 · THE CLOSE-UP: her face fills the frame: a smile, then the look turns inward and grave as she begins (the gaze drops and goes far).",
-      "estVoice": 4.59
+      "mixDb": -1.5
     },
     {
       "id": "tapas",
-      "speed": 1.1,
-      "text": "Long ago, the penance of the sage Vishvamitra frightened the king of the gods.",
-      "say": "Long ago, [p:120] the penance of the sage Vishvamitra [p:100] frightened the king of the gods.",
-      "est": 5.62,
-      "pre": 250,
-      "post": 300,
+      "speed": 1.0,
+      "text": "The penance of the sage Vishvamitra frightened the king of the gods.",
+      "say": "The penance of the sage Vishvamitra [p:100] frightened the king of the gods.",
+      "est": 3.0,
+      "pre": 220,
+      "post": 260,
       "emphasis": [
         "Vishvamitra"
       ],
       "beats": [
-        1,
-        7,
-        8
+        5,
+        6
       ],
       "amb": "void",
       "ambLead": 200,
       "music": "dread",
       "foley": [
         "flame",
-        "thunder@2"
+        "thunder@1"
       ],
       "pal": "dharma-copper",
       "cam": "tilt",
       "tr": "ink",
       "note": "STORY 2 · NEW LIGHT (dharma-copper): a tilt up: a gaunt ascetic standing motionless on one leg, arms raised, heat shimmering off him (plaque: Vishvamitra · a king turned fierce ascetic); high above, on a cloud throne, a crowned god gripping the arms of his seat (plaque: Indra · king of the gods).",
-      "estVoice": 5.07
+      "mixDb": -0.5
     },
     {
       "id": "sent",
-      "speed": 1.1,
-      "text": "He sent Menaka, the finest apsara of heaven, to break it.",
-      "say": "He sent Menaka, [p:100] the finest apsara of heaven, [p:150] to break it.",
-      "est": 4.84,
-      "pre": 250,
-      "post": 300,
+      "speed": 1.0,
+      "text": "He sent Menaka, a nymph of heaven, to break it.",
+      "say": "He sent Menaka, [p:100] a nymph of heaven, [p:150] to break it.",
+      "est": 3.0,
+      "pre": 220,
+      "post": 260,
       "emphasis": [
         "Menaka,"
       ],
       "beats": [
         2,
-        7,
-        10
+        6,
+        9
       ],
       "amb": "heaven",
       "music": "wonder",
@@ -192,21 +190,20 @@
       "pal": "crystal-sky",
       "cam": "orbit",
       "tr": "lamp",
-      "note": "STORY 3 · NEW LIGHT (crystal-sky): Indra's bright court: Menaka, pearl-aqua, a diadem, before the throne; she hesitates, a hand to her throat (the text: she is afraid of the sage's anger); then steps off the cloud's edge, the wind's long scarves round her (plaque: Menaka · an apsara, a nymph of heaven).",
-      "estVoice": 4.29
+      "note": "STORY 3 · NEW LIGHT (crystal-sky): Indra's bright court: Menaka, pearl-aqua, a diadem, before the throne; she hesitates, a hand to her throat (the text: she fears the sage's anger); then steps off the cloud's edge, the wind's long scarves round her (plaque: Menaka · an apsara, a nymph of heaven; sub: the finest of them · Adi 1.65.22).",
+      "mixDb": -1.5
     },
     {
       "id": "saw",
-      "speed": 1.1,
-      "text": "The wind helped her. The sage saw her, and desired her.",
-      "say": "The wind helped her. [p:260] The sage saw her, [p:150] and desired her.",
-      "est": 4.93,
-      "pre": 250,
-      "post": 300,
+      "speed": 1.0,
+      "text": "The sage saw her, and desired her.",
+      "say": "The sage saw her, [p:150] and desired her.",
+      "est": 3.0,
+      "pre": 220,
+      "post": 260,
       "beats": [
-        1,
-        6,
-        9
+        2,
+        5
       ],
       "amb": "forest-day",
       "music": "tender",
@@ -218,15 +215,14 @@
       "pal": "hermitage-green",
       "cam": "rack",
       "mixDb": -2,
-      "note": "STORY 4 (hermitage-green): a rack focus from blowing leaves and her scarf in the foreground to the ascetic, far, whose raised arms slowly come down as he turns his head. The two are never drawn touching; a full clearing lies between them.",
-      "estVoice": 4.38
+      "note": "STORY 4 (hermitage-green): a rack focus from blowing leaves and her scarf in the foreground (the wind is her ally: the text has it) to the ascetic, far, whose raised arms slowly come down as he turns his head. The two are never drawn touching; a full clearing lies between them."
     },
     {
       "id": "left",
-      "speed": 1.1,
+      "speed": 1.0,
       "text": "By the river Malini a daughter was born. Menaka left her there, and went back to heaven.",
       "say": "By the river Malini [p:80] a daughter was born. [p:350] Menaka left her there, [p:150] and went back to heaven.",
-      "est": 7.55,
+      "est": 3.0,
       "pre": 950,
       "post": 400,
       "rest": true,
@@ -251,21 +247,21 @@
       ],
       "pal": "riverbank-pearl",
       "cam": "tilt",
-      "note": "STORY 5 · THE TURN (≈ 50 %) after a real silence · NEW LIGHT (riverbank-pearl): Menaka kneels and lays a swaddled new-born on the grass by the water (a swaddled infant, never a standing child); she rises, does not look back, and a tilt up follows her into the pale sky until she is a point of light (plaque: Malini · a river of the foothills). The word of the turn: ALONE.",
-      "estVoice": 6.2
+      "note": "STORY 5 · THE TURN (≈ 45 %) after a real silence · NEW LIGHT (riverbank-pearl): Menaka kneels and lays a swaddled new-born on the grass by the water (a swaddled infant, never a standing child); she rises, does not look back, and a tilt up follows her into the pale sky until she is a point of light (plaque: Malini · a river of the foothills). The word of the turn: ALONE.",
+      "mixDb": -3
     },
     {
       "id": "birds",
-      "speed": 1.1,
-      "text": "In that forest of lions and tigers, birds flocked round the child and kept her safe.",
-      "say": "In that forest [p:60] of lions and tigers, [p:200] birds flocked round the child [p:100] and kept her safe.",
-      "est": 6.05,
-      "pre": 250,
-      "post": 300,
+      "speed": 1.0,
+      "text": "In a forest of lions and tigers, birds ringed the child and kept her safe.",
+      "say": "In a forest [p:60] of lions and tigers, [p:200] birds ringed the child [p:100] and kept her safe.",
+      "est": 3.0,
+      "pre": 220,
+      "post": 260,
       "beats": [
         4,
         6,
-        14
+        13
       ],
       "amb": "forest-night",
       "ambLead": 200,
@@ -280,23 +276,23 @@
       "signature": true,
       "tr": "smoke",
       "note": "STORY 6 · THE SIGNATURE SHOT (venom-violet: dusk in the wood): frame-within-frame, through dark leaves: two pairs of eyes and a tiger's striped shoulder in the foreground shade; beyond, in a pool of last light, the infant ringed by birds standing wing to wing, herons, parrots, geese, a peacock, more dropping in from above. The beasts do not come nearer.",
-      "estVoice": 5.5
+      "mixDb": 1
     },
     {
       "id": "found",
-      "speed": 1.1,
-      "text": "The sage Kanva found her there, and raised her as his own.",
-      "say": "The sage Kanva [p:80] found her there, [p:200] and raised her as his own.",
-      "est": 4.65,
-      "pre": 250,
-      "post": 300,
+      "speed": 1.0,
+      "text": "The sage Kanva found her, and raised her as his own.",
+      "say": "The sage Kanva [p:80] found her, [p:200] and raised her as his own.",
+      "est": 3.0,
+      "pre": 220,
+      "post": 260,
       "emphasis": [
         "Kanva"
       ],
       "beats": [
         2,
-        5,
-        11
+        4,
+        10
       ],
       "amb": "river",
       "music": "tender",
@@ -309,7 +305,7 @@
       "cam": "push",
       "tr": "brush",
       "note": "STORY 7 · NEW LIGHT (island-gold: morning; answers the hook): an old sage with a water-pot, come to bathe, stops; the birds part; he kneels and lifts the infant in both arms (plaque: Kanva · a great sage).",
-      "estVoice": 4.1
+      "mixDb": -3
     },
     {
       "id": "name",
@@ -317,9 +313,9 @@
       "speed": 1.0,
       "text": "\"Guarded by birds, by shakuntas: so he named me Shakuntala.\"",
       "say": "Guarded by birds, [p:100] by shakuntas: [p:260] so he named me Shakuntala.",
-      "est": 5.71,
+      "est": 3.0,
       "pre": 800,
-      "post": 300,
+      "post": 260,
       "rest": true,
       "emphasis": [
         "Shakuntala."
@@ -341,16 +337,15 @@
       "pal": "meadow-spring",
       "cam": "orbit",
       "mixDb": -2,
-      "note": "STORY 8 (a second real silence before it): the yard again: she stands with a hand lifted and a small bird alights on it; others on the thatch behind her (plaque: SHAKUNTALA · \"guarded by birds\"). A slow orbit.",
-      "estVoice": 4.61
+      "note": "STORY 8 (a second real silence before it): the yard again: she stands with a hand lifted and a small bird alights on it; others on the thatch behind her (plaque: SHAKUNTALA · \"guarded by birds\"). A slow orbit."
     },
     {
       "id": "cliff",
-      "speed": 1.1,
+      "speed": 1.0,
       "text": "The king listened. Then he said: be my wife.",
       "say": "The king listened. [p:350] Then he said: [p:200] be my wife.",
-      "est": 4.62,
-      "pre": 250,
+      "est": 3.0,
+      "pre": 220,
       "post": 400,
       "beats": [
         2,
@@ -366,7 +361,7 @@
       "pal": "fishers-coral",
       "cam": "push",
       "note": "NEXT 1 (the catalog's cliffhanger; CE 1.67.1): the light gone to late coral: the king rises from the grass seat, a hand held out, palm up; she, three paces off, has gone very still, the bird flown. The source line (top).",
-      "estVoice": 3.97
+      "mixDb": -3
     },
     {
       "id": "next",

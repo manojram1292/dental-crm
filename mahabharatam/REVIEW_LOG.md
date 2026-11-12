@@ -613,3 +613,11 @@ New checks from this episode (coordinator's notes on 42 and 43):
 Measured (mp4): 56.2 s; hook (6 words) by 2.89 s; motion at 0.5 s 13.6; longest static hold 1.7 s; turn at 54 %; -14.1 LUFS, -2.2 dBTP, LRA 5.1; six lights, hue run 2; key frames against 41–43: min 28, mean 32.2; 21 of 24 foley cues on their beat (outside: a hiss, river water, a leaf); ambience by place 1417 / 2683 / 2012 / 2236 / 474 Hz; peak -2.5 dBFS, no clipped sample; share 16.6 MB.
 
 Still weak: the new-born Menaka lays down is hidden by the caption band (a glow at the water's edge is all that shows; in the next shot it is a glowing bundle in the sage's arms); Pramadvara's plaque crosses her upper arm; in the close-up of Ruru the caption lies over his chest (the band begins at y ≈ 1150 and a head at that scale ends near 1050).
+
+### Episode 45 · Half a Life
+
+Rendered twice (the first shared episode 44's face-down bier). In the second: the bride lies face up, wakes by sitting up from the ground; two plaques that sat in the caption band (Vishvavasu, Shunaka) stand above it.
+
+Measured (mp4): 56.0 s; hook (6 words) by 2.83 s; motion at 0.5 s 19.5; longest static hold 2.4 s; turn ("Then I give her half my life") at 43 %; -14.1 LUFS, -2.2 dBTP, LRA 5.1; seven lights, hue run 2; key frames against 42–44: min 22, mean 28.9; 16 of 20 foley cues on their beat (outside: a whoosh, a breath, a leaf, a rustle); ambience by place 472 / 68 / 2061 / 987 / 1384 Hz; peak -2.5 dBFS, no clipped sample; share 16.4 MB.
+
+Still weak: half-way through her waking the bride's head is at the frame's left edge; the Vishvavasu plaque is small (40 px) because the court leaves no room; the lament and the gift are the same blue close-up of Ruru twice; key-frame distance is at the floor (22) because 44's last shot and 45's first share the messenger in his light.

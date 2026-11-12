@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8262,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.4752,
+   "words": 3,
+   "speed": 0.826,
+   "text": "Her foster father,"
+  },
+  {
+   "t0": 1.5552,
+   "t1": 2.3351,
+   "words": 1,
+   "speed": 0.826,
+   "text": "Kanva,"
+  },
+  {
+   "t0": 2.4151,
+   "t1": 3.3405,
+   "words": 2,
+   "speed": 0.826,
+   "text": "came home"
+  },
+  {
+   "t0": 3.4905,
+   "t1": 4.6426,
+   "words": 4,
+   "speed": 0.826,
+   "text": "and knew it all."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

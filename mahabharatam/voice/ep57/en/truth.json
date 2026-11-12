@@ -1,0 +1,30 @@
+{
+ "speaker": "shakuntala",
+ "voice": "af_bella",
+ "speed": 0.7728,
+ "pitch": 0.0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.7362,
+   "words": 4,
+   "speed": 0.773,
+   "text": "Weigh a thousand horse-sacrifices"
+  },
+  {
+   "t0": 2.8162,
+   "t1": 4.0095,
+   "words": 2,
+   "speed": 0.773,
+   "text": "against truth:"
+  },
+  {
+   "t0": 4.3095,
+   "t1": 5.6359,
+   "words": 3,
+   "speed": 0.773,
+   "text": "truth is heavier."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

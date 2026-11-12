@@ -223,6 +223,7 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "sanjivani": "sʌnʤˈiːvəniː",                         # sun-JEE-va-nee (saṃjīvanī)
     "gandharva": "ɡəndʰˈʌɾvə",                           # gan-DHAR-va
     "Brihaspati's": "bɾɪhˈʌspətiz",
+    "Pandava": "pˈɑːɳdəvə",                              # PAAN-da-va (Pāṇḍava)
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
     "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"
     "heard": {"en-us": "hˈɜɹd", "en-gb": "hˈɜːd"},       # espeak en-us gives the British "hˈɜːd"

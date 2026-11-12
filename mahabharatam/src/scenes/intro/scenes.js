@@ -313,7 +313,7 @@
 
   // ── 13 · BEGIN (after a second silence): the forest at the blue hour, a small fire, the seated sages; Sauti comes in
   //         with his staff. A crane down through the trees. ──
-  const sagesBack = (g, fl) => { for (const [x, i] of [[395, 2], [690, 5]]) CH.sage.draw(g, { x, y: GY - 70, scale: 0.6, index: i, facing: 'front', pose: 'sit', expression: { look: x < 540 ? 0.5 : 0.6 }, light: { dir: Math.atan2(200, 540 - x), intensity: 1.15 * fl, front: 0.62 }, t: 0, key: 'intro-sg' + i }); };
+  const sagesBack = (g, fl, front) => { for (const [x, i] of [[395, 2], [690, 5]]) CH.sage.draw(g, { x, y: GY - 70, scale: 0.6, index: i, facing: 'front', pose: 'sit', expression: { look: x < 540 ? 0.5 : 0.6 }, light: { dir: Math.atan2(200, 540 - x), intensity: 1.15 * fl, front: front ?? 0.62 }, t: 0, key: 'intro-sg' + i }); };
   const firelit = (x, fl) => ({ ...EP41.lit(x, fl, 0.85), fill: 0.45, intensity: 1.5 });
   R.scene({ id: 'begin', transition: { type: 'smoke', dur: 0.7, dir: -Math.PI / 2, color: '#243a6a' },
     draw(ctx, t, env) {
@@ -321,7 +321,7 @@
       const cam = CAM.drift(CAM.crane(clamp(t / 4.6), { from: 1.34, to: 1.04, y0: -420, y1: 0, ease: E.inOutSine }), T, 0.5);
       const arrive = E.outCubic(clamp((t - 0.3) / 3.3)), sx = lerp(1260, 850, arrive), moving = 1 - clamp((t - 3.3) / 0.5);
       EP41.naimisha(ctx, T, cam, { figs: (g, p, fl) => {
-        sagesBack(g, fl);
+        sagesBack(g, fl, 0.04);   // soot-dark against the fire's glow, an amber rim
         CH.elder.draw(g, { x: 190, y: GY + 20, scale: 0.9, facing: 'right', pose: { name: 'sit', base: 'sit' }, expression: { look: -0.2 * clamp((t - 1.2) / 0.6) }, light: firelit(190, fl), t: T, key: 'intro-el' });
         CH.sauti.draw(g, { x: sx, y: GY + 20, scale: 0.94, facing: 'left', pose: { name: 'walk', phase: ACT.stride(1260 - sx, 0.94), stride: 0.9 * moving }, light: firelit(sx, fl), t: T, key: 'intro-sw' });
       } });
@@ -339,7 +339,7 @@
       const tap = Math.sin(Math.PI * clamp((t - b1 + 0.1) / 0.3));
       const dawnlit = { dir: -2.4, intensity: 1.25, front: 0.1, fill: 0 };   // against first light they are dark shapes with a gold rim (they must stand off a pale ground)
       EP41.naimisha(ctx, T, cam, { pal: 'naimisha-firstlight', figs: (g, p, fl) => {
-        sagesBack(g, fl);
+        sagesBack(g, fl, 0.04);
         CH.elder.draw(g, { x: 190, y: GY + 20, scale: 0.9, facing: 'right', pose: { name: 'sit', base: 'sit' }, light: dawnlit, t: T, key: 'intro-el2' });
         CH.sauti.draw(g, { x: 880, y: GY + 20, scale: 0.94, facing: 'left', pose: { name: 'speak', k: 0.55 + 0.35 * tap + 0.1 * Math.sin(T * 1.3), base: 'sit' }, light: dawnlit, expression: { speak: talk(env, t) }, t: T, key: 'intro-ss' });
       } });

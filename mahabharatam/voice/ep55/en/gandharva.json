@@ -1,0 +1,37 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8262,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.1658,
+   "words": 5,
+   "speed": 0.826,
+   "text": "He meant a gandharva marriage:"
+  },
+  {
+   "t0": 2.4258,
+   "t1": 3.6858,
+   "words": 3,
+   "speed": 0.826,
+   "text": "their own choice,"
+  },
+  {
+   "t0": 3.8358,
+   "t1": 4.7328,
+   "words": 2,
+   "speed": 0.826,
+   "text": "no rite,"
+  },
+  {
+   "t0": 4.8828,
+   "t1": 6.0268,
+   "words": 2,
+   "speed": 0.826,
+   "text": "no witness."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

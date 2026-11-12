@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.8910000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.6894,
+   "words": 5,
+   "speed": 0.891,
+   "text": "When Kacha took his leave,"
+  },
+  {
+   "t0": 2.0394,
+   "t1": 3.0399,
+   "words": 1,
+   "speed": 0.891,
+   "text": "Devayani"
+  },
+  {
+   "t0": 3.0999,
+   "t1": 4.5558,
+   "words": 4,
+   "speed": 0.891,
+   "text": "had something to ask."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}
