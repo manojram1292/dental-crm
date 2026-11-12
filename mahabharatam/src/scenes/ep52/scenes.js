@@ -101,8 +101,8 @@
         back: (g, p) => { ST.hills(g, p, { y: 1320, h: 240, seed: 221, peaks: 0.6 }); g.save(); g.beginPath(); g.rect(-900, -900, 2880, 2200 + 0 * rise); g.clip(); EP51.fig(g, T, 'kaliShade', 600, 1400 + 500 * (1 - rise), 1.36, { f: 'left', pose: { w: { bless: 0.3, stand: 0.7 } }, L: { dir: -Math.PI / 2, intensity: 1.2, front: 0.25, fill: 0.2, tint: ['#5aff8a', 0.7], minLum: 0.24 }, ex: { emo: 'wrath', gaze: [0.6, 0.6] }, key: 'kl-s' }); g.restore(); },
         figs: (g, p) => EP51.fig(g, T, 'duryodhana', 500, 1330, 0.8, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [b1, 'raise', { act: 0.5 }]], { prop: 'club' }), L: { dir: -Math.PI / 2 - 0.5, intensity: 1.25, front: 0.6, fill: 0.35, tint: ['#d8c0ff', 0.5], minLum: 0.3 }, ex: { emo: ACT.emo(t, [[0, 'resolve'], [b1, 'wrath']]), gaze: [0.8, -0.1] }, key: 'kl-d' }),
         dust: 'ash', dustN: 30 });
-      TY.plaque(ctx, T, clamp((t - b1 + 0.3) / 0.5), ...names(env, 'Duryodhana'), { x: 175, y: 700, size: 36, out: clamp((t - b2 + 0.9) / 0.3) });
-      TY.plaque(ctx, T, clamp((t - b2 + 0.5) / 0.5), 'Kali', 'the spirit of strife · not the goddess Kālī', { x: 175, y: 700, size: 40, out: out(t, env, 0.3) });
+      TY.plaque(ctx, T, clamp((t - b1 + 0.3) / 0.5), ...names(env, 'Duryodhana'), { x: 175, y: 760, size: 36, out: clamp((t - b2 + 0.9) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b2 + 0.5) / 0.5), 'Kali', 'the spirit of strife · not the goddess Kālī', { x: 235, y: 760, size: 36, out: out(t, env, 0.3) });
       TY.turnWord(ctx, T, clamp((t - b2) / 0.6), 'Strife', { x: 810, y: 1010, size: 84, out: out(t, env, 0.3), sub: 'Adi 1.61.80' });
       TY.tag(ctx, T, clamp((t - 1.2) / 0.4), 'Jarasandha, Shishupala: demons born as kings', { x: 540, y: 250, size: 42, out: clamp((t - b1 + 0.5) / 0.3) });
       fin(ctx, T);
