@@ -44,7 +44,7 @@
       const T = env.T, cam = CAM.slide(t / env.dur, { from: -130, to: 130, zoom: 1.14 }), ch = 150 * E.outCubic(clamp(t / 1.6));
       EP51.land(ctx, T, cam, 'war-iron', { hz: 980, trees: false, hillH: 300, peaks: 0.6, dust: 'ash', dustN: 50, seed: 245, gy: 1000, sun: [540, 420, 60],
         sky: (g) => { g.fillStyle = 'rgba(255,208,160,0.25)'; g.fillRect(-900, 560, 2880, 6); g.fillRect(-900, 760, 2880, 4); },   // the three worlds: bands
-        figs: (g) => { for (let i = 0; i < 3; i++) deva(g, T, i, 60 + i * 130 + ch, 1250 + (i % 2) * 30, 0.62, { name: 'strike', k: 0.5 + 0.5 * Math.sin(T * 5 + i) });
+        figs: (g) => { g.fillStyle = '#b8bcd8'; g.beginPath(); g.ellipse(230 + ch, 930, 430, 460, 0, 0, TAU); g.fill(); for (let i = 0; i < 3; i++) deva(g, T, i, 60 + i * 130 + ch, 1250 + (i % 2) * 30, 0.62, { name: 'strike', k: 0.5 + 0.5 * Math.sin(T * 5 + i) });
           for (let i = 0; i < 3; i++) asura(g, T, i, 1020 - i * 130 - ch, 1250 + (i % 2) * 30, 0.66, { name: 'raise', k: 0.5 + 0.5 * Math.sin(T * 5 + i + 2) });
           KIT.glow(g, 540, 900, 300, '#fff0c0', 0.5 * Math.abs(Math.sin(T * 6))); } });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 2.8) / 0.4)), env.strings, { y: 190 });

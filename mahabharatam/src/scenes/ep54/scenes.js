@@ -61,9 +61,9 @@
       EP51.void(ctx, T, cam, 'dharma-copper', { gy: 1300, glow: [540, 900, 800, '#ff9a40', 0.3 + 0.1 * Math.sin(T * 5)],
         back: (g, p) => { ST.hills(g, p, { y: 1320, h: 300, seed: 161, peaks: 0.5 }); EP51.clouds(g, T, 380, 5, '#5a3a40', 0.95, 6, 61, 1.4); CH.indra.draw(g, { x: 560, y: 330, scale: 0.5, facing: 'left', pose: { name: 'sit' }, light: { dir: Math.PI / 2, intensity: 1.2, front: 0.8, fill: 0.5, tint: ['#ffb070', 0.5] }, t: T, key: 'tp-i' }); },
         figs: (g, p) => { for (let i = 0; i < 6; i++) { g.strokeStyle = 'rgba(255,170,80,0.35)'; g.lineWidth = 6; g.beginPath(); const x = 400 + i * 56; g.moveTo(x, 700); g.bezierCurveTo(x + 30 * Math.sin(T * 3 + i), 520, x - 30 * Math.sin(T * 3 + i), 360, x + 10, 160); g.stroke(); }
-          F(g, T, 'vishvamitra', 540, 1310, 0.86, { f: 'left', pose: { w: { raise: 0.8, stand: 0.2 }, prop: false }, L: { dir: -Math.PI / 2 - 0.4, intensity: 1.25, front: 0.6, fill: 0.3, tint: ['#ffb070', 0.6], minLum: 0.3 }, ex: { emo: 'resolve', gaze: [0.2, -0.8] }, key: 'tp-v' }); },
+          F(g, T, 'vishvamitra', 540, 1310, 0.86, { f: 'left', pose: { w: { raise: 0.8, stand: 0.2 }, prop: false }, L: { dir: -Math.PI / 2 - 0.4, intensity: 1.4, front: 0.95, fill: 0.6, tint: ['#ffe0b0', 0.4], minLum: 0.5 }, ex: { emo: 'resolve', gaze: [0.2, -0.8] }, key: 'tp-v' }); },
         dust: 'ember', dustN: 30 });
-      TY.plaque(ctx, T, clamp((t - 0.6) / 0.5), ...names(env, 'Vishvamitra'), { x: 300, y: 1060, size: 44, out: clamp((t - b0 - 0.6) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - 0.6) / 0.5), ...names(env, 'Vishvamitra'), { x: 220, y: 880, size: 38, out: clamp((t - b0 - 0.6) / 0.3) });
       TY.plaque(ctx, T, clamp((t - b0 - 0.8) / 0.5), ...names(env, 'Indra'), { x: 830, y: 300, size: 46, out: out(t, env, 0.3) });
       fin(ctx, T);
     },

@@ -134,9 +134,9 @@
    "audio_offset_frames": -3.6,
    "peak_offset_frames": -0.0,
    "peak_db": -47.2,
-   "picture_peak_s": 20.067,
-   "picture_offset_frames": 2,
-   "picture_change_at_cue": 1.62,
+   "picture_peak_s": 20.1,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 1.69,
    "picture_change_median": 0.89
   },
   {
@@ -266,7 +266,7 @@
    "peak_db": -38.7,
    "picture_peak_s": 51.133,
    "picture_offset_frames": 4,
-   "picture_change_at_cue": 6.37,
+   "picture_change_at_cue": 8.17,
    "picture_change_median": 0.89
   },
   {
@@ -279,7 +279,7 @@
    "peak_db": -30.4,
    "picture_peak_s": 52.633,
    "picture_offset_frames": -2,
-   "picture_change_at_cue": 4.27,
+   "picture_change_at_cue": 4.2,
    "picture_change_median": 0.89
   }
  ],

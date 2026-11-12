@@ -90,7 +90,7 @@
     draw(ctx, t, env) {
       const T = env.T, b = env.beats, b1 = b[1] ?? 3.1, b2 = b[2] ?? 4.1, cam = CAM.push(t / env.dur, { from: 1.0, to: 1.12, focus: [540, 780] });
       EP51.court(ctx, T, cam, 'war-iron', { crowd: 0, glow: 0.1, front: () => {}, figs: (g, p) => {
-        F(g, T, 'dushyanta', 640, 2960, 2.5, { f: 'left', pose: 'stand', L: { dir: -Math.PI / 2 - 0.5, intensity: 1.25, front: 0.65, fill: 0.3, tint: ['#ffe0b0', 0.4], minLum: 0.3 }, ex: { emo: ACT.emo(t, [[0, 'joy'], [b1 - 0.5, 'sorrow', { dur: 0.7 }]]), speak: talk(env, t), ...ACT.lead(t, [[0, [0.8, -0.2]], [b1 - 0.3, [0.5, 0.8]]], 0.4, 0.25) }, key: 'kn-k' }); shade(g); } });
+        F(g, T, 'dushyanta', 640, 2960, 2.5, { f: 'left', pose: 'stand', L: { dir: -Math.PI / 2 - 0.5, intensity: 1.1, front: 0.5, fill: 0.3, tint: ['#8a9cff', 0.85], minLum: 0.3 }, ex: { emo: ACT.emo(t, [[0, 'joy'], [b1 - 0.5, 'sorrow', { dur: 0.7 }]]), speak: talk(env, t), ...ACT.lead(t, [[0, [0.8, -0.2]], [b1 - 0.3, [0.5, 0.8]]], 0.4, 0.25) }, key: 'kn-k' }); g.save(); g.globalCompositeOperation = 'multiply'; g.fillStyle = '#7080d8'; g.fillRect(-900, -900, 2880, 3800); g.restore(); shade(g); } });
       TY.turnWord(ctx, T, clamp((t - b2) / 0.6), 'Knew', { x: 290, y: 1260, size: 96, out: out(t, env, 0.3), sub: 'Adi 1.69.35' });
       fin(ctx, T);
     },
@@ -145,7 +145,7 @@
     EP51.void(ctx, T, cam, 'venom-violet', { gy: 1300, glow: [700, 600, 800, '#9aff9a', 0.14 + 0.2 * up],
       back: (g, p) => { ST.hills(g, p, { y: 1320, h: 260, seed: 231 }); F(g, T, 'shukra', 780, 1330, 1.02, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [b[2] - 0.5, 'bless', { act: 0.6 }]]), L: { dir: -Math.PI / 2, intensity: 1.1, front: 0.5, fill: 0.3, tint: ['#b0ffa0', 0.5], minLum: 0.25 }, ex: { emo: 'resolve', gaze: [0.5, 0.6] }, key: 'cl-s' }); },
       figs: (g, p) => { F(g, T, 'yayati', 250, 1330, 0.7, { f: 'right', pose: 'stand', L: EP51.lit(p, 250, 1330, { from: [800, 300], front: 0.5 }), ex: { emo: 'calm', gaze: [0.8, 0] }, key: 'cl-y' });
-        F(g, T, 'devayani', 430, 1330, 0.64, { f: 'left', pose: 'attend', L: EP51.lit(p, 430, 1330, { from: [800, 300], front: 0.5 }), ex: { emo: 'resolve', gaze: [0.8, 0] }, key: 'cl-d' });
+        F(g, T, 'devayani', 430, 1330, 0.64, { f: 'left', pose: 'attend', L: EP51.bright('#fff0ff', 1.45), ex: { emo: 'resolve', gaze: [0.8, 0] }, key: 'cl-d' });
         KIT.glow(g, 900, 1250, 260, '#9aff9a', 0.5 * up); CH.asura.draw(g, { x: 900, y: 1340, scale: 0.5, index: 2, facing: 'left', pose: { name: 'cower', k: 1 - up }, light: { dir: -Math.PI / 2, intensity: 1.2, front: 0.7, fill: 0.5, tint: ['#b0ffa0', 0.6] }, t: T, key: 'cl-a' }); } });
     TY.plaque(ctx, T, clamp((t - b[0] - 0.2) / 0.5), ...names(env, 'Yayati'), { x: 280, y: 420, size: 44, out: clamp((t - b[2] + 0.2) / 0.3) });
     TY.source(ctx, T, clamp((t - 0.4) / 0.4), env.strings, { y: 110 });

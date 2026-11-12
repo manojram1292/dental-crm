@@ -43,6 +43,7 @@
       const T = env.T, b = env.beats, b2 = b[2] ?? 4.6, cam = CAM.rack(E.inOutSine(clamp((t - 0.6) / 1.4)), { from: 1.8, to: 1, zoom: 1.1 }), cl = E.inOutSine(clamp((t - 1.0) / 2.6)), gone = clamp((t - b2 + 0.4) / 0.8);
       wood(ctx, T, cam, { trunks: false,
         figs: (g, p) => { if (gone < 1) { g.save(); g.globalAlpha = 1 - gone; kacha(g, p, T, 540, GY - 20, 0.7, { pose: ACT.pose(t, [[0, 'stand'], [1.4, 'recoil', { act: 0.4 }]], { prop: 'staff' }), L: EP51.lit(p, 540, GY, { front: 0.5 }), ex: { emo: ACT.emo(t, [[0, 'calm'], [1.3, 'fear']]) }, key: 'fs-k' }); g.restore(); }
+          g.fillStyle = '#8a70c0'; g.beginPath(); g.ellipse(540, GY - 380, 640, 520, 0, 0, TAU); g.fill();
           for (const [x, dd, i] of [[-80, 1, 0], [1160, -1, 1], [200, 1, 2], [900, -1, 3]]) asura(g, T, i + 1, x + dd * 330 * cl, GY + 20 + (i % 2) * 30, 0.86, { name: 'raise', k: 0.6 * cl }, dd > 0 ? 'right' : 'left');
           for (let i = 0; i < 4; i++) { const a = gone * (0.6 + 0.4 * Math.sin(T * 2 + i)); g.globalAlpha = a; g.fillStyle = '#ffe060'; const x = 150 + i * 250, y = GY - 60 - 30 * (i % 2); g.beginPath(); g.ellipse(x, y, 9, 6, 0, 0, TAU); g.ellipse(x + 34, y, 9, 6, 0, 0, TAU); g.fill(); } g.globalAlpha = 1; },
         near: (g) => staff(g, 420, 1760, 0.1, 1.5) });
@@ -142,7 +143,7 @@
       EP51.heaven(ctx, T, cam, 'memory-indigo', { stars: true, floor: GY + 30,
         mid: (g) => { KIT.glow(g, 540, 620, 900 * moon, '#ffffff', 0.5 * (1 - 0.5 * fade)); g.fillStyle = '#fbfbff'; g.beginPath(); g.arc(540, 620, 400 * moon * (1 - 0.25 * fade), 0, TAU); g.fill(); },
         figs: (g, p) => {
-          g.save(); g.translate(1040, GY - 150); g.rotate(-Math.PI / 2 * 0.92 * (1 - wake)); shukra(g, p, T, 0, 0, 0.72, { pose: { w: wake > 0.5 ? { attend: 1 } : { stand: 1 }, prop: false }, L: EP51.bright('#e8e8ff', 1.2), ex: { emo: wake > 0.5 ? 'wonder' : 'weary', gaze: [0.5, 0] }, key: 'ot-s' }); g.restore();
+          g.save(); g.translate(1040, GY - 330); g.rotate(-Math.PI / 2 * 0.92 * (1 - wake)); shukra(g, p, T, 0, 0, 0.72, { pose: { w: wake > 0.5 ? { attend: 1 } : { stand: 1 }, prop: false }, L: EP51.bright('#e8e8ff', 1.2), ex: { emo: wake > 0.5 ? 'wonder' : 'weary', gaze: [0.5, 0] }, key: 'ot-s' }); g.restore();
           KIT.glow(g, 900, GY - 200, 260, '#ffe070', 0.6 * wake);
           kacha(g, p, T, 260, GY + 20, 0.9, { f: t > b1 ? 'right' : 'left', pose: ACT.pose(t, [[0, 'walk'], [1.3, 'stand', { act: 0.5 }], [b3 - 0.6, 'bless', { act: 0.6 }]], { phase: T * 3 }), L: EP51.bright('#ffffff', 1.4), ex: { emo: ACT.emo(t, [[0, 'wonder'], [b1, 'sorrow'], [b3, 'resolve']]), gaze: [0.8, 0.2] }, key: 'ot-k' }); } });
       TY.tag(ctx, T, clamp((t - 1.2) / 0.4), 'Adi 1.71.49–50', { x: 860, y: 250, size: 30, out: out(t, env) });

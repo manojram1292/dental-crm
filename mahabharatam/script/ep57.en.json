@@ -186,10 +186,10 @@
         "cloth",
         "anklet@0"
       ],
-      "pal": "island-gold",
+      "pal": "satra-teal-night",
       "cam": "slide",
       "mixDb": -2,
-      "note": "STORY 3 · NEW LIGHT (island-gold: light from a high window falls on her and the boy): she stands straight, a hand on the boy's head; the boy, half hidden behind her at first, steps out into the light (sub: Adi 1.68.40, 47)."
+      "note": "STORY 3 · NEW LIGHT (satra-teal-night: the hall gone cool; light from a high window falls on her and the boy): she stands straight, a hand on the boy's head; the boy, half hidden behind her at first, steps out into the light (sub: Adi 1.68.40, 47)."
     },
     {
       "id": "mirror",
@@ -270,11 +270,11 @@
       "sfx": [
         "bell@2"
       ],
-      "pal": "seat-ivory",
+      "pal": "riverbank-pearl",
       "cam": "orbit",
       "signature": true,
       "tr": "smoke",
-      "note": "STORY 6 · THE SIGNATURE SHOT · NEW LIGHT (seat-ivory): a great pair of scales fills the frame: in one pan a herd of small white horses and altar fires, piled high; in the other a single small flame; the flame's pan sinks slowly to the ground (sub: Adi 1.69.22). A slow orbit.",
+      "note": "STORY 6 · THE SIGNATURE SHOT · NEW LIGHT (riverbank-pearl): a great pair of scales fills the frame: in one pan a herd of small white horses and altar fires, piled high; in the other a single small flame; the flame's pan sinks slowly to the ground (sub: Adi 1.69.22). A slow orbit.",
       "mixDb": 1
     },
     {

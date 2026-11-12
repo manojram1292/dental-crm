@@ -20,10 +20,10 @@
   // 1 · HOOK: the yard at coral evening: the king, a hand held out, palm up; the girl three paces away, half turned from him
   R.scene({ id: 'hook',
     draw(ctx, t, env) {
-      const T = env.T, cam = CAM.drift(CAM.push(E.outCubic(clamp(t / 3.0)), { from: 1.02, to: 1.22, focus: [480, 900] }), T, 0.6);
-      yard(ctx, T, cam, 'fishers-coral', (g, p) => {
-        king(g, p, T, 260, GY + 10, 0.84, { pose: ACT.pose(t, [[0, 'stand'], [0.1, 'offer', { act: 0.4 }]]), L: EP51.lit(p, 260, GY, { from: [900, 500], front: 0.4 }), ex: { emo: 'tender', speak: talk(env, t), gaze: [0.9, 0] }, key: 'hk-k' });
-        girl(g, p, T, 720, GY, 0.78, { f: t > 1.6 ? 'left' : 'right', pose: ACT.pose(t, [[0, 'attend'], [1.6, 'recoil', { act: 0.3, dur: 0.5 }]]), ex: { emo: ACT.emo(t, [[0, 'calm'], [1.6, 'wonder']]), gaze: [0.8, 0] }, key: 'hk-g' }); });
+      const T = env.T, cam = CAM.drift(CAM.push(E.outCubic(clamp(t / 3.0)), { from: 1.02, to: 1.22, focus: [600, 800] }), T, 0.6);
+      EP51.wood(ctx, T, cam, 'fishers-coral', { seed: 183, shaftX: 800, shaftA: -0.4, trunks: [-260, 1340], figs: (g, p) => {
+        king(g, p, T, 800, GY + 10, 1.0, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [0.1, 'offer', { act: 0.4 }]]), L: EP51.lit(p, 800, GY, { from: [200, 500], front: 0.4 }), ex: { emo: 'tender', speak: talk(env, t), gaze: [0.9, 0] }, key: 'hk-k' });
+        girl(g, p, T, 280, GY, 0.92, { f: t > 1.6 ? 'right' : 'left', pose: ACT.pose(t, [[0, 'attend'], [1.6, 'recoil', { act: 0.3, dur: 0.5 }]]), ex: { emo: ACT.emo(t, [[0, 'calm'], [1.6, 'wonder']]), gaze: [0.8, 0] }, key: 'hk-g' }); } });
       EP51.hook(ctx, T, t, env, { y: 1500 });
       fin(ctx, T);
     },
@@ -93,7 +93,7 @@
       const T = env.T, b1 = env.beats[1] ?? 2.1, j = E.inOutSine(clamp((t - b1 + 0.9) / 0.9)), cam = CAM.push(t / env.dur, { from: 1.0, to: 1.1, focus: [540, 900] });
       ST.within(ctx, T, { shape: 'leaves', pal: 'island-gold', box: [80, 300, 920, 1080], open: 1, draw: (g) => {
         EP51.wood(g, T, cam, 'island-gold', { seed: 181, trunks: false, shafts: 0.22, dust: 'petal', dustN: 60, figs: (gg, p) => {
-          KIT.glow(gg, 540, 900, 520, '#fff4c0', 0.4 * j);
+          gg.fillStyle = '#2f4a1a'; gg.beginPath(); KIT.scallopPath(gg, 540, 860, 420, 470, 13, 7, 0.16); gg.fill(); KIT.glow(gg, 540, 900, 520, '#fff4c0', 0.3 * j);
           king(gg, p, T, 380, 1180, 0.64, { pose: ACT.pose(t, [[0, 'stand'], [b1 - 0.9, 'offer', { act: 0.6 }]]), L: EP51.bright('#fff0c0', 1.25), ex: { emo: 'joy', gaze: [0.9, 0] }, key: 'wd-k' });
           girl(gg, p, T, 700, 1180, 0.6, { pose: ACT.pose(t, [[0, 'attend'], [b1 - 0.7, 'offer', { act: 0.6 }]]), L: EP51.bright('#fff0c0', 1.25), ex: { emo: 'tender', gaze: [0.9, 0] }, key: 'wd-g' }); } }); } });
       fin(ctx, T);

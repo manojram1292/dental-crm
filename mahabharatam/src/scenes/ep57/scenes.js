@@ -71,7 +71,7 @@
   R.scene({ id: 'wife', transition: { type: 'dissolve', dur: 0.35 },
     draw(ctx, t, env) {
       const T = env.T, b1 = env.beats[1] ?? 2.0, cam = CAM.slide(t / env.dur, { from: -80, to: 80, zoom: 1.16 }), st = 110 * E.outCubic(clamp((t - b1) / 1.0));
-      court(ctx, T, cam, 'island-gold', (g, p) => { ST.shafts(g, T, { x: 300, angle: 0.3, count: 3, alpha: 0.2 });
+      court(ctx, T, cam, 'satra-teal-night', (g, p) => { ST.shafts(g, T, { x: 300, angle: 0.3, count: 3, alpha: 0.2 });
         girl(g, p, T, 430, GY - 100, 0.92, { pose: ACT.pose(t, [[0, 'speak'], [b1, 'attend', { act: 0.5 }]]), L: EP51.bright('#fff0c0', 1.25), ex: { emo: 'resolve', speak: talk(env, t), gaze: [0.9, -0.4] }, key: 'wf-g' });
         boy(g, p, T, 500 + st, GY - 90, 0.86, { L: EP51.bright('#fff0c0', 1.3), ex: { emo: 'wonder', gaze: [0.8, -0.5] }, key: 'wf-b' }); }, { tx: null, crowd: 0.7 });
       TY.tag(ctx, T, clamp((t - 0.8) / 0.4), 'Adi 1.68.40, 47', { x: 860, y: 1130, size: 30, out: out(t, env) });
@@ -113,7 +113,7 @@
   R.scene({ id: 'truth', transition: { type: 'smoke', dur: 0.6, dir: -Math.PI / 2, color: '#fbf0d8' },
     draw(ctx, t, env) {
       const T = env.T, b = env.beats, b0 = b[0] ?? 2.5, cam = CAM.orbit(t / env.dur, { from: -1, to: 1, amp: 90, zoom: 1.1 }), k = E.inOutSine(clamp((t - b0 + 0.3) / 2.0)), tip = lerp(-0.12, 0.2, k);
-      EP51.void(ctx, T, cam, 'seat-ivory', { gy: 1300, glow: [540, 700, 1000, '#fff4d0', 0.35],
+      EP51.void(ctx, T, cam, 'riverbank-pearl', { gy: 1300, glow: [540, 700, 1000, '#ffffff', 0.3],
         back: (g, p) => ST.pillars(g, p, { y: 1320, n: 4 }),
         figs: (g) => { g.fillStyle = '#5a3a14'; g.fillRect(520, 480, 40, 800); g.beginPath(); g.moveTo(380, 1290); g.lineTo(700, 1290); g.lineTo(600, 1220); g.lineTo(480, 1220); g.closePath(); g.fill();
           g.save(); g.translate(540, 500); g.rotate(tip); g.fillStyle = '#e7b54a'; g.fillRect(-400, -14, 800, 28); g.beginPath(); g.arc(0, 0, 40, 0, TAU); g.fill();

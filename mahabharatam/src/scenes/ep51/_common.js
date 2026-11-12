@@ -70,7 +70,7 @@
 
   EP51.throne = (g, x, y, s = 1, col = '#5a1a14', gold = '#e7b54a') => { g.save(); g.translate(x, y); g.scale(s, s);
     g.fillStyle = '#2a0e0a'; g.fillRect(-330, -70, 660, 80); g.fillRect(-270, -140, 540, 76);   // the dais, two steps
-    g.fillStyle = col; g.beginPath(); g.roundRect(-170, -900, 340, 780, [150, 150, 10, 10]); g.fill(); g.fillStyle = gold; g.beginPath(); g.roundRect(-170, -900, 340, 780, [150, 150, 10, 10]); g.roundRect(-140, -860, 280, 720, [124, 124, 6, 6]); g.fill('evenodd');
+    g.fillStyle = col; g.beginPath(); g.roundRect(-170, -900, 340, 780, [150, 150, 10, 10]); g.fill(); g.fillStyle = gold; g.beginPath(); g.roundRect(-170, -900, 340, 780, [150, 150, 10, 10]); g.roundRect(-150, -876, 300, 740, [134, 134, 6, 6]); g.fill('evenodd');
     g.fillStyle = KIT.hex(col, '#000000', 0.3); g.fillRect(-200, -370, 400, 240); g.fillStyle = gold; g.fillRect(-210, -390, 420, 26); g.fillRect(-230, -470, 46, 340); g.fillRect(184, -470, 46, 340); g.beginPath(); g.arc(0, -930, 44, 0, TAU); g.fill(); g.restore(); };
 
   EP51.court = (ctx, T, cam, pal, o = {}) => ST.shot(ctx, T, { pal, cam, layers: [
@@ -78,7 +78,7 @@
     { z: 0.3, draw: (g, p) => { ST.pillars(g, p, { y: 1380, n: o.n ?? 5 }); if (o.back) o.back(g, p); } },
     { z: 0.55, haze: false, draw: (g, p) => { KIT.glow(g, o.gx ?? 540, 700, 1100, p.key, o.glow ?? 0.22); for (let i = 0; i < 4; i++) { const x = 130 + i * 270; g.fillStyle = KIT.hex(p.accent, p.mid, 0.5); g.globalAlpha = 0.5; g.fillRect(x - 6, 120, 12, 520); g.beginPath(); g.moveTo(x - 60, 640); g.lineTo(x + 60, 640); g.lineTo(x, 760); g.closePath(); g.fill(); } g.globalAlpha = 1; } },   // hanging banners
     { z: 0.75, draw: (g, p) => { const c = o.crowd ?? 1; if (c > 0) for (let r = 0; r < 2; r++) for (let i = 0; i < 10; i++) { const x = -120 + i * 140 + r * 60, y = 1270 + r * 60; if ((o.tx != null && Math.abs(x - o.tx) < 260) || hash(i, r + 15) > c) continue; g.fillStyle = KIT.hex(p.near, '#000000', 0.3); g.beginPath(); g.ellipse(x, y - 110, 44, 120, 0, 0, TAU); g.fill(); g.beginPath(); g.arc(x, y - 260, 30, 0, TAU); g.fill(); g.fillStyle = KIT.hex(p.accent, p.key, 0.5); g.globalAlpha = 0.7; g.beginPath(); g.arc(x, y - 292, 16, Math.PI, TAU); g.fill(); g.globalAlpha = 1; }
-      if (o.tx != null) EP51.throne(g, o.tx, o.ty ?? 1300, o.ts ?? 0.8); if (o.mid) o.mid(g, p); } },
+      if (o.tx != null) EP51.throne(g, o.tx, o.ty ?? 1300, o.ts ?? 0.8, o.tcol); if (o.mid) o.mid(g, p); } },
     { z: 1, haze: false, draw: (g, p) => { ST.ground(g, p, { y: GY - 20 }); if (o.floor) { g.save(); g.globalAlpha = 0.35; g.translate(0, 2 * (GY - 20)); g.scale(1, -1); o.floor(g, p); g.restore(); g.fillStyle = KIT.hex(p.near, '#000000', 0.2); g.globalAlpha = 0.45; g.fillRect(-900, GY - 20, 2880, 900); g.globalAlpha = 1; } if (o.figs) o.figs(g, p); } },
     { z: 1.9, haze: false, soft: 0.35, draw: (g, p) => { if (o.front) return o.front(g, p); g.fillStyle = KIT.hex(p.near, '#000000', 0.6); for (const x of [-230, 1310]) g.fillRect(x - 110, -900, 220, 3200); } },
   ] });

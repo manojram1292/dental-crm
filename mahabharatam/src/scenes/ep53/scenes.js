@@ -34,9 +34,9 @@
   R.scene({ id: 'line', transition: { type: 'brush', dur: 0.5, angle: 0.2, color: '#f4e8c8' },
     draw(ctx, t, env) {
       const T = env.T, b1 = env.beats[1] ?? 3.3, cam = CAM.tilt(E.inOutSine(clamp(t / 3.6)), { from: -330, to: 60, zoom: 1.12 });
-      EP51.court(ctx, T, cam, 'seat-ivory', { tx: 540, ty: 1330, ts: 0.95, crowd: 0.6, glow: 0.3,
+      EP51.court(ctx, T, cam, 'seat-ivory', { tx: 540, ty: 1330, ts: 0.95, tcol: '#3a100c', crowd: 0.6, glow: 0.3,
         back: (g, p) => { for (let i = 0; i < 6; i++) { const x = 140 + i * 160, y = 150 - 60 * (i % 2); g.fillStyle = KIT.hex(p.near, p.accent, 0.3); g.beginPath(); g.ellipse(x, y, 44, 110, 0, 0, TAU); g.fill(); g.beginPath(); g.arc(x, y - 150, 30, 0, TAU); g.fill(); g.fillStyle = '#c89a30'; g.beginPath(); g.moveTo(x - 26, y - 176); g.lineTo(x, y - 230); g.lineTo(x + 26, y - 176); g.closePath(); g.fill(); if (i < 5) { g.strokeStyle = '#c89a30'; g.lineWidth = 5; g.beginPath(); g.moveTo(x + 46, y); g.lineTo(x + 114, y + (i % 2 ? -60 : 60)); g.stroke(); } } },
-        figs: (g, p) => F(g, T, 'dushyanta', 540, 1040, 0.72, { f: 'left', pose: 'sit', L: EP51.lit(p, 540, 1040, { front: 0.4 }), ex: { emo: 'resolve', gaze: [0.7, 0] }, key: 'ln-k' }) });
+        figs: (g, p) => F(g, T, 'dushyanta', 540, 1040, 0.72, { f: 'left', pose: 'sit', L: EP51.bright('#fff4d8', 1.35), ex: { emo: 'resolve', gaze: [0.7, 0] }, key: 'ln-k' }) });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 3.0) / 0.4)), env.strings, { y: 190 });
       TY.plaque(ctx, T, clamp((t - b1 + 0.6) / 0.6), ...names(env, 'Dushyanta'), { x: 250, y: 330, size: 40, out: out(t, env) });
       fin(ctx, T);

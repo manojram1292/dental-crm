@@ -621,3 +621,13 @@ Rendered twice (the first shared episode 44's face-down bier). In the second: th
 Measured (mp4): 56.0 s; hook (6 words) by 2.83 s; motion at 0.5 s 19.5; longest static hold 2.4 s; turn ("Then I give her half my life") at 43 %; -14.1 LUFS, -2.2 dBTP, LRA 5.1; seven lights, hue run 2; key frames against 42–44: min 22, mean 28.9; 16 of 20 foley cues on their beat (outside: a whoosh, a breath, a leaf, a rustle); ambience by place 472 / 68 / 2061 / 987 / 1384 Hz; peak -2.5 dBFS, no clipped sample; share 16.4 MB.
 
 Still weak: half-way through her waking the bride's head is at the frame's left edge; the Vishvavasu plaque is small (40 px) because the court leaves no room; the lament and the gift are the same blue close-up of Ruru twice; key-frame distance is at the floor (22) because 44's last shot and 45's first share the messenger in his light.
+
+### Episode 46 · The Snake Who Was a Sage (arc finale)
+
+Rendered twice. First render: Pramati's plaque was hidden under the caption, and the king's face showed beside the arc-end card. Second: the plaque stands above the band; the hall behind the card is dimmed to a quarter.
+
+Coordinator's note on 45 (the Shunaka plaque on the caption's upper edge, its letters cut while arriving) led to two changes, in force from this episode: a plaque must END above y 960 (the scrim of a four-line caption begins at 972; the first threshold, 1140, was the text's top, not the scrim's), and the letters and epithet are clipped to the band as it brushes on, so the text is never wider than its box.
+
+Measured (mp4): 58.2 s; hook (7 words) by 2.46 s; motion at 0.5 s 7.1; longest static hold 1.2 s; turn at 55 %; the lit payoff (the snake's shape falls away in gold light, then the teaching in the same light) runs 32.2–43.7 s, 11.5 s; the arc-end card 49.4–50.9 s with no voice; -14.1 LUFS, -2.1 dBTP, LRA 4.9; six lights, hue run 2; key frames against 43–45: min 24, mean 29.3; 16 of 20 foley cues on their beat (outside: two rustles, a leaf, the chant, all sustained); ambience by place 1354 / 917 / 1554 / 254 Hz; peak -2.5 dBFS, no clipped sample; share 18.4 MB.
+
+Still weak: the opening moves least of the batch (7.1 at 0.5 s: a snake rearing, a staff entering); the foley stem is the quietest of the batch (-42.7 dB rms); at 3.6 s the episode title is wiped by the brush transition while still on screen; the arc card stays 1.5 s, short for four lines of text; 58.2 s is over the 54–58 s target.

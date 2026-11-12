@@ -52,11 +52,11 @@
   R.scene({ id: 'grew', transition: { type: 'dissolve', dur: 0.3 },
     draw(ctx, t, env) {
       const T = env.T, b1 = env.beats[1] ?? 2.4, cam = CAM.push(t / env.dur, { from: 1.0, to: 1.1, focus: [540, 780] }), k = E.outCubic(clamp((t - 1.3) / 0.6));
-      EP51.wood(ctx, T, cam, 'island-gold', { seed: 120, trunks: false, figs: (g, p) => {
+      EP51.wood(ctx, T, cam, 'hunt-emerald', { seed: 120, trunks: false, figs: (g, p) => {
         F(g, T, 'bharataChild', 600, 2520, 3.6, { f: 'left', pose: 'stand', L: ST.light(p, { from: [200, 200], at: [600, 1200], k: 1.05, front: 0.45 }), ex: { emo: ACT.emo(t, [[0, 'wonder'], [b1 - 1.2, 'joy', { dur: 0.6 }]]), ...ACT.lead(t, [[0, [0.6, -0.3]], [1.2, [0.9, 0.1]]], 0.4, 0.2) }, key: 'gw-b' });
         if (k > 0) { g.save(); g.globalAlpha = k; g.fillStyle = '#d09a62'; g.beginPath(); g.ellipse(190, 1010 + 60 * (1 - k), 110, 130, -0.2, 0, TAU); g.fill(); for (let i = 0; i < 4; i++) { g.beginPath(); g.roundRect(100 + i * 46, 800 + 60 * (1 - k) + 10 * Math.abs(i - 1.5), 38, 130, 18); g.fill(); }
           g.strokeStyle = '#e7b54a'; g.lineWidth = 7; g.beginPath(); g.arc(190, 1020 + 60 * (1 - k), 50, 0, TAU); for (let i = 0; i < 8; i++) { const a = (i / 8) * TAU + T; g.moveTo(190, 1020 + 60 * (1 - k)); g.lineTo(190 + Math.cos(a) * 50, 1020 + 60 * (1 - k) + Math.sin(a) * 50); } g.stroke(); g.restore(); }
-        shade(g, '40,26,8'); } });
+        shade(g, '8,30,12'); } });
       TY.tag(ctx, T, clamp((t - 1.5) / 0.4), "the wheel's mark on his palm · Adi 1.68.4", { x: 540, y: 250, size: 32, out: out(t, env) });
       fin(ctx, T);
     },
@@ -150,7 +150,7 @@
     draw(ctx, t, env) {
       const T = env.T, b0 = env.beats[0] ?? 2.0, b1 = env.beats[1] ?? 3.8, cam = CAM.push(t / env.dur, { from: 1.0, to: 1.12, focus: [540, 780] });
       EP51.court(ctx, T, cam, 'war-iron', { crowd: 0, glow: 0.1, front: () => {}, figs: (g, p) => {
-        F(g, T, 'dushyanta', 640, 2960, 2.5, { f: 'left', pose: 'stand', L: { dir: -Math.PI / 2 - 0.5, intensity: 1.2, front: 0.6, fill: 0.3, tint: ['#ffd0a0', 0.4], minLum: 0.3 }, ex: { emo: ACT.emo(t, [[0, 'wonder'], [b0 - 0.5, 'shock', { dur: 0.5 }], [b1 - 0.8, 'resolve', { dur: 0.7 }]]), ...ACT.lead(t, [[0, [0.8, 0.3]], [b0 - 0.5, [0.9, 0.5]], [b1 - 0.6, [0.2, -0.2]]], 0.4, 0.2) }, key: 'kn-k' }); shade(g, '8,8,18'); } });
+        F(g, T, 'dushyanta', 640, 2960, 2.5, { f: 'left', pose: 'stand', L: { dir: -Math.PI / 2 - 0.5, intensity: 1.1, front: 0.5, fill: 0.3, tint: ['#8a9cff', 0.85], minLum: 0.3 }, ex: { emo: ACT.emo(t, [[0, 'wonder'], [b0 - 0.5, 'shock', { dur: 0.5 }], [b1 - 0.8, 'resolve', { dur: 0.7 }]]), ...ACT.lead(t, [[0, [0.8, 0.3]], [b0 - 0.5, [0.9, 0.5]], [b1 - 0.6, [0.2, -0.2]]], 0.4, 0.2) }, key: 'kn-k' }); g.save(); g.globalCompositeOperation = 'multiply'; g.fillStyle = '#7080d8'; g.fillRect(-900, -900, 2880, 3800); g.restore(); shade(g, '8,8,18'); } });
       TY.tag(ctx, T, clamp((t - b0) / 0.4), '"though he remembered" · Adi 1.68.18', { x: 540, y: 250, size: 34, out: out(t, env) });
       fin(ctx, T);
     },
