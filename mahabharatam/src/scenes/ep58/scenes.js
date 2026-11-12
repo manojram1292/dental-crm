@@ -122,11 +122,12 @@
 
   // 9 · LINE (the lit payoff) and 10 · ARCEND: Bharata grown, a great bright wheel turning before his chariot; then a tilt up
   //     a painted family tree in gold light: Bharata at its root, branch on branch of small kings above
-  const tree = (ctx, T, t, env, cam) => EP51.void(ctx, T, cam, 'release-gold', { ground: false, glow: [540, 600, 1200, '#fff8d0', 0.5],
+  const tree = (ctx, T, t, env, cam, bare) => EP51.void(ctx, T, cam, 'release-gold', { ground: false, glow: [540, 600, 1200, '#fff8d0', 0.5],
     figs: (g, p) => {
       g.strokeStyle = '#7a4a10'; g.lineCap = 'round'; const br = (x0, y0, x1, y1, w, d) => { g.lineWidth = w; g.beginPath(); g.moveTo(x0, y0); g.quadraticCurveTo(x0, (y0 + y1) / 2, x1, y1); g.stroke(); if (d > 0) { br(x1, y1, x1 - 150 - 40 * d, y1 - 300, w * 0.66, d - 1); br(x1, y1, x1 + 150 + 40 * d, y1 - 300, w * 0.66, d - 1); } g.fillStyle = '#3a2408'; g.beginPath(); g.ellipse(x1, y1 - 60, 22, 50, 0, 0, TAU); g.fill(); g.beginPath(); g.arc(x1, y1 - 130, 16, 0, TAU); g.fill(); g.fillStyle = '#e7b54a'; g.beginPath(); g.moveTo(x1 - 14, y1 - 142); g.lineTo(x1, y1 - 176); g.lineTo(x1 + 14, y1 - 142); g.closePath(); g.fill(); };
       br(540, 1250, 540, 760, 44, 3);
       const wheel = clamp(1 - (t - 2.4) / 0.8); if (wheel > 0) { g.save(); g.globalAlpha = wheel; g.translate(250 + 60 * t, 1080); g.rotate(T * 3); g.strokeStyle = '#fff0a0'; g.lineWidth = 14; g.beginPath(); g.arc(0, 0, 120, 0, TAU); for (let i = 0; i < 8; i++) { const a = (i / 8) * TAU; g.moveTo(0, 0); g.lineTo(Math.cos(a) * 120, Math.sin(a) * 120); } g.stroke(); g.restore(); KIT.glow(g, 250 + 60 * t, 1080, 300, '#fff6c0', 0.5 * wheel); }
+      if (bare) return;
       F(g, T, 'bharataKing', 600, 1290, 0.72, { f: 'left', pose: ACT.pose(t, [[0, 'point'], [2.6, 'stand', { act: 0.6 }]]), L: EP51.bright('#fff6d0', 1.35), ex: { emo: 'resolve', gaze: [0.8, 0] }, key: 'tr-b' });
       F(g, T, 'shakuntalaQueen', 800, 1290, 0.62, { f: 'left', pose: 'attend', L: EP51.bright('#fff6d0', 1.3), ex: { emo: 'tender' }, key: 'tr-s' }); } });
   R.scene({ id: 'line', transition: { type: 'dissolve', dur: 0.45 },
@@ -135,7 +136,7 @@
       TY.plaque(ctx, T, clamp((t - b3 + 0.5) / 0.5), 'The Bharatas', env.script.names.Bharatas, { x: 540, y: 330, size: 50, out: out(t, env, 0.3) });
       fin(ctx, T); },
     post: POST(0.48, 0.36) });
-  R.scene({ id: 'arcend', draw(ctx, t, env) { const T = env.T; tree(ctx, T, 30 + t, env, CAM.still({ zoom: 1.12, y: -150 })); ctx.fillStyle = 'rgba(24,14,4,0.72)'; ctx.fillRect(0, 0, R.W, R.H); EP46.arcCard(ctx, T, clamp(t / 0.25) * (1 - clamp((t - (env.dur - 0.2)) / 0.2)), env.strings); fin(ctx, T); }, post: POST(0.36, 0.5) });
+  R.scene({ id: 'arcend', draw(ctx, t, env) { const T = env.T; tree(ctx, T, 30 + t, env, CAM.still({ zoom: 1.12, y: -150 }), true); ctx.fillStyle = 'rgba(24,14,4,0.72)'; ctx.fillRect(0, 0, R.W, R.H); EP46.arcCard(ctx, T, clamp(t / 0.25) * (1 - clamp((t - (env.dur - 0.2)) / 0.2)), env.strings); fin(ctx, T); }, post: POST(0.36, 0.5) });
 
   // 11 · CLIFF: an older root of the same line: a crowned king and a proud young woman; behind her, vast and dim in violet, a
   //      gaunt white-haired sage with a raised hand, and at his feet a fallen warrior sitting up

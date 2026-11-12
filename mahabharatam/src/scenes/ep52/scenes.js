@@ -128,9 +128,9 @@
 
   // 8 · PAYOFF (lit, ≥ 4 s) and 9 · ARCEND: the whole cast in one lit row under their gods; the teller small in front
   const ROW = [['yudhishthira', 90], ['bhima', 215], ['arjuna', 340], ['nakula', 450], ['sahadeva', 545], ['karna', 660], ['krishna', 775], ['panchali', 880], ['duryodhana', 990]];
-  const row = (ctx, T, t, env, cam) => ridge(ctx, T, cam, 'seat-ivory', { sun: [540, 520, 200],
+  const row = (ctx, T, t, env, cam, bare) => ridge(ctx, T, cam, 'seat-ivory', { sun: [540, 520, 200],
     far: (g) => { KIT.glow(g, 540, 560, 1200, '#fff8e0', 0.5); for (let i = 0; i < 5; i++) god(g, T, i, 120 + i * 210, 1040, 0.8, 0.8); },
-    figs: (g, p) => { ROW.forEach(([id, x], i) => EP51.fig(g, T, id, x, 1060 + (i % 2) * 14, 0.42, { f: i < 5 ? 'right' : 'left', pose: 'stand', L: EP51.bright('#fff4d8', 1.3), ex: { emo: 'calm' }, key: 'rw-' + i }));
+    figs: (g, p) => { if (bare) return; ROW.forEach(([id, x], i) => EP51.fig(g, T, id, x, 1060 + (i % 2) * 14, 0.42, { f: i < 5 ? 'right' : 'left', pose: 'stand', L: EP51.bright('#fff4d8', 1.3), ex: { emo: 'calm' }, key: 'rw-' + i }));
       CH.vaishampayanaSage.draw(g, { x: 560, y: 1210, scale: 0.52, facing: 'left', pose: ACT.pose(t, [[0, 'speak'], [2.6, 'bless', { act: 0.5 }]], { prop: false }), light: EP51.bright('#fff4d8', 1.35), expression: { emo: 'tender', speak: t < 20 ? talk(env, t) : 0, gaze: [0.5, 0] }, t: T, key: 'rw-v' }); } });
   R.scene({ id: 'payoff', transition: { type: 'dissolve', dur: 0.45 },
     draw(ctx, t, env) { const T = env.T, cam = CAM.orbit(t / env.dur, { from: -1, to: 1, amp: 90, zoom: 1.08 }); row(ctx, T, t, env, cam);
@@ -138,7 +138,7 @@
       TY.tag(ctx, T, clamp((t - 4.6) / 0.4), 'Adi 1.61.101–102', { x: 540, y: 250, size: 32, out: out(t, env, 0.3) });
       fin(ctx, T); },
     post: POST(0.46, 0.36) });
-  R.scene({ id: 'arcend', draw(ctx, t, env) { const T = env.T; row(ctx, T, 30 + t, env, CAM.still({ zoom: 1.08, x: 90 })); ctx.fillStyle = 'rgba(20,12,6,0.72)'; ctx.fillRect(0, 0, R.W, R.H); EP46.arcCard(ctx, T, clamp(t / 0.25) * (1 - clamp((t - (env.dur - 0.2)) / 0.2)), env.strings); fin(ctx, T); }, post: POST(0.36, 0.5) });
+  R.scene({ id: 'arcend', draw(ctx, t, env) { const T = env.T; row(ctx, T, 30 + t, env, CAM.still({ zoom: 1.08, x: 90 }), true); ctx.fillStyle = 'rgba(20,12,6,0.72)'; ctx.fillRect(0, 0, R.W, R.H); EP46.arcCard(ctx, T, clamp(t / 0.25) * (1 - clamp((t - (env.dur - 0.2)) / 0.2)), env.strings); fin(ctx, T); }, post: POST(0.36, 0.5) });
 
   // 10 · CLIFF: a green forest: a crowned rider with a bow at full gallop on his chariot, deer leaping ahead, spears behind
   const cliff = (ctx, T, t, env) => {

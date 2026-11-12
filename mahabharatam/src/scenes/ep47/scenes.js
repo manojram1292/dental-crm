@@ -170,7 +170,7 @@
     draw(ctx, t, env) {
       const T = env.T, b0 = env.beats[0] ?? 1.2, b1 = env.beats[1] ?? 2.5, cam = CAM.tilt(E.inOutSine(clamp(t / 2.4)), { from: -200, to: 60, zoom: 1.2 });
       teal(ctx, T, cam, (g, p, fl) => student(g, T, 600, GY + 10, 1.12, ACT.pose(t, [[0, 'stand'], [b0 - 0.2, 'anjali', { act: 0.5 }], [b1 - 0.1, 'bow', { act: 0.8 }]], { prop: false }), { emo: 'resolve', gaze: [0.7, 0.3] }, fl, 'right', 'bw-s'), { fx: 1040, fs: 0.8 });
-      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Vaishampayana'), { x: 344, y: 900, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Vaishampayana'), { x: 344, y: 800, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.38, vignette: 0.5, paper: 0.3 }) });
