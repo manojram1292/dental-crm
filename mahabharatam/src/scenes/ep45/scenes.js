@@ -138,7 +138,7 @@
         { z: 1.4, haze: false, draw: (g) => ST.particles(g, T, { kind: 'ember', count: 24, cam }) },
       ] });
       TY.plaque(ctx, T, clamp((t - b1 + 0.2) / 0.6), ...names(env, 'Dharmaraja'), { x: 830, y: 800, out: clamp((t - (env.dur - 0.4)) / 0.3) });
-      TY.plaque(ctx, T, clamp((t - 2.9) / 0.6), ...names(env, 'Vishvavasu'), { x: 260, y: 1120, out: clamp((t - b1 + 0.4) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - 2.9) / 0.6), ...names(env, 'Vishvavasu'), { x: 194, y: 900, size: 40, out: clamp((t - b1 + 0.4) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.4, vignette: 0.55, paper: 0.3 }) });
@@ -174,7 +174,7 @@
           CH.pramadvara.draw(g, { x: 880 - d, y: GY + 14, scale: 0.95, facing: 'left', pose: ACT.pose(t, [[0, 'walk']], { phase: ACT.stride(d, 0.95 * 0.5) + 1.2, stride: 0.5 }), light: { ...EP41.lit(880, fl, 0.6), fill: 0.3 }, expression: { emo: 'joy', gaze: [0.6, 0.2] }, t: T, key: 'sn-p' }); } },
         { z: 1.4, haze: false, draw: (g) => ST.particles(g, T, { kind: 'ember', count: 26, box: [300, 300, 480, 900], cam }) },
       ] });
-      TY.plaque(ctx, T, clamp((t - b1) / 0.6), ...names(env, 'Shunaka'), { x: 540, y: 1250, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b1) / 0.6), ...names(env, 'Shunaka'), { x: 540, y: 1000, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.38, vignette: 0.45, paper: 0.3 }) });

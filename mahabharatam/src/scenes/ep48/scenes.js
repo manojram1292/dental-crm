@@ -41,7 +41,7 @@
         CH.vaishampayanaSage.draw(g, { x: 500, y: GY + 10, scale: 1.04, facing: 'right', pose: ACT.pose(t, [[0, 'anjali'], [b0, 'speak', { act: 0.5 }]], { prop: false }), light: { ...EP46.lit(500, fl, 0.9, 130), fill: 0.5, intensity: 1.5 }, expression: { emo: 'resolve', gaze: [0.8, 0.1] }, t: T, key: 'bf-s' });
       });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 3.2) / 0.4)), env.strings, { y: 190 });
-      TY.plaque(ctx, T, clamp((t - 0.5) / 0.6), ...names(env, 'Vaishampayana'), { x: 300, y: 620, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - 0.5) / 0.6), ...names(env, 'Vaishampayana'), { x: 344, y: 780, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.38, vignette: 0.5, paper: 0.3 }) });
@@ -110,7 +110,7 @@
         } },
         { z: 1.3, haze: false, draw: (g) => ST.particles(g, T, { kind: 'pollen', count: 40, cam }) },
       ] });
-      TY.plaque(ctx, T, clamp((t - b0) / 0.5), ...names(env, 'Draupadi'), { x: 760, y: 300, out: clamp((t - b1 + 0.3) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b0) / 0.5), ...names(env, 'Draupadi'), { x: 760, y: 260, out: clamp((t - b1 + 0.3) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.34, vignette: 0.38, paper: 0.32 }) });

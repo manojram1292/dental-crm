@@ -37,7 +37,7 @@
       const T = env.T, cam = CAM.slide(t / env.dur, { from: 140, to: -140, zoom: 1.3 });
       EP49.river(ctx, T, cam, { figs: (g, p) => { g.save(); g.translate(60 - 30 * t, 6 * Math.sin(T * 1.6)); crew(g, p, T, t, { sage: false, front: 0.2 }); g.restore(); } });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 3.2) / 0.4)), env.strings, { y: 190 });
-      TY.plaque(ctx, T, clamp((t - 0.5) / 0.6), ...names(env, 'Satyavati'), { x: 330, y: 470, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - 0.5) / 0.6), ...names(env, 'Satyavati'), { x: 330, y: 300, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.3, vignette: 0.42, paper: 0.3 }) });
@@ -53,7 +53,7 @@
           sagePose: ACT.pose(t, [[0, 'walk'], [b1 - 0.1, 'stand', { act: 0.3 }], [b1 + 0.5, 'sit', { act: 0.7 }]], { phase: ACT.stride(d, 0.56), prop: 'staff' }),
           sageEx: { emo: ACT.emo(t, [[0, 'calm'], [b2, 'wonder']]), ...ACT.lead(t, [[0, [0.3, 0.4]], [b2 - 0.3, [0.95, 0]]]) } }); g.restore(); } });
       // (he walks in along the near bank: the same figure, offset until he steps aboard)
-      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Parashara'), { x: 540, y: 300, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Parashara'), { x: 540, y: 280, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.3, vignette: 0.45, paper: 0.3 }) });
@@ -115,7 +115,7 @@
         { z: 1, haze: false, draw: (g, p) => { EP49.boat(g, 760, BY, 0.9); CH.parashara.draw(g, { x: 500, y: BY - 30, scale: 0.8, facing: 'right', pose: ACT.pose(t, [[0, 'sit'], [b0 - 0.6, 'speak', { act: 0.5 }], [b1 - 0.35, 'bless', { act: 0.5 }]], { prop: 'staff' }), light: { dir: -Math.PI / 2 - 0.4, intensity: 1.1, front: 0.06, fill: 0, wrap: 0.6, tint: ['#ffcf7a', 0.6] }, expression: { emo: ACT.emo(t, [[0, 'tender'], [b1, 'joy']]), speak: talk(env, t), gaze: [0.8, 0.1] }, t: T, key: 'gf-p' }); } },
         { z: 1.5, haze: false, draw: (g) => ST.mist(g, T, { y: 1350, h: 600, alpha: 0.7 }) },
       ] });
-      TY.turnWord(ctx, T, clamp((t - b1) / 0.7), 'Choose', { x: 810, y: 330, size: 84, out: clamp((t - (env.dur - 0.3)) / 0.3), sub: 'Adi 1.57.64' });
+      TY.turnWord(ctx, T, clamp((t - b1) / 0.7), 'Choose', { x: 830, y: 640, size: 84, out: clamp((t - (env.dur - 0.3)) / 0.3), sub: 'Adi 1.57.64' });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.4, vignette: 0.4, paper: 0.3 }) });
@@ -159,8 +159,8 @@
         KIT.glow(g, 620, 1262 - 520 * s, 700, '#fff0b0', 0.5 + 0.2 * Math.sin(Math.PI * grow));
         CH.vyasaChild.draw(g, { x: 620, y: 1262, scale: s, facing: 'left', pose: ACT.pose(t, [[0, 'stand'], [b2 - 0.5, 'anjali', { act: 0.6 }]]), light: { dir: -Math.PI / 2 - 0.4, intensity: 1.2, front: 0.06, fill: 0, wrap: 0.6, tint: ['#ffcf7a', 0.6] }, expression: { emo: 'calm', gaze: [0.6, 0] }, t: T, key: 'gw-c' });
       });
-      TY.plaque(ctx, T, clamp((t - b1) / 0.6), ...names(env, 'Dvaipayana'), { x: 280, y: 420, out: clamp((t - b2 + 0.3) / 0.3) });
-      TY.plaque(ctx, T, clamp((t - b2) / 0.5), ...names(env, 'Vyasa'), { x: 280, y: 420, out: clamp((t - (env.dur - 0.3)) / 0.25) });
+      TY.plaque(ctx, T, clamp((t - b1) / 0.6), ...names(env, 'Dvaipayana'), { x: 290, y: 270, out: clamp((t - b2 + 0.3) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b2) / 0.5), ...names(env, 'Vyasa'), { x: 290, y: 270, out: clamp((t - (env.dur - 0.3)) / 0.25) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.4, vignette: 0.42, paper: 0.3 }) });

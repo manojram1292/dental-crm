@@ -209,6 +209,9 @@ async function frameChecks41({ ep, lang, fps, means, L, SL, page }) {
   // text never crosses a face (the kit moves a plaque, the turn-word and the source line clear; a hit means it found no room)
   const fh = Object.entries(probe.type).filter(([k]) => /^faceHit|^captionFace/.test(k));
   for (const [k, n] of fh) if (n > 2) fails.push(`text crosses a face in ${n} sampled frames (${k.replace('faceHit:', '').replace('captionFace', 'the caption band')})`);
+  // from episode 44: text stays where it was put. A plaque or turn-word that had to be moved off a face jumps when the face moves;
+  // a plaque whose box reaches the caption band is half hidden. Both are faults (tools/facehits.mjs names the line).
+  if (ep >= 44) for (const [k, n] of Object.entries(probe.type)) if (/^moved|^lowText/.test(k) && n > 0) fails.push(`${k.startsWith('moved') ? 'text was moved off a face' : 'a plaque reaches the caption band'} in ${n} sampled frames (${k}); run tools/facehits.mjs --ep ${ep}`);
   if (!fh.length) info.push('no text on a face');
   // the close-up and the source line
   const cu = Object.entries(probe.byLine).some(([id, bl]) => SL[id] && SL[id].closeup && bl.figs.some((f) => f.h >= 1.4));

@@ -76,7 +76,7 @@
         CH.sthulakesha.draw(g, { x: 960 - d, y: 1320, scale: 1.0, facing: 'left', pose: ACT.pose(t, [[0, 'walk'], [b0, 'kneel', { act: 0.5 }], [b1, 'carry', { act: 0.7 }]], { phase: ACT.stride(d, 1.0), prop: false }), light: ST.light(p, { from: [540, 100], at: [800, 1300], front: 0.7 }), expression: { emo: ACT.emo(t, [[0, 'calm'], [b0, 'wonder'], [b1, 'tender']]), gaze: [0.5, 0.7] }, t: T, key: 'fd-s' });
         babe(g, lerp(620, 700, lift), lerp(1290, 700, lift));
       });
-      TY.plaque(ctx, T, clamp((t - 0.6) / 0.6), ...names(env, 'Sthulakesha'), { x: 320, y: 420, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - 0.6) / 0.6), ...names(env, 'Sthulakesha'), { x: 340, y: 880, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.34, vignette: 0.4, paper: 0.3 }) });
@@ -88,7 +88,7 @@
       EP44.meadow(ctx, T, cam, { sun: [820, 380, 60], figs: (g, p) => { const flip = t > b0;
         girl(g, p, T, 560, GY - 6, 1.12, ACT.pose(t, [[0, 'reach'], [b0 - 0.15, 'attend', { act: 0.4 }], [b0 + 0.9, 'offer', { act: 0.6 }]], { wind: 0.8 }), { emo: 'joy', facing: flip ? 'right' : 'left', ...ACT.lead(t, [[0, [0.3, -0.3]], [b0 + 0.2, [0.7, 0]]]) }, 'nm-p');
         garland(g, flip ? 700 : 420, GY - 700, 0.6, 0.2 * Math.sin(T * 2)); } });
-      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Pramadvara'), { x: 300, y: 1230, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Pramadvara'), { x: 310, y: 700, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.3, vignette: 0.38, paper: 0.3 }) });

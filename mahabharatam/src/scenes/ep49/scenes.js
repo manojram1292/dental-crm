@@ -57,7 +57,7 @@
         { z: 1.6, haze: false, draw: (g) => ST.particles(g, T, { kind: 'pollen', count: 30, cam }) },
       ] });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 3.2) / 0.4)), env.strings, { y: 190 });
-      TY.plaque(ctx, T, clamp((t - b1) / 0.6), ...names(env, 'Uparichara'), { x: 800, y: 640, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b1) / 0.6), ...names(env, 'Uparichara'), { x: 780, y: 780, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       TY.tag(ctx, T, clamp((t - b1 - 1.2) / 0.5), 'the chariot: a gift of Indra, king of the gods', { x: 540, y: 1290, size: 34, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
@@ -117,7 +117,7 @@
         } },
         { z: 1.4, haze: false, draw: (g) => { const fe = Math.sin(Math.PI * clamp((t - b1) / 1.2)); g.fillStyle = '#c8a070'; for (let i = 0; i < 8; i++) { g.globalAlpha = fe; g.beginPath(); g.ellipse(520 + 200 * (hash(i, 1) - 0.5), 560 + 400 * hash(i, 2) * clamp((t - b1) / 1.2), 16, 5, i, 0, TAU); g.fill(); } g.globalAlpha = 1; } },
       ] });
-      TY.plaque(ctx, T, clamp((t - b0) / 0.5), ...names(env, 'Yamuna'), { x: 300, y: 1250, out: clamp((t - b1) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b0) / 0.5), ...names(env, 'Yamuna'), { x: 300, y: 700, out: clamp((t - b1) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.34, vignette: 0.36, paper: 0.3 }) });
@@ -197,7 +197,7 @@
         CH.satyavati.draw(g, { x: 760, y: GY - 30, scale: s, facing: 'left', pose: ACT.pose(t, [[0, 'stand'], [b1, 'row', { act: 0.8 }]], { prop: grow > 0.8 ? 'oar' : false, phase: T * 1.6 }), light: ST.light(p, { from: [820, 800], at: [760, GY], front: 0.3 }), expression: { emo: ACT.emo(t, [[0, 'joy'], [b1, 'resolve']]), gaze: [0.7, 0] }, t: T, key: 'nm-s' });
         const a = E.outCubic(clamp((t - b2 + 0.4) / 0.9)); if (a > 0) { KIT.glow(g, 180, 700, 380 * a, '#ffcf7a', 0.6 * a); g.save(); g.beginPath(); g.rect(-300, 1000 - 900 * a, 1000, 900 * a + 30); g.clip(); CH.vyasaSage.draw(g, { x: 180, y: 1010, scale: 0.42, facing: 'right', pose: { w: { stand: 1 }, prop: false }, light: { dir: -Math.PI / 2, intensity: 1.2, front: 0.05, fill: 0, tint: ['#ffcf7a', 0.6] }, expression: { emo: 'calm' }, t: T, key: 'nm-v' }); g.restore(); }   // far behind her, the poet she will bear
       } });
-      TY.plaque(ctx, T, clamp((t - b1 + 0.6) / 0.6), ...names(env, 'Satyavati'), { x: 320, y: 420, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b1 + 0.6) / 0.6), ...names(env, 'Satyavati'), { x: 320, y: 250, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.3, vignette: 0.45, paper: 0.3 }) });

@@ -42,6 +42,6 @@ for l in TL['lines']:
     if SL[l['id']].get('tr'): sheet(f"transition-{l['id']}.jpg", range(int(l['start'] * 30) - 2, int(l['start'] * 30) + 27), 10, 180)
 for t in [float(x) for x in a.actions.split(',') if x]: sheet(f'action-{t:.2f}.jpg', range(int((t - 0.4) * 30), int((t + 0.8) * 30)), 12, 180)
 # blank / near-white frames anywhere (a transition must never flash)
-lum = F.reshape(N, -1, 3).mean(axis=(1, 2)); sd = F.reshape(N, -1).std(axis=1)
+lum = np.array([F[i].mean() for i in range(N)]); sd = np.array([F[i].astype(np.float32).std() for i in range(N)])   # frame by frame: the whole film as floats does not fit in memory
 flat = [int(i) for i in np.where(sd < 6)[0]]; white = [int(i) for i in np.where(lum > 215)[0]]
 print(f'frames {N} · flat frames (sd < 6): {flat[:12]} · near-white frames (mean > 215): {white[:12]} · brightest frame mean {lum.max():.0f} at f{int(lum.argmax())}')

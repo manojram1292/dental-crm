@@ -57,7 +57,7 @@
       const T = env.T, b0 = env.beats[0] ?? 0.6, cam = CAM.crane(t / env.dur, { from: 1.0, to: 1.22, y0: -330, y1: 40, x0: -40, x1: 60 });
       teal(ctx, T, cam, (g, p, fl) => king(g, T, 640, GY - 40, 0.96, { w: { sit: 1 } }, { emo: 'resolve', gaze: [0.6, 0.3] }, fl, 'left', 'st-k'));
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 3.2) / 0.4)), env.strings, { y: 190 });
-      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Janamejaya'), { x: 330, y: 620, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Janamejaya'), { x: 330, y: 400, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.38, vignette: 0.5, paper: 0.3 }) });
@@ -69,7 +69,7 @@
       const T = env.T, b1 = env.beats[1] ?? 3.7, k = E.inOutSine(clamp(t / (b1 + 0.2))), stop = clamp((t - b1) / 0.5);
       ST.within(ctx, T, { shape: 'arch', pal: 'arrival-umber-gold', box: [60, 150, 960, 1330], open: 1, draw: (c2) =>
         EP47.arrival(c2, T, CAM.push(k, { from: 1.0, to: 1.12, focus: [570, 900] }), 0.2 + 0.8 * k, { phase: t * 3.4, pose: ACT.pose(t, [[0, 'walk'], [b1, 'stand', { act: 0.5 }]], { phase: t * 3.4 * (1 - stop), stride: 0.7, prop: false }), ex: { emo: 'calm', ...ACT.lead(t, [[0, [0.5, 0.2]], [b1 - 0.4, [0.8, 0]]]) } }) });
-      TY.plaque(ctx, T, clamp((t - b1) / 0.5), ...names(env, 'Vyasa'), { x: 300, y: 1560, out: clamp((t - (env.dur - 0.35)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b1) / 0.5), ...names(env, 'Vyasa'), { x: 220, y: 245, out: clamp((t - (env.dur - 0.35)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.46, vignette: 0.5, paper: 0.3 }) });
@@ -152,13 +152,13 @@
   // 9 · TELL: a rack focus from Vyasa's raised hand to the young man beside him, who looks up, startled
   R.scene({ id: 'tell', transition: { type: 'dissolve', dur: 0.3 },
     draw(ctx, t, env) {
-      const T = env.T, b0 = env.beats[0] ?? 1, cam = CAM.rack(clamp((t - b0 - 0.3) / 0.9), { from: 1.3, to: 1.0, zoom: 1.2, x: -40, y: 20, soft: 0.6 });
+      const T = env.T, b0 = env.beats[0] ?? 1, cam = CAM.rack(clamp((t - b0 - 0.3) / 0.9), { from: 1.3, to: 1.0, zoom: 1.08, x: 0, y: 20, soft: 0.6 });
       const fl = KIT.flicker(T, 3);
       ST.shot(ctx, T, { pal: 'arrival-umber-gold', cam, layers: [
         { z: 0, haze: false, draw: (g) => { const gr = g.createLinearGradient(0, -400, 0, 1920); gr.addColorStop(0, '#0a0604'); gr.addColorStop(1, '#4a2a10'); g.fillStyle = gr; g.fillRect(-900, -900, 2880, 3720); } },
         { z: 0.3, draw: (g, p) => { ST.pillars(g, p, { y: 1380, n: 5 }); KIT.glow(g, 160, 760, 320, '#ffb050', 0.5 * fl); } },
         { z: 1, haze: false, draw: (g, p) => { ST.ground(g, p, { y: GY - 20 }); student(g, T, 230, GY + 10, 1.0, ACT.pose(t, [[0, 'sit'], [b0 + 0.5, 'attend', { act: 0.4 }]], { prop: false }), { emo: ACT.emo(t, [[0, 'calm'], [b0 + 0.4, 'shock', { dur: 0.3 }], [b0 + 1.4, 'wonder']]), ...ACT.lead(t, [[0, [0.2, 0.5]], [b0 + 0.3, [0.9, -0.5]]]) }, fl, 'right', 'tl-s'); } },
-        { z: 1.3, haze: false, draw: (g) => { vyasa(g, T, 960, GY + 120, 1.3, ACT.pose(t, [[0, 'stand'], [b0 - 0.3, 'bless', { act: 0.5 }]], { prop: false }), { emo: 'tender', speak: talk(env, t), gaze: [0.8, 0.3] }, 'left', 'tl-v'); } },
+        { z: 1.3, haze: false, draw: (g) => { vyasa(g, T, 820, GY + 90, 1.16, ACT.pose(t, [[0, 'stand'], [b0 - 0.3, 'bless', { act: 0.5 }]], { prop: false }), { emo: 'tender', speak: talk(env, t), gaze: [0.8, 0.3] }, 'left', 'tl-v'); } },
         { z: 1.5, haze: false, draw: (g) => ST.particles(g, T, { kind: 'ember', count: 18, cam }) },
       ] });
       fin(ctx, T);
@@ -170,7 +170,7 @@
     draw(ctx, t, env) {
       const T = env.T, b0 = env.beats[0] ?? 1.2, b1 = env.beats[1] ?? 2.5, cam = CAM.tilt(E.inOutSine(clamp(t / 2.4)), { from: -200, to: 60, zoom: 1.2 });
       teal(ctx, T, cam, (g, p, fl) => student(g, T, 600, GY + 10, 1.12, ACT.pose(t, [[0, 'stand'], [b0 - 0.2, 'anjali', { act: 0.5 }], [b1 - 0.1, 'bow', { act: 0.8 }]], { prop: false }), { emo: 'resolve', gaze: [0.7, 0.3] }, fl, 'right', 'bw-s'), { fx: 1040, fs: 0.8 });
-      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Vaishampayana'), { x: 300, y: 1190, out: clamp((t - (env.dur - 0.4)) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b0) / 0.6), ...names(env, 'Vaishampayana'), { x: 344, y: 900, out: clamp((t - (env.dur - 0.4)) / 0.3) });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.38, vignette: 0.5, paper: 0.3 }) });

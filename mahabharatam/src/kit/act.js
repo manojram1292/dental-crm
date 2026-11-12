@@ -109,7 +109,7 @@
     const w = r[2] - r[0], cx = (r[0] + r[2]) / 2;
     for (const [dx, dy] of [[R.W - 2 * cx + (cx < R.W / 2 ? -90 : 0), 0], [0, -220], [0, 220], [0, -420], [0, 420], [R.W - 2 * cx, -220], [R.W - 2 * cx, 220]]) {
       const q = [r[0] + dx, r[1] + dy, r[2] + dx, r[3] + dy];
-      if (q[0] > 20 && q[2] < R.W - 20 && q[1] > 190 && q[3] < 1250 && !hits(q)) { void w; return [dx, dy]; }
+      if (q[0] > 20 && q[2] < R.W - 20 && q[1] > 190 && q[3] < 1250 && !hits(q)) { void w; note('type', 'moved:' + name); return [dx, dy]; }
     }
     note('type', 'faceHit:' + name);
     return [0, 0];
@@ -125,7 +125,7 @@
     const ew = epithet ? ctx.measureText(epithet).width : 0;
     const w = Math.max(tw, ew) + size * 1.5, h = size * (epithet ? 2.35 : 1.6);
     x = Math.min(R.W - 24 - w / 2, Math.max(24 + w / 2, x));   // a plaque is never cut by the frame's edge
-    const mv = TY.clear([x - w / 2, y - size * 1.12, x + w / 2, y - size * 1.12 + h], 'plaque'); ctx.restore(); ctx.save(); ctx.translate(mv[0], mv[1]); const x0 = x - w / 2, y0 = y - size * 1.12;
+    const mv = TY.clear([x - w / 2, y - size * 1.12, x + w / 2, y - size * 1.12 + h], 'plaque'); if (y - size * 1.12 + h + mv[1] > 1140) note('type', 'lowText:plaque'); /* it would sit in or under the caption band */ ctx.restore(); ctx.save(); ctx.translate(mv[0], mv[1]); const x0 = x - w / 2, y0 = y - size * 1.12;
     // the lacquer band brushes on from the left, with a bristled leading edge
     const b = E.outCubic(clamp(k / 0.45)), bw = w * b;
     ctx.globalAlpha = out * 0.9; ctx.fillStyle = o.color || 'rgba(14,8,6,0.86)';

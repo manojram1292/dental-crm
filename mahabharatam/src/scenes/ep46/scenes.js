@@ -164,7 +164,7 @@
     draw(ctx, t, env) {
       const T = env.T, cam = CAM.tilt(E.inOutSine(clamp(t / 3.4)), { from: 260, to: -30, zoom: 1.12 });
       tale(ctx, T, cam, t);
-      TY.plaque(ctx, T, clamp((t - 0.4) / 0.6), ...names(env, 'Pramati'), { x: 320, y: 430, out: clamp((t - 3.4) / 0.3) });   // the two dark backs in the foreground: the father telling, the son listening
+      TY.plaque(ctx, T, clamp((t - 0.4) / 0.6), ...names(env, 'Pramati'), { x: 400, y: 760, out: clamp((t - 3.4) / 0.3) });   // the two dark backs in the foreground: the father telling, the son listening
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.42, vignette: 0.5, paper: 0.3 }) });
