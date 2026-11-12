@@ -2,13 +2,13 @@
  "stamp": {
   "episode": 51,
   "lang": "en",
-  "timeline": "433e92b3687a597e",
-  "duration": 53.7667,
+  "timeline": "d2e8593c0587e6e2",
+  "duration": 53.2,
   "score": "9c0973d24551"
  },
  "lufs": -22.0,
- "true_peak_dbtp": -4.11,
- "seconds": 53.7667,
+ "true_peak_dbtp": -3.97,
+ "seconds": 53.2,
  "stems": {
   "amb": -28.4,
   "foley": -32.6,

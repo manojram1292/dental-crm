@@ -1,5 +1,5 @@
 {
- "music_under_voice_db": -12.2,
+ "music_under_voice_db": -12.3,
  "stems": [
   "mus",
   "amb",
@@ -20,9 +20,9 @@
    "seconds": 0.97
   }
  ],
- "lufs": -14.07,
+ "lufs": -14.09,
  "true_peak_dbtp": -2.18,
  "lra": 4.8,
- "timeline": "433e92b3687a597e",
+ "timeline": "d2e8593c0587e6e2",
  "voiced": 11
 }
