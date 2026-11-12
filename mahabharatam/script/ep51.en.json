@@ -1,0 +1,372 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 51,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Adivamshavatarana sub-parva. CHECKED AGAINST CE 1.58.1–51 and 1.59.1–4 (GRETIL e-text of the constituted text, lab/ce; star passages and appendix lines are apparatus and were not used; Ganguli (vulgate) only as a reading aid): Janamejaya asks why the godlike warriors were born on earth (1.58.1–2); Vaishampayana: this is a secret of the gods, I will tell it (1.58.3: `secret`); Jamadagni's son (Parashurama) had made the earth empty of kshatriyas twenty-one times (1.58.4: `kings`, his name on a plaque); kshatriya women had sons by brahmins and the kshatriya line grew again (1.58.5–8: \"a new line\"); it ruled by dharma (1.58.12–13), Indra rained in season (1.58.14), no one died as a child (1.58.15: \"no child died young\"), in a krita age (1.58.24); the earth filled with creatures to the seas (1.58.16, 24); then asuras were born among the kings: the sons of Diti, beaten many times in battle by the gods and cast down from their sovereignty (1.58.25–26: `asuras`), born among men and in cattle, horses, asses, camels, buffalo, beasts of prey, elephants and deer (1.58.27–28: \"as beasts\"); some were born as mighty, arrogant kings (1.58.30–31) who oppressed all four orders and every creature (1.58.32–34: `crushed`); the earth could not bear herself (1.58.29: `weight`, the turn), nor could wind, serpents or mountains hold her (1.58.36); weighed down and afraid she went for refuge to Brahma (1.58.37: `went`), who sat among gods, sages, gandharvas and apsarases (1.58.38–39), and petitioned him before the world-guardians (1.58.40: the CE gives her NO words; she does not speak here); he already knew her purpose (1.58.41–42: `knew`); he told her he would appoint all the heaven-dwellers to it (1.58.44), dismissed her, and commanded the gods: to cast off this earth's burden, be born on her with your portions, each apart, for strife (1.58.46: `command`, condensed; virodhaya, \"to fight\", is on the plaque); he said the same to gandharvas and apsarases (1.58.47); Indra and the rest accepted (1.58.48) and went to Narayana in Vaikuntha (1.58.49); Indra said to him: descend with a portion; and Hari said: so be it (1.58.51: `agreed`; Indra is on the plaque); the heaven-dwellers came down in turn and were born in the lines of brahmin seers and royal seers (1.59.3–4: the cliffhanger; \"demons alike\" is 1.58.25–31 and 1.61.4–61). NOT IN THE CE and not used: the Earth in the form of a cow (the word gam at 1.58.11 means the earth); any speech of the Earth. \"Golden age\" is not said: the text's word is krita.",
+  "structure": "As from episode 41 (script/ARC-41-50.md, script/ARC-51-60.md): COLD OPEN (≤ 8 words; the hook style rotates and never repeats the episode before; no episode of this batch opens on fire) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
+  "hookStyle": "question",
+  "names": {
+    "Earth": "the goddess who bears the world",
+    "Brahma": "the creator",
+    "Narayana": "Vishnu, the preserver",
+    "Parashurama": "the axe-bearing sage",
+    "Indra": "king of the gods",
+    "Vaishampayana": "the teller, Vyasa's student",
+    "Janamejaya": "the king who asked"
+  },
+  "loop": {
+    "hookQuestion": "Why were gods born as men?",
+    "answeredBy": "command",
+    "prevQuestion": "Why were godlike heroes born on earth?",
+    "prevAnsweredBy": "secret",
+    "openQuestion": "Which god was born as which hero?"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 51",
+    "episodeTitle": "The Burden of the Earth",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 50",
+    "prevEpisodeTitle": "Born on an Island",
+    "recapLine": "Asked why godlike heroes were born on earth, the teller answered.",
+    "nextEpisodeLabel": "Episode 52",
+    "nextTitle": "Gods in Disguise",
+    "sourceLine": "Adi Parva 1.58 · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.1,
+      "text": "Why were gods born as men?",
+      "say": "Why were gods [p:80] born as men?",
+      "est": 3.22,
+      "pre": 60,
+      "post": 1100,
+      "role": "hook",
+      "caption": false,
+      "beats": [
+        2,
+        5
+      ],
+      "hookGold": [
+        "gods",
+        "men?"
+      ],
+      "amb": "void",
+      "music": "dread",
+      "foley": [
+        "thunder",
+        "breath@0"
+      ],
+      "pal": "dharma-copper",
+      "cam": "tilt",
+      "note": "COLD OPEN (a question card over the image; no fire): the Earth as a woman, large in the frame, bent under a dark mass that rests on her shoulders: a hill of tiny towers, spears and beasts. A tilt up from her bowed head to the mass. The card low.",
+      "estVoice": 2.06
+    },
+    {
+      "id": "secret",
+      "speaker": "vaishampayana",
+      "speed": 1.0,
+      "text": "\"To lift a burden from the Earth. It is a secret of the gods.\"",
+      "say": "To lift a burden from the Earth. [p:260] It is a secret of the gods.",
+      "est": 5.42,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        9
+      ],
+      "amb": "satra",
+      "ambLead": 250,
+      "music": "still",
+      "foley": [
+        "cloth",
+        "flame@1"
+      ],
+      "pal": "satra-teal-night",
+      "cam": "push",
+      "tr": "smoke",
+      "note": "FRAME with the unvoiced recap band (top): the hall of the snake sacrifice at night in teal: Vaishampayana (plaque: Vaishampayana · the teller, Vyasa's student) answers the king (plaque: Janamejaya · the king who asked), a finger raised: a secret. Answers episode 50's last line by 5 s.",
+      "estVoice": 4.87
+    },
+    {
+      "id": "kings",
+      "speed": 1.1,
+      "text": "After the old warrior kings were wiped out, a new line ruled by the law. No child died young.",
+      "say": "After the old warrior kings were wiped out, [p:150] a new line ruled by the law. [p:260] No child died young.",
+      "est": 6.82,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        6,
+        12,
+        15
+      ],
+      "amb": "meadow",
+      "music": "calm",
+      "foley": [
+        "birds",
+        "steps@1"
+      ],
+      "pal": "meadow-spring",
+      "cam": "crane",
+      "tr": "brush",
+      "note": "STORY 1 · NEW LIGHT (meadow-spring): a crane down over a bright land: fields, a young king on a low seat giving judgment, children running. Small, top left, for one second: an axe-bearing figure walking away over a hill (plaque: Parashurama · the axe-bearing sage; sub: twenty-one times · Adi 1.58.4).",
+      "estVoice": 6.27
+    },
+    {
+      "id": "asuras",
+      "speed": 1.1,
+      "text": "Then the asuras, beaten by the gods and cast out of heaven, began to be born on earth.",
+      "say": "Then the asuras, [p:100] beaten by the gods [p:60] and cast out of heaven, [p:150] began to be born on earth.",
+      "est": 6.32,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        6,
+        13
+      ],
+      "amb": "void",
+      "ambLead": 200,
+      "music": "dread",
+      "foley": [
+        "thunder@0",
+        "whoosh@2"
+      ],
+      "pal": "venom-violet",
+      "cam": "tilt",
+      "tr": "ink",
+      "note": "STORY 2 · NEW LIGHT (venom-violet): a tilt down a dark sky: broad horned figures falling, turning as they fall into points of sickly green light that sink into the land below (tag: asuras · the gods' old enemies).",
+      "estVoice": 5.77
+    },
+    {
+      "id": "crushed",
+      "speed": 1.1,
+      "text": "As proud kings, and as beasts, they crushed all that lived.",
+      "say": "As proud kings, [p:100] and as beasts, [p:150] they crushed all that lived.",
+      "est": 4.94,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        5,
+        7
+      ],
+      "amb": "storm",
+      "music": "wrath",
+      "foley": [
+        "hooves",
+        "growl@1",
+        "thud@2"
+      ],
+      "pal": "dice-vermilion",
+      "cam": "slide",
+      "mixDb": 1,
+      "note": "STORY 3 (dice-vermilion): a lateral track: a huge crowned king on a chariot, green-eyed, rolling over the land; behind him bull, horse and elephant shapes with the same green eye; small hermits and farmers run.",
+      "estVoice": 4.39
+    },
+    {
+      "id": "weight",
+      "speed": 1.1,
+      "text": "The Earth could not bear her own weight.",
+      "say": "The Earth [p:80] could not bear her own weight.",
+      "est": 4.12,
+      "pre": 950,
+      "post": 400,
+      "rest": true,
+      "sfx": [
+        "silence"
+      ],
+      "emphasis": [
+        "Earth"
+      ],
+      "beats": [
+        1,
+        7
+      ],
+      "amb": "void",
+      "music": "still",
+      "foley": [
+        "breath@0",
+        "creak@1"
+      ],
+      "pal": "dharma-copper",
+      "cam": "push",
+      "closeup": true,
+      "note": "STORY 4 · THE TURN (≈ 45 %) after a real silence · THE CLOSE-UP: the hook's figure again, near: the Earth's face under the mass (plaque: Earth · the goddess who bears the world): endurance, then fear (the brows lift, the eyes go up), the head sinking a hand's breadth. The word of the turn: BURDEN, clear of her face.",
+      "estVoice": 2.77
+    },
+    {
+      "id": "went",
+      "speed": 1.1,
+      "text": "Afraid, she went to Brahma, the creator.",
+      "say": "Afraid, [p:120] she went to Brahma, [p:80] the creator.",
+      "est": 3.95,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Brahma,"
+      ],
+      "beats": [
+        0,
+        4
+      ],
+      "amb": "heaven",
+      "ambLead": 250,
+      "music": "awe",
+      "foley": [
+        "steps",
+        "anklet@1"
+      ],
+      "pal": "memory-indigo",
+      "cam": "crane",
+      "signature": true,
+      "tr": "lamp",
+      "note": "STORY 5 · THE SIGNATURE SHOT · NEW LIGHT (memory-indigo into rose): a crane up and back: she climbs, small, a long stair of cloud toward a great seated four-faced figure on a lotus, large in the upper frame, ringed by rows of small bright gods (plaque: Brahma · the creator).",
+      "estVoice": 3.4
+    },
+    {
+      "id": "knew",
+      "speed": 1.1,
+      "text": "He already knew why she had come.",
+      "say": "He already knew [p:100] why she had come.",
+      "est": 2.98,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        6
+      ],
+      "music": "tender",
+      "foley": [
+        "cloth@0"
+      ],
+      "pal": "brahma-rose",
+      "cam": "push",
+      "note": "STORY 6 (brahma-rose): Brahma large and near, his front face calm, a hand lifting in reassurance before she can speak; she kneels at the foot of the frame, hands joined (the text gives her no words here).",
+      "estVoice": 2.43
+    },
+    {
+      "id": "command",
+      "speaker": "brahma",
+      "speed": 1.0,
+      "text": "\"Gods: be born on earth, each with a part of yourself, and lift her burden.\"",
+      "say": "Gods: [p:200] be born on earth, [p:100] each with a part of yourself, [p:160] and lift her burden.",
+      "est": 6.88,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        0,
+        4,
+        13
+      ],
+      "music": "awe",
+      "foley": [
+        "thunder@0",
+        "cloth"
+      ],
+      "sfx": [
+        "conch@1"
+      ],
+      "pal": "sun-white",
+      "cam": "orbit",
+      "tr": "brush",
+      "note": "STORY 7 (sun-white; answers the hook): Brahma's arm sweeps out over the ranks of gods; from each a second, smaller light steps out of his chest and leans toward the dark earth far below (tag: \"in parts, each apart, to fight\" · Adi 1.58.46).",
+      "estVoice": 6.33
+    },
+    {
+      "id": "agreed",
+      "speed": 1.1,
+      "text": "And Narayana himself said: so be it.",
+      "say": "And Narayana himself [p:120] said: [p:150] so be it.",
+      "est": 4.11,
+      "pre": 800,
+      "post": 300,
+      "rest": true,
+      "emphasis": [
+        "Narayana"
+      ],
+      "beats": [
+        1,
+        4
+      ],
+      "amb": "sky",
+      "music": "wonder",
+      "foley": [
+        "water",
+        "whoosh@1"
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "pal": "pure-flame",
+      "cam": "pull",
+      "note": "STORY 8 (a second real silence before it; pure-flame): the deep blue of Vaikuntha: Narayana large, dark, yellow-robed, discus and mace, Indra small before him with joined hands (plaques: Narayana · Vishnu, the preserver; Indra · king of the gods). He inclines his head. A pull back.",
+      "estVoice": 3.01
+    },
+    {
+      "id": "cliff",
+      "speed": 1.1,
+      "text": "So gods and demons alike were born as men: the heroes and villains of this story.",
+      "say": "So gods and demons alike [p:60] were born as men: [p:200] the heroes [p:60] and villains of this story.",
+      "est": 5.95,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        1,
+        7,
+        10
+      ],
+      "role": "next",
+      "amb": "sky",
+      "music": "wonder",
+      "foley": [
+        "whoosh",
+        "steps@1"
+      ],
+      "pal": "hunt-emerald",
+      "cam": "push",
+      "tr": "lamp",
+      "note": "NEXT 1 (the catalog's cliffhanger, corrected: demons too): a green earth by day: lights come down like slow rain and where each lands a small standing figure rises: an archer, a mace-bearer, a crowned prince, a woman; two of them green-eyed. The source line (top).",
+      "estVoice": 5.3
+    },
+    {
+      "id": "next",
+      "text": "Next: Gods in Disguise",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "cam": "push",
+      "note": "The NEXT › band over the cliffhanger image, with the source line; dissolve into frame 1."
+    }
+  ]
+}

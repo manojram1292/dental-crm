@@ -1,0 +1,427 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 58,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Shakuntala sub-parva, and the opening of the Yayati tale. CHECKED AGAINST CE 1.69.28–51, 1.70.28–46 and 1.71.1–9 (GRETIL e-text of the constituted text, lab/ce; star passages and appendix lines are apparatus and were not used; Ganguli (vulgate) only as a reading aid): as Shakuntala set out, a bodiless voice from the sky spoke to Duhshanta, who sat among his sacrificial priests, house priest, teachers and ministers (1.69.28); support your son, Duhshanta; do not scorn Shakuntala (1.69.29: the hook, bharasva putram); you are the begetter of this child; Shakuntala has spoken the truth (1.69.30: `voice`); because he is to be supported (bhartavya) by you at our word, let your son be Bharata by name (1.69.33: `name`); hearing the speech of the heaven-dwellers the Paurava king, overjoyed, said to his priest and ministers (1.69.34: `glad`): hear, sirs, what this messenger of the gods says; I too know him to be my own son (1.69.35: `knew`, the turn); if I had taken him as my son on her word alone, the people would have doubted and he would not be cleared (1.69.36: `why`); he received his son with joy, smelled (kissed) his head and embraced him with love (1.69.37–38: `embrace`); he honoured his wife according to law and said, soothing her: our union was made out of the world's sight, so I did this to clear you (1.69.39–41); and what you said to me in anger, beloved, I forgive (1.69.42: `queen`: in the CE it is he who forgives; no apology of his is recorded, and the line says only what the text says); he named his son Bharata and consecrated him young king (1.69.44); his famed wheel rolled on, bright, divine, unconquered; he conquered the kings of the earth, was a wheel-turning universal king (1.69.45–47: `wheel`); Kanva was his priest in great sacrifices (1.69.48; not used); from Bharata comes the Bharata fame, and through him this family is Bharata, and those before and after are called Bharatas (1.69.49: `line`, the lit payoff); Yayati, son of Nahusha, had sons by Devayani and Sharmishtha, among them Puru, whose line the Pauravas are (1.70.29–32, 45); Janamejaya: how did our forefather Yayati win the daughter of Shukra, so hard to win (1.71.1: the cliffhanger); Shukra raised the slain danavas by his knowledge (1.71.7). NOT IN THE CE and not said: that the land of Bharata (India) is named for this Bharata (1.69.49 speaks of the family and its fame). CE AGAINST THE CATALOG PLAN: the plan's cliffhanger said Yayati \"paid a terrible price for desire\"; that is his own tale (1.70.33–46, 1.78–80), many episodes on; the handover is now the king's actual next question (1.71.1), which the next episode answers.",
+  "structure": "As from episode 41 (script/ARC-41-50.md, script/ARC-51-60.md): COLD OPEN (≤ 8 words; the hook style rotates and never repeats the episode before; no episode of this batch opens on fire) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
+  "hookStyle": "speech",
+  "names": {
+    "Dushyanta": "the king who denied his wife",
+    "Shakuntala": "his wife, raised in a hermitage",
+    "Bharata": "\"the one to be supported\"",
+    "Bharatas": "his line: the family of this story",
+    "Yayati": "a forefather of the line"
+  },
+  "loop": {
+    "hookQuestion": "Whose son did the voice from the sky say the boy was?",
+    "answeredBy": "voice",
+    "prevQuestion": "Whose voice spoke from the sky, and what did it say?",
+    "prevAnsweredBy": "voice",
+    "openQuestion": "Who was the sage who could raise the dead?"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 58",
+    "episodeTitle": "The Voice from the Sky",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 57",
+    "prevEpisodeTitle": "\"I Do Not Know You\"",
+    "recapLine": "Shakuntala turned to leave the court of the king who denied her.",
+    "nextEpisodeLabel": "Episode 59",
+    "nextTitle": "The Secret of Reviving the Dead",
+    "sourceLine": "Adi Parva 1.69–71 · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code",
+    "arcLabel": "The end of an arc",
+    "arcTitle": "Shakuntala",
+    "arcRange": "Episodes 53–58",
+    "arcPlaylist": "The whole arc is in the Shakuntala playlist"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "skyvoice",
+      "speed": 1.0,
+      "text": "\"Dushyanta, support your son.\"",
+      "say": "Dushyanta, [p:200] support your son.",
+      "est": 3.91,
+      "pre": 60,
+      "post": 1100,
+      "role": "hook",
+      "caption": false,
+      "beats": [
+        0,
+        3
+      ],
+      "hookGold": [
+        "support",
+        "son."
+      ],
+      "amb": "sky",
+      "music": "awe",
+      "foley": [
+        "thunder",
+        "whoosh@1"
+      ],
+      "pal": "crystal-sky",
+      "cam": "tilt",
+      "note": "COLD OPEN (direct speech from above; no fire): looking straight up from the floor of a hall: pillars converge on an opening full of bright cloud; light pours down; small faces at the rim all turned up. The card low.",
+      "estVoice": 2.75
+    },
+    {
+      "id": "scene",
+      "speed": 1.1,
+      "text": "Before his whole court, King Dushyanta had denied Shakuntala and their son.",
+      "say": "Before his whole court, [p:100] King Dushyanta [p:60] had denied Shakuntala [p:60] and their son.",
+      "est": 5.49,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Dushyanta",
+        "Shakuntala"
+      ],
+      "beats": [
+        3,
+        5,
+        8,
+        11
+      ],
+      "amb": "court",
+      "ambLead": 250,
+      "music": "still",
+      "foley": [
+        "cloth",
+        "steps@2"
+      ],
+      "pal": "dice-vermilion",
+      "cam": "slide",
+      "tr": "ink",
+      "note": "STORY 0 with the unvoiced recap band (top): the red-and-gold hall: the king on his feet at the throne (plaque: Dushyanta · the king who denied his wife), and at the doors, about to leave, the woman in bark cloth with her boy (plaque: Shakuntala · his wife, raised in a hermitage). A track from him to her.",
+      "estVoice": 4.94
+    },
+    {
+      "id": "voice",
+      "speaker": "skyvoice",
+      "speed": 1.0,
+      "text": "\"Shakuntala has spoken the truth. Do not scorn her.\"",
+      "say": "Shakuntala has spoken the truth. [p:350] Do not scorn her.",
+      "est": 5.08,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        8
+      ],
+      "amb": "sky",
+      "music": "awe",
+      "foley": [
+        "thunder@0",
+        "whoosh"
+      ],
+      "sfx": [
+        "conch@0"
+      ],
+      "pal": "sun-white",
+      "cam": "crane",
+      "signature": true,
+      "tr": "lamp",
+      "note": "STORY 1 · THE SIGNATURE SHOT (sun-white; answers the hook and episode 57's question): a crane up from the two at the doors: a column of white light comes down through the roof onto mother and son; everyone else in the hall falls into blue shadow; courtiers shield their eyes. The voice has no body: only the light (sub: a bodiless voice · Adi 1.69.28–30).",
+      "estVoice": 4.53
+    },
+    {
+      "id": "name",
+      "speaker": "skyvoice",
+      "speed": 1.0,
+      "text": "\"You must support him: so let his name be Bharata.\"",
+      "say": "You must support him: [p:300] so let his name [p:60] be Bharata.",
+      "est": 4.78,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Bharata."
+      ],
+      "beats": [
+        3,
+        9
+      ],
+      "music": "wonder",
+      "foley": [
+        "whoosh@0",
+        "cloth"
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "pal": "messenger-dawn",
+      "cam": "push",
+      "note": "STORY 2 (messenger-dawn): the boy alone in the light, looking up, unafraid, a hand shading his eyes (plaque: BHARATA · \"the one to be supported\"; sub: bhara · support).",
+      "estVoice": 4.23
+    },
+    {
+      "id": "glad",
+      "speed": 1.1,
+      "text": "The king turned, overjoyed, to his priests and ministers.",
+      "say": "The king turned, [p:80] overjoyed, [p:100] to his priests and ministers.",
+      "est": 4.8,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        3,
+        8
+      ],
+      "amb": "court",
+      "music": "joy",
+      "foley": [
+        "cloth@0",
+        "steps"
+      ],
+      "pal": "wedding-turmeric",
+      "cam": "orbit",
+      "mixDb": -2,
+      "note": "STORY 3 (wedding-turmeric: the hall warm again): the king swings round to the rows of priests and ministers, both arms opening, his whole face alight; they stare at him.",
+      "estVoice": 4.25
+    },
+    {
+      "id": "knew",
+      "speaker": "dushyanta",
+      "speed": 1.0,
+      "text": "\"Hear the messenger of the gods! I too knew he was my son.\"",
+      "say": "Hear the messenger of the gods! [p:350] I too knew [p:80] he was my son.",
+      "est": 6.17,
+      "pre": 950,
+      "post": 350,
+      "rest": true,
+      "sfx": [
+        "silence"
+      ],
+      "beats": [
+        1,
+        6,
+        9
+      ],
+      "music": "still",
+      "foley": [
+        "breath@1",
+        "cloth@0"
+      ],
+      "pal": "war-iron",
+      "cam": "push",
+      "closeup": true,
+      "note": "STORY 4 · THE TURN (≈ 45 %) after a real silence · THE CLOSE-UP (war-iron: the dark of the hall behind him): the king's face fills the frame: triumph, then the mask comes off: relief and shame together (the brows lift and knit, the eyes go down to the boy). The word of the turn: KNEW.",
+      "estVoice": 4.87
+    },
+    {
+      "id": "why",
+      "speaker": "dushyanta",
+      "speed": 1.0,
+      "text": "\"On her word alone, the people would have doubted him.\"",
+      "say": "On her word alone, [p:200] the people would have doubted him.",
+      "est": 4.61,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        9
+      ],
+      "music": "still",
+      "foley": [
+        "cloth",
+        "breath@0"
+      ],
+      "pal": "dice-vermilion",
+      "cam": "rack",
+      "mixDb": -3,
+      "note": "STORY 5: a rack focus from the king's open hand in the foreground to the ranks of courtiers behind, whispering, one pointing: the people he feared (sub: Adi 1.69.36).",
+      "estVoice": 4.06
+    },
+    {
+      "id": "embrace",
+      "speed": 1.1,
+      "text": "He kissed the boy's head and held him close.",
+      "say": "He kissed the boy's head [p:120] and held him close.",
+      "est": 3.5,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        7
+      ],
+      "music": "tender",
+      "foley": [
+        "steps@0",
+        "cloth@1"
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "pal": "island-gold",
+      "cam": "push",
+      "tr": "brush",
+      "note": "STORY 6 (island-gold): the king comes down the throne steps, kneels and gathers the boy in both arms, his crowned head bent over the child's (a father and a small child: the one embrace in the arc; drawn as carry-and-kneel, the boy's face clear over his shoulder).",
+      "estVoice": 2.95
+    },
+    {
+      "id": "queen",
+      "speed": 1.1,
+      "text": "He honoured her as his queen, and forgave her angry words.",
+      "say": "He honoured her as his queen, [p:200] and forgave [p:60] her angry words.",
+      "est": 4.65,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        5,
+        7
+      ],
+      "music": "calm",
+      "foley": [
+        "anklet@0",
+        "cloth"
+      ],
+      "pal": "brahma-rose",
+      "cam": "slide",
+      "mixDb": -2,
+      "note": "STORY 7 (brahma-rose): Shakuntala, now in a queen's rose sari and jewels, seated beside the throne, the king's hands joined toward her; her face composed, not smiling, her eyes on her son (tag: \"I forgive what you said in anger\" · the king, Adi 1.69.42).",
+      "estVoice": 4.1
+    },
+    {
+      "id": "wheel",
+      "speed": 1.1,
+      "text": "Bharata became a king of kings. No one could stop his chariot wheel.",
+      "say": "Bharata became a king of kings. [p:300] No one could stop [p:60] his chariot wheel.",
+      "est": 5.29,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Bharata"
+      ],
+      "beats": [
+        0,
+        5,
+        12
+      ],
+      "amb": "storm",
+      "music": "awe",
+      "foley": [
+        "hooves",
+        "thunder@1",
+        "whoosh@2"
+      ],
+      "pal": "hunt-emerald",
+      "cam": "slide",
+      "tr": "smoke",
+      "mixDb": 1,
+      "note": "STORY 8 · NEW LIGHT (hunt-emerald): Bharata grown: a broad young king in a war chariot crossing a green land at full speed, a great bright wheel turning ahead of him over hills and rivers; small kings bow at the roadside.",
+      "estVoice": 4.74
+    },
+    {
+      "id": "line",
+      "speed": 1.1,
+      "text": "From him, this whole line is called the Bharatas.",
+      "say": "From him, [p:150] this whole line [p:80] is called the Bharatas.",
+      "est": 5.73,
+      "pre": 800,
+      "post": 1300,
+      "rest": true,
+      "emphasis": [
+        "Bharatas."
+      ],
+      "beats": [
+        1,
+        4,
+        8
+      ],
+      "amb": "heaven",
+      "music": "joy",
+      "foley": [
+        "cloth@0",
+        "birds"
+      ],
+      "sfx": [
+        "bell@2"
+      ],
+      "pal": "release-gold",
+      "cam": "tilt",
+      "mixDb": -2,
+      "note": "THE LIT PAYOFF (a second real silence before it; ≥ 4 s with its hold; release-gold): a tilt up a painted family tree in gold light: Bharata at its root, crowned, Shakuntala beside him; above, branch on branch of small kings rising out of frame (plaque: THE BHARATAS · his line: the family of this story; sub: Adi 1.69.49).",
+      "estVoice": 3.63
+    },
+    {
+      "id": "arcend",
+      "text": "The end of an arc · Shakuntala",
+      "voice": false,
+      "est": 1.5,
+      "caption": false,
+      "pal": "release-gold",
+      "cam": "still",
+      "note": "The ARC-END CARD (silent): over the gold tree, a lacquer cartouche with a flame border: THE END OF AN ARC · SHAKUNTALA · Episodes 53–58 · the playlist line."
+    },
+    {
+      "id": "cliff",
+      "speed": 1.1,
+      "text": "Long before Bharata, his forefather Yayati married the daughter of a sage who could raise the dead.",
+      "say": "Long before Bharata, [p:100] his forefather Yayati [p:80] married the daughter of a sage [p:200] who could raise the dead.",
+      "est": 6.94,
+      "pre": 250,
+      "post": 400,
+      "emphasis": [
+        "Yayati"
+      ],
+      "beats": [
+        2,
+        5,
+        11,
+        16
+      ],
+      "role": "next",
+      "amb": "void",
+      "ambLead": 250,
+      "music": "dread",
+      "foley": [
+        "staff@2",
+        "whoosh@3"
+      ],
+      "pal": "venom-violet",
+      "cam": "pull",
+      "tr": "ink",
+      "note": "NEXT 1 (the king's own next question, CE 1.71.1): a tilt down the same tree to an older root: a crowned king (plaque: Yayati · a forefather of the line) and beside him a proud young woman; behind her, vast and dim in violet, a gaunt sage with a raised hand, and at his feet a fallen warrior sitting up. The source line (top).",
+      "estVoice": 6.29
+    },
+    {
+      "id": "next",
+      "text": "Next: The Secret of Reviving the Dead",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "cam": "push",
+      "note": "The NEXT › band over the cliffhanger image, with the source line; dissolve into frame 1."
+    }
+  ]
+}

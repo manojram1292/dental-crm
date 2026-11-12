@@ -199,6 +199,30 @@ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
     "rakshasa": "ɾˈɑːkʃəsə",                             # RAAK-sha-sa (rākṣasa)
     "apsara": "ˈʌpsəɾɑː",                                # UP-sa-raa (apsarā)
     "gandharvas": "ɡəndʰˈʌɾvəz",                         # gan-DHAR-vas
+    # episodes 51–60 (the burden of the Earth; Shakuntala; Kacha)
+    "Karna": "kˈʌɾɳə",                                   # KUR-na (Karṇa)
+    "Kali": "kˈʌli",                                     # KUH-li (Kali, the spirit of strife: short a, short i; not Kālī)
+    "Krishna": "kɾˈɪʃɳə",                                # KRISH-na
+    "Dushyanta": "dʊʃjˈʌntə",                            # dush-YUN-ta (CE Duḥṣanta)
+    "Puru": "pˈuːɾʊ",                                    # POO-ru (Pūru)
+    "Puru's": "pˈuːɾʊz",
+    "Malini": "mˈɑːlɪniː",                               # MAA-li-nee (Mālinī)
+    "Kanva": "kˈʌɳvə",                                   # KUN-va (Kaṇva)
+    "Vishvamitra": "vˌɪʃvɑːmˈɪtɾə",                      # vish-vaa-MIT-ra
+    "Menaka": "mˈeɪnəkɑː",                               # MAY-na-kaa (Menakā)
+    "Shakuntala": "ʃəkˈʊntəlɑː",                         # sha-KUN-ta-laa (Śakuntalā)
+    "shakuntas": "ʃəkˈʊntəz",                            # sha-KUN-tas (śakunta, a bird)
+    "Sarvadamana": "sˌʌɾvədˈʌmənə",                      # sar-va-DA-ma-na
+    "Bharata": "bʰˈʌɾətə",                               # BHA-ra-ta (the king)
+    "Bharatas": "bʰˈɑːɾətəz",                            # BHAA-ra-tas (Bhārata, his line)
+    "Yayati": "jəjˈɑːti",                                # ya-YAA-ti
+    "Shukra": "ʃˈʊkɾə",                                  # SHUK-ra
+    "Shukra's": "ʃˈʊkɾəz",
+    "Kacha": "kˈʌʧə",                                    # KUH-cha
+    "Devayani": "dˌeɪvəjˈɑːniː",                         # day-va-YAA-nee (Devayānī)
+    "sanjivani": "sʌnʤˈiːvəniː",                         # sun-JEE-va-nee (saṃjīvanī)
+    "gandharva": "ɡəndʰˈʌɾvə",                           # gan-DHAR-va
+    "Brihaspati's": "bɾɪhˈʌspətiz",
     "arrives": "əɹˈaɪvz",                                # espeak: "ɚɹˈaɪvz" (er-rives), linked to the r before it
     "storyteller": {"en-us": "stˈɔːɹitˌɛlɚ", "en-gb": "stˈɔːɹɪtˌɛlə"},   # keeps espeak's linking r off "arrives"
     "heard": {"en-us": "hˈɜɹd", "en-gb": "hˈɜːd"},       # espeak en-us gives the British "hˈɜːd"

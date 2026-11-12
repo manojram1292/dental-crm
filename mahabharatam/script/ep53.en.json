@@ -1,0 +1,374 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 53,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Shakuntala sub-parva (the Sambhava parva's first tale). CHECKED AGAINST CE 1.62.1–14, 1.63.1–26, 1.64.1–42, 1.65.1–17 (GRETIL e-text of the constituted text, lab/ce; star passages and appendix lines are apparatus and were not used; Ganguli (vulgate) only as a reading aid): Janamejaya asks for the Kuru line from the beginning (1.62.2); the founder of the Paurava line, the mighty Duhshanta, lord of the four-cornered earth (1.62.3: `line`; the CE spells the name Duhshanta; we say Dushyanta, the familiar form, and the plaque gives both); he goes to a dense forest with hundreds of horses and elephants and hundreds of warriors (1.63.1–2: `hunt`); he kills deer and beasts in great number (1.63.13–26; shown, not dwelt on); following the deer he enters another forest, alone, hungry and thirsty (1.64.1–2: `deeper`), crosses a waste and comes to another great wood, cool-winded, flowering, loud with birds and bees (1.64.3–14: `lovely`); there, on the bank of the river Malini, a hermitage with sacred fires (1.64.15–18); he means to see the great seer Kanva, of Kashyapa's line (1.64.25); he posts his army at the forest's gate (1.64.26–27) and lays aside the royal insignia, going on with minister and priest (1.64.29: `left`, the turn); he hears the Vedas chanted and thinks himself in Brahma's world (1.64.30–40: `chant`, \"in heaven\"); he leaves the ministers and goes on alone, does not see the seer, finds the hermitage empty, and calls aloud: who is here? (1.65.1–2: `empty` and the hook); a maiden lovely as Shri, in an ascetic's dress, comes out and welcomes him (1.65.3–6: `came`); he has come to honour Kanva; where has he gone (1.65.8); her answer: my father has gone from the hermitage to fetch fruit; wait a moment (1.65.9: `father`); he asks who she is and whose (1.65.12–13); she says she is held to be Kanva's daughter (1.65.15); he: the holy one is a celibate (urdhvaretas); how are you his daughter (1.65.16–17: the cliffhanger). The speeches are condensed paraphrase. She is not named in the voice (her name is the next episode's payoff). The slaughter of the hunt (1.63) is one line; the catalogue of learned brahmins (1.64.31–37) is one word, \"chanting\".",
+  "structure": "As from episode 41 (script/ARC-41-50.md, script/ARC-51-60.md): COLD OPEN (≤ 8 words; the hook style rotates and never repeats the episode before; no episode of this batch opens on fire) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
+  "hookStyle": "speech",
+  "names": {
+    "Dushyanta": "a king of Puru's line (Duhshanta)",
+    "Puru": "founder of the Paurava kings",
+    "Malini": "a river of the foothills",
+    "Kanva": "a great sage"
+  },
+  "loop": {
+    "hookQuestion": "Who answers when the king calls into the empty hermitage?",
+    "answeredBy": "came",
+    "prevQuestion": "Who was the hunting king his family's story began with?",
+    "prevAnsweredBy": "line",
+    "openQuestion": "How can a celibate sage have a daughter?"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 53",
+    "episodeTitle": "The King and the Hermitage",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 52",
+    "prevEpisodeTitle": "Gods in Disguise",
+    "recapLine": "The king asked for his own family's story, from the beginning.",
+    "nextEpisodeLabel": "Episode 54",
+    "nextTitle": "The Girl the Birds Protected",
+    "sourceLine": "Adi Parva 1.62–65 · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speaker": "dushyanta",
+      "speed": 1.0,
+      "text": "\"Is anyone here?\"",
+      "say": "Is anyone here?",
+      "est": 2.78,
+      "pre": 60,
+      "post": 1100,
+      "role": "hook",
+      "caption": false,
+      "beats": [
+        2
+      ],
+      "hookGold": [
+        "anyone"
+      ],
+      "amb": "forest-day",
+      "music": "still",
+      "foley": [
+        "birds",
+        "step@0"
+      ],
+      "pal": "hermitage-green",
+      "cam": "push",
+      "note": "COLD OPEN (direct speech in medias res; no fire): a man seen from behind, plainly dressed, a bow on his shoulder, stands in the yard of an empty forest hut and calls; only birds answer. A slow push past his shoulder to the dark doorway. The card low.",
+      "estVoice": 1.62
+    },
+    {
+      "id": "line",
+      "speed": 1.1,
+      "text": "It begins with Dushyanta, a king of Puru's line.",
+      "say": "It begins with Dushyanta, [p:120] a king of Puru's line.",
+      "est": 3.96,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Dushyanta,"
+      ],
+      "beats": [
+        3,
+        8
+      ],
+      "amb": "court",
+      "ambLead": 250,
+      "music": "calm",
+      "foley": [
+        "cloth",
+        "steps@1"
+      ],
+      "pal": "seat-ivory",
+      "cam": "tilt",
+      "tr": "brush",
+      "note": "STORY 0 with the unvoiced recap band (top) · NEW LIGHT (seat-ivory): a tilt down a pale palace wall with a painted line of kings to the living king on his throne: young, strong, crowned (plaque: Dushyanta · a king of Puru's line (Duhshanta); small: Puru · founder of the Paurava kings). Answers episode 52's last line by 5 s.",
+      "estVoice": 3.41
+    },
+    {
+      "id": "hunt",
+      "speed": 1.1,
+      "text": "One day he rode out to hunt, with hundreds of horses and elephants.",
+      "say": "One day he rode out to hunt, [p:150] with hundreds of horses [p:60] and elephants.",
+      "est": 5.04,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        9,
+        11
+      ],
+      "amb": "forest-day",
+      "music": "chase",
+      "foley": [
+        "hooves",
+        "thunder@1",
+        "wings@2"
+      ],
+      "pal": "hunt-emerald",
+      "cam": "slide",
+      "mixDb": 1,
+      "note": "STORY 1 (hunt-emerald): a fast lateral track through green forest: the king's chariot in front, behind it a wall of horses, elephants and spear tips; deer leap ahead; birds burst up.",
+      "estVoice": 4.49
+    },
+    {
+      "id": "deeper",
+      "speed": 1.1,
+      "text": "Chasing deer, hungry and thirsty, he rode on into another forest.",
+      "say": "Chasing deer, [p:100] hungry and thirsty, [p:120] he rode on [p:60] into another forest.",
+      "est": 5.29,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        4,
+        10
+      ],
+      "music": "still",
+      "foley": [
+        "hooves@0",
+        "breath@1"
+      ],
+      "pal": "noon-ochre",
+      "cam": "pull",
+      "tr": "dissolve",
+      "note": "STORY 2 · NEW LIGHT (noon-ochre): the chase thins: a dry open waste at noon, the king alone on his chariot, slowing, wiping his brow; far ahead a dark green line of trees. A pull back makes him small.",
+      "estVoice": 4.74
+    },
+    {
+      "id": "lovely",
+      "speed": 1.1,
+      "text": "It was cool, flowering, loud with birds. By the river Malini stood the hermitage of the sage Kanva.",
+      "say": "It was cool, [p:60] flowering, [p:60] loud with birds. [p:300] By the river Malini [p:100] stood the hermitage [p:60] of the sage Kanva.",
+      "est": 7.57,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Malini",
+        "Kanva."
+      ],
+      "beats": [
+        2,
+        5,
+        9,
+        17
+      ],
+      "amb": "river",
+      "ambLead": 300,
+      "music": "wonder",
+      "foley": [
+        "birds",
+        "water@2",
+        "leaf@0"
+      ],
+      "sfx": [
+        "bell@3"
+      ],
+      "pal": "river-jade",
+      "cam": "crane",
+      "signature": true,
+      "tr": "lamp",
+      "note": "STORY 3 · THE SIGNATURE SHOT · NEW LIGHT (river-jade): a crane up over the tree tops: blossom, birds wheeling, a bright river bending through the wood, and on its bank a cluster of thatched huts with thin columns of smoke (plaques: Malini · a river of the foothills; Kanva · a great sage).",
+      "estVoice": 7.02
+    },
+    {
+      "id": "left",
+      "speed": 1.1,
+      "text": "He left his army at the forest's edge, and laid aside the signs of a king.",
+      "say": "He left his army [p:60] at the forest's edge, [p:200] and laid aside [p:60] the signs of a king.",
+      "est": 6.17,
+      "pre": 950,
+      "post": 350,
+      "rest": true,
+      "sfx": [
+        "silence"
+      ],
+      "beats": [
+        3,
+        7,
+        14
+      ],
+      "amb": "forest-day",
+      "music": "still",
+      "foley": [
+        "cloth@1",
+        "thud@2"
+      ],
+      "pal": "hermitage-green",
+      "cam": "rack",
+      "note": "STORY 4 · THE TURN (≈ 48 %) after a real silence (hermitage-green): a rack focus from the crown and jewelled sash laid on a folded cloth in the foreground to the king walking away up the path in a plain dhoti, bare-headed, the massed spears of his army small behind him. The word of the turn: GUEST.",
+      "estVoice": 4.87
+    },
+    {
+      "id": "chant",
+      "speed": 1.1,
+      "text": "He walked in among sacred fires and chanting, and felt he stood in heaven.",
+      "say": "He walked in [p:60] among sacred fires and chanting, [p:200] and felt he stood in heaven.",
+      "est": 5.45,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        6,
+        12
+      ],
+      "amb": "hearth",
+      "ambLead": 200,
+      "music": "awe",
+      "foley": [
+        "chant",
+        "flame@1",
+        "steps@0"
+      ],
+      "pal": "wedding-turmeric",
+      "cam": "orbit",
+      "tr": "smoke",
+      "note": "STORY 5 · NEW LIGHT (wedding-turmeric): a slow orbit: rows of seated hermits chanting by small altar fires, flower-strewn seats, deer lying among them; the king passes through, turning to look, hands joined.",
+      "estVoice": 4.9
+    },
+    {
+      "id": "empty",
+      "speed": 1.1,
+      "text": "But the sage's hut was empty. He called out.",
+      "say": "But the sage's hut was empty. [p:300] He called out.",
+      "est": 3.97,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        5,
+        8
+      ],
+      "amb": "forest-day",
+      "music": "still",
+      "foley": [
+        "step",
+        "birds"
+      ],
+      "pal": "hermitage-green",
+      "cam": "frame",
+      "mixDb": -3,
+      "note": "STORY 6 (the hook's place, now from inside): seen through the hut's dark doorway: the king small in the bright yard, looking about, a hand to his mouth. Frame-within-frame.",
+      "estVoice": 3.42
+    },
+    {
+      "id": "came",
+      "speed": 1.1,
+      "text": "A young woman in a hermit's dress came out, and welcomed him.",
+      "say": "A young woman [p:60] in a hermit's dress [p:60] came out, [p:200] and welcomed him.",
+      "est": 5.35,
+      "pre": 800,
+      "post": 300,
+      "rest": true,
+      "beats": [
+        2,
+        8,
+        11
+      ],
+      "music": "tender",
+      "foley": [
+        "anklet@0",
+        "cloth@1",
+        "water@2"
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "pal": "meadow-spring",
+      "cam": "push",
+      "closeup": true,
+      "note": "STORY 7 (a second real silence before it; answers the hook) · THE CLOSE-UP (meadow-spring): first she steps from the doorway, bark cloth, flowers in her hair, a water jar for his feet; then his face fills the frame: weariness, then wonder (the eyes widen, the mouth softens). She is not named.",
+      "estVoice": 4.25
+    },
+    {
+      "id": "father",
+      "speaker": "shakuntala",
+      "speed": 1.0,
+      "text": "\"My father has gone to gather fruit. Wait a moment.\"",
+      "say": "My father has gone to gather fruit. [p:260] Wait a moment.",
+      "est": 4.81,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        8
+      ],
+      "foley": [
+        "cloth",
+        "leaf@0"
+      ],
+      "pal": "meadow-spring",
+      "cam": "slide",
+      "mixDb": -3,
+      "note": "STORY 8: the two in the yard, three paces apart: she sets a seat of grass for him and steps back, smiling; he sits, looking up at her.",
+      "estVoice": 4.26
+    },
+    {
+      "id": "cliff",
+      "speed": 1.1,
+      "text": "Her father? The sage Kanva was a lifelong celibate. Who was she?",
+      "say": "Her father? [p:300] The sage Kanva [p:60] was a lifelong celibate. [p:300] Who was she?",
+      "est": 5.78,
+      "pre": 250,
+      "post": 400,
+      "emphasis": [
+        "Kanva"
+      ],
+      "beats": [
+        1,
+        4,
+        9
+      ],
+      "role": "next",
+      "amb": "river",
+      "music": "wonder",
+      "foley": [
+        "birds@0",
+        "wings@2"
+      ],
+      "pal": "riverbank-pearl",
+      "cam": "pull",
+      "tr": "brush",
+      "note": "NEXT 1 (the text's own question, 1.65.16–17): the king's puzzled face turned toward her; then the picture he cannot explain: far off by the river, an old sage with a basket of fruit walking home alone; birds circle over the girl's head. The source line (top).",
+      "estVoice": 5.13
+    },
+    {
+      "id": "next",
+      "text": "Next: The Girl the Birds Protected",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "cam": "push",
+      "note": "The NEXT › band over the cliffhanger image, with the source line; dissolve into frame 1."
+    }
+  ]
+}

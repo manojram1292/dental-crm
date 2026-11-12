@@ -1,0 +1,348 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 57,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Shakuntala sub-parva. CHECKED AGAINST CE 1.68.18–80 and 1.69.1–28 (GRETIL e-text of the constituted text, lab/ce; star passages and appendix lines are apparatus and were not used; Ganguli (vulgate) only as a reading aid), told in the text's order: the king, though he remembered, said he did not (1.68.18–19: the hook); she stood as if senseless with grief, still as a post, her eyes copper-red with anger, her lips quivering, looking at him sidelong as if to burn him, holding in the fire her austerity had gathered (1.68.20–22: `stood`); she said: knowing, why do you speak like a common man; your heart knows the truth and the lie (1.68.24–25); you think \"I am alone\"; you do not know the ancient seer who dwells in the heart (1.68.27: `heart`); sun and moon, wind and fire, sky, earth, water, the heart, Yama, day and night, both twilights and Dharma know a man's conduct (1.68.29; not voiced, in the picture); a wife is half the man (1.68.40) and the son is the self born of the self (1.68.47: `wife`); look at my son as at a second self in a clear pool (1.68.64: `mirror`); abandon me if you will, but not your own son (1.68.71); the king: I do not know a son born of you; women speak untruth; who will believe your word (1.68.72); your mother Menaka, pitiless, cast you off on the Himalaya like a used garland (1.68.73: `insult`, the turn); I do not know you; go as you please (1.68.80: the title); she: you see others' faults small as mustard seeds and not your own, large as bilva fruit (1.69.1; not voiced); truth weighed against a thousand horse sacrifices outweighs them (1.69.22: `truth`); there is no law higher than truth (1.69.24); even without you, Duhshanta, my son will rule this four-cornered earth (1.69.27: `leave`); having said so much she set out; then a bodiless voice from the sky spoke to Duhshanta among his priests and ministers (1.69.28: the cliffhanger). The speeches are short paraphrases of single verses, each cited on screen. He names her mother Menaka in the insult; we say \"your own mother\" (the names-per-10-s rule). CE AGAINST THE POPULAR STORY, said on screen in the source line and a tag: in the epic the king does not forget her; the ring and the curse are Kalidasa's.",
+  "structure": "As from episode 41 (script/ARC-41-50.md, script/ARC-51-60.md): COLD OPEN (≤ 8 words; the hook style rotates and never repeats the episode before; no episode of this batch opens on fire) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
+  "hookStyle": "statement",
+  "names": {
+    "Shakuntala": "raised in a forest hermitage",
+    "Dushyanta": "a king of Puru's line"
+  },
+  "loop": {
+    "hookQuestion": "What does Shakuntala answer a king who denies her?",
+    "answeredBy": "heart",
+    "prevQuestion": "What will Shakuntala say to a king who denies her?",
+    "prevAnsweredBy": "stood",
+    "openQuestion": "Whose voice spoke from the sky, and what did it say?"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 57",
+    "episodeTitle": "\"I Do Not Know You\"",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 56",
+    "prevEpisodeTitle": "The Boy Who Tamed Lions",
+    "recapLine": "Before his court a king said he did not know his wife or her son.",
+    "nextEpisodeLabel": "Episode 58",
+    "nextTitle": "The Voice from the Sky",
+    "sourceLine": "Adi Parva 1.68–69 · no ring, no curse: those are Kalidasa's · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.1,
+      "text": "The king remembered her, and denied her.",
+      "say": "The king remembered her, [p:200] and denied her.",
+      "est": 4.31,
+      "pre": 60,
+      "post": 1100,
+      "role": "hook",
+      "caption": false,
+      "beats": [
+        2,
+        6
+      ],
+      "hookGold": [
+        "remembered",
+        "denied"
+      ],
+      "amb": "court",
+      "music": "dread",
+      "foley": [
+        "cloth",
+        "breath@0"
+      ],
+      "pal": "war-iron",
+      "cam": "rack",
+      "note": "COLD OPEN (a statement; no fire): the king's hand, large in the foreground, gripping the throne's arm; the focus racks past it to a woman in bark cloth far down the dark hall, a child beside her. The card low and left.",
+      "estVoice": 3.15
+    },
+    {
+      "id": "scene",
+      "speed": 1.1,
+      "text": "In the court of King Dushyanta, Shakuntala stood with their son.",
+      "say": "In the court of King Dushyanta, [p:100] Shakuntala stood [p:60] with their son.",
+      "est": 4.87,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Dushyanta,",
+        "Shakuntala"
+      ],
+      "beats": [
+        4,
+        6,
+        10
+      ],
+      "music": "still",
+      "foley": [
+        "steps",
+        "cloth@1"
+      ],
+      "pal": "dice-vermilion",
+      "cam": "crane",
+      "tr": "ink",
+      "note": "STORY 0 with the unvoiced recap band (top): a crane down the red-and-gold hall from the high throne to the two small figures on the floor (plaques: Dushyanta · a king of Puru's line; Shakuntala · raised in a forest hermitage). A tag for three seconds: In the epic he never forgets her. The ring and the curse are Kalidasa's.",
+      "estVoice": 4.32
+    },
+    {
+      "id": "stood",
+      "speed": 1.1,
+      "text": "She stood like a pillar: eyes red with anger, lips trembling.",
+      "say": "She stood like a pillar: [p:200] eyes red with anger, [p:120] lips trembling.",
+      "est": 5.12,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        5,
+        9
+      ],
+      "music": "wrath",
+      "foley": [
+        "breath@1",
+        "cloth"
+      ],
+      "pal": "wrath-crimson",
+      "cam": "push",
+      "closeup": true,
+      "mixDb": -2,
+      "note": "STORY 1 · THE CLOSE-UP (wrath-crimson; answers episode 56's question: she does not plead): her face fills the frame: stunned, then the brows come down and the eyes burn; a sidelong look up at the throne; the mouth trembles and sets.",
+      "estVoice": 4.57
+    },
+    {
+      "id": "heart",
+      "speaker": "shakuntala",
+      "speed": 1.0,
+      "text": "\"You think you are alone. The ancient witness sits in your own heart.\"",
+      "say": "You think you are alone. [p:300] The ancient witness [p:80] sits in your own heart.",
+      "est": 5.91,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        7,
+        12
+      ],
+      "music": "awe",
+      "foley": [
+        "breath@0",
+        "flame@1"
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "pal": "pure-flame",
+      "cam": "tilt",
+      "tr": "lamp",
+      "note": "STORY 2 · NEW LIGHT (pure-flame; answers the hook): a tilt up from the king on his throne, small now, to the vault above him, where a ring of watchers stands in the dark blue: sun and moon, wind and fire, day and night; and in his own chest a small steady light (sub: Adi 1.68.27–29).",
+      "estVoice": 5.36
+    },
+    {
+      "id": "wife",
+      "speaker": "shakuntala",
+      "speed": 1.0,
+      "text": "\"A wife is half of a man. A son is his own self, born again.\"",
+      "say": "A wife is half of a man. [p:350] A son [p:60] is his own self, [p:100] born again.",
+      "est": 5.79,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        7,
+        11,
+        13
+      ],
+      "music": "tender",
+      "foley": [
+        "cloth",
+        "anklet@0"
+      ],
+      "pal": "island-gold",
+      "cam": "slide",
+      "mixDb": -2,
+      "note": "STORY 3 · NEW LIGHT (island-gold: light from a high window falls on her and the boy): she stands straight, a hand on the boy's head; the boy, half hidden behind her at first, steps out into the light (sub: Adi 1.68.40, 47).",
+      "estVoice": 5.24
+    },
+    {
+      "id": "mirror",
+      "speaker": "shakuntala",
+      "speed": 1.0,
+      "text": "\"See yourself in him, as in clear water.\"",
+      "say": "See yourself in him, [p:200] as in clear water.",
+      "est": 3.85,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        3,
+        7
+      ],
+      "amb": "river",
+      "ambLead": 200,
+      "music": "wonder",
+      "foley": [
+        "water",
+        "drip@1"
+      ],
+      "pal": "yamuna-deep",
+      "cam": "push",
+      "signature": true,
+      "tr": "brush",
+      "note": "STORY 4 · THE SIGNATURE SHOT (yamuna-deep): the hall's floor becomes still water: the boy stands at its edge looking down, and the face that looks back from the water wears a crown: the king's own face, younger (sub: Adi 1.68.64). A slow push.",
+      "estVoice": 3.3
+    },
+    {
+      "id": "insult",
+      "speaker": "dushyanta",
+      "speed": 1.0,
+      "text": "\"I know no son of yours. Women lie. Your own mother threw you away like a faded garland.\"",
+      "say": "I know no son of yours. [p:250] Women lie. [p:300] Your own mother [p:60] threw you away [p:60] like a faded garland.",
+      "est": 8.48,
+      "pre": 950,
+      "post": 350,
+      "rest": true,
+      "sfx": [
+        "silence",
+        "drum@2"
+      ],
+      "beats": [
+        5,
+        7,
+        10,
+        16
+      ],
+      "amb": "court",
+      "music": "wrath",
+      "foley": [
+        "thud@0",
+        "cloth@2"
+      ],
+      "pal": "dice-vermilion",
+      "cam": "tilt",
+      "mixDb": 1,
+      "note": "STORY 5 · THE TURN (≈ 50 %) after a real silence (dice-vermilion): seen from the floor, a tilt up the throne steps to the king on his feet, an arm flung out; a withered garland drops down the steps into the foreground (sub: Adi 1.68.72–73). The word of the turn: DENIED.",
+      "estVoice": 7.18
+    },
+    {
+      "id": "truth",
+      "speaker": "shakuntala",
+      "speed": 1.0,
+      "text": "\"Weigh a thousand horse-sacrifices against truth: truth is heavier.\"",
+      "say": "Weigh a thousand horse-sacrifices [p:80] against truth: [p:300] truth is heavier.",
+      "est": 5.36,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        4,
+        6,
+        9
+      ],
+      "music": "awe",
+      "foley": [
+        "creak@1",
+        "thud@2"
+      ],
+      "sfx": [
+        "bell@2"
+      ],
+      "pal": "seat-ivory",
+      "cam": "orbit",
+      "tr": "smoke",
+      "note": "STORY 6 · NEW LIGHT (seat-ivory): a great pair of scales fills the frame: in one pan a herd of small white horses and altar fires, piled high; in the other a single small flame; the flame's pan sinks slowly to the ground (sub: Adi 1.69.22). A slow orbit.",
+      "estVoice": 4.81
+    },
+    {
+      "id": "leave",
+      "speaker": "shakuntala",
+      "speed": 1.0,
+      "text": "\"Even without you, my son will rule this earth.\"",
+      "say": "Even without you, [p:250] my son will rule this earth.",
+      "est": 4.83,
+      "pre": 800,
+      "post": 300,
+      "rest": true,
+      "beats": [
+        2,
+        8
+      ],
+      "music": "still",
+      "foley": [
+        "cloth@0",
+        "steps@1"
+      ],
+      "pal": "wrath-crimson",
+      "cam": "pull",
+      "mixDb": -2,
+      "note": "STORY 7 (a second real silence before it): she takes the boy's hand and turns her back on the throne; a pull back down the hall as she walks toward us, courtiers parting (sub: Adi 1.69.27).",
+      "estVoice": 3.73
+    },
+    {
+      "id": "cliff",
+      "speed": 1.1,
+      "text": "She turned to go. Then a voice spoke from the sky.",
+      "say": "She turned to go. [p:400] Then a voice [p:80] spoke from the sky.",
+      "est": 4.59,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        3,
+        6,
+        10
+      ],
+      "role": "next",
+      "amb": "sky",
+      "ambLead": 200,
+      "music": "awe",
+      "foley": [
+        "steps@0",
+        "thunder@1"
+      ],
+      "sfx": [
+        "conch@2"
+      ],
+      "pal": "crystal-sky",
+      "cam": "tilt",
+      "tr": "lamp",
+      "note": "NEXT 1 (the catalog's cliffhanger; CE 1.69.28): she at the great doors, a hand on the boy's shoulder; a tilt up: the hall's roof is gone into bright sky, and every head in the court is lifting toward it. The source line (top).",
+      "estVoice": 3.94
+    },
+    {
+      "id": "next",
+      "text": "Next: The Voice from the Sky",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "cam": "push",
+      "note": "The NEXT › band over the cliffhanger image, with the source line; dissolve into frame 1."
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+{
+  "lang": "en",
+  "fonts": {
+    "caption": "'EB Garamond'",
+    "display": "'Cinzel'"
+  },
+  "timing": {
+    "wordsPerSecond": 2.4,
+    "voiceGap": 0.35,
+    "voiceLead": 0.12,
+    "tail": 0.25
+  },
+  "voice": {
+    "pauses": {
+      "ellipsis": 420,
+      "dash": 280,
+      "comma": 80,
+      "stop": 250
+    },
+    "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+  },
+  "captionBand": {
+    "y": 1400,
+    "kinetic": true
+  },
+  "episode": 56,
+  "source": "Mahabharata, Critical Edition (BORI), Adi Parva, Shakuntala sub-parva. CHECKED AGAINST CE 1.68.1–19 (GRETIL e-text of the constituted text, lab/ce; star passages and appendix lines are apparatus and were not used; Ganguli (vulgate) only as a reading aid): when Duhshanta had gone back after his promise, Shakuntala bore a boy of boundless energy after three full years (1.68.1–2: `born`; the three years are on a plaque); Kanva performed his birth rites (1.68.3); white pointed teeth, a lion's build, palms marked with the wheel, a great head; he grew quickly (1.68.4: `grew`); only six years old, he bound tigers, lions, boars, elephants and buffalo to the trees round Kanva's hermitage, and ran about mounting them, taming them, playing (1.68.5–6: the hook and `tied`); the dwellers in Kanva's hermitage named him Sarvadamana, because he tames all (1.68.7: `named`); the seer, seeing the boy and his more-than-human deeds, told Shakuntala it was time for him to be young king (1.68.9: `time`); Kanva told his students: take Shakuntala and her son to her husband today; a woman's long stay among her kin is not approved (1.68.10–11: `time`, second sentence; the reason is not voiced); they set out, with her and her son in front, for the city named after the elephant (1.68.12: `walk`; Gajasahvaya is Hastinapura); she was announced and brought in with her son, bright as the young sun (1.68.14: `court`); she honoured the king and said: this is your son; consecrate him young king; act by the agreement you made at Kanva's hermitage; remember it (1.68.15–17: `claim`); the king heard her and, although he remembered (smarann api), said: I do not remember; whose are you, wicked ascetic woman; I recall no tie of law, love or gain with you; go or stay as you like (1.68.18–19: `knew` and the cliffhanger). CE AGAINST THE POPULAR STORY: the king does not forget; there is no ring and no curse (those are Kalidasa's play). The escort of students is in the CE (1.68.12); its return to the hermitage before the scene in court is appendix material and is not shown either way.",
+  "structure": "As from episode 41 (script/ARC-41-50.md, script/ARC-51-60.md): COLD OPEN (≤ 8 words; the hook style rotates and never repeats the episode before; no episode of this batch opens on fire) → title (hook post) → STORY from ≈ 4.5 s with the UNVOICED recap band → the episode stands alone (every name has an identifier in \"names\", shown as a plaque) → one question closed (loop.answeredBy), the previous one answered by 15 s (loop.prevAnsweredBy) → turn at 40–60 % after a real silence, a second silence where the story allows → one face close-up with a change of emotion → one signature shot → the cliffhanger with the source line → a ≤ 1.2 s NEXT › band that dissolves into frame 1. Per line: pal (the colour script: no hue for more than two lines), cam (≥ 4 distinct moves), tr (transitions born from the medium), amb / foley / music (three sound layers; ambLead / ambLag = J- and L-cuts). Gate: tools/gate.mjs.",
+  "hookStyle": "number",
+  "names": {
+    "Shakuntala": "the sage Kanva's foster daughter",
+    "Dushyanta": "a king of Puru's line",
+    "Sarvadamana": "\"tamer of all\"",
+    "Kanva": "a great sage, her foster father",
+    "Hastinapura": "\"the city of the elephant\""
+  },
+  "loop": {
+    "hookQuestion": "Who was the six-year-old who tied lions to trees?",
+    "answeredBy": "named",
+    "prevQuestion": "What became of Shakuntala and her son in the forest?",
+    "prevAnsweredBy": "born",
+    "openQuestion": "What will Shakuntala say to a king who denies her?"
+  },
+  "strings": {
+    "seriesTitle": "Mahabharatam",
+    "seriesSubtitle": "As Vyasa Told It",
+    "episodeLabel": "Episode 56",
+    "episodeTitle": "The Boy Who Tamed Lions",
+    "episodeSeparator": " · ",
+    "previouslyLabel": "Previously",
+    "nextLabel": "Next",
+    "traditionNote": "As tradition tells it",
+    "prevEpisodeLabel": "Episode 55",
+    "prevEpisodeTitle": "A Marriage Without Witnesses",
+    "recapLine": "A king married Shakuntala in the forest and promised their son his throne.",
+    "nextEpisodeLabel": "Episode 57",
+    "nextTitle": "\"I Do Not Know You\"",
+    "sourceLine": "Adi Parva 1.68 · BORI Critical Edition",
+    "madeLine": "Voices: synthetic · Drawn in code"
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "speed": 1.1,
+      "text": "Six years old. He tied lions to trees.",
+      "say": "Six years old. [p:260] He tied lions to trees.",
+      "est": 4.29,
+      "pre": 60,
+      "post": 1100,
+      "role": "hook",
+      "caption": false,
+      "beats": [
+        2,
+        5
+      ],
+      "hookGold": [
+        "Six",
+        "lions"
+      ],
+      "amb": "forest-day",
+      "music": "joy",
+      "foley": [
+        "growl",
+        "rustle@1"
+      ],
+      "pal": "noon-ochre",
+      "cam": "pull",
+      "note": "COLD OPEN (a count; no fire): a small boy's back, close, a rope over his shoulder; a pull back shows what the rope holds: a great maned lion tied to a tree, yawning, and beyond it a tiger tied to the next. The card in the upper third, clear of the beasts.",
+      "estVoice": 3.13
+    },
+    {
+      "id": "born",
+      "speed": 1.1,
+      "text": "In a forest hermitage, Shakuntala bore the son of King Dushyanta.",
+      "say": "In a forest hermitage, [p:100] Shakuntala bore the son [p:60] of King Dushyanta.",
+      "est": 4.92,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Shakuntala",
+        "Dushyanta."
+      ],
+      "beats": [
+        3,
+        6,
+        10
+      ],
+      "music": "tender",
+      "foley": [
+        "birds",
+        "cloth@1"
+      ],
+      "pal": "hermitage-green",
+      "cam": "tilt",
+      "tr": "brush",
+      "note": "STORY 0 with the unvoiced recap band (top): the hermitage at morning: Shakuntala seated at the hut's door with a swaddled new-born in her arms (an infant; she is drawn slim: the child is born) (plaques: Shakuntala · the sage Kanva's foster daughter; sub: after three full years · Adi 1.68.2). Answers episode 55's question by 5 s.",
+      "estVoice": 4.37
+    },
+    {
+      "id": "grew",
+      "speed": 1.1,
+      "text": "He grew fast, built like a lion, the mark of a wheel on his palm.",
+      "say": "He grew fast, [p:100] built like a lion, [p:150] the mark of a wheel [p:60] on his palm.",
+      "est": 5.26,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        2,
+        6,
+        10
+      ],
+      "music": "wonder",
+      "foley": [
+        "steps@0",
+        "leaf"
+      ],
+      "sfx": [
+        "bell@2"
+      ],
+      "pal": "island-gold",
+      "cam": "push",
+      "closeup": true,
+      "note": "STORY 1 · THE CLOSE-UP (island-gold): the boy's face fills the frame, bright-eyed, a child's round face and curls: curiosity, then a wide fearless grin; he lifts an open palm into the frame beside his face: on it a small gold wheel.",
+      "estVoice": 4.71
+    },
+    {
+      "id": "tied",
+      "speed": 1.1,
+      "text": "At six he bound tigers, lions, boars and elephants to the trees, and rode them in play.",
+      "say": "At six [p:80] he bound tigers, [p:60] lions, [p:60] boars [p:60] and elephants to the trees, [p:200] and rode them in play.",
+      "est": 6.79,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        1,
+        4,
+        5,
+        6,
+        8,
+        14
+      ],
+      "music": "joy",
+      "foley": [
+        "growl@1",
+        "thud@3",
+        "rustle@4",
+        "steps@5"
+      ],
+      "pal": "noon-ochre",
+      "cam": "slide",
+      "signature": true,
+      "mixDb": 1,
+      "note": "STORY 2 · THE SIGNATURE SHOT (noon-ochre): a long lateral track down a line of great trees: a tiger tied to one, a lion to the next, a boar, an elephant; and the boy, small, riding the lion's back across the frame, arms out, hermits flattening themselves against the huts. All beasts stand well above the caption band.",
+      "estVoice": 6.24
+    },
+    {
+      "id": "named",
+      "speed": 1.1,
+      "text": "The hermits named him Sarvadamana: tamer of all.",
+      "say": "The hermits named him [p:80] Sarvadamana: [p:200] tamer of all.",
+      "est": 4.19,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Sarvadamana:"
+      ],
+      "beats": [
+        4,
+        5
+      ],
+      "music": "calm",
+      "foley": [
+        "cloth",
+        "birds"
+      ],
+      "sfx": [
+        "bell@1"
+      ],
+      "pal": "river-jade",
+      "cam": "orbit",
+      "tr": "lamp",
+      "note": "STORY 3 · NEW LIGHT (river-jade; answers the hook): the boy stands on a rock among seated hermits who look up at him, one with a hand to his own head (plaque: SARVADAMANA · \"tamer of all\"). A slow orbit.",
+      "estVoice": 3.64
+    },
+    {
+      "id": "time",
+      "speaker": "kanva",
+      "speed": 1.0,
+      "text": "\"It is time he was made crown prince. Take them to the king today.\"",
+      "say": "It is time [p:80] he was made crown prince. [p:300] Take them to the king [p:60] today.",
+      "est": 6.78,
+      "pre": 950,
+      "post": 350,
+      "rest": true,
+      "sfx": [
+        "silence"
+      ],
+      "beats": [
+        2,
+        7,
+        13
+      ],
+      "music": "still",
+      "foley": [
+        "staff@0",
+        "cloth@1"
+      ],
+      "pal": "meadow-spring",
+      "cam": "push",
+      "note": "STORY 4 · THE TURN (≈ 45 %) after a real silence (meadow-spring): the old sage, grave, watching the boy off-frame; then he turns to Shakuntala and two young students and points down the path (plaque: Kanva · a great sage, her foster father). The word of the turn: TIME.",
+      "estVoice": 5.48
+    },
+    {
+      "id": "walk",
+      "speed": 1.1,
+      "text": "So mother and son set out for Hastinapura, the city of the elephant.",
+      "say": "So mother and son [p:60] set out for Hastinapura, [p:150] the city of the elephant.",
+      "est": 5.1,
+      "pre": 250,
+      "post": 300,
+      "emphasis": [
+        "Hastinapura,"
+      ],
+      "beats": [
+        3,
+        7,
+        12
+      ],
+      "amb": "meadow",
+      "ambLead": 250,
+      "music": "calm",
+      "foley": [
+        "steps",
+        "birds@0"
+      ],
+      "pal": "riverbank-pearl",
+      "cam": "crane",
+      "tr": "brush",
+      "note": "STORY 5 · NEW LIGHT (riverbank-pearl): a crane up: Shakuntala and the boy on a road beside a pale river, two students with staffs behind; ahead, far, the walls and elephant gate of a great city (plaque: Hastinapura · \"the city of the elephant\").",
+      "estVoice": 4.55
+    },
+    {
+      "id": "court",
+      "speed": 1.1,
+      "text": "She was led before the king, her son beside her, bright as the morning sun.",
+      "say": "She was led before the king, [p:150] her son beside her, [p:120] bright as the morning sun.",
+      "est": 5.75,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        5,
+        9,
+        14
+      ],
+      "amb": "court",
+      "ambLead": 250,
+      "music": "awe",
+      "foley": [
+        "steps",
+        "anklet@0",
+        "cloth@1"
+      ],
+      "pal": "dice-vermilion",
+      "cam": "frame",
+      "tr": "ink",
+      "note": "STORY 6 · NEW LIGHT (dice-vermilion: a court in red and gold): seen between two dark pillars: the long hall, courtiers in rows, the throne high at the far end with the crowned king (plaque: Dushyanta · a king of Puru's line); she walks up the middle in bark cloth, small and straight, the boy's hand in hers, a light about him.",
+      "estVoice": 5.2
+    },
+    {
+      "id": "claim",
+      "speaker": "shakuntala",
+      "speed": 1.0,
+      "text": "\"King, this is your son. Remember your promise, and make him your heir.\"",
+      "say": "King, [p:100] this is your son. [p:300] Remember your promise, [p:100] and make him your heir.",
+      "est": 6.41,
+      "pre": 250,
+      "post": 300,
+      "beats": [
+        0,
+        4,
+        7,
+        12
+      ],
+      "music": "still",
+      "foley": [
+        "cloth@1",
+        "breath@0"
+      ],
+      "pal": "dice-vermilion",
+      "cam": "slide",
+      "mixDb": -2,
+      "note": "STORY 7: she at the foot of the throne steps, a hand on the boy's shoulder, looking up; the boy looks at the king with open curiosity; the king's hands tighten on the arms of the throne.",
+      "estVoice": 5.86
+    },
+    {
+      "id": "knew",
+      "speed": 1.1,
+      "text": "The king remembered everything. But he said:",
+      "say": "The king remembered everything. [p:500] But he said:",
+      "est": 5.11,
+      "pre": 800,
+      "post": 300,
+      "rest": true,
+      "beats": [
+        3,
+        6
+      ],
+      "music": "dread",
+      "foley": [
+        "breath@0"
+      ],
+      "pal": "war-iron",
+      "cam": "push",
+      "note": "STORY 8 (a second real silence before it; war-iron: the hall darkens round him): the king's face, near: recognition (the eyes widen and go to the boy), then the face shuts (tag: \"though he remembered\" · Adi 1.68.18).",
+      "estVoice": 4.01
+    },
+    {
+      "id": "cliff",
+      "speaker": "dushyanta",
+      "speed": 0.96,
+      "text": "\"I remember nothing. Whose woman are you?\"",
+      "say": "I remember nothing. [p:350] Whose woman are you?",
+      "est": 4.5,
+      "pre": 250,
+      "post": 400,
+      "beats": [
+        2,
+        6
+      ],
+      "role": "next",
+      "music": "dread",
+      "foley": [
+        "cloth@1",
+        "thud@1"
+      ],
+      "sfx": [
+        "drum@1"
+      ],
+      "pal": "wrath-crimson",
+      "cam": "pull",
+      "note": "NEXT 1 (CE 1.68.18–19): the king stands, an arm thrown out toward the door; a pull back down the hall: she has not moved; the courtiers' heads all turn to her. The source line (top).",
+      "estVoice": 3.85
+    },
+    {
+      "id": "next",
+      "text": "Next: \"I Do Not Know You\"",
+      "voice": false,
+      "est": 1.1,
+      "role": "next",
+      "caption": false,
+      "cam": "push",
+      "note": "The NEXT › band over the cliffhanger image, with the source line; dissolve into frame 1."
+    }
+  ]
+}
