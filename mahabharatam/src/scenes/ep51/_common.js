@@ -26,7 +26,15 @@
   EP51.say = (env, t) => EP41.mouth(env, t);
   EP51.lit = (p, x, y, o = {}) => ST.light(p, { from: o.from || [200, 250], at: [x, y], front: o.front ?? 0.3, fill: o.fill, k: o.k });
   EP51.bright = (tint = '#fff4d8', k = 1.3) => ({ dir: -Math.PI / 2 - 0.3, intensity: k, front: 0.9, fill: 0.6, tint: [tint, 0.5], minLum: 0.4 });
-  EP51.fig = (g, T, id, x, y, s, o = {}) => CH[id].draw(g, { x, y, scale: s, facing: o.f || 'left', pose: o.pose || 'stand', light: o.L || EP51.bright(), expression: o.ex || { emo: 'calm' }, t: T, key: o.key || id });
+  // EP51.GROUND (set by an episode's scenes file): { key: 'pit' | 'halo' | 'glow' } ('glow': the pale glow and a half light). A figure whose colours sit too near its ground gets
+  // a soft dark pool behind it and a bright light ('pit'), or a soft pale glow behind it and a dim light ('halo').
+  EP51.GROUND = {};
+  EP51.MID = { dir: -Math.PI / 2 - 0.3, intensity: 0.72, front: 0.5, fill: 0.3, minLum: 0.14 };
+  EP51.DIM = { dir: -Math.PI / 2 - 0.3, intensity: 0.36, front: 0.25, fill: 0.12, minLum: 0.03 };
+  EP51.fig = (g, T, id, x, y, s, o = {}) => { const m0 = EP51.GROUND[o.key], m = Array.isArray(m0) ? m0[0] : m0, rk = Array.isArray(m0) ? m0[1] : 1; let L = o.L || EP51.bright();
+    if (m) { const cy = y - 450 * s, r = (560 * s + 140) * rk, rg = g.createRadialGradient(x, cy, r * 0.25, x, cy, r), c = m === 'pit' ? '24,16,10' : '255,248,224';
+      rg.addColorStop(0, `rgba(${c},${m === 'pit' ? 0.82 : 0.95})`); rg.addColorStop(0.55, `rgba(${c},${m === 'pit' ? 0.6 : 0.7})`); rg.addColorStop(1, `rgba(${c},0)`); g.fillStyle = rg; g.fillRect(x - r, cy - r, 2 * r, 2 * r); L = m === 'pit' ? EP51.bright('#fff4d8', 1.6) : m === 'glow' ? EP51.MID : EP51.DIM; }
+    return CH[id].draw(g, { x, y, scale: s, facing: o.f || 'left', pose: o.pose || 'stand', light: L, expression: o.ex || { emo: 'calm' }, t: T, key: o.key || id }); };
   EP51.hook = (ctx, T, t, env, o = {}) => {
     const sp = env.speech[1], out = clamp((t - sp - 0.05) / 0.3), line = env.script.lines[0];
     KIT.series.hookCard(ctx, T, clamp(t / 0.2), line.text, { y: o.y ?? 1490, size: o.size ?? 76, gold: line.hookGold, out });

@@ -13,6 +13,7 @@
   const POST = (b = 0.3, v = 0.45) => () => ({ bloom: b, vignette: v, paper: 0.3 });
   const out = (t, env, d = 0.4) => clamp((t - (env.dur - d)) / 0.3);
   const F = EP51.fig;
+  EP51.GROUND = { 'sn-g': 'pit', 'nm-b': 'glow', 'wy-6': 'pit', 'tr-b': 'glow', 'cl-d': 'pit' };
   const shade = (g, c = '8,8,18') => { const gr = g.createLinearGradient(0, 1060, 0, 1560); gr.addColorStop(0, `rgba(${c},0)`); gr.addColorStop(0.5, `rgba(${c},0.85)`); gr.addColorStop(1, `rgba(${c},0.96)`); g.fillStyle = gr; g.fillRect(-900, 1060, 2880, 1800); };
   const court = (ctx, T, cam, pal, figs, o = {}) => EP51.court(ctx, T, cam, pal, { tx: o.tx === undefined ? 800 : o.tx, ty: 1310, ts: 0.9, crowd: o.crowd ?? 1, glow: o.glow ?? 0.2, gx: o.gx ?? 800, figs, front: o.front, mid: o.mid, back: o.back });
   const king = (g, p, T, o = {}) => F(g, T, 'dushyanta', o.x ?? 700, o.y ?? 1170, o.s ?? 0.7, { f: o.f || 'left', pose: o.pose || 'stand', L: o.L || EP51.bright('#fff0dc', 1.5), ex: o.ex || { emo: 'resolve', gaze: [0.8, 0.3] }, key: o.key || 'kg' });
@@ -79,7 +80,7 @@
     draw(ctx, t, env) {
       const T = env.T, cam = CAM.orbit(t / env.dur, { from: -1, to: 1, amp: 120, zoom: 1.14 }), turned = t > 0.7;
       court(ctx, T, cam, 'fishers-coral', (g, p) => {
-        for (let i = 0; i < 5; i++) F(g, T, 'kanva', 640 + i * 95, GY + 10 + (i % 2) * 14, 0.66, { f: 'left', pose: i % 2 ? 'attend' : 'recoil', L: { dir: -Math.PI / 2, intensity: 0.5, front: 0.3, fill: 0.15, minLum: 0.08 }, ex: { emo: 'wonder' }, key: 'gd-m' + i });
+        for (let i = 0; i < 5; i++) F(g, T, 'kanva', 640 + i * 95, GY + 10 + (i % 2) * 14, 0.66, { f: 'left', pose: i % 2 ? 'attend' : 'recoil', L: { dir: -Math.PI / 2, intensity: 0.36, front: 0.25, fill: 0.12, minLum: 0.04 }, ex: { emo: 'wonder' }, key: 'gd-m' + i });
         king(g, p, T, { x: 330, y: GY + 10, s: 0.96, f: turned ? 'right' : 'left', pose: ACT.pose(t, [[0, 'stand'], [0.5, 'offer', { act: 0.5 }]]), ex: { emo: 'joy', gaze: [0.9, 0] }, key: 'gd-k' }); }, { tx: null, crowd: 0.6 });
       fin(ctx, T);
     },
@@ -145,7 +146,7 @@
       back: (g, p) => { ST.hills(g, p, { y: 1320, h: 260, seed: 231 }); F(g, T, 'shukra', 780, 1330, 1.02, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [b[2] - 0.5, 'bless', { act: 0.6 }]]), L: { dir: -Math.PI / 2, intensity: 1.1, front: 0.5, fill: 0.3, tint: ['#b0ffa0', 0.5], minLum: 0.25 }, ex: { emo: 'resolve', gaze: [0.5, 0.6] }, key: 'cl-s' }); },
       figs: (g, p) => { F(g, T, 'yayati', 250, 1330, 0.7, { f: 'right', pose: 'stand', L: EP51.bright('#fff0dc', 1.5), ex: { emo: 'calm', gaze: [0.8, 0] }, key: 'cl-y' });
         F(g, T, 'devayani', 430, 1330, 0.64, { f: 'left', pose: 'attend', L: EP51.bright('#fff0ff', 1.45), ex: { emo: 'resolve', gaze: [0.8, 0] }, key: 'cl-d' });
-        KIT.glow(g, 900, 1250, 260, '#9aff9a', 0.5 * up); CH.asura.draw(g, { x: 900, y: 1340, scale: 0.5, index: 2, facing: 'left', pose: { name: 'cower', k: 1 - up }, light: { dir: -Math.PI / 2, intensity: 1.2, front: 0.7, fill: 0.5, tint: ['#b0ffa0', 0.6] }, t: T, key: 'cl-a' }); } });
+        KIT.glow(g, 900, 1250, 260, '#9aff9a', 0.5 * up); CH.asura.draw(g, { x: 900, y: 1340, scale: 0.5, index: 2, facing: 'left', pose: { name: 'cower', k: 1 - up }, light: { dir: -Math.PI / 2, intensity: 1.6, front: 0.8, fill: 0.6, tint: ['#b0ffa0', 0.7], minLum: 0.38 }, t: T, key: 'cl-a' }); } });
     TY.plaque(ctx, T, clamp((t - b[0] - 0.2) / 0.5), ...names(env, 'Yayati'), { x: 280, y: 420, size: 44, out: clamp((t - b[2] + 0.2) / 0.3) });
     TY.source(ctx, T, clamp((t - 0.4) / 0.4), env.strings, { y: 110 });
     fin(ctx, T);

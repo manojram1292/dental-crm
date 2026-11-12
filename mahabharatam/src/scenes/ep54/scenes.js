@@ -13,6 +13,7 @@
   const POST = (b = 0.3, v = 0.45) => () => ({ bloom: b, vignette: v, paper: 0.3 });
   const out = (t, env, d = 0.4) => clamp((t - (env.dur - d)) / 0.3);
   const F = EP51.fig;
+  EP51.GROUND = { 'tp-v': 'pit', 'fd-k': 'glow' };
   const KINDS = ['heron', 'parrot', 'goose', 'peacock', 'small', 'goose', 'heron', 'parrot', 'small', 'goose', 'parrot', 'heron'];
   // a ring of birds standing wing to wing round (x, y); k = how complete the ring is (0..1); open = a gap toward +x (0..1)
   const birdRing = (g, T, x, y, rx, ry, s, k = 1, open = 0) => { const n = 12; for (let pass = 0; pass < 2; pass++) for (let i = 0; i < n; i++) { const a = (i / n) * TAU + 0.26, back = Math.sin(a) < 0; if ((pass === 0) !== back) continue; if (i / n > k) continue; if (open && Math.cos(a) > 1 - open * 1.2) continue;
@@ -77,7 +78,7 @@
         CH.indra.draw(g, { x: 230, y: GY - 10, scale: 0.86, facing: 'right', pose: { name: 'speak', k: clamp(1 - (t - b1) / 0.8) }, light: { dir: -Math.PI / 2 + 0.4, intensity: 1.3, front: 0.9, fill: 0.6 }, t: T, key: 'sn-i' });
         const x = 700 + 150 * go, y = GY + 20 + 70 * go;
         for (let i = 0; i < 3; i++) { g.strokeStyle = ['#e8fbff', '#b8f0f0', '#ffffff'][i]; g.lineWidth = 16 - i * 3; g.globalAlpha = 0.9 * go; g.beginPath(); g.moveTo(x - 40, y - 560 + i * 60); g.bezierCurveTo(x - 220, y - 640 + 40 * Math.sin(T * 3 + i), x - 360, y - 500 + 60 * Math.sin(T * 2.4 + i), x - 520, y - 600 + i * 70); g.stroke(); } g.globalAlpha = 1;
-        F(g, T, 'menaka', x, y, 0.82, { f: go > 0.3 ? 'right' : 'left', pose: ACT.pose(t, [[0, 'anjali'], [b1 - 0.5, 'recoil', { act: 0.4 }], [b2 - 0.5, 'walk', { act: 0.5 }]], { phase: T * 3 }), L: EP51.bright('#c8ecf0', 1.0), ex: { emo: ACT.emo(t, [[0, 'calm'], [b1 - 0.5, 'fear'], [b2 - 0.3, 'resolve']]), gaze: [0.7, 0] }, key: 'sn-m' }); } });
+        F(g, T, 'menaka', x, y, 0.82, { f: go > 0.3 ? 'right' : 'left', pose: ACT.pose(t, [[0, 'anjali'], [b1 - 0.5, 'recoil', { act: 0.4 }], [b2 - 0.5, 'walk', { act: 0.5 }]], { phase: T * 3 }), L: EP51.bright('#b0e0e8', 0.8), ex: { emo: ACT.emo(t, [[0, 'calm'], [b1 - 0.5, 'fear'], [b2 - 0.3, 'resolve']]), gaze: [0.7, 0] }, key: 'sn-m' }); } });
       TY.plaque(ctx, T, clamp((t - (b[0] ?? 0.9) + 0.2) / 0.5), ...names(env, 'Menaka'), { x: 760, y: 300, size: 46, out: out(t, env, 0.3) });
       TY.tag(ctx, T, clamp((t - b1) / 0.4), 'the finest of the apsarases', { x: 720, y: 470, size: 42, out: out(t, env, 0.3) });
       fin(ctx, T);

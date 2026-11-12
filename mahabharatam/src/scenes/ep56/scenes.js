@@ -13,6 +13,7 @@
   const POST = (b = 0.3, v = 0.45) => () => ({ bloom: b, vignette: v, paper: 0.3 });
   const out = (t, env, d = 0.4) => clamp((t - (env.dur - d)) / 0.3);
   const F = EP51.fig;
+  EP51.GROUND = { 'hk-b': 'pit', 'td-b': ['pit', 0.5], 'ct-g': 'pit' };
   const shade = (g, c = '20,40,10') => { const gr = g.createLinearGradient(0, 1060, 0, 1560); gr.addColorStop(0, `rgba(${c},0)`); gr.addColorStop(0.5, `rgba(${c},0.85)`); gr.addColorStop(1, `rgba(${c},0.96)`); g.fillStyle = gr; g.fillRect(-900, 1060, 2880, 1800); };
   const yard = (ctx, T, cam, pal, figs, o = {}) => EP51.wood(ctx, T, cam, pal, { seed: 120, huts: [[o.hutX ?? 820, 1.5, 0.2]], shaftX: 300, shaftA: 0.35, figs, dust: 'pollen', trunks: o.trunks });
   const girl = (g, p, T, x, y, s, o = {}) => F(g, T, 'shakuntala', x, y, s, { f: o.f || 'left', pose: o.pose || 'attend', L: o.L || EP51.bright('#fff0dc', 1.5), ex: o.ex || { emo: 'tender' }, key: o.key || 'gl' });
@@ -30,7 +31,7 @@
         figs: (g, p) => { tree(g, 170, 1220, 0.9); tree(g, 520, 1220, 1.0);
           EP51.beast(g, 'tiger', 60, 1230, 0.8, { dir: 1, T, rope: [170, 900] });
           EP51.beast(g, 'lion', 400, 1240, 0.9, { dir: 1, T, yawn: clamp(Math.sin(T * 1.4)), rope: [520, 880] });
-          KIT.glow(g, 800, 860, 520, '#fff8d8', 0.8); boy(g, p, T, 800, 1260, 0.9, { L: { dir: -Math.PI / 2 - 0.3, intensity: 0.42, front: 0.3, fill: 0.15, minLum: 0.04 }, pose: { w: { point: 0.3, stand: 0.7 } }, ex: { emo: 'joy', gaze: [0.8, 0] }, key: 'hk-b' }); } });
+          boy(g, p, T, 800, 1260, 0.9, { pose: { w: { point: 0.3, stand: 0.7 } }, ex: { emo: 'joy', gaze: [0.8, 0] }, key: 'hk-b' }); } });
       EP51.hook(ctx, T, t, env, { y: 420, ty: 430, size: 70 });
       fin(ctx, T);
     },
@@ -73,7 +74,7 @@
           EP51.beast(g, 'boar', 700, y0 + 14, 0.8, { dir: -1, T, rope: [560, y0 - 240] });
           EP51.beast(g, 'elephant', 1200, y0 + 14, 0.6, { dir: -1, T, rope: [980, y0 - 300] });
           EP51.beast(g, 'lion', 150 + ride, y0 + 20, 0.78, { dir: 1, T, run: 0.8, phase: T * 7, cols: ['#4a2a0c', '#6e4414', '#f0e0c0'] });
-          boy(g, p, T, 150 + ride + 10, y0 - 185, 0.5, { f: 'right', pose: { w: { sit: 0.6, raise: 0.4 } }, L: { dir: -Math.PI / 2 - 0.3, intensity: 0.36, front: 0.25, fill: 0.12, minLum: 0.03 }, ex: { emo: 'joy' }, key: 'td-b' });
+          boy(g, p, T, 150 + ride + 10, y0 - 185, 0.5, { f: 'right', pose: { w: { sit: 0.6, raise: 0.4 } }, ex: { emo: 'joy' }, key: 'td-b' });
           for (let i = 0; i < 3; i++) F(g, T, i % 2 ? 'kacha' : 'kanva', 1500 + i * 80, y0 + 24, 0.36, { f: 'left', pose: 'recoil', L: EP51.bright('#fff4d8', 1.5), ex: { emo: 'fear' }, key: 'td-h' + i }); } });
       fin(ctx, T);
     },

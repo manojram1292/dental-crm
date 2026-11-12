@@ -641,3 +641,11 @@ The signature shot is the opening: a long hall of pillars, a bright doorway, and
 Measured (mp4): 56.8 s; hook (6 words) by 2.99 s; motion at 0.5 s 11.9; longest static hold 1.9 s; turn (Vyasa does not answer; he turns to his student) at 54 %; -14.1 LUFS, -2.2 dBTP, LRA 5.2; seven lights, hue run 2; key frames against 44–46: min 20, mean 30.2 on the mp4 (the gate, on its own samples, measured 22); 18 of 20 foley cues on their beat (outside: the chant and water, sustained); ambience 221 Hz in the hall, 980 Hz at the night fire; peak -2.5 dBFS, no clipped sample; share 18.0 MB.
 
 Still weak: one ambience for ten lines (the whole episode is in the hall); the vision of the island is a cloud laid over Vyasa's body; the close-up of the turn has the caption over his beard and chest; the key-frame minimum is the lowest of the batch (the last frame, a figure before a red wall, is near 46's fire-lit hall).
+
+### Episode 48 · The Whole Story in One Breath
+
+Rendered once (the first render already carried the plaque and end-shot rules). Six picture panels, one per sentence of the summary (1.55): the cousins, the poison and the lacquer house, the bride won, the dice board, the exile line, the war field; then the king's close-up and the saying of 1.56.33.
+
+Measured (mp4): 56.5 s; hook (6 words) by 2.87 s; motion at 0.5 s 20.5; longest static hold 1.5 s; turn (the king: "That was brief. Now tell me all of it") at 41 %, close to the 40 % edge; -14.0 LUFS, -2.2 dBTP, LRA 5.7; nine lights, hue run 2; five camera moves (the panels are flat by design); key frames against 45–47: min 24, mean 30.2; 21 of 24 foley cues on their beat (outside: a leaf, river water, an oar); ambience by place 238 / 490 / 727 / 2069 Hz; peak -2.5 dBFS, no clipped sample; share 17.6 MB.
+
+Still weak: the five brothers are five copies of one silhouette and Duryodhana is the same shape again, told apart only by position and the plaque; the war is flags and spear-points, with no figure in it for the first two seconds; the Vaishampayana plaque crosses his waist; the energy above 2 kHz is the lowest of the batch (4.7 %): the panels have little foley with an edge.

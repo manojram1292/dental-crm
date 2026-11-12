@@ -71,7 +71,7 @@
       const T = env.T, b1 = env.beats[1] ?? 3.3, cam = CAM.tilt(E.inOutSine(clamp(t / 3.2)), { from: 210, to: -120, zoom: 1.12 });
       ridge(ctx, T, cam, 'wedding-turmeric', { sun: [540, 560, 330],
         far: (g) => { KIT.glow(g, 540, 560, 900, '#fff0a0', 0.4); CH.deva.draw(g, { x: 230, y: 1075, scale: 0.95, index: 4, facing: 'right', pose: { name: 'raise', k: 0.3 }, light: { ...GL, intensity: 1.2 }, t: T, key: 'kr-s' }); },
-        figs: (g, p) => EP51.fig(g, T, 'karna', 420, 1100, 0.7, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [1.2, 'attend', { act: 0.5 }]]), L: EP51.bright('#fff0c0', 1.6), ex: { emo: 'resolve', gaze: [0.8, -0.2] }, key: 'kr-k' }) });
+        figs: (g, p) => { const rg = g.createRadialGradient(420, 820, 60, 420, 820, 520); rg.addColorStop(0, 'rgba(30,20,10,0.75)'); rg.addColorStop(1, 'rgba(30,20,10,0)'); g.fillStyle = rg; g.fillRect(-200, 250, 1300, 1150); EP51.fig(g, T, 'karna', 420, 1100, 0.7, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [1.2, 'attend', { act: 0.5 }]]), L: EP51.bright('#fff0c0', 1.6), ex: { emo: 'resolve', gaze: [0.8, -0.2] }, key: 'kr-k' }); } });
       TY.plaque(ctx, T, clamp((t - 0.4) / 0.5), ...names(env, 'Karna'), { x: 800, y: 460, size: 54, out: clamp((t - 2.1) / 0.25) });
       TY.plaque(ctx, T, clamp((t - 2.3) / 0.4), ...names(env, 'Bhishma'), { x: 800, y: 460, size: 42, out: clamp((t - 3.25) / 0.2) });
       TY.plaque(ctx, T, clamp((t - 3.4) / 0.4), ...names(env, 'Drona'), { x: 800, y: 460, size: 42, out: out(t, env, 0.25) });
@@ -130,7 +130,7 @@
   const ROW = [['yudhishthira', 60], ['bhima', 155], ['arjuna', 250], ['nakula', 345], ['sahadeva', 430], ['karna', 690], ['krishna', 780], ['panchali', 870], ['duryodhana', 955]];
   const row = (ctx, T, t, env, cam, bare) => ridge(ctx, T, cam, 'seat-ivory', { sun: [540, 520, 200],
     far: (g) => { KIT.glow(g, 540, 560, 1200, '#fff8e0', 0.5); for (let i = 0; i < 5; i++) god(g, T, i, 120 + i * 210, 1040, 0.62, 0.8); },
-    figs: (g, p) => { g.fillStyle = '#3a2a1c'; g.beginPath(); g.moveTo(-900, 1100); g.quadraticCurveTo(540, 980, 1980, 1100); g.lineTo(1980, 2900); g.lineTo(-900, 2900); g.closePath(); g.fill(); { const gr = g.createLinearGradient(0, 470, 0, 760); gr.addColorStop(0, 'rgba(58,42,28,0)'); gr.addColorStop(1, 'rgba(58,42,28,0.94)'); g.fillStyle = gr; g.fillRect(-900, 470, 2880, 660); } { const rg = g.createRadialGradient(1010, 800, 260, 1010, 800, 620); rg.addColorStop(0, 'rgba(14,9,5,0.98)'); rg.addColorStop(1, 'rgba(14,9,5,0)'); g.fillStyle = rg; g.fillRect(300, 100, 1700, 1400); } if (bare) return; ROW.forEach(([id, x], i) => EP51.fig(g, T, id, x, 1060 + (i % 2) * 14, 0.42, { f: i < 5 ? 'right' : 'left', pose: 'stand', L: EP51.bright('#fff4d8', i === 8 ? 1.5 : 1.3), ex: { emo: 'calm' }, key: 'rw-' + i }));
+    figs: (g, p) => { g.fillStyle = '#3a2a1c'; g.beginPath(); g.moveTo(-900, 1100); g.quadraticCurveTo(540, 980, 1980, 1100); g.lineTo(1980, 2900); g.lineTo(-900, 2900); g.closePath(); g.fill(); { const gr = g.createLinearGradient(0, 470, 0, 760); gr.addColorStop(0, 'rgba(36,24,14,0)'); gr.addColorStop(1, 'rgba(36,24,14,0.97)'); g.fillStyle = gr; g.fillRect(-900, 470, 2880, 660); } { const rg = g.createRadialGradient(1010, 800, 260, 1010, 800, 620); rg.addColorStop(0, 'rgba(14,9,5,0.98)'); rg.addColorStop(1, 'rgba(14,9,5,0)'); g.fillStyle = rg; g.fillRect(300, 100, 1700, 1400); } if (bare) return; ROW.forEach(([id, x], i) => EP51.fig(g, T, id, x, 1060 + (i % 2) * 14, 0.42, { f: i < 5 ? 'right' : 'left', pose: 'stand', L: EP51.bright('#fff4d8', i === 8 ? 1.5 : 1.3), ex: { emo: 'calm' }, key: 'rw-' + i }));
       CH.vaishampayanaSage.draw(g, { x: 560, y: 1210, scale: 0.52, facing: 'left', pose: ACT.pose(t, [[0, 'speak'], [2.6, 'bless', { act: 0.5 }]], { prop: false }), light: EP51.bright('#fff4d8', 1.35), expression: { emo: 'tender', speak: t < 20 ? talk(env, t) : 0, gaze: [0.5, 0] }, t: T, key: 'rw-v' }); } });
   R.scene({ id: 'payoff', transition: { type: 'dissolve', dur: 0.45 },
     draw(ctx, t, env) { const T = env.T, cam = CAM.orbit(t / env.dur, { from: -1, to: 1, amp: 90, zoom: 1.08 }); row(ctx, T, t, env, cam);
@@ -145,7 +145,7 @@
     EP51.wood(ctx, T, cam, 'hunt-emerald', { seed: 91, dust: 'dust', figs: (g, p) => {
       for (let i = 0; i < 9; i++) { g.fillStyle = '#0c1a10'; g.fillRect(1010 + i * 46 - d, GY - 760 - 40 * hash(i, 4), 5, 420); }   // the spears of the army behind
       KIT.army.draw(g, 'chariot', { x: 760 - d, y: GY - 190, s: 1.5, dir: -1, t: T, gait: 1, fill: '#3a1a0c', line: '#120806', gold: '#f0c050', rim: '#fff0b0', light: -Math.PI / 2, banner: '#1f8a5a' });
-      EP51.fig(g, T, 'dushyanta', 810 - d, GY - 295, 0.3, { f: 'left', pose: { w: { point: 0.5, stand: 0.5 } }, L: EP51.lit(p, 800, GY, { front: 0.5 }), ex: { emo: 'resolve', gaze: [0.9, 0] }, key: 'cf-k' });
+      EP51.fig(g, T, 'dushyanta', 810 - d, GY - 295, 0.3, { f: 'left', pose: { w: { point: 0.5, stand: 0.5 } }, L: EP51.bright('#fff4d8', 1.5), ex: { emo: 'resolve', gaze: [0.9, 0] }, key: 'cf-k' });
       for (let i = 0; i < 3; i++) EP51.beast(g, 'deer', 420 - d * 0.7 - i * 160, GY - 200 - 60 * Math.abs(Math.sin(T * 5 + i * 1.3)), 0.8, { dir: -1, T, run: 1, phase: T * 11 + i * 2 }); } });
     TY.source(ctx, T, clamp((t - 0.4) / 0.4), env.strings, { y: 110 });
     fin(ctx, T);

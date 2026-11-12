@@ -1,0 +1,227 @@
+[
+ {
+  "line": "hook",
+  "cue": "birds",
+  "asked_s": 0.08,
+  "start_s": 0.08,
+  "onset_s": 0.086,
+  "peak_s": 1.017,
+  "peak_db": -20.6
+ },
+ {
+  "line": "hook",
+  "cue": "step@0",
+  "asked_s": 0.939,
+  "start_s": 0.939,
+  "onset_s": 0.939,
+  "peak_s": 0.966,
+  "peak_db": -15.0
+ },
+ {
+  "line": "line",
+  "cue": "cloth",
+  "asked_s": 2.559,
+  "start_s": 2.559,
+  "onset_s": 2.623,
+  "peak_s": 2.736,
+  "peak_db": -30.1
+ },
+ {
+  "line": "line",
+  "cue": "steps@1",
+  "asked_s": 5.807,
+  "start_s": 5.807,
+  "onset_s": 5.807,
+  "peak_s": 7.283,
+  "peak_db": -16.5
+ },
+ {
+  "line": "hunt",
+  "cue": "hooves",
+  "asked_s": 8.179,
+  "start_s": 8.179,
+  "onset_s": 8.182,
+  "peak_s": 8.412,
+  "peak_db": -5.9
+ },
+ {
+  "line": "hunt",
+  "cue": "thunder@1",
+  "asked_s": 11.283,
+  "start_s": 11.283,
+  "onset_s": 11.283,
+  "peak_s": 11.34,
+  "peak_db": -12.8
+ },
+ {
+  "line": "hunt",
+  "cue": "wings@2",
+  "asked_s": 12.04,
+  "start_s": 11.69,
+  "onset_s": 11.738,
+  "peak_s": 11.833,
+  "peak_db": -30.0
+ },
+ {
+  "line": "deeper",
+  "cue": "hooves@0",
+  "asked_s": 14.232,
+  "start_s": 14.232,
+  "onset_s": 14.234,
+  "peak_s": 14.465,
+  "peak_db": -5.0
+ },
+ {
+  "line": "deeper",
+  "cue": "breath@1",
+  "asked_s": 15.576,
+  "start_s": 15.298,
+  "onset_s": 15.344,
+  "peak_s": 15.524,
+  "peak_db": -34.9
+ },
+ {
+  "line": "lovely",
+  "cue": "birds",
+  "asked_s": 18.373,
+  "start_s": 18.373,
+  "onset_s": 18.378,
+  "peak_s": 18.481,
+  "peak_db": -21.8
+ },
+ {
+  "line": "lovely",
+  "cue": "water@2",
+  "asked_s": 22.589,
+  "start_s": 22.589,
+  "onset_s": 22.905,
+  "peak_s": 23.275,
+  "peak_db": -27.5
+ },
+ {
+  "line": "lovely",
+  "cue": "leaf@0",
+  "asked_s": 19.455,
+  "start_s": 19.173,
+  "onset_s": 19.289,
+  "peak_s": 19.482,
+  "peak_db": -33.8
+ },
+ {
+  "line": "left",
+  "cue": "cloth@1",
+  "asked_s": 28.187,
+  "start_s": 27.98,
+  "onset_s": 28.049,
+  "peak_s": 28.186,
+  "peak_db": -29.2
+ },
+ {
+  "line": "left",
+  "cue": "thud@2",
+  "asked_s": 30.826,
+  "start_s": 30.826,
+  "onset_s": 30.826,
+  "peak_s": 30.853,
+  "peak_db": -6.4
+ },
+ {
+  "line": "chant",
+  "cue": "chant",
+  "asked_s": 31.792,
+  "start_s": 31.792,
+  "onset_s": 31.9,
+  "peak_s": 34.696,
+  "peak_db": -27.9
+ },
+ {
+  "line": "chant",
+  "cue": "flame@1",
+  "asked_s": 34.049,
+  "start_s": 34.049,
+  "onset_s": 34.11,
+  "peak_s": 34.619,
+  "peak_db": -23.6
+ },
+ {
+  "line": "chant",
+  "cue": "steps@0",
+  "asked_s": 32.682,
+  "start_s": 32.682,
+  "onset_s": 32.682,
+  "peak_s": 33.182,
+  "peak_db": -16.0
+ },
+ {
+  "line": "empty",
+  "cue": "step",
+  "asked_s": 35.974,
+  "start_s": 35.974,
+  "onset_s": 35.974,
+  "peak_s": 36.001,
+  "peak_db": -15.4
+ },
+ {
+  "line": "empty",
+  "cue": "birds",
+  "asked_s": 35.974,
+  "start_s": 35.974,
+  "onset_s": 35.981,
+  "peak_s": 36.375,
+  "peak_db": -21.2
+ },
+ {
+  "line": "came",
+  "cue": "anklet@0",
+  "asked_s": 40.777,
+  "start_s": 40.777,
+  "onset_s": 40.777,
+  "peak_s": 45.822,
+  "peak_db": -30.9
+ },
+ {
+  "line": "came",
+  "cue": "cloth@1",
+  "asked_s": 43.022,
+  "start_s": 42.83,
+  "onset_s": 42.902,
+  "peak_s": 43.017,
+  "peak_db": -28.8
+ },
+ {
+  "line": "came",
+  "cue": "water@2",
+  "asked_s": 44.329,
+  "start_s": 44.329,
+  "onset_s": 44.497,
+  "peak_s": 47.685,
+  "peak_db": -26.2
+ },
+ {
+  "line": "came",
+  "cue": "leaf@4",
+  "asked_s": 47.826,
+  "start_s": 47.572,
+  "onset_s": 47.681,
+  "peak_s": 47.821,
+  "peak_db": -34.0
+ },
+ {
+  "line": "cliff",
+  "cue": "birds@0",
+  "asked_s": 49.072,
+  "start_s": 49.072,
+  "onset_s": 49.08,
+  "peak_s": 49.856,
+  "peak_db": -20.5
+ },
+ {
+  "line": "cliff",
+  "cue": "wings@2",
+  "asked_s": 52.608,
+  "start_s": 52.482,
+  "onset_s": 52.536,
+  "peak_s": 53.447,
+  "peak_db": -30.6
+ }
+]

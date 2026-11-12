@@ -12,6 +12,7 @@
   const POST = (b = 0.3, v = 0.45) => () => ({ bloom: b, vignette: v, paper: 0.3 });
   const out = (t, env, d = 0.4) => clamp((t - (env.dur - d)) / 0.3);
   const F = EP51.fig;
+  EP51.GROUND = { 'sf-k': 'pit', 'sf-g': 'pit', 'bl-k': 'pit', 'bl-g': 'glow' };
   const yard = (ctx, T, cam, pal, figs, o = {}) => EP51.wood(ctx, T, cam, pal, { seed: 120, huts: [[820, 1.5, 0.2]], shaftX: o.shaftX ?? 300, shaftA: o.shaftA ?? 0.35, shafts: o.shafts, mist: o.mist, figs, dust: o.dust || 'pollen', near: o.near, trunks: o.trunks });
   const king = (g, p, T, x, y, s, o = {}) => F(g, T, 'dushyantaPlain', x, y, s, { f: o.f || 'right', pose: o.pose || 'stand', L: o.L || EP51.bright('#fff0dc', 1.5), ex: o.ex || { emo: 'resolve', gaze: [0.9, 0] }, key: o.key || 'kg' });
   const girl = (g, p, T, x, y, s, o = {}) => F(g, T, 'shakuntala', x, y, s, { f: o.f || 'left', pose: o.pose || 'attend', L: o.L || EP51.bright('#fff0dc', 1.5), ex: o.ex || { emo: 'tender' }, key: o.key || 'gl' });
@@ -58,7 +59,7 @@
       const T = env.T, b0 = env.beats[0] ?? 1.1, cam = CAM.push(t / env.dur, { from: 1.14, to: 1.3, focus: [420, 800] });
       yard(ctx, T, cam, 'wedding-turmeric', (g, p) => {
         king(g, p, T, 330, GY + 10, 0.92, { pose: ACT.pose(t, [[0, 'anjali'], [b0 + 0.4, 'offer', { act: 0.5 }]]), L: EP51.bright('#fff0dc', 1.5), ex: { emo: 'tender', speak: talk(env, t), gaze: [0.9, 0] }, key: 'sf-k' });
-        KIT.glow(g, 800, GY - 420, 540, '#fff8d8', 0.8); girl(g, p, T, 800, GY, 0.84, { L: { dir: -Math.PI / 2 - 0.3, intensity: 0.42, front: 0.3, fill: 0.15, minLum: 0.04 }, ex: { emo: 'wonder', gaze: [0.8, 0.3] }, key: 'sf-g' }); }, { shaftX: 900, shaftA: -0.6, shafts: 0.24 });
+        girl(g, p, T, 800, GY, 0.84, { L: { dir: -Math.PI / 2 - 0.3, intensity: 0.42, front: 0.3, fill: 0.15, minLum: 0.04 }, ex: { emo: 'wonder', gaze: [0.8, 0.3] }, key: 'sf-g' }); }, { shaftX: 900, shaftA: -0.6, shafts: 0.24 });
       fin(ctx, T);
     },
     post: POST(0.38, 0.4) });
@@ -108,7 +109,7 @@
         far: (g, p) => { F(g, T, 'shakuntala', 150, 1070, 0.3, { f: 'right', pose: 'attend', L: EP51.bright('#fff0dc', 1.5), ex: { emo: 'tender' }, key: 'ar-g' }); },
         figs: (g, p) => { for (let i = 0; i < 12; i++) { g.fillStyle = '#3a2408'; g.fillRect(900 + i * 40 + d, 760 - 30 * hash(i, 3), 5, 400); }
           KIT.army.draw(g, 'chariot', { x: 640 + d, y: 1190, s: 1.3, dir: 1, t: T, gait: clamp(t / 2), fill: '#3a1a0c', line: '#120806', gold: '#f0c050', rim: '#fff0b0', light: -Math.PI / 2, banner: '#1f8a5a' });
-          F(g, T, 'dushyanta', 590 + d, 1095, 0.27, { f: 'left', pose: { w: { bless: 0.7, stand: 0.3 } }, L: EP51.bright('#fff0dc', 1.5), ex: { emo: 'tender' }, key: 'ar-k' }); } });
+ } });
       TY.tag(ctx, T, clamp((t - 0.9) / 0.4), 'he promised it again and again', { x: 540, y: 250, size: 42, out: out(t, env) });
       fin(ctx, T);
     },
@@ -133,7 +134,7 @@
       const T = env.T, b = env.beats, b0 = b[0] ?? 2.1, b1 = b[1] ?? 3.4, cam = CAM.tilt(E.inOutSine(clamp((t - b0 + 0.6) / 2.6)), { from: 150, to: -170, zoom: 1.2 });
       yard(ctx, T, cam, 'release-gold', (g, p) => {
         F(g, T, 'kanva', 360, GY + 10, 1.02, { f: 'right', pose: ACT.pose(t, [[0, 'stand'], [0.9, 'bless', { act: 0.6 }]], { prop: false }), L: EP51.bright('#fff0dc', 1.5), ex: { emo: 'tender', speak: talk(env, t), gaze: [0.8, 0.4] }, key: 'bl-k' });
-        KIT.glow(g, 830, GY - 420, 540, '#fff8d8', 0.8); girl(g, p, T, 830, GY + 10, 0.86, { L: { dir: -Math.PI / 2 - 0.3, intensity: 0.42, front: 0.3, fill: 0.15, minLum: 0.04 }, pose: ACT.pose(t, [[0, 'bow'], [b1 + 0.3, 'anjali', { act: 0.6 }]]), ex: { emo: ACT.emo(t, [[0, 'sorrow'], [b1, 'joy', { dur: 0.7 }]]), gaze: [0.7, 0.3] }, key: 'bl-g' }); }, { shaftX: 800, shaftA: -0.5, shafts: 0.22 });
+        girl(g, p, T, 830, GY + 10, 0.86, { pose: ACT.pose(t, [[0, 'bow'], [b1 + 0.3, 'anjali', { act: 0.6 }]]), ex: { emo: ACT.emo(t, [[0, 'sorrow'], [b1, 'joy', { dur: 0.7 }]]), gaze: [0.7, 0.3] }, key: 'bl-g' }); }, { shaftX: 800, shaftA: -0.5, shafts: 0.22 });
       fin(ctx, T);
     },
     post: POST(0.4, 0.4) });

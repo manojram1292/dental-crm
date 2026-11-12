@@ -12,6 +12,7 @@
   const POST = (b = 0.3, v = 0.45) => () => ({ bloom: b, vignette: v, paper: 0.3 });
   const out = (t, env, d = 0.4) => clamp((t - (env.dur - d)) / 0.3);
   const F = EP51.fig;
+  EP51.GROUND = { 'cm-k': 'pit' };
   const shade = (g, c = '14,8,4') => { const gr = g.createLinearGradient(0, 1060, 0, 1560); gr.addColorStop(0, `rgba(${c},0)`); gr.addColorStop(0.5, `rgba(${c},0.85)`); gr.addColorStop(1, `rgba(${c},0.96)`); g.fillStyle = gr; g.fillRect(-900, 1060, 2880, 1800); };
   const GL = { dir: -Math.PI / 2 - 0.3, intensity: 1.3, front: 0.9, fill: 0.6, tint: ['#fff4d8', 0.5] };
   const AL = (c = '#b0ffa0') => ({ dir: -Math.PI / 2, intensity: 1.2, front: 0.7, fill: 0.5, tint: [c, 0.6] });
@@ -122,7 +123,7 @@
       const T = env.T, b0 = env.beats[0] ?? 0.7, cam = CAM.orbit(t / env.dur, { from: -1, to: 1, amp: 100, zoom: 1.12 }), come = 130 * E.outCubic(clamp(t / 1.2));
       city(ctx, T, cam, (g, p) => { seat(g, 800, GY - 10);
         shukra(g, p, T, 800, GY - 160, 0.8, { pose: { w: { sit: 1 }, prop: 'staff' }, L: EP51.lit(p, 800, GY, { from: [300, 300], front: 0.5 }), ex: { emo: 'resolve', gaze: [0.8, 0.2] }, key: 'cm-s' });
-        for (const [x, f] of [[80, 'right'], [1030, 'left']]) { KIT.glow(g, x, GY - 420, 600, '#fff0d0', 1); KIT.glow(g, x, GY - 420, 420, '#fff0d0', 0.8); } for (const [x, f] of [[80, 'right'], [1030, 'left']]) asura(g, T, x > 500 ? 1 : 4, x, GY + 40, 0.96, { name: 'bow', k: 0.25 + 0.1 * Math.sin(T * 1.2 + x) }, f, AL('#ffb070'));
+        for (const [x, f] of [[80, 'right'], [1030, 'left']]) { const rg = g.createRadialGradient(x, GY - 420, 200, x, GY - 420, x < 500 ? 470 : 620); rg.addColorStop(0, 'rgba(255,238,206,0.97)'); rg.addColorStop(0.7, 'rgba(255,238,206,0.8)'); rg.addColorStop(1, 'rgba(255,238,206,0)'); g.fillStyle = rg; g.fillRect(x - 700, GY - 1120, 1400, 1400); } for (const [x, f] of [[80, 'right'], [1030, 'left']]) asura(g, T, x > 500 ? 1 : 4, x, GY + 40, 0.96, { name: 'bow', k: 0.25 + 0.1 * Math.sin(T * 1.2 + x) }, f, AL('#ffb070'));
         kacha(g, p, T, 240 + come, GY + 20, 0.74, { pose: ACT.pose(t, [[0, 'walk'], [1.1, 'anjali', { act: 0.5 }], [(env.beats[2] ?? 3.5) - 0.3, 'bow', { act: 0.5 }]], { phase: ACT.stride(come, 0.74) }), L: EP51.bright('#fff4e0', 1.7), ex: { emo: 'resolve', speak: talk(env, t), gaze: [0.8, -0.2] }, key: 'cm-k' }); });
       TY.tag(ctx, T, clamp((t - b0 - 0.6) / 0.4), 'he names his father', { x: 540, y: 250, size: 42, out: out(t, env) });
       fin(ctx, T);
