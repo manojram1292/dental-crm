@@ -1,0 +1,459 @@
+{
+ "episode": 49,
+ "duration": 57.27,
+ "stems": {
+  "amb": {
+   "rms_db": -35.8,
+   "peak_db": -15.4,
+   "loudest_at_s": 45.83,
+   "loudest_rms_db": -29.6
+  },
+  "foley": {
+   "rms_db": -44.7,
+   "peak_db": -15.8,
+   "loudest_at_s": 55.34,
+   "loudest_rms_db": -31.3
+  },
+  "mus": {
+   "rms_db": -27.6,
+   "peak_db": -4.1,
+   "loudest_at_s": 56.12,
+   "loudest_rms_db": -16.6
+  }
+ },
+ "foley": [
+  {
+   "line": "hook",
+   "cue": "water",
+   "asked_s": 0.08,
+   "onset_s": 0.143,
+   "audio_offset_frames": 1.9,
+   "peak_offset_frames": 8.2,
+   "peak_db": -37.8,
+   "picture_peak_s": 0.2,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 2.64,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "hook",
+   "cue": "splash@0",
+   "asked_s": 0.79,
+   "onset_s": 0.89,
+   "audio_offset_frames": 3.0,
+   "peak_offset_frames": 3.5,
+   "peak_db": -29.1,
+   "picture_peak_s": 0.5,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 3.08,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "king",
+   "cue": "whoosh",
+   "asked_s": 3.85,
+   "onset_s": 3.982,
+   "audio_offset_frames": 4.0,
+   "peak_offset_frames": 8.3,
+   "peak_db": -35.3,
+   "picture_peak_s": 3.933,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 7.12,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "king",
+   "cue": "anklet@1",
+   "asked_s": 6.499,
+   "onset_s": 6.498,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.2,
+   "peak_db": -38.8,
+   "picture_peak_s": 6.533,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 2.41,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "longed",
+   "cue": "birds",
+   "asked_s": 11.005,
+   "onset_s": 11.013,
+   "audio_offset_frames": 0.3,
+   "peak_offset_frames": 8.4,
+   "peak_db": -28.9,
+   "picture_peak_s": 11.167,
+   "picture_offset_frames": 5,
+   "picture_change_at_cue": 5.08,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "longed",
+   "cue": "leaf@0",
+   "asked_s": 11.526,
+   "onset_s": 11.406,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 7.6,
+   "peak_db": -28.9,
+   "picture_peak_s": 11.233,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 1.28,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "leaf",
+   "cue": "leaf@0",
+   "asked_s": 16.073,
+   "onset_s": 15.953,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 1.6,
+   "peak_db": -41.2,
+   "picture_peak_s": 16.333,
+   "picture_offset_frames": 8,
+   "picture_change_at_cue": 0.4,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "leaf",
+   "cue": "wings@1",
+   "asked_s": 18.221,
+   "onset_s": 18.214,
+   "audio_offset_frames": -0.2,
+   "peak_offset_frames": 1.9,
+   "peak_db": -37.8,
+   "picture_peak_s": 18.533,
+   "picture_offset_frames": 9,
+   "picture_change_at_cue": 3.4,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "fell",
+   "cue": "wings",
+   "asked_s": 19.256,
+   "onset_s": 19.313,
+   "audio_offset_frames": 1.7,
+   "peak_offset_frames": 3.7,
+   "peak_db": -38.5,
+   "picture_peak_s": 19.333,
+   "picture_offset_frames": 2,
+   "picture_change_at_cue": 14.42,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "fell",
+   "cue": "whoosh@1",
+   "asked_s": 22.142,
+   "onset_s": 22.022,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 0.0,
+   "peak_db": -33.6,
+   "picture_peak_s": 22.433,
+   "picture_offset_frames": 9,
+   "picture_change_at_cue": 3.23,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "fell",
+   "cue": "splash@2",
+   "asked_s": 23.543,
+   "onset_s": 23.571,
+   "audio_offset_frames": 0.8,
+   "peak_offset_frames": 2.9,
+   "peak_db": -30.9,
+   "picture_peak_s": 23.233,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 0.61,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "fish",
+   "cue": "water",
+   "asked_s": 24.292,
+   "onset_s": 24.573,
+   "audio_offset_frames": 8.5,
+   "peak_offset_frames": 9.0,
+   "peak_db": -34.1,
+   "picture_peak_s": 24.233,
+   "picture_offset_frames": -2,
+   "picture_change_at_cue": 10.36,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "fish",
+   "cue": "drip@0",
+   "asked_s": 24.649,
+   "onset_s": 24.572,
+   "audio_offset_frames": -2.3,
+   "peak_offset_frames": -1.7,
+   "peak_db": -34.1,
+   "picture_peak_s": 24.567,
+   "picture_offset_frames": -2,
+   "picture_change_at_cue": 9.92,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "found",
+   "cue": "oar@0",
+   "asked_s": 29.552,
+   "onset_s": 29.432,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 6.6,
+   "peak_db": -35.6,
+   "picture_peak_s": 29.367,
+   "picture_offset_frames": -6,
+   "picture_change_at_cue": 1.53,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "found",
+   "cue": "water",
+   "asked_s": 28.447,
+   "onset_s": 28.582,
+   "audio_offset_frames": 4.1,
+   "peak_offset_frames": 8.4,
+   "peak_db": -37.0,
+   "picture_peak_s": 28.567,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 6.65,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "found",
+   "cue": "breath@2",
+   "asked_s": 33.551,
+   "onset_s": 33.466,
+   "audio_offset_frames": -2.5,
+   "peak_offset_frames": 4.3,
+   "peak_db": -33.6,
+   "picture_peak_s": 33.767,
+   "picture_offset_frames": 6,
+   "picture_change_at_cue": 2.06,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "boy",
+   "cue": "cloth@0",
+   "asked_s": 35.694,
+   "onset_s": 35.574,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -0.2,
+   "peak_db": -36.8,
+   "picture_peak_s": 35.733,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 2.52,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "boy",
+   "cue": "whoosh@1",
+   "asked_s": 36.87,
+   "onset_s": 36.75,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 0.6,
+   "peak_db": -35.6,
+   "picture_peak_s": 37.067,
+   "picture_offset_frames": 6,
+   "picture_change_at_cue": 0.78,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "boy",
+   "cue": "anklet",
+   "asked_s": 34.573,
+   "onset_s": 34.573,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.2,
+   "peak_db": -39.4,
+   "picture_peak_s": 34.833,
+   "picture_offset_frames": 8,
+   "picture_change_at_cue": 4.11,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "girl",
+   "cue": "water",
+   "asked_s": 40.085,
+   "onset_s": 40.494,
+   "audio_offset_frames": 12.2,
+   "peak_offset_frames": 8.5,
+   "peak_db": -33.8,
+   "picture_peak_s": 40.2,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 7.87,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "girl",
+   "cue": "cloth@1",
+   "asked_s": 41.483,
+   "onset_s": 41.379,
+   "audio_offset_frames": -3.1,
+   "peak_offset_frames": 2.3,
+   "peak_db": -35.7,
+   "picture_peak_s": 41.733,
+   "picture_offset_frames": 8,
+   "picture_change_at_cue": 1.46,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "name",
+   "cue": "oar@0",
+   "asked_s": 45.654,
+   "onset_s": 45.752,
+   "audio_offset_frames": 2.9,
+   "peak_offset_frames": 4.9,
+   "peak_db": -40.6,
+   "picture_peak_s": 45.4,
+   "picture_offset_frames": -8,
+   "picture_change_at_cue": 0.78,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "cliff",
+   "cue": "oar",
+   "asked_s": 50.811,
+   "onset_s": 50.893,
+   "audio_offset_frames": 2.5,
+   "peak_offset_frames": 7.3,
+   "peak_db": -41.2,
+   "picture_peak_s": 51.067,
+   "picture_offset_frames": 8,
+   "picture_change_at_cue": 2.02,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "cliff",
+   "cue": "steps@2",
+   "asked_s": 55.142,
+   "onset_s": 55.141,
+   "audio_offset_frames": -0.1,
+   "peak_offset_frames": 0.2,
+   "peak_db": -22.9,
+   "picture_peak_s": 55.067,
+   "picture_offset_frames": -2,
+   "picture_change_at_cue": 1.15,
+   "picture_change_median": 0.88
+  },
+  {
+   "line": "cliff",
+   "cue": "staff@2",
+   "asked_s": 55.142,
+   "onset_s": 55.141,
+   "audio_offset_frames": -0.1,
+   "peak_offset_frames": 0.2,
+   "peak_db": -22.9,
+   "picture_peak_s": 55.067,
+   "picture_offset_frames": -2,
+   "picture_change_at_cue": 1.15,
+   "picture_change_median": 0.88
+  }
+ ],
+ "ambience": [
+  {
+   "line": "hook",
+   "amb": "river",
+   "rms_db": -36.6,
+   "centroid_hz": 1805
+  },
+  {
+   "line": "king",
+   "amb": "sky",
+   "rms_db": -37.7,
+   "centroid_hz": 790
+  },
+  {
+   "line": "longed",
+   "amb": "forest-day",
+   "rms_db": -34.9,
+   "centroid_hz": 1534
+  },
+  {
+   "line": "leaf",
+   "amb": "forest-day",
+   "rms_db": -38.7,
+   "centroid_hz": 2533
+  },
+  {
+   "line": "fell",
+   "amb": "sky",
+   "rms_db": -37.8,
+   "centroid_hz": 743
+  },
+  {
+   "line": "fish",
+   "amb": "river",
+   "rms_db": -35.9,
+   "centroid_hz": 1819
+  },
+  {
+   "line": "found",
+   "amb": "shore",
+   "rms_db": -33.6,
+   "centroid_hz": 1928
+  },
+  {
+   "line": "boy",
+   "amb": "heaven",
+   "rms_db": -40.9,
+   "centroid_hz": 467
+  },
+  {
+   "line": "girl",
+   "amb": "shore",
+   "rms_db": -33.9,
+   "centroid_hz": 1857
+  },
+  {
+   "line": "name",
+   "amb": "shore",
+   "rms_db": -33.3,
+   "centroid_hz": 1896
+  },
+  {
+   "line": "cliff",
+   "amb": "river",
+   "rms_db": -35.9,
+   "centroid_hz": 2050
+  },
+  {
+   "line": "next",
+   "amb": "river",
+   "rms_db": -38.3,
+   "centroid_hz": 1989
+  }
+ ],
+ "mix": {
+  "peak_db": -2.51,
+  "samples_at_full_scale": 0,
+  "seconds_under_-50dB": 1.95,
+  "energy_pct": {
+   "under_120": 9.09,
+   "120_500": 53.78,
+   "500_2k": 26.24,
+   "2k_6k": 7.78,
+   "over_6k": 3.11
+  }
+ },
+ "ambience_places": {
+  "river": {
+   "lines": 4,
+   "centroid_hz": 1916
+  },
+  "sky": {
+   "lines": 2,
+   "centroid_hz": 766
+  },
+  "forest-day": {
+   "lines": 2,
+   "centroid_hz": 2034
+  },
+  "shore": {
+   "lines": 3,
+   "centroid_hz": 1894
+  },
+  "heaven": {
+   "lines": 1,
+   "centroid_hz": 467
+  }
+ }
+}
