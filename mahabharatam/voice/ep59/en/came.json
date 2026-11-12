@@ -20,10 +20,17 @@
   },
   {
    "t0": 2.45,
-   "t1": 3.7286,
+   "t1": 3.6858,
    "words": 5,
    "speed": 0.89,
-   "text": "Take me as your student."
+   "text": "Take me as your student,"
+  },
+  {
+   "t0": 3.7858,
+   "t1": 4.9575,
+   "words": 4,
+   "speed": 0.89,
+   "text": "for a thousand years."
   }
  ],
  "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"

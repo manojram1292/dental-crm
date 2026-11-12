@@ -1,21 +1,21 @@
 {
  "speaker": "narrator",
  "voice": "am_michael",
- "speed": 0.81,
+ "speed": 0.8748000000000001,
  "pitch": 0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 2.0679,
-   "words": 6,
-   "speed": 0.81,
-   "text": "A king asked a hermit girl"
+   "t1": 2.0748,
+   "words": 7,
+   "speed": 0.875,
+   "text": "A king asked a young hermit woman"
   },
   {
-   "t0": 2.1679,
-   "t1": 3.3599,
+   "t0": 2.1748,
+   "t1": 3.2736,
    "words": 3,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "who she was."
   }
  ],

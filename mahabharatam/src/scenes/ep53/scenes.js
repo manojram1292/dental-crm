@@ -66,7 +66,7 @@
       EP51.land(ctx, T, cam, 'noon-ochre', { sun: [540, 300, 90], trees: false, hz: 1100, hillH: 160, dust: 'dust', clouds: false,
         far: (g) => { g.fillStyle = '#2a5a2a'; for (let i = 0; i < 14; i++) { g.beginPath(); g.arc(-80 + i * 44, 1100 - 10 * hash(i, 2), 40, 0, TAU); g.fill(); } },
         figs: (g, p) => { KIT.army.draw(g, 'chariot', { x: 760 - d, y: 1250, s: 1.1, dir: -1, t: T, gait: 1 - 0.7 * (t / env.dur), fill: '#3a1a0c', line: '#120806', gold: '#f0c050', rim: '#fff0b0', light: -Math.PI / 2, banner: '#1f8a5a' });
-          F(g, T, 'dushyanta', 800 - d, 1172, 0.22, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [env.beats[1] ?? 2.2, 'grieve', { act: 0.4 }]]), L: EP51.lit(p, 800, 1200, { front: 0.4 }), ex: { emo: 'weary' }, key: 'dp-k' }); } });
+          } });
       fin(ctx, T);
     },
     post: POST(0.36, 0.4) });

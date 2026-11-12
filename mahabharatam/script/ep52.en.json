@@ -32,7 +32,7 @@
     "Karna": "the warrior born in armour",
     "Duryodhana": "eldest of the hundred Kauravas",
     "Kali": "the spirit of strife",
-    "Narayana": "the eternal god of gods",
+    "Narayana": "the god of gods",
     "Krishna": "Vasudeva, of the Yadus",
     "Draupadi": "wife of the five brothers",
     "Yudhishthira": "a part of Dharma",
@@ -42,8 +42,8 @@
     "Sahadeva": "a part of the Ashvins",
     "Bhishma": "last of the eight Vasus",
     "Drona": "a part of Brihaspati",
-    "Jarasandha": "the danava Viprachitti",
-    "Shishupala": "the daitya Hiranyakashipu",
+    "Jarasandha": "the demon Viprachitti",
+    "Shishupala": "the demon Hiranyakashipu",
     "Shri": "the goddess of fortune",
     "Janamejaya": "the king who asked",
     "Vaishampayana": "the teller, Vyasa's student"
@@ -69,7 +69,7 @@
     "recapLine": "The gods were told: be born on earth, each in part.",
     "nextEpisodeLabel": "Episode 53",
     "nextTitle": "The King and the Hermitage",
-    "sourceLine": "Adi Parva 1.61 · chapters 59–60, the genealogies, are passed over · BORI Critical Edition",
+    "sourceLine": "Adi Parva 1.61 · the text lists the demons first · chapters 59–60 passed over · BORI Critical Edition",
     "madeLine": "Voices: synthetic · Drawn in code",
     "arcLabel": "The end of an arc",
     "arcTitle": "Vyasa Begins",
@@ -134,8 +134,8 @@
     {
       "id": "five",
       "speed": 1.1,
-      "text": "The five Pandava brothers each carried part of a god: the god of right, the wind, the gods' king, and the twin horsemen.",
-      "say": "The five Pandava brothers [p:60] each carried part of a god: [p:240] the god of right, [p:160] the wind, [p:160] the gods' king, [p:160] and the twin horsemen.",
+      "text": "The five Pandava brothers each carried part of a god: the god of justice, the wind, the gods' king, and the twin horsemen.",
+      "say": "The five Pandava brothers [p:60] each carried part of a god: [p:240] the god of justice, [p:160] the wind, [p:160] the gods' king, [p:160] and the twin horsemen.",
       "est": 3.0,
       "pre": 220,
       "post": 260,
@@ -226,8 +226,8 @@
     {
       "id": "kali",
       "speed": 1.1,
-      "text": "But dark powers came down too. Duryodhana, who lit the feud, was born from the spirit of strife.",
-      "say": "But dark powers came down too. [p:300] Duryodhana, [p:80] who lit the feud, [p:120] was born from the spirit of strife.",
+      "text": "But dark powers had been born first. Duryodhana, who lit the feud, was born from the spirit of strife.",
+      "say": "But dark powers had been born first. [p:300] Duryodhana, [p:80] who lit the feud, [p:120] was born from the spirit of strife.",
       "est": 3.0,
       "pre": 950,
       "post": 450,
@@ -241,8 +241,8 @@
       ],
       "beats": [
         0,
-        6,
-        14
+        7,
+        15
       ],
       "amb": "void",
       "music": "dread",
@@ -287,15 +287,15 @@
       "id": "payoff",
       "speaker": "vaishampayana",
       "speed": 1.06,
-      "text": "\"Whoever hears this will not lose heart in hard times.\"",
-      "say": "Whoever hears this [p:150] will not lose heart [p:80] in hard times.",
+      "text": "\"The wise who hear this do not lose heart in hard times.\"",
+      "say": "The wise who hear this [p:150] do not lose heart [p:80] in hard times.",
       "est": 3.0,
       "pre": 800,
       "post": 1300,
       "rest": true,
       "beats": [
-        2,
-        6
+        4,
+        8
       ],
       "amb": "satra",
       "music": "joy",

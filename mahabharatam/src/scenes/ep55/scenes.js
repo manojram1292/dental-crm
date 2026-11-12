@@ -104,7 +104,7 @@
   R.scene({ id: 'army', transition: { type: 'dissolve', dur: 0.4 },
     draw(ctx, t, env) {
       const T = env.T, cam = CAM.pull(clamp(t / env.dur), { from: 1.4, to: 1.02, focus: [640, 950] }), d = 140 * E.inCubic(clamp(t / env.dur));
-      EP51.land(ctx, T, cam, 'noon-ochre', { sun: [540, 300, 90], hz: 1040, treeH: 420, dust: 'dust', seed: 190,
+      EP51.land(ctx, T, cam, 'noon-ochre', { sun: [200, 900, 110], hz: 1040, treeH: 420, dust: 'dust', seed: 190,
         far: (g, p) => { F(g, T, 'shakuntala', 150, 1070, 0.3, { f: 'right', pose: 'attend', L: EP51.lit(p, 150, 1070, { front: 0.4 }), ex: { emo: 'tender' }, key: 'ar-g' }); },
         figs: (g, p) => { for (let i = 0; i < 12; i++) { g.fillStyle = '#3a2408'; g.fillRect(900 + i * 40 + d, 760 - 30 * hash(i, 3), 5, 400); }
           KIT.army.draw(g, 'chariot', { x: 640 + d, y: 1190, s: 1.3, dir: 1, t: T, gait: clamp(t / 2), fill: '#3a1a0c', line: '#120806', gold: '#f0c050', rim: '#fff0b0', light: -Math.PI / 2, banner: '#1f8a5a' });

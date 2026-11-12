@@ -1,28 +1,28 @@
 {
  "speaker": "narrator",
  "voice": "am_michael",
- "speed": 0.81,
+ "speed": 0.8748000000000001,
  "pitch": 0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.3713,
+   "t1": 1.2711,
    "words": 3,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "The sage Kanva"
   },
   {
-   "t0": 1.4513,
-   "t1": 2.3529,
+   "t0": 1.3511,
+   "t1": 2.1808,
    "words": 2,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "found her,"
   },
   {
-   "t0": 2.5529,
-   "t1": 4.4293,
+   "t0": 2.3808,
+   "t1": 4.0895,
    "words": 6,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "and raised her as his own."
   }
  ],

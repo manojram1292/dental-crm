@@ -6,28 +6,28 @@
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 2.0535,
-   "words": 6,
+   "t1": 2.3486,
+   "words": 7,
    "speed": 0.891,
-   "text": "But dark powers came down too."
+   "text": "But dark powers had been born first."
   },
   {
-   "t0": 2.3535,
-   "t1": 3.304,
+   "t0": 2.6486,
+   "t1": 3.599,
    "words": 1,
    "speed": 0.891,
    "text": "Duryodhana,"
   },
   {
-   "t0": 3.384,
-   "t1": 4.5743,
+   "t0": 3.679,
+   "t1": 4.8694,
    "words": 4,
    "speed": 0.891,
    "text": "who lit the feud,"
   },
   {
-   "t0": 4.6943,
-   "t1": 6.8452,
+   "t0": 4.9894,
+   "t1": 7.1402,
    "words": 7,
    "speed": 0.891,
    "text": "was born from the spirit of strife."

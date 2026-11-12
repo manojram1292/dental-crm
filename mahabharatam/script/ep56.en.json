@@ -256,15 +256,18 @@
     {
       "id": "court",
       "speed": 1.1,
-      "text": "She was led before the king, her son bright as the sun.",
-      "say": "She was led before the king, [p:150] her son [p:60] bright as the sun.",
+      "text": "She was led before the king, Dushyanta, her son bright as the sun.",
+      "say": "She was led before the king, [p:80] Dushyanta, [p:150] her son [p:60] bright as the sun.",
       "est": 3.0,
       "pre": 220,
       "post": 260,
+      "emphasis": [
+        "Dushyanta,"
+      ],
       "beats": [
-        5,
-        7,
-        11
+        6,
+        8,
+        12
       ],
       "amb": "court",
       "ambLead": 250,
@@ -307,15 +310,15 @@
     {
       "id": "knew",
       "speed": 1.1,
-      "text": "The king remembered everything. But he said:",
-      "say": "The king remembered everything. [p:500] But he said:",
+      "text": "The king remembered. But he said:",
+      "say": "The king remembered. [p:500] But he said:",
       "est": 3.0,
       "pre": 800,
       "post": 260,
       "rest": true,
       "beats": [
-        3,
-        6
+        2,
+        5
       ],
       "music": "dread",
       "foley": [

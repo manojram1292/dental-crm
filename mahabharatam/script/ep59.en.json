@@ -229,8 +229,8 @@
       "id": "came",
       "speaker": "kacha",
       "speed": 1.06,
-      "text": "\"I am Kacha, Brihaspati's son. Take me as your student.\"",
-      "say": "I am Kacha, [p:100] Brihaspati's son. [p:300] Take me as your student.",
+      "text": "\"I am Kacha, Brihaspati's son. Take me as your student, for a thousand years.\"",
+      "say": "I am Kacha, [p:100] Brihaspati's son. [p:300] Take me as your student, [p:100] for a thousand years.",
       "est": 3.0,
       "pre": 220,
       "post": 260,
@@ -280,19 +280,21 @@
     {
       "id": "served",
       "speed": 1.1,
-      "text": "He served his teacher, and sang and danced for his daughter, Devayani.",
-      "say": "He served his teacher, [p:120] and sang and danced [p:60] for his daughter, [p:100] Devayani.",
+      "text": "He served his teacher and, as the gods advised, charmed Devayani: the daughter Yayati would marry.",
+      "say": "He served his teacher [p:60] and, as the gods advised, [p:80] charmed Devayani: [p:250] the daughter Yayati would marry.",
       "est": 3.0,
       "pre": 800,
       "post": 400,
       "rest": true,
       "emphasis": [
-        "Devayani."
+        "Devayani:",
+        "Yayati"
       ],
       "beats": [
         1,
-        6,
-        11
+        8,
+        10,
+        15
       ],
       "amb": "meadow",
       "music": "joy",

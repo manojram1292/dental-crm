@@ -6,21 +6,21 @@
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.5226,
-   "words": 3,
+   "t1": 1.7445,
+   "words": 5,
    "speed": 0.89,
-   "text": "Whoever hears this"
+   "text": "The wise who hear this"
   },
   {
-   "t0": 1.6726,
-   "t1": 3.1931,
+   "t0": 1.8945,
+   "t1": 3.476,
    "words": 4,
    "speed": 0.89,
-   "text": "will not lose heart"
+   "text": "do not lose heart"
   },
   {
-   "t0": 3.2731,
-   "t1": 4.8007,
+   "t0": 3.556,
+   "t1": 5.0836,
    "words": 3,
    "speed": 0.89,
    "text": "in hard times."

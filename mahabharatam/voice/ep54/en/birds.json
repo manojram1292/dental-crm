@@ -1,35 +1,35 @@
 {
  "speaker": "narrator",
  "voice": "am_michael",
- "speed": 0.81,
+ "speed": 0.8748000000000001,
  "pitch": 0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.1272,
+   "t1": 1.0686,
    "words": 3,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "In a forest"
   },
   {
-   "t0": 1.1872,
-   "t1": 2.9992,
+   "t0": 1.1286,
+   "t1": 2.7515,
    "words": 4,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "of lions and tigers,"
   },
   {
-   "t0": 3.1992,
-   "t1": 4.8777,
+   "t0": 2.9515,
+   "t1": 4.4588,
    "words": 4,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "birds ringed the child"
   },
   {
-   "t0": 4.9777,
-   "t1": 6.3782,
+   "t0": 4.5588,
+   "t1": 5.8606,
    "words": 4,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "and kept her safe."
   }
  ],

@@ -6,31 +6,31 @@
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 0.8768,
-   "words": 3,
+   "t1": 1.228,
+   "words": 5,
    "speed": 0.924,
-   "text": "If he dies,"
+   "text": "He can only come out"
   },
   {
-   "t0": 0.9968,
-   "t1": 2.0211,
-   "words": 4,
-   "speed": 0.924,
-   "text": "I cannot bear it."
-  },
-  {
-   "t0": 2.3711,
-   "t1": 3.1629,
+   "t0": 1.288,
+   "t1": 2.1285,
    "words": 3,
    "speed": 0.924,
-   "text": "If you die,"
+   "text": "through your death."
   },
   {
-   "t0": 3.2829,
-   "t1": 4.2791,
+   "t0": 2.4785,
+   "t1": 3.4968,
    "words": 3,
    "speed": 0.924,
-   "text": "I cannot live."
+   "text": "I cannot lose"
+  },
+  {
+   "t0": 3.5568,
+   "t1": 4.5009,
+   "words": 3,
+   "speed": 0.924,
+   "text": "either of you."
   }
  ],
  "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"

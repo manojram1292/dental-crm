@@ -30,7 +30,7 @@
   "names": {
     "Kacha": "son of the gods' priest",
     "Shukra": "priest of the asuras",
-    "Devayani": "Shukra's daughter"
+    "Devayani": "Shukra's daughter, later Yayati's queen"
   },
   "loop": {
     "hookQuestion": "Who was killed twice and raised twice, and how?",
@@ -53,7 +53,7 @@
     "recapLine": "A son of the gods' priest became the student of the asuras' priest.",
     "nextEpisodeLabel": "Episode 61",
     "nextTitle": "The Curse at Parting",
-    "sourceLine": "Adi Parva 1.71 · two deaths here; later tellings add a third · BORI Critical Edition",
+    "sourceLine": "Adi Parva 1.71 · two deaths here; other versions add a third · BORI Critical Edition",
     "madeLine": "Voices: synthetic · Drawn in code"
   },
   "lines": [
@@ -200,7 +200,7 @@
       "pal": "wrath-crimson",
       "cam": "tilt",
       "tr": "smoke",
-      "note": "STORY 3 · NEW LIGHT (wrath-crimson): asura hands only, in red light: a pinch of grey ash falls into a gold cup; a tilt up: the cup is carried on a tray to the unsuspecting sage, who drinks (tag: Later tellings add a third death. The Critical Edition has two.).",
+      "note": "STORY 3 · NEW LIGHT (wrath-crimson): asura hands only, in red light: a pinch of grey ash falls into a gold cup; a tilt up: the cup is carried on a tray to the unsuspecting sage, who drinks (tag: Other versions add a third death. The Critical Edition has two.).",
       "mixDb": -0.5
     },
     {
@@ -235,16 +235,16 @@
       "id": "two",
       "speaker": "devayani",
       "speed": 1.1,
-      "text": "\"If he dies, I cannot bear it. If you die, I cannot live.\"",
-      "say": "If he dies, [p:120] I cannot bear it. [p:350] If you die, [p:120] I cannot live.",
+      "text": "\"He can only come out through your death. I cannot lose either of you.\"",
+      "say": "He can only come out [p:60] through your death. [p:350] I cannot lose [p:60] either of you.",
       "est": 3.0,
       "pre": 220,
       "post": 260,
       "beats": [
-        2,
-        6,
-        9,
-        12
+        4,
+        7,
+        10,
+        13
       ],
       "music": "grief",
       "foley": [
@@ -254,7 +254,7 @@
       "pal": "grief-blue",
       "cam": "slide",
       "mixDb": -2,
-      "note": "STORY 5 (grief-blue): Devayani on her knees between the lamp and the door, turned to her father; her hands go out to him and stop (sub: Adi 1.71.45)."
+      "note": "STORY 5 (grief-blue): Devayani on her knees between the lamp and the door, turned to her father; her hands go out to him and stop (sub: Adi 1.71.44–45)."
     },
     {
       "id": "teach",

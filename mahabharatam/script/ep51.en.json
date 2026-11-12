@@ -30,8 +30,8 @@
   "names": {
     "Earth": "the goddess who bears the world",
     "Brahma": "the creator",
-    "Narayana": "Vishnu, the preserver",
-    "Parashurama": "the axe-bearing sage",
+    "Narayana": "the god of gods",
+    "Parashurama": "Jamadagni's son",
     "Indra": "king of the gods",
     "Vaishampayana": "the teller, Vyasa's student",
     "Janamejaya": "the king who asked"
@@ -93,8 +93,8 @@
       "id": "secret",
       "speaker": "vaishampayana",
       "speed": 1.06,
-      "text": "\"To lift a burden from the Earth. It is a secret of the gods.\"",
-      "say": "To lift a burden from the Earth. [p:260] It is a secret of the gods.",
+      "text": "\"It is a secret of the gods. I will tell it to you.\"",
+      "say": "It is a secret of the gods. [p:260] I will tell it to you.",
       "est": 3.0,
       "pre": 220,
       "post": 260,
@@ -112,7 +112,7 @@
       "pal": "satra-teal-night",
       "cam": "push",
       "tr": "smoke",
-      "note": "FRAME with the unvoiced recap band (top): the hall of the snake sacrifice at night in teal: Vaishampayana (plaque: Vaishampayana · the teller, Vyasa's student) answers the king (plaque: Janamejaya · the king who asked), a finger raised: a secret. Answers episode 50's last line by 5 s.",
+      "note": "FRAME with the unvoiced recap band (top): the hall of the snake sacrifice at night in teal: Vaishampayana (plaque: Vaishampayana · the teller, Vyasa's student) answers the king (plaque: Janamejaya · the king who asked), a finger raised: a secret (both sentences are 1.58.3). Begins the answer to episode 50's last line by 5 s; the answer itself is `command`.",
       "mixDb": -3
     },
     {
@@ -137,7 +137,7 @@
       "pal": "meadow-spring",
       "cam": "crane",
       "tr": "brush",
-      "note": "STORY 1 · NEW LIGHT (meadow-spring): a crane down over a bright land: fields, a young king on a low seat giving judgment, children running. Small, top left, for one second: an axe-bearing figure walking away over a hill (plaque: Parashurama · the axe-bearing sage; sub: he had emptied the earth of kings · Adi 1.58.4).",
+      "note": "STORY 1 · NEW LIGHT (meadow-spring): a crane down over a bright land: fields, a young king on a low seat giving judgment, children running. Small, top left, for one second: an axe-bearing figure walking away over a hill (plaque: Parashurama · Jamadagni's son; sub: he had emptied the earth of kings · Adi 1.58.4).",
       "mixDb": -1.5
     },
     {
@@ -163,7 +163,7 @@
       "pal": "venom-violet",
       "cam": "tilt",
       "tr": "ink",
-      "note": "STORY 2 · NEW LIGHT (venom-violet): a tilt down a dark sky: broad horned figures falling, turning as they fall into points of sickly green light that sink into the land below (tag: asuras · the gods' old enemies).",
+      "note": "STORY 2 · NEW LIGHT (venom-violet): a tilt down a dark sky: broad horned figures falling, turning as they fall into points of sickly green light that sink into the land below (tag: asuras · the gods' rivals).",
       "mixDb": -0.5
     },
     {
@@ -328,21 +328,21 @@
       ],
       "pal": "crystal-sky",
       "cam": "pull",
-      "note": "STORY 8 (a second real silence before it; crystal-sky: the dark god stands off a bright heaven): Vaikuntha: Narayana large, dark, yellow-robed, discus and mace, Indra small before him with joined hands (plaques: Narayana · Vishnu, the preserver; Indra · king of the gods). He inclines his head. A pull back.",
+      "note": "STORY 8 (a second real silence before it; crystal-sky: the dark god stands off a bright heaven): Vaikuntha: Narayana large, dark, yellow-robed, discus and mace, Indra small before him with joined hands (plaques: Narayana · the god of gods; Indra · king of the gods). He inclines his head. A pull back.",
       "mixDb": -1.5
     },
     {
       "id": "cliff",
       "speed": 1.1,
-      "text": "So gods and demons were born as men: this story's heroes and villains.",
-      "say": "So gods and demons [p:60] were born as men: [p:200] this story's heroes [p:60] and villains.",
+      "text": "Gods and demons, both born as men: they are the warriors of this story.",
+      "say": "Gods and demons, [p:80] both born as men: [p:200] they are the warriors [p:60] of this story.",
       "est": 3.0,
       "pre": 220,
       "post": 400,
       "beats": [
-        1,
-        6,
-        9
+        0,
+        5,
+        10
       ],
       "role": "next",
       "amb": "sky",

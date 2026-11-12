@@ -54,7 +54,7 @@
     "traditionNote": "As tradition tells it",
     "prevEpisodeLabel": "Episode 53",
     "prevEpisodeTitle": "The King and the Hermitage",
-    "recapLine": "A king, alone in a forest hermitage, met a young woman.",
+    "recapLine": "King Dushyanta, alone in a forest hermitage, met a young woman.",
     "nextEpisodeLabel": "Episode 55",
     "nextTitle": "A Marriage Without Witnesses",
     "sourceLine": "Adi Parva 1.65–66 · BORI Critical Edition",
@@ -91,15 +91,15 @@
     },
     {
       "id": "asked",
-      "speed": 1.0,
-      "text": "A king asked a hermit girl who she was.",
-      "say": "A king asked a hermit girl [p:100] who she was.",
+      "speed": 1.08,
+      "text": "A king asked a young hermit woman who she was.",
+      "say": "A king asked a young hermit woman [p:100] who she was.",
       "est": 3.0,
       "pre": 220,
       "post": 260,
       "beats": [
         1,
-        5
+        6
       ],
       "amb": "forest-day",
       "ambLead": 250,
@@ -118,14 +118,17 @@
       "id": "said",
       "speaker": "shakuntala",
       "speed": 1.0,
-      "text": "\"People call me the sage's daughter. Hear why.\"",
-      "say": "People call me the sage's daughter. [p:260] Hear why.",
+      "text": "\"People call me the sage Kanva's daughter. Hear why.\"",
+      "say": "People call me the sage Kanva's daughter. [p:260] Hear why.",
       "est": 3.0,
       "pre": 220,
       "post": 260,
+      "emphasis": [
+        "Kanva's"
+      ],
       "beats": [
         2,
-        7
+        8
       ],
       "foley": [
         "cloth",
@@ -139,18 +142,15 @@
     },
     {
       "id": "tapas",
-      "speed": 1.0,
-      "text": "The penance of the sage Vishvamitra frightened the king of the gods.",
-      "say": "The penance of the sage Vishvamitra [p:100] frightened the king of the gods.",
+      "speed": 1.08,
+      "text": "Long ago, the penance of another sage frightened the king of the gods.",
+      "say": "Long ago, [p:100] the penance of another sage [p:100] frightened the king of the gods.",
       "est": 3.0,
       "pre": 220,
       "post": 260,
-      "emphasis": [
-        "Vishvamitra"
-      ],
       "beats": [
-        5,
-        6
+        6,
+        7
       ],
       "amb": "void",
       "ambLead": 200,
@@ -167,7 +167,7 @@
     },
     {
       "id": "sent",
-      "speed": 1.0,
+      "speed": 1.08,
       "text": "He sent Menaka, a nymph of heaven, to break it.",
       "say": "He sent Menaka, [p:100] a nymph of heaven, [p:150] to break it.",
       "est": 3.0,
@@ -195,15 +195,18 @@
     },
     {
       "id": "saw",
-      "speed": 1.0,
-      "text": "The sage saw her, and desired her.",
-      "say": "The sage saw her, [p:150] and desired her.",
+      "speed": 1.08,
+      "text": "Vishvamitra desired her; and she was willing.",
+      "say": "Vishvamitra desired her; [p:250] and she was willing.",
       "est": 3.0,
       "pre": 220,
       "post": 260,
+      "emphasis": [
+        "Vishvamitra"
+      ],
       "beats": [
-        2,
-        5
+        0,
+        6
       ],
       "amb": "forest-day",
       "music": "tender",
@@ -219,9 +222,9 @@
     },
     {
       "id": "left",
-      "speed": 1.0,
-      "text": "By the river Malini a daughter was born. Menaka left her there, and went back to heaven.",
-      "say": "By the river Malini [p:80] a daughter was born. [p:350] Menaka left her there, [p:150] and went back to heaven.",
+      "speed": 1.08,
+      "text": "By a river, a daughter was born. Menaka left her there, and went back to heaven.",
+      "say": "By a river, [p:80] a daughter was born. [p:350] Menaka left her there, [p:150] and went back to heaven.",
       "est": 3.0,
       "pre": 950,
       "post": 400,
@@ -229,14 +232,11 @@
       "sfx": [
         "silence"
       ],
-      "emphasis": [
-        "Malini"
-      ],
       "beats": [
-        3,
-        7,
-        11,
-        16
+        2,
+        6,
+        10,
+        15
       ],
       "amb": "river",
       "music": "grief",
@@ -252,7 +252,7 @@
     },
     {
       "id": "birds",
-      "speed": 1.0,
+      "speed": 1.08,
       "text": "In a forest of lions and tigers, birds ringed the child and kept her safe.",
       "say": "In a forest [p:60] of lions and tigers, [p:200] birds ringed the child [p:100] and kept her safe.",
       "est": 3.0,
@@ -280,7 +280,7 @@
     },
     {
       "id": "found",
-      "speed": 1.0,
+      "speed": 1.08,
       "text": "The sage Kanva found her, and raised her as his own.",
       "say": "The sage Kanva [p:80] found her, [p:200] and raised her as his own.",
       "est": 3.0,
@@ -341,16 +341,16 @@
     },
     {
       "id": "cliff",
-      "speed": 1.0,
-      "text": "The king listened. Then he said: be my wife.",
-      "say": "The king listened. [p:350] Then he said: [p:200] be my wife.",
+      "speed": 1.08,
+      "text": "The king listened. A king's daughter, then, he said: be my wife.",
+      "say": "The king listened. [p:350] A king's daughter, then, [p:100] he said: [p:200] be my wife.",
       "est": 3.0,
       "pre": 220,
       "post": 400,
       "beats": [
         2,
         5,
-        8
+        11
       ],
       "role": "next",
       "music": "still",

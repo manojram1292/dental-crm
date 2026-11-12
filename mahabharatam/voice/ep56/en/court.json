@@ -12,15 +12,22 @@
    "text": "She was led before the king,"
   },
   {
-   "t0": 1.8167,
-   "t1": 2.613,
+   "t0": 1.7468,
+   "t1": 2.7282,
+   "words": 1,
+   "speed": 0.891,
+   "text": "Dushyanta,"
+  },
+  {
+   "t0": 2.8782,
+   "t1": 3.6745,
    "words": 2,
    "speed": 0.891,
    "text": "her son"
   },
   {
-   "t0": 2.673,
-   "t1": 3.9633,
+   "t0": 3.7345,
+   "t1": 5.0247,
    "words": 4,
    "speed": 0.891,
    "text": "bright as the sun."

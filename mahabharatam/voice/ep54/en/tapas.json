@@ -1,21 +1,28 @@
 {
  "speaker": "narrator",
  "voice": "am_michael",
- "speed": 0.81,
+ "speed": 0.8748000000000001,
  "pitch": 0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 2.6957,
-   "words": 6,
-   "speed": 0.81,
-   "text": "The penance of the sage Vishvamitra"
+   "t1": 0.9287,
+   "words": 2,
+   "speed": 0.875,
+   "text": "Long ago,"
   },
   {
-   "t0": 2.7957,
-   "t1": 4.7848,
+   "t0": 1.0288,
+   "t1": 2.7898,
+   "words": 5,
+   "speed": 0.875,
+   "text": "the penance of another sage"
+  },
+  {
+   "t0": 2.8898,
+   "t1": 4.7997,
    "words": 6,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "frightened the king of the gods."
   }
  ],

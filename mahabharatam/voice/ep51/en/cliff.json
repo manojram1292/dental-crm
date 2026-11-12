@@ -6,31 +6,31 @@
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.5683,
-   "words": 4,
-   "speed": 0.891,
-   "text": "So gods and demons"
-  },
-  {
-   "t0": 1.6283,
-   "t1": 2.8492,
-   "words": 4,
-   "speed": 0.891,
-   "text": "were born as men:"
-  },
-  {
-   "t0": 3.0492,
-   "t1": 4.4813,
+   "t1": 1.3181,
    "words": 3,
    "speed": 0.891,
-   "text": "this story's heroes"
+   "text": "Gods and demons,"
   },
   {
-   "t0": 4.5412,
-   "t1": 5.5466,
-   "words": 2,
+   "t0": 1.3981,
+   "t1": 2.7963,
+   "words": 4,
    "speed": 0.891,
-   "text": "and villains."
+   "text": "both born as men:"
+  },
+  {
+   "t0": 2.9963,
+   "t1": 4.255,
+   "words": 4,
+   "speed": 0.891,
+   "text": "they are the warriors"
+  },
+  {
+   "t0": 4.315,
+   "t1": 5.4625,
+   "words": 3,
+   "speed": 0.891,
+   "text": "of this story."
   }
  ],
  "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"

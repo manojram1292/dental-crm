@@ -90,7 +90,7 @@
           g.fillStyle = '#1a0806'; g.beginPath(); g.roundRect(cx - 300, cy + 40, 250, 80, 40); g.fill(); g.beginPath(); g.ellipse(cx - 60, cy + 70, 70, 50, 0, 0, TAU); g.fill();   // an asura's dark hand under the cup
           g.fillStyle = '#e7b54a'; g.beginPath(); g.moveTo(cx - 70, cy - 60); g.lineTo(cx + 70, cy - 60); g.lineTo(cx + 44, cy + 40); g.lineTo(cx - 44, cy + 40); g.closePath(); g.fill(); g.fillRect(cx - 14, cy + 40, 28, 40); g.fillRect(cx - 50, cy + 76, 100, 12); g.fillStyle = '#5a0c18'; g.beginPath(); g.ellipse(cx, cy - 58, 66, 14, 0, 0, TAU); g.fill();
           if (fall < 1) { for (let i = 0; i < 16; i++) { const u = (fall * 1.4 + hash(i, 3)) % 1; g.globalAlpha = 0.9 * (1 - u); g.fillStyle = '#c8c4bc'; g.beginPath(); g.arc(cx + 30 * (hash(i, 4) - 0.5), cy - 360 + 300 * u, 6, 0, TAU); g.fill(); } g.globalAlpha = 1; g.fillStyle = '#1a0806'; g.beginPath(); g.ellipse(cx + 10, cy - 400, 80, 50, 0.3, 0, TAU); g.fill(); } } });
-      TY.tag(ctx, T, clamp((t - 1.4) / 0.4), 'Later tellings add a third death. The Critical Edition has two.', { x: 540, y: 250, size: 28, out: out(t, env, 0.3) });
+      TY.tag(ctx, T, clamp((t - 1.4) / 0.4), 'Other versions add a third death. The Critical Edition has two.', { x: 540, y: 250, size: 28, out: out(t, env, 0.3) });
       fin(ctx, T);
     },
     post: POST(0.36, 0.55) });
@@ -115,7 +115,7 @@
       const T = env.T, b1 = env.beats[1] ?? 2.1, cam = CAM.slide(t / env.dur, { from: 90, to: -90, zoom: 1.2 });
       house(ctx, T, cam, 'grief-blue', (g, p) => {
         dev(g, p, T, 700, GY + 20, 0.96, { f: 'right', pose: ACT.pose(t, [[0, { kneel: 0.8, offer: 0.2 }], [b1 - 0.3, { kneel: 0.7, grieve: 0.3 }, { act: 0.5 }], [b1 + 0.9, { kneel: 0.7, reach: 0.3 }, { act: 0.5 }]]), L: EP51.lit(p, 700, GY, { from: [300, 700], front: 0.5 }), ex: { emo: 'plead', speak: talk(env, t), gaze: [0.8, -0.4] }, key: 'tw-d' }); }, { glow: 0.25 });
-      TY.tag(ctx, T, clamp((t - 0.8) / 0.4), 'Adi 1.71.45', { x: 860, y: 250, size: 30, out: out(t, env) });
+      TY.tag(ctx, T, clamp((t - 0.8) / 0.4), 'Adi 1.71.44–45', { x: 860, y: 250, size: 30, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.32, 0.52) });

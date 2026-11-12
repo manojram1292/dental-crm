@@ -1,35 +1,35 @@
 {
  "speaker": "narrator",
  "voice": "am_michael",
- "speed": 0.81,
+ "speed": 0.8748000000000001,
  "pitch": 0,
  "chunks": [
   {
    "t0": 0.0,
-   "t1": 1.6049,
-   "words": 4,
-   "speed": 0.81,
-   "text": "By the river Malini"
+   "t1": 0.9327,
+   "words": 3,
+   "speed": 0.875,
+   "text": "By a river,"
   },
   {
-   "t0": 1.6849,
-   "t1": 3.1263,
+   "t0": 1.0127,
+   "t1": 2.3777,
    "words": 4,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "a daughter was born."
   },
   {
-   "t0": 3.4763,
-   "t1": 5.1012,
+   "t0": 2.7277,
+   "t1": 4.2081,
    "words": 4,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "Menaka left her there,"
   },
   {
-   "t0": 5.2512,
-   "t1": 6.8542,
+   "t0": 4.3581,
+   "t1": 5.7084,
    "words": 5,
-   "speed": 0.81,
+   "speed": 0.875,
    "text": "and went back to heaven."
   }
  ],

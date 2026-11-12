@@ -86,7 +86,7 @@
             KIT.glow(g, x, y, 60 + 160 * k, '#7aff5a', 0.9 * k); g.fillStyle = '#eaffd8'; g.globalAlpha = k; g.beginPath(); g.arc(x, y, 12, 0, TAU); g.fill(); g.globalAlpha = 1; }
           for (let i = 0; i < 7; i++) { const a = clamp((t - b1 - i * 0.25) / 0.6); KIT.glow(g, 120 + i * 140, 1590 + 30 * hash(i, 9), 90, '#7aff5a', 0.5 * a * (0.7 + 0.3 * Math.sin(T * 3 + i))); }
         } });
-      TY.tag(ctx, T, clamp((t - 0.7) / 0.4), "asuras · the gods' old enemies", { x: 540, y: 250, size: 36, out: out(t, env) });
+      TY.tag(ctx, T, clamp((t - 0.7) / 0.4), "asuras · the gods' rivals", { x: 540, y: 250, size: 36, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.4, 0.5) });

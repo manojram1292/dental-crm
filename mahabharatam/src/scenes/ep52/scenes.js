@@ -104,7 +104,7 @@
       TY.plaque(ctx, T, clamp((t - b1 + 0.3) / 0.5), ...names(env, 'Duryodhana'), { x: 800, y: 820, size: 44, out: clamp((t - b2 + 0.9) / 0.3) });
       TY.plaque(ctx, T, clamp((t - b2 + 0.5) / 0.5), 'Kali', 'the spirit of strife · not the goddess Kālī', { x: 760, y: 820, size: 50, out: out(t, env, 0.3) });
       TY.turnWord(ctx, T, clamp((t - b2) / 0.6), 'Strife', { x: 810, y: 1010, size: 84, out: out(t, env, 0.3), sub: 'Adi 1.61.80' });
-      TY.tag(ctx, T, clamp((t - 1.2) / 0.4), 'Jarasandha, Shishupala: danavas born as kings · Adi 1.61.4–5', { x: 540, y: 250, size: 28, out: clamp((t - b1 + 0.5) / 0.3) });
+      TY.tag(ctx, T, clamp((t - 1.2) / 0.4), 'Jarasandha, Shishupala: demons born as kings · Adi 1.61.4–5', { x: 540, y: 250, size: 28, out: clamp((t - b1 + 0.5) / 0.3) });
       fin(ctx, T);
     },
     post: POST(0.36, 0.52) });

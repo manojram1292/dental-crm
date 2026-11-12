@@ -50,7 +50,7 @@
     "traditionNote": "As tradition tells it",
     "prevEpisodeLabel": "Episode 54",
     "prevEpisodeTitle": "The Girl the Birds Protected",
-    "recapLine": "A hermit girl told a king how birds had guarded her as a baby.",
+    "recapLine": "A young hermit woman told a king how birds had guarded her as a baby.",
     "nextEpisodeLabel": "Episode 56",
     "nextTitle": "The Boy Who Tamed Lions",
     "sourceLine": "Adi Parva 1.67 · BORI Critical Edition",
@@ -140,14 +140,14 @@
       "id": "self",
       "speaker": "dushyanta",
       "speed": 1.0,
-      "text": "\"You are your own mistress. Give yourself.\"",
-      "say": "You are your own mistress. [p:250] Give yourself.",
+      "text": "\"You are your own to give, if you wish it.\"",
+      "say": "You are your own to give, [p:250] if you wish it.",
       "est": 3.0,
       "pre": 220,
       "post": 260,
       "beats": [
-        4,
-        6
+        5,
+        9
       ],
       "music": "still",
       "foley": [
@@ -162,8 +162,8 @@
     {
       "id": "gandharva",
       "speed": 1.02,
-      "text": "He meant a gandharva marriage: their own choice, no rite, no witness.",
-      "say": "He meant a gandharva marriage: [p:260] their own choice, [p:150] no rite, [p:150] no witness.",
+      "text": "He meant a gandharva marriage: their own choice, no priest, no witness.",
+      "say": "He meant a gandharva marriage: [p:260] their own choice, [p:150] no priest, [p:150] no witness.",
       "est": 3.0,
       "pre": 220,
       "post": 600,
@@ -267,7 +267,7 @@
       "cam": "pull",
       "tr": "dissolve",
       "mixDb": -2,
-      "note": "STORY 6 · NEW LIGHT (noon-ochre: the next day's hard light): the king, crowned again, on his chariot at the forest's edge, turned back with a raised hand; she small at the tree line; the army's spears already moving off (tag: he promised it again and again · Adi 1.67.20). A pull back."
+      "note": "STORY 6 · NEW LIGHT (noon-ochre: the same evening, the sun low; Kanva is back a moment after he leaves, 1.67.23): the king, crowned again, on his chariot at the forest's edge, turned back with a raised hand; she small at the tree line; the army's spears already moving off (tag: he promised it again and again · Adi 1.67.20). A pull back."
     },
     {
       "id": "kanva",
