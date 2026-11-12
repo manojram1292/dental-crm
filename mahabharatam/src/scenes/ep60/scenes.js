@@ -91,8 +91,8 @@
           g.fillStyle = '#1a0806'; g.beginPath(); g.roundRect(cx - 300, cy + 40, 250, 80, 40); g.fill(); g.beginPath(); g.ellipse(cx - 60, cy + 70, 70, 50, 0, 0, TAU); g.fill();   // an asura's dark hand under the cup
           g.fillStyle = '#e7b54a'; g.beginPath(); g.moveTo(cx - 70, cy - 60); g.lineTo(cx + 70, cy - 60); g.lineTo(cx + 44, cy + 40); g.lineTo(cx - 44, cy + 40); g.closePath(); g.fill(); g.fillRect(cx - 14, cy + 40, 28, 40); g.fillRect(cx - 50, cy + 76, 100, 12); g.fillStyle = '#5a0c18'; g.beginPath(); g.ellipse(cx, cy - 58, 66, 14, 0, 0, TAU); g.fill();
           if (fall < 1) { for (let i = 0; i < 16; i++) { const u = (fall * 1.4 + hash(i, 3)) % 1; g.globalAlpha = 0.9 * (1 - u); g.fillStyle = '#c8c4bc'; g.beginPath(); g.arc(cx + 30 * (hash(i, 4) - 0.5), cy - 360 + 300 * u, 6, 0, TAU); g.fill(); } g.globalAlpha = 1; g.fillStyle = '#1a0806'; g.beginPath(); g.ellipse(cx + 10, cy - 400, 80, 50, 0.3, 0, TAU); g.fill(); } } });
-      TY.tag(ctx, T, clamp((t - 1.4) / 0.4), 'Other versions add a third death.', { x: 300, y: 740, size: 38, out: out(t, env, 0.3) });
-      TY.tag(ctx, T, clamp((t - 1.4) / 0.4), 'The Critical Edition has two.', { x: 300, y: 800, size: 38, out: out(t, env, 0.3) });
+      TY.tag(ctx, T, clamp((t - 1.4) / 0.4), 'Other versions add a third death.', { x: 300, y: 150, size: 38, out: out(t, env, 0.3) });
+      TY.tag(ctx, T, clamp((t - 1.4) / 0.4), 'The Critical Edition has two.', { x: 300, y: 210, size: 38, out: out(t, env, 0.3) });
       fin(ctx, T);
     },
     post: POST(0.36, 0.55) });

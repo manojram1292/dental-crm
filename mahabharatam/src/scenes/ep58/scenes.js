@@ -42,8 +42,8 @@
       const T = env.T, b1 = env.beats[1] ?? 3.0, cam = CAM.slide(E.inOutSine(clamp(t / env.dur)), { from: 150, to: -150, zoom: 1.14 });
       court(ctx, T, cam, 'dice-vermilion', (g, p) => { king(g, p, T, { key: 'sn-k' }); girl(g, p, T, 250, GY + 10, 0.8, { f: 'left', key: 'sn-g' }); boy(g, p, T, 130, GY + 16, 0.76, { f: 'left', ex: { emo: 'wonder' }, key: 'sn-b' }); });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 2.4) / 0.4)), env.strings, { y: 190 });
-      TY.plaque(ctx, T, clamp((t - 0.9) / 0.5), ...names(env, 'Dushyanta'), { x: 760, y: 420, size: 38, out: clamp((t - b1 + 0.3) / 0.3) });
-      TY.plaque(ctx, T, clamp((t - b1) / 0.5), ...names(env, 'Shakuntala'), { x: 740, y: 420, size: 38, out: out(t, env) });
+      TY.plaque(ctx, T, clamp((t - 0.9) / 0.5), ...names(env, 'Dushyanta'), { x: 270, y: 410, size: 38, out: clamp((t - b1 + 0.3) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b1) / 0.5), ...names(env, 'Shakuntala'), { x: 270, y: 440, size: 38, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.32, 0.5) });

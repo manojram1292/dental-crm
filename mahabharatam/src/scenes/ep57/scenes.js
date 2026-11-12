@@ -38,7 +38,7 @@
       court(ctx, T, cam, 'dice-vermilion', (g, p) => { king(g, p, T, { key: 'sn-k' }); girl(g, p, T, 290, GY - 120, 0.8, { key: 'sn-g' }); boy(g, p, T, 440, GY - 114, 0.76, { key: 'sn-b', L: EP51.bright('#fff4d8', 1.6) }); });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 2.4) / 0.4)), env.strings, { y: 190 });
       TY.plaque(ctx, T, clamp((t - 0.9) / 0.5), ...names(env, 'Dushyanta'), { x: 800, y: 390, size: 40, out: clamp((t - b1 + 0.3) / 0.3) });
-      TY.plaque(ctx, T, clamp((t - b1) / 0.5), ...names(env, 'Shakuntala'), { x: 800, y: 390, size: 40, out: out(t, env) });
+      TY.plaque(ctx, T, clamp((t - b1) / 0.5), ...names(env, 'Shakuntala'), { x: 250, y: 370, size: 36, out: out(t, env) });
       TY.tag(ctx, T, clamp((t - 2.9) / 0.4), "In the epic he never forgets her.", { x: 540, y: 200, size: 42, out: out(t, env) });
       TY.tag(ctx, T, clamp((t - 2.9) / 0.4), "The ring and the curse are Kalidasa's.", { x: 540, y: 266, size: 42, out: out(t, env) });
       fin(ctx, T);

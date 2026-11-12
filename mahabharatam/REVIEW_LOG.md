@@ -631,3 +631,13 @@ Coordinator's note on 45 (the Shunaka plaque on the caption's upper edge, its le
 Measured (mp4): 58.2 s; hook (7 words) by 2.46 s; motion at 0.5 s 7.1; longest static hold 1.2 s; turn at 55 %; the lit payoff (the snake's shape falls away in gold light, then the teaching in the same light) runs 32.2–43.7 s, 11.5 s; the arc-end card 49.4–50.9 s with no voice; -14.1 LUFS, -2.1 dBTP, LRA 4.9; six lights, hue run 2; key frames against 43–45: min 24, mean 29.3; 16 of 20 foley cues on their beat (outside: two rustles, a leaf, the chant, all sustained); ambience by place 1354 / 917 / 1554 / 254 Hz; peak -2.5 dBFS, no clipped sample; share 18.4 MB.
 
 Still weak: the opening moves least of the batch (7.1 at 0.5 s: a snake rearing, a staff entering); the foley stem is the quietest of the batch (-42.7 dB rms); at 3.6 s the episode title is wiped by the brush transition while still on screen; the arc card stays 1.5 s, short for four lines of text; 58.2 s is over the 54–58 s target.
+
+### Episode 47 · Vyasa Comes to the Sacrifice
+
+Rendered twice (and a third attempt died: the browser was killed for memory while two other renders ran on the machine; the queue now retries a render and checks that the mp4 is newer than the attempt). First render: in `tell` Vyasa was cut by the right frame edge, the Vaishampayana plaque sat on the caption's upper edge, and the Vyasa plaque was placed below the caption band, unseen. Second: both men stand in the frame and the focus racks from the teacher to the student; plaques stand above y 960.
+
+The signature shot is the opening: a long hall of pillars, a bright doorway, and Vyasa a dark figure with a rim of his own gold light walking in; the camera cranes down to him. He is a figure throughout (a walking silhouette, a seated guest, a lit close-up), never an emblem.
+
+Measured (mp4): 56.8 s; hook (6 words) by 2.99 s; motion at 0.5 s 11.9; longest static hold 1.9 s; turn (Vyasa does not answer; he turns to his student) at 54 %; -14.1 LUFS, -2.2 dBTP, LRA 5.2; seven lights, hue run 2; key frames against 44–46: min 20, mean 30.2 on the mp4 (the gate, on its own samples, measured 22); 18 of 20 foley cues on their beat (outside: the chant and water, sustained); ambience 221 Hz in the hall, 980 Hz at the night fire; peak -2.5 dBFS, no clipped sample; share 18.0 MB.
+
+Still weak: one ambience for ten lines (the whole episode is in the hall); the vision of the island is a cloud laid over Vyasa's body; the close-up of the turn has the caption over his beard and chest; the key-frame minimum is the lowest of the batch (the last frame, a figure before a red wall, is near 46's fire-lit hall).
