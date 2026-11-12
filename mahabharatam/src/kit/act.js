@@ -125,7 +125,7 @@
     const ew = epithet ? ctx.measureText(epithet).width : 0;
     const w = Math.max(tw, ew) + size * 1.5, h = size * (epithet ? 2.35 : 1.6);
     x = Math.min(R.W - 24 - w / 2, Math.max(24 + w / 2, x));   // a plaque is never cut by the frame's edge
-    const mv = TY.clear([x - w / 2, y - size * 1.12, x + w / 2, y - size * 1.12 + h], 'plaque'); if (y - size * 1.12 + h + mv[1] > 1140) note('type', 'lowText:plaque'); /* it would sit in or under the caption band */ ctx.restore(); ctx.save(); ctx.translate(mv[0], mv[1]); const x0 = x - w / 2, y0 = y - size * 1.12;
+    const mv = TY.clear([x - w / 2, y - size * 1.12, x + w / 2, y - size * 1.12 + h], 'plaque'); if (y - size * 1.12 + h + mv[1] > 960) note('type', 'lowText:plaque'); /* the caption scrim of a four-line caption begins at y 972: a plaque ends above it */ ctx.restore(); ctx.save(); ctx.translate(mv[0], mv[1]); const x0 = x - w / 2, y0 = y - size * 1.12;
     // the lacquer band brushes on from the left, with a bristled leading edge
     const b = E.outCubic(clamp(k / 0.45)), bw = w * b;
     ctx.globalAlpha = out * 0.9; ctx.fillStyle = o.color || 'rgba(14,8,6,0.86)';
@@ -135,7 +135,7 @@
     ctx.globalAlpha = out * b; ctx.fillStyle = o.edge || PAL.gold; ctx.fillRect(x0, y0, bw, 4); ctx.fillRect(x0, y0 + h - 4, bw, 4);
     ctx.restore();
     // the letters land one by one (each drops a few px and warms in)
-    ctx.save(); ctx.translate(mv[0], mv[1]); ctx.font = R.font(size, 'display', 700); ctx.letterSpacing = `${size * 0.08}px`; ctx.textBaseline = 'alphabetic';
+    ctx.save(); ctx.translate(mv[0], mv[1]); ctx.beginPath(); ctx.rect(x0 - 4, y0 - 60, Math.max(0, bw - 6), h + 120); ctx.clip(); ctx.font = R.font(size, 'display', 700); ctx.letterSpacing = `${size * 0.08}px`; ctx.textBaseline = 'alphabetic';
     let cx = x - tw / 2;
     [...text].forEach((ch, i) => {
       const lk = E.outBack ? E.outBack(clamp((k - i * 0.02) / 0.28)) : E.outCubic(clamp((k - i * 0.02) / 0.28));
@@ -146,7 +146,7 @@
     ctx.restore();
     const ul = E.inOutCubic(clamp((k - 0.5) / 0.4));
     if (ul > 0) { ctx.save(); ctx.translate(mv[0], mv[1]); ctx.globalAlpha = out; ctx.fillStyle = PAL.gold; ctx.beginPath(); ctx.moveTo(x - tw / 2, y + 14); ctx.quadraticCurveTo(x - tw / 2 + tw * ul * 0.5, y + 8, x - tw / 2 + tw * ul, y + 13); ctx.quadraticCurveTo(x - tw / 2 + tw * ul * 0.5, y + 19, x - tw / 2, y + 20); ctx.fill(); ctx.restore(); }
-    if (epithet) { ctx.save(); ctx.translate(mv[0], mv[1]); ctx.globalAlpha = out * E.outCubic(clamp((k - 0.35) / 0.35)); ctx.font = R.font(size * 0.56, 'caption', 600); ctx.textAlign = 'center'; ctx.fillStyle = PAL.cream; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(6); ctx.fillText(epithet, x, y + size * 0.9); ctx.restore(); }
+    if (epithet) { ctx.save(); ctx.translate(mv[0], mv[1]); ctx.beginPath(); ctx.rect(x0 - 4, y0 - 60, Math.max(0, bw - 6), h + 120); ctx.clip(); ctx.globalAlpha = out * E.outCubic(clamp((k - 0.35) / 0.35)); ctx.font = R.font(size * 0.56, 'caption', 600); ctx.textAlign = 'center'; ctx.fillStyle = PAL.cream; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(6); ctx.fillText(epithet, x, y + size * 0.9); ctx.restore(); }
   };
   /** THE WORD OF THE TURN: stamps in large with an ink ring; holds; o.out fades. */
   TY.turnWord = (ctx, T, k, word, o = {}) => {
