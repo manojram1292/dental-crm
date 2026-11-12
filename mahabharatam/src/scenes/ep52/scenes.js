@@ -70,7 +70,7 @@
     draw(ctx, t, env) {
       const T = env.T, b1 = env.beats[1] ?? 3.3, cam = CAM.tilt(E.inOutSine(clamp(t / 3.2)), { from: 210, to: -120, zoom: 1.12 });
       ridge(ctx, T, cam, 'wedding-turmeric', { sun: [540, 560, 330],
-        far: (g) => { KIT.glow(g, 540, 560, 900, '#fff0a0', 0.4); g.fillStyle = '#b8500f'; g.beginPath(); g.arc(540, 590, 330, 0, TAU); g.fill(); CH.surya.draw(g, { x: 540, y: 900, scale: 0.62, facing: 'front', pose: { name: 'stand' }, light: { dir: -Math.PI / 2, intensity: 1.3, front: 1, fill: 0.7 }, t: T, key: 'kr-s' }); },
+        far: (g) => { KIT.glow(g, 540, 560, 900, '#fff0a0', 0.4); CH.deva.draw(g, { x: 560, y: 1060, scale: 0.86, index: 4, facing: 'left', pose: { name: 'raise', k: 0.3 }, light: { ...GL, intensity: 1.2 }, t: T, key: 'kr-s' }); },
         figs: (g, p) => EP51.fig(g, T, 'karna', 420, 1100, 0.7, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [1.2, 'attend', { act: 0.5 }]]), L: ST.backlight(p, { from: [540, 560], at: [420, 1100], warm: '#fff0a0', front: 0.35 }), ex: { emo: 'resolve', gaze: [0.8, -0.2] }, key: 'kr-k' }) });
       TY.plaque(ctx, T, clamp((t - 0.4) / 0.5), ...names(env, 'Karna'), { x: 800, y: 460, size: 54, out: clamp((t - 2.1) / 0.25) });
       TY.plaque(ctx, T, clamp((t - 2.3) / 0.4), ...names(env, 'Bhishma'), { x: 800, y: 460, size: 42, out: clamp((t - 3.25) / 0.2) });
