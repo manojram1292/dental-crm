@@ -106,14 +106,15 @@ function scriptChecks41({ ep, sc, SL, L, dur, lang, firsts }) {
   if (!lp.hookQuestion || !lp.openQuestion) fails.push('"loop" needs hookQuestion and openQuestion');
   if (!SL[lp.answeredBy]) fails.push('"loop.answeredBy" must name the line that answers the hook');
   const pa = L.find((l) => l.id === lp.prevAnsweredBy);
-  if (!pa) fails.push('"loop.prevAnsweredBy" must name the line that answers the previous episode\'s open question');
+  if (sc.kind === 'intro') info.push('intro reel: no previous episode to answer (rule not applied)');   // only the series introduction (script "kind": "intro")
+  else if (!pa) fails.push('"loop.prevAnsweredBy" must name the line that answers the previous episode\'s open question');
   else { info.push(`previous question answered at ${pa.start.toFixed(1)} s`); if (pa.start > 15) fails.push(`the previous episode's question is answered at ${pa.start.toFixed(1)} s (max 15)`); }
   const prev = readScript(ep - 1, lang), next = readScript(ep + 1, lang);
   if (prev && prev.loop && prev.loop.openQuestion && prev.loop.openQuestion !== lp.prevQuestion) fails.push(`"loop.prevQuestion" does not match episode ${ep - 1}'s openQuestion ("${prev.loop.openQuestion}")`);
   // titles against the catalog
   const cat = catalogTitles(), S = sc.strings || {};
-  if (ep !== 99 && cat[ep] && S.episodeTitle !== cat[ep]) fails.push(`episodeTitle "${S.episodeTitle}" ≠ catalog "${cat[ep]}"`);
-  if (ep !== 99 && cat[ep + 1] && S.nextTitle !== cat[ep + 1]) fails.push(`nextTitle "${S.nextTitle}" ≠ catalog "${cat[ep + 1]}"`);
+  if (ep !== 99 && sc.kind !== 'intro' && cat[ep] && S.episodeTitle !== cat[ep]) fails.push(`episodeTitle "${S.episodeTitle}" ≠ catalog "${cat[ep]}"`);
+  if (ep !== 99 && sc.kind !== 'intro' && cat[ep + 1] && S.nextTitle !== cat[ep + 1]) fails.push(`nextTitle "${S.nextTitle}" ≠ catalog "${cat[ep + 1]}"`);
   if (!S.sourceLine || !/synthetic/i.test(S.madeLine || '')) fails.push('strings.sourceLine and strings.madeLine ("Voices: synthetic · Drawn in code") are required');
   // sound: three layers, J/L cuts, rests
   let amb = null; const ambs = new Set(), moods = new Set(); let mood = 'still', jl = 0;

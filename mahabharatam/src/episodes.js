@@ -107,6 +107,8 @@
     48: ['ep41/_common', 'ep46/_common', 'ep47/_common', 'scenes'],
     49: ['ep41/_common', 'ep44/_common', '_common', 'scenes'],
     50: ['ep41/_common', 'ep46/_common', 'ep47/_common', 'ep49/_common', 'scenes'],
+    // 98: THE SERIES INTRODUCTION reel (script/intro.en.json, scenes in src/scenes/intro/; never a numbered episode)
+    98: ['ep41/_common', 'ep46/_common', 'ep49/_common', 'intro/scenes'],
     99: ['lab'],
   };
   const q = new URLSearchParams(location.search);

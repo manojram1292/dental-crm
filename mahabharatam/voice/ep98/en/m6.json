@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9072000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.0659,
+   "words": 3,
+   "speed": 0.907,
+   "text": "And far ahead:"
+  },
+  {
+   "t0": 1.1459,
+   "t1": 1.9735,
+   "words": 2,
+   "speed": 0.907,
+   "text": "the dice,"
+  },
+  {
+   "t0": 2.0535,
+   "t1": 3.05,
+   "words": 3,
+   "speed": 0.907,
+   "text": "and the war."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

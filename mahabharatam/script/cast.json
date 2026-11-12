@@ -398,5 +398,54 @@
   "pitch": 0.5,
   "g2p": "en-gb",
   "notes": "Episode 50: Satyavati, the ferry girl. bf_emma raised 0.5 st (King Paushya's queen used it unshifted in ep 6)."
+ },
+ "dushyanta": {
+  "voice": "am_adam",
+  "speed": 0.84,
+  "pitch": 0.5,
+  "g2p": "en-us",
+  "notes": "Episodes 53–58: King Dushyanta (CE Duhshanta). am_adam raised 0.5 st: young and regal (Indra uses it −1.5 and does not speak in this arc)."
+ },
+ "shakuntala": {
+  "voice": "af_bella",
+  "speed": 0.84,
+  "pitch": 0.0,
+  "g2p": "en-us",
+  "notes": "Episodes 53–57: Shakuntala. af_bella unshifted (the enchantress entry, which never spoke, shares the voice id): warm, clear, firm in the court speech."
+ },
+ "kanva": {
+  "voice": "bm_george",
+  "speed": 0.8,
+  "pitch": 0.5,
+  "g2p": "en-gb",
+  "notes": "Episodes 55–56: the sage Kanva. bm_george raised 0.5 st: an old, kind voice (Vyasa −2.5, Jaratkaru +1.5)."
+ },
+ "skyvoice": {
+  "voice": "am_santa",
+  "speed": 0.78,
+  "pitch": -1.0,
+  "g2p": "en-us",
+  "notes": "Episode 58: the bodiless voice from the sky (CE 1.69.28). am_santa lowered 1 st: broad and calm (the Ocean −2 and Dharmaraja −3 use the same id in other arcs)."
+ },
+ "shukra": {
+  "voice": "am_fenrir",
+  "speed": 0.78,
+  "pitch": -2.0,
+  "g2p": "en-us",
+  "notes": "Episodes 59–62: Shukra (Kavya Ushanas), priest of the asuras, a Bhargava. am_fenrir lowered 2 st: hard and old, close to Bhrigu's (−1.5), his forefather."
+ },
+ "kacha": {
+  "voice": "am_puck",
+  "speed": 0.84,
+  "pitch": 0.0,
+  "g2p": "en-us",
+  "notes": "Episodes 59–61: Kacha, Brihaspati's son, the student. am_puck unshifted: young and bright (Uttanka +0.5, another student, in episode 6)."
+ },
+ "devayani": {
+  "voice": "af_heart",
+  "speed": 0.84,
+  "pitch": 1.0,
+  "g2p": "en-us",
+  "notes": "Episodes 60–62: Devayani, Shukra's daughter. af_heart raised 1 st: young, proud, quick to feeling (Sarama uses it −1.5 in episode 5)."
  }
 }

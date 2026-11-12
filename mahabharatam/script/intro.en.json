@@ -1,0 +1,417 @@
+{
+ "lang": "en",
+ "fonts": {
+  "caption": "'EB Garamond'",
+  "display": "'Cinzel'"
+ },
+ "timing": {
+  "wordsPerSecond": 2.4,
+  "voiceGap": 0.35,
+  "voiceLead": 0.12,
+  "tail": 0.25
+ },
+ "voice": {
+  "pauses": {
+   "ellipsis": 420,
+   "dash": 280,
+   "comma": 80,
+   "stop": 250
+  },
+  "note": "speaker → script/cast.json (voice, speed, pitch). Per line: speed (× the speaker's), pre/post (ms of silence before/after the voice), say (what is spoken, if not `text`), estVoice (s: the predicted voice length, tools/estimate.py; replaced by the real voice once tools/voice.py has run)."
+ },
+ "captionBand": {
+  "y": 1400,
+  "kinetic": true
+ },
+ "episode": 98,
+ "kind": "intro",
+ "source": "THE SERIES INTRODUCTION (a reel posted before episode 1; pipeline number 98, never a story episode). It says what the series is and makes only checkable claims: the traditional count of the Mahabharata is a hundred thousand verses (the epic's own 'shatasahasri samhita'; stated as tradition's count); the text followed is the Critical Edition (Bhandarkar Oriental Research Institute, Pune); material from later tradition is tagged on screen ('As tradition tells it', as in episode 14); the voices are Kokoro text-to-speech and every frame is drawn in code; the telling begins with Sauti before the sages at Naimisha (CE Adi 1.1). The montage shows images from episodes already made: Janamejaya's snake sacrifice (CE 1.47-53), Garuda storming heaven (1.28), Bhrigu's curse on Agni (1.6-7), Satyavati the ferry girl on the Yamuna (1.57), Vyasa's arrival at the sacrifice (1.54); the dice and the war are named only as far ahead (summarised in 1.55). No channel name, date or episode count is stated.",
+ "structure": "HOOK (the title as a statement, <= 3 s) -> the promise (the count, the plan) -> a montage of six images -> THE TURN after a real silence (the vow: shorten, never change; the close-up) -> the method (the critical edition, the tradition label, synthetic voices, drawn in code) -> a second silence -> where it begins (Sauti at Naimisha) -> the invitation, with the source line and episode 1's title; the last shot keeps drifting.",
+ "names": {
+  "Vyasa": "the poet of the epic",
+  "Yamuna": "the river",
+  "Naimisha": "a forest of sages"
+ },
+ "loop": {
+  "hookQuestion": "What is this series?",
+  "answeredBy": "plan",
+  "openQuestion": "How does the telling begin? (episode 1)",
+  "prevAnsweredBy": null
+ },
+ "hookStyle": "title",
+ "strings": {
+  "seriesTitle": "Mahabharatam",
+  "seriesSubtitle": "As Vyasa Told It",
+  "episodeLabel": "Mahabharatam",
+  "episodeTitle": "As Vyasa Told It",
+  "episodeSeparator": " · ",
+  "previouslyLabel": "Previously",
+  "nextLabel": "Begins with",
+  "traditionNote": "As tradition tells it",
+  "nextEpisodeLabel": "Episode 1",
+  "nextTitle": "The Storyteller Arrives",
+  "editionTag": "BORI Critical Edition",
+  "editionSub": "the text this series follows",
+  "followWord": "Follow",
+  "codeTag": "Drawn in code",
+  "voiceTag": "Voices: synthetic",
+  "sourceLine": "Text: the Mahabharata · BORI Critical Edition",
+  "madeLine": "Voices: synthetic · Drawn in code"
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "text": "The Mahabharata. As Vyasa told it.",
+   "est": 3.75,
+   "pre": 60,
+   "post": 950,
+   "say": "The Mahabharata. [p:120] As Vyasa told it.",
+   "speed": 1.15,
+   "role": "hook",
+   "caption": false,
+   "hookGold": [
+    "Vyasa"
+   ],
+   "beats": [
+    1,
+    3
+   ],
+   "amb": "hearth",
+   "music": "awe",
+   "foley": [
+    "flame",
+    "whoosh@0"
+   ],
+   "pal": "hearth-amber",
+   "cam": "push",
+   "mixDb": 1,
+   "note": "COLD OPEN (a title as a statement): the great fire fills the frame and a push goes into it; lines of gold verse rise out of the flame. The words as a card low in the frame; then the series title.",
+   "estVoice": 2.74
+  },
+  {
+   "id": "verses",
+   "text": "Tradition counts a hundred thousand verses.",
+   "est": 3.29,
+   "pre": 200,
+   "post": 250,
+   "speed": 1.12,
+   "beats": [
+    3
+   ],
+   "amb": "sky",
+   "ambLead": 250,
+   "music": "wonder",
+   "foley": [
+    "whoosh@0"
+   ],
+   "pal": "pure-flame",
+   "cam": "crane",
+   "signature": true,
+   "tr": "lamp",
+   "note": "THE SIGNATURE SHOT: a crane up from the fire's sparks into a lapis night where the verses lie in rows of gold to the horizon, a land of lights, flowing toward us.",
+   "estVoice": 2.84
+  },
+  {
+   "id": "plan",
+   "text": "I will tell it start to finish, one short episode at a time.",
+   "est": 4.31,
+   "pre": 200,
+   "post": 250,
+   "speed": 1.12,
+   "beats": [
+    4,
+    7
+   ],
+   "amb": "meadow",
+   "music": "calm",
+   "foley": [
+    "flame@0",
+    "flame@1"
+   ],
+   "pal": "exile-forest",
+   "cam": "slide",
+   "tr": "brush",
+   "note": "A green dusk: a path of small lamps winds to the horizon; they light one by one, near to far, as the camera tracks along it.",
+   "estVoice": 3.86
+  },
+  {
+   "id": "m1",
+   "text": "A sacrifice that drags serpents into the fire.",
+   "est": 3.26,
+   "pre": 150,
+   "post": 150,
+   "speed": 1.12,
+   "beats": [
+    3
+   ],
+   "amb": "satra",
+   "ambLead": 200,
+   "music": "dread",
+   "foley": [
+    "chant",
+    "hiss@0"
+   ],
+   "pal": "satra-teal-night",
+   "cam": "tilt",
+   "tr": "smoke",
+   "note": "MONTAGE 1 (CE 1.47-53): the king's hall in teal night, the fire high; serpents fall out of the dark toward it; a tilt down with them.",
+   "estVoice": 2.96
+  },
+  {
+   "id": "m2",
+   "text": "An eagle who storms heaven.",
+   "est": 2.32,
+   "pre": 150,
+   "post": 150,
+   "speed": 1.12,
+   "beats": [
+    1
+   ],
+   "amb": "storm",
+   "music": "chase",
+   "foley": [
+    "wings",
+    "thunder@0"
+   ],
+   "pal": "boar-dusk",
+   "cam": "orbit",
+   "tr": "cut",
+   "note": "MONTAGE 2 (CE 1.28): Garuda, blazing gold, large in a storm sky, wings opening; an orbit.",
+   "estVoice": 2.02
+  },
+  {
+   "id": "m3",
+   "text": "A sage who curses fire itself.",
+   "est": 2.46,
+   "pre": 150,
+   "post": 150,
+   "speed": 1.12,
+   "beats": [
+    3
+   ],
+   "amb": "hearth",
+   "music": "wrath",
+   "foley": [
+    "whoosh@0",
+    "sizzle"
+   ],
+   "pal": "wrath-crimson",
+   "cam": "push",
+   "tr": "ink",
+   "note": "MONTAGE 3 (CE 1.6-7): Bhrigu, close, in crimson; the arm thrown forward on 'curses'.",
+   "estVoice": 2.16
+  },
+  {
+   "id": "m4",
+   "text": "A ferry girl on the Yamuna.",
+   "est": 2.31,
+   "pre": 150,
+   "post": 150,
+   "speed": 1.12,
+   "emphasis": [
+    "Yamuna"
+   ],
+   "beats": [
+    1
+   ],
+   "amb": "river",
+   "ambLead": 200,
+   "music": "tender",
+   "foley": [
+    "oar",
+    "water"
+   ],
+   "pal": "yamuna-deep",
+   "cam": "slide",
+   "tr": "brush",
+   "note": "MONTAGE 4 (CE 1.57): Satyavati rowing her boat across the deep-blue river; a lateral track.",
+   "estVoice": 2.01
+  },
+  {
+   "id": "m5",
+   "text": "The poet, walking into his own story.",
+   "est": 3.06,
+   "pre": 150,
+   "post": 150,
+   "speed": 1.12,
+   "beats": [
+    1,
+    2
+   ],
+   "amb": "court",
+   "music": "awe",
+   "foley": [
+    "steps",
+    "staff"
+   ],
+   "pal": "arrival-umber-gold",
+   "cam": "frame+push",
+   "tr": "lamp",
+   "note": "MONTAGE 5 (CE 1.54): through a carved arch, Vyasa walks up the lamp-lit hall in his own gold light.",
+   "estVoice": 2.76
+  },
+  {
+   "id": "m6",
+   "text": "And far ahead: the dice, and the war.",
+   "est": 3.5,
+   "pre": 150,
+   "post": 350,
+   "speed": 1.12,
+   "beats": [
+    4,
+    7
+   ],
+   "amb": "void",
+   "music": "dread",
+   "foley": [
+    "thud@0",
+    "whoosh@1"
+   ],
+   "pal": "dice-vermilion",
+   "cam": "pull",
+   "tr": "ink",
+   "mixDb": -1,
+   "note": "MONTAGE 6 (a far promise, CE 1.55): from above, two dice fall on a red cloth; on 'the war' the cloth's grid becomes a field and two lines of small spearmen face each other in iron light. A pull back.",
+   "estVoice": 3.0
+  },
+  {
+   "id": "vow",
+   "text": "I will shorten it. I will never change it.",
+   "est": 4.93,
+   "pre": 950,
+   "post": 450,
+   "say": "I will shorten it. [p:300] I will never change it.",
+   "speed": 1.02,
+   "rest": true,
+   "sfx": [
+    "silence"
+   ],
+   "beats": [
+    2,
+    6
+   ],
+   "amb": "river",
+   "music": "still",
+   "foley": [
+    "breath@0"
+   ],
+   "pal": "riverbank-pearl",
+   "cam": "push",
+   "closeup": true,
+   "tr": "lamp",
+   "mixDb": -3,
+   "note": "THE TURN, after a real silence: the close-up. Vyasa's face against a pearl dawn: weary, then resolved, then a small warmth; his eyes come to us.",
+   "estVoice": 3.53
+  },
+  {
+   "id": "edition",
+   "text": "I follow the critical edition. What comes from later tradition, I label.",
+   "est": 5.52,
+   "pre": 200,
+   "post": 250,
+   "say": "I follow the critical edition. [p:200] What comes from later tradition, [p:80] I label.",
+   "speed": 1.12,
+   "beats": [
+    3,
+    11
+   ],
+   "amb": "court",
+   "music": "calm",
+   "foley": [
+    "leaf@0",
+    "staff@1"
+   ],
+   "pal": "seat-ivory",
+   "cam": "slide",
+   "tr": "brush",
+   "mixDb": -2,
+   "note": "Palm leaves of the text on ivory; a plaque names the edition; on 'label' the series' own tag stamps onto one leaf: As tradition tells it.",
+   "estVoice": 5.07
+  },
+  {
+   "id": "made",
+   "text": "The voices are synthetic. Every frame is drawn in code.",
+   "est": 4.34,
+   "pre": 200,
+   "post": 250,
+   "say": "The voices are synthetic. [p:200] Every frame is drawn in code.",
+   "speed": 1.12,
+   "beats": [
+    3,
+    8
+   ],
+   "amb": "forest-day",
+   "ambLead": 250,
+   "music": "joy",
+   "foley": [
+    "birds",
+    "rustle@1"
+   ],
+   "pal": "hermitage-green",
+   "cam": "rack",
+   "tr": "ink",
+   "note": "A shot builds itself in the open: sky, hills, trees, the hut and a figure arrive plane by plane as bare shapes, then the light and colour come on. Two small tags say what is synthetic.",
+   "estVoice": 3.89
+  },
+  {
+   "id": "begin",
+   "text": "It begins with Sauti, a storyteller, before the sages of Naimisha.",
+   "est": 6.05,
+   "pre": 950,
+   "post": 300,
+   "say": "It begins with Sauti, [p:80] a storyteller, [p:80] before the sages of Naimisha.",
+   "speed": 1.06,
+   "rest": true,
+   "sfx": [
+    "silence"
+   ],
+   "emphasis": [
+    "Sauti",
+    "Naimisha"
+   ],
+   "beats": [
+    3,
+    10
+   ],
+   "amb": "night-fire",
+   "music": "wonder",
+   "foley": [
+    "steps",
+    "staff@1"
+   ],
+   "pal": "naimisha-bluehour",
+   "cam": "crane",
+   "tr": "smoke",
+   "mixDb": -2,
+   "note": "After a second silence: the forest at the blue hour, a small fire, the seated sages; Sauti comes in with his staff. A crane down through the trees.",
+   "estVoice": 4.8
+  },
+  {
+   "id": "invite",
+   "text": "Follow, and meet me at the fire for episode one.",
+   "est": 6.17,
+   "pre": 200,
+   "post": 2300,
+   "say": "Follow, [p:150] and meet me at the fire [p:60] for episode one.",
+   "speed": 1.04,
+   "beats": [
+    0,
+    6
+   ],
+   "music": "awe",
+   "foley": [
+    "flame@0",
+    "cloth"
+   ],
+   "sfx": [
+    "bell@1"
+   ],
+   "pal": "naimisha-firstlight",
+   "cam": "push",
+   "tr": "lamp",
+   "mixDb": 1,
+   "note": "The same fire at first light: Sauti seated, a hand open to us; the source line (fixed), then 'Episode 1: The Storyteller Arrives'. The shot keeps drifting to the last frame.",
+   "estVoice": 3.67
+  }
+ ]
+}

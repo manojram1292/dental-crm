@@ -1,0 +1,30 @@
+{
+ "speaker": "narrator",
+ "voice": "am_michael",
+ "speed": 0.9072000000000001,
+ "pitch": 0,
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.8717,
+   "words": 5,
+   "speed": 0.907,
+   "text": "I follow the critical edition."
+  },
+  {
+   "t0": 2.1217,
+   "t1": 3.9467,
+   "words": 5,
+   "speed": 0.907,
+   "text": "What comes from later tradition,"
+  },
+  {
+   "t0": 4.0267,
+   "t1": 4.9777,
+   "words": 2,
+   "speed": 0.907,
+   "text": "I label."
+  }
+ ],
+ "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+}

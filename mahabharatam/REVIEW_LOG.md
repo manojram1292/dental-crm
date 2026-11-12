@@ -598,3 +598,18 @@ Rendered twice. The first render put the snake of the cliffhanger under the capt
 Measured (mp4): 56.9 s; hook (5 words) by 2.46 s; motion at 0.5 s 13.1; longest static hold 3.7 s (the cliffhanger); turn (Brahma's ruling) at 57 %; -14.1 LUFS, -2.3 dBTP, LRA 5.9; eight lights, hue run 2; key frames against 40–42: min 22, mean 32.0; no blank or near-white frame; 16 of 20 foley cues on their beat (the four others: a growl, a whoosh, a leaf and a rustle, all swelling sounds); ambience by place 994 / 1134 / 242 / 454 / 912 Hz; peak -2.5 dBFS, no clipped sample; share 17.8 MB.
 
 Still weak: Brahma is a flat gold shape on a lotus (a figure now, but without a face that reads at phone size); in the curse close-up the caption crosses Bhrigu's chest and pointing arm; the cliffhanger holds nearly still for 3.7 s; the first key frame is at the floor of the variety check (22) because three episodes in a row open on fire.
+
+### Episode 44 · Ruru and Pramadvara
+
+Rendered three times. First render: the girls at play overlapped, and the dead bride lay face down (the lying figure was rotated the wrong way) while the push left her face. Second render (after a container restart): the name plaque of Sthulakesha jumped as he walked (the kit moved it off his face frame by frame, and motion blur showed two plaques), and Pramadvara's plaque sat half under the captions. Third render: plaques stand where they are put.
+
+New checks from this episode (coordinator's notes on 42 and 43):
+- **Text stays where it was put.** `TY.clear` reports `moved:<what>` when it has to move a plaque or the turn-word off a face, and `TY.plaque` reports `lowText:plaque` when its box reaches the caption band (y > 1140). The gate fails on either from episode 44; `tools/facehits.mjs --ep N` names the line and `tools/_faces.mjs --ep N --lines a,b` prints where the faces are in a line, to choose a clear place.
+- **A plaque's box and its letters arrive together** (the letters used to start 0.2 of the way in, so an empty box showed for some frames).
+- **End shots keep moving**: every cliffhanger camera is wrapped in `CAM.drift(…, T, 1.8)`.
+- **No opening on fire in 44–50**: the ten openings were put side by side and looked at (a bride and a snake at night; a pale messenger; a snake in green; a sage in a bright doorway; six cloth panels; a fish in blue water; a child on an island at dawn).
+- `tools/review.py` computed its frame statistics on the whole film as floats (9 GB) and was killed after the restart; it now works frame by frame.
+
+Measured (mp4): 56.2 s; hook (6 words) by 2.89 s; motion at 0.5 s 13.6; longest static hold 1.7 s; turn at 54 %; -14.1 LUFS, -2.2 dBTP, LRA 5.1; six lights, hue run 2; key frames against 41–43: min 28, mean 32.2; 21 of 24 foley cues on their beat (outside: a hiss, river water, a leaf); ambience by place 1417 / 2683 / 2012 / 2236 / 474 Hz; peak -2.5 dBFS, no clipped sample; share 16.6 MB.
+
+Still weak: the new-born Menaka lays down is hidden by the caption band (a glow at the water's edge is all that shows; in the next shot it is a glowing bundle in the sage's arms); Pramadvara's plaque crosses her upper arm; in the close-up of Ruru the caption lies over his chest (the band begins at y ≈ 1150 and a head at that scale ends near 1050).
