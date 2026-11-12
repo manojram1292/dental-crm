@@ -1,0 +1,1697 @@
+{
+ "A-current": {
+  "name": "A-current",
+  "dir": "voice/ep44/en",
+  "lines": [
+   {
+    "id": "hook",
+    "dur_s": 2.83,
+    "pauses": 2,
+    "pause_s": 0.64,
+    "syll_per_s": 3.2,
+    "median_hz": 115.6,
+    "range_st": 9.78,
+    "sd_st": 3.37,
+    "slope_st_s": 37.0,
+    "voiced_frac": 0.52,
+    "heard": "A bride, a snake, a wedding",
+    "line_errors": 0
+   },
+   {
+    "id": "family",
+    "dur_s": 3.34,
+    "pauses": 2,
+    "pause_s": 0.23,
+    "syll_per_s": 3.21,
+    "median_hz": 112.8,
+    "range_st": 10.38,
+    "sd_st": 3.04,
+    "slope_st_s": 34.2,
+    "voiced_frac": 0.67,
+    "heard": "Rooru was a young sage of Perigu's line.",
+    "line_errors": 2
+   },
+   {
+    "id": "left",
+    "dur_s": 5.57,
+    "pauses": 3,
+    "pause_s": 0.47,
+    "syll_per_s": 3.73,
+    "median_hz": 117.3,
+    "range_st": 9.89,
+    "sd_st": 3.08,
+    "slope_st_s": 34.2,
+    "voiced_frac": 0.62,
+    "heard": "By a river, an upset eye, a nymph of heaven, left her newborn daughter.",
+    "line_errors": 2
+   },
+   {
+    "id": "found",
+    "dur_s": 3.3,
+    "pauses": 1,
+    "pause_s": 0.15,
+    "syll_per_s": 3.18,
+    "median_hz": 115.8,
+    "range_st": 11.06,
+    "sd_st": 3.66,
+    "slope_st_s": 36.6,
+    "voiced_frac": 0.6,
+    "heard": "a sage found her and raised her as his own.",
+    "line_errors": 0
+   },
+   {
+    "id": "named",
+    "dur_s": 3.53,
+    "pauses": 1,
+    "pause_s": 0.25,
+    "syll_per_s": 3.96,
+    "median_hz": 120.6,
+    "range_st": 10.06,
+    "sd_st": 3.26,
+    "slope_st_s": 36.1,
+    "voiced_frac": 0.58,
+    "heard": "He named her Premudvara, the finest of women.",
+    "line_errors": 1
+   },
+   {
+    "id": "loved",
+    "dur_s": 2.73,
+    "pauses": 1,
+    "pause_s": 0.38,
+    "syll_per_s": 2.98,
+    "median_hz": 124.4,
+    "range_st": 9.61,
+    "sd_st": 2.99,
+    "slope_st_s": 32.8,
+    "voiced_frac": 0.57,
+    "heard": "Voodoo saw her and loved her.",
+    "line_errors": 1
+   },
+   {
+    "id": "play",
+    "dur_s": 3.93,
+    "pauses": 3,
+    "pause_s": 0.32,
+    "syll_per_s": 3.6,
+    "median_hz": 119.2,
+    "range_st": 11.7,
+    "sd_st": 3.44,
+    "slope_st_s": 31.9,
+    "voiced_frac": 0.55,
+    "heard": "A few days before it, she was out playing with her friends.",
+    "line_errors": 0
+   },
+   {
+    "id": "snake",
+    "dur_s": 3.23,
+    "pauses": 2,
+    "pause_s": 0.26,
+    "syll_per_s": 3.71,
+    "median_hz": 124.5,
+    "range_st": 9.07,
+    "sd_st": 3.0,
+    "slope_st_s": 36.7,
+    "voiced_frac": 0.55,
+    "heard": "She did not see the snake asleep in her path.",
+    "line_errors": 0
+   },
+   {
+    "id": "bit",
+    "dur_s": 2.38,
+    "pauses": 1,
+    "pause_s": 0.3,
+    "syll_per_s": 2.89,
+    "median_hz": 115.0,
+    "range_st": 10.16,
+    "sd_st": 3.24,
+    "slope_st_s": 36.7,
+    "voiced_frac": 0.55,
+    "heard": "It bit her and she fell.",
+    "line_errors": 0
+   },
+   {
+    "id": "lay",
+    "dur_s": 4.32,
+    "pauses": 3,
+    "pause_s": 0.66,
+    "syll_per_s": 3.55,
+    "median_hz": 116.3,
+    "range_st": 10.44,
+    "sd_st": 3.04,
+    "slope_st_s": 35.9,
+    "voiced_frac": 0.57,
+    "heard": "She lay dead, as if asleep, lovelier than ever.",
+    "line_errors": 0
+   },
+   {
+    "id": "wept",
+    "dur_s": 3.44,
+    "pauses": 2,
+    "pause_s": 0.33,
+    "syll_per_s": 3.53,
+    "median_hz": 114.4,
+    "range_st": 8.57,
+    "sd_st": 3.14,
+    "slope_st_s": 28.1,
+    "voiced_frac": 0.58,
+    "heard": "The sages of the forest gathered in wept.",
+    "line_errors": 1
+   },
+   {
+    "id": "cliff",
+    "dur_s": 6.88,
+    "pauses": 4,
+    "pause_s": 0.86,
+    "syll_per_s": 3.65,
+    "median_hz": 115.2,
+    "range_st": 10.45,
+    "sd_st": 3.18,
+    "slope_st_s": 33.2,
+    "voiced_frac": 0.6,
+    "heard": "Ruro walked into the deep forest and cried out, and a messenger of the gods answered.",
+    "line_errors": 1
+   }
+  ],
+  "pitch": {
+   "median_hz": 116.0,
+   "range_st_mean": 10.1,
+   "range_st_min": 8.57,
+   "range_st_max": 11.7,
+   "sd_st_mean": 3.2,
+   "sd_of_line_ranges": 0.8,
+   "slope_st_s_mean": 34.4,
+   "melody_sameness": 0.199
+  },
+  "pauses": {
+   "count": 25,
+   "median_s": 0.164,
+   "sd_s": 0.097,
+   "min_s": 0.07,
+   "max_s": 0.408,
+   "all_s": [
+    0.07,
+    0.081,
+    0.086,
+    0.088,
+    0.097,
+    0.101,
+    0.129,
+    0.135,
+    0.142,
+    0.151,
+    0.154,
+    0.164,
+    0.164,
+    0.175,
+    0.182,
+    0.19,
+    0.201,
+    0.235,
+    0.253,
+    0.304,
+    0.309,
+    0.328,
+    0.34,
+    0.384,
+    0.408
+   ]
+  },
+  "rate": {
+   "syll_per_s_mean": 3.43,
+   "cv_pct": 9.2,
+   "min": 2.89,
+   "max": 3.96
+  },
+  "spectrum": {
+   "<150": 25.98,
+   "150-500": 39.69,
+   "500-2k": 27.28,
+   "2k-5k": 4.4,
+   "5k-9k": 2.46,
+   ">9k": 0.19,
+   "centroid_hz": 695
+  },
+  "sample_rate": 24000,
+  "asr": {
+   "words": 107,
+   "errors": 3,
+   "wer_pct_without_names": 2.8,
+   "names": [
+    {
+     "line": "family",
+     "name": "ruru",
+     "heard": "rooru"
+    },
+    {
+     "line": "family",
+     "name": "bhrigu's",
+     "heard": "perigu's"
+    },
+    {
+     "line": "named",
+     "name": "pramadvara",
+     "heard": "premudvara"
+    },
+    {
+     "line": "loved",
+     "name": "ruru",
+     "heard": "voodoo"
+    },
+    {
+     "line": "cliff",
+     "name": "ruru",
+     "heard": "ruro"
+    }
+   ]
+  },
+  "sync": {
+   "words": 112,
+   "median_s": -0.186,
+   "median_abs_s": 0.188,
+   "p90_abs_s": 0.408,
+   "max_abs_s": 0.598,
+   "worst": [
+    {
+     "line": "cliff",
+     "w": "answered.",
+     "d": -0.598
+    },
+    {
+     "line": "family",
+     "w": "sage",
+     "d": -0.539
+    },
+    {
+     "line": "cliff",
+     "w": "of",
+     "d": -0.508
+    },
+    {
+     "line": "bit",
+     "w": "and",
+     "d": -0.498
+    },
+    {
+     "line": "cliff",
+     "w": "gods",
+     "d": -0.488
+    }
+   ]
+  }
+ },
+ "B-kokoro-directed": {
+  "name": "B-kokoro-directed",
+  "dir": "lab/voicelab/cand/B-am_michael/lines",
+  "lines": [
+   {
+    "id": "hook",
+    "dur_s": 3.23,
+    "pauses": 2,
+    "pause_s": 1.04,
+    "syll_per_s": 3.19,
+    "median_hz": 115.9,
+    "range_st": 10.43,
+    "sd_st": 3.51,
+    "slope_st_s": 38.9,
+    "voiced_frac": 0.47,
+    "heard": "A bride, a snake, a wedding.",
+    "line_errors": 0
+   },
+   {
+    "id": "family",
+    "dur_s": 2.84,
+    "pauses": 1,
+    "pause_s": 0.07,
+    "syll_per_s": 3.61,
+    "median_hz": 109.0,
+    "range_st": 9.94,
+    "sd_st": 3.36,
+    "slope_st_s": 33.8,
+    "voiced_frac": 0.69,
+    "heard": "Rooru was a young sage of Prigu's line.",
+    "line_errors": 2
+   },
+   {
+    "id": "left",
+    "dur_s": 4.92,
+    "pauses": 4,
+    "pause_s": 0.93,
+    "syll_per_s": 4.77,
+    "median_hz": 114.5,
+    "range_st": 9.88,
+    "sd_st": 3.35,
+    "slope_st_s": 33.7,
+    "voiced_frac": 0.56,
+    "heard": "by a river, an upsidah, a nymph of heaven, left her newborn daughter.",
+    "line_errors": 1
+   },
+   {
+    "id": "found",
+    "dur_s": 2.85,
+    "pauses": 1,
+    "pause_s": 0.19,
+    "syll_per_s": 3.76,
+    "median_hz": 109.2,
+    "range_st": 10.35,
+    "sd_st": 3.4,
+    "slope_st_s": 35.8,
+    "voiced_frac": 0.61,
+    "heard": "A sage found her and raised her as his own.",
+    "line_errors": 0
+   },
+   {
+    "id": "named",
+    "dur_s": 3.2,
+    "pauses": 1,
+    "pause_s": 0.49,
+    "syll_per_s": 4.79,
+    "median_hz": 119.5,
+    "range_st": 10.54,
+    "sd_st": 3.48,
+    "slope_st_s": 39.4,
+    "voiced_frac": 0.54,
+    "heard": "He named her Premudvara, the finest of women.",
+    "line_errors": 1
+   },
+   {
+    "id": "loved",
+    "dur_s": 2.37,
+    "pauses": 1,
+    "pause_s": 0.5,
+    "syll_per_s": 3.75,
+    "median_hz": 113.2,
+    "range_st": 9.79,
+    "sd_st": 2.99,
+    "slope_st_s": 41.6,
+    "voiced_frac": 0.53,
+    "heard": "Voodoo saw her and loved her.",
+    "line_errors": 1
+   },
+   {
+    "id": "play",
+    "dur_s": 3.7,
+    "pauses": 3,
+    "pause_s": 0.49,
+    "syll_per_s": 4.05,
+    "median_hz": 121.1,
+    "range_st": 12.2,
+    "sd_st": 3.62,
+    "slope_st_s": 31.5,
+    "voiced_frac": 0.55,
+    "heard": "A few days before it, she was outplaying with her friends.",
+    "line_errors": 2
+   },
+   {
+    "id": "snake",
+    "dur_s": 2.82,
+    "pauses": 0,
+    "pause_s": 0,
+    "syll_per_s": 3.9,
+    "median_hz": 128.6,
+    "range_st": 10.39,
+    "sd_st": 3.55,
+    "slope_st_s": 37.5,
+    "voiced_frac": 0.57,
+    "heard": "She did not see the snake asleep in her path.",
+    "line_errors": 0
+   },
+   {
+    "id": "bit",
+    "dur_s": 2.29,
+    "pauses": 1,
+    "pause_s": 0.49,
+    "syll_per_s": 3.33,
+    "median_hz": 111.2,
+    "range_st": 10.24,
+    "sd_st": 3.38,
+    "slope_st_s": 39.4,
+    "voiced_frac": 0.51,
+    "heard": "It bit her and she fell.",
+    "line_errors": 0
+   },
+   {
+    "id": "lay",
+    "dur_s": 4.9,
+    "pauses": 3,
+    "pause_s": 1.02,
+    "syll_per_s": 3.36,
+    "median_hz": 115.2,
+    "range_st": 10.63,
+    "sd_st": 3.03,
+    "slope_st_s": 33.0,
+    "voiced_frac": 0.53,
+    "heard": "She lay dead as if asleep, lovelier than ever.",
+    "line_errors": 0
+   },
+   {
+    "id": "wept",
+    "dur_s": 2.85,
+    "pauses": 1,
+    "pause_s": 0.17,
+    "syll_per_s": 4.1,
+    "median_hz": 111.0,
+    "range_st": 10.11,
+    "sd_st": 3.06,
+    "slope_st_s": 33.3,
+    "voiced_frac": 0.61,
+    "heard": "The sages of the forest gathered and wept.",
+    "line_errors": 0
+   },
+   {
+    "id": "cliff",
+    "dur_s": 6.15,
+    "pauses": 3,
+    "pause_s": 1.01,
+    "syll_per_s": 4.28,
+    "median_hz": 115.4,
+    "range_st": 10.49,
+    "sd_st": 3.11,
+    "slope_st_s": 32.8,
+    "voiced_frac": 0.59,
+    "heard": "Voodoo walked into the deep forest and cried out, and a messenger of the gods answered.",
+    "line_errors": 1
+   }
+  ],
+  "pitch": {
+   "median_hz": 114.8,
+   "range_st_mean": 10.42,
+   "range_st_min": 9.79,
+   "range_st_max": 12.2,
+   "sd_st_mean": 3.32,
+   "sd_of_line_ranges": 0.6,
+   "slope_st_s_mean": 35.9,
+   "melody_sameness": 0.151
+  },
+  "pauses": {
+   "count": 21,
+   "median_s": 0.28,
+   "sd_s": 0.207,
+   "min_s": 0.072,
+   "max_s": 0.82,
+   "all_s": [
+    0.072,
+    0.072,
+    0.073,
+    0.08,
+    0.086,
+    0.087,
+    0.104,
+    0.165,
+    0.188,
+    0.26,
+    0.28,
+    0.32,
+    0.339,
+    0.45,
+    0.485,
+    0.486,
+    0.49,
+    0.5,
+    0.509,
+    0.526,
+    0.82
+   ]
+  },
+  "rate": {
+   "syll_per_s_mean": 3.91,
+   "cv_pct": 12.8,
+   "min": 3.19,
+   "max": 4.79
+  },
+  "spectrum": {
+   "<150": 24.28,
+   "150-500": 42.49,
+   "500-2k": 24.5,
+   "2k-5k": 5.23,
+   "5k-9k": 3.25,
+   ">9k": 0.24,
+   "centroid_hz": 779
+  },
+  "sample_rate": 24000,
+  "asr": {
+   "words": 107,
+   "errors": 3,
+   "wer_pct_without_names": 2.8,
+   "names": [
+    {
+     "line": "family",
+     "name": "ruru",
+     "heard": "rooru"
+    },
+    {
+     "line": "family",
+     "name": "bhrigu's",
+     "heard": "prigu's"
+    },
+    {
+     "line": "named",
+     "name": "pramadvara",
+     "heard": "premudvara"
+    },
+    {
+     "line": "loved",
+     "name": "ruru",
+     "heard": "voodoo"
+    },
+    {
+     "line": "cliff",
+     "name": "ruru",
+     "heard": "voodoo"
+    }
+   ]
+  },
+  "sync": {
+   "words": 112,
+   "median_s": -0.164,
+   "median_abs_s": 0.164,
+   "p90_abs_s": 0.417,
+   "max_abs_s": 0.727,
+   "worst": [
+    {
+     "line": "wept",
+     "w": "and",
+     "d": -0.727
+    },
+    {
+     "line": "lay",
+     "w": "as",
+     "d": -0.612
+    },
+    {
+     "line": "bit",
+     "w": "and",
+     "d": -0.538
+    },
+    {
+     "line": "wept",
+     "w": "gathered",
+     "d": -0.51
+    },
+    {
+     "line": "wept",
+     "w": "wept.",
+     "d": -0.478
+    }
+   ]
+  }
+ },
+ "B-kokoro-directed.refit": {
+  "name": "B-kokoro-directed.refit",
+  "dir": "lab/voicelab/cand/B-am_michael/fit",
+  "lines": [
+   {
+    "id": "hook",
+    "dur_s": 2.83,
+    "pauses": 2,
+    "pause_s": 0.67,
+    "syll_per_s": 3.24,
+    "median_hz": 114.1,
+    "range_st": 10.15,
+    "sd_st": 3.34,
+    "slope_st_s": 39.9,
+    "voiced_frac": 0.53,
+    "heard": "A bride, a snake, a wedding.",
+    "line_errors": 0
+   },
+   {
+    "id": "family",
+    "dur_s": 3.34,
+    "pauses": 1,
+    "pause_s": 0.09,
+    "syll_per_s": 3.08,
+    "median_hz": 106.8,
+    "range_st": 9.23,
+    "sd_st": 3.1,
+    "slope_st_s": 34.8,
+    "voiced_frac": 0.68,
+    "heard": "Rooru was a young sage of Perigu's line.",
+    "line_errors": 2
+   },
+   {
+    "id": "left",
+    "dur_s": 5.57,
+    "pauses": 4,
+    "pause_s": 0.67,
+    "syll_per_s": 3.88,
+    "median_hz": 111.2,
+    "range_st": 10.19,
+    "sd_st": 3.29,
+    "slope_st_s": 29.6,
+    "voiced_frac": 0.63,
+    "heard": "By a river, an upsidah, a nymph of heaven, left her newborn daughter.",
+    "line_errors": 1
+   },
+   {
+    "id": "found",
+    "dur_s": 3.3,
+    "pauses": 1,
+    "pause_s": 0.22,
+    "syll_per_s": 3.25,
+    "median_hz": 110.7,
+    "range_st": 10.71,
+    "sd_st": 3.93,
+    "slope_st_s": 32.7,
+    "voiced_frac": 0.58,
+    "heard": "A sage found her and raised her as his own.",
+    "line_errors": 0
+   },
+   {
+    "id": "named",
+    "dur_s": 3.53,
+    "pauses": 1,
+    "pause_s": 0.34,
+    "syll_per_s": 4.07,
+    "median_hz": 118.8,
+    "range_st": 10.48,
+    "sd_st": 3.47,
+    "slope_st_s": 34.8,
+    "voiced_frac": 0.54,
+    "heard": "He named her Premudvara, the finest of women.",
+    "line_errors": 1
+   },
+   {
+    "id": "loved",
+    "dur_s": 2.73,
+    "pauses": 1,
+    "pause_s": 0.33,
+    "syll_per_s": 2.92,
+    "median_hz": 111.3,
+    "range_st": 9.53,
+    "sd_st": 2.87,
+    "slope_st_s": 37.4,
+    "voiced_frac": 0.56,
+    "heard": "Voodoo saw her and loved her.",
+    "line_errors": 1
+   },
+   {
+    "id": "play",
+    "dur_s": 3.93,
+    "pauses": 3,
+    "pause_s": 0.43,
+    "syll_per_s": 3.71,
+    "median_hz": 119.8,
+    "range_st": 11.0,
+    "sd_st": 3.46,
+    "slope_st_s": 33.1,
+    "voiced_frac": 0.57,
+    "heard": "A few days before it, she was out playing with her friends.",
+    "line_errors": 0
+   },
+   {
+    "id": "snake",
+    "dur_s": 3.23,
+    "pauses": 2,
+    "pause_s": 0.14,
+    "syll_per_s": 3.56,
+    "median_hz": 128.2,
+    "range_st": 9.0,
+    "sd_st": 2.99,
+    "slope_st_s": 34.6,
+    "voiced_frac": 0.55,
+    "heard": "She did not see the snake asleep in her path.",
+    "line_errors": 0
+   },
+   {
+    "id": "bit",
+    "dur_s": 2.38,
+    "pauses": 1,
+    "pause_s": 0.34,
+    "syll_per_s": 2.95,
+    "median_hz": 113.8,
+    "range_st": 11.39,
+    "sd_st": 3.46,
+    "slope_st_s": 34.5,
+    "voiced_frac": 0.55,
+    "heard": "It bit her and she fell.",
+    "line_errors": 0
+   },
+   {
+    "id": "lay",
+    "dur_s": 4.32,
+    "pauses": 3,
+    "pause_s": 0.77,
+    "syll_per_s": 3.66,
+    "median_hz": 118.6,
+    "range_st": 10.8,
+    "sd_st": 3.42,
+    "slope_st_s": 35.0,
+    "voiced_frac": 0.53,
+    "heard": "She lay dead as if asleep, lovelier than ever.",
+    "line_errors": 0
+   },
+   {
+    "id": "wept",
+    "dur_s": 3.44,
+    "pauses": 1,
+    "pause_s": 0.17,
+    "syll_per_s": 3.36,
+    "median_hz": 107.1,
+    "range_st": 9.36,
+    "sd_st": 2.91,
+    "slope_st_s": 28.7,
+    "voiced_frac": 0.6,
+    "heard": "The sages of the forest gathered and wept.",
+    "line_errors": 0
+   },
+   {
+    "id": "cliff",
+    "dur_s": 6.88,
+    "pauses": 3,
+    "pause_s": 0.71,
+    "syll_per_s": 3.57,
+    "median_hz": 111.3,
+    "range_st": 10.55,
+    "sd_st": 3.1,
+    "slope_st_s": 32.9,
+    "voiced_frac": 0.63,
+    "heard": "Rooru walked into the deep forest and cried out, and a messenger of the gods answered.",
+    "line_errors": 1
+   }
+  ],
+  "pitch": {
+   "median_hz": 112.5,
+   "range_st_mean": 10.2,
+   "range_st_min": 9.0,
+   "range_st_max": 11.39,
+   "sd_st_mean": 3.28,
+   "sd_of_line_ranges": 0.73,
+   "slope_st_s_mean": 34.0,
+   "melody_sameness": 0.178
+  },
+  "pauses": {
+   "count": 23,
+   "median_s": 0.17,
+   "sd_s": 0.119,
+   "min_s": 0.07,
+   "max_s": 0.467,
+   "all_s": [
+    0.07,
+    0.071,
+    0.078,
+    0.087,
+    0.089,
+    0.094,
+    0.107,
+    0.118,
+    0.13,
+    0.131,
+    0.157,
+    0.17,
+    0.222,
+    0.266,
+    0.278,
+    0.312,
+    0.316,
+    0.33,
+    0.343,
+    0.344,
+    0.351,
+    0.37,
+    0.467
+   ]
+  },
+  "rate": {
+   "syll_per_s_mean": 3.44,
+   "cv_pct": 10.2,
+   "min": 2.92,
+   "max": 4.07
+  },
+  "spectrum": {
+   "<150": 24.21,
+   "150-500": 42.72,
+   "500-2k": 24.37,
+   "2k-5k": 5.18,
+   "5k-9k": 3.29,
+   ">9k": 0.24,
+   "centroid_hz": 780
+  },
+  "sample_rate": 24000,
+  "asr": {
+   "words": 107,
+   "errors": 1,
+   "wer_pct_without_names": 0.9,
+   "names": [
+    {
+     "line": "family",
+     "name": "ruru",
+     "heard": "rooru"
+    },
+    {
+     "line": "family",
+     "name": "bhrigu's",
+     "heard": "perigu's"
+    },
+    {
+     "line": "named",
+     "name": "pramadvara",
+     "heard": "premudvara"
+    },
+    {
+     "line": "loved",
+     "name": "ruru",
+     "heard": "voodoo"
+    },
+    {
+     "line": "cliff",
+     "name": "ruru",
+     "heard": "rooru"
+    }
+   ]
+  }
+ },
+ "B2-bm_george": {
+  "name": "B2-bm_george",
+  "dir": "lab/voicelab/cand/B-bm_george/lines",
+  "lines": [
+   {
+    "id": "hook",
+    "dur_s": 3.67,
+    "pauses": 2,
+    "pause_s": 1.02,
+    "syll_per_s": 2.63,
+    "median_hz": 147.9,
+    "range_st": 16.2,
+    "sd_st": 5.51,
+    "slope_st_s": 39.9,
+    "voiced_frac": 0.64,
+    "heard": "A bride, a snake, a wedding.",
+    "line_errors": 0
+   },
+   {
+    "id": "family",
+    "dur_s": 3.45,
+    "pauses": 2,
+    "pause_s": 0.38,
+    "syll_per_s": 3.25,
+    "median_hz": 145.5,
+    "range_st": 15.17,
+    "sd_st": 4.37,
+    "slope_st_s": 32.3,
+    "voiced_frac": 0.74,
+    "heard": "Rooru was a young sage of Prigu's line.",
+    "line_errors": 2
+   },
+   {
+    "id": "left",
+    "dur_s": 5.33,
+    "pauses": 3,
+    "pause_s": 0.89,
+    "syll_per_s": 4.28,
+    "median_hz": 140.6,
+    "range_st": 11.93,
+    "sd_st": 3.52,
+    "slope_st_s": 31.4,
+    "voiced_frac": 0.68,
+    "heard": "by a river and up Sirah, a nymph of heaven, left her newborn daughter.",
+    "line_errors": 3
+   },
+   {
+    "id": "found",
+    "dur_s": 3.47,
+    "pauses": 1,
+    "pause_s": 0.34,
+    "syll_per_s": 3.2,
+    "median_hz": 140.9,
+    "range_st": 15.18,
+    "sd_st": 4.33,
+    "slope_st_s": 31.4,
+    "voiced_frac": 0.71,
+    "heard": "A sage found her and raised her as his own.",
+    "line_errors": 0
+   },
+   {
+    "id": "named",
+    "dur_s": 3.56,
+    "pauses": 1,
+    "pause_s": 0.49,
+    "syll_per_s": 4.23,
+    "median_hz": 143.1,
+    "range_st": 14.54,
+    "sd_st": 4.39,
+    "slope_st_s": 33.2,
+    "voiced_frac": 0.71,
+    "heard": "He named her Premudvar\u0101, the finest of women.",
+    "line_errors": 1
+   },
+   {
+    "id": "loved",
+    "dur_s": 2.68,
+    "pauses": 1,
+    "pause_s": 0.5,
+    "syll_per_s": 3.21,
+    "median_hz": 148.5,
+    "range_st": 14.49,
+    "sd_st": 4.3,
+    "slope_st_s": 31.8,
+    "voiced_frac": 0.69,
+    "heard": "Ruru saw her and loved her.",
+    "line_errors": 0
+   },
+   {
+    "id": "play",
+    "dur_s": 3.82,
+    "pauses": 2,
+    "pause_s": 0.45,
+    "syll_per_s": 3.86,
+    "median_hz": 139.2,
+    "range_st": 13.31,
+    "sd_st": 3.74,
+    "slope_st_s": 32.5,
+    "voiced_frac": 0.67,
+    "heard": "A few days before it, she was outplaying with her friends.",
+    "line_errors": 2
+   },
+   {
+    "id": "snake",
+    "dur_s": 3.2,
+    "pauses": 1,
+    "pause_s": 0.15,
+    "syll_per_s": 3.62,
+    "median_hz": 148.2,
+    "range_st": 11.34,
+    "sd_st": 3.55,
+    "slope_st_s": 38.7,
+    "voiced_frac": 0.65,
+    "heard": "She did not see the snake asleep in her path.",
+    "line_errors": 0
+   },
+   {
+    "id": "bit",
+    "dur_s": 2.24,
+    "pauses": 1,
+    "pause_s": 0.45,
+    "syll_per_s": 3.34,
+    "median_hz": 142.4,
+    "range_st": 16.73,
+    "sd_st": 4.75,
+    "slope_st_s": 36.2,
+    "voiced_frac": 0.63,
+    "heard": "It bit her and she fell.",
+    "line_errors": 0
+   },
+   {
+    "id": "lay",
+    "dur_s": 4.75,
+    "pauses": 3,
+    "pause_s": 1.06,
+    "syll_per_s": 3.53,
+    "median_hz": 139.9,
+    "range_st": 13.41,
+    "sd_st": 3.93,
+    "slope_st_s": 30.9,
+    "voiced_frac": 0.65,
+    "heard": "She lay dead as if asleep, lovelier than ever.",
+    "line_errors": 0
+   },
+   {
+    "id": "wept",
+    "dur_s": 3.48,
+    "pauses": 3,
+    "pause_s": 0.49,
+    "syll_per_s": 3.68,
+    "median_hz": 142.1,
+    "range_st": 10.31,
+    "sd_st": 3.17,
+    "slope_st_s": 35.0,
+    "voiced_frac": 0.69,
+    "heard": "the sages of the forest gathered and wept.",
+    "line_errors": 0
+   },
+   {
+    "id": "cliff",
+    "dur_s": 6.7,
+    "pauses": 3,
+    "pause_s": 1.17,
+    "syll_per_s": 3.98,
+    "median_hz": 146.0,
+    "range_st": 12.41,
+    "sd_st": 3.37,
+    "slope_st_s": 33.1,
+    "voiced_frac": 0.62,
+    "heard": "Rooru walked into the deep forest and cried out, and a messenger of the gods answered.",
+    "line_errors": 1
+   }
+  ],
+  "pitch": {
+   "median_hz": 142.8,
+   "range_st_mean": 13.75,
+   "range_st_min": 10.31,
+   "range_st_max": 16.73,
+   "sd_st_mean": 4.08,
+   "sd_of_line_ranges": 1.9,
+   "slope_st_s_mean": 33.9,
+   "melody_sameness": 0.529
+  },
+  "pauses": {
+   "count": 23,
+   "median_s": 0.28,
+   "sd_s": 0.174,
+   "min_s": 0.072,
+   "max_s": 0.82,
+   "all_s": [
+    0.072,
+    0.105,
+    0.108,
+    0.109,
+    0.117,
+    0.154,
+    0.26,
+    0.263,
+    0.274,
+    0.275,
+    0.276,
+    0.28,
+    0.337,
+    0.344,
+    0.35,
+    0.353,
+    0.45,
+    0.45,
+    0.49,
+    0.5,
+    0.503,
+    0.512,
+    0.82
+   ]
+  },
+  "rate": {
+   "syll_per_s_mean": 3.57,
+   "cv_pct": 12.8,
+   "min": 2.63,
+   "max": 4.28
+  },
+  "spectrum": {
+   "<150": 38.23,
+   "150-500": 50.06,
+   "500-2k": 7.87,
+   "2k-5k": 2.36,
+   "5k-9k": 1.45,
+   ">9k": 0.03,
+   "centroid_hz": 414
+  },
+  "sample_rate": 24000,
+  "asr": {
+   "words": 107,
+   "errors": 5,
+   "wer_pct_without_names": 4.7,
+   "names": [
+    {
+     "line": "family",
+     "name": "ruru",
+     "heard": "rooru"
+    },
+    {
+     "line": "family",
+     "name": "bhrigu's",
+     "heard": "prigu's"
+    },
+    {
+     "line": "named",
+     "name": "pramadvara",
+     "heard": "premudvar"
+    },
+    {
+     "line": "loved",
+     "name": "ruru",
+     "heard": "ruru"
+    },
+    {
+     "line": "cliff",
+     "name": "ruru",
+     "heard": "rooru"
+    }
+   ]
+  }
+ },
+ "B3-hm_omega": {
+  "name": "B3-hm_omega",
+  "dir": "lab/voicelab/cand/B-hm_omega/lines",
+  "lines": [
+   {
+    "id": "hook",
+    "dur_s": 2.85,
+    "pauses": 2,
+    "pause_s": 0.94,
+    "syll_per_s": 3.67,
+    "median_hz": 132.8,
+    "range_st": 16.17,
+    "sd_st": 5.11,
+    "slope_st_s": 35.9,
+    "voiced_frac": 0.52,
+    "heard": "A bride, a snake, a wedding.",
+    "line_errors": 0
+   },
+   {
+    "id": "family",
+    "dur_s": 3.11,
+    "pauses": 2,
+    "pause_s": 0.29,
+    "syll_per_s": 3.55,
+    "median_hz": 124.5,
+    "range_st": 16.13,
+    "sd_st": 4.71,
+    "slope_st_s": 40.7,
+    "voiced_frac": 0.7,
+    "heard": "Rooru was a young sage of Bregu's line.",
+    "line_errors": 2
+   },
+   {
+    "id": "left",
+    "dur_s": 5.19,
+    "pauses": 5,
+    "pause_s": 1.19,
+    "syll_per_s": 4.75,
+    "median_hz": 118.4,
+    "range_st": 14.44,
+    "sd_st": 4.45,
+    "slope_st_s": 42.4,
+    "voiced_frac": 0.64,
+    "heard": "By a river, an up -sara, a nymph of heaven, left her newborn daughter.",
+    "line_errors": 2
+   },
+   {
+    "id": "found",
+    "dur_s": 3.26,
+    "pauses": 2,
+    "pause_s": 0.35,
+    "syll_per_s": 3.44,
+    "median_hz": 126.1,
+    "range_st": 15.14,
+    "sd_st": 4.73,
+    "slope_st_s": 39.6,
+    "voiced_frac": 0.67,
+    "heard": "A sage found her and raised her as his own.",
+    "line_errors": 0
+   },
+   {
+    "id": "named",
+    "dur_s": 3.35,
+    "pauses": 4,
+    "pause_s": 0.77,
+    "syll_per_s": 5.03,
+    "median_hz": 133.2,
+    "range_st": 15.87,
+    "sd_st": 4.54,
+    "slope_st_s": 36.3,
+    "voiced_frac": 0.65,
+    "heard": "He named her Pramadhvara the finest of women.",
+    "line_errors": 1
+   },
+   {
+    "id": "loved",
+    "dur_s": 2.54,
+    "pauses": 1,
+    "pause_s": 0.5,
+    "syll_per_s": 3.43,
+    "median_hz": 120.2,
+    "range_st": 17.06,
+    "sd_st": 4.71,
+    "slope_st_s": 36.7,
+    "voiced_frac": 0.63,
+    "heard": "Lulu Saha 'i and Love Thay.",
+    "line_errors": 5
+   },
+   {
+    "id": "play",
+    "dur_s": 3.62,
+    "pauses": 2,
+    "pause_s": 0.49,
+    "syll_per_s": 4.15,
+    "median_hz": 129.7,
+    "range_st": 15.38,
+    "sd_st": 4.68,
+    "slope_st_s": 34.6,
+    "voiced_frac": 0.65,
+    "heard": "A few days before it, she was outplaying with her friends.",
+    "line_errors": 2
+   },
+   {
+    "id": "snake",
+    "dur_s": 2.98,
+    "pauses": 2,
+    "pause_s": 0.2,
+    "syll_per_s": 3.95,
+    "median_hz": 133.0,
+    "range_st": 15.12,
+    "sd_st": 4.54,
+    "slope_st_s": 44.1,
+    "voiced_frac": 0.69,
+    "heard": "She did not see the snake asleep in her path.",
+    "line_errors": 0
+   },
+   {
+    "id": "bit",
+    "dur_s": 2.09,
+    "pauses": 1,
+    "pause_s": 0.45,
+    "syll_per_s": 3.66,
+    "median_hz": 134.1,
+    "range_st": 17.23,
+    "sd_st": 5.41,
+    "slope_st_s": 44.6,
+    "voiced_frac": 0.58,
+    "heard": "It bit her and she fell.",
+    "line_errors": 0
+   },
+   {
+    "id": "lay",
+    "dur_s": 4.3,
+    "pauses": 2,
+    "pause_s": 0.8,
+    "syll_per_s": 3.71,
+    "median_hz": 124.9,
+    "range_st": 14.58,
+    "sd_st": 4.36,
+    "slope_st_s": 32.8,
+    "voiced_frac": 0.62,
+    "heard": "She lay dead as if asleep, lovelier than ever.",
+    "line_errors": 0
+   },
+   {
+    "id": "wept",
+    "dur_s": 3.31,
+    "pauses": 5,
+    "pause_s": 0.66,
+    "syll_per_s": 4.15,
+    "median_hz": 133.4,
+    "range_st": 13.76,
+    "sd_st": 4.14,
+    "slope_st_s": 32.9,
+    "voiced_frac": 0.67,
+    "heard": "the sages of the forest gathered and wept.",
+    "line_errors": 0
+   },
+   {
+    "id": "cliff",
+    "dur_s": 6.29,
+    "pauses": 5,
+    "pause_s": 1.37,
+    "syll_per_s": 4.47,
+    "median_hz": 123.5,
+    "range_st": 15.64,
+    "sd_st": 4.37,
+    "slope_st_s": 38.4,
+    "voiced_frac": 0.61,
+    "heard": "Rooru walked into the deep forest and cried out, and a messenger of the gods answered.",
+    "line_errors": 1
+   }
+  ],
+  "pitch": {
+   "median_hz": 127.9,
+   "range_st_mean": 15.54,
+   "range_st_min": 13.76,
+   "range_st_max": 17.23,
+   "sd_st_mean": 4.65,
+   "sd_of_line_ranges": 0.99,
+   "slope_st_s_mean": 38.2,
+   "melody_sameness": 0.512
+  },
+  "pauses": {
+   "count": 33,
+   "median_s": 0.182,
+   "sd_s": 0.175,
+   "min_s": 0.072,
+   "max_s": 0.82,
+   "all_s": [
+    0.072,
+    0.072,
+    0.074,
+    0.087,
+    0.087,
+    0.09,
+    0.091,
+    0.092,
+    0.094,
+    0.1,
+    0.102,
+    0.11,
+    0.12,
+    0.13,
+    0.169,
+    0.178,
+    0.182,
+    0.199,
+    0.211,
+    0.26,
+    0.26,
+    0.277,
+    0.28,
+    0.3,
+    0.35,
+    0.371,
+    0.449,
+    0.45,
+    0.469,
+    0.47,
+    0.49,
+    0.5,
+    0.82
+   ]
+  },
+  "rate": {
+   "syll_per_s_mean": 4.0,
+   "cv_pct": 12.6,
+   "min": 3.43,
+   "max": 5.03
+  },
+  "spectrum": {
+   "<150": 22.02,
+   "150-500": 62.06,
+   "500-2k": 14.24,
+   "2k-5k": 1.36,
+   "5k-9k": 0.27,
+   ">9k": 0.05,
+   "centroid_hz": 375
+  },
+  "sample_rate": 24000,
+  "asr": {
+   "words": 107,
+   "errors": 8,
+   "wer_pct_without_names": 7.5,
+   "names": [
+    {
+     "line": "family",
+     "name": "ruru",
+     "heard": "rooru"
+    },
+    {
+     "line": "family",
+     "name": "bhrigu's",
+     "heard": "bregu's"
+    },
+    {
+     "line": "named",
+     "name": "pramadvara",
+     "heard": "pramadhvara"
+    },
+    {
+     "line": "loved",
+     "name": "ruru",
+     "heard": "lulu"
+    },
+    {
+     "line": "cliff",
+     "name": "ruru",
+     "heard": "rooru"
+    }
+   ]
+  }
+ },
+ "C-chatterbox": {
+  "name": "C-chatterbox",
+  "dir": "lab/voicelab/cand/C-chatterbox/lines",
+  "lines": [
+   {
+    "id": "hook",
+    "dur_s": 2.76,
+    "pauses": 2,
+    "pause_s": 0.75,
+    "syll_per_s": 3.49,
+    "median_hz": 105.4,
+    "range_st": 17.96,
+    "sd_st": 5.43,
+    "slope_st_s": 45.9,
+    "voiced_frac": 0.52,
+    "heard": "a bride, a snake, a wedding.",
+    "line_errors": 0
+   },
+   {
+    "id": "family",
+    "dur_s": 2.95,
+    "pauses": 1,
+    "pause_s": 0.07,
+    "syll_per_s": 3.48,
+    "median_hz": 119.5,
+    "range_st": 17.61,
+    "sd_st": 5.55,
+    "slope_st_s": 34.4,
+    "voiced_frac": 0.78,
+    "heard": "Rauru was a young sage of Briku's line.",
+    "line_errors": 2
+   },
+   {
+    "id": "left",
+    "dur_s": 4.91,
+    "pauses": 3,
+    "pause_s": 0.52,
+    "syll_per_s": 4.33,
+    "median_hz": 121.2,
+    "range_st": 18.02,
+    "sd_st": 5.89,
+    "slope_st_s": 40.7,
+    "voiced_frac": 0.74,
+    "heard": "by a river and a bzara, a nymph of heaven, left her newborn daughter.",
+    "line_errors": 3
+   },
+   {
+    "id": "found",
+    "dur_s": 3.19,
+    "pauses": 2,
+    "pause_s": 0.31,
+    "syll_per_s": 3.48,
+    "median_hz": 165.0,
+    "range_st": 19.75,
+    "sd_st": 5.68,
+    "slope_st_s": 32.7,
+    "voiced_frac": 0.64,
+    "heard": "A sage found her and raised her as his own.",
+    "line_errors": 0
+   },
+   {
+    "id": "named",
+    "dur_s": 3.42,
+    "pauses": 2,
+    "pause_s": 0.36,
+    "syll_per_s": 4.25,
+    "median_hz": 128.7,
+    "range_st": 19.23,
+    "sd_st": 6.03,
+    "slope_st_s": 34.4,
+    "voiced_frac": 0.69,
+    "heard": "He named her Promudvara, the finest of women.",
+    "line_errors": 1
+   },
+   {
+    "id": "loved",
+    "dur_s": 2.29,
+    "pauses": 1,
+    "pause_s": 0.08,
+    "syll_per_s": 3.18,
+    "median_hz": 147.2,
+    "range_st": 14.1,
+    "sd_st": 4.19,
+    "slope_st_s": 34.7,
+    "voiced_frac": 0.77,
+    "heard": "Roor saw her and loved her.",
+    "line_errors": 1
+   },
+   {
+    "id": "play",
+    "dur_s": 3.19,
+    "pauses": 2,
+    "pause_s": 0.33,
+    "syll_per_s": 4.55,
+    "median_hz": 157.9,
+    "range_st": 18.87,
+    "sd_st": 5.65,
+    "slope_st_s": 37.1,
+    "voiced_frac": 0.6,
+    "heard": "A few days before it, she was out playing with her friends.",
+    "line_errors": 0
+   },
+   {
+    "id": "snake",
+    "dur_s": 3.24,
+    "pauses": 1,
+    "pause_s": 0.09,
+    "syll_per_s": 3.48,
+    "median_hz": 134.0,
+    "range_st": 17.88,
+    "sd_st": 6.2,
+    "slope_st_s": 36.2,
+    "voiced_frac": 0.56,
+    "heard": "She did not see the snake asleep in her path.",
+    "line_errors": 0
+   },
+   {
+    "id": "bit",
+    "dur_s": 1.59,
+    "pauses": 1,
+    "pause_s": 0.21,
+    "syll_per_s": 4.34,
+    "median_hz": 161.2,
+    "range_st": 20.39,
+    "sd_st": 6.91,
+    "slope_st_s": 45.2,
+    "voiced_frac": 0.49,
+    "heard": "It bit her and she fell.",
+    "line_errors": 0
+   },
+   {
+    "id": "lay",
+    "dur_s": 3.67,
+    "pauses": 2,
+    "pause_s": 0.42,
+    "syll_per_s": 3.99,
+    "median_hz": 172.0,
+    "range_st": 17.49,
+    "sd_st": 5.9,
+    "slope_st_s": 33.4,
+    "voiced_frac": 0.64,
+    "heard": "She lay dead as if asleep, lovelier than ever.",
+    "line_errors": 0
+   },
+   {
+    "id": "wept",
+    "dur_s": 3.07,
+    "pauses": 2,
+    "pause_s": 0.19,
+    "syll_per_s": 3.82,
+    "median_hz": 158.0,
+    "range_st": 14.91,
+    "sd_st": 4.73,
+    "slope_st_s": 28.6,
+    "voiced_frac": 0.62,
+    "heard": "The sages of the forest gathered and wept.",
+    "line_errors": 0
+   },
+   {
+    "id": "cliff",
+    "dur_s": 5.57,
+    "pauses": 3,
+    "pause_s": 0.46,
+    "syll_per_s": 4.31,
+    "median_hz": 145.1,
+    "range_st": 16.89,
+    "sd_st": 5.41,
+    "slope_st_s": 34.4,
+    "voiced_frac": 0.66,
+    "heard": "Roharu walked into the deep forest and cried out, and a messenger of the gods answered.",
+    "line_errors": 1
+   }
+  ],
+  "pitch": {
+   "median_hz": 146.1,
+   "range_st_mean": 17.76,
+   "range_st_min": 14.1,
+   "range_st_max": 20.39,
+   "sd_st_mean": 5.63,
+   "sd_of_line_ranges": 1.75,
+   "slope_st_s_mean": 36.5,
+   "melody_sameness": 0.215
+  },
+  "pauses": {
+   "count": 22,
+   "median_s": 0.153,
+   "sd_s": 0.094,
+   "min_s": 0.074,
+   "max_s": 0.389,
+   "all_s": [
+    0.074,
+    0.076,
+    0.081,
+    0.083,
+    0.084,
+    0.085,
+    0.087,
+    0.094,
+    0.101,
+    0.104,
+    0.136,
+    0.169,
+    0.182,
+    0.206,
+    0.207,
+    0.224,
+    0.24,
+    0.247,
+    0.274,
+    0.285,
+    0.358,
+    0.389
+   ]
+  },
+  "rate": {
+   "syll_per_s_mean": 3.89,
+   "cv_pct": 11.3,
+   "min": 3.18,
+   "max": 4.55
+  },
+  "spectrum": {
+   "<150": 11.2,
+   "150-500": 51.79,
+   "500-2k": 30.22,
+   "2k-5k": 5.24,
+   "5k-9k": 1.39,
+   ">9k": 0.16,
+   "centroid_hz": 693
+  },
+  "sample_rate": 24000,
+  "asr": {
+   "words": 107,
+   "errors": 3,
+   "wer_pct_without_names": 2.8,
+   "names": [
+    {
+     "line": "family",
+     "name": "ruru",
+     "heard": "rauru"
+    },
+    {
+     "line": "family",
+     "name": "bhrigu's",
+     "heard": "briku's"
+    },
+    {
+     "line": "named",
+     "name": "pramadvara",
+     "heard": "promudvara"
+    },
+    {
+     "line": "loved",
+     "name": "ruru",
+     "heard": "roor"
+    },
+    {
+     "line": "cliff",
+     "name": "ruru",
+     "heard": "roharu"
+    }
+   ]
+  },
+  "sync": {
+   "words": 112,
+   "median_s": -0.234,
+   "median_abs_s": 0.234,
+   "p90_abs_s": 0.495,
+   "max_abs_s": 0.907,
+   "worst": [
+    {
+     "line": "wept",
+     "w": "and",
+     "d": -0.907
+    },
+    {
+     "line": "wept",
+     "w": "gathered",
+     "d": -0.77
+    },
+    {
+     "line": "play",
+     "w": "friends.",
+     "d": -0.738
+    },
+    {
+     "line": "wept",
+     "w": "wept.",
+     "d": -0.678
+    },
+    {
+     "line": "cliff",
+     "w": "answered.",
+     "d": -0.658
+    }
+   ]
+  }
+ }
+}

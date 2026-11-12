@@ -87,8 +87,8 @@
         back: (g) => KIT.glow(g, 540, 560, 900, '#9ab8ff', 0.45),
         mid: (g) => CH.vishnu.draw(g, { x: 540, y: 1000, scale: 0.9, facing: 'front', pose: { name: 'bless', k: 0.7 }, light: { dir: -Math.PI / 2 - 0.3, intensity: 1.3, front: 0.9, fill: 0.6 }, t: T, key: 'ks-v' }),
         figs: (g, p) => { KIT.glow(g, 540, 1000, 420, '#ffe890', 0.35 * clamp((t - b1) / 0.8)); EP51.fig(g, T, 'krishna', 540, 1250, 0.56, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [b2 - 0.5, 'bless', { act: 0.5 }]]), L: EP51.bright('#fff0c0', 1.35), ex: { emo: 'tender', gaze: [0.6, 0] }, key: 'ks-k' }); } });
-      TY.plaque(ctx, T, clamp((t - 0.6) / 0.5), ...names(env, 'Narayana'), { x: 290, y: 300, size: 50, out: clamp((t - b2 + 0.5) / 0.3) });
-      TY.plaque(ctx, T, clamp((t - b2 + 0.1) / 0.5), ...names(env, 'Krishna'), { x: 290, y: 300, size: 54, out: out(t, env, 0.3) });
+      TY.plaque(ctx, T, clamp((t - 0.6) / 0.5), ...names(env, 'Narayana'), { x: 195, y: 850, size: 44, out: clamp((t - b2 + 0.5) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b2 + 0.1) / 0.5), ...names(env, 'Krishna'), { x: 195, y: 850, size: 46, out: out(t, env, 0.3) });
       fin(ctx, T);
     },
     post: POST(0.44, 0.42) });
@@ -101,8 +101,8 @@
         back: (g, p) => { ST.hills(g, p, { y: 1320, h: 240, seed: 221, peaks: 0.6 }); g.save(); g.beginPath(); g.rect(-900, -900, 2880, 2200 + 0 * rise); g.clip(); EP51.fig(g, T, 'kaliShade', 600, 1400 + 500 * (1 - rise), 1.36, { f: 'left', pose: { w: { bless: 0.3, stand: 0.7 } }, L: { dir: -Math.PI / 2, intensity: 1.2, front: 0.25, fill: 0.2, tint: ['#5aff8a', 0.7], minLum: 0.24 }, ex: { emo: 'wrath', gaze: [0.6, 0.6] }, key: 'kl-s' }); g.restore(); },
         figs: (g, p) => EP51.fig(g, T, 'duryodhana', 500, 1330, 0.8, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [b1, 'raise', { act: 0.5 }]], { prop: 'club' }), L: { dir: -Math.PI / 2 - 0.5, intensity: 1.25, front: 0.6, fill: 0.35, tint: ['#d8c0ff', 0.5], minLum: 0.3 }, ex: { emo: ACT.emo(t, [[0, 'resolve'], [b1, 'wrath']]), gaze: [0.8, -0.1] }, key: 'kl-d' }),
         dust: 'ash', dustN: 30 });
-      TY.plaque(ctx, T, clamp((t - b1 + 0.3) / 0.5), ...names(env, 'Duryodhana'), { x: 800, y: 820, size: 44, out: clamp((t - b2 + 0.9) / 0.3) });
-      TY.plaque(ctx, T, clamp((t - b2 + 0.5) / 0.5), 'Kali', 'the spirit of strife · not the goddess Kālī', { x: 760, y: 820, size: 50, out: out(t, env, 0.3) });
+      TY.plaque(ctx, T, clamp((t - b1 + 0.3) / 0.5), ...names(env, 'Duryodhana'), { x: 175, y: 700, size: 36, out: clamp((t - b2 + 0.9) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b2 + 0.5) / 0.5), 'Kali', 'the spirit of strife · not the goddess Kālī', { x: 175, y: 700, size: 40, out: out(t, env, 0.3) });
       TY.turnWord(ctx, T, clamp((t - b2) / 0.6), 'Strife', { x: 810, y: 1010, size: 84, out: out(t, env, 0.3), sub: 'Adi 1.61.80' });
       TY.tag(ctx, T, clamp((t - 1.2) / 0.4), 'Jarasandha, Shishupala: demons born as kings', { x: 540, y: 250, size: 42, out: clamp((t - b1 + 0.5) / 0.3) });
       fin(ctx, T);
@@ -120,8 +120,8 @@
           g.fillStyle = '#5a2a1a'; g.fillRect(360, GY - 60, 360, 130); g.fillStyle = '#e7b54a'; g.fillRect(350, GY - 80, 380, 24);   // the altar
           g.save(); g.beginPath(); g.rect(-900, -900, 2880, 900 + GY - 80); g.clip(); EP51.fig(g, T, 'panchali', 540, GY - 80 + 520 * (1 - rise), 0.72, { f: 'left', pose: ACT.pose(t, [[0, 'anjali'], [b2 - 0.4, 'stand', { act: 0.5 }]]), L: EP51.bright('#ffe0b0', 1.3), ex: { emo: 'resolve', gaze: [0.7, -0.1] }, key: 'dp-d' }); g.restore();
           CH.hearthfire.draw(g, { x: 540, y: GY - 76, scale: 0.42, t: T, k: 0.9, key: 'dp-f' }); } });
-      TY.plaque(ctx, T, clamp((t - 0.8) / 0.5), ...names(env, 'Shri'), { x: 840, y: 780, size: 46, out: clamp((t - b2 + 0.5) / 0.3) });
-      TY.plaque(ctx, T, clamp((t - b2 + 0.1) / 0.5), ...names(env, 'Draupadi'), { x: 830, y: 780, size: 46, out: out(t, env, 0.3) });
+      TY.plaque(ctx, T, clamp((t - 0.8) / 0.5), ...names(env, 'Shri'), { x: 200, y: 720, size: 46, out: clamp((t - b2 + 0.5) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b2 + 0.1) / 0.5), ...names(env, 'Draupadi'), { x: 200, y: 720, size: 44, out: out(t, env, 0.3) });
       fin(ctx, T);
     },
     post: POST(0.42, 0.4) });

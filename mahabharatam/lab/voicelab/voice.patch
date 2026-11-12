@@ -1,0 +1,331 @@
+--- a/mahabharatam/tools/voice.py
++++ b/mahabharatam/tools/voice.py
+@@ -30,8 +30,26 @@
+ ʌ (stressed) / ə, long ā → ɑː, aspirated bh → bʰ, r between vowels → the tap ɾ, retroflex ṇ → ɳ
+ (ṭ ḍ approximated by t d), ś / ṣ → ʃ, c → ʧ, e → eɪ, o → oʊ (GB əʊ), au → aʊ.
+ --dry prints the chunks and phonemes without synthesising.
++
++--directed (lab/voicelab, November: "the narration is robotic"): the line is synthesised in ONE pass, so the model plans the
++melody over the whole sentence instead of starting again at every comma; the silences the model leaves at punctuation are
++found in the audio and lengthened to the directed pause (comma 150 ms, colon 240, sentence end 420, plus a written [p:N]);
++a [p:N] with no punctuation is not cut. The pace follows the meaning, from fields the scripts already have (PACE below).
++A cast voice may be a blend: "am_michael:0.6+bm_george:0.4".
++--fit (with --directed, for episodes already rendered): every file comes out exactly as long as the file it replaces
++(read from voice/epNN/<lang>/), each punctuation group starting where the same words started before, tempo changed by at
++most ±8 % (ffmpeg atempo), no word cut; tools/timeline.mjs then rebuilds the same timeline (same signature) and the
++episode needs only tools/mix.py and a new sound track. The old sidecar's chunks are kept (the captions were drawn from
++them); the new times go under "refit". Lines that do not fit are printed and left longer: do not use them as they are.
++--out DIR writes there instead of voice/epNN/<lang>/ (always use it with --fit, then compare, then copy).
++--engine chatterbox --cb DIR (with --directed): the NARRATOR's lines are spoken by Chatterbox (ResembleAI/chatterbox, MIT; the
++ONNX export onnx-community/chatterbox-ONNX run by DIR/cb.py, DIR = lab/voicelab; its built-in default voice, no cloning),
++the other speakers stay with Kokoro. Chatterbox reads English spelling, not IPA: names are respelt from RESPELL below
++(checked with a speech recogniser only; nobody has listened). It has no speed control and it samples: --takes N (default 2)
++makes N takes a line and keeps the one whose length is nearest the line it replaces (--fit) or the median. About 60 s
++of compute a take on this machine beside two renders (Kokoro: 2–3 s a line).
+ """
+-import argparse, glob, json, os, re
++import argparse, glob, json, os, re, shutil, subprocess
+ import numpy as np
+ 
+ NAMES = {  # IPA, as Kokoro's phoneme set spells it (see the conventions above)
+@@ -235,13 +253,22 @@
+ ap.add_argument('--lang', default='en')
+ ap.add_argument('--only', default='')
+ ap.add_argument('--dry', action='store_true')
++ap.add_argument('--directed', action='store_true')
++ap.add_argument('--fit', action='store_true')
++ap.add_argument('--out', default='')
++ap.add_argument('--engine', default='kokoro', choices=['kokoro', 'chatterbox'])
++ap.add_argument('--cb', default='')
++ap.add_argument('--takes', type=int, default=2)
+ a = ap.parse_args()
+ root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ tag = f'ep{a.ep:02d}'
+ script = json.load(open(f'{root}/script/{tag}.{a.lang}.json'))
+ cast = json.load(open(f'{root}/script/cast.json'))
+ pauses = {'ellipsis': 420, 'dash': 280, 'comma': 80, 'stop': 250, **script.get('voice', {}).get('pauses', {})}
+-out_dir = f'{root}/voice/{tag}/{a.lang}'
++old_dir = f'{root}/voice/{tag}/{a.lang}'
++out_dir = a.out or old_dir
++if (a.fit or a.engine != 'kokoro') and not a.directed:
++    ap.error('--fit and --engine chatterbox need --directed')
+ only = set(filter(None, a.only.split(',')))
+ 
+ MARK = re.compile(r'\[p:(\d+)\]|\{s(?::([\d.]+))?\}')
+@@ -334,6 +361,204 @@
+     return x[max(0, nz[0] - int(head * sr)): nz[-1] + int(tail * sr)]
+ 
+ 
++# Chatterbox reads spelling: how each name is written for it (the caption keeps the real spelling)
++RESPELL = {"Ruru": "Rooroo", "Ruru's": "Rooroo's", "Bhrigu": "Brigoo", "Bhrigu's": "Brigoo's", "Pramadvara": "Pramudvarah"}
++_cb = None
++
++
++def cb_say(text, seed):
++    global _cb
++    if _cb is None:
++        import sys
++        sys.path.insert(0, a.cb or f'{root}/lab/voicelab')
++        import cb as cbmod
++        _cb = cbmod.CB()
++        _cb.set_ref(os.path.join(cbmod.M, 'default_voice.wav'))
++    for name, sp in RESPELL.items():
++        text = re.sub(r'(?<![\w])' + re.escape(name) + r'(?![\w])', sp, text)
++    wav, complete, _ = _cb.say(text, seed=seed)
++    if not complete:
++        print(f'   ! chatterbox did not finish {text!r} (seed {seed})')
++    return wav, 24000
++
++
++# ─── --directed: one pass per line, pauses found in the audio, pace by meaning ───────────────────────────────────────
++D_PAUSE = {',': 150, ';': 240, ':': 240, '.': 420, '?': 420, '!': 420, '…': 420, '—': 280}   # ms, inside a line
++PACE = (('role', 'hook', 1.10), ('rest', True, 0.94), ('music', 'joy', 1.03))   # (field, value, × speed); mixDb ≤ −4: 0.96, ≥ 1: 1.06
++FIT_MAX = 1.08   # the most a group's tempo may change in --fit
++FIT_GAP = 0.06   # s kept between two groups
++
++
++def pace(line):
++    m = 1.0
++    for key, val, k in PACE:
++        if line.get(key) == val:
++            m *= k
++    m *= 0.96 if line.get('mixDb', 0) <= -4 else 1.06 if line.get('mixDb', 0) >= 1 else 1.0
++    return m
++
++
++def style_of(spec):
++    """'am_michael' → its name (Kokoro looks it up); 'am_michael:0.6+bm_george:0.4' → the weighted mean of the two styles."""
++    if '+' not in spec and ':' not in spec:
++        return spec
++    parts = [p.split(':') for p in spec.split('+')]
++    w = np.array([float(p[1]) if len(p) > 1 else 1.0 for p in parts])
++    return sum(wi * k.get_voice_style(p[0]) for wi, p in zip(w / w.sum(), parts)).astype(np.float32)
++
++
++def bounds_of(say):
++    """→ (words, [{j: index of the word before the pause, ms}]) for the punctuation inside the line."""
++    toks = MARK.sub(lambda m: f' ⟦{m.group(1) or 0}⟧ ' if m.group(1) else ' ', say).split()
++    words, bounds = [], []
++    for tk in toks:
++        if tk.startswith('⟦'):
++            if bounds and bounds[-1]['j'] == len(words) - 1:
++                bounds[-1]['ms'] += int(tk[1:-1])
++            continue
++        words.append(tk)
++        core = tk.rstrip('"”’)')
++        if core and core[-1] in D_PAUSE:
++            bounds.append({'j': len(words) - 1, 'ms': D_PAUSE[core[-1]]})
++    return words, [b for b in bounds if b['j'] < len(words) - 1]
++
++
++def silences(x, sr, min_len=0.045, rel_db=-30):
++    """Inner runs where the 20 ms level is rel_db under the line's loud (95th percentile) level → [(t0, t1)]."""
++    n = int(sr * 0.02)
++    e = 20 * np.log10(np.sqrt(np.convolve(x.astype(np.float64) ** 2, np.ones(n) / n, 'same')) + 1e-9)
++    q = np.concatenate([[False], e < np.percentile(e, 95) + rel_db, [False]])
++    on, off = np.nonzero(q[1:] & ~q[:-1])[0], np.nonzero(~q[1:] & q[:-1])[0]
++    return [(i / sr, j / sr) for i, j in zip(on, off) if i > 0 and j < len(x) and (j - i) / sr >= min_len]
++
++
++def one_pass(words, bounds, voice, speed, g2p, f, seed=None):
++    """The whole line through the model once → [[audio, words, pause after (ms)]], cut only inside the model's own silences."""
++    text = spoken(words)
++    if seed is not None:
++        x, sr = cb_say(text, seed)
++        f = 1.0
++    else:
++        x, sr = k.create(phonemes(text, g2p), voice=voice, speed=speed / f, is_phonemes=True)
++    if abs(f - 1) > 1e-3:
++        down = int(round(1000 * f))
++        g = np.gcd(1000, down)
++        x = sps.resample_poly(x, 1000 // g, down // g).astype(np.float32)
++    x = trim(x, sr, 0.02, 0.08)
++    sil, D, used, cuts = silences(x, sr), len(x) / sr, set(), []
++    for b in bounds:
++        frac = len(' '.join(words[:b['j'] + 1])) / len(' '.join(words))
++        near = [(abs((s0 + s1) / 2 / D - frac), i) for i, (s0, s1) in enumerate(sil) if i not in used]
++        near = [c for c in near if c[0] < 0.16]
++        if near:
++            i = min(near)[1]
++            used.add(i)
++            cuts.append((sil[i], b))
++    if len(cuts) < len(bounds) and seed is None:
++        # the model ran over a punctuation mark with no silence: the punctuation groups one by one (as before --directed)
++        segs, w0 = [], 0
++        for b in bounds + [{'j': len(words) - 1, 'ms': 0}]:
++            g, _ = one_pass(words[w0:b['j'] + 1], [], voice, speed, g2p, f)
++            segs.append([g[0][0], words[w0:b['j'] + 1], b['ms']])
++            w0 = b['j'] + 1
++        return segs, sr
++    cuts.sort(key=lambda c: c[0][0])
++    segs, t, w0, n = [], 0.0, 0, int(0.008 * sr)
++    for (s0, s1), b in cuts + [((D, D), None)]:
++        piece = x[int(t * sr): int((s0 + 0.03) * sr) if b else len(x)].copy()
++        piece[:n] *= np.linspace(0, 1, n)
++        piece[-n:] *= np.linspace(1, 0, n)
++        segs.append([piece, words[w0:b['j'] + 1] if b else words[w0:], max(b['ms'], int(1000 * (s1 - s0)) - 50) if b else 0])
++        if b:
++            t, w0 = s1 - 0.02, b['j'] + 1
++    return segs, sr
++
++
++def atempo(x, sr, factor):
++    ff = shutil.which('ffmpeg')
++    if not ff:
++        import imageio_ffmpeg
++        ff = imageio_ffmpeg.get_ffmpeg_exe()
++    p = subprocess.run([ff, '-v', 'error', '-f', 'f32le', '-ar', str(sr), '-ac', '1', '-i', '-', '-af', f'atempo={factor:.5f}',
++                        '-f', 'f32le', '-ar', str(sr), '-ac', '1', '-'], input=x.astype('<f4').tobytes(), capture_output=True, check=True)
++    return np.frombuffer(p.stdout, '<f4').copy()
++
++
++def fit_line(segs, sr, old, n_old):
++    """Place each group where the same words started in the old file; → (audio of exactly n_old samples unless it does not
++    fit, new chunk times, seconds over, largest tempo change)."""
++    groups, i = [], 0
++    for _, w, _ in segs:
++        n, i0 = 0, i
++        while i < len(old) and n < len(w):
++            n += old[i]['words']
++            i += 1
++        if n != len(w):
++            groups = None
++            break
++        groups.append((old[i0]['t0'], old[i - 1]['t1']))
++    if groups is None:   # the pauses fell elsewhere than before: the line as one block
++        segs = [[np.concatenate([np.concatenate([s[0], np.zeros(int(sr * s[2] / 1000), np.float32)]) for s in segs]), sum((s[1] for s in segs), []), 0]]
++        groups = [(old[0]['t0'], old[-1]['t1'])]
++    limit = n_old / sr
++    y, t, meta, dev = np.zeros(int((limit + 4) * sr), np.float32), 0.0, [], 0.0
++    for j, ((aud, w, _), (g0, g1)) in enumerate(zip(segs, groups)):
++        nz = np.nonzero(np.abs(aud) > 0.004)[0]   # a group's silent tail is not speech
++        if len(nz):
++            aud = aud[:min(len(aud), nz[-1] + int(0.03 * sr))].copy()
++            aud[-int(0.01 * sr):] *= np.linspace(1, 0, int(0.01 * sr))
++        start, dur = max(g0, t), len(aud) / sr
++        avail = (groups[j + 1][0] - FIT_GAP if j + 1 < len(groups) else limit) - start
++        fct = min(FIT_MAX, 1.012 * dur / avail) if dur > avail else max(1 / FIT_MAX, dur / (g1 - g0)) if dur < (g1 - g0) / FIT_MAX and j + 1 < len(groups) else 1.0
++        if abs(fct - 1) > 0.004:
++            aud = atempo(aud, sr, fct)
++            dur, dev = len(aud) / sr, max(dev, abs(fct - 1))
++        y[int(start * sr): int(start * sr) + len(aud)] += aud
++        meta.append({'t0': round(start, 4), 't1': round(start + dur, 4), 'words': len(w), 'text': ' '.join(w), 'tempo': round(fct, 3)})
++        t = start + dur + FIT_GAP
++    over = max(0.0, t - FIT_GAP - limit)
++    return (y[:n_old] if over <= 0 else y[:int((t - FIT_GAP + 0.02) * sr)]), meta, over, dev
++
++
++def directed(line, c, base, f, g2p):
++    words, bounds = bounds_of(line.get('say', line['text']))
++    m = pace(line)
++    voice, sp = style_of(c['voice']), base * m
++    chatter = a.engine == 'chatterbox' and line.get('speaker', 'narrator') == 'narrator'
++    if chatter:   # no speed control: several takes, keep the one nearest the length wanted
++        takes = [one_pass(words, bounds, voice, sp, g2p, f, seed=s) for s in range(a.takes)]
++        durs = [sum(len(s[0]) for s in t[0]) / t[1] for t in takes]
++        want = sum(ch['t1'] - ch['t0'] for ch in json.load(open(f"{old_dir}/{line['id']}.json"))['chunks']) if a.fit else float(np.median(durs))
++        segs, sr = takes[int(np.argmin([abs(d - want) for d in durs]))]
++    else:
++        segs, sr = one_pass(words, bounds, voice, sp, g2p, f)
++    if not a.fit:
++        pieces, meta, t = [], [], 0.0
++        for aud, w, p in segs:
++            d = len(aud) / sr
++            meta.append({'t0': round(t, 4), 't1': round(t + d, 4), 'words': len(w), 'speed': round(sp, 3), 'text': ' '.join(w)})
++            pieces += [aud, np.zeros(int(sr * p / 1000), np.float32)]
++            t += d + p / 1000
++        print(f"   · {sp:.2f}×  one pass, {len(segs)} group(s), pace {m:.2f}")
++        return np.concatenate(pieces), sr, meta, sp, None
++    old = json.load(open(f"{old_dir}/{line['id']}.json"))
++    n_old = sf.info(f"{old_dir}/{line['id']}.wav").frames
++    target = 0.97 * sum(ch['t1'] - ch['t0'] for ch in old['chunks'])
++    cur = sum(len(s[0]) for s in segs) / sr
++    sp2 = float(np.clip(sp * cur / target, sp / FIT_MAX, sp * FIT_MAX))   # never more than ±8 % from the directed speed
++    if not chatter and abs(sp2 / sp - 1) > 0.015:
++        sp = sp2
++        segs, sr = one_pass(words, bounds, voice, sp, g2p, f)
++    audio, meta, over, dev = fit_line(segs, sr, old['chunks'], n_old)
++    top = base * m * FIT_MAX
++    while over > 0 and not chatter and sp < top - 1e-6:   # a group overran its slot: a little quicker, up to +8 %
++        sp = min(top, sp * 1.04)
++        segs, sr = one_pass(words, bounds, voice, sp, g2p, f)
++        audio, meta, over, dev = fit_line(segs, sr, old['chunks'], n_old)
++    print(f"   · {sp:.2f}×  one pass, {len(segs)} group(s), fitted: tempo ±{100 * dev:.1f} %" + (f"  DOES NOT FIT: {over:.2f} s over" if over > 0 else ''))
++    return audio, sr, old['chunks'], sp, {'chunks': meta, 'over_s': round(over, 3), 'speed': round(sp, 3)}
++
++
+ os.makedirs(out_dir, exist_ok=True)
+ for line in script['lines']:
+     if only and line['id'] not in only:
+@@ -350,33 +575,37 @@
+     pitch_s = ' pitch %+g st' % c['pitch'] if c.get('pitch') else ''
+     print(f"{line['id']:12s} {spk:11s} {c['voice']} speed {base:.2f}{pitch_s}"
+           f"  pre {line.get('pre', '-')} post {line.get('post', '-')}  words {n_chunks}/{n_caption}")
+-    pieces, meta, t = [], [], 0.0
+-    sr = 24000
+-    for i, ch in enumerate(chunks):
+-        txt = spoken(ch['words'])
+-        ph = phonemes(txt, c.get('g2p', 'en-gb' if c['voice'].startswith('b') else 'en-us'))
+-        sp = base * ch['mult']
+-        print(f"   · {sp:.2f}×  {txt!r:52s} → {ph}   (+{ch['pause']} ms)")
++    refit = None
++    if a.directed and not a.dry:
++        audio, sr, meta, base, refit = directed(line, c, base, f, c.get('g2p', 'en-gb' if c['voice'].startswith('b') else 'en-us'))
++    else:
++        pieces, meta, t = [], [], 0.0
++        sr = 24000
++        for i, ch in enumerate(chunks):
++            txt = spoken(ch['words'])
++            ph = phonemes(txt, c.get('g2p', 'en-gb' if c['voice'].startswith('b') else 'en-us'))
++            sp = base * ch['mult']
++            print(f"   · {sp:.2f}×  {txt!r:52s} → {ph}   (+{ch['pause']} ms)")
++            if a.dry:
++                continue
++            audio, sr = k.create(ph, voice=c['voice'], speed=sp / f, is_phonemes=True)
++            audio = trim(audio, sr, 0.02 if i else 0.02, 0.1 if i == len(chunks) - 1 else 0.05)
++            if abs(f - 1) > 1e-3:
++                # resample so that playing at sr shifts the pitch by f (and the tempo back to `sp`)
++                up = 1000
++                down = int(round(1000 * f))
++                g = np.gcd(up, down)
++                audio = sps.resample_poly(audio, up // g, down // g).astype(np.float32)
++            d = len(audio) / sr
++            meta.append({'t0': round(t, 4), 't1': round(t + d, 4), 'words': len(ch['words']), 'speed': round(sp, 3), 'text': txt})
++            pieces.append(audio)
++            t += d
++            if ch['pause']:
++                pieces.append(np.zeros(int(sr * ch['pause'] / 1000), np.float32))
++                t += ch['pause'] / 1000
+         if a.dry:
+             continue
+-        audio, sr = k.create(ph, voice=c['voice'], speed=sp / f, is_phonemes=True)
+-        audio = trim(audio, sr, 0.02 if i else 0.02, 0.1 if i == len(chunks) - 1 else 0.05)
+-        if abs(f - 1) > 1e-3:
+-            # resample so that playing at sr shifts the pitch by f (and the tempo back to `sp`)
+-            up = 1000
+-            down = int(round(1000 * f))
+-            g = np.gcd(up, down)
+-            audio = sps.resample_poly(audio, up // g, down // g).astype(np.float32)
+-        d = len(audio) / sr
+-        meta.append({'t0': round(t, 4), 't1': round(t + d, 4), 'words': len(ch['words']), 'speed': round(sp, 3), 'text': txt})
+-        pieces.append(audio)
+-        t += d
+-        if ch['pause']:
+-            pieces.append(np.zeros(int(sr * ch['pause'] / 1000), np.float32))
+-            t += ch['pause'] / 1000
+-    if a.dry:
+-        continue
+-    audio = np.concatenate(pieces)
++        audio = np.concatenate(pieces)
+     # even loudness line to line: active RMS −21 dBFS, peaks ≤ −1 dBFS
+     act = np.abs(audio) > 0.005
+     g = 10 ** ((-21 - 20 * np.log10(np.sqrt(np.mean(audio[act] ** 2)) + 1e-9)) / 20)
+@@ -384,7 +613,7 @@
+     audio = (audio * g).astype(np.float32)
+     sf.write(f"{out_dir}/{line['id']}.wav", audio, sr)
+     side = f"{out_dir}/{line['id']}.json"
+-    json.dump({'speaker': spk, 'voice': c['voice'], 'speed': base, 'pitch': c.get('pitch', 0), 'chunks': meta,
++    json.dump({'speaker': spk, 'voice': c['voice'], 'speed': base, 'pitch': c.get('pitch', 0), 'chunks': meta, **({'refit': refit} if refit else {}),
+                'note': 'written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds'}, open(side, 'w'), indent=1)
+     rms = 20 * np.log10(np.sqrt(np.mean(audio[np.abs(audio) > 0.005] ** 2)) + 1e-9)
+     print(f"   = {len(audio) / sr:5.2f}s  active rms {rms:5.1f} dBFS  peak {20 * np.log10(np.abs(audio).max() + 1e-9):5.1f} dBFS")

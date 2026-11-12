@@ -1,0 +1,84 @@
+{
+ "B-kokoro-directed": {
+  "words_compared": 109,
+  "median_s": -0.02,
+  "median_abs_s": 0.04,
+  "p90_abs_s": 0.18,
+  "max_abs_s": 0.52,
+  "within_0.10_s_pct": 76.1,
+  "within_0.20_s_pct": 93.6,
+  "worst": [
+   {
+    "line": "lay",
+    "w": "as",
+    "d": -0.52
+   },
+   {
+    "line": "family",
+    "w": "of",
+    "d": 0.28
+   },
+   {
+    "line": "cliff",
+    "w": "and",
+    "d": 0.28
+   },
+   {
+    "line": "family",
+    "w": "sage",
+    "d": 0.26
+   },
+   {
+    "line": "snake",
+    "w": "in",
+    "d": -0.24
+   },
+   {
+    "line": "found",
+    "w": "her",
+    "d": 0.22
+   }
+  ]
+ },
+ "C-chatterbox": {
+  "words_compared": 104,
+  "median_s": -0.02,
+  "median_abs_s": 0.06,
+  "p90_abs_s": 0.22,
+  "max_abs_s": 0.5,
+  "within_0.10_s_pct": 64.4,
+  "within_0.20_s_pct": 88.5,
+  "worst": [
+   {
+    "line": "lay",
+    "w": "as",
+    "d": -0.5
+   },
+   {
+    "line": "play",
+    "w": "her",
+    "d": -0.38
+   },
+   {
+    "line": "play",
+    "w": "friends.",
+    "d": -0.36
+   },
+   {
+    "line": "family",
+    "w": "line.",
+    "d": -0.34
+   },
+   {
+    "line": "play",
+    "w": "with",
+    "d": -0.34
+   },
+   {
+    "line": "wept",
+    "w": "gathered",
+    "d": -0.34
+   }
+  ]
+ }
+}
