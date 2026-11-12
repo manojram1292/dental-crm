@@ -36,7 +36,7 @@
       const T = env.T, b1 = env.beats[1] ?? 3.3, cam = CAM.tilt(E.inOutSine(clamp(t / 3.6)), { from: -330, to: 60, zoom: 1.12 });
       EP51.court(ctx, T, cam, 'seat-ivory', { tx: 540, ty: 1330, ts: 0.95, tcol: '#3a100c', crowd: 0.6, glow: 0.3,
         back: (g, p) => { for (let i = 0; i < 6; i++) { const x = 140 + i * 160, y = 150 - 60 * (i % 2); g.fillStyle = KIT.hex(p.near, p.accent, 0.3); g.beginPath(); g.ellipse(x, y, 44, 110, 0, 0, TAU); g.fill(); g.beginPath(); g.arc(x, y - 150, 30, 0, TAU); g.fill(); g.fillStyle = '#c89a30'; g.beginPath(); g.moveTo(x - 26, y - 176); g.lineTo(x, y - 230); g.lineTo(x + 26, y - 176); g.closePath(); g.fill(); if (i < 5) { g.strokeStyle = '#c89a30'; g.lineWidth = 5; g.beginPath(); g.moveTo(x + 46, y); g.lineTo(x + 114, y + (i % 2 ? -60 : 60)); g.stroke(); } } },
-        figs: (g, p) => F(g, T, 'dushyanta', 540, 1040, 0.72, { f: 'left', pose: 'sit', L: EP51.bright('#fff4d8', 1.35), ex: { emo: 'resolve', gaze: [0.7, 0] }, key: 'ln-k' }) });
+        figs: (g, p) => F(g, T, 'dushyanta', 540, 1040, 0.72, { f: 'left', pose: 'sit', L: { dir: -Math.PI / 2 - 0.3, intensity: 0.5, front: 0.4, fill: 0.2, minLum: 0.1 }, ex: { emo: 'resolve', gaze: [0.7, 0] }, key: 'ln-k' }) });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 3.0) / 0.4)), env.strings, { y: 190 });
       TY.plaque(ctx, T, clamp((t - b1 + 0.6) / 0.6), ...names(env, 'Dushyanta'), { x: 250, y: 330, size: 40, out: out(t, env) });
       fin(ctx, T);
@@ -52,7 +52,7 @@
         for (let i = 0; i < 3; i++) EP51.beast(g, 'elephant', 1560 + i * 330 - d, GY - 240, 0.6, { dir: -1, T, run: 0.5, phase: T * 5 + i });
         for (let i = 0; i < 4; i++) KIT.army.draw(g, 'horse', { x: 1160 + i * 150 - d, y: GY - 250 + (i % 2) * 20, s: 1.2, dir: -1, t: T, phase: i, gait: 1, fill: '#2a1408', line: '#0a0604', gold: '#e0b040', rim: '#fff0b0', light: -Math.PI / 2 });
         KIT.army.draw(g, 'chariot', { x: 800 - d, y: GY - 240, s: 1.5, dir: -1, t: T, gait: 1, fill: '#3a1a0c', line: '#120806', gold: '#f0c050', rim: '#fff0b0', light: -Math.PI / 2, banner: '#1f8a5a' });
-        F(g, T, 'dushyanta', 850 - d, GY - 345, 0.3, { f: 'left', pose: { w: { point: 0.5, stand: 0.5 } }, L: EP51.lit(p, 800, GY, { front: 0.5 }), ex: { emo: 'resolve', gaze: [0.9, 0] }, key: 'hn-k' });
+        F(g, T, 'dushyanta', 850 - d, GY - 345, 0.3, { f: 'left', pose: { w: { point: 0.5, stand: 0.5 } }, L: EP51.bright('#fff4d8', 1.45), ex: { emo: 'resolve', gaze: [0.9, 0] }, key: 'hn-k' });
         for (let i = 0; i < 3; i++) EP51.beast(g, 'deer', 420 - d * 0.75 - i * 170, GY - 250 - 70 * Math.abs(Math.sin(T * 5 + i * 1.3)), 0.8, { dir: -1, T, run: 1, phase: T * 11 + i * 2 });
         for (let i = 0; i < 6; i++) EP51.bird(g, 'small', 200 + i * 150 - d * 0.3, 420 - 50 * t + 60 * hash(i, 7), 0.9, { fly: 1, T, dir: -1 }); } });
       fin(ctx, T);
@@ -65,7 +65,7 @@
       const T = env.T, cam = CAM.pull(clamp(t / env.dur), { from: 1.5, to: 1.02, focus: [640, 1000] }), d = 160 * E.outCubic(t / env.dur);
       EP51.land(ctx, T, cam, 'noon-ochre', { sun: [540, 300, 90], trees: false, hz: 1100, hillH: 160, dust: 'dust', clouds: false,
         far: (g) => { g.fillStyle = '#2a5a2a'; for (let i = 0; i < 14; i++) { g.beginPath(); g.arc(-80 + i * 44, 1100 - 10 * hash(i, 2), 40, 0, TAU); g.fill(); } },
-        figs: (g, p) => { KIT.army.draw(g, 'chariot', { x: 760 - d, y: 1250, s: 1.1, dir: -1, t: T, gait: 1 - 0.7 * (t / env.dur), fill: '#3a1a0c', line: '#120806', gold: '#f0c050', rim: '#fff0b0', light: -Math.PI / 2, banner: '#1f8a5a' });
+        figs: (g, p) => { KIT.army.draw(g, 'chariot', { x: 780 - d, y: 1290, s: 2.0, dir: -1, t: T, gait: 1 - 0.7 * (t / env.dur), fill: '#3a1a0c', line: '#120806', gold: '#f0c050', rim: '#fff0b0', light: -Math.PI / 2, banner: '#1f8a5a' });
           } });
       fin(ctx, T);
     },
@@ -88,7 +88,7 @@
   // 6 · LEFT (the turn): a rack focus from the crown and sash laid on a cloth to the king walking away in a plain dhoti
   R.scene({ id: 'left', transition: { type: 'dissolve', dur: 0.4 },
     draw(ctx, t, env) {
-      const T = env.T, b = env.beats, b1 = b[1] ?? 3.3, b2 = b[2] ?? 5.9, cam = CAM.rack(E.inOutSine(clamp((t - b1 + 0.6) / 1.4)), { from: 1.7, to: 1, zoom: 1.1 }), d = 200 * clamp(t / env.dur);
+      const T = env.T, b = env.beats, b1 = b[1] ?? 3.3, b2 = b[2] ?? 5.9, cam = CAM.rack(E.inOutSine(clamp((t - 1.0) / 1.4)), { from: 1.4, to: 1, zoom: 1.1 }), d = 200 * clamp(t / env.dur);
       EP51.wood(ctx, T, cam, 'hermitage-green', { seed: 125, trunks: [-220, 1300],
         far: (g) => { for (let i = 0; i < 16; i++) { g.fillStyle = '#143a1c'; g.fillRect(40 + i * 28, HZ - 330 - 30 * hash(i, 3), 4, 330); } },
         figs: (g, p) => king(g, p, T, 560 + d, GY - 60, 0.62, { pose: ACT.pose(t, [[0, 'walk']], { phase: ACT.stride(d, 0.62) }), ex: { emo: 'calm', gaze: [0.8, 0] }, key: 'lf-k' }),
@@ -108,7 +108,7 @@
         for (let r = 0; r < 2; r++) for (let i = 0; i < 5; i++) { const x = 80 + i * 230 + r * 110, y = GY - 330 + r * 110; EP51.mini(g, x, y, 1.1, KIT.hex(p.near, '#000000', 0.25), 'rgba(255,240,180,0.9)', true); if (i % 2 === r) { KIT.glow(g, x + 110, y - 50, 150, '#ffb040', 0.5 * KIT.flicker(T, i)); CH.hearthfire.draw(g, { x: x + 110, y: y + 4, scale: 0.2, t: T + i, k: 0.8, key: 'ch-f' + r + i }); } }
         EP51.beast(g, 'deer', 840, GY - 40, 0.7, { dir: -1, T, lie: 1 });
         king(g, p, T, 200 + d, GY + 20, 0.86, { pose: ACT.pose(t, [[0, 'walk'], [1.2, { walk: 0.5, anjali: 0.5 }, { act: 0.5 }]], { phase: ACT.stride(d, 0.86) }), ex: { emo: 'wonder', gaze: [0.6, -0.3] }, key: 'ch-k' }); } });
-      TY.tag(ctx, T, clamp((t - 1.0) / 0.4), "he thought himself in Brahma's world · Adi 1.64.40", { x: 540, y: 250, size: 32, out: out(t, env) });
+      TY.tag(ctx, T, clamp((t - 1.0) / 0.4), "he thought himself in Brahma's world", { x: 540, y: 250, size: 42, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.4, 0.4) });
@@ -131,7 +131,7 @@
       if (cu) { const u = t - (b2 - 1.2), cam = CAM.push(clamp(u / 2.6), { from: 1.0, to: 1.1, focus: [540, 780] });
         EP51.wood(ctx, T, cam, 'meadow-spring', { seed: 120, trunks: false, figs: (g, p) => {
           F(g, T, 'dushyantaPlain', 430, 2960, 2.5, { f: 'right', pose: 'stand', L: ST.light(p, { from: [860, 200], at: [500, 1200], k: 1.0, front: 0.4 }), ex: { emo: ACT.emo(u, [[0, 'weary'], [0.8, 'wonder', { dur: 0.6 }], [1.9, 'tender', { dur: 0.5 }]]), ...ACT.lead(u, [[0, [0.5, 0.4]], [0.7, [0.9, 0]]], 0.4, 0.2) }, key: 'cm-kc' });
-          const gr = g.createLinearGradient(0, 1220, 0, 1700); gr.addColorStop(0, 'rgba(20,40,10,0)'); gr.addColorStop(0.5, 'rgba(20,40,10,0.85)'); gr.addColorStop(1, 'rgba(20,40,10,0.96)'); g.fillStyle = gr; g.fillRect(-900, 1220, 2880, 1600); } });
+          const gr = g.createLinearGradient(0, 1060, 0, 1560); gr.addColorStop(0, 'rgba(20,40,10,0)'); gr.addColorStop(0.5, 'rgba(20,40,10,0.85)'); gr.addColorStop(1, 'rgba(20,40,10,0.96)'); g.fillStyle = gr; g.fillRect(-900, 1060, 2880, 1800); } });
       } else { const late = t >= b3 + 0.5, cam = CAM.push(clamp(t / env.dur), { from: 1.04, to: 1.14, focus: [600, 900] }), step = 170 * E.outCubic(clamp((t - 0.6) / 1.6));
         yard(ctx, T, cam, 'meadow-spring', (g, p) => {
           king(g, p, T, 250, GY + 10, 0.8, { pose: late ? { w: { attend: 1 } } : 'stand', ex: { emo: 'wonder', gaze: [0.9, 0] }, key: 'cm-k' });

@@ -23,15 +23,16 @@
     g.strokeStyle = 'rgba(255,170,90,0.9)'; g.lineWidth = 7; g.beginPath(); g.moveTo(x - w * 0.45, y - h * 0.3); g.quadraticCurveTo(x - w * 0.3, y - h * 0.86, x, y - h * 0.98); g.stroke();
     for (let i = 0; i < 9; i++) { const ex = x - w * 0.36 + w * 0.72 * hash(i, 5), ey = y - h * (0.2 + 0.5 * hash(i, 6)); g.globalAlpha = k * (0.5 + 0.5 * Math.sin(T * 2 + i * 1.7)); g.fillStyle = '#7aff5a'; g.beginPath(); g.arc(ex, ey, 7, 0, TAU); g.arc(ex + 26, ey, 7, 0, TAU); g.fill(); } g.globalAlpha = 1;
   };
-  const earthBowed = (g, p, T, t, x, y, s, key, emo = 'weary', sink = 0) => CH.bhumi.draw(g, { x, y: y + sink, scale: s, facing: 'left', pose: { w: { grieve: 0.55, carry: 0.45 }, prop: false }, light: { dir: -Math.PI / 2 - 0.6, intensity: 1.2, front: 0.55, fill: 0.3, tint: ['#ffb070', 0.5], minLum: 0.25 }, expression: { emo, gaze: [0.2, 0.7] }, t: T, key });
+  const earthBowed = (g, p, T, t, x, y, s, key, emo = 'weary', sink = 0) => { g.save(); g.translate(x, y + sink); g.rotate(-0.2); CH.bhumi.draw(g, { x: 0, y: 0, scale: s, facing: 'left', pose: { w: { bow: 0.45, carry: 0.55 }, prop: false }, light: { dir: -Math.PI / 2 - 0.6, intensity: 1.2, front: 0.55, fill: 0.3, tint: ['#ffb070', 0.5], minLum: 0.25 }, expression: { emo, gaze: [0.2, 0.7] }, t: T, key }); g.restore(); };
 
+  const BUR = 760;
   // 1 · HOOK: the Earth, large, bent under a dark mass; a tilt up from her bowed head to the mass
   R.scene({ id: 'hook',
     draw(ctx, t, env) {
       const T = env.T, cam = CAM.drift(CAM.tilt(E.outCubic(clamp(t / 3.0)), { from: 200, to: -260, zoom: 1.1 }), T, 0.6), sink = 14 * Math.sin(T * 1.1);
       EP51.void(ctx, T, cam, 'dharma-copper', { gy: GY + 40, glow: [540, 500, 1300, '#e8803a', 0.5],
         back: (g, p) => ST.hills(g, p, { y: 1500, h: 260, seed: 201 }),
-        figs: (g, p) => { burden(g, 520, 560 + sink, 900, 620, T); earthBowed(g, p, T, t, 560, GY + 60, 1.0, 'hk-e', 'weary', sink); },
+        figs: (g, p) => { burden(g, 600, BUR + sink, 900, 620, T); earthBowed(g, p, T, t, 600, GY + 60, 1.0, 'hk-e', 'weary', sink); },
         dust: 'ash', dustN: 26 });
       EP51.hook(ctx, T, t, env, { y: 1500 });
       fin(ctx, T);
@@ -67,7 +68,6 @@
           for (let i = 0; i < 3; i++) EP51.fig(g, T, 'bharataChild', 1150 - run - i * 110, GY - 330 + i * 10, 0.5, { f: 'left', pose: ACT.pose(t, [[0, 'run']], { phase: T * 9 + i * 2 }), L: EP51.lit(p, 900, GY), ex: { emo: 'joy' }, key: 'kg-c' + i });
         } });
       TY.plaque(ctx, T, clamp((t - 0.8) / 0.5), ...names(env, 'Parashurama'), { x: 330, y: 330, size: 46, out: clamp((t - 2.5) / 0.3) });
-      TY.tag(ctx, T, clamp((t - 1.0) / 0.4), 'he had emptied the earth of kings · Adi 1.58.4', { x: 430, y: 470, size: 30, out: clamp((t - 2.5) / 0.3) });
       fin(ctx, T);
     },
     post: POST(0.3, 0.4) });
@@ -75,18 +75,18 @@
   // 4 · ASURAS: a tilt down a dark sky: horned figures fall, turn to points of sickly green light and sink into the land
   R.scene({ id: 'asuras', transition: { type: 'ink', dur: 0.6, at: [540, 500], color: '#12061c' },
     draw(ctx, t, env) {
-      const T = env.T, b = env.beats, b1 = b[1] ?? 2.6, cam = CAM.tilt(E.inOutSine(clamp(t / env.dur)), { from: -230, to: 210, zoom: 1.14 });
+      const T = env.T, b = env.beats, b1 = b[1] ?? 2.6, cam = CAM.tilt(E.inOutSine(clamp(t / env.dur)), { from: -90, to: 90, zoom: 1.08 });
       EP51.void(ctx, T, cam, 'venom-violet', { hz: 1560, gy: 1560,
         sky: (g) => { for (let i = 0; i < 40; i++) { g.globalAlpha = 0.5 * hash(i, 81); g.fillStyle = '#d8c8ff'; g.beginPath(); g.arc(1080 * hash(i, 82), -300 + 1500 * hash(i, 83), 3, 0, TAU); g.fill(); } g.globalAlpha = 1; },
         back: (g, p) => { ST.hills(g, p, { y: 1560, h: 300, seed: 207 }); ST.treeline(g, p, { y: 1580, h: 260, T, seed: 209, kind: 'sal' }); },
         figs: (g, p) => {
-          for (let i = 0; i < 8; i++) { const u = clamp((t - 0.1 - i * 0.36) / 2.4), x = 140 + ((i * 3) % 8) * 115 + 40 * Math.sin(i * 3), y = -300 + 1900 * u * u, k = clamp((u - 0.45) / 0.3);
+          for (let i = 0; i < 11; i++) { const u = clamp((t + 0.9 - i * 0.42) / 2.6), x = 150 + ((i * 3) % 8) * 112 + 30 * Math.sin(i * 3), y = 440 + 1180 * Math.pow(u, 1.4), k = clamp((u - 0.5) / 0.22);
             if (u <= 0 || u >= 1) continue;
-            if (k < 1) { g.save(); g.globalAlpha = 1 - k; { const hg = g.createRadialGradient(x, y - 120, 30, x, y - 220, 520); hg.addColorStop(0, 'rgba(206,188,255,0.95)'); hg.addColorStop(0.45, 'rgba(170,140,240,0.6)'); hg.addColorStop(1, 'rgba(120,90,200,0)'); g.fillStyle = hg; } g.beginPath(); g.ellipse(x, y - 220, 300, 560, 0, 0, TAU); g.fill(); g.restore(); g.save(); g.globalAlpha = 1 - k; g.translate(x, y); g.rotate(0.5 * Math.sin(i * 2.1) + u * 1.2); CH.asura.draw(g, { x: 0, y: 420, scale: 0.8, index: i % 6, facing: i % 2 ? 'left' : 'right', pose: { name: 'cower', k: 0.8 }, light: { dir: -Math.PI / 2, intensity: 1.0, front: 0.2, fill: 0.1, tint: ['#c8a0ff', 0.5] }, t: T, key: 'as-' + i }); g.restore(); }
+            if (k < 1) { g.save(); g.globalAlpha = 1 - k; { const hg = g.createRadialGradient(x, y, 20, x, y, 330); hg.addColorStop(0, 'rgba(214,198,255,0.95)'); hg.addColorStop(0.5, 'rgba(176,150,240,0.55)'); hg.addColorStop(1, 'rgba(120,90,200,0)'); g.fillStyle = hg; } g.beginPath(); g.arc(x, y, 330, 0, TAU); g.fill(); g.translate(x, y); g.rotate(0.3 * Math.sin(i * 2.1) + (u - 0.3) * 0.5); CH.asura.draw(g, { x: 0, y: 270, scale: 0.52, index: i % 6, facing: i % 2 ? 'left' : 'right', pose: { name: 'cower', k: 0.8 }, light: { dir: -Math.PI / 2, intensity: 1.0, front: 0.2, fill: 0.1, tint: ['#c8a0ff', 0.5] }, t: T, key: 'as-' + i }); g.restore(); }
             KIT.glow(g, x, y, 60 + 160 * k, '#7aff5a', 0.9 * k); g.fillStyle = '#eaffd8'; g.globalAlpha = k; g.beginPath(); g.arc(x, y, 12, 0, TAU); g.fill(); g.globalAlpha = 1; }
           for (let i = 0; i < 7; i++) { const a = clamp((t - b1 - i * 0.25) / 0.6); KIT.glow(g, 120 + i * 140, 1590 + 30 * hash(i, 9), 90, '#7aff5a', 0.5 * a * (0.7 + 0.3 * Math.sin(T * 3 + i))); }
         } });
-      TY.tag(ctx, T, clamp((t - 0.7) / 0.4), "asuras · the gods' rivals", { x: 540, y: 250, size: 36, out: out(t, env) });
+      TY.tag(ctx, T, clamp((t - 0.7) / 0.4), "asuras · the gods' rivals", { x: 540, y: 120, size: 50, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.4, 0.5) });
@@ -164,7 +164,6 @@
             if (k > 0) { const lx = x - 60 + 40 * k, ly = y - 380 + 760 * E.inCubic(k); KIT.glow(g, lx, ly, 150, '#fff6c0', 0.9 * (1 - 0.3 * k)); g.fillStyle = '#ffffff'; g.beginPath(); g.ellipse(lx, ly, 14, 30, 0, 0, TAU); g.fill(); } }
         },
         front: (g) => { const a = clamp((t - b2 + 0.6) / 0.8); if (a > 0) { g.globalAlpha = a; g.fillStyle = '#1c2a20'; g.beginPath(); g.ellipse(540, 2150, 900, 330, 0, 0, TAU); g.fill(); g.strokeStyle = 'rgba(160,220,150,0.7)'; g.lineWidth = 6; g.beginPath(); g.ellipse(540, 2150, 900, 330, 0, Math.PI, TAU); g.stroke(); g.globalAlpha = 1; } } });
-      TY.tag(ctx, T, clamp((t - b1) / 0.4), '"in parts, each apart, to fight" · Adi 1.58.46', { x: 540, y: 250, size: 34, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.44, 0.36) });
@@ -176,19 +175,19 @@
       EP51.heaven(ctx, T, cam, 'crystal-sky', { floor: GY + 60, sun: [860, 300, 80],
         back: (g) => KIT.glow(g, 600, 640, 900, '#9ab8ff', 0.4),
         figs: (g, p) => {
-          CH.vishnu.draw(g, { x: 620, y: GY + 40, scale: 1.02, facing: 'front', pose: { name: 'bless', k: E.outCubic(clamp((t - b2 + 0.5) / 0.7)) }, light: { dir: -Math.PI / 2 - 0.3, intensity: 1.3, front: 0.9, fill: 0.6 }, t: T, key: 'ag-v' });
+          CH.vishnu.draw(g, { x: 730, y: GY + 40, scale: 0.92, facing: 'front', pose: { name: 'bless', k: E.outCubic(clamp((t - b2 + 0.5) / 0.7)) }, light: { dir: -Math.PI / 2 - 0.3, intensity: 1.3, front: 0.9, fill: 0.6 }, t: T, key: 'ag-v' });
           CH.indra.draw(g, { x: 200, y: GY + 110, scale: 0.5, facing: 'right', pose: { name: 'speak', k: clamp(1 - (t - b1) / 0.8) }, light: { dir: -Math.PI / 2 + 0.4, intensity: 1.3, front: 0.9, fill: 0.6 }, t: T, key: 'ag-i' }); } });
-      TY.plaque(ctx, T, clamp((t - b1 + 0.6) / 0.6), ...names(env, 'Narayana'), { x: 300, y: 330, size: 54, out: out(t, env) });
-      TY.plaque(ctx, T, clamp((t - 0.4) / 0.5), ...names(env, 'Indra'), { x: 260, y: 780, size: 40, out: clamp((t - b1 + 0.4) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b1 + 0.6) / 0.6), ...names(env, 'Narayana'), { x: 215, y: 330, size: 46, out: out(t, env) });
+      TY.plaque(ctx, T, clamp((t - 0.4) / 0.5), ...names(env, 'Indra'), { x: 180, y: 780, size: 36, out: clamp((t - b1 + 0.4) / 0.3) });
       fin(ctx, T);
     },
     post: POST(0.42, 0.42) });
 
   // 11 · CLIFF: a green earth by day: lights come down like slow rain; where each lands a small figure rises; two are green-eyed
-  const CAST = [['arjuna', 150, 0.2, 'stand'], ['bhima', 330, 0.9, 'stand'], ['panchali', 520, 1.5, 'attend'], ['duryodhana', 720, 2.1, 'stand'], ['kaliShade', 930, 2.6, 'stand']];
+  const CAST = [['arjuna', 150, 0.2, 'stand'], ['bhima', 330, 0.9, 'stand'], ['panchali', 520, 1.5, { w: { stand: 1 }, prop: false }], ['duryodhana', 720, 2.1, { w: { stand: 1 }, prop: false }], ['kaliShade', 930, 2.6, 'stand']];
   const cliff = (ctx, T, t, env, b) => {
     const cam = CAM.drift(CAM.push(clamp(t / 6.4), { from: 1.02, to: 1.16, focus: [540, 1000] }), T, 1.6);
-    EP51.land(ctx, T, cam, 'hunt-emerald', { sun: [240, 420, 80], dust: 'pollen', hz: 1150,
+    EP51.land(ctx, T, cam, 'hunt-emerald', { sun: [240, 420, 80], dust: 'pollen', hz: 1150, trees: 'sal',
       sky: (g) => { for (let i = 0; i < 30; i++) { const u = (T * 0.09 * (0.5 + hash(i, 1)) + hash(i, 2)) % 1, x = 1080 * hash(i, 3), y = -100 + 1250 * u; g.globalAlpha = 0.9 * (1 - u * 0.5); g.strokeStyle = '#fff6c0'; g.lineWidth = 3; g.beginPath(); g.moveTo(x, y - 70); g.lineTo(x, y); g.stroke(); g.fillStyle = '#ffffff'; g.beginPath(); g.arc(x, y, 5 + 4 * hash(i, 4), 0, TAU); g.fill(); } g.globalAlpha = 1; },
       figs: (g, p) => { CAST.forEach(([id, x, t0, pose], i) => { const k = E.outCubic(clamp((t - t0) / 0.9)); if (k <= 0) return; const y = 1250 + (i % 2) * 40; KIT.glow(g, x, y - 300, 300 * (1.2 - 0.5 * k), i > 2 ? '#7aff5a' : '#fff6c0', 0.8 * (1 - 0.7 * k));
         g.save(); g.globalAlpha = 1; g.beginPath(); g.rect(x - 400, y - 1200 * k - 20, 800, 1200 * k + 40); g.clip(); EP51.fig(g, T, id, x, y, 0.5, { f: i < 3 ? 'right' : 'left', pose, L: EP51.bright(i > 2 ? '#d8ffd0' : '#fff4d8', 1.25), ex: { emo: i > 2 ? 'wrath' : 'calm' }, key: 'cl-' + i }); g.restore(); }); } });

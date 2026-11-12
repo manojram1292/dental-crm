@@ -13,11 +13,11 @@
   const POST = (b = 0.3, v = 0.45) => () => ({ bloom: b, vignette: v, paper: 0.3 });
   const out = (t, env, d = 0.4) => clamp((t - (env.dur - d)) / 0.3);
   const F = EP51.fig;
-  const shade = (g, c = '8,8,18') => { const gr = g.createLinearGradient(0, 1220, 0, 1700); gr.addColorStop(0, `rgba(${c},0)`); gr.addColorStop(0.5, `rgba(${c},0.85)`); gr.addColorStop(1, `rgba(${c},0.96)`); g.fillStyle = gr; g.fillRect(-900, 1220, 2880, 1600); };
+  const shade = (g, c = '8,8,18') => { const gr = g.createLinearGradient(0, 1060, 0, 1560); gr.addColorStop(0, `rgba(${c},0)`); gr.addColorStop(0.5, `rgba(${c},0.85)`); gr.addColorStop(1, `rgba(${c},0.96)`); g.fillStyle = gr; g.fillRect(-900, 1060, 2880, 1800); };
   const court = (ctx, T, cam, pal, figs, o = {}) => EP51.court(ctx, T, cam, pal, { tx: o.tx === undefined ? 800 : o.tx, ty: 1310, ts: 0.9, crowd: o.crowd ?? 1, glow: o.glow ?? 0.2, gx: o.gx ?? 800, figs, front: o.front, mid: o.mid, back: o.back });
-  const king = (g, p, T, o = {}) => F(g, T, 'dushyanta', o.x ?? 700, o.y ?? 1170, o.s ?? 0.7, { f: o.f || 'left', pose: o.pose || 'stand', L: o.L || EP51.lit(p, 700, 1170, { from: [300, 300], front: 0.42 }), ex: o.ex || { emo: 'resolve', gaze: [0.8, 0.3] }, key: o.key || 'kg' });
-  const girl = (g, p, T, x, y, s, o = {}) => F(g, T, 'shakuntala', x, y, s, { f: o.f || 'right', pose: o.pose || 'stand', L: o.L || EP51.lit(p, x, y, { from: [800, 300], front: 0.42 }), ex: o.ex || { emo: 'resolve', gaze: [0.9, -0.4] }, key: o.key || 'gl' });
-  const boy = (g, p, T, x, y, s, o = {}) => F(g, T, 'bharataChild', x, y, s, { f: o.f || 'right', pose: o.pose || 'stand', L: o.L || EP51.lit(p, x, y, { from: [800, 300], front: 0.5 }), ex: o.ex || { emo: 'wonder', gaze: [0.5, -0.9] }, key: o.key || 'by' });
+  const king = (g, p, T, o = {}) => F(g, T, 'dushyanta', o.x ?? 700, o.y ?? 1170, o.s ?? 0.7, { f: o.f || 'left', pose: o.pose || 'stand', L: o.L || EP51.bright('#fff0dc', 1.5), ex: o.ex || { emo: 'resolve', gaze: [0.8, 0.3] }, key: o.key || 'kg' });
+  const girl = (g, p, T, x, y, s, o = {}) => F(g, T, 'shakuntala', x, y, s, { f: o.f || 'right', pose: o.pose || 'stand', L: o.L || EP51.bright('#fff0dc', 1.5), ex: o.ex || { emo: 'resolve', gaze: [0.9, -0.4] }, key: o.key || 'gl' });
+  const boy = (g, p, T, x, y, s, o = {}) => F(g, T, 'bharataChild', x, y, s, { f: o.f || 'right', pose: o.pose || 'stand', L: o.L || EP51.bright('#fff0dc', 1.5), ex: o.ex || { emo: 'wonder', gaze: [0.5, -0.9] }, key: o.key || 'by' });
   const beam = (g, x, w, a) => { if (a <= 0) return; const gr = g.createLinearGradient(x - w, 0, x + w, 0); gr.addColorStop(0, 'rgba(255,255,255,0)'); gr.addColorStop(0.5, `rgba(255,252,236,${0.75 * a})`); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.save(); g.globalCompositeOperation = 'lighter'; g.fillStyle = gr; g.beginPath(); g.moveTo(x - w * 0.5, -900); g.lineTo(x + w * 0.5, -900); g.lineTo(x + w, GY + 40); g.lineTo(x - w, GY + 40); g.closePath(); g.fill(); g.restore(); };
 
   // 1 · HOOK: looking straight up from the floor of a hall: pillars converge on an opening full of bright cloud; light pours down
@@ -42,8 +42,8 @@
       const T = env.T, b1 = env.beats[1] ?? 3.0, cam = CAM.slide(E.inOutSine(clamp(t / env.dur)), { from: 150, to: -150, zoom: 1.14 });
       court(ctx, T, cam, 'dice-vermilion', (g, p) => { king(g, p, T, { key: 'sn-k' }); girl(g, p, T, 250, GY + 10, 0.8, { f: 'left', key: 'sn-g' }); boy(g, p, T, 130, GY + 16, 0.76, { f: 'left', ex: { emo: 'wonder' }, key: 'sn-b' }); });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 2.4) / 0.4)), env.strings, { y: 190 });
-      TY.plaque(ctx, T, clamp((t - 0.9) / 0.5), ...names(env, 'Dushyanta'), { x: 760, y: 310, size: 38, out: clamp((t - b1 + 0.3) / 0.3) });
-      TY.plaque(ctx, T, clamp((t - b1) / 0.5), ...names(env, 'Shakuntala'), { x: 740, y: 310, size: 38, out: out(t, env) });
+      TY.plaque(ctx, T, clamp((t - 0.9) / 0.5), ...names(env, 'Dushyanta'), { x: 760, y: 420, size: 38, out: clamp((t - b1 + 0.3) / 0.3) });
+      TY.plaque(ctx, T, clamp((t - b1) / 0.5), ...names(env, 'Shakuntala'), { x: 740, y: 420, size: 38, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.32, 0.5) });
@@ -58,7 +58,7 @@
         girl(g, p, T, 540, GY - 96, 0.86, { f: 'right', pose: ACT.pose(t, [[0, 'stand'], [1.0, 'attend', { act: 0.5 }]]), L: EP51.bright('#ffffff', 1.4), ex: { emo: 'wonder', ...ACT.lead(t, [[0, [0.8, 0]], [0.8, [0.2, -0.9]]], 0.4, 0.3) }, key: 'vc-g' });
         boy(g, p, T, 410, GY - 90, 0.8, { L: EP51.bright('#ffffff', 1.45), key: 'vc-b' });
         for (let i = 0; i < 6; i++) { const x = i < 3 ? 40 + i * 90 : 800 + (i - 3) * 100; EP51.mini(g, x, GY + 30 + (i % 2) * 30, 1.1, '#141c4a', 'rgba(255,255,255,0.9)', false); } }, { tx: null, crowd: 0.8, glow: 0.05 });
-      TY.tag(ctx, T, clamp((t - 1.0) / 0.4), 'a bodiless voice · Adi 1.69.28–30', { x: 540, y: 250, size: 32, out: out(t, env) });
+      TY.tag(ctx, T, clamp((t - 1.0) / 0.4), 'a bodiless voice', { x: 540, y: 250, size: 42, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.5, 0.42) });
@@ -69,7 +69,7 @@
       const T = env.T, b1 = env.beats[1] ?? 4.0, cam = CAM.push(t / env.dur, { from: 1.1, to: 1.3, focus: [540, 820] });
       court(ctx, T, cam, 'messenger-dawn', (g, p) => { beam(g, 540, 300, 1); boy(g, p, T, 540, GY + 10, 1.2, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [1.0, 'shield', { act: 0.5 }]]), L: EP51.bright('#fffbe8', 1.4), ex: { emo: ACT.emo(t, [[0, 'wonder'], [b1 - 0.5, 'joy']]), gaze: [0.4, -0.9] }, key: 'nm-b' }); }, { tx: null, crowd: 0.5, glow: 0.3, gx: 540 });
       TY.plaque(ctx, T, clamp((t - b1 + 0.4) / 0.5), ...names(env, 'Bharata'), { x: 540, y: 330, size: 56, out: out(t, env, 0.3) });
-      TY.tag(ctx, T, clamp((t - (env.beats[0] ?? 1.5)) / 0.4), 'bhara · support', { x: 540, y: 250, size: 34, out: clamp((t - b1 + 0.6) / 0.3) });
+      TY.tag(ctx, T, clamp((t - (env.beats[0] ?? 1.5)) / 0.4), 'bhara · support', { x: 540, y: 250, size: 42, out: clamp((t - b1 + 0.6) / 0.3) });
       fin(ctx, T);
     },
     post: POST(0.46, 0.4) });
@@ -79,7 +79,7 @@
     draw(ctx, t, env) {
       const T = env.T, cam = CAM.orbit(t / env.dur, { from: -1, to: 1, amp: 120, zoom: 1.14 }), turned = t > 0.7;
       court(ctx, T, cam, 'fishers-coral', (g, p) => {
-        for (let i = 0; i < 5; i++) F(g, T, i % 2 ? 'kacha' : 'kanva', 640 + i * 95, GY + 10 + (i % 2) * 14, 0.66, { f: 'left', pose: i % 2 ? 'attend' : 'recoil', L: EP51.lit(p, 800, GY, { front: 0.35 }), ex: { emo: 'wonder' }, key: 'gd-m' + i });
+        for (let i = 0; i < 5; i++) F(g, T, 'kanva', 640 + i * 95, GY + 10 + (i % 2) * 14, 0.66, { f: 'left', pose: i % 2 ? 'attend' : 'recoil', L: { dir: -Math.PI / 2, intensity: 0.5, front: 0.3, fill: 0.15, minLum: 0.08 }, ex: { emo: 'wonder' }, key: 'gd-m' + i });
         king(g, p, T, { x: 330, y: GY + 10, s: 0.96, f: turned ? 'right' : 'left', pose: ACT.pose(t, [[0, 'stand'], [0.5, 'offer', { act: 0.5 }]]), ex: { emo: 'joy', gaze: [0.9, 0] }, key: 'gd-k' }); }, { tx: null, crowd: 0.6 });
       fin(ctx, T);
     },
@@ -90,7 +90,7 @@
     draw(ctx, t, env) {
       const T = env.T, b = env.beats, b1 = b[1] ?? 3.1, b2 = b[2] ?? 4.1, cam = CAM.push(t / env.dur, { from: 1.0, to: 1.12, focus: [540, 780] });
       EP51.court(ctx, T, cam, 'war-iron', { crowd: 0, glow: 0.1, front: () => {}, figs: (g, p) => {
-        F(g, T, 'dushyanta', 640, 2960, 2.5, { f: 'left', pose: 'stand', L: { dir: -Math.PI / 2 - 0.5, intensity: 1.1, front: 0.5, fill: 0.3, tint: ['#8a9cff', 0.85], minLum: 0.3 }, ex: { emo: ACT.emo(t, [[0, 'joy'], [b1 - 0.5, 'sorrow', { dur: 0.7 }]]), speak: talk(env, t), ...ACT.lead(t, [[0, [0.8, -0.2]], [b1 - 0.3, [0.5, 0.8]]], 0.4, 0.25) }, key: 'kn-k' }); g.save(); g.globalCompositeOperation = 'multiply'; g.fillStyle = '#7080d8'; g.fillRect(-900, -900, 2880, 3800); g.restore(); shade(g); } });
+        F(g, T, 'dushyanta', 640, 2960, 2.5, { f: 'left', pose: 'stand', L: { dir: -Math.PI / 2 - 0.5, intensity: 1.5, front: 0.8, fill: 0.5, tint: ['#aab8ff', 0.6], minLum: 0.4 }, ex: { emo: ACT.emo(t, [[0, 'joy'], [b1 - 0.5, 'sorrow', { dur: 0.7 }]]), speak: talk(env, t), ...ACT.lead(t, [[0, [0.8, -0.2]], [b1 - 0.3, [0.5, 0.8]]], 0.4, 0.25) }, key: 'kn-k' }); g.save(); g.globalCompositeOperation = 'multiply'; g.fillStyle = '#aab4f0'; g.fillRect(-900, -900, 2880, 3800); g.restore(); shade(g); } });
       TY.turnWord(ctx, T, clamp((t - b2) / 0.6), 'Knew', { x: 290, y: 1260, size: 96, out: out(t, env, 0.3), sub: 'Adi 1.69.35' });
       fin(ctx, T);
     },
@@ -99,10 +99,9 @@
   // 7 · WHY: a rack focus from the king's open hand in the foreground to the ranks of courtiers behind, whispering
   R.scene({ id: 'why', transition: { type: 'dissolve', dur: 0.3 },
     draw(ctx, t, env) {
-      const T = env.T, cam = CAM.rack(E.inOutSine(clamp((t - 0.5) / 1.4)), { from: 1.9, to: 1, zoom: 1.1 });
-      court(ctx, T, cam, 'dice-vermilion', (g, p) => { for (let i = 0; i < 7; i++) F(g, T, ['kacha', 'kanva', 'yudhishthira'][i % 3], 110 + i * 150, GY - 30 + (i % 2) * 30, 0.7, { f: i % 2 ? 'left' : 'right', pose: i % 3 === 0 ? 'point' : 'attend', L: EP51.lit(p, 500, GY, { front: 0.35 }), ex: { emo: i % 2 ? 'wonder' : 'calm', speak: i % 3 === 1 ? 0.5 + 0.5 * Math.sin(T * 9 + i) : 0 }, key: 'wy-' + i }); }, { tx: null, crowd: 1,
-        front: (g) => { g.fillStyle = '#8a5a38'; g.beginPath(); g.ellipse(250, 1700, 210, 110, -0.3, 0, TAU); g.fill(); for (let i = 0; i < 4; i++) { g.save(); g.translate(170 + i * 78, 1620); g.rotate(-0.5 + i * 0.16); g.beginPath(); g.roundRect(-34, -250, 68, 260, 30); g.fill(); g.restore(); } g.fillStyle = '#e7b54a'; g.fillRect(30, 1800, 380, 44); } });
-      TY.tag(ctx, T, clamp((t - 0.9) / 0.4), 'Adi 1.69.36', { x: 860, y: 250, size: 30, out: out(t, env) });
+      const T = env.T, cam = CAM.rack(E.inOutSine(clamp((t - 0.2) / 0.9)), { from: 1.4, to: 1, zoom: 1.1 });
+      court(ctx, T, cam, 'dice-vermilion', (g, p) => { for (let i = 0; i < 7; i++) F(g, T, ['kacha', 'kanva', 'yudhishthira'][i % 3], 110 + i * 150, GY - 30 + (i % 2) * 30, 0.7, { f: i % 2 ? 'left' : 'right', pose: i % 3 === 0 ? 'point' : 'attend', L: EP51.bright('#fff0dc', 1.5), ex: { emo: i % 2 ? 'wonder' : 'calm', speak: i % 3 === 1 ? 0.5 + 0.5 * Math.sin(T * 9 + i) : 0 }, key: 'wy-' + i }); }, { tx: null, crowd: 1,
+        front: () => {} });
       fin(ctx, T);
     },
     post: POST(0.32, 0.5) });
@@ -115,7 +114,7 @@
         girl(g, p, T, 830, GY + 10, 0.86, { f: 'left', pose: 'attend', ex: { emo: 'resolve', gaze: [0.8, 0.4] }, key: 'eb-g' });
         king(g, p, T, { x: 180 + come, y: GY + 10, s: 0.96, f: 'right', pose: ACT.pose(t, [[0, 'walk'], [0.8, { kneel: 0.75, embrace: 0.25 }, { act: 0.6 }]], { phase: ACT.stride(come, 0.96) }), ex: { emo: 'tender', gaze: [0.7, 0.4] }, key: 'eb-k' });
         boy(g, p, T, 520, GY + 16, 0.84, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [0.9, 'embrace', { act: 0.5 }]]), ex: { emo: 'joy', gaze: [0.8, -0.2] }, key: 'eb-b' }); }, { tx: null, crowd: 0.7 });
-      TY.tag(ctx, T, clamp((t - b1) / 0.4), '"what you said in anger, I forgive" · the king, Adi 1.69.42', { x: 540, y: 250, size: 28, out: out(t, env) });
+      TY.tag(ctx, T, clamp((t - b1) / 0.4), '"what you said in anger, I forgive"', { x: 540, y: 250, size: 42, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.36, 0.42) });
@@ -132,7 +131,7 @@
       F(g, T, 'shakuntalaQueen', 800, 1290, 0.62, { f: 'left', pose: 'attend', L: EP51.bright('#fff6d0', 1.3), ex: { emo: 'tender' }, key: 'tr-s' }); } });
   R.scene({ id: 'line', transition: { type: 'dissolve', dur: 0.45 },
     draw(ctx, t, env) { const T = env.T, b1 = env.beats[1] ?? 2.5, b3 = env.beats[3] ?? 6.1, cam = CAM.tilt(E.inOutSine(clamp((t - b1) / 3.2)), { from: 190, to: -150, zoom: 1.12 }); tree(ctx, T, t, env, cam);
-      TY.tag(ctx, T, clamp((t - 0.6) / 0.4), 'his wheel rolled unconquered · Adi 1.69.45', { x: 540, y: 250, size: 30, out: clamp((t - b1) / 0.3) });
+      TY.tag(ctx, T, clamp((t - 0.6) / 0.4), 'his wheel rolled unconquered', { x: 540, y: 250, size: 42, out: clamp((t - b1) / 0.3) });
       TY.plaque(ctx, T, clamp((t - b3 + 0.5) / 0.5), 'The Bharatas', env.script.names.Bharatas, { x: 540, y: 330, size: 50, out: out(t, env, 0.3) });
       fin(ctx, T); },
     post: POST(0.48, 0.36) });
@@ -144,7 +143,7 @@
     const cam = CAM.drift(CAM.pull(clamp(t / 8.4), { from: 1.34, to: 1.02, focus: [420, 900] }), T, 1.4), up = E.inOutSine(clamp((t - b[2]) / 1.4));
     EP51.void(ctx, T, cam, 'venom-violet', { gy: 1300, glow: [700, 600, 800, '#9aff9a', 0.14 + 0.2 * up],
       back: (g, p) => { ST.hills(g, p, { y: 1320, h: 260, seed: 231 }); F(g, T, 'shukra', 780, 1330, 1.02, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [b[2] - 0.5, 'bless', { act: 0.6 }]]), L: { dir: -Math.PI / 2, intensity: 1.1, front: 0.5, fill: 0.3, tint: ['#b0ffa0', 0.5], minLum: 0.25 }, ex: { emo: 'resolve', gaze: [0.5, 0.6] }, key: 'cl-s' }); },
-      figs: (g, p) => { F(g, T, 'yayati', 250, 1330, 0.7, { f: 'right', pose: 'stand', L: EP51.lit(p, 250, 1330, { from: [800, 300], front: 0.5 }), ex: { emo: 'calm', gaze: [0.8, 0] }, key: 'cl-y' });
+      figs: (g, p) => { F(g, T, 'yayati', 250, 1330, 0.7, { f: 'right', pose: 'stand', L: EP51.bright('#fff0dc', 1.5), ex: { emo: 'calm', gaze: [0.8, 0] }, key: 'cl-y' });
         F(g, T, 'devayani', 430, 1330, 0.64, { f: 'left', pose: 'attend', L: EP51.bright('#fff0ff', 1.45), ex: { emo: 'resolve', gaze: [0.8, 0] }, key: 'cl-d' });
         KIT.glow(g, 900, 1250, 260, '#9aff9a', 0.5 * up); CH.asura.draw(g, { x: 900, y: 1340, scale: 0.5, index: 2, facing: 'left', pose: { name: 'cower', k: 1 - up }, light: { dir: -Math.PI / 2, intensity: 1.2, front: 0.7, fill: 0.5, tint: ['#b0ffa0', 0.6] }, t: T, key: 'cl-a' }); } });
     TY.plaque(ctx, T, clamp((t - b[0] - 0.2) / 0.5), ...names(env, 'Yayati'), { x: 280, y: 420, size: 44, out: clamp((t - b[2] + 0.2) / 0.3) });

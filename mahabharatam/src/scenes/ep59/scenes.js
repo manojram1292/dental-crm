@@ -12,7 +12,7 @@
   const POST = (b = 0.3, v = 0.45) => () => ({ bloom: b, vignette: v, paper: 0.3 });
   const out = (t, env, d = 0.4) => clamp((t - (env.dur - d)) / 0.3);
   const F = EP51.fig;
-  const shade = (g, c = '14,8,4') => { const gr = g.createLinearGradient(0, 1220, 0, 1700); gr.addColorStop(0, `rgba(${c},0)`); gr.addColorStop(0.5, `rgba(${c},0.85)`); gr.addColorStop(1, `rgba(${c},0.96)`); g.fillStyle = gr; g.fillRect(-900, 1220, 2880, 1600); };
+  const shade = (g, c = '14,8,4') => { const gr = g.createLinearGradient(0, 1060, 0, 1560); gr.addColorStop(0, `rgba(${c},0)`); gr.addColorStop(0.5, `rgba(${c},0.85)`); gr.addColorStop(1, `rgba(${c},0.96)`); g.fillStyle = gr; g.fillRect(-900, 1060, 2880, 1800); };
   const GL = { dir: -Math.PI / 2 - 0.3, intensity: 1.3, front: 0.9, fill: 0.6, tint: ['#fff4d8', 0.5] };
   const AL = (c = '#b0ffa0') => ({ dir: -Math.PI / 2, intensity: 1.2, front: 0.7, fill: 0.5, tint: [c, 0.6] });
   const deva = (g, T, i, x, y, s, pose, f = 'right') => CH.deva.draw(g, { x, y, scale: s, index: i % 6, facing: f, pose, light: GL, t: T, key: 'dv' + i });
@@ -28,11 +28,11 @@
   R.scene({ id: 'hook',
     draw(ctx, t, env) {
       const T = env.T, b0 = env.beats[0] ?? 1.1, cam = CAM.drift(CAM.push(E.outCubic(clamp(t / 3.2)), { from: 1.0, to: 1.18, focus: [540, 1150] }), T, 0.6), sweep = -300 + 1700 * clamp(t / 2.4), cl = E.inOutSine(clamp((t - b0 - 0.3) / 0.8));
-      field(ctx, T, cam, (g, p) => { for (let i = 0; i < 3; i++) lying(g, 250 + i * 330, 1120 + i * 20, () => asura(g, T, i, 0, 0, 0.5, { name: 'stand' }, 'left', AL('#80c0a0')), i % 2 ? 1 : -1);
-        KIT.glow(g, sweep, 1250, 520, '#9aff9a', 0.55);
-        g.save(); g.translate(560, 1330); g.fillStyle = '#5a4a40'; g.beginPath(); g.ellipse(0, 40, 190, 100, 0.1, 0, TAU); g.fill(); g.fillRect(140, -10, 900, 130);   // the palm and the forearm
-        for (let i = 0; i < 4; i++) { g.save(); g.translate(-130 + i * 80, -10); g.rotate(-0.25 + i * 0.12 + cl * (1.5 + i * 0.1)); g.beginPath(); g.roundRect(-34, -230, 68, 250, 32); g.fill(); g.restore(); } g.save(); g.translate(150, 0); g.rotate(0.9 - cl * 1.2); g.beginPath(); g.roundRect(-34, -180, 68, 200, 32); g.fill(); g.restore();
-        g.fillStyle = '#c8a040'; g.fillRect(300, -20, 60, 150); g.restore(); }, { grass: false });
+      field(ctx, T, cam, (g, p) => {
+        g.fillStyle = 'rgba(150,200,150,0.22)'; g.beginPath(); g.ellipse(560, 1340, 620, 110, 0, 0, TAU); g.fill();
+        lying(g, 900, 1150, () => asura(g, T, 1, 0, 0, 0.4, { name: 'stand' }, 'left', AL('#80c0a0')), -1);
+        KIT.glow(g, sweep, 1250, 560, '#9aff9a', 0.55);
+        { const rise = E.inOutSine(clamp((t - b0 - 0.2) / 1.3)); g.save(); g.translate(300, 1350); g.rotate(Math.PI / 2 * (0.94 - 0.78 * rise)); KIT.glow(g, 0, -330, 420, '#c8ffc0', 0.5 * rise); asura(g, T, 0, 0, 0, 0.54, { name: rise > 0.5 ? 'cower' : 'stand', k: 0.5 }, 'right', AL(rise > 0.3 ? '#d0ffc0' : '#80c0a0')); g.restore(); } }, { grass: false });
       EP51.hook(ctx, T, t, env, { y: 430, ty: 440, size: 70 });
       fin(ctx, T);
     },
@@ -48,7 +48,7 @@
           for (let i = 0; i < 3; i++) asura(g, T, i, 1020 - i * 130 - ch, 1250 + (i % 2) * 30, 0.66, { name: 'raise', k: 0.5 + 0.5 * Math.sin(T * 5 + i + 2) });
           KIT.glow(g, 540, 900, 300, '#fff0c0', 0.5 * Math.abs(Math.sin(T * 6))); } });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 2.8) / 0.4)), env.strings, { y: 190 });
-      TY.tag(ctx, T, clamp((t - 3.1) / 0.4), "asuras · the gods' rivals", { x: 540, y: 250, size: 36, out: out(t, env) });
+      TY.tag(ctx, T, clamp((t - 3.1) / 0.4), "asuras · the gods' rivals", { x: 540, y: 250, size: 42, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.36, 0.5) });
@@ -60,8 +60,8 @@
       ST.shot(ctx, T, { pal: 'seat-ivory', cam, layers: [
         { z: 0, draw: (g, p) => ST.sky(g, p, { hz: 1500 }) },
         { z: 0.3, draw: (g, p) => ST.pillars(g, p, { y: 1380, n: 4 }) },
-        { z: 0.8, haze: false, draw: (g, p) => { ST.ground(g, p, { y: 1250 }); CH.brihaspati.draw(g, { x: 280, y: 1250, scale: 0.78, facing: 'right', pose: { name: 'speak', k: clamp(1 - (t - b0) / 1.0) }, light: { dir: -Math.PI / 2 + 0.3, intensity: 1.1, front: 0.6, fill: 0.4 }, t: T, key: 'pr-b' }); } },
-        { z: 1, haze: false, draw: (g, p) => { shukra(g, p, T, 780, 1270, 0.86, { pose: ACT.pose(t, [[0, 'stand'], [b1 - 0.4, 'attend', { act: 0.4 }]]), L: EP51.lit(p, 780, 1270, { from: [300, 300], front: 0.5 }), ex: { emo: 'resolve', gaze: [0.8, 0] }, key: 'pr-s' }); } },
+        { z: 0.8, haze: false, draw: (g, p) => { ST.ground(g, p, { y: 1250 }); CH.brihaspati.draw(g, { x: 280, y: 1250, scale: 0.78, facing: 'right', pose: { name: 'speak', k: clamp(1 - (t - b0) / 1.0) }, light: { dir: -Math.PI / 2 + 0.3, intensity: 0.45, front: 0.3, fill: 0.15 }, t: T, key: 'pr-b' }); } },
+        { z: 1, haze: false, draw: (g, p) => { shukra(g, p, T, 780, 1270, 0.86, { pose: ACT.pose(t, [[0, 'stand'], [b1 - 0.4, 'attend', { act: 0.4 }]]), L: EP51.bright('#e8f4ff', 1.25), ex: { emo: 'resolve', gaze: [0.8, 0] }, key: 'pr-s' }); } },
       ] });
       TY.plaque(ctx, T, clamp((t - b0 + 0.3) / 0.5), ...names(env, 'Brihaspati'), { x: 290, y: 330, size: 44, out: clamp((t - b1 + 0.5) / 0.3) });
       TY.plaque(ctx, T, clamp((t - b1 + 0.2) / 0.5), ...names(env, 'Shukra'), { x: 780, y: 270, size: 44, out: out(t, env, 0.3) });
@@ -80,7 +80,7 @@
         P.forEach(([x, y, d], i) => { const up = E.inOutSine(clamp((r - Math.abs(x - 540) - 60) / 240)); if (up <= 0.02) lying(g, x, y, () => asura(g, T, i, 0, 0, 0.5, { name: 'stand' }, 'left', AL('#80c0a0')), d);
           else { g.save(); g.translate(x, y); g.rotate(d * Math.PI / 2 * 0.94 * (1 - up)); asura(g, T, i, 0, 0, 0.5, { name: 'raise', k: up }, x < 540 ? 'right' : 'left', AL('#c0ffb0')); g.restore(); } });
         shukra(g, p, T, 540, 1240, 0.72, { pose: ACT.pose(t, [[0, 'stand'], [b1 - 1.3, 'bless', { act: 0.6 }]]), L: EP51.bright('#e0ffe0', 1.35), ex: { emo: 'resolve', gaze: [0.5, 0.3] }, key: 'rv-s' }); }, { grass: false });
-      TY.tag(ctx, T, clamp((t - (b[2] ?? 5.3) + 0.6) / 0.4), 'sanjivani · the art of raising the dead', { x: 540, y: 250, size: 34, out: out(t, env) });
+      TY.tag(ctx, T, clamp((t - (b[2] ?? 5.3) + 0.6) / 0.4), 'sanjivani · the art of raising the dead', { x: 540, y: 250, size: 42, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.44, 0.5) });
@@ -91,7 +91,7 @@
       const T = env.T, cam = CAM.tilt(E.inOutSine(clamp((t - 0.6) / 2.2)), { from: -150, to: 150, zoom: 1.14 });
       EP51.heaven(ctx, T, cam, 'grief-blue', { stars: true, floor: 1180, figs: (g) => {
         CH.brihaspati.draw(g, { x: 540, y: 1000, scale: 0.72, facing: 'left', pose: { name: 'speak', k: 0.6 }, light: { dir: -Math.PI / 2, intensity: 1.2, front: 0.8, fill: 0.5, tint: ['#c8d8ff', 0.5] }, t: T, key: 'nt-b' });
-        for (let i = 0; i < 4; i++) lying(g, 170 + i * 250, 1330 + (i % 2) * 40, () => deva(g, T, i, 0, 0, 0.44, { name: 'stand' }, 'left'), 1); } });
+        for (let i = 0; i < 4; i++) { g.fillStyle = 'rgba(226,230,244,0.6)'; g.beginPath(); g.ellipse(170 + i * 250 + 200, 1310 + (i % 2) * 40, 270, 90, 0, 0, TAU); g.fill(); } for (let i = 0; i < 4; i++) lying(g, 170 + i * 250, 1330 + (i % 2) * 40, () => deva(g, T, i, 0, 0, 0.44, { name: 'stand' }, 'left'), 1); } });
       fin(ctx, T);
     },
     post: POST(0.36, 0.5) });
@@ -122,9 +122,9 @@
       const T = env.T, b0 = env.beats[0] ?? 0.7, cam = CAM.orbit(t / env.dur, { from: -1, to: 1, amp: 100, zoom: 1.12 }), come = 130 * E.outCubic(clamp(t / 1.2));
       city(ctx, T, cam, (g, p) => { seat(g, 800, GY - 10);
         shukra(g, p, T, 800, GY - 160, 0.8, { pose: { w: { sit: 1 }, prop: 'staff' }, L: EP51.lit(p, 800, GY, { from: [300, 300], front: 0.5 }), ex: { emo: 'resolve', gaze: [0.8, 0.2] }, key: 'cm-s' });
-        for (const [x, f] of [[80, 'right'], [1030, 'left']]) asura(g, T, x > 500 ? 1 : 4, x, GY + 40, 0.96, { name: 'bow', k: 0.25 + 0.1 * Math.sin(T * 1.2 + x) }, f, AL('#ffb070'));
-        kacha(g, p, T, 240 + come, GY + 20, 0.74, { pose: ACT.pose(t, [[0, 'walk'], [1.1, 'anjali', { act: 0.5 }], [(env.beats[2] ?? 3.5) - 0.3, 'bow', { act: 0.5 }]], { phase: ACT.stride(come, 0.74) }), L: EP51.lit(p, 300, GY, { from: [800, 300], front: 0.55 }), ex: { emo: 'resolve', speak: talk(env, t), gaze: [0.8, -0.2] }, key: 'cm-k' }); });
-      TY.tag(ctx, T, clamp((t - b0 - 0.6) / 0.4), 'he names his father · Adi 1.71.17', { x: 540, y: 250, size: 32, out: out(t, env) });
+        for (const [x, f] of [[80, 'right'], [1030, 'left']]) { KIT.glow(g, x, GY - 420, 600, '#fff0d0', 1); KIT.glow(g, x, GY - 420, 420, '#fff0d0', 0.8); } for (const [x, f] of [[80, 'right'], [1030, 'left']]) asura(g, T, x > 500 ? 1 : 4, x, GY + 40, 0.96, { name: 'bow', k: 0.25 + 0.1 * Math.sin(T * 1.2 + x) }, f, AL('#ffb070'));
+        kacha(g, p, T, 240 + come, GY + 20, 0.74, { pose: ACT.pose(t, [[0, 'walk'], [1.1, 'anjali', { act: 0.5 }], [(env.beats[2] ?? 3.5) - 0.3, 'bow', { act: 0.5 }]], { phase: ACT.stride(come, 0.74) }), L: EP51.bright('#fff4e0', 1.7), ex: { emo: 'resolve', speak: talk(env, t), gaze: [0.8, -0.2] }, key: 'cm-k' }); });
+      TY.tag(ctx, T, clamp((t - b0 - 0.6) / 0.4), 'he names his father', { x: 540, y: 250, size: 42, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.34, 0.5) });
@@ -146,7 +146,7 @@
       EP44.meadow(ctx, T, cam, { pal: 'meadow-spring', figs: (g, p) => {
         g.fillStyle = '#8a6a3a'; g.fillRect(700, 1210, 260, 30); F(g, T, 'devayani', 830, 1210, 0.8, { f: 'left', pose: ACT.pose(t, [[0, 'sit'], [b2, { sit: 0.7, speak: 0.3 }, { act: 0.5 }]]), L: EP51.lit(p, 830, 1210, { front: 0.45 }), ex: { emo: ACT.emo(t, [[0, 'calm'], [b1 + 0.4, 'wonder'], [b2, 'joy', { dur: 0.6 }]]), speak: t > b2 ? 0.5 + 0.5 * Math.sin(T * 8) : 0, gaze: [0.8, 0] }, key: 'sv-d' });
         kacha(g, p, T, 160 + walk, 1240, 0.84, { pose: ACT.pose(t, [[0, 'walk', { prop: 'bundle' }], [b1 - 0.3, 'offer', { act: 0.5 }], [b2 - 0.3, 'raise', { act: 0.3 }], [b2 + 0.3, 'point', { act: 0.3 }], [b2 + 0.9, 'raise', { act: 0.3 }]], { phase: ACT.stride(walk, 0.84), prop: t < b1 - 0.3 ? 'bundle' : t < b2 - 0.3 ? 'leaves' : false }), L: EP51.lit(p, 400, 1240, { front: 0.45 }), ex: { emo: 'joy', speak: t > b2 ? 0.5 + 0.5 * Math.sin(T * 8 + 1) : 0, gaze: [0.9, 0] }, key: 'sv-k' }); } });
-      TY.tag(ctx, T, clamp((t - 1.2) / 0.4), 'a vow of a thousand years · Adi 1.71.18', { x: 540, y: 250, size: 32, out: clamp((t - b2 + 0.3) / 0.3) });
+      TY.tag(ctx, T, clamp((t - 1.2) / 0.4), 'a vow of a thousand years', { x: 540, y: 250, size: 42, out: clamp((t - b2 + 0.3) / 0.3) });
       TY.plaque(ctx, T, clamp((t - b2 + 0.1) / 0.5), ...names(env, 'Devayani'), { x: 800, y: 430, size: 44, out: out(t, env, 0.3) });
       fin(ctx, T);
     },
@@ -156,7 +156,7 @@
   const cliff = (ctx, T, t, env, b) => {
     const cam = CAM.drift(CAM.pull(clamp(t / 7.6), { from: 1.34, to: 1.02, focus: [520, 950] }), T, 1.4), cl = E.inOutSine(clamp((t - b[1]) / 3.2));
     EP51.wood(ctx, T, cam, 'venom-violet', { seed: 250, shafts: false, dust: 'firefly', trunks: [-120, 1200],
-      mid: (g) => { for (const [x, d] of [[-60, 1], [1140, -1], [560, 1]]) asura(g, T, x > 500 ? 2 : 5, x + d * 190 * cl, 1380, 0.8, { name: 'raise', k: 0.5 * cl }, d > 0 ? 'right' : 'left', { dir: -Math.PI / 2, intensity: 0.9, front: 0.2, fill: 0.15, tint: ['#b0ffa0', 0.6] }); },
+      mid: (g) => { for (const [x, d] of [[-60, 1], [1140, -1], [560, 1]]) asura(g, T, x > 500 ? 2 : 5, x + d * 190 * cl, 1380, 0.8, { name: 'raise', k: 0.5 * cl }, d > 0 ? 'right' : 'left', { dir: -Math.PI / 2, intensity: 1.15, front: 0.6, fill: 0.4, tint: ['#58d868', 0.9], minLum: 0.26 }); },
       figs: (g, p) => { for (let i = 0; i < 3; i++) EP51.beast(g, 'cow', 300 + i * 250, GY + 10 + (i % 2) * 20, 0.62, { dir: i % 2 ? 1 : -1, T, head: -30 * cl });
         kacha(g, p, T, 560, GY - 10, 0.72, { f: 'right', pose: ACT.pose(t, [[0, 'stand'], [b[1] + 1.2, 'recoil', { act: 0.4 }]], { prop: 'staff' }), L: EP51.lit(p, 560, GY, { front: 0.5 }), ex: { emo: ACT.emo(t, [[0, 'calm'], [b[1] + 1.0, 'fear']]), gaze: [0.8, 0] }, key: 'cl-k' }); } });
     TY.source(ctx, T, clamp((t - 0.4) / 0.4), env.strings, { y: 110 });

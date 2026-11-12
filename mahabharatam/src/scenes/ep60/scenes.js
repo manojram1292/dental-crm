@@ -13,7 +13,7 @@
   const POST = (b = 0.3, v = 0.45) => () => ({ bloom: b, vignette: v, paper: 0.3 });
   const out = (t, env, d = 0.4) => clamp((t - (env.dur - d)) / 0.3);
   const F = EP51.fig;
-  const shade = (g, c = '4,8,20') => { const gr = g.createLinearGradient(0, 1220, 0, 1700); gr.addColorStop(0, `rgba(${c},0)`); gr.addColorStop(0.5, `rgba(${c},0.85)`); gr.addColorStop(1, `rgba(${c},0.96)`); g.fillStyle = gr; g.fillRect(-900, 1220, 2880, 1600); };
+  const shade = (g, c = '4,8,20') => { const gr = g.createLinearGradient(0, 1060, 0, 1560); gr.addColorStop(0, `rgba(${c},0)`); gr.addColorStop(0.5, `rgba(${c},0.85)`); gr.addColorStop(1, `rgba(${c},0.96)`); g.fillStyle = gr; g.fillRect(-900, 1060, 2880, 1800); };
   const asura = (g, T, i, x, y, s, pose, f = 'left', L) => CH.asura.draw(g, { x, y, scale: s, index: i % 6, facing: f, pose, light: L || { dir: -Math.PI / 2, intensity: 0.9, front: 0.2, fill: 0.15, tint: ['#b0ffa0', 0.6] }, t: T, key: 'as' + i });
   const shukra = (g, p, T, x, y, s, o = {}) => F(g, T, 'shukra', x, y, s, { f: o.f || 'left', pose: o.pose || 'stand', L: o.L || EP51.bright('#e8f4ff', 1.25), ex: o.ex || { emo: 'resolve' }, key: o.key || 'sk' });
   const kacha = (g, p, T, x, y, s, o = {}) => F(g, T, 'kacha', x, y, s, { f: o.f || 'right', pose: o.pose || 'stand', L: o.L || EP51.bright('#fff4d8', 1.25), ex: o.ex || { emo: 'calm' }, key: o.key || 'kc' });
@@ -49,7 +49,7 @@
         near: (g) => staff(g, 420, 1760, 0.1, 1.5) });
       KIT.series.recapBand(ctx, T, clamp(t / 0.3) * (1 - clamp((t - 2.6) / 0.4)), env.strings, { y: 190 });
       TY.plaque(ctx, T, clamp((t - 2.9) / 0.5), ...names(env, 'Kacha'), { x: 540, y: 300, size: 46, out: clamp((t - b2) / 0.3) });
-      TY.tag(ctx, T, clamp((t - b2 - 0.1) / 0.4), 'cut small as sesame, given to the jackals · Adi 1.71.26', { x: 540, y: 250, size: 28, out: out(t, env, 0.3) });
+      TY.tag(ctx, T, clamp((t - b2 - 0.1) / 0.4), 'cut small as sesame, given to the jackals', { x: 540, y: 250, size: 42, out: out(t, env, 0.3) });
       fin(ctx, T);
     },
     post: POST(0.34, 0.55) });
@@ -69,12 +69,12 @@
     draw(ctx, t, env) {
       const T = env.T, b = env.beats, b1 = b[1] ?? 3.0, b2 = b[2] ?? 4.9, cam = CAM.orbit(t / env.dur, { from: -1, to: 1, amp: 110, zoom: 1.12 }), ring = E.outCubic(clamp((t - b1) / 0.8)), step = E.outCubic(clamp((t - b2 + 0.5) / 1.0));
       house(ctx, T, cam, 'thicket-shade', (g, p) => {
-        shukra(g, p, T, 800, GY + 10, 0.92, { pose: ACT.pose(t, [[0, 'stand'], [b1 - 0.5, 'curse', { act: 0.4 }], [b2, 'bless', { act: 0.5 }]]), L: EP51.lit(p, 800, GY, { from: [300, 400], front: 0.5 }), ex: { emo: 'resolve', speak: t > b1 - 0.3 && t < b1 + 0.5 ? 1 : 0, gaze: [0.8, 0] }, key: 'cm-s' });
-        dev(g, p, T, 1010, GY + 20, 0.74, { pose: 'anjali', ex: { emo: ACT.emo(t, [[0, 'sorrow'], [b2, 'joy']]) }, key: 'cm-d' });
+        shukra(g, p, T, 700, GY + 10, 0.92, { pose: ACT.pose(t, [[0, 'stand'], [b1 - 0.5, 'curse', { act: 0.4 }], [b2, 'bless', { act: 0.5 }]]), L: EP51.lit(p, 800, GY, { from: [300, 400], front: 0.5 }), ex: { emo: 'resolve', speak: t > b1 - 0.3 && t < b1 + 0.5 ? 1 : 0, gaze: [0.8, 0] }, key: 'cm-s' });
+        dev(g, p, T, 900, GY + 20, 0.74, { pose: 'anjali', ex: { emo: ACT.emo(t, [[0, 'sorrow'], [b2, 'joy']]) }, key: 'cm-d' });
         KIT.glow(g, 330, GY - 420, 520 * ring, '#9aff9a', 0.6 * ring); g.strokeStyle = 'rgba(190,255,190,0.9)'; g.lineWidth = 10; g.beginPath(); g.ellipse(330, GY - 400, 230 * ring, 430 * ring, 0, 0, TAU); g.stroke();
         if (step > 0) { g.save(); g.globalAlpha = 1; g.beginPath(); g.ellipse(330 + 60 * step, GY - 400, 330 * ring, 520 * ring, 0, 0, TAU); g.clip(); kacha(g, p, T, 300 + 80 * step, GY + 10, 0.84, { pose: ACT.pose(t, [[0, 'walk'], [b2 + 0.3, 'attend', { act: 0.5 }]], { phase: T * 3 }), L: EP51.bright('#e0ffe0', 1.35), ex: { emo: 'wonder', gaze: [0.5, 0.6] }, key: 'cm-k' }); g.restore(); } }, { gx: 1150, lamp: false, glow: 0.15 });
-      TY.plaque(ctx, T, clamp((t - (b[0] ?? 1.2) + 0.3) / 0.5), ...names(env, 'Shukra'), { x: 760, y: 300, size: 46, out: clamp((t - b1 - 0.6) / 0.3) });
-      TY.tag(ctx, T, clamp((t - b1 - 0.9) / 0.4), 'the art of raising the dead · Adi 1.71.30–31', { x: 540, y: 250, size: 30, out: out(t, env, 0.3) });
+      TY.plaque(ctx, T, clamp((t - (b[0] ?? 1.2) + 0.3) / 0.5), ...names(env, 'Shukra'), { x: 300, y: 300, size: 46, out: clamp((t - b1 - 0.6) / 0.3) });
+      TY.tag(ctx, T, clamp((t - b1 - 0.9) / 0.4), 'the art of raising the dead', { x: 540, y: 250, size: 42, out: out(t, env, 0.3) });
       fin(ctx, T);
     },
     post: POST(0.44, 0.5) });
@@ -91,7 +91,8 @@
           g.fillStyle = '#1a0806'; g.beginPath(); g.roundRect(cx - 300, cy + 40, 250, 80, 40); g.fill(); g.beginPath(); g.ellipse(cx - 60, cy + 70, 70, 50, 0, 0, TAU); g.fill();   // an asura's dark hand under the cup
           g.fillStyle = '#e7b54a'; g.beginPath(); g.moveTo(cx - 70, cy - 60); g.lineTo(cx + 70, cy - 60); g.lineTo(cx + 44, cy + 40); g.lineTo(cx - 44, cy + 40); g.closePath(); g.fill(); g.fillRect(cx - 14, cy + 40, 28, 40); g.fillRect(cx - 50, cy + 76, 100, 12); g.fillStyle = '#5a0c18'; g.beginPath(); g.ellipse(cx, cy - 58, 66, 14, 0, 0, TAU); g.fill();
           if (fall < 1) { for (let i = 0; i < 16; i++) { const u = (fall * 1.4 + hash(i, 3)) % 1; g.globalAlpha = 0.9 * (1 - u); g.fillStyle = '#c8c4bc'; g.beginPath(); g.arc(cx + 30 * (hash(i, 4) - 0.5), cy - 360 + 300 * u, 6, 0, TAU); g.fill(); } g.globalAlpha = 1; g.fillStyle = '#1a0806'; g.beginPath(); g.ellipse(cx + 10, cy - 400, 80, 50, 0.3, 0, TAU); g.fill(); } } });
-      TY.tag(ctx, T, clamp((t - 1.4) / 0.4), 'Other versions add a third death. The Critical Edition has two.', { x: 540, y: 250, size: 28, out: out(t, env, 0.3) });
+      TY.tag(ctx, T, clamp((t - 1.4) / 0.4), 'Other versions add a third death.', { x: 300, y: 740, size: 38, out: out(t, env, 0.3) });
+      TY.tag(ctx, T, clamp((t - 1.4) / 0.4), 'The Critical Edition has two.', { x: 300, y: 800, size: 38, out: out(t, env, 0.3) });
       fin(ctx, T);
     },
     post: POST(0.36, 0.55) });
@@ -116,7 +117,6 @@
       const T = env.T, b1 = env.beats[1] ?? 2.1, cam = CAM.slide(t / env.dur, { from: 90, to: -90, zoom: 1.2 });
       house(ctx, T, cam, 'grief-blue', (g, p) => {
         dev(g, p, T, 700, GY + 20, 0.96, { f: 'right', pose: ACT.pose(t, [[0, { kneel: 0.8, offer: 0.2 }], [b1 - 0.3, { kneel: 0.7, grieve: 0.3 }, { act: 0.5 }], [b1 + 0.9, { kneel: 0.7, reach: 0.3 }, { act: 0.5 }]]), L: EP51.lit(p, 700, GY, { from: [300, 700], front: 0.5 }), ex: { emo: 'plead', speak: talk(env, t), gaze: [0.8, -0.4] }, key: 'tw-d' }); }, { glow: 0.25 });
-      TY.tag(ctx, T, clamp((t - 0.8) / 0.4), 'Adi 1.71.44–45', { x: 860, y: 250, size: 30, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.32, 0.52) });
@@ -130,7 +130,6 @@
         g.fillStyle = '#5a3a14'; g.fillRect(380, GY - 60, 340, 70);
         shukra(g, p, T, 560, GY - 60, 1.05, { pose: { w: { sit: 0.7, anjali: 0.3 }, prop: false }, L: EP51.bright('#fff0c0', 1.25), ex: { emo: 'tender', speak: talk(env, t) || (t > 3.4 ? 0.3 + 0.3 * Math.sin(T * 9) : 0), gaze: [0.3, 0.9] }, key: 'tc-s' });
         KIT.glow(g, 530, GY - 470, 190, KIT.hex('#9aff9a', '#ffe070', k), 0.9 * (0.7 + 0.3 * Math.sin(T * 5))); g.fillStyle = '#ffffff'; g.beginPath(); g.arc(530, GY - 470, 11, 0, TAU); g.fill(); }, { lamp: false, glow: 0.3, gx: 540 });
-      TY.tag(ctx, T, clamp((t - 0.8) / 0.4), 'Adi 1.71.46–48', { x: 860, y: 250, size: 30, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.4, 0.45) });
@@ -146,7 +145,6 @@
           g.save(); g.translate(1040, GY - 330); g.rotate(-Math.PI / 2 * 0.92 * (1 - wake)); shukra(g, p, T, 0, 0, 0.72, { pose: { w: wake > 0.5 ? { attend: 1 } : { stand: 1 }, prop: false }, L: EP51.bright('#e8e8ff', 1.2), ex: { emo: wake > 0.5 ? 'wonder' : 'weary', gaze: [0.5, 0] }, key: 'ot-s' }); g.restore();
           KIT.glow(g, 900, GY - 200, 260, '#ffe070', 0.6 * wake);
           kacha(g, p, T, 260, GY + 20, 0.9, { f: t > b1 ? 'right' : 'left', pose: ACT.pose(t, [[0, 'walk'], [1.3, 'stand', { act: 0.5 }], [b3 - 0.6, 'bless', { act: 0.6 }]], { phase: T * 3 }), L: EP51.bright('#ffffff', 1.4), ex: { emo: ACT.emo(t, [[0, 'wonder'], [b1, 'sorrow'], [b3, 'resolve']]), gaze: [0.8, 0.2] }, key: 'ot-k' }); } });
-      TY.tag(ctx, T, clamp((t - 1.2) / 0.4), 'Adi 1.71.49–50', { x: 860, y: 250, size: 30, out: out(t, env) });
       fin(ctx, T);
     },
     post: POST(0.5, 0.42) });
@@ -157,8 +155,8 @@
     EP44.meadow(ctx, T, cam, { pal: 'meadow-spring', figs: (g, p) => {
       kacha(g, p, T, 330, 1240, 0.84, { f: 'right', pose: ACT.pose(t, [[0, 'bow'], [b[1] - 0.2, 'walk', { act: 0.4 }], [b[2], 'recoil', { act: 0.3 }]], { phase: T * 3, prop: 'staff' }), L: EP51.lit(p, 330, 1240, { front: 0.45 }), ex: { emo: ACT.emo(t, [[0, 'calm'], [b[2], 'wonder']]), gaze: [0.9, 0] }, key: 'cl-k' });
       dev(g, p, T, 900 - st, 1240, 0.8, { pose: ACT.pose(t, [[0, 'attend'], [b[2] - 0.4, 'walk', { act: 0.3 }], [b[2] + 0.5, 'shield', { act: 0.5 }]], { phase: ACT.stride(st, 0.8) }), L: EP51.lit(p, 800, 1240, { front: 0.45 }), ex: { emo: 'resolve', gaze: [0.9, 0] }, key: 'cl-d' }); } });
-    TY.tag(ctx, T, clamp((t - 0.8) / 0.4), 'after a thousand years · Adi 1.71.58', { x: 540, y: 330, size: 30, out: clamp((t - 2.6) / 0.3) });
-    TY.tag(ctx, T, clamp((t - 2.9) / 0.4), 'Shukra then forbade wine to brahmins · Adi 1.71.54', { x: 540, y: 330, size: 30, out: clamp((t - 5.0) / 0.3) });
+    TY.tag(ctx, T, clamp((t - 0.8) / 0.4), 'after a thousand years', { x: 540, y: 330, size: 42, out: clamp((t - 2.6) / 0.3) });
+    TY.tag(ctx, T, clamp((t - 2.9) / 0.4), 'Shukra then forbade wine to brahmins', { x: 540, y: 330, size: 42, out: clamp((t - 5.0) / 0.3) });
     TY.source(ctx, T, clamp((t - 0.4) / 0.4), env.strings, { y: 110 });
     fin(ctx, T);
   };
