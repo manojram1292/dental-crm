@@ -33,7 +33,7 @@ Rule applied: every image and every spoken word is in a verse listed here, or it
 | 20 | At the end, a king will not abandon his dog. | Mahaprasthanika 17.1.23, 31; 17.3.7–8 | `bhrātaraḥ pañca kṛṣṇā ca ṣaṣṭhī śvā caiva saptamaḥ` (1.23) · `ayaṃ śvā … bhakto māṃ nityam eva … sa gaccheta mayā sārdham` (3.7) · `tyaja śvānaṃ` (Indra, 3.8) | Plaque: "Yudhishthira · eldest of the five". That the dog is Dharma (17.3.16 ff.) is not said: I did not read it and it would spoil the episode. |
 | 21 | It calls itself itihasa. | Adi 1.1.52; 1.2.31 | `itihāsam imaṃ cakre puṇyaṃ satyavatīsutaḥ` · `itihāsaḥ pradhānārthaḥ śreṣṭhaḥ sarvāgameṣv ayam` | REWORDED from "They call it itihasa": the text uses the word of itself. |
 | 22 | Iti. Ha. Asa. So indeed it was. | (the word's analysis, not a verse) | iti-ha-āsa | The traditional analysis of the word, as given in the brief. NOT a quotation from the epic and not presented as one. The trailer does not claim that the events are proven history; it says what the work calls itself. |
-| 23 | All of it, in order. Nothing skipped. Nothing added for effect. | (the series' promise) | | A promise about the series, not a fact of the text. See the note below. |
+| 23 | All of it, start to finish. Nothing added for effect. | (the series' promise) | | A promise about the series, not a fact of the text. REWORDED: the brief's "nothing skipped" is not true of a series that condenses and passes over chapters; the coordinator approved this wording. |
 | 24 | Follow. Episode one. | | | Episode 1's title on screen is the catalog's: "The Storyteller Arrives". |
 
 ## Cut because of the check, or left out because it was not verified
@@ -47,10 +47,6 @@ Rule applied: every image and every spoken word is in a verse listed here, or it
 - **The dog revealed as Dharma; Yudhishthira's test in heaven**: not read. Not said.
 - **Bhima and Baka, the dice hall vow of Bhima, Draupadi's question to the hall, the year in disguise, Krishna's embassy and his cosmic form, Drona's death, Duryodhana's fall by the lake**: not in the trailer (length), not checked.
 
-## One thing for the owner to decide
+## The promise line
 
-"Nothing skipped" was asked for and is in the script. The series so far CONDENSES (about a minute an episode) and has
-told sub-tales in a changed order once (the Bhrigu tales after the Astika tale, stated in those episodes' source notes).
-"All of it, in order. Nothing skipped." therefore promises more than the first fifty episodes strictly did. If the owner
-prefers a promise the existing episodes already keep, the line can be re-voiced as: "All of it, start to finish. Nothing
-added for effect." (one line, no picture change).
+The brief asked for "nothing left out". The series condenses (about a minute an episode) and told the Bhrigu tales after the Astika tale, so the spoken promise is the one the episodes keep: "All of it, start to finish. Nothing added for effect."
