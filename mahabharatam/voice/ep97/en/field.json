@@ -1,0 +1,28 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox:default",
+ "engine": "chatterbox-onnx",
+ "spoken_as": "Two armies. Arjuna lowers his bow. Krishna speaks.",
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.97,
+   "words": 2,
+   "text": "Two armies."
+  },
+  {
+   "t0": 1.094,
+   "t1": 2.772,
+   "words": 4,
+   "text": "Arjuna lowers his bow."
+  },
+  {
+   "t0": 2.896,
+   "t1": 4.123,
+   "words": 2,
+   "text": "Krishna speaks."
+  }
+ ],
+ "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
+ "tempo": 0.965
+}

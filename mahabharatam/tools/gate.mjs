@@ -106,15 +106,15 @@ function scriptChecks41({ ep, sc, SL, L, dur, lang, firsts }) {
   if (!lp.hookQuestion || !lp.openQuestion) fails.push('"loop" needs hookQuestion and openQuestion');
   if (!SL[lp.answeredBy]) fails.push('"loop.answeredBy" must name the line that answers the hook');
   const pa = L.find((l) => l.id === lp.prevAnsweredBy);
-  if (sc.kind === 'intro') info.push('intro reel: no previous episode to answer (rule not applied)');   // only the series introduction (script "kind": "intro")
+  if (sc.kind === 'intro' || sc.kind === 'trailer') info.push(`${sc.kind}: no previous episode to answer (rule not applied)`);   // only the series introduction (script "kind": "intro")
   else if (!pa) fails.push('"loop.prevAnsweredBy" must name the line that answers the previous episode\'s open question');
   else { info.push(`previous question answered at ${pa.start.toFixed(1)} s`); if (pa.start > 15) fails.push(`the previous episode's question is answered at ${pa.start.toFixed(1)} s (max 15)`); }
   const prev = readScript(ep - 1, lang), next = readScript(ep + 1, lang);
   if (prev && prev.loop && prev.loop.openQuestion && prev.loop.openQuestion !== lp.prevQuestion) fails.push(`"loop.prevQuestion" does not match episode ${ep - 1}'s openQuestion ("${prev.loop.openQuestion}")`);
   // titles against the catalog
   const cat = catalogTitles(), S = sc.strings || {};
-  if (ep !== 99 && sc.kind !== 'intro' && cat[ep] && S.episodeTitle !== cat[ep]) fails.push(`episodeTitle "${S.episodeTitle}" ≠ catalog "${cat[ep]}"`);
-  if (ep !== 99 && sc.kind !== 'intro' && cat[ep + 1] && S.nextTitle !== cat[ep + 1]) fails.push(`nextTitle "${S.nextTitle}" ≠ catalog "${cat[ep + 1]}"`);
+  if (ep !== 99 && sc.kind !== 'intro' && sc.kind !== 'trailer' && cat[ep] && S.episodeTitle !== cat[ep]) fails.push(`episodeTitle "${S.episodeTitle}" ≠ catalog "${cat[ep]}"`);
+  if (ep !== 99 && sc.kind !== 'intro' && sc.kind !== 'trailer' && cat[ep + 1] && S.nextTitle !== cat[ep + 1]) fails.push(`nextTitle "${S.nextTitle}" ≠ catalog "${cat[ep + 1]}"`);
   if (!S.sourceLine || !/synthetic/i.test(S.madeLine || '')) fails.push('strings.sourceLine and strings.madeLine ("Voices: synthetic · Drawn in code") are required');
   // sound: three layers, J/L cuts, rests
   let amb = null; const ambs = new Set(), moods = new Set(); let mood = 'still', jl = 0;
@@ -262,7 +262,9 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
   info.push(`story starts ${story.start.toFixed(2)} s`);
   if (story.start > 5.0) fails.push(`story starts at ${story.start.toFixed(2)} s (max 5.0)`);
   info.push(`duration ${dur.toFixed(2)} s`);
-  if (dur > 59) fails.push(`duration ${dur.toFixed(2)} s (max 59)`);
+  const trailer = sc.kind === 'trailer';   // the full-epic trailer (script "kind": "trailer"): 90 s, no previous episode, no catalog title, no names-per-10-s limit; every other rule stands
+  if (trailer) { if (dur > 90) fails.push(`duration ${dur.toFixed(2)} s (trailer max 90)`); else if (dur < 60) warns.push(`duration ${dur.toFixed(2)} s is under the trailer's 60–90 s`); }
+  else if (dur > 59) fails.push(`duration ${dur.toFixed(2)} s (max 59)`);
   else if (dur < 54 || dur > 58) warns.push(`duration ${dur.toFixed(2)} s is outside the 54–58 s target`);
   const ti = L.findIndex((l) => /TURN/.test(SL[l.id]?.note || ''));
   if (ti < 0) fails.push('no line is marked TURN in its note');
@@ -296,7 +298,7 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
     let worst = [];
     for (const [t] of firsts) { const win = firsts.filter(([u]) => u >= t && u < t + 10); if (win.length > worst.length) worst = win; }
     info.push(`${firsts.length} names, ≤ ${worst.length} new per 10 s`);
-    if (worst.length > 2) fails.push(`${worst.length} new names within 10 s: ${worst.map((x) => x[1]).join(', ')} (max 2)`);
+    if (worst.length > 2 && !trailer) fails.push(`${worst.length} new names within 10 s: ${worst.map((x) => x[1]).join(', ')} (max 2)`);
     const hw0 = hs.text.replace(/["“”]/g, '').split(/\s+/);
     // an antecedent is a name, or one of the common nouns a pronoun can safely point back to
     const NOUNS = /^(sage|king|boy|girl|bird|serpent|serpents|snake|wife|husband|mother|father|son|daughter|man|woman|god|gods|priest|priests|brother|sister|child|healer|bride)$/i;

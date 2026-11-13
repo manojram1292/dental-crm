@@ -1,0 +1,22 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox:default",
+ "engine": "chatterbox-onnx",
+ "spoken_as": "Follow. Episode one.",
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 0.683,
+   "words": 1,
+   "text": "Follow."
+  },
+  {
+   "t0": 0.807,
+   "t1": 1.799,
+   "words": 2,
+   "text": "Episode one."
+  }
+ ],
+ "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
+ "tempo": 0.965
+}

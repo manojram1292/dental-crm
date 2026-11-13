@@ -1,0 +1,683 @@
+[
+ {
+  "id": "hook",
+  "chosen": "hook.s0.wav",
+  "dur": 2.17,
+  "takes": [
+   {
+    "take": "hook.s0.wav",
+    "heard": "This is the Mahabharata, all of it.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.28
+   },
+   {
+    "take": "hook.s1.wav",
+    "heard": "This is the Mahabharata, all of it.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 1.72
+   },
+   {
+    "take": "hook.s2.wav",
+    "heard": "This is the Mahabharata, all of it.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.48
+   }
+  ]
+ },
+ {
+  "id": "vow",
+  "chosen": "vow.s1.wav",
+  "dur": 3.2,
+  "takes": [
+   {
+    "take": "vow.s0.wav",
+    "heard": "A prince swears away his throne and his line.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.08
+   },
+   {
+    "take": "vow.s1.wav",
+    "heard": "A prince swears away his throne and his line.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.36
+   },
+   {
+    "take": "vow.s2.wav",
+    "heard": "A prince wears away his throne and his line.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 3.48
+   }
+  ]
+ },
+ {
+  "id": "karna",
+  "chosen": "karna.s2.wav",
+  "dur": 2.38,
+  "takes": [
+   {
+    "take": "karna.s0.wav",
+    "heard": "A mother gives her firstborn to the river.",
+    "missed": 2,
+    "extra": 0,
+    "dur": 2.52
+   },
+   {
+    "take": "karna.s1.wav",
+    "heard": "A mother gives her firstborn to the river.",
+    "missed": 2,
+    "extra": 0,
+    "dur": 2.76
+   },
+   {
+    "take": "karna.s2.wav",
+    "heard": "A mother gives her firstborn to the river.",
+    "missed": 2,
+    "extra": 0,
+    "dur": 2.68
+   }
+  ]
+ },
+ {
+  "id": "rivals",
+  "chosen": "rivals.s0.wav",
+  "dur": 3.25,
+  "takes": [
+   {
+    "take": "rivals.s0.wav",
+    "heard": "A hundred brothers, five cousins, one throne.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.28
+   },
+   {
+    "take": "rivals.s1.wav",
+    "heard": "A hundred brothers, five cousins, one throne.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.32
+   },
+   {
+    "take": "rivals.s2.wav",
+    "heard": "A hundred brothers, five cousins, one throne.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.2
+   }
+  ]
+ },
+ {
+  "id": "lac",
+  "chosen": "lac.s1.wav",
+  "dur": 1.9,
+  "takes": [
+   {
+    "take": "lac.s0.wav",
+    "heard": "Palace, built to burn.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 1.92
+   },
+   {
+    "take": "lac.s1.wav",
+    "heard": "A palace built to burn.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 1.92
+   },
+   {
+    "take": "lac.s2.wav",
+    "heard": "A palace built to burn.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 1.76
+   }
+  ]
+ },
+ {
+  "id": "demon",
+  "chosen": "demon.s0.wav",
+  "dur": 3.17,
+  "takes": [
+   {
+    "take": "demon.s0.wav",
+    "heard": "In the forest, Bima breaks a man eating demon.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.2
+   },
+   {
+    "take": "demon.s1.wav",
+    "heard": "In The Forest, Beemal breaks a man eating demon.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.24
+   },
+   {
+    "take": "demon.s2.wav",
+    "heard": "In the forest, BIMA breaks a man eating demon.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.76
+   }
+  ],
+  "refit": 0.967
+ },
+ {
+  "id": "altar",
+  "chosen": "altar.s0.wav",
+  "dur": 2.39,
+  "takes": [
+   {
+    "take": "altar.s0.wav",
+    "heard": "A woman rises from a fire altar.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.56
+   },
+   {
+    "take": "altar.s1.wav",
+    "heard": "A woman rises from a fire altar.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.84
+   },
+   {
+    "take": "altar.s2.wav",
+    "heard": "A woman rises from a fire altar.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.36
+   }
+  ]
+ },
+ {
+  "id": "bow",
+  "chosen": "bow.s1.wav",
+  "dur": 2.56,
+  "takes": [
+   {
+    "take": "bow.s0.wav",
+    "heard": "and Archer brings down the mark and wins her.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 2.68
+   },
+   {
+    "take": "bow.s1.wav",
+    "heard": "And Archer brings down the mark and wins her.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 2.76
+   },
+   {
+    "take": "bow.s2.wav",
+    "heard": "and Archer brings down the mark and wins her.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 2.84
+   }
+  ]
+ },
+ {
+  "id": "wheel",
+  "chosen": "wheel.s0.wav",
+  "dur": 1.89,
+  "takes": [
+   {
+    "take": "wheel.s0.wav",
+    "heard": "Krsna lets the wheel fly.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 1.96
+   },
+   {
+    "take": "wheel.s1.wav",
+    "heard": "Krishna lets the wheel fly.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 1.96
+   },
+   {
+    "take": "wheel.s2.wav",
+    "heard": "Krishna lets the wheel fly.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.08
+   }
+  ]
+ },
+ {
+  "id": "dice",
+  "chosen": "dice.s0.wav",
+  "dur": 4.68,
+  "takes": [
+   {
+    "take": "dice.s0.wav",
+    "heard": "Then the dice, a king stakes his kingdom, his brothers, his wife.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 4.88
+   },
+   {
+    "take": "dice.s1.wav",
+    "heard": "Then the dice, a king stakes his kingdom, his brothers, his wife.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 4.4
+   },
+   {
+    "take": "dice.s2.wav",
+    "heard": "Then the dice, a king steaks his kingdom, his brothers, his wife.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 5.0
+   }
+  ]
+ },
+ {
+  "id": "hall",
+  "chosen": "hall.s0.wav",
+  "dur": 1.97,
+  "takes": [
+   {
+    "take": "hall.s0.wav",
+    "heard": "She is dragged before the Kings.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.16
+   },
+   {
+    "take": "hall.s1.wav",
+    "heard": "She is dragged before the kings.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.72
+   },
+   {
+    "take": "hall.s2.wav",
+    "heard": "She is dragged before the Kings.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.08
+   }
+  ]
+ },
+ {
+  "id": "cloth",
+  "chosen": "cloth.s1.wav",
+  "dur": 3.28,
+  "takes": [
+   {
+    "take": "cloth.s0.wav",
+    "heard": "They poll at her cloth. The cloth does not end.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 3.48
+   },
+   {
+    "take": "cloth.s1.wav",
+    "heard": "They pull at her cloth. The cloth does not end.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.44
+   },
+   {
+    "take": "cloth.s2.wav",
+    "heard": "They pull at her cloth. The cloth does not end.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.84
+   }
+  ]
+ },
+ {
+  "id": "exile",
+  "chosen": "exile.s0.wav",
+  "dur": 1.89,
+  "takes": [
+   {
+    "take": "exile.s0.wav",
+    "heard": "13 years of exile.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 1.96
+   },
+   {
+    "take": "exile.s1.wav",
+    "heard": "13 years of exile.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 1.8
+   },
+   {
+    "take": "exile.s2.wav",
+    "heard": "13 years of exile.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 2.08
+   }
+  ]
+ },
+ {
+  "id": "needle",
+  "chosen": "needle.s11.wav",
+  "dur": 2.61,
+  "takes": [
+   {
+    "take": "needle.s10.wav",
+    "heard": "Duryodhana will not give a needle point of Earth.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.08
+   },
+   {
+    "take": "needle.s11.wav",
+    "heard": "Duryodhana will not give a needle point of Earth.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.68
+   }
+  ]
+ },
+ {
+  "id": "field",
+  "chosen": "field.s0.wav",
+  "dur": 4.1,
+  "takes": [
+   {
+    "take": "field.s0.wav",
+    "heard": "Two armies, Arjuna lowers his bow, Krishna speaks.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 4.12
+   },
+   {
+    "take": "field.s1.wav",
+    "heard": "Two armies, Arjuna lowers his bow, Krishna speaks.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 4.2
+   },
+   {
+    "take": "field.s2.wav",
+    "heard": "Two armies, Arjuna lowers his bow, Krishna speaks.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 4.0
+   }
+  ]
+ },
+ {
+  "id": "arrows",
+  "chosen": "arrows.s2.wav",
+  "dur": 2.99,
+  "takes": [
+   {
+    "take": "arrows.s0.wav",
+    "heard": "Vishma falls and lies on the bed of arrows.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 3.32
+   },
+   {
+    "take": "arrows.s1.wav",
+    "heard": "Bieshma falls and lies on a bed of arrows.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.88
+   },
+   {
+    "take": "arrows.s2.wav",
+    "heard": "Bishma falls and lies on a bed of arrows.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.08
+   }
+  ]
+ },
+ {
+  "id": "boy",
+  "chosen": "boy.s1.wav",
+  "dur": 3.07,
+  "takes": [
+   {
+    "take": "boy.s0.wav",
+    "heard": "But boy fights alone, and many bring him down.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 3.04
+   },
+   {
+    "take": "boy.s1.wav",
+    "heard": "A boy fights alone and many bring him down.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.12
+   },
+   {
+    "take": "boy.s2.wav",
+    "heard": "A boy fights alone, and many bring him down.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.24
+   }
+  ]
+ },
+ {
+  "id": "mud",
+  "chosen": "mud.s1.wav",
+  "dur": 2.53,
+  "takes": [
+   {
+    "take": "mud.s0.wav",
+    "heard": "Carnus Wheel sinks into the Earth.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.68
+   },
+   {
+    "take": "mud.s1.wav",
+    "heard": "Karna's wheel sinks into the earth.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.72
+   },
+   {
+    "take": "mud.s2.wav",
+    "heard": "Karna's wheel sinks into the earth.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.28
+   }
+  ],
+  "refit": 1.014
+ },
+ {
+  "id": "raid",
+  "chosen": "raid.s1.wav",
+  "dur": 2.48,
+  "takes": [
+   {
+    "take": "raid.s0.wav",
+    "heard": "Bess, a night raid on a sleeping camp.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.72
+   },
+   {
+    "take": "raid.s1.wav",
+    "heard": "A night raid on a sleeping camp.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.52
+   },
+   {
+    "take": "raid.s2.wav",
+    "heard": "A night raid on a sleeping cam.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 2.0
+   }
+  ]
+ },
+ {
+  "id": "curse",
+  "chosen": "curse.s1.wav",
+  "dur": 2.99,
+  "takes": [
+   {
+    "take": "curse.s0.wav",
+    "heard": "A mother of a hundred sons, Krsna's Krsna.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 2.68
+   },
+   {
+    "take": "curse.s1.wav",
+    "heard": "A mother of a hundred sons, curses Krishna.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.08
+   },
+   {
+    "take": "curse.s2.wav",
+    "heard": "A mother of a hundred sons curses Krishna.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.28
+   }
+  ]
+ },
+ {
+  "id": "dog",
+  "chosen": "dog.s2.wav",
+  "dur": 3.34,
+  "takes": [
+   {
+    "take": "dog.s0.wav",
+    "heard": "At the end, a king will not abandon his dog.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.32
+   },
+   {
+    "take": "dog.s1.wav",
+    "heard": "At the end, a king will not abandon his dog.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.6
+   },
+   {
+    "take": "dog.s2.wav",
+    "heard": "At the end, a king will not abandon his dog.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.4
+   }
+  ]
+ },
+ {
+  "id": "word",
+  "chosen": "word.s11.wav",
+  "dur": 2.12,
+  "takes": [
+   {
+    "take": "word.s11.wav",
+    "heard": "It calls itself Itihasa.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 2.32
+   }
+  ]
+ },
+ {
+  "id": "means",
+  "chosen": "means.s0.wav",
+  "dur": 4.03,
+  "takes": [
+   {
+    "take": "means.s0.wav",
+    "heard": "Iti ha, aza, so indeed it was...",
+    "missed": 0,
+    "extra": 0,
+    "dur": 4.08
+   },
+   {
+    "take": "means.s1.wav",
+    "heard": "Iti ha, asa, so indeed it was.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.44
+   },
+   {
+    "take": "means.s2.wav",
+    "heard": "IT, HA, ASSA, so indeed it was.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 4.32
+   }
+  ]
+ },
+ {
+  "id": "promise",
+  "chosen": "promise.s1.wav",
+  "dur": 3.54,
+  "takes": [
+   {
+    "take": "promise.s0.wav",
+    "heard": "All of it start to finish, nothing added for effect.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.32
+   },
+   {
+    "take": "promise.s1.wav",
+    "heard": "All of it start to finish. Nothing added for effect.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.64
+   },
+   {
+    "take": "promise.s2.wav",
+    "heard": "All of it start to finish. Nothing added for effect.",
+    "missed": 0,
+    "extra": 0,
+    "dur": 3.92
+   }
+  ]
+ },
+ {
+  "id": "follow",
+  "chosen": "follow.s0.wav",
+  "dur": 1.86,
+  "takes": [
+   {
+    "take": "follow.s0.wav",
+    "heard": "Follow Episode 1.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 1.96
+   },
+   {
+    "take": "follow.s1.wav",
+    "heard": "Follow Episode 1",
+    "missed": 1,
+    "extra": 0,
+    "dur": 2.08
+   },
+   {
+    "take": "follow.s2.wav",
+    "heard": "Follow Episode 1.",
+    "missed": 1,
+    "extra": 0,
+    "dur": 1.88
+   }
+  ]
+ }
+]

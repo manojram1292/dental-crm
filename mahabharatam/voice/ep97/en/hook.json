@@ -1,0 +1,22 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox:default",
+ "engine": "chatterbox-onnx",
+ "spoken_as": "This is the Mahabharata. All of it.",
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.341,
+   "words": 4,
+   "text": "This is the Mahabharata."
+  },
+  {
+   "t0": 1.465,
+   "t1": 2.122,
+   "words": 3,
+   "text": "All of it."
+  }
+ ],
+ "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
+ "tempo": 0.965
+}

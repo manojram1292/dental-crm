@@ -118,6 +118,8 @@
     58: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
     59: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
     60: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
+    // 97: THE FULL-EPIC TRAILER (script/trailer.en.json, scenes in src/scenes/trailer/; never a numbered episode)
+    97: ['ep41/_common', 'ep46/_common', 'ep49/_common', 'trailer/scenes'],
     // 98: THE SERIES INTRODUCTION reel (script/intro.en.json, scenes in src/scenes/intro/; never a numbered episode)
     98: ['ep41/_common', 'ep46/_common', 'ep49/_common', 'intro/scenes'],
     99: ['lab'],

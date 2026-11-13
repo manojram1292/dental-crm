@@ -1,0 +1,16 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox:default",
+ "engine": "chatterbox-onnx",
+ "spoken_as": "An archer brings down the mark and wins her.",
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.653,
+   "words": 9,
+   "text": "An archer brings down the mark and wins her."
+  }
+ ],
+ "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
+ "tempo": 0.965
+}

@@ -1,0 +1,22 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox:default",
+ "engine": "chatterbox-onnx",
+ "spoken_as": "Then the dice. A king stakes his kingdom, his brothers, his wife.",
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.152,
+   "words": 3,
+   "text": "Then the dice."
+  },
+  {
+   "t0": 1.277,
+   "t1": 4.726,
+   "words": 9,
+   "text": "A king stakes his kingdom, his brothers, his wife."
+  }
+ ],
+ "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
+ "tempo": 0.965
+}

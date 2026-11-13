@@ -1,0 +1,22 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox:default",
+ "engine": "chatterbox-onnx",
+ "spoken_as": "They pull at her cloth. The cloth does not end.",
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.577,
+   "words": 5,
+   "text": "They pull at her cloth."
+  },
+  {
+   "t0": 1.702,
+   "t1": 3.28,
+   "words": 5,
+   "text": "The cloth does not end."
+  }
+ ],
+ "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
+ "tempo": 0.965
+}

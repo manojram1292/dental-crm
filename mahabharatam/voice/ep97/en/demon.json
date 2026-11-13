@@ -1,0 +1,17 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox:default",
+ "engine": "chatterbox-onnx",
+ "spoken_as": "In the forest, Bheema breaks a man-eating demon.",
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 3.284,
+   "words": 8,
+   "text": "In the forest, Bhima breaks a man-eating demon."
+  }
+ ],
+ "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
+ "tempo": 0.965,
+ "refit": "demon.s0.wav fitted to the first selection's exact length (tempo x0.967) after the recogniser heard the name better in this take"
+}

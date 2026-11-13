@@ -1,0 +1,16 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox:default",
+ "engine": "chatterbox-onnx",
+ "spoken_as": "At the end, a king will not abandon his dog.",
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 3.465,
+   "words": 10,
+   "text": "At the end, a king will not abandon his dog."
+  }
+ ],
+ "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
+ "tempo": 0.965
+}

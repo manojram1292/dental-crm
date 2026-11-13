@@ -1,0 +1,16 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox:default",
+ "engine": "chatterbox-onnx",
+ "spoken_as": "Duryodhana will not give a needle-point of earth.",
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 2.709,
+   "words": 8,
+   "text": "Duryodhana will not give a needle-point of earth."
+  }
+ ],
+ "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
+ "tempo": 0.965
+}

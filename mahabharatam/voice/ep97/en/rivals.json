@@ -1,0 +1,28 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox:default",
+ "engine": "chatterbox-onnx",
+ "spoken_as": "A hundred brothers. Five cousins. One throne.",
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.257,
+   "words": 3,
+   "text": "A hundred brothers."
+  },
+  {
+   "t0": 1.381,
+   "t1": 2.307,
+   "words": 2,
+   "text": "Five cousins."
+  },
+  {
+   "t0": 2.431,
+   "t1": 3.246,
+   "words": 2,
+   "text": "One throne."
+  }
+ ],
+ "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
+ "tempo": 0.965
+}

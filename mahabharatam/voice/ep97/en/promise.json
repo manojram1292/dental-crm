@@ -1,0 +1,22 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox:default",
+ "engine": "chatterbox-onnx",
+ "spoken_as": "All of it, start to finish. Nothing added for effect.",
+ "chunks": [
+  {
+   "t0": 0.0,
+   "t1": 1.769,
+   "words": 6,
+   "text": "All of it, start to finish."
+  },
+  {
+   "t0": 1.893,
+   "t1": 3.547,
+   "words": 4,
+   "text": "Nothing added for effect."
+  }
+ ],
+ "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
+ "tempo": 0.965
+}
