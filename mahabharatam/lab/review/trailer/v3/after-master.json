@@ -1,0 +1,121 @@
+{
+ "file": "trailer.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 2681,
+ "seconds": 89.37,
+ "low_motion": [],
+ "exact_repeats": 0,
+ "median_frame_difference": 2.35,
+ "least_moving_second": [
+  56.17,
+  0.94
+ ],
+ "dead_air_under_-45dB_over_0.3s": [
+  [
+   36.06,
+   0.65
+  ],
+  [
+   63.89,
+   0.68
+  ]
+ ],
+ "speech_gaps_over_0.6s": [
+  [
+   "needle",
+   "armies",
+   1.52
+  ],
+  [
+   "vish",
+   "arrows",
+   1.69
+  ],
+  [
+   "dog",
+   "word",
+   0.93
+  ]
+ ],
+ "voice_files_with_pause_over_0.45_or_head_over_0.10_or_tail_over_0.15": [
+  {
+   "line": "river",
+   "longest_pause": 0.14,
+   "head": 0.03,
+   "tail": 0.19
+  },
+  {
+   "line": "dice1",
+   "longest_pause": 0.0,
+   "head": 0.03,
+   "tail": 0.17
+  },
+  {
+   "line": "stakes",
+   "longest_pause": 0.17,
+   "head": 0.03,
+   "tail": 0.2
+  },
+  {
+   "line": "cloth2",
+   "longest_pause": 0.08,
+   "head": 0.03,
+   "tail": 0.2
+  },
+  {
+   "line": "needle",
+   "longest_pause": 0.07,
+   "head": 0.02,
+   "tail": 0.2
+  },
+  {
+   "line": "bow",
+   "longest_pause": 0.08,
+   "head": 0.03,
+   "tail": 0.19
+  },
+  {
+   "line": "vish",
+   "longest_pause": 1.08,
+   "head": 0.03,
+   "tail": 0.08
+  },
+  {
+   "line": "boy",
+   "longest_pause": 0.23,
+   "head": 0.03,
+   "tail": 0.15
+  },
+  {
+   "line": "mud",
+   "longest_pause": 0.23,
+   "head": 0.02,
+   "tail": 0.2
+  },
+  {
+   "line": "curse",
+   "longest_pause": 0.32,
+   "head": 0.03,
+   "tail": 0.19
+  },
+  {
+   "line": "word",
+   "longest_pause": 0.47,
+   "head": 0.03,
+   "tail": 0.13
+  },
+  {
+   "line": "making",
+   "longest_pause": 0.07,
+   "head": 0.03,
+   "tail": 0.2
+  },
+  {
+   "line": "support",
+   "longest_pause": 0.13,
+   "head": 0.03,
+   "tail": 0.2
+  }
+ ]
+}

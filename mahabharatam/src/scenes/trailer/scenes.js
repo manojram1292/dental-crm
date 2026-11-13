@@ -531,7 +531,7 @@
   const prevDur = (env) => (R.lines[env.index - 1] ? R.lines[env.index - 1].end - R.lines[env.index - 1].start : 1);
   // arrows1: close, along his body toward the face, the arrows coming in. arrows2: the pull-back to the whole bed.
   // from his face, the arrows coming in, back to the whole bed
-  scene({ id: 'arrows', draw(ctx, t, env) { const T = env.T, u = t / env.dur; arrowsWorld(ctx, T, t + 0.3, frame('pull', u, { z: 2.3, f: [700, 960], s: [540, 900] }, { z: 1.03, f: [540, 960] }, ev(E.inOutSine))); fin(ctx, T); }, post: () => ({ bloom: 0.38, vignette: 0.45, paper: 0.3 }) });
+  scene({ id: 'arrows', draw(ctx, t, env) { const T = env.T, u = t / env.dur; arrowsWorld(ctx, T, t + 0.3, frame('pull', u, { z: 2.3, f: [430, 960], s: [540, 900] }, { z: 1.03, f: [540, 960] }, ev(E.inOutSine))); fin(ctx, T); }, post: () => ({ bloom: 0.38, vignette: 0.45, paper: 0.3 }) });
 
   // ── 16 · BOY (CE 7.33.12; 7.48.13 eko bahubhiḥ): alone inside the wheel formation; the ring closes. The blow is not shown. ──
   const boyWorld = (ctx, T, cam, close) => {
@@ -605,8 +605,8 @@
         { z: 0.2, draw: (g, p) => ST.cloudBank(g, p, T, { y: 380, count: 8, speed: 22, color: '#5a5650', alpha: 0.9, size: 1.8 }) },
         { z: 0.6, haze: false, draw: (g) => { g.fillStyle = '#2a2622'; g.fillRect(-900, 1000, 2880, 1500); fires(g, T, 1000, 26); } },
         { z: 1, haze: false, draw: (g, p) => {
-          // a column of dark smoke behind him: in colour now, he has to stand out from the grey sky
-          { const sm = g.createRadialGradient(850, GY - 480, 60, 850, GY - 480, 640); sm.addColorStop(0, 'rgba(14,12,12,1)'); sm.addColorStop(0.7, 'rgba(20,18,18,0.92)'); sm.addColorStop(1, 'rgba(30,26,26,0)'); g.fillStyle = sm; g.save(); g.translate(850, GY - 480); g.scale(0.8, 1.3); g.translate(-850, -(GY - 480)); g.fillRect(-200, -900, 2100, 2800); g.restore(); }
+          // the sky darkens to smoke on his side (in colour now, he has to stand out from the grey): a slow gradient across the frame, no edge
+          { const sm = g.createLinearGradient(380, 0, 1180, 0); sm.addColorStop(0, 'rgba(18,16,16,0)'); sm.addColorStop(0.45, 'rgba(18,16,16,0.82)'); sm.addColorStop(1, 'rgba(14,12,12,0.94)'); g.fillStyle = sm; g.fillRect(380, -1200, 1900, GY + 1240); }
           shape(g, 0.2, '#0c0806', (q) => fig('epicKrishna', q, T, 850, GY + 26, 0.88, 'left', ACT.pose(t, [[0, 'stand'], [b0, 'anjali', { act: 0.7 }]]), lit(p, [540, 1000], 850, 0.75, 1.25, { tint: ['#ff9a4a', 0.2] }), { emo: 'calm', gaze: [0.8, 0.3] }, 'cu-k'), false, headOf(850, GY + 26, 0.88));
           fig('epicGandhari', g, T, 270, GY + 26, 0.9, 'right', ACT.pose(t, [[0, 'grieve'], [b0 - 0.65, 'curse', { antic: 0.22, act: 0.16, settle: 0.5 }]], { wind: 0.5 }), lit(p, [540, 300], 270, 0.9, 1.25), { emo: ACT.emo(t, [[0, 'sorrow'], [b0 - 0.5, 'wrath']]), gaze: [0.8, 0] }, 'cu-g'); } },
         { z: 1.3, haze: false, draw: (g) => ST.particles(g, T * 1.8, { kind: 'ember', count: 90, cam }) },
@@ -772,12 +772,12 @@
   // ── 23 · THE PROMISE. p1: the eighteen books run up the frame. p2: the vow again, closer. p3: the spears again. ──
   scene({ id: 'p1',
     draw(ctx, t, env) {
-      const T = env.T, S = env.strings, u = t / env.dur, cam = frame('tilt', u, { z: 1.06, f: [540, 700] }, { z: 1.06, f: [540, 1100] }, (x) => x);
+      const T = env.T, S = env.strings, u = t / env.dur, cam = frame('tilt', u, { z: 1.06, f: [540, 900] }, { z: 1.06, f: [540, 1070] }, (x) => x);   // the last row stays above the caption
       ST.shot(ctx, T, { pal: 'memory-indigo', cam, layers: [
         { z: 0, haze: false, draw: (g) => { const gr = g.createLinearGradient(0, -400, 0, 2200); gr.addColorStop(0, '#05061c'); gr.addColorStop(1, '#1a2470'); g.fillStyle = gr; g.fillRect(-900, -900, 2880, 3720); const pk = Math.max(...[0.05, ...(env.beats || [])].map((b_) => (t >= b_ ? Math.exp(-(t - b_) / 0.25) : 0))); KIT.glow(g, 540, 900, 900, '#4a6ae0', 0.3); KIT.glow(g, 540, 900, 1100, '#ffc860', 0.35 * pk); } },
         { z: 1, haze: false, draw: (g) => { const B = S.books || []; g.textAlign = 'center'; g.font = R.font(58, 'display', 700);
-          B.forEach((nm, i) => { const col = i % 2, r = Math.floor(i / 2), x = col ? 790 : 290, y = 330 + r * 112 + (col ? 34 : 0), k = clamp((t + 0.12 - i * 0.022) / 0.1); if (k <= 0) return;
-            g.globalAlpha = k; g.fillStyle = 'rgba(8,10,40,0.7)'; g.fillRect(x - 235, y - 62, 470, 92); g.fillStyle = '#e7b54a'; g.fillRect(x - 235, y - 62, 470, 4); g.fillRect(x - 235, y + 26, 470, 4);
+          B.forEach((nm, i) => { const col = i % 2, r = Math.floor(i / 2), x = col ? 790 : 290, y = 300 + r * 100 + (col ? 34 : 0), k = clamp((t + 0.12 - i * 0.022) / 0.1); if (k <= 0) return;
+            g.globalAlpha = k; g.fillStyle = 'rgba(8,10,40,0.7)'; g.fillRect(x - 235, y - 58, 470, 84); g.fillStyle = '#e7b54a'; g.fillRect(x - 235, y - 58, 470, 4); g.fillRect(x - 235, y + 22, 470, 4);
             let fs = 58; g.font = R.font(fs, 'display', 700); while (g.measureText(nm.toUpperCase()).width > 440 && fs > 30) { fs -= 2; g.font = R.font(fs, 'display', 700); } g.fillStyle = '#ffe9a8'; g.fillText(nm.toUpperCase(), x, y); }); g.globalAlpha = 1; } },
         { z: 1.4, haze: false, draw: (g) => ST.particles(g, T * 2, { kind: 'ember', count: 40, cam }) },
       ] });
@@ -825,14 +825,14 @@
       const T = env.T, u = t / env.dur, cam = frame('slide', u, { z: 1.1, f: [470, 900] }, { z: 1.1, f: [610, 980] }, (x) => x);
       ST.shot(ctx, T, { pal: 'memory-indigo', cam, layers: [
         { z: 0, haze: false, draw: (g) => { const gr = g.createLinearGradient(0, -400, 0, 2200); gr.addColorStop(0, '#0a0a24'); gr.addColorStop(1, '#2a1608'); g.fillStyle = gr; g.fillRect(-900, -900, 2880, 3720); KIT.glow(g, 540, 1500, 1200, '#ff9a3a', 0.3 * KIT.flicker(T, 3)); } },
-        { z: 1, haze: false, draw: (g) => { for (let i = 0; i < 7; i++) { const k = E.outCubic(clamp((t - 0.05 - i * 0.3) / 0.4)); if (k <= 0) continue; const y = 430 + i * 152, x = lerp(1700, 540 + (i % 2 ? 26 : -26), k), wr = clamp((t - 0.3 - i * 0.3) / 0.9), newest = clamp(1 - (t - 0.05 - i * 0.3) / 0.6);
-            g.save(); g.translate(x, y); g.rotate((i % 2 ? 1 : -1) * 0.012 + 0.2 * (1 - k)); g.fillStyle = 'rgba(0,0,0,0.4)'; g.beginPath(); g.roundRect(-392, -50, 800, 124, 14); g.fill();
+        { z: 1, haze: false, draw: (g) => { for (let i = 0; i < 7; i++) { const k = E.outCubic(clamp((t - 0.05 - i * 0.3) / 0.4)); if (k <= 0) continue; const y = 400 + i * 126, x = lerp(1700, 540 + (i % 2 ? 26 : -26), k), wr = clamp((t - 0.3 - i * 0.3) / 0.9), newest = clamp(1 - (t - 0.05 - i * 0.3) / 0.6);
+            g.save(); g.translate(x, y); g.rotate((i % 2 ? 1 : -1) * 0.012 + 0.2 * (1 - k)); g.fillStyle = 'rgba(0,0,0,0.4)'; g.beginPath(); g.roundRect(-392, -44, 800, 112, 14); g.fill();
             if (newest > 0) KIT.glow(g, 0, 0, 520, '#ffd070', 0.5 * newest);
-            g.fillStyle = '#dcbc7c'; g.strokeStyle = '#7a5626'; g.lineWidth = 4; g.beginPath(); g.roundRect(-400, -60, 800, 120, 14); g.fill(); g.stroke();
+            g.fillStyle = '#dcbc7c'; g.strokeStyle = '#7a5626'; g.lineWidth = 4; g.beginPath(); g.roundRect(-400, -54, 800, 108, 14); g.fill(); g.stroke();
             g.fillStyle = '#3a2410'; for (const hx of [-250, 250]) { g.beginPath(); g.arc(hx, 0, 11, 0, TAU); g.fill(); }
-            g.strokeStyle = '#3a2410'; g.lineWidth = 5; g.lineCap = 'round'; for (let r = 0; r < 3; r++) { const yy = -32 + r * 32, upto = clamp(wr * 3 - r); if (upto <= 0) continue; g.beginPath(); for (let c = 0; c < Math.floor(26 * upto); c++) { const xx = -370 + c * 28.5; if (Math.abs(xx - 250) < 26 || Math.abs(xx + 250) < 26) continue; const hh = 8 + 9 * hash(i * 31 + r * 7 + c, 5); g.moveTo(xx, yy - hh * 0.5); g.quadraticCurveTo(xx + 9, yy - hh, xx + 18, yy + hh * 0.4); } g.stroke(); g.lineWidth = 3; g.beginPath(); g.moveTo(-374, yy - 13); g.lineTo(-374 + 748 * upto, yy - 13); g.stroke(); g.lineWidth = 5; }
+            g.strokeStyle = '#3a2410'; g.lineWidth = 5; g.lineCap = 'round'; for (let r = 0; r < 3; r++) { const yy = -29 + r * 29, upto = clamp(wr * 3 - r); if (upto <= 0) continue; g.beginPath(); for (let c = 0; c < Math.floor(26 * upto); c++) { const xx = -370 + c * 28.5; if (Math.abs(xx - 250) < 26 || Math.abs(xx + 250) < 26) continue; const hh = 8 + 9 * hash(i * 31 + r * 7 + c, 5); g.moveTo(xx, yy - hh * 0.5); g.quadraticCurveTo(xx + 9, yy - hh, xx + 18, yy + hh * 0.4); } g.stroke(); g.lineWidth = 3; g.beginPath(); g.moveTo(-374, yy - 13); g.lineTo(-374 + 748 * upto, yy - 13); g.stroke(); g.lineWidth = 5; }
             g.restore(); }
-          g.strokeStyle = '#a8301a'; g.lineWidth = 7; const top = clamp(t / 0.4); for (const hx of [-250, 250]) { g.beginPath(); g.moveTo(540 + hx, 330); g.lineTo(540 + hx + 8 * Math.sin(T * 2 + hx), lerp(330, 430 + 152 * Math.min(6, t / 0.3), top)); g.stroke(); } } },
+          g.strokeStyle = '#a8301a'; g.lineWidth = 7; const top = clamp(t / 0.4); for (const hx of [-250, 250]) { g.beginPath(); g.moveTo(540 + hx, 300); g.lineTo(540 + hx + 8 * Math.sin(T * 2 + hx), lerp(300, 400 + 126 * Math.min(6, t / 0.3), top)); g.stroke(); } } },
         { z: 1.4, haze: false, draw: (g) => ST.particles(g, T * 2, { kind: 'ember', count: 50, cam }) },
       ] });
       fin(ctx, T);
