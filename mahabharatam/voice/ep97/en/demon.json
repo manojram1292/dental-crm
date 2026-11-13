@@ -1,17 +1,47 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox:default",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
  "engine": "chatterbox-onnx",
- "spoken_as": "In the forest, Bheema breaks a man-eating demon.",
+ "takes_from": [
+  "demon2.s1.wav"
+ ],
+ "spoken_as": "Bhima breaks a man-eating demon.",
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 3.284,
-   "words": 8,
-   "text": "In the forest, Bhima breaks a man-eating demon."
+   "t0": 0,
+   "t1": 1.909,
+   "words": 5,
+   "text": "Bhima breaks a man-eating demon."
   }
  ],
- "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
- "tempo": 0.965,
- "refit": "demon.s0.wav fitted to the first selection's exact length (tempo x0.967) after the recogniser heard the name better in this take"
+ "wordTimes": [
+  [
+   0.02,
+   0.232
+  ],
+  [
+   0.232,
+   0.472
+  ],
+  [
+   0.472,
+   0.692
+  ],
+  [
+   0.692,
+   0.912
+  ],
+  [
+   1.232,
+   1.632
+  ]
+ ],
+ "measured": {
+  "f0": 107.1,
+  "st": 16.9,
+  "edb": 17.8,
+  "pause": 0.03,
+  "dur": 1.83
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
 }

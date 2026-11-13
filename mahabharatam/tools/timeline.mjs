@@ -118,6 +118,9 @@ export function buildTimeline(lang = 'en', { quiet = false, ep = 1 } = {}) {
         k += c.words;
       }
     } else wt = place(words, speechStart, speechDur);
+    // Trailer, second cut (additive): a sidecar may carry "wordTimes": [[t0, t1], …] (s, from the start of the voice file; one pair per
+    // caption word), measured by a speech recogniser; they replace the estimate. Sidecars without the field are timed as before.
+    if (hasWav) { const side2 = wf.replace(/\.wav$/, '.json'); if (fs.existsSync(side2)) { const wtm = JSON.parse(fs.readFileSync(side2, 'utf8')).wordTimes; if (Array.isArray(wtm) && wtm.length === words.length) { wt = words.map((w, k) => ({ w, t0: +(speechStart + wtm[k][0]).toFixed(4), t1: +(speechStart + wtm[k][1]).toFixed(4) })); sig.update('wt:' + JSON.stringify(wtm)); } } }
     const beats = (line.beats || []).map((k) => wt[Math.min(k, wt.length - 1)].t0);
     let ticks = [];
     if (line.ticks) {
@@ -127,6 +130,10 @@ export function buildTimeline(lang = 'en', { quiet = false, ep = 1 } = {}) {
       const b = to === 'end' ? t + dur - endPad : wt[Math.min(to, wt.length - 1)].t0;
       ticks = Array.from({ length: count }, (_, k) => +(a + (b - a) * Math.pow(count > 1 ? k / (count - 1) : 1, curve)).toFixed(4));
     }
+    // Trailer, second cut (additive; script "timing": { "frameSnap": true }): every shot ends on a whole frame, so a cut is never a frame of two pictures.
+    // The end is then cut down to four decimals (never rounded up: these times are stored to four places, and a start even 0.00003 s after its
+    // frame puts one motion-blur sample of the old picture, caption and all, into the first frame of the new one).
+    if (tm.frameSnap) dur = Math.floor((Math.ceil((t + dur) * FPS - 1e-3) / FPS) * 1e4 + 1e-6) / 1e4 - t;
     out.push({
       id: line.id, start: +t.toFixed(4), end: +(t + dur).toFixed(4),
       speechStart: +speechStart.toFixed(4), speechEnd: +(speechStart + speechDur).toFixed(4),

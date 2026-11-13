@@ -1,0 +1,59 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "river.s1.wav"
+ ],
+ "spoken_as": "A mother gives her first-born to the river.",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 2.604,
+   "words": 8,
+   "text": "A mother gives her first-born to the river."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.085
+  ],
+  [
+   0.085,
+   0.31
+  ],
+  [
+   0.31,
+   0.624
+  ],
+  [
+   0.624,
+   0.871
+  ],
+  [
+   0.871,
+   1.568
+  ],
+  [
+   1.568,
+   1.95
+  ],
+  [
+   1.95,
+   2.062
+  ],
+  [
+   2.062,
+   2.31
+  ]
+ ],
+ "measured": {
+  "f0": 89.7,
+  "st": 16.8,
+  "edb": 19.6,
+  "pause": 0.14,
+  "dur": 2.5
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+}

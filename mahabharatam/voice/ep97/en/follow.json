@@ -1,22 +1,52 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox:default",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
  "engine": "chatterbox-onnx",
- "spoken_as": "Follow. Episode one.",
+ "takes_from": [
+  "nothing.s4.wav",
+  "follow.s4.wav"
+ ],
+ "spoken_as": "Nothing added for effect. Follow. Episode",
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 0.683,
-   "words": 1,
-   "text": "Follow."
-  },
-  {
-   "t0": 0.807,
-   "t1": 1.799,
-   "words": 2,
-   "text": "Episode one."
+   "t0": 0,
+   "t1": 2.566,
+   "words": 6,
+   "text": "Nothing added for effect. Follow. Episode"
   }
  ],
- "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
- "tempo": 0.965
+ "wordTimes": [
+  [
+   0.0,
+   0.257
+  ],
+  [
+   0.257,
+   0.516
+  ],
+  [
+   0.516,
+   0.796
+  ],
+  [
+   0.796,
+   1.116
+  ],
+  [
+   1.647,
+   1.926
+  ],
+  [
+   1.926,
+   2.566
+  ]
+ ],
+ "measured": {
+  "f0": 109.2,
+  "st": 20.7,
+  "edb": 21.2,
+  "pause": 0.28,
+  "dur": 2.55
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
 }

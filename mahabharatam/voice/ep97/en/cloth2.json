@@ -1,0 +1,48 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "cloth.s3.wav"
+ ],
+ "spoken_as": "The cloth does not end.",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 1.455,
+   "words": 5,
+   "text": "The cloth does not end."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.052,
+   0.092
+  ],
+  [
+   0.092,
+   0.352
+  ],
+  [
+   0.352,
+   0.692
+  ],
+  [
+   0.692,
+   0.912
+  ],
+  [
+   0.912,
+   1.252
+  ]
+ ],
+ "measured": {
+  "f0": 131.7,
+  "st": 19.7,
+  "edb": 21.9,
+  "pause": 0.14,
+  "dur": 1.32
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened",
+ "cut_from": "They pull at her cloth. The cloth does not end."
+}

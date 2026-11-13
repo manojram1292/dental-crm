@@ -184,8 +184,16 @@
     else if (st === 'wild') { for (let i = 0; i < 11; i++) { const a = -2.9 + i * 0.36, rr = 96 + 44 * hash(i, r.seed) + (i > 5 ? Math.abs(dx) * 0.4 : 0); g.moveTo(14 + Math.cos(a - 0.2) * 62, -14 + Math.sin(a - 0.2) * 62); g.lineTo(14 + Math.cos(a) * rr + dx * 0.3, -14 + Math.sin(a) * rr); g.lineTo(14 + Math.cos(a + 0.2) * 62, -14 + Math.sin(a + 0.2) * 62); g.closePath(); cut(g); } lock(60, 10, 200, 70, 1); }
     else if (st === 'crown') {   // the kirita of the series' kings (janamejaya.js): a band, three narrowing tiers, a finial, a wing at the back
       g.moveTo(-58, -58); g.lineTo(-54, -92); g.lineTo(74, -100); g.lineTo(80, -62); g.closePath(); cut(g);
+      // hair.crown (optional; the epic cast of the trailer): 'low' = a band and one tier with a small point (Yudhishthira); 'broad' = two wide
+      // tiers with a flat top and three studs (Duryodhana); 'dome' = a rounded cap with a knob (Bhishma). Without it: the tall kirita, as before.
+      const cv = B.hair && B.hair.crown;
+      if (cv === 'low') { g.moveTo(-44, -92); g.lineTo(-30, -138); g.lineTo(52, -142); g.lineTo(64, -96); g.closePath(); cut(g); g.moveTo(-2, -138); g.lineTo(10, -176); g.lineTo(24, -140); g.closePath(); cut(g); }
+      else if (cv === 'broad') { for (const [y0, y1, w0, w1] of [[-92, -150, 58, 62], [-150, -196, 62, 50]]) { g.moveTo(10 - w0, y0); g.lineTo(10 - w1, y1); g.lineTo(10 + w1, y1 - 4); g.lineTo(10 + w0, y0 - 4); g.closePath(); cut(g); } for (const dx2 of [-30, 10, 50]) { g.moveTo(dx2 + 12, -206); g.arc(dx2, -206, 12, 0, TAU); cut(g); } }
+      else if (cv === 'dome') { g.moveTo(-46, -92); g.quadraticCurveTo(-50, -200, 10, -206); g.quadraticCurveTo(72, -204, 66, -96); g.closePath(); cut(g); g.moveTo(22, -220); g.arc(10, -220, 13, 0, TAU); cut(g); }
+      else {
       for (const [y0, y1, w0, w1] of [[-92, -140, 54, 44], [-140, -186, 44, 33], [-186, -230, 33, 22]]) { g.moveTo(10 - w0, y0); g.lineTo(10 - w1, y1); g.lineTo(10 + w1, y1 - 4); g.lineTo(10 + w0, y0 - 4); g.closePath(); cut(g); }
       g.moveTo(-6, -230); g.lineTo(10, -290); g.lineTo(26, -234); g.closePath(); cut(g); g.moveTo(18, -296); g.arc(10, -296, 9, 0, TAU); cut(g);
+      }
       g.moveTo(70, -96); g.quadraticCurveTo(118, -120, 124, -170); g.quadraticCurveTo(100, -130, 72, -70); g.closePath(); cut(g);
       for (let i = 0; i < 4; i++) { g.moveTo(74, -30 + i * 22); g.arc(62, -30 + i * 22, 14, 0, TAU); cut(g); }   // the curls at the nape
     }

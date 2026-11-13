@@ -51,8 +51,8 @@
       g.save(); g.translate(x, y); g.rotate(sx * 0.28); g.fillStyle = '#0c5a3a'; g.beginPath(); g.ellipse(0, -70 * s, 36 * s, 96 * s, 0, 0, TAU); g.fill(); g.fillStyle = '#2ad0a0'; g.beginPath(); g.ellipse(0, -84 * s, 24 * s, 60 * s, 0, 0, TAU); g.fill();
       g.fillStyle = '#1a3ac8'; g.beginPath(); g.ellipse(0, -96 * s, 14 * s, 26 * s, 0, 0, TAU); g.fill(); g.fillStyle = '#ffd870'; g.beginPath(); g.arc(0, -100 * s, 7 * s, 0, TAU); g.fill(); g.restore(); },
     bible: bib('Krishna', 'Of the Vrishnis; Arjuna\'s friend and charioteer. He takes Shishupala\'s head with the wheel (CE 2.42.21), speaks between the armies (6.24), runs at Bhishma with the wheel raised and is held back (6.55.86–98), and is cursed by Gandhari (11.25).', 'Dark blue skin, a yellow cloth, a crown with a peacock feather, a gold aura.') });
-  A({ id: 'epicBhishma', build: { h: 1.12, w: 1.08, leg: 1.06 }, skin: ['#1a100a', '#b8845a'], hair: { style: 'crown', color: '#b8c0cc', lit: '#f4f8ff' }, beard: { len: 1.0, color: '#f0f0ee' },
-    lower: { kind: 'dhoti', color: '#eef0f4', border: true }, upper: { kind: 'shawl', color: '#aab4c4' }, rim: ['#d8e4ff', '#ffffff'], ornament: ['#c8d0e0', '#ffffff'], jewels: { necklace: true, armlets: true, crownGems: true, sash: true }, tall: 200,
+  A({ id: 'epicBhishma', build: { h: 1.12, w: 1.08, leg: 1.06 }, skin: ['#1a100a', '#b8845a'], hair: { style: 'crown', crown: 'dome', color: '#b8c0cc', lit: '#f4f8ff' }, beard: { len: 1.0, color: '#f0f0ee' },
+    lower: { kind: 'dhoti', color: '#eef0f4', border: true }, upper: { kind: 'shawl', color: '#aab4c4' }, rim: ['#d8e4ff', '#ffffff'], ornament: ['#c8d0e0', '#ffffff'], jewels: { necklace: true, armlets: true, sash: true }, tall: 200,
     after: bow('#c8d0e0', 900),
     bible: bib('Bhishma, the grandsire', 'Devavrata, who gave up the throne and vowed celibacy for his father (CE 1.94.86–90); commander of the Kurus; he falls on the tenth day and lies on a bed of arrows (6.114.81–85).', 'White and silver, a long white beard, a silver crown, a great bow.') });
   A({ id: 'epicDevavrata', build: { h: 1.08, w: 1.04, leg: 1.05 }, skin: ['#1a100a', '#c08a5e'], hair: { style: 'topknot', color: '#1a1210', lit: '#4a3a34' },
@@ -63,8 +63,8 @@
     jewels: { necklace: true, armlets: true, sash: true },
     after: (g, P, r) => { const s = P.s, [x, y] = at(P, r.head, 32, 52); KIT.glow(g, x, y, 90 * s, '#ffe890', 0.8); g.fillStyle = '#ffd040'; g.beginPath(); g.arc(x, y, 24 * s, 0, TAU); g.fill(); g.fillStyle = '#fffbe0'; g.beginPath(); g.arc(x - 5 * s, y - 6 * s, 9 * s, 0, TAU); g.fill(); },
     bible: bib('Karna', 'Kunti\'s first-born, born wearing armour and earrings, set on the river and raised by a charioteer and his wife Radha (CE 1.104.10–15; 3.292). His wheel is swallowed by the earth in his last fight (8.66.60–65).', 'Sun-gold breast-armour, great glowing earrings, a deep red cloth, loose hair.') });
-  A({ id: 'epicDuryodhana', build: { h: 1.07, w: 1.24, arm: 1.04, limb: 1.15 }, skin: ['#180c08', '#a8704a'], hair: { style: 'crown', color: '#5a5a6a', lit: '#e7b54a' }, beard: { len: 0.14, color: '#120c0a', lit: '#3a2a24' },
-    lower: { kind: 'dhoti', color: '#4a1a78', border: true }, upper: { kind: 'shawl', color: '#22103a' }, rim: ['#c8a0ff', '#fff0ff'], ornament: ['#e7b54a', '#fff0c0'], jewels: { necklace: true, earring: true, armlets: true, crownGems: true, sash: true }, tall: 300,
+  A({ id: 'epicDuryodhana', build: { h: 1.07, w: 1.24, arm: 1.04, limb: 1.15 }, skin: ['#180c08', '#a8704a'], hair: { style: 'crown', crown: 'broad', color: '#5a5a6a', lit: '#e7b54a' }, beard: { len: 0.14, color: '#120c0a', lit: '#3a2a24' },
+    lower: { kind: 'dhoti', color: '#4a1a78', border: true }, upper: { kind: 'shawl', color: '#22103a' }, rim: ['#c8a0ff', '#fff0ff'], ornament: ['#e7b54a', '#fff0c0'], jewels: { necklace: true, earring: true, armlets: true, sash: true }, tall: 300,
     after: mace('#8a8aa0', '#b8b8c8'),
     bible: bib('Duryodhana', 'Eldest of Dhritarashtra\'s hundred sons (CE 1.107); he will not give back land the width of a needle\'s point (5.125.26). A great king of the text, drawn grave, never mean.', 'Night-purple and iron, a tall crown, the mace upright.') });
   A({ id: 'epicArjuna', build: { h: 1.03, w: 0.98 }, skin: ['#180e08', '#b88054'], hair: { style: 'topknot', color: '#1a1210', lit: '#4a3a34' },
@@ -74,8 +74,8 @@
   A({ id: 'epicBhima', build: { h: 1.16, w: 1.42, head: 1.04, arm: 1.1, limb: 1.4 }, skin: ['#1a0c06', '#b8744a'], hair: { style: 'curls', color: '#140c08', lit: '#4a2e20' },
     lower: { kind: 'dhoti', color: '#b8421c', border: true }, rim: ['#ffc890', '#fff4e0'], ornament: ['#e7b54a', '#fff0c0'], jewels: { armlets: true, necklace: true, sash: true },
     bible: bib('Bhima', 'The strongest of the five; in the forest he breaks the rakshasa Hidimba with his arms (CE 1.142.28–31).', 'The biggest man in the frame: bare-chested, rust-red cloth, thick curls, no crown.') });
-  A({ id: 'epicYudhishthira', build: { h: 0.99, w: 0.94 }, skin: ['#180e08', '#c0906a'], hair: { style: 'crown', color: '#c8a030', lit: '#fff0a0' },
-    lower: { kind: 'dhoti', color: '#f4ecd4', border: true }, upper: { kind: 'shawl', color: '#e8d8a8' }, rim: ['#ffe8b0', '#ffffff'], ornament: ['#e7b54a', '#fff4c0'], jewels: { necklace: true, earring: true, crownGems: true, thread: true },
+  A({ id: 'epicYudhishthira', build: { h: 0.99, w: 0.94 }, skin: ['#180e08', '#c0906a'], hair: { style: 'crown', crown: 'low', color: '#c8a030', lit: '#fff0a0' },
+    lower: { kind: 'dhoti', color: '#f4ecd4', border: true }, upper: { kind: 'shawl', color: '#e8d8a8' }, rim: ['#ffe8b0', '#ffffff'], ornament: ['#e7b54a', '#fff4c0'], jewels: { necklace: true, earring: true, thread: true },
     bible: bib('Yudhishthira', 'Eldest of the five; he stakes kingdom, brothers, himself and Draupadi at dice (CE 2.58); at the end he will not leave the dog that followed him (17.3.7).', 'Ivory and gold, a low crown, open hands.') });
   A({ id: 'epicPilgrim', build: { h: 0.99, w: 0.94 }, skin: ['#180e08', '#c0906a'], hair: { style: 'jata', color: '#8a8478', lit: '#e0dacc' }, beard: { len: 0.45, color: '#b8b2a4', lit: '#f0ece0' },
     lower: { kind: 'bark', color: '#b89a6a' }, upper: { kind: 'shawl', color: '#8a744a' }, rim: ['#ffffff', '#ffffff'], jewels: { thread: true },

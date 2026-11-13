@@ -1,5 +1,6 @@
 {
- "music_under_voice_db": -6.9,
+ "voice_eq": "trailer: high-pass 58 Hz, +1 dB shelf under 160 Hz, \u22121 dB over 7.5 kHz",
+ "music_under_voice_db": -11.0,
  "stems": [
   "mus",
   "amb",
@@ -10,19 +11,15 @@
   "amb": 5.0,
   "foley": 2.0
  },
- "rests": [
-  {
-   "before": "war",
-   "seconds": 1.06
-  },
-  {
-   "before": "word",
-   "seconds": 1.31
-  }
+ "ceiling": "trailer: \u22122.5 dBTP in the limiter (\u22123.5 on the mix) so that the encoded mp4 stays under \u22121.5 dBTP",
+ "rests_in_score": [
+  "armies",
+  "word"
  ],
+ "rests": [],
  "lufs": -14.11,
- "true_peak_dbtp": -2.34,
- "lra": 5.6,
- "timeline": "7828694f1fa8cc19",
- "voiced": 25
+ "true_peak_dbtp": -3.33,
+ "lra": 4.8,
+ "timeline": "e20f969a27c8e4fe",
+ "voiced": 35
 }

@@ -1,0 +1,405 @@
+[
+ {
+  "id": "v3",
+  "text": "I am Time.",
+  "exag": 0.6,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "v2",
+  "text": "Krishna shows him everything.",
+  "exag": 0.6,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "v1",
+  "text": "But first, Arjuna asks to see.",
+  "exag": 0.5,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "w1",
+  "text": "It calls itself itihasa.",
+  "exag": 0.35,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "itihaasa",
+  "text": "Iti. Ha. Aasa.",
+  "exag": 0.5,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "w3",
+  "text": "So indeed it was.",
+  "exag": 0.6,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "dice1",
+  "text": "Then, the dice.",
+  "exag": 0.65,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "dice23",
+  "text": "A king stakes his kingdom, his brothers, his wife.",
+  "exag": 0.65,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "needle",
+  "text": "Duryodhana will not give a needle-point of earth.",
+  "exag": 0.65,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "river",
+  "text": "A mother gives her first-born to the river.",
+  "exag": 0.4,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "dog",
+  "text": "And at the end, a king will not abandon his dog.",
+  "exag": 0.4,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "field",
+  "text": "Two armies wait. Between them, one archer will not fight.",
+  "exag": 0.5,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "vow",
+  "text": "Long before, a prince swears away his throne and his line.",
+  "exag": 0.5,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "cousins",
+  "text": "A hundred brothers. Five cousins. One throne.",
+  "exag": 0.5,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "lac",
+  "text": "A palace, built to burn.",
+  "exag": 0.55,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "demon2",
+  "text": "Bhima breaks a man-eating demon.",
+  "exag": 0.6,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "altar",
+  "text": "A woman rises from a fire altar.",
+  "exag": 0.5,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "wheel",
+  "text": "Krishna lets the wheel fly.",
+  "exag": 0.55,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "cloth",
+  "text": "They pull at her cloth. The cloth does not end.",
+  "exag": 0.5,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "exile",
+  "text": "Thirteen years of exile.",
+  "exag": 0.5,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "armies",
+  "text": "Two armies.",
+  "exag": 0.55,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "bow",
+  "text": "Arjuna lowers his bow.",
+  "exag": 0.5,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "arrows",
+  "text": "Bhishma will fall on a bed of arrows.",
+  "exag": 0.55,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "boy",
+  "text": "A boy, alone against many.",
+  "exag": 0.55,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "mud",
+  "text": "Karna's wheel, sunk in the earth.",
+  "exag": 0.55,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "raid",
+  "text": "A camp raided in its sleep.",
+  "exag": 0.55,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "curse",
+  "text": "A mother of a hundred sons will curse Krishna.",
+  "exag": 0.5,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "every",
+  "text": "Every book. Every vow. Every war.",
+  "exag": 0.55,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "first",
+  "text": "From the first verse to the last.",
+  "exag": 0.5,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "nothing",
+  "text": "Nothing added for effect.",
+  "exag": 0.5,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "follow",
+  "text": "Follow. Episode one.",
+  "exag": 0.55,
+  "ref": "/tmp/claude-0/-home-user-dental-crm/98c18506-4c60-5696-b6d2-9400870fcaf8/scratchpad/v2/voice/ref_ps7n.wav",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ }
+]

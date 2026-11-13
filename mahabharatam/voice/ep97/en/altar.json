@@ -1,16 +1,51 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox:default",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
  "engine": "chatterbox-onnx",
- "spoken_as": "A woman rises from a fire altar.",
+ "takes_from": [
+  "altar.s1.wav"
+ ],
+ "spoken_as": "A woman rises from a fire-altar.",
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 2.473,
+   "t0": 0,
+   "t1": 1.882,
    "words": 6,
    "text": "A woman rises from a fire-altar."
   }
  ],
- "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
- "tempo": 0.965
+ "wordTimes": [
+  [
+   0.0,
+   0.066
+  ],
+  [
+   0.066,
+   0.306
+  ],
+  [
+   0.306,
+   0.606
+  ],
+  [
+   0.606,
+   0.986
+  ],
+  [
+   0.986,
+   1.066
+  ],
+  [
+   1.066,
+   1.326
+  ]
+ ],
+ "measured": {
+  "f0": 92.3,
+  "st": 17.3,
+  "edb": 16.1,
+  "pause": 0.05,
+  "dur": 1.8
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
 }

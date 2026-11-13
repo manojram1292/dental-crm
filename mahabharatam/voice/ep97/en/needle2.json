@@ -1,0 +1,44 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "needle.s1.wav"
+ ],
+ "spoken_as": "a needle-point of earth.",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 1.161,
+   "words": 4,
+   "text": "a needle-point of earth."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.065,
+   0.205
+  ],
+  [
+   0.205,
+   0.365
+  ],
+  [
+   0.665,
+   0.845
+  ],
+  [
+   0.845,
+   1.005
+  ]
+ ],
+ "measured": {
+  "f0": 99.1,
+  "st": 13.3,
+  "edb": 19.1,
+  "pause": 0.02,
+  "dur": 1.09
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened",
+ "cut_from": "Duryodhana will not give a needle-point of earth."
+}

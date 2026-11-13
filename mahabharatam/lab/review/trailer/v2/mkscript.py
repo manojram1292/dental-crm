@@ -1,0 +1,119 @@
+"""Trailer v2: writes script/trailer.en.json. One LINE per SHOT (script/TRAILER-EDIT.md is the plan it is built to).
+    python3 -I lab/review/trailer/v2/mkscript.py
+Voiced shots take their length from the voice file (pre + voice + post); unvoiced shots from "est"."""
+import json, os
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
+base = json.load(open(f'{ROOT}/script/ep43.en.json'))
+sc = {k: base[k] for k in ('lang', 'fonts', 'timing', 'voice', 'captionBand')}
+sc['timing'] = dict(sc['timing'], voiceGap=0.2, tail=0.0, frameSnap=True)
+sc.update({
+ "episode": 97, "kind": "trailer", "cut": 2, "scoreStops": True,
+ "source": "THE FULL-EPIC TRAILER, second cut (pipeline number 97; never a numbered episode). Every shot is a line. Every beat was read in the constituted text of the BORI Critical Edition (GRETIL e-text, lab/ce/): the verses, a Sanskrit quotation for each and everything cut or reworded are in script/TRAILER-CHECK.md; the edit is planned shot by shot in script/TRAILER-EDIT.md. In short: 6.23.21-47 and 6.24.9 (the chariot between the armies; the bow let go; 'I will not fight'), 1.94.86-90, 1.104.10-15 and 3.292.6-7, 1.107.1, 1.132.8-12 and 1.136.4-10, 1.139.1-4 and 1.142.28-31, 1.155.41, 2.42.21-25, 2.53-54 and 2.58.29-37, 2.61.40-41 (the cloth: no cause is named; Krishna is not shown), 2.67.9-10 and 2.68.1 (deerskins), 5.125.26, 6.114.81-85, 7.33.12 and 7.48.13, 8.66.60-65 and 8.67.24, 10.8.9-11, 11.25.36-42, 17.1.23-31 and 17.3.7-8, 6.33.3-35 (the universal form; 'I am Time' is 6.33.32 kalo 'smi), 1.1.52 (itihasa). 'Iti-ha-asa: so indeed it was' is the traditional analysis of the word, not a verse.",
+ "structure": "TITLE (music, the name, no voice) -> NOW: the chariot between two armies, an archer who will not fight -> THE PAST in order, in the present tense, cut three times by a wordless return to the chariot, each closer -> STOP 1 -> the conch: past and battlefield meet at 'Two armies' -> WHAT WILL COME, in the future tense, the fastest cutting of the film -> 'But first': the universal form, the one long hold -> STOP 2, the clock dead on 'I am Time' -> the word itihasa -> the promise -> the hard cut to the end card on the last word.",
+ "names": {"Bhima": "strongest of the five", "Krishna": "of the Vrishnis, the wheel-bearer", "Duryodhana": "eldest of the hundred", "Arjuna": "the archer of the five", "Bhishma": "the prince who swore celibacy", "Karna": "born in armour, a charioteer's foster-son",
+           "Draupadi": "born from the altar", "Yudhishthira": "eldest of the five", "Time": "kalo 'smi (6.33.32)", "Iti": "so", "Ha": "indeed", "Asa": "it was"},
+ "loop": {"hookQuestion": "Why will the archer not fight, and what does he see?", "answeredBy": "vish", "openQuestion": "How does the telling begin? (episode 1)", "prevAnsweredBy": None},
+ "hookStyle": "title",
+ "strings": {"seriesTitle": "Mahabharata", "seriesSubtitle": "As Vyasa Told It", "episodeLabel": "Mahabharatam", "episodeTitle": "As Vyasa Told It", "episodeSeparator": " · ",
+  "nextEpisodeLabel": "Episode 1", "nextTitle": "The Storyteller Arrives", "followWord": "Follow",
+  "wordParts": ["iti", "ha", "asa"], "wordGloss": ["so", "indeed", "it was"], "wordWhole": "itihasa", "wordMeaning": "So indeed it was",
+  "books": ["Adi", "Sabha", "Vana", "Virata", "Udyoga", "Bhishma", "Drona", "Karna", "Shalya", "Sauptika", "Stri", "Shanti", "Anushasana", "Ashvamedhika", "Ashramavasika", "Mausala", "Mahaprasthanika", "Svargarohana"],
+  "sourceLine": "Text: the Mahabharata · BORI Critical Edition", "madeLine": "Voices: synthetic · Drawn in code"},
+})
+L = []
+def shot(id, text, **k):
+    d = {"id": id, "text": text, "pre": 0, "post": 0}
+    if not text: d.update(voice=False, caption=False, est=k.pop('est'))
+    else: d['estVoice'] = round(max(0.5, len(text.split()) / 2.7 + 0.15 * text.count('.')), 2)   # until the voice exists
+    d.update(k)
+    if not text: d.pop('pre'); d.pop('post')
+    L.append(d)
+W = 'war-iron'
+# ── the title, then NOW ──
+shot('title', '', est=4.0, role='title', beat='field', amb='sky', music='dread', pal=W, cam='crane', sfx=['drum', 'conch'], mixDb=1,
+     note="OPENING, no voice: the war drums, a low drone, the conch, a rising swell; from high above, two armies as dark masses under a red dawn, banners moving, the camera coming down; MAHABHARATA arrives large, legible by 1.5 s.")
+shot('field', "Two armies wait. Between them, one archer will not fight.", pre=120, post=0, emphasis=[], beat='field', amb='sky', music='dread', foley=['hooves', 'cloth'], pal=W, cam='tilt',
+     note="NOW (CE 6.23.21, 6.23.47, 6.24.9): a tilt down the banner to one chariot standing between the two armies; Arjuna's bow is sinking, Krishna (seen from behind, dark) turns to him. Plaque: Arjuna.")
+# ── THE PAST, present tense ──
+shot('vow', "Long before, a prince swears away his throne and his line.", pre=200, post=30, amb='river', ambLead=200, music='wonder', foley=['water', 'cloth'], pal='island-gold', cam='push', tr='lamp',
+     note="CE 1.94.86-90: a slow push-in on the young prince's face as he raises his hand before the fisher-king; flowers begin to fall. Plaque: Bhishma.")
+shot('river', "A mother gives her first-born to the river.", pre=200, post=250, amb='river', music='tender', foley=['water', 'splash'], pal='riverbank-pearl', cam='pull', mixDb=-3,
+     note="CE 1.104.10-15, 3.292.6-7: the basket with the shining child, close; the camera pulls back and the river takes it: wide water, the girl small on the bank. Plaque: Karna.")
+shot('insA', '', est=0.6, insert=True, beat='field', amb='sky', music='dread', pal=W, cam='push',
+     note="INSERT 1 (wordless, one low conch note): the chariot between the armies, WIDE. The same blue-iron light every time.")
+shot('cousins', "A hundred brothers. Five cousins. One throne.", beats=[3, 5], pre=80, post=30, amb='court', music='dread', foley=['step', 'staff'], pal='seat-ivory', cam='rack',
+     note="CE 1.107.1: Duryodhana large in the foreground; the focus racks to the five across the hall, then to the one seat. Plaque: Duryodhana.")
+shot('lac', "A palace built to burn.", pre=150, post=150, amb='hearth', music='chase', foley=['flame', 'whoosh'], pal='wrath-crimson', cam='tilt',
+     note="CE 1.132.8-12, 1.136.4-10: the lacquered house in flames; a tilt down through the earth to six figures leaving by a tunnel with one lamp (larger than in the first cut).")
+shot('demon', "Bhima breaks a man-eating demon.", pre=80, post=40, emphasis=['Bhima'], amb='forest-night', music='chase', foley=['growl', 'thud'], pal='thicket-shade', cam='orbit',
+     note="CE 1.139.1-4, 1.142.28-31: the rakshasa reaches; Bhima's blow lands and the shot is CUT three frames after the contact.")
+shot('insB', '', est=0.6, insert=True, beat='field', amb='sky', music='dread', pal=W, cam='push',
+     note="INSERT 2 (wordless, the same conch note): closer: the two figures on the chariot, Arjuna and the dark shape of Krishna.")
+shot('altar', "A woman rises from a fire-altar.", pre=150, post=150, amb='hearth', ambLead=200, music='awe', foley=['flame', 'anklet'], pal='hearth-amber', cam='crane', tr='smoke',
+     note="CE 1.155.41: Draupadi rises out of the middle of the altar; the camera rises with her. Plaque: Draupadi.")
+shot('wheel', "Krishna lets the wheel fly.", pre=150, post=200, emphasis=['Krishna'], amb='heaven', music='awe', foley=['whoosh', 'thunder'], pal='pure-flame', cam='slide',
+     note="CE 2.42.21-25: Krishna from behind and in profile, a dark shape lit only by the wheel; it leaves his hand and the camera goes with it. His lit face is withheld. Plaque: Krishna.")
+# ── from the dice on: hard cuts only, shots shorten ──
+shot('dice1', "Then the dice.", pre=200, post=300, beat='dice', amb='court', ambLead=200, music='dread', foley=['snap'], pal='dice-vermilion', cam='push',
+     note="CE 2.53-54: the dice rattle before the picture; a push-in on Yudhishthira's face as he decides. Plaque: Yudhishthira.")
+shot('dice2', "A king stakes his kingdom,", pre=120, fast=True, beat='dice', music='dread', foley=['thud'], pal='dice-vermilion', cam='tilt',
+     note="CE 2.58: from above: the dice fall, strike the red cloth; CUT three frames after they land.")
+shot('dice3', "his brothers, his wife.", cont=True, beats=[2], post=150, fast=True, beat='dice', music='dread', foley=['thud', 'cloth'], pal='dice-vermilion', cam='slide',
+     note="CE 2.58.29-37: the stakes swept across the cloth to Shakuni's side: five crowns, then a red veil.")
+shot('cloth1', "They pull at her cloth.", pre=100, post=150, fast=True, beat='cloth', amb='court', music='grief', foley=['cloth'], pal='boar-dusk', cam='orbit', mixDb=-2,
+     note="CE 2.61.40: close: a hand hauls the red cloth across the frame; her figure holds still.")
+shot('cloth2', "The cloth does not end.", pre=100, post=150, fast=True, beat='cloth', music='grief', foley=['cloth'], pal='boar-dusk', cam='pull', mixDb=-2,
+     note="CE 2.61.41: the pull-back: the hall of seated kings around her, heads bowed, and the cloth running out of frame and heaped on the floor. No cause is shown; Krishna is not there.")
+shot('insC', '', est=0.5, insert=True, beat='field', amb='sky', music='dread', pal=W, cam='push',
+     note="INSERT 3 (wordless, the same conch note): closest: Arjuna's hand opening on the bow.")
+shot('exile', "Thirteen years of exile.", pre=100, post=120, fast=True, amb='forest-day', music='calm', foley=['steps'], pal='exile-forest', cam='slide',
+     note="CE 2.67.9-10, 2.68.1: six figures walk away under great trees, deerskins over their shoulders (ajinany uttariyani).")
+shot('needle1', "Duryodhana will not give", pre=100, fast=True, beat='needle', emphasis=['Duryodhana'], amb='court', music='wrath', foley=['staff'], pal='dharma-copper', cam='rack',
+     note="CE 5.125.26: the court; the envoy a dark back in the foreground; the focus goes to the king on his seat.")
+shot('needle2', "a needle-point of earth.", cont=True, post=1050, fast=True, beat='needle', closeup=True, music='wrath', foley=['breath'], pal='dharma-copper', cam='push',
+     note="THE CLOSE-UP (CE 5.125.26): a push-in on Duryodhana's face. STOP 1: on the frame after 'earth' every sound cuts to nothing; the push, the lamp and the embers go on.")
+# ── the turn: past and battlefield meet ──
+shot('armies', "Two armies.", pre=450, post=350, fast=True, beat='field', amb='sky', music='awe', foley=['hooves'], sfx=['conch'], pal=W, cam='crane', mixDb=1,
+     note="THE TURN (CE 6.23.21): the conch six frames before the cut; the wide of the inserts, now held: both armies, the chariot between them.")
+shot('bow', "Arjuna lowers his bow.", pre=200, post=250, fast=True, beat='field', emphasis=['Arjuna'], music='awe', foley=['thud'], pal=W, cam='push',
+     note="CE 6.23.47: a slow push-in on Arjuna as he sits and the bow leaves his hand.")
+# ── WHAT WILL COME, future tense: the fastest cutting; everything moves left to right ──
+shot('arrows1', "Bhishma will fall", pre=80, post=110, fast=True, beat='arrows', emphasis=['Bhishma'], amb='sky', ambLead=200, music='chase', foley=['whoosh'], pal='fishers-coral', cam='slide',
+     note="CE 6.114.81: the arrows are heard before the picture; close: arrows streak left to right past his face as he goes back.")
+shot('arrows2', "on a bed of arrows.", cont=True, post=40, fast=True, beat='arrows', music='chase', foley=['thud'], pal='fishers-coral', cam='pull',
+     note="CE 6.114.84-85: the pull-back: he lies on the arrows and does not touch the ground; the field at sunset.")
+shot('boy1', "A boy,", pre=50, fast=True, beat='boy', amb='storm', music='chase', foley=['hooves'], pal='cold-slate', cam='push',
+     note="CE 7.33.12: close on Abhimanyu, sword up.")
+shot('boy2', "alone against many.", cont=True, post=40, fast=True, beat='boy', music='chase', foley=['hooves'], pal='cold-slate', cam='orbit',
+     note="CE 7.48.13 (eko bahubhih): wide: the ring of spears and wheels closes from both sides. The blow is not shown.")
+shot('mud1', "Karna's wheel,", pre=50, post=60, fast=True, beat='mud', emphasis=['Karna'], amb='void', music='chase', foley=['creak'], pal='island-gold', cam='rack',
+     note="CE 8.66.60-64: Karna on his knees, heaving at the wheel; the red sun behind him.")
+shot('mud2', "sunk in the earth.", cont=True, post=40, fast=True, beat='mud', music='chase', foley=['thud'], pal='island-gold', cam='tilt',
+     note="CE 8.66.60, 8.67.24: the wheel drops into the earth; CUT three frames after it stops, the hub on the rhyme spot.")
+shot('raid', "A camp raided in its sleep.", pre=50, post=70, fast=True, amb='forest-night', music='chase', foley=['steps'], pal='satra-teal-night', cam='slide',
+     note="CE 10.8.9-11: night; dark tents; one man with a blade goes in, left to right, not by the gate.")
+shot('curse', "A mother of a hundred sons will curse Krishna.", pre=150, post=40, emphasis=['Krishna'], amb='void', music='grief', foley=['flame', 'cloth'], pal='ash-grey', cam='push',
+     note="CE 11.25.36-42: Gandhari, blindfolded, her hand rising toward a dark figure with his back to us; a field of fires behind.")
+shot('dog', "And at the end, a king will not abandon his dog.", pre=200, post=100, amb='sky', music='still', foley=['steps', 'breath'], pal='mist-lavender', cam='crane', mixDb=-4,
+     note="CE 17.1.23-31, 17.3.7: snow and the mountain; the old king walking up, the dog at his heel; he stops and turns to it. The quietest shot: the clock, the wind and the voice.")
+# ── the payoff ──
+shot('vish', "But first, Arjuna asks to see. Krishna shows him everything. “I am Time.”", pre=150, post=800, emphasis=['Arjuna', 'Krishna', 'Time'], amb='heaven', music='awe', foley=['breath', 'thunder'], pal='sun-white', cam='pull+crane', signature=True, mixDb=2,
+     note="THE SIGNATURE SHOT AND THE ONE LONG HOLD (CE 6.33.3-35; every drawn element is cited in TRAILER-CHECK.md): tight on Arjuna's face; the light of a thousand suns comes up on it; the camera pulls back and up until he is a speck with joined palms under a form with many faces, eyes and arms that leaves the frame on every side, warriors streaming into its mouths. STOP 2: after 'I am Time' every sound cuts dead, the clock with it; the form goes on turning.")
+shot('word', "It calls itself itihasa. Iti. Ha. Asa. So indeed it was.", capOnly=1, beats=[3, 4, 5, 6, 7], pre=120, post=120, rest=True, beat='word', amb='void', music='still', foley=['staff'], sfx=['bell'], pal='arrival-umber-gold', cam='push', mixDb=-1,
+     note="After the full stop (CE 1.1.52): dark, embers; the word in gold; it opens into its three parts as each is said, each with its gloss; then the meaning. One struck note under 'was'.")
+# ── the promise ──
+shot('p1', "Every book.", pre=180, post=120, fast=True, amb='night-fire', ambLead=200, music='wonder', foley=['staff'], pal='memory-indigo', cam='tilt',
+     note="THE PROMISE: the names of the eighteen books run up the frame in gold.")
+shot('p2', "Every vow.", pre=60, post=120, fast=True, music='wonder', foley=['staff'], pal='island-gold', cam='pull',
+     note="The raised hand of the vow again, closer.")
+shot('p3', "Every war.", pre=60, post=120, fast=True, music='wonder', foley=['staff'], pal=W, cam='slide',
+     note="The line of spears again, sliding.")
+shot('first', "From the first verse to the last.", pre=150, post=150, amb='night-fire', music='wonder', foley=['flame', 'steps'], pal='naimisha-bluehour', cam='crane',
+     note="The Naimisha fire at the blue hour; the storyteller comes to it.")
+shot('follow', "Nothing added for effect. Follow. Episode", capOnly=2, pre=150, post=0, beat='end', amb='night-fire', music='awe', foley=['flame'], pal='naimisha-firstlight', cam='push',
+     note="First light: Vyasa by the great fire, a hand opening to us. FOLLOW arrives on its word.")
+shot('endcard', "one.", cont=True, pre=0, post=1450, caption=False, beat='end', music='awe', foley=['staff'], sfx=['bell-low'], pal='arrival-umber-gold', cam='pull', mixDb=1,
+     note="The last word lands on a hard cut to the end card and one struck note: the source line, Episode 1 · The Storyteller Arrives, FOLLOW. Embers and a slow pull keep it alive; the note rings and is not faded under a wash.")
+sc['lines'] = L
+json.dump(sc, open(f'{ROOT}/script/trailer.en.json', 'w'), indent=1, ensure_ascii=False)
+print(len(L), 'shots;', sum(len(l['text'].split()) for l in L), 'words')

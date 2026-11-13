@@ -3013,6 +3013,12 @@ def main():
         sys.exit(f'{tl_path} missing: run `node tools/timeline.mjs --ep {ep} --lang {lang}` first')
     tl = json.load(open(tl_path))
     src_hash = hashlib.sha1(open(__file__, 'rb').read()).hexdigest()[:12]
+    # The trailer's second cut has a cue sheet of its own (tools/score_trailer.py; script "kind": "trailer" + "scoreStops"). Nothing else takes this path.
+    _scp = os.path.join(ROOT, 'script', f'{tag}.{lang}.json')
+    _sc = json.load(open(_scp)) if os.path.exists(_scp) else {}
+    trailer2 = _sc.get('kind') == 'trailer' and _sc.get('scoreStops')
+    if trailer2:
+        src_hash += '+' + hashlib.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'score_trailer.py'), 'rb').read()).hexdigest()[:12]
     stamp = {'episode': ep, 'lang': lang, 'timeline': tl['signature'], 'duration': tl['duration'], 'score': src_hash}
     out_wav = os.path.join(ROOT, 'audio', tag, 'music.wav')
     side = os.path.join(ROOT, 'audio', tag, 'music.json')
@@ -3025,7 +3031,14 @@ def main():
         except Exception:
             pass
     if ep >= 41:
-        stems = build_layers(tl)
+        if trailer2:
+            sys.modules.setdefault('score', sys.modules[__name__])   # score_trailer imports this module's instruments by name
+            import score_trailer
+            stems, tlog, tmeta = score_trailer.build(tl, _sc)
+            FOLEY_LOG.extend(tlog)
+            json.dump(tmeta, open(os.path.join(ROOT, 'audio', tag, 'score-trailer.json'), 'w'), indent=1)
+        else:
+            stems = build_layers(tl)
         json.dump(FOLEY_LOG, open(os.path.join(ROOT, 'audio', tag, 'foley-cues.json'), 'w'), indent=1)
         for name, v in stems.items():
             write_wav(os.path.join(ROOT, 'audio', tag, f'{name}.wav'), v)

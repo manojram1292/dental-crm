@@ -1,16 +1,59 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox:default",
+ "voice": "chatterbox (ONNX, CPU); reference: a Kokoro bm_lewis clip (synthetic; no real person)",
  "engine": "chatterbox-onnx",
- "spoken_as": "Bheeshma falls, and lies on a bed of arrows.",
+ "takes_from": [
+  "arrows.s1.wav"
+ ],
+ "spoken_as": "Bhishma will fall on a bed of arrows.",
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 3.103,
-   "words": 9,
-   "text": "Bhishma falls, and lies on a bed of arrows."
+   "t0": 0,
+   "t1": 2.393,
+   "words": 8,
+   "text": "Bhishma will fall on a bed of arrows."
   }
  ],
- "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
- "tempo": 0.965
+ "wordTimes": [
+  [
+   0.02,
+   0.368
+  ],
+  [
+   0.368,
+   0.568
+  ],
+  [
+   0.568,
+   0.888
+  ],
+  [
+   0.888,
+   1.128
+  ],
+  [
+   1.128,
+   1.228
+  ],
+  [
+   1.228,
+   1.448
+  ],
+  [
+   1.448,
+   1.608
+  ],
+  [
+   1.608,
+   1.928
+  ]
+ ],
+ "measured": {
+  "f0": 94.9,
+  "st": 11.2,
+  "edb": 19.2,
+  "pause": 0.11,
+  "dur": 2.31
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
 }

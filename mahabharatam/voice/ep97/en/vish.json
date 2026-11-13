@@ -1,0 +1,81 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "v1.s0.wav",
+  "v2.s2.wav",
+  "v3.s3.wav"
+ ],
+ "spoken_as": "But first, Arjuna asks to see. Krishna shows him everything. \u201cI am Time.\u201d",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 6.473,
+   "words": 13,
+   "text": "But first, Arjuna asks to see. Krishna shows him everything. \u201cI am Time.\u201d"
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.14
+  ],
+  [
+   0.14,
+   0.44
+  ],
+  [
+   0.78,
+   1.1
+  ],
+  [
+   1.1,
+   1.48
+  ],
+  [
+   1.48,
+   1.74
+  ],
+  [
+   1.74,
+   1.98
+  ],
+  [
+   2.719,
+   2.845
+  ],
+  [
+   2.845,
+   3.305
+  ],
+  [
+   3.305,
+   3.465
+  ],
+  [
+   3.465,
+   3.945
+  ],
+  [
+   5.379,
+   5.633
+  ],
+  [
+   5.633,
+   5.733
+  ],
+  [
+   5.733,
+   6.133
+  ]
+ ],
+ "measured": {
+  "f0": 102.5,
+  "st": 18.1,
+  "edb": 19.5,
+  "pause": 1.13,
+  "dur": 6.39
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+}

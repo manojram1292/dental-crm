@@ -1,16 +1,51 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox:default",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
  "engine": "chatterbox-onnx",
- "spoken_as": "A night raid on a sleeping camp.",
+ "takes_from": [
+  "raid.s3.wav"
+ ],
+ "spoken_as": "A camp raided in its sleep.",
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 2.57,
-   "words": 7,
-   "text": "A night raid on a sleeping camp."
+   "t0": 0,
+   "t1": 1.803,
+   "words": 6,
+   "text": "A camp raided in its sleep."
   }
  ],
- "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
- "tempo": 0.965
+ "wordTimes": [
+  [
+   0.0,
+   0.079
+  ],
+  [
+   0.079,
+   0.339
+  ],
+  [
+   0.339,
+   0.759
+  ],
+  [
+   0.759,
+   1.079
+  ],
+  [
+   1.079,
+   1.199
+  ],
+  [
+   1.199,
+   1.559
+  ]
+ ],
+ "measured": {
+  "f0": 119.0,
+  "st": 15.0,
+  "edb": 19.2,
+  "pause": 0.06,
+  "dur": 1.72
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
 }

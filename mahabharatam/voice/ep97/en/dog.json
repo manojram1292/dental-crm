@@ -1,16 +1,71 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox:default",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
  "engine": "chatterbox-onnx",
- "spoken_as": "At the end, a king will not abandon his dog.",
+ "takes_from": [
+  "dog.s1.wav"
+ ],
+ "spoken_as": "And at the end, a king will not abandon his dog.",
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 3.465,
-   "words": 10,
-   "text": "At the end, a king will not abandon his dog."
+   "t0": 0,
+   "t1": 3.875,
+   "words": 11,
+   "text": "And at the end, a king will not abandon his dog."
   }
  ],
- "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
- "tempo": 0.965
+ "wordTimes": [
+  [
+   0.0,
+   0.168
+  ],
+  [
+   0.168,
+   0.281
+  ],
+  [
+   0.281,
+   0.438
+  ],
+  [
+   0.438,
+   0.775
+  ],
+  [
+   1.202,
+   1.314
+  ],
+  [
+   1.314,
+   1.629
+  ],
+  [
+   1.629,
+   1.966
+  ],
+  [
+   1.966,
+   2.168
+  ],
+  [
+   2.168,
+   2.573
+  ],
+  [
+   2.573,
+   3.067
+  ],
+  [
+   3.067,
+   3.382
+  ]
+ ],
+ "measured": {
+  "f0": 91.7,
+  "st": 19.0,
+  "edb": 18.9,
+  "pause": 0.27,
+  "dur": 3.79
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
 }

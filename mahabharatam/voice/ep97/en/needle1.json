@@ -1,0 +1,44 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "needle.s1.wav"
+ ],
+ "spoken_as": "Duryodhana will not give",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 1.295,
+   "words": 4,
+   "text": "Duryodhana will not give"
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.62
+  ],
+  [
+   0.62,
+   0.84
+  ],
+  [
+   0.84,
+   1.119
+  ],
+  [
+   1.119,
+   1.295
+  ]
+ ],
+ "measured": {
+  "f0": 123.5,
+  "st": 18.8,
+  "edb": 13.3,
+  "pause": 0.01,
+  "dur": 1.19
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened",
+ "cut_from": "Duryodhana will not give a needle-point of earth."
+}

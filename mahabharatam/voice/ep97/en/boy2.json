@@ -1,0 +1,40 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "boy.s1.wav"
+ ],
+ "spoken_as": "alone against many.",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 1.21,
+   "words": 3,
+   "text": "alone against many."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.244
+  ],
+  [
+   0.244,
+   0.584
+  ],
+  [
+   0.584,
+   0.904
+  ]
+ ],
+ "measured": {
+  "f0": 111.1,
+  "st": 12.5,
+  "edb": 20.9,
+  "pause": 0.04,
+  "dur": 1.12
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened",
+ "cut_from": "A boy, alone against many."
+}

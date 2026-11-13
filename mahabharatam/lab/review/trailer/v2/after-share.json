@@ -1,0 +1,31 @@
+{
+ "file": "trailer-share.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 2540,
+ "seconds": 84.67,
+ "low_motion": [],
+ "exact_repeats": 0,
+ "median_frame_difference": 2.36,
+ "least_moving_second": [
+  60.63,
+  0.99
+ ],
+ "dead_air_under_-45dB_over_0.3s": [
+  [
+   41.12,
+   0.62
+  ],
+  [
+   68.46,
+   0.83
+  ]
+ ],
+ "ssim_vs_master": {
+  "mean": 0.9643,
+  "worst": 0.9403,
+  "worst_at_s": 62.73,
+  "runs_under_0.90": [],
+  "frames_under_0.90": 0
+ }
+}

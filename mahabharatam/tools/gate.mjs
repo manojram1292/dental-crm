@@ -43,6 +43,22 @@
  * With --audio: the mix's report (audio/epNN/mix.<lang>.json): three stems, the music ≥ 6 dB lower under the voice,
  *   true peak ≤ −1.5 dBTP, and silencedetect finds ≥ 1 silence (2 is the target).
  *
+ * THE TRAILER KIND, SECOND CUT (script "kind": "trailer"; nothing here applies to any other script). Exemptions, each on a condition:
+ *   · "hook spoken by 3.0 s / ≤ 8 words" is replaced, ONLY when the first line is an unvoiced title ("voice": false, "role": "title", ≤ 5.0 s),
+ *     by: the title fully drawn (alpha ≥ 0.99) and legible (contrast ≥ 4.5:1 inside its box) at 1.5 s, measured with --frames; motion by 0.5 s stands.
+ *   · caption hold: a phrase of ≤ 6 words may be on screen for 0.28 s a word (never under 0.6 s) instead of 1.8 s.
+ *   · colour script: shots that share a "beat" (several shots of one scene) count as one for the hue-run rule, in the script and on the picture.
+ *   · speech across a cut: a line marked "cont": true carries on the previous shot's sentence (one take, cut between two words), so the
+ *     "speech overlaps the previous line" rule is not applied to it.
+ *   · a rest may sit in the previous shot's "post" (the picture keeps moving through the silence): pre + previous post ≥ 800 ms counts.
+ *   · speech rate: the pause after each shot's phrase (up to 0.4 s) is counted with the speech (max 2.6 words/s stands); added: no shot of four words
+ *     or more above 4.0 words/s.
+ *   New rule: every shot of a second-cut trailer starts on the frame grid, at or a hair before its frame, never after.
+ *   · length: a trailer with "cut" ≥ 2 must be 70–85 s (the first cut's 90 s limit stands for a script without "cut").
+ *   New rules, measured with --frames at 30 frames a second: no picture freeze over 0.3 s (mean frame difference under 0.3 % of full scale,
+ *   ffmpeg freezedetect's n=0.003) · no caption drawn for a line other than the shot on screen (a caption alive after its cut) · captions of
+ *   at most two rows · no caption on an "insert" shot.
+ *
  * tools/render.mjs runs this gate (with --frames and --audio, after the score and the mix) before rendering; --no-gate skips it (only for re-renders of
  * episodes made before the gate existed, whose format predates these targets).
  */
@@ -94,7 +110,8 @@ function scriptChecks41({ ep, sc, SL, L, dur, lang, firsts }) {
   for (const l of spoken) {
     if (SL[l.id].caption === false) continue;
     const hold = (l.speechEnd > l.end + 0.01 ? l.speechEnd + 0.3 : l.end - 0.08) - (l.speechStart - 0.08);
-    if (hold < 1.8) fails.push(`caption "${l.id}" is on screen ${hold.toFixed(2)} s (min 1.8)`);
+    const nw = SL[l.id].text.split(/\s+/).filter(Boolean).length, minHold = sc.kind === 'trailer' && nw <= 6 ? Math.max(0.6, 0.28 * nw) : 1.8;   // trailer: one short phrase, large
+    if (hold < minHold - 1e-6) fails.push(`caption "${l.id}" is on screen ${hold.toFixed(2)} s (min ${minHold.toFixed(2)})`);
   }
   // every new name is identified; nothing leans on an earlier episode
   const names = sc.names || {};
@@ -132,8 +149,8 @@ function scriptChecks41({ ep, sc, SL, L, dur, lang, firsts }) {
   if (ambs.size < 2) fails.push(`only ${ambs.size} ambience bed(s) (min 2 places)`);
   if (moods.size < 3) fails.push(`only ${moods.size} music mood(s) (min 3)`);
   if (jl < 2) fails.push(`${jl} J- or L-cut(s) (min 2)`);
-  for (let i = 1; i < spoken.length; i++) if (spoken[i].speechStart < spoken[i - 1].speechEnd + 0.08) fails.push(`speech of "${spoken[i].id}" overlaps "${spoken[i - 1].id}"`);
-  const rests = sc.lines.filter((l) => (/TURN/.test(l.note || '') || l.rest) && (l.pre ?? 0) >= 800).length;
+  for (let i = 1; i < spoken.length; i++) if (spoken[i].speechStart < spoken[i - 1].speechEnd + 0.08 && !(sc.kind === 'trailer' && SL[spoken[i].id].cont && spoken[i].speechStart >= spoken[i - 1].speechEnd - 1e-3)) fails.push(`speech of "${spoken[i].id}" overlaps "${spoken[i - 1].id}"`);
+  const rests = sc.lines.filter((l, i) => (/TURN/.test(l.note || '') || l.rest) && ((l.pre ?? 0) + (sc.kind === 'trailer' && i ? sc.lines[i - 1].post ?? 0 : 0)) >= 800).length;
   info.push(`${rests} rests`);
   if (rests < 1) fails.push('no real rest (a line noted TURN or "rest": true with pre ≥ 800 ms)');
   else if (rests < 2) warns.push('one rest (two is the target where the story allows)');
@@ -144,9 +161,11 @@ function scriptChecks41({ ep, sc, SL, L, dur, lang, firsts }) {
   const pals = []; let pal = null;
   for (const l of sc.lines) { if (l.id === 'next') continue;   // the Next band plays over the cliffhanger image
     if (l.pal) pal = l.pal; if (!pal) { fails.push(`line "${l.id}" has no palette ("pal")`); continue; } if (!(pal in PAL_HUES)) fails.push(`line "${l.id}": unknown palette "${pal}"`); pals.push(pal); }
-  const run = hueRun(pals.map((p) => (PAL_HUES[p] >= 0 ? PAL_HUES[p] : null)));
-  info.push(`${new Set(pals).size} palettes, hue run ≤ ${run.best}`);
-  if (run.best > 2) fails.push(`one hue runs for ${run.best} lines from "${sc.lines[run.at].id}" (max 2)`);
+  const beatLines = sc.kind === 'trailer' ? sc.lines.filter((l, i) => l.id !== 'next' && !(i && l.beat && sc.lines[i - 1].beat === l.beat)) : null;   // trailer: the shots of one beat count once
+  let palB = null; const palsB = beatLines ? beatLines.map((l) => (palB = l.pal || palB)) : pals;
+  const run = hueRun(palsB.map((p) => (PAL_HUES[p] >= 0 ? PAL_HUES[p] : null)));
+  info.push(`${new Set(pals).size} palettes, hue run ≤ ${run.best}${beatLines ? ' (by beat)' : ''}`);
+  if (run.best > 2) fails.push(`one hue runs for ${run.best} lines from "${(beatLines || sc.lines)[run.at].id}" (max 2)`);
   if (prev) { const pp = new Set(prev.lines.map((l) => l.pal).filter(Boolean)); const fresh = [...new Set(pals)].filter((p) => !pp.has(p)); if (fresh.length < 2) fails.push(`only ${fresh.length} palette(s) that episode ${ep - 1} did not use (min 2)`); }
   else if (new Set(pals).size < 2) fails.push('fewer than 2 palettes');
   // camera grammar
@@ -177,7 +196,7 @@ function lab([r, g, b]) {
   return [116 * q(Y) - 16, 500 * (q(X) - q(Y)), 200 * (q(Y) - q(Z))];
 }
 
-async function frameChecks41({ ep, lang, fps, means, L, SL, page }) {
+async function frameChecks41({ ep, lang, fps, means, L, SL, page, trailerKind = false }) {
   const fails = [], warns = [], info = [];
   const probe = await page.evaluate(() => { const p = window.REEL.probe; return { moves: p.moves, transitions: p.transitions, type: p.type, byLine: p.byLine }; });
   const moves = Object.keys(probe.moves), trs = Object.keys(probe.transitions).filter((t) => t !== 'dissolve');
@@ -192,10 +211,12 @@ async function frameChecks41({ ep, lang, fps, means, L, SL, page }) {
     for (let i = 0; i < d.length; i += 4) { const r = d[i], g = d[i + 1], b = d[i + 2], mx = Math.max(r, g, b), mn = Math.min(r, g, b), ch = mx - mn; n++; if (ch < 8) continue; let h = mx === r ? ((g - b) / ch) % 6 : mx === g ? (b - r) / ch + 2 : (r - g) / ch + 4; h *= Math.PI / 3; sx += Math.cos(h) * ch; sy += Math.sin(h) * ch; sc += ch; }
     return { hue: ((Math.atan2(sy, sx) * 180) / Math.PI + 360) % 360, chroma: sc / n, focus: Math.hypot(sx, sy) / (sc || 1) };
   }), shots.map((l) => (l.start + l.end) / 2));
-  const hs = hues.map((h) => (h.chroma < 16 || h.focus < 0.25 ? null : h.hue));
+  let hs = hues.map((h) => (h.chroma < 16 || h.focus < 0.25 ? null : h.hue));
+  const sameBeat = (i) => trailerKind && i > 0 && SL[shots[i].id] && SL[shots[i].id].beat && SL[shots[i - 1].id] && SL[shots[i - 1].id].beat === SL[shots[i].id].beat;   // trailer: the shots of one beat count once
+  const shotsB = shots.filter((_, i) => !sameBeat(i)); hs = hs.filter((_, i) => !sameBeat(i));
   const run = hueRun(hs);
   info.push(`shot hues ${hs.map((h) => (h == null ? '–' : Math.round(h))).join(' ')} · run ≤ ${run.best}`);
-  if (run.best > 2) fails.push(`one hue runs for ${run.best} shots from "${shots[run.at].id}" (max 2)`);
+  if (run.best > 2) fails.push(`one hue runs for ${run.best} shots from "${shotsB[run.at].id}" (max 2)`);
   // figures against their grounds
   let worst = null, nfig = 0;
   for (const [id, bl] of Object.entries(probe.byLine)) for (const f of bl.figs) {
@@ -255,15 +276,25 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
   let firstsOut = [];
   const hook = L[0], hs = SL[hook.id];
   const hw = hs.text.split(/\s+/).filter(Boolean).length;
-  info.push(`hook ${hw} w, speech ends ${hook.speechEnd.toFixed(2)} s`);
-  if (hw > 8) fails.push(`hook has ${hw} words (max 8)`);
-  if (hook.speechEnd > 3.0) fails.push(`hook speech ends at ${hook.speechEnd.toFixed(2)} s (max 3.0)`);
+  const titleOpen = sc.kind === 'trailer' && hs.voice === false && hs.role === 'title';   // trailer only: a title opening with music and no voice
+  if (titleOpen) {
+    info.push(`title opening ${(hook.end - hook.start).toFixed(2)} s, no voice (hook-by-3.0-s replaced by: title legible by 1.5 s${frames ? '' : ', NOT measured without --frames'})`);
+    if (hook.end - hook.start > 5.0 + 1e-6) fails.push(`the title opening lasts ${(hook.end - hook.start).toFixed(2)} s (max 5.0)`);
+  } else {
+    info.push(`hook ${hw} w, speech ends ${hook.speechEnd.toFixed(2)} s`);
+    if (hw > 8) fails.push(`hook has ${hw} words (max 8)`);
+    if (hook.speechEnd > 3.0) fails.push(`hook speech ends at ${hook.speechEnd.toFixed(2)} s (max 3.0)`);
+  }
   const story = L.slice(1).find((l) => l.id !== 'recap') || L[1];
   info.push(`story starts ${story.start.toFixed(2)} s`);
   if (story.start > 5.0) fails.push(`story starts at ${story.start.toFixed(2)} s (max 5.0)`);
   info.push(`duration ${dur.toFixed(2)} s`);
   const trailer = sc.kind === 'trailer';   // the full-epic trailer (script "kind": "trailer"): 90 s, no previous episode, no catalog title, no names-per-10-s limit; every other rule stands
-  if (trailer) { if (dur > 90) fails.push(`duration ${dur.toFixed(2)} s (trailer max 90)`); else if (dur < 60) warns.push(`duration ${dur.toFixed(2)} s is under the trailer's 60–90 s`); }
+  // trailer, second cut: every cut on the frame grid, and never after its frame (a start a hair late puts a motion-blur sample of the old
+  // picture and its caption into the first frame of the new one: the first cut's "ghost captions")
+  if (trailer && sc.cut >= 2) for (const l of L.slice(1)) { const f = l.start * 30, off = f - Math.round(f); if (off > 1e-6 || off < -0.004) fails.push(`shot "${l.id}" starts ${off.toFixed(4)} frames off the frame grid at ${l.start} s (the frame at the cut would mix two pictures)`); }
+  if (trailer && sc.cut >= 2) { if (dur > 85 || dur < 70) fails.push(`duration ${dur.toFixed(2)} s (trailer, second cut: 70–85)`); }
+  else if (trailer) { if (dur > 90) fails.push(`duration ${dur.toFixed(2)} s (trailer max 90)`); else if (dur < 60) warns.push(`duration ${dur.toFixed(2)} s is under the trailer's 60–90 s`); }
   else if (dur > 59) fails.push(`duration ${dur.toFixed(2)} s (max 59)`);
   else if (dur < 54 || dur > 58) warns.push(`duration ${dur.toFixed(2)} s is outside the 54–58 s target`);
   const ti = L.findIndex((l) => /TURN/.test(SL[l.id]?.note || ''));
@@ -277,11 +308,17 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
     if (pre < 800 && rest < 0.8) fails.push(`no ≥ 0.8 s rest before the turn (pre ${pre} ms, gap ${rest.toFixed(2)} s)`);
   }
   if (ep >= 31) {
+    const trailer0 = sc.kind === 'trailer';
     const voiced = L.filter((l) => l.voice || l.spoken);
     const words = voiced.reduce((n, l) => n + SL[l.id].text.split(/\s+/).filter(Boolean).length, 0);
     const speech = voiced.reduce((n, l) => n + (l.speechEnd - l.speechStart), 0);
-    info.push(`${(words / speech).toFixed(2)} words/s`);
-    if (words / speech > 2.6) fails.push(`speech rate ${(words / speech).toFixed(2)} words/s (max 2.6)`);
+    // trailer: a sentence is cut across shots, so its pauses fall BETWEEN the voiced windows: the pause after each shot's phrase (up to 0.4 s) is
+    // counted with the speech, as an episode's line counts the pauses inside it; and no single shot may be spoken faster than 4.0 words/s.
+    const gapsT = trailer0 ? voiced.reduce((n, l, i) => n + (voiced[i + 1] ? Math.min(0.4, Math.max(0, voiced[i + 1].speechStart - l.speechEnd)) : 0), 0) : 0;
+    const rate = words / (speech + gapsT);
+    info.push(`${rate.toFixed(2)} words/s${trailer0 ? ` (pauses between shots counted; ${(words / speech).toFixed(2)} inside the voiced windows alone)` : ''}`);
+    if (rate > 2.6) fails.push(`speech rate ${rate.toFixed(2)} words/s (max 2.6)`);
+    if (trailer0) for (const l of voiced) { const nw = SL[l.id].text.split(/\s+/).filter(Boolean).length, r1 = nw / (l.speechEnd - l.speechStart); if (nw >= 4 && r1 > 4.0) fails.push(`shot "${l.id}" is spoken at ${r1.toFixed(2)} words/s (trailer max 4.0 in one shot)`); }
     // first mentions of proper names, timed by the caption words
     const seen = new Set(), firsts = [];
     for (const l of L) {
@@ -380,8 +417,41 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
       info.push(`longest static hold ${hold.toFixed(1)} s${best ? ` at ${at.toFixed(1)} s` : ''}`);
       if (hold > 4.0) fails.push(`static hold of ${hold.toFixed(1)} s at ${at.toFixed(1)} s (max 4.0)`);
       if (ep >= 41) {
-        const f41 = await frameChecks41({ ep, lang, fps, means, L, SL, page, reel });
+        const f41 = await frameChecks41({ ep, lang, fps, means, L, SL, page, reel, trailerKind: trailer });
         fails.push(...f41.fails); warns.push(...f41.warns); info.push(...f41.info);
+      }
+      if (trailer) {
+        // THE TRAILER'S OWN RULES, at 30 frames a second: no freeze over 0.3 s; no caption alive after its shot's cut; ≤ 2 rows; none on an insert;
+        // and, for a title opening, the title fully drawn and legible at 1.5 s.
+        const F = 30, nn = Math.floor(dur * F);
+        const tr = await page.evaluate(async ([nn, F]) => {
+          const c = window.__reelCanvas, g = c.getContext('2d'); let prev = null; const diffs = [], caps = [];
+          for (let i = 0; i < nn; i++) {
+            const pr = window.REEL.probe; pr.cap = null; pr.title = null;
+            window.__reel.at(i / F);
+            const d = g.getImageData(0, 0, c.width, c.height).data, a = new Float32Array(c.width * c.height);
+            for (let j = 0, k = 0; j < d.length; j += 4, k++) a[k] = 0.299 * d[j] + 0.587 * d[j + 1] + 0.114 * d[j + 2];
+            if (prev) { let s = 0; for (let k = 0; k < a.length; k++) s += Math.abs(a[k] - prev[k]); diffs.push(s / a.length); }
+            prev = a;
+            if (pr.cap && pr.cap.alpha > 0.004) caps.push({ t: i / F, shot: pr.line, ...pr.cap });
+          }
+          const pr = window.REEL.probe; pr.title = null; window.__reel.at(1.5); let title = null;
+          if (pr.title) { const s = c.width / window.REEL.W, [x0, y0, x1, y1] = pr.title.box.map((v) => Math.round(v * s)), d = g.getImageData(x0, y0, Math.max(1, x1 - x0), Math.max(1, y1 - y0)).data, ls = [];
+            const lin = (v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+            for (let j = 0; j < d.length; j += 4) ls.push(0.2126 * lin(d[j]) + 0.7152 * lin(d[j + 1]) + 0.0722 * lin(d[j + 2]));
+            ls.sort((p, q) => p - q); title = { alpha: pr.title.alpha, contrast: (ls[Math.floor(ls.length * 0.92)] + 0.05) / (ls[Math.floor(ls.length * 0.15)] + 0.05) }; }
+          return { diffs, caps, title };
+        }, [nn, F]);
+        const frz = []; let r0 = -1;
+        for (let i = 0; i <= tr.diffs.length; i++) { const low = i < tr.diffs.length && tr.diffs[i] < 0.003 * 255; if (low && r0 < 0) r0 = i; if (!low && r0 >= 0) { if ((i - r0) / F > 0.3) frz.push([r0 / F, (i - r0) / F]); r0 = -1; } }
+        info.push(`trailer: ${frz.length} freeze(s) over 0.3 s · median frame difference ${[...tr.diffs].sort((p, q) => p - q)[tr.diffs.length >> 1].toFixed(2)}`);
+        for (const [t, d] of frz.slice(0, 40)) fails.push(`picture frozen for ${d.toFixed(2)} s at ${t.toFixed(2)} s in "${(L.find((l) => t >= l.start && t < l.end) || {}).id}" (max 0.3)`);
+        const ghost = tr.caps.filter((q) => q.line !== q.shot), rows = tr.caps.filter((q) => q.rows > 2), onIns = tr.caps.filter((q) => SL[q.shot] && SL[q.shot].insert);
+        info.push(`trailer captions: ${tr.caps.length} frames with a caption, ${ghost.length} after their cut, ${rows.length} over two rows, ${onIns.length} on an insert`);
+        if (ghost.length) fails.push(`a caption of "${ghost[0].line}" is still drawn (alpha ${ghost[0].alpha.toFixed(2)}) over shot "${ghost[0].shot}" at ${ghost[0].t.toFixed(2)} s`);
+        if (rows.length) fails.push(`a caption of ${rows[0].rows} rows at ${rows[0].t.toFixed(2)} s (max 2)`);
+        if (onIns.length) fails.push(`a caption on the insert "${onIns[0].shot}" at ${onIns[0].t.toFixed(2)} s`);
+        if (titleOpen) { if (!tr.title) fails.push('title opening: no title on screen at 1.5 s'); else { info.push(`title at 1.5 s: alpha ${tr.title.alpha.toFixed(2)}, contrast ${tr.title.contrast.toFixed(1)}:1`); if (tr.title.alpha < 0.99) fails.push(`the title is not fully drawn at 1.5 s (alpha ${tr.title.alpha.toFixed(2)})`); if (tr.title.contrast < 4.5) fails.push(`the title's contrast at 1.5 s is ${tr.title.contrast.toFixed(1)}:1 (min 4.5)`); } }
       }
       const errs = await reel.drainErrors();
       if (errs.length) fails.push(`${errs.length} page error(s): ${errs[0].split('\n')[0]}`);

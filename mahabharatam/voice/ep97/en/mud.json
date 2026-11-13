@@ -1,17 +1,51 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox:default",
+ "voice": "chatterbox (ONNX, CPU); reference: a Kokoro bm_lewis clip (synthetic; no real person)",
  "engine": "chatterbox-onnx",
- "spoken_as": "Karna's wheel sinks into the earth.",
+ "takes_from": [
+  "mud.s3.wav"
+ ],
+ "spoken_as": "Karna's wheel, sunk in the earth.",
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 2.62,
+   "t0": 0,
+   "t1": 1.96,
    "words": 6,
-   "text": "Karna's wheel sinks into the earth."
+   "text": "Karna's wheel, sunk in the earth."
   }
  ],
- "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
- "tempo": 0.965,
- "refit": "mud.s1.wav fitted to the first selection's exact length (tempo x1.014) after the recogniser heard the name better in this take"
+ "wordTimes": [
+  [
+   0.0,
+   0.459
+  ],
+  [
+   0.459,
+   0.659
+  ],
+  [
+   0.659,
+   1.219
+  ],
+  [
+   1.219,
+   1.499
+  ],
+  [
+   1.499,
+   1.619
+  ],
+  [
+   1.619,
+   1.779
+  ]
+ ],
+ "measured": {
+  "f0": 96.8,
+  "st": 11.9,
+  "edb": 19.2,
+  "pause": 0.18,
+  "dur": 1.88
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
 }

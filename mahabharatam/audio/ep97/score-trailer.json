@@ -1,0 +1,37 @@
+{
+ "stops": [
+  [
+   41.1,
+   41.7667
+  ],
+  [
+   68.4333,
+   69.1666
+  ]
+ ],
+ "clock": {
+  "ticks": 103,
+  "tempo_steps": [
+   [
+    0.4,
+    60
+   ],
+   [
+    15.467,
+    72
+   ],
+   [
+    27.467,
+    90
+   ],
+   [
+    42.1,
+    120
+   ]
+  ],
+  "first": 0.4,
+  "last": 68.233
+ },
+ "motif": "Sa Pa komal-Dha Pa (D A B-flat A); the last note of the film is Sa (D), struck",
+ "leads_frames": 6
+}

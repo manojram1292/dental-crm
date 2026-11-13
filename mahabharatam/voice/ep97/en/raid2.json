@@ -1,0 +1,44 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: a Kokoro bm_lewis clip (synthetic; no real person)",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "raid.s1.wav"
+ ],
+ "spoken_as": "raided in its sleep.",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 1.274,
+   "words": 4,
+   "text": "raided in its sleep."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.34
+  ],
+  [
+   0.34,
+   0.62
+  ],
+  [
+   0.62,
+   0.76
+  ],
+  [
+   0.76,
+   1.1
+  ]
+ ],
+ "measured": {
+  "f0": 88.9,
+  "st": 14.4,
+  "edb": 22.1,
+  "pause": 0.11,
+  "dur": 1.21
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened",
+ "cut_from": "A camp raided in its sleep."
+}

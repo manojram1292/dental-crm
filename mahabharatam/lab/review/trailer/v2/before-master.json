@@ -1,0 +1,33 @@
+{
+ "file": "trailer-v1.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 2661,
+ "seconds": 88.7,
+ "low_motion": [
+  [
+   74.33,
+   0.97
+  ],
+  [
+   78.77,
+   0.97
+  ]
+ ],
+ "exact_repeats": 0,
+ "median_frame_difference": 1.07,
+ "least_moving_second": [
+  74.3,
+  0.27
+ ],
+ "dead_air_under_-45dB_over_0.3s": [
+  [
+   44.41,
+   0.93
+  ],
+  [
+   71.93,
+   1.26
+  ]
+ ]
+}

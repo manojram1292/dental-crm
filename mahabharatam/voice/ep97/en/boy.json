@@ -1,16 +1,47 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox:default",
+ "voice": "chatterbox (ONNX, CPU); reference: a Kokoro bm_lewis clip (synthetic; no real person)",
  "engine": "chatterbox-onnx",
- "spoken_as": "A boy fights alone, and many bring him down.",
+ "takes_from": [
+  "boy.s0.wav"
+ ],
+ "spoken_as": "A boy, alone against many.",
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 3.184,
-   "words": 9,
-   "text": "A boy fights alone, and many bring him down."
+   "t0": 0,
+   "t1": 1.861,
+   "words": 5,
+   "text": "A boy, alone against many."
   }
  ],
- "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
- "tempo": 0.965
+ "wordTimes": [
+  [
+   0.0,
+   0.062
+  ],
+  [
+   0.062,
+   0.382
+  ],
+  [
+   0.702,
+   0.962
+  ],
+  [
+   0.962,
+   1.302
+  ],
+  [
+   1.302,
+   1.642
+  ]
+ ],
+ "measured": {
+  "f0": 100.9,
+  "st": 10.5,
+  "edb": 21.1,
+  "pause": 0.24,
+  "dur": 1.78
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
 }

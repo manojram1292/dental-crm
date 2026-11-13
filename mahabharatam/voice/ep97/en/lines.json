@@ -1,0 +1,429 @@
+{
+ "field": {
+  "line": "field",
+  "text": "Two armies wait. Between them, one archer will not fight.",
+  "from": [
+   "field.s0.wav"
+  ],
+  "dur": 3.63,
+  "f0": 107.1,
+  "st": 15.5,
+  "edb": 18.4,
+  "pause": 0.31
+ },
+ "vow": {
+  "line": "vow",
+  "text": "Long before, a prince swears away his throne and his line.",
+  "from": [
+   "vow.s3.wav"
+  ],
+  "dur": 3.63,
+  "f0": 109.3,
+  "st": 17.4,
+  "edb": 19.1,
+  "pause": 0.08
+ },
+ "river": {
+  "line": "river",
+  "text": "A mother gives her first-born to the river.",
+  "from": [
+   "river.s1.wav"
+  ],
+  "dur": 2.5,
+  "f0": 89.7,
+  "st": 16.8,
+  "edb": 19.6,
+  "pause": 0.14
+ },
+ "cousins": {
+  "line": "cousins",
+  "text": "A hundred brothers. Five cousins. One throne.",
+  "from": [
+   "cousins.s1.wav"
+  ],
+  "dur": 2.56,
+  "f0": 112.0,
+  "st": 19.6,
+  "edb": 19.2,
+  "pause": 0.24
+ },
+ "exile": {
+  "line": "exile",
+  "text": "Thirteen years of exile.",
+  "from": [
+   "exile.s2.wav"
+  ],
+  "dur": 1.45,
+  "f0": 114.2,
+  "st": 14.5,
+  "edb": 19.0,
+  "pause": 0.03
+ },
+ "armies": {
+  "line": "armies",
+  "text": "Two armies.",
+  "from": [
+   "armies.s2.wav"
+  ],
+  "dur": 1.01,
+  "f0": 109.9,
+  "st": 17.3,
+  "edb": 21.3,
+  "pause": 0.03
+ },
+ "bow": {
+  "line": "bow",
+  "text": "Arjuna lowers his bow.",
+  "from": [
+   "bow.s2.wav"
+  ],
+  "dur": 1.45,
+  "f0": 95.3,
+  "st": 22.2,
+  "edb": 16.5,
+  "pause": 0.08
+ },
+ "curse": {
+  "line": "curse",
+  "text": "A mother of a hundred sons will curse Krishna.",
+  "from": [
+   "curse.s0.wav"
+  ],
+  "dur": 2.61,
+  "f0": 116.0,
+  "st": 17.6,
+  "edb": 19.7,
+  "pause": 0.08
+ },
+ "dog": {
+  "line": "dog",
+  "text": "And at the end, a king will not abandon his dog.",
+  "from": [
+   "dog.s1.wav"
+  ],
+  "dur": 3.79,
+  "f0": 91.7,
+  "st": 19.0,
+  "edb": 18.9,
+  "pause": 0.27
+ },
+ "first": {
+  "line": "first",
+  "text": "From the first verse to the last.",
+  "from": [
+   "first.s4.wav"
+  ],
+  "dur": 2.01,
+  "f0": 97.2,
+  "st": 20.3,
+  "edb": 19.9,
+  "pause": 0.14
+ },
+ "dice1": {
+  "line": "dice1",
+  "text": "Then the dice.",
+  "from": [
+   "dice1.s0.wav"
+  ],
+  "dur": 1.05,
+  "f0": 130.5,
+  "st": 22.3,
+  "edb": 22.4,
+  "pause": 0.2
+ },
+ "lac": {
+  "line": "lac",
+  "text": "A palace built to burn.",
+  "from": [
+   "lac.s0.wav"
+  ],
+  "dur": 1.88,
+  "f0": 100.0,
+  "st": 20.9,
+  "edb": 20.1,
+  "pause": 0.13
+ },
+ "demon": {
+  "line": "demon",
+  "text": "Bhima breaks a man-eating demon.",
+  "from": [
+   "demon2.s1.wav"
+  ],
+  "dur": 1.83,
+  "f0": 107.1,
+  "st": 16.9,
+  "edb": 17.8,
+  "pause": 0.03
+ },
+ "altar": {
+  "line": "altar",
+  "text": "A woman rises from a fire-altar.",
+  "from": [
+   "altar.s1.wav"
+  ],
+  "dur": 1.8,
+  "f0": 92.3,
+  "st": 17.3,
+  "edb": 16.1,
+  "pause": 0.05
+ },
+ "wheel": {
+  "line": "wheel",
+  "text": "Krishna lets the wheel fly.",
+  "from": [
+   "wheel.s2.wav"
+  ],
+  "dur": 1.68,
+  "f0": 98.2,
+  "st": 19.6,
+  "edb": 21.1,
+  "pause": 0.06
+ },
+ "dice2": {
+  "line": "dice2",
+  "text": "A king stakes his kingdom,",
+  "from": [
+   "dice23.s1.wav"
+  ],
+  "dur": 1.68,
+  "f0": 145.5,
+  "st": 21.3,
+  "edb": 19.5,
+  "pause": 0.07
+ },
+ "dice3": {
+  "line": "dice3",
+  "text": "his brothers, his wife.",
+  "from": [
+   "dice23.s1.wav"
+  ],
+  "dur": 1.3,
+  "f0": 116.7,
+  "st": 20.0,
+  "edb": 18.0,
+  "pause": 0.11
+ },
+ "cloth1": {
+  "line": "cloth1",
+  "text": "They pull at her cloth.",
+  "from": [
+   "cloth.s3.wav"
+  ],
+  "dur": 1.14,
+  "f0": 92.6,
+  "st": 19.3,
+  "edb": 24.0,
+  "pause": 0.07
+ },
+ "cloth2": {
+  "line": "cloth2",
+  "text": "The cloth does not end.",
+  "from": [
+   "cloth.s3.wav"
+  ],
+  "dur": 1.32,
+  "f0": 131.7,
+  "st": 19.7,
+  "edb": 21.9,
+  "pause": 0.14
+ },
+ "arrows1": {
+  "line": "arrows1",
+  "text": "Bhishma will fall",
+  "from": [
+   "arrows.s0.wav"
+  ],
+  "dur": 0.64,
+  "f0": 92.5,
+  "st": 22.0,
+  "edb": 23.3,
+  "pause": 0.02
+ },
+ "arrows2": {
+  "line": "arrows2",
+  "text": "on a bed of arrows.",
+  "from": [
+   "arrows.s0.wav"
+  ],
+  "dur": 1.58,
+  "f0": 110.2,
+  "st": 19.5,
+  "edb": 18.6,
+  "pause": 0.04
+ },
+ "boy1": {
+  "line": "boy1",
+  "text": "A boy,",
+  "from": [
+   "boy.s1.wav"
+  ],
+  "dur": 0.5,
+  "f0": 98.8,
+  "st": 19.8,
+  "edb": 22.6,
+  "pause": 0.0
+ },
+ "boy2": {
+  "line": "boy2",
+  "text": "alone against many.",
+  "from": [
+   "boy.s1.wav"
+  ],
+  "dur": 1.12,
+  "f0": 111.1,
+  "st": 12.5,
+  "edb": 20.9,
+  "pause": 0.04
+ },
+ "mud1": {
+  "line": "mud1",
+  "text": "Karna's wheel,",
+  "from": [
+   "mud.s2.wav"
+  ],
+  "dur": 0.54,
+  "f0": 148.8,
+  "st": 7.3,
+  "edb": 20.0,
+  "pause": 0.0
+ },
+ "mud2": {
+  "line": "mud2",
+  "text": "sunk in the earth.",
+  "from": [
+   "mud.s2.wav"
+  ],
+  "dur": 1.23,
+  "f0": 104.9,
+  "st": 14.3,
+  "edb": 20.1,
+  "pause": 0.11
+ },
+ "raid": {
+  "line": "raid",
+  "text": "A camp raided in its sleep.",
+  "from": [
+   "raid.s3.wav"
+  ],
+  "dur": 1.72,
+  "f0": 119.0,
+  "st": 15.0,
+  "edb": 19.2,
+  "pause": 0.06
+ },
+ "needle1": {
+  "line": "needle1",
+  "text": "Duryodhana will not give",
+  "from": [
+   "needle.s1.wav"
+  ],
+  "dur": 1.19,
+  "f0": 123.5,
+  "st": 18.8,
+  "edb": 13.3,
+  "pause": 0.01
+ },
+ "needle2": {
+  "line": "needle2",
+  "text": "a needle-point of earth.",
+  "from": [
+   "needle.s1.wav"
+  ],
+  "dur": 1.09,
+  "f0": 99.1,
+  "st": 13.3,
+  "edb": 19.1,
+  "pause": 0.02
+ },
+ "vish": {
+  "line": "vish",
+  "text": "But first, Arjuna asks to see. Krishna shows him everything. \u201cI am Time.\u201d",
+  "from": [
+   "v1.s0.wav",
+   "v2.s2.wav",
+   "v3.s3.wav"
+  ],
+  "dur": 6.39,
+  "f0": 102.5,
+  "st": 18.1,
+  "edb": 19.5,
+  "pause": 1.13
+ },
+ "word": {
+  "line": "word",
+  "text": "It calls itself itihasa. Iti. Ha. Asa. So indeed it was.",
+  "from": [
+   "w1.s3.wav",
+   "itihaasa.s3.wav",
+   "itihaasa.s3.wav",
+   "itihaasa.s3.wav",
+   "w3.s1.wav"
+  ],
+  "dur": 5.3,
+  "f0": 101.5,
+  "st": 21.0,
+  "edb": 19.9,
+  "pause": 0.44
+ },
+ "p1": {
+  "line": "p1",
+  "text": "Every book.",
+  "from": [
+   "every.s2.wav"
+  ],
+  "dur": 0.5,
+  "f0": 119.9,
+  "st": 12.8,
+  "edb": 20.6,
+  "pause": 0.06
+ },
+ "p2": {
+  "line": "p2",
+  "text": "Every vow.",
+  "from": [
+   "every.s2.wav"
+  ],
+  "dur": 0.56,
+  "f0": 137.5,
+  "st": 19.4,
+  "edb": 16.8,
+  "pause": 0.0
+ },
+ "p3": {
+  "line": "p3",
+  "text": "Every war.",
+  "from": [
+   "every.s2.wav"
+  ],
+  "dur": 0.57,
+  "f0": 101.2,
+  "st": 16.2,
+  "edb": 16.6,
+  "pause": 0.0
+ },
+ "follow": {
+  "line": "follow",
+  "text": "Nothing added for effect. Follow. Episode",
+  "from": [
+   "nothing.s4.wav",
+   "follow.s4.wav"
+  ],
+  "dur": 2.55,
+  "f0": 109.2,
+  "st": 20.7,
+  "edb": 21.2,
+  "pause": 0.28
+ },
+ "endcard": {
+  "line": "endcard",
+  "text": "one.",
+  "from": [
+   "follow.s4.wav"
+  ],
+  "dur": 0.65,
+  "f0": 97.9,
+  "st": 11.6,
+  "edb": 19.2,
+  "pause": 0.0
+ }
+}

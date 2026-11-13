@@ -1,0 +1,44 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "mud.s2.wav"
+ ],
+ "spoken_as": "sunk in the earth.",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 1.288,
+   "words": 4,
+   "text": "sunk in the earth."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.062,
+   0.582
+  ],
+  [
+   0.582,
+   0.802
+  ],
+  [
+   0.802,
+   0.942
+  ],
+  [
+   0.942,
+   1.122
+  ]
+ ],
+ "measured": {
+  "f0": 104.9,
+  "st": 14.3,
+  "edb": 20.1,
+  "pause": 0.11,
+  "dur": 1.23
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened",
+ "cut_from": "Karna's wheel, sunk in the earth."
+}

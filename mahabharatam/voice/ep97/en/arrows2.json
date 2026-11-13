@@ -1,0 +1,48 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "arrows.s0.wav"
+ ],
+ "spoken_as": "on a bed of arrows.",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 1.649,
+   "words": 5,
+   "text": "on a bed of arrows."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.08,
+   0.36
+  ],
+  [
+   0.36,
+   0.42
+  ],
+  [
+   0.42,
+   0.64
+  ],
+  [
+   0.64,
+   0.88
+  ],
+  [
+   0.88,
+   1.22
+  ]
+ ],
+ "measured": {
+  "f0": 110.2,
+  "st": 19.5,
+  "edb": 18.6,
+  "pause": 0.04,
+  "dur": 1.58
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened",
+ "cut_from": "Bhishma will fall on a bed of arrows."
+}

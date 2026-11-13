@@ -1,16 +1,43 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox:default",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
  "engine": "chatterbox-onnx",
+ "takes_from": [
+  "exile.s2.wav"
+ ],
  "spoken_as": "Thirteen years of exile.",
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.959,
+   "t0": 0,
+   "t1": 1.533,
    "words": 4,
    "text": "Thirteen years of exile."
   }
  ],
- "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
- "tempo": 0.965
+ "wordTimes": [
+  [
+   0.0,
+   0.234
+  ],
+  [
+   0.234,
+   0.554
+  ],
+  [
+   0.554,
+   0.774
+  ],
+  [
+   0.774,
+   1.074
+  ]
+ ],
+ "measured": {
+  "f0": 114.2,
+  "st": 14.5,
+  "edb": 19.0,
+  "pause": 0.03,
+  "dur": 1.45
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
 }

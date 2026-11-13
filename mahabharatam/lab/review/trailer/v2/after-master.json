@@ -1,0 +1,77 @@
+{
+ "file": "trailer.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 2540,
+ "seconds": 84.67,
+ "low_motion": [],
+ "exact_repeats": 0,
+ "median_frame_difference": 2.39,
+ "least_moving_second": [
+  60.63,
+  1.05
+ ],
+ "dead_air_under_-45dB_over_0.3s": [
+  [
+   41.12,
+   0.62
+  ],
+  [
+   68.46,
+   0.83
+  ]
+ ],
+ "speech_gaps_over_0.6s": [
+  [
+   "river",
+   "cousins",
+   0.94
+  ],
+  [
+   "demon",
+   "altar",
+   0.79
+  ],
+  [
+   "cloth2",
+   "exile",
+   0.78
+  ],
+  [
+   "needle2",
+   "armies",
+   1.52
+  ],
+  [
+   "vish",
+   "word",
+   0.93
+  ]
+ ],
+ "voice_files_with_pause_over_0.45_or_head_over_0.10_or_tail_over_0.15": [
+  {
+   "line": "dice3",
+   "longest_pause": 0.11,
+   "head": 0.13,
+   "tail": 0.06
+  },
+  {
+   "line": "cloth1",
+   "longest_pause": 0.07,
+   "head": 0.02,
+   "tail": 0.29
+  },
+  {
+   "line": "boy1",
+   "longest_pause": 0.0,
+   "head": 0.02,
+   "tail": 0.2
+  },
+  {
+   "line": "vish",
+   "longest_pause": 1.13,
+   "head": 0.02,
+   "tail": 0.06
+  }
+ ]
+}

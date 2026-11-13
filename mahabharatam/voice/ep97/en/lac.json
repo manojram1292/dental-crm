@@ -1,16 +1,47 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox:default",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
  "engine": "chatterbox-onnx",
+ "takes_from": [
+  "lac.s0.wav"
+ ],
  "spoken_as": "A palace built to burn.",
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.973,
+   "t0": 0,
+   "t1": 1.965,
    "words": 5,
    "text": "A palace built to burn."
   }
  ],
- "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
- "tempo": 0.965
+ "wordTimes": [
+  [
+   0.0,
+   0.071
+  ],
+  [
+   0.071,
+   0.431
+  ],
+  [
+   0.431,
+   0.971
+  ],
+  [
+   0.971,
+   1.351
+  ],
+  [
+   1.351,
+   1.671
+  ]
+ ],
+ "measured": {
+  "f0": 100.0,
+  "st": 20.9,
+  "edb": 20.1,
+  "pause": 0.13,
+  "dur": 1.88
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
 }

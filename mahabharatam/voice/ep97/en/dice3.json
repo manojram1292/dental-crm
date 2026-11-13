@@ -1,0 +1,44 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "dice23.s1.wav"
+ ],
+ "spoken_as": "his brothers, his wife.",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 1.492,
+   "words": 4,
+   "text": "his brothers, his wife."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.113,
+   0.173
+  ],
+  [
+   0.173,
+   0.533
+  ],
+  [
+   0.893,
+   0.993
+  ],
+  [
+   0.993,
+   1.293
+  ]
+ ],
+ "measured": {
+  "f0": 116.7,
+  "st": 20.0,
+  "edb": 18.0,
+  "pause": 0.11,
+  "dur": 1.3
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened",
+ "cut_from": "A king stakes his kingdom, his brothers, his wife."
+}

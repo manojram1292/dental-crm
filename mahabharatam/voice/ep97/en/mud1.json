@@ -1,0 +1,36 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "mud.s2.wav"
+ ],
+ "spoken_as": "Karna's wheel,",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 0.563,
+   "words": 2,
+   "text": "Karna's wheel,"
+  }
+ ],
+ "wordTimes": [
+  [
+   0.02,
+   0.385
+  ],
+  [
+   0.385,
+   0.563
+  ]
+ ],
+ "measured": {
+  "f0": 148.8,
+  "st": 7.3,
+  "edb": 20.0,
+  "pause": 0.0,
+  "dur": 0.54
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened",
+ "cut_from": "Karna's wheel, sunk in the earth."
+}

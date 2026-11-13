@@ -67,8 +67,13 @@ def biquad(kind, f0, gain_db, q):
     return b / a[0], a / a[0]
 
 
-def voice_eq(x):
-    for kind, f0, g, q in VOICE_EQ:
+# The trailer's second cut (script "scoreStops"; nothing else): a deep narrator keeps his chest. The episodes' EQ cuts at 90 Hz and
+# shelves −4 dB under 170 Hz, which is where this voice's fundamental (about 96 Hz) lives.
+VOICE_EQ_TRAILER = [('hp', 58.0, 0.0, 0.707), ('lowshelf', 160.0, 1.0, 0.8), ('highshelf', 7500.0, -1.0, 0.7)]
+
+
+def voice_eq(x, eq=None):
+    for kind, f0, g, q in (eq or VOICE_EQ):
         x = sps.lfilter(*biquad(kind, f0, g, q), x, axis=-1)
     return x
 
@@ -202,7 +207,11 @@ def main():
             placed.append(l['id'])
 
     if placed:
-        voice = voice_eq(voice)
+        _scp = os.path.join(ROOT, 'script', f'{tag}.{lang}.json')
+        _tr = os.path.exists(_scp) and json.load(open(_scp)).get('scoreStops')
+        voice = voice_eq(voice, VOICE_EQ_TRAILER if _tr else None)
+        if _tr:
+            report['voice_eq'] = 'trailer: high-pass 58 Hz, +1 dB shelf under 160 Hz, −1 dB over 7.5 kHz'
         voice *= db(VOICE_LUFS - lufs(voice))
         # duck the music under the voice
         e = np.abs(voice).max(0)
@@ -246,6 +255,11 @@ def main():
     new_rules = ep >= 31
     pre = mix
     ceil = CEIL_41 if ep >= 41 else CEIL
+    if os.path.exists(scp) and json.load(open(scp)).get('scoreStops'):
+        # the trailer's second cut: its drum hits overshoot by up to 1.3 dB once encoded to AAC (measured on the mp4: −1.1 dBTP from a −2.4 dBTP
+        # mix), so the mix is held 1 dB lower than an episode's and the mp4 stays under −1.5 dBTP
+        ceil = CEIL_41 - 1.0
+        report['ceiling'] = 'trailer: −2.5 dBTP in the limiter (−3.5 on the mix) so that the encoded mp4 stays under −1.5 dBTP'
     for mult in ((1.0, 1.5, 2.0, 2.6) if new_rules else (1.0,)):
         mix = master(pre * line_gains(tl, SL, N, mult), ceil) if new_rules else master(pre)
         if not new_rules or lra(mix) >= LRA_MIN:
@@ -268,6 +282,13 @@ def main():
         ti = next((i for i, l in enumerate(L) if 'TURN' in SL.get(l['id'], {}).get('note', '')), None)
         # episode 41 on: every line marked "rest": true gets the same real silence before it (two per episode where the story allows)
         rests = [i for i, l in enumerate(L) if i and (i == ti or (ep >= 41 and SL.get(l['id'], {}).get('rest')))]
+        # The trailer's second cut ("scoreStops": true) cuts its stems to silence on a frame itself (tools/score_trailer.py);
+        # muting again here would eat the conch that leads the turn. Nothing else sets the flag.
+        score_stops = os.path.exists(scp) and json.load(open(scp)).get('scoreStops')
+        if score_stops:
+            report['rests_in_score'] = [L[i]['id'] for i in rests]
+            rests = []
+            b = a = 0
         report['rests'] = []
         for ti in rests:
             prev = next((l for l in reversed(L[:ti]) if l.get('voice')), None)

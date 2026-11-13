@@ -1,0 +1,55 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "first.s4.wav"
+ ],
+ "spoken_as": "From the first verse to the last.",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 2.091,
+   "words": 7,
+   "text": "From the first verse to the last."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.106
+  ],
+  [
+   0.106,
+   0.227
+  ],
+  [
+   0.227,
+   0.506
+  ],
+  [
+   0.506,
+   0.867
+  ],
+  [
+   0.867,
+   1.347
+  ],
+  [
+   1.347,
+   1.486
+  ],
+  [
+   1.486,
+   1.746
+  ]
+ ],
+ "measured": {
+  "f0": 97.2,
+  "st": 20.3,
+  "edb": 19.9,
+  "pause": 0.14,
+  "dur": 2.01
+ },
+ "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+}
