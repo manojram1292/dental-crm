@@ -1,0 +1,59 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "making.s11.wav"
+ ],
+ "spoken_as": "We are making this, episode by episode.",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 2.462,
+   "words": 7,
+   "text": "We are making this, episode by episode."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.1
+  ],
+  [
+   0.1,
+   0.14
+  ],
+  [
+   0.14,
+   0.38
+  ],
+  [
+   0.38,
+   0.868
+  ],
+  [
+   0.943,
+   1.12
+  ],
+  [
+   1.12,
+   1.52
+  ],
+  [
+   1.52,
+   1.9
+  ]
+ ],
+ "measured": {
+  "f0": 119.6,
+  "st": 10.3,
+  "edb": 18.0,
+  "dur": 2.23,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 7.8,
+  "jitter": 2.6,
+  "tail_db": -67.0
+ },
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

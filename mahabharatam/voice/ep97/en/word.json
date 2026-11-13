@@ -1,19 +1,17 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "w1.s3.wav",
-  "itihaasa.s3.wav",
-  "itihaasa.s3.wav",
-  "itihaasa.s3.wav",
-  "w3.s1.wav"
+  "w1.s0.wav",
+  "itihaasa.s6.wav",
+  "w3.s10.wav"
  ],
  "spoken_as": "It calls itself itihasa. Iti. Ha. Asa. So indeed it was.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 5.386,
+   "t1": 6.572,
    "words": 11,
    "text": "It calls itself itihasa. Iti. Ha. Asa. So indeed it was."
   }
@@ -21,55 +19,68 @@
  "wordTimes": [
   [
    0.0,
-   0.096
+   0.137
   ],
   [
-   0.096,
-   0.296
+   0.211,
+   0.38
   ],
   [
-   0.296,
-   0.716
+   0.38,
+   1.021
   ],
   [
-   0.716,
-   1.656
+   1.286,
+   1.98
   ],
   [
-   2.213,
-   2.535
+   2.699,
+   3.296
   ],
   [
-   2.815,
-   3.039
+   3.545,
+   3.902
   ],
   [
-   3.319,
-   3.689
+   4.264,
+   4.84
   ],
   [
-   4.089,
-   4.254
+   5.276,
+   5.456
   ],
   [
-   4.254,
-   4.514
+   5.456,
+   5.856
   ],
   [
-   4.714,
-   4.814
+   5.856,
+   5.936
   ],
   [
-   4.814,
-   5.094
+   5.936,
+   6.196
   ]
  ],
  "measured": {
-  "f0": 101.5,
-  "st": 21.0,
-  "edb": 19.9,
-  "pause": 0.44,
-  "dur": 5.3
+  "f0": 121.9,
+  "st": 11.1,
+  "edb": 18.8,
+  "dur": 6.42,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.0,
+  "jitter": 2.53,
+  "tail_db": -69.8
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened",
+ "joined_from": [
+  "w1",
+  "itihaasa",
+  "w3"
+ ],
+ "silence_between_s": [
+  0.3,
+  0.3
+ ]
 }

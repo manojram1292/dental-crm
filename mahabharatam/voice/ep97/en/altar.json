@@ -1,15 +1,15 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "altar.s1.wav"
+  "altar.s0.wav"
  ],
  "spoken_as": "A woman rises from a fire-altar.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 1.882,
+   "t1": 2.0,
    "words": 6,
    "text": "A woman rises from a fire-altar."
   }
@@ -17,35 +17,39 @@
  "wordTimes": [
   [
    0.0,
-   0.066
+   0.08
   ],
   [
-   0.066,
-   0.306
+   0.08,
+   0.32
   ],
   [
-   0.306,
-   0.606
+   0.32,
+   0.66
   ],
   [
-   0.606,
-   0.986
+   0.66,
+   1.06
   ],
   [
-   0.986,
-   1.066
+   1.06,
+   1.186
   ],
   [
-   1.066,
-   1.326
+   1.254,
+   1.38
   ]
  ],
  "measured": {
-  "f0": 92.3,
-  "st": 17.3,
-  "edb": 16.1,
-  "pause": 0.05,
-  "dur": 1.8
+  "f0": 124.1,
+  "st": 8.1,
+  "edb": 17.7,
+  "dur": 1.85,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.4,
+  "jitter": 1.89,
+  "tail_db": -64.6
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

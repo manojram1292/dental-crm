@@ -54,6 +54,10 @@ def biquad(kind, f0, gain_db, q):
         al = s / (2 * q)
         b = [(1 + c) / 2, -(1 + c), (1 + c) / 2]
         a = [1 + al, -2 * c, 1 - al]
+    elif kind == 'peak':   # a bell (used by the trailer's third cut only)
+        al = s / (2 * q)
+        b = [1 + al * A, -2 * c, 1 - al * A]
+        a = [1 + al / A, -2 * c, 1 - al / A]
     else:
         al = s / 2 * np.sqrt((A + 1 / A) * (1 / q - 1) + 2)
         sq = 2 * np.sqrt(A) * al
@@ -151,6 +155,98 @@ NEXT_UNDER = 10.0
 LRA_MIN = 4.6   # a margin over the gate's 4.0 (ffmpeg's ebur128 and this estimate differ by a few tenths)
 
 
+STEM_DUCK_TRAILER3 = {'mus': 8.0, 'amb': 3.0, 'foley': 2.0}   # the trailer's third cut: the music no more than 8 dB under the voice
+VOICE_EQ_TRAILER3_ADD = [('peak', 3200.0, 1.5, 0.9), ('peak', 320.0, -1.5, 1.0)]
+
+
+def voice_room(x):
+    """A short room for a voice that was synthesised dry (the trailer's third cut only): four early reflections and 70 ms of
+    decaying noise, 15 dB under the voice, band-limited. Enough that it sits in a space; not enough to hear as reverb."""
+    r = np.random.default_rng(97)
+    n = int(0.11 * SR)
+    t = np.arange(n) / SR
+    ir = np.zeros((2, n))
+    for ch in range(2):
+        ir[ch] = r.standard_normal(n) * np.exp(-t / 0.028) * (t > 0.012)
+        for d_, g_ in ((0.0071, 0.5), (0.0113, -0.4), (0.0173, 0.33), (0.0229, -0.25)):
+            ir[ch, int((d_ + 0.0011 * ch) * SR)] += g_ * 6
+    from scipy.signal import fftconvolve, butter, sosfilt
+    wet = np.stack([fftconvolve(x[ch], ir[ch])[:x.shape[1]] for ch in range(2)])
+    wet = sosfilt(butter(2, [250, 5500], 'bandpass', fs=SR, output='sos'), wet, axis=-1)
+    k = db(-15.0) * np.sqrt(np.mean(x ** 2) + 1e-12) / np.sqrt(np.mean(wet ** 2) + 1e-12)
+    return x + wet * k
+
+
+def win_levels(x, win=0.1, hop=0.05):
+    """RMS (dBFS, both channels) of every 100 ms window, hop 50 ms → (start times, levels)."""
+    m = (x ** 2).mean(axis=0)
+    c = np.concatenate([[0.0], np.cumsum(m)])
+    w, h = int(win * SR), int(hop * SR)
+    i = np.arange(0, len(m) - w + 1, h)
+    return i / SR, 10 * np.log10((c[i + w] - c[i]) / w + 1e-12)
+
+
+def floor_report(x, stops, cfg, D):
+    """The gate's measure (tools/gate.mjs reads this from mix.json): outside the stops, no 100 ms window under the floor and
+    none more than dropDb below the loudest window of the 300 ms before it."""
+    t, lv = win_levels(x)
+    ok = np.ones(len(t), bool)
+    for a, b in stops:
+        ok &= ~((t + 0.1 > a - 0.005) & (t < b + 0.1))   # a window touching a stop, or the first 100 ms after one
+    ok &= t + 0.1 <= D - 0.06
+    k = int(round(cfg['dropWindowS'] / 0.05))
+    prev = np.array([lv[max(0, i - k):i + 1].max() for i in range(len(lv))])
+    okd = ok.copy()
+    for a, b in stops:
+        okd &= ~((t >= a) & (t < b + cfg['dropWindowS'] + 0.1))
+    under = ok & (lv < cfg['floorDb'])
+    drop = okd & (prev - lv > cfg['dropDb'])
+    iw = int(np.argmin(np.where(ok, lv, 99)))
+    idp = int(np.argmax(np.where(okd, prev - lv, -99)))
+    return {'floor_db': cfg['floorDb'], 'windows': int(ok.sum()), 'worst_window_db': round(float(lv[iw]), 1), 'worst_window_at_s': round(float(t[iw]), 2), 'windows_under_floor': int(under.sum()),
+            'under_floor_at_s': [round(float(q), 2) for q in t[under][:40]], 'worst_drop_db': round(float((prev - lv)[idp]), 1), 'worst_drop_at_s': round(float(t[idp]), 2), 'drops_over_limit': int(drop.sum()),
+            'drops_at_s': [round(float(q), 2) for q in t[drop][:40]], 'drop_limit_db': cfg['dropDb'], 'drop_window_s': cfg['dropWindowS']}, (t, lv, prev, ok, okd)
+
+
+def bed_floor(mix, pre, stems, voice, tl, SL, N, ceil, cfg, sheet, mult=1.0):
+    """The trailer's third cut: the mix must never fall into a hole. Where a 100 ms window of the mastered mix is under the floor,
+    or more than dropDb under the loudest of the 300 ms before it, the bed (music and ambience stems, already ducked) is raised
+    there, smoothly, by what is missing (never more than 14 dB), and the whole is mastered again. Three passes."""
+    stops = json.load(open(sheet)).get('stops', []) if os.path.exists(sheet) else []
+    D = N / SR
+    bedg = np.zeros(N)   # dB added to the bed
+    lg = line_gains(tl, SL, N, mult)
+    rep0 = None
+    for it in range(6):
+        rep, (t, lv, prev, ok, okd) = floor_report(mix, stops, cfg, D)
+        if rep0 is None:
+            rep0 = rep
+        if rep['windows_under_floor'] == 0 and rep['drops_over_limit'] == 0:
+            break
+        need = np.zeros(len(t))
+        need = np.where(ok, np.maximum(need, cfg['floorDb'] + 1.5 - lv), need)
+        need = np.where(okd, np.maximum(need, (prev - lv) - (cfg['dropDb'] - 1.5)), need)
+        need = np.clip(need, 0, 6)
+        add_db = np.zeros(N)
+        for i in np.nonzero(need > 0)[0]:
+            a, b = int(t[i] * SR), int((t[i] + 0.1) * SR)
+            add_db[a:b] = np.maximum(add_db[a:b], need[i])
+        add_db = uniform_filter1d(maximum_filter1d(add_db, int(0.04 * SR)), int(0.05 * SR))
+        bedg = np.minimum(bedg + add_db, 14.0)
+        for a, b in stops:
+            bedg[int(a * SR):int(b * SR)] = 0
+        g = db(bedg)
+        x = voice + stems['foley'] + (stems['mus'] + stems['amb']) * g
+        n0 = int(0.003 * SR)
+        x[:, :n0] *= np.linspace(0, 1, n0)
+        mix = master(x * lg, ceil)
+    rep, _ = floor_report(mix, stops, cfg, D)
+    rep['before_lifting_the_bed'] = {k_: rep0[k_] for k_ in ('worst_window_db', 'worst_window_at_s', 'windows_under_floor', 'worst_drop_db', 'worst_drop_at_s', 'drops_over_limit')}
+    rep['bed_lift_db_max'] = round(float(bedg.max()), 1)
+    rep['bed_lifted_seconds'] = round(float((bedg > 0.5).sum() / SR), 2)
+    return mix, rep
+
+
 def lra(x):
     """EBU R128 loudness range: K-weighted 3 s short-term loudness every 0.1 s, abs gate −70, rel gate −20 LU, P95 − P10."""
     from score import _K1, _K2
@@ -212,12 +308,16 @@ def main():
         voice = voice_eq(voice, VOICE_EQ_TRAILER if _tr else None)
         if _tr:
             report['voice_eq'] = 'trailer: high-pass 58 Hz, +1 dB shelf under 160 Hz, −1 dB over 7.5 kHz'
+        _t3 = _tr and json.load(open(_scp)).get('cut', 2) >= 3 and json.load(open(_scp)).get('bedFloor')
+        if _t3:
+            voice = voice_room(voice_eq(voice, VOICE_EQ_TRAILER3_ADD))
+            report['voice_eq'] += '; third cut: +1.5 dB presence at 3.2 kHz, −1.5 dB at 320 Hz (boxiness), and a short room (70 ms, 15 dB under)'
         voice *= db(VOICE_LUFS - lufs(voice))
         # duck the music under the voice
         e = np.abs(voice).max(0)
         e = maximum_filter1d(e, int(0.03 * SR))
         key = np.clip((20 * np.log10(e + 1e-9) + 45) / 15, 0, 1)        # 0 below −45 dBFS, 1 above −30
-        hold = maximum_filter1d(key, int(0.4 * SR))                      # bridge the gaps between words
+        hold = maximum_filter1d(key, int((0.09 if _t3 else 0.4) * SR))   # bridge the gaps between words (third cut of the trailer: 90 ms only, so a pause fills at once)
         g_db = -DUCK_DB * uniform_filter1d(hold, int(0.06 * SR))
         mix = music * db(g_db) + voice
         # FROM EPISODE 41: three stems, each ducked by its own amount under the voice (music hardest, the place a little,
@@ -226,16 +326,22 @@ def main():
         if ep >= 41 and all(os.path.exists(q) for q in stem_paths.values()):
             sm = uniform_filter1d(hold, int(0.06 * SR))
             mix = voice.copy()
-            for n_, d_ in STEM_DUCK.items():
+            _duck = STEM_DUCK_TRAILER3 if _t3 else STEM_DUCK
+            _stems3 = {}
+            for n_, d_ in _duck.items():
                 st_ = read_wav(stem_paths[n_])[:, :N]
                 st_ = np.pad(st_, ((0, 0), (0, N - st_.shape[1])))
                 mix += st_ * db(-d_ * sm)
+                _stems3[n_] = st_ * db(-d_ * sm)
                 if n_ == 'mus':
                     on, offm = sm > 0.9, sm < 0.1
                     rms = lambda z: 10 * np.log10(np.mean(z ** 2) + 1e-12)
                     report['music_under_voice_db'] = round(float(rms((st_ * db(-d_ * sm))[:, on]) - rms(st_[:, offm])), 1) if on.any() and offm.any() else None
             report['stems'] = list(STEM_DUCK)
-            report['duck_db'] = STEM_DUCK
+            report['duck_db'] = _duck
+            if _t3:
+                report['duck_release_ms'] = 150
+                report['voice_stem_peak_dbfs'] = round(float(20 * np.log10(np.abs(voice).max() + 1e-9)), 2)
     else:
         mix = music.copy()
     # the silent Next card(s) at the end: 9 dB down, faded in over 0.25 s
@@ -249,7 +355,13 @@ def main():
             mix = mix * g
     # a 350 ms fade-in: a hard onset in the first AAC frames overshoots by up to +2 dB after encoding
     n0 = int(0.35 * SR)
-    mix[:, :n0] *= np.linspace(0, 1, n0) ** 1.5
+    _sc3 = json.load(open(os.path.join(ROOT, 'script', f'{tag}.{lang}.json'))) if os.path.exists(os.path.join(ROOT, 'script', f'{tag}.{lang}.json')) else {}
+    _bed3 = _sc3.get('kind') == 'trailer' and _sc3.get('cut', 2) >= 3 and _sc3.get('bedFloor')
+    if _bed3:
+        n0 = int(0.003 * SR)   # the trailer's third cut sounds from its first frame (3 ms: no click); the lower ceiling below is its AAC headroom
+        mix[:, :n0] *= np.linspace(0, 1, n0)
+    else:
+        mix[:, :n0] *= np.linspace(0, 1, n0) ** 1.5
     scp = os.path.join(ROOT, 'script', f'{tag}.{lang}.json')
     SL = {l['id']: l for l in json.load(open(scp))['lines']} if os.path.exists(scp) else {}
     new_rules = ep >= 31
@@ -302,6 +414,10 @@ def main():
                 g[i1 - r:i1] = np.linspace(1e-3, 1, r)
                 mix = mix * g
         print(f'  ep{ep}: LRA {lra(mix):.1f} LU · Next {lufs(mix[:, :int(nx["start"] * SR)]) - lufs(mix[:, int(nx["start"] * SR):]) if nx else 0:.1f} dB under the body · silence before the turn {max(0, b - a) if ti else 0:.2f} s')
+    if _bed3 and placed:
+        mix, report['bed_floor'] = bed_floor(mix, pre, _stems3, voice, tl, SL, N, ceil, _bed3, os.path.join(ROOT, 'audio', tag, 'score-trailer.json'), mult)
+        report['line_gain_multiplier'] = mult
+        write_wav(os.path.join(ROOT, 'audio', tag, f'voice-stem.{lang}.wav'), voice * db(-8.0))   # the voice alone as laid, EQ and room on, 8 dB down so that the file cannot clip (for the click checks)
     out = os.path.join(ROOT, 'audio', tag, f'mix.{lang}.wav')
     write_wav(out, mix)
     if ep >= 41:

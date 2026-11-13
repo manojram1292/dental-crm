@@ -1,47 +1,51 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "demon2.s1.wav"
+  "demon.s2.wav"
  ],
  "spoken_as": "Bhima breaks a man-eating demon.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 1.909,
+   "t1": 1.992,
    "words": 5,
    "text": "Bhima breaks a man-eating demon."
   }
  ],
  "wordTimes": [
   [
-   0.02,
-   0.232
+   0.03,
+   0.32
   ],
   [
-   0.232,
-   0.472
+   0.32,
+   0.58
   ],
   [
-   0.472,
-   0.692
+   0.58,
+   0.8
   ],
   [
-   0.692,
-   0.912
+   0.8,
+   1.26
   ],
   [
-   1.232,
-   1.632
+   1.26,
+   1.68
   ]
  ],
  "measured": {
-  "f0": 107.1,
-  "st": 16.9,
-  "edb": 17.8,
-  "pause": 0.03,
-  "dur": 1.83
+  "f0": 119.0,
+  "st": 10.0,
+  "edb": 16.0,
+  "dur": 1.87,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.4,
+  "jitter": 2.15,
+  "tail_db": -65.1
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

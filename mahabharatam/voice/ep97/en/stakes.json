@@ -1,0 +1,67 @@
+{
+ "speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "stakes.s5.wav"
+ ],
+ "spoken_as": "A king stakes his kingdom, his brothers, his wife.",
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 3.368,
+   "words": 9,
+   "text": "A king stakes his kingdom, his brothers, his wife."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.1
+  ],
+  [
+   0.1,
+   0.32
+  ],
+  [
+   0.32,
+   0.92
+  ],
+  [
+   0.92,
+   1.04
+  ],
+  [
+   1.04,
+   1.655
+  ],
+  [
+   1.84,
+   1.92
+  ],
+  [
+   1.92,
+   2.538
+  ],
+  [
+   2.676,
+   2.74
+  ],
+  [
+   2.74,
+   3.0
+  ]
+ ],
+ "measured": {
+  "f0": 123.2,
+  "st": 11.3,
+  "edb": 19.4,
+  "dur": 3.14,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 9.1,
+  "jitter": 2.58,
+  "tail_db": -71.4
+ },
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

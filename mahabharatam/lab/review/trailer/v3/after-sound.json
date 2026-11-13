@@ -1,0 +1,214 @@
+{
+ "file": "mix.en.wav",
+ "seconds": 89.37,
+ "stops": [
+  [
+   36.0333,
+   36.7333
+  ],
+  [
+   63.8667,
+   64.5666
+  ]
+ ],
+ "holes": {
+  "floor_db": -26,
+  "windows": 1749,
+  "worst_window_db": -25.2,
+  "worst_window_at_s": 66.65,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 9.6,
+  "worst_drop_at_s": 84.2,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 10,
+  "drop_window_s": 0.3
+ },
+ "start": {
+  "first_100ms_db": -16.5,
+  "first_frame_33ms_db": -17.0,
+  "first_10ms_db": -18.7
+ },
+ "clipping": {
+  "samples_at_0.999": 0,
+  "peak_dbfs": -3.51
+ },
+ "recogniser": {
+  "heard": "Long ago, a prince swears away his throne and his line, a mother gives her firstborn to the river. A hundred brothers, five cousins, one throne, a palace, built to burn, beamer breaks a man -eating demon, a woman rises from a fire altar, Krishna lets the wheel fly, then the dice, a king does not end. Thirteen years of exile, Duryodhana will not give a needle point of earth. Two armies stand ready for war. Arjuna lowers his bow. He asks to see. Krishna shows him everything. I am time. Bhishma falls on a bed of arrows, a boy, alone against many. Hana's wheel, sunk sunken the earth, a mother of a hundred sons, curses Krishna, and at the end a king will not abandon his dog. It calls itself Itihasa, Itihasa, so indeed it was, every book, every vow, every war, from the first verse to the last, nothing added for effect. We are making this episode by episode, if you want it told this way, follow and support the series. Episode 1 is waiting.",
+  "gaps_over_0.35s_inside_a_sentence": [
+   {
+    "after": "line,",
+    "before": "a",
+    "at_s": 7.0,
+    "gap_s": 0.62
+   },
+   {
+    "after": "brothers,",
+    "before": "five",
+    "at_s": 11.22,
+    "gap_s": 0.6
+   },
+   {
+    "after": "cousins,",
+    "before": "one",
+    "at_s": 12.44,
+    "gap_s": 0.76
+   },
+   {
+    "after": "throne,",
+    "before": "a",
+    "at_s": 13.68,
+    "gap_s": 0.64
+   },
+   {
+    "after": "palace,",
+    "before": "built",
+    "at_s": 14.72,
+    "gap_s": 0.48
+   },
+   {
+    "after": "burn,",
+    "before": "beamer",
+    "at_s": 15.94,
+    "gap_s": 0.56
+   },
+   {
+    "after": "demon,",
+    "before": "a",
+    "at_s": 18.04,
+    "gap_s": 0.5
+   },
+   {
+    "after": "altar,",
+    "before": "Krishna",
+    "at_s": 20.24,
+    "gap_s": 0.76
+   },
+   {
+    "after": "fly,",
+    "before": "then",
+    "at_s": 22.1,
+    "gap_s": 0.76
+   },
+   {
+    "after": "dice,",
+    "before": "a",
+    "at_s": 23.58,
+    "gap_s": 6.4
+   },
+   {
+    "after": "exile,",
+    "before": "Duryodhana",
+    "at_s": 32.4,
+    "gap_s": 0.5
+   },
+   {
+    "after": "arrows,",
+    "before": "a",
+    "at_s": 50.64,
+    "gap_s": 0.52
+   },
+   {
+    "after": "wheel,",
+    "before": "sunk",
+    "at_s": 54.26,
+    "gap_s": 0.66
+   },
+   {
+    "after": "earth,",
+    "before": "a",
+    "at_s": 55.62,
+    "gap_s": 0.54
+   },
+   {
+    "after": "sons,",
+    "before": "curses",
+    "at_s": 57.74,
+    "gap_s": 0.54
+   },
+   {
+    "after": "Krishna,",
+    "before": "and",
+    "at_s": 59.12,
+    "gap_s": 0.9
+   },
+   {
+    "after": "Itihasa,",
+    "before": "Itihasa,",
+    "at_s": 66.68,
+    "gap_s": 0.7
+   },
+   {
+    "after": "was,",
+    "before": "every",
+    "at_s": 70.92,
+    "gap_s": 0.64
+   },
+   {
+    "after": "book,",
+    "before": "every",
+    "at_s": 72.06,
+    "gap_s": 0.52
+   },
+   {
+    "after": "vow,",
+    "before": "every",
+    "at_s": 73.06,
+    "gap_s": 0.56
+   },
+   {
+    "after": "last,",
+    "before": "nothing",
+    "at_s": 76.5,
+    "gap_s": 0.52
+   },
+   {
+    "after": "episode,",
+    "before": "if",
+    "at_s": 80.68,
+    "gap_s": 0.48
+   }
+  ],
+  "script_words": 194,
+  "misheard": [
+   {
+    "script": "first born",
+    "heard": "firstborn"
+   },
+   {
+    "script": "bhima",
+    "heard": "beamer"
+   },
+   {
+    "script": "stakes his kingdom his brothers his wife they pull at her cloth the cloth",
+    "heard": ""
+   },
+   {
+    "script": "karna's",
+    "heard": "hana's"
+   },
+   {
+    "script": "in",
+    "heard": "sunken"
+   },
+   {
+    "script": "iti ha asa",
+    "heard": "itihasa"
+   },
+   {
+    "script": "one",
+    "heard": "1"
+   }
+  ]
+ },
+ "voice_stem": {
+  "peak_dbfs": -5.84,
+  "samples_at_0.999": 0,
+  "boundaries": 56,
+  "ordinary_speech_step_99pct_db": -24.5,
+  "loudest_step_at_a_boundary_db": -76.5,
+  "boundaries_with_a_step_over_-40_db": [],
+  "boundaries_with_level_over_-30_db": []
+ }
+}

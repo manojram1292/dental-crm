@@ -1,15 +1,15 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "exile.s2.wav"
+  "exile.s5.wav"
  ],
  "spoken_as": "Thirteen years of exile.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 1.533,
+   "t1": 1.56,
    "words": 4,
    "text": "Thirteen years of exile."
   }
@@ -17,27 +17,31 @@
  "wordTimes": [
   [
    0.0,
-   0.234
+   0.3
   ],
   [
-   0.234,
-   0.554
+   0.3,
+   0.6
   ],
   [
-   0.554,
-   0.774
+   0.6,
+   0.928
   ],
   [
-   0.774,
-   1.074
+   0.995,
+   1.06
   ]
  ],
  "measured": {
-  "f0": 114.2,
-  "st": 14.5,
-  "edb": 19.0,
-  "pause": 0.03,
-  "dur": 1.45
+  "f0": 124.8,
+  "st": 10.6,
+  "edb": 19.9,
+  "dur": 1.4,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 9.3,
+  "jitter": 2.07,
+  "tail_db": -68.9
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

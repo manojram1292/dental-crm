@@ -1,15 +1,15 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "river.s1.wav"
+  "river.s7.wav"
  ],
  "spoken_as": "A mother gives her first-born to the river.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 2.604,
+   "t1": 2.709,
    "words": 8,
    "text": "A mother gives her first-born to the river."
   }
@@ -17,43 +17,47 @@
  "wordTimes": [
   [
    0.0,
-   0.085
+   0.1
   ],
   [
-   0.085,
-   0.31
+   0.1,
+   0.36
   ],
   [
-   0.31,
-   0.624
+   0.36,
+   0.62
   ],
   [
-   0.624,
-   0.871
+   0.62,
+   0.976
   ],
   [
-   0.871,
-   1.568
+   1.089,
+   1.333
   ],
   [
-   1.568,
-   1.95
+   1.478,
+   1.98
   ],
   [
-   1.95,
-   2.062
+   1.98,
+   2.08
   ],
   [
-   2.062,
-   2.31
+   2.08,
+   2.3
   ]
  ],
  "measured": {
-  "f0": 89.7,
-  "st": 16.8,
-  "edb": 19.6,
-  "pause": 0.14,
-  "dur": 2.5
+  "f0": 124.0,
+  "st": 8.5,
+  "edb": 17.6,
+  "dur": 2.49,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.3,
+  "jitter": 2.34,
+  "tail_db": -70.3
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

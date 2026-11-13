@@ -3019,6 +3019,8 @@ def main():
     trailer2 = _sc.get('kind') == 'trailer' and _sc.get('scoreStops')
     if trailer2:
         src_hash += '+' + hashlib.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'score_trailer.py'), 'rb').read()).hexdigest()[:12]
+        if _sc.get('cut', 2) >= 3:   # the third cut: its own cue sheet (tools/score_trailer3.py)
+            src_hash += '+' + hashlib.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'score_trailer3.py'), 'rb').read()).hexdigest()[:12]
     stamp = {'episode': ep, 'lang': lang, 'timeline': tl['signature'], 'duration': tl['duration'], 'score': src_hash}
     out_wav = os.path.join(ROOT, 'audio', tag, 'music.wav')
     side = os.path.join(ROOT, 'audio', tag, 'music.json')
@@ -3034,7 +3036,11 @@ def main():
         if trailer2:
             sys.modules.setdefault('score', sys.modules[__name__])   # score_trailer imports this module's instruments by name
             import score_trailer
-            stems, tlog, tmeta = score_trailer.build(tl, _sc)
+            if _sc.get('cut', 2) >= 3:
+                import score_trailer3
+                stems, tlog, tmeta = score_trailer3.build(tl, _sc)
+            else:
+                stems, tlog, tmeta = score_trailer.build(tl, _sc)
             FOLEY_LOG.extend(tlog)
             json.dump(tmeta, open(os.path.join(ROOT, 'audio', tag, 'score-trailer.json'), 'w'), indent=1)
         else:

@@ -1,81 +1,86 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "v1.s0.wav",
+  "v1.s1.wav",
   "v2.s2.wav",
-  "v3.s3.wav"
+  "v3.s9.wav"
  ],
- "spoken_as": "But first, Arjuna asks to see. Krishna shows him everything. \u201cI am Time.\u201d",
+ "spoken_as": "He asks to see. Krishna shows him everything. \u201cI am Time.\u201d",
  "chunks": [
   {
    "t0": 0,
-   "t1": 6.473,
-   "words": 13,
-   "text": "But first, Arjuna asks to see. Krishna shows him everything. \u201cI am Time.\u201d"
+   "t1": 5.123,
+   "words": 11,
+   "text": "He asks to see. Krishna shows him everything. \u201cI am Time.\u201d"
   }
  ],
  "wordTimes": [
   [
    0.0,
-   0.14
+   0.12
   ],
   [
-   0.14,
-   0.44
+   0.12,
+   0.42
   ],
   [
-   0.78,
-   1.1
+   0.42,
+   0.72
   ],
   [
-   1.1,
-   1.48
+   0.72,
+   0.94
   ],
   [
-   1.48,
-   1.74
+   1.62,
+   1.78
   ],
   [
-   1.74,
-   1.98
+   1.78,
+   2.26
   ],
   [
-   2.719,
-   2.845
+   2.26,
+   2.44
   ],
   [
-   2.845,
-   3.305
+   2.44,
+   2.76
   ],
   [
-   3.305,
-   3.465
+   4.12,
+   4.26
   ],
   [
-   3.465,
-   3.945
+   4.26,
+   4.38
   ],
   [
-   5.379,
-   5.633
-  ],
-  [
-   5.633,
-   5.733
-  ],
-  [
-   5.733,
-   6.133
+   4.38,
+   4.66
   ]
  ],
  "measured": {
-  "f0": 102.5,
-  "st": 18.1,
-  "edb": 19.5,
-  "pause": 1.13,
-  "dur": 6.39
+  "f0": 125.7,
+  "st": 11.4,
+  "edb": 17.9,
+  "dur": 5.01,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 9.7,
+  "jitter": 2.27,
+  "tail_db": -68.5
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened",
+ "joined_from": [
+  "v1",
+  "v2",
+  "v3"
+ ],
+ "silence_between_s": [
+  0.38,
+  0.9
+ ]
 }

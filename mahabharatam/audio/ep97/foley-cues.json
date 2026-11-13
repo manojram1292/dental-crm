@@ -2,811 +2,829 @@
  {
   "line": "title",
   "cue": "war drum",
-  "asked_s": 0.36,
-  "start_s": 0.36,
-  "onset_s": 0.36,
-  "peak_s": 0.377,
+  "asked_s": 0.0,
+  "start_s": 0.0,
+  "onset_s": 0.0,
+  "peak_s": 0.017,
   "peak_db": -1.4
  },
  {
   "line": "title",
   "cue": "war drum",
-  "asked_s": 1.4,
-  "start_s": 1.4,
-  "onset_s": 1.4,
-  "peak_s": 1.417,
+  "asked_s": 1.0,
+  "start_s": 1.0,
+  "onset_s": 1.0,
+  "peak_s": 1.017,
   "peak_db": -3.4
  },
  {
   "line": "title",
   "cue": "war drum",
-  "asked_s": 2.4,
-  "start_s": 2.4,
-  "onset_s": 2.4,
-  "peak_s": 2.417,
+  "asked_s": 2.0,
+  "start_s": 2.0,
+  "onset_s": 2.0,
+  "peak_s": 2.017,
   "peak_db": -1.4
  },
  {
   "line": "title",
   "cue": "war drum",
+  "asked_s": 3.0,
+  "start_s": 3.0,
+  "onset_s": 3.0,
+  "peak_s": 3.017,
+  "peak_db": -3.4
+ },
+ {
+  "line": "title",
+  "cue": "conch (first frame)",
+  "asked_s": 0.0,
+  "start_s": 0.0,
+  "onset_s": 0.0,
+  "peak_s": 0.722,
+  "peak_db": -20.3
+ },
+ {
+  "line": "vow",
+  "cue": "cut drum",
   "asked_s": 3.4,
   "start_s": 3.4,
   "onset_s": 3.4,
   "peak_s": 3.417,
-  "peak_db": -3.3
- },
- {
-  "line": "field",
-  "cue": "cut drum",
-  "asked_s": 4,
-  "start_s": 4,
-  "onset_s": 4.0,
-  "peak_s": 4.017,
-  "peak_db": -1.0
- },
- {
-  "line": "field",
-  "cue": "spine horn",
-  "asked_s": 4.02,
-  "start_s": 4.02,
-  "onset_s": 4.067,
-  "peak_s": 4.176,
-  "peak_db": -22.6
- },
- {
-  "line": "field",
-  "cue": "hooves",
-  "asked_s": 4.5,
-  "start_s": 4.5,
-  "onset_s": 4.503,
-  "peak_s": 4.733,
-  "peak_db": -13.8
+  "peak_db": -4.0
  },
  {
   "line": "vow",
   "cue": "cloth",
-  "asked_s": 7.913,
-  "start_s": 7.913,
-  "onset_s": 7.981,
-  "peak_s": 8.115,
-  "peak_db": -27.5
+  "asked_s": 3.48,
+  "start_s": 3.48,
+  "onset_s": 3.549,
+  "peak_s": 3.651,
+  "peak_db": -26.9
  },
  {
   "line": "river",
   "cue": "splash",
-  "asked_s": 11.9,
-  "start_s": 11.9,
-  "onset_s": 12.17,
-  "peak_s": 12.191,
-  "peak_db": -28.9
- },
- {
-  "line": "insA",
-  "cue": "spine horn",
-  "asked_s": 14.867,
-  "start_s": 14.867,
-  "onset_s": 14.915,
-  "peak_s": 15.019,
-  "peak_db": -22.7
- },
- {
-  "line": "insB",
-  "cue": "spine horn",
-  "asked_s": 22.533,
-  "start_s": 22.533,
-  "onset_s": 22.58,
-  "peak_s": 22.689,
-  "peak_db": -21.5
- },
- {
-  "line": "insC",
-  "cue": "spine horn",
-  "asked_s": 36.2,
-  "start_s": 36.2,
-  "onset_s": 36.247,
-  "peak_s": 36.361,
-  "peak_db": -20.8
+  "asked_s": 7.6,
+  "start_s": 7.6,
+  "onset_s": 7.629,
+  "peak_s": 7.838,
+  "peak_db": -28.2
  },
  {
   "line": "cousins",
   "cue": "cut drum",
-  "asked_s": 15.467,
-  "start_s": 15.467,
-  "onset_s": 15.467,
-  "peak_s": 15.483,
+  "asked_s": 10.5,
+  "start_s": 10.5,
+  "onset_s": 10.5,
+  "peak_s": 10.517,
   "peak_db": -6.0
  },
  {
   "line": "cousins",
   "cue": "staff",
-  "asked_s": 16.566,
-  "start_s": 16.566,
-  "onset_s": 16.566,
-  "peak_s": 16.571,
-  "peak_db": -15.9
+  "asked_s": 11.958,
+  "start_s": 11.958,
+  "onset_s": 11.958,
+  "peak_s": 11.963,
+  "peak_db": -16.0
  },
  {
   "line": "cousins",
   "cue": "staff",
-  "asked_s": 17.546,
-  "start_s": 17.546,
-  "onset_s": 17.546,
-  "peak_s": 17.55,
-  "peak_db": -15.8
+  "asked_s": 13.167,
+  "start_s": 13.167,
+  "onset_s": 13.167,
+  "peak_s": 13.172,
+  "peak_db": -15.9
  },
  {
   "line": "lac",
   "cue": "cut drum",
-  "asked_s": 18.233,
-  "start_s": 18.233,
-  "onset_s": 18.233,
-  "peak_s": 18.25,
+  "asked_s": 14.233,
+  "start_s": 14.233,
+  "onset_s": 14.233,
+  "peak_s": 14.25,
   "peak_db": -6.8
  },
  {
   "line": "lac",
   "cue": "flame",
-  "asked_s": 18.263,
-  "start_s": 18.263,
-  "onset_s": 18.323,
-  "peak_s": 19.619,
-  "peak_db": -21.3
+  "asked_s": 14.263,
+  "start_s": 14.263,
+  "onset_s": 14.328,
+  "peak_s": 14.835,
+  "peak_db": -21.9
  },
  {
   "line": "demon",
   "cue": "cut drum",
-  "asked_s": 20.5,
-  "start_s": 20.5,
-  "onset_s": 20.5,
-  "peak_s": 20.526,
-  "peak_db": -10.7
+  "asked_s": 16.4,
+  "start_s": 16.4,
+  "onset_s": 16.4,
+  "peak_s": 16.426,
+  "peak_db": -10.8
  },
  {
   "line": "demon",
   "cue": "growl",
-  "asked_s": 20.75,
-  "start_s": 20.75,
-  "onset_s": 20.897,
-  "peak_s": 21.314,
-  "peak_db": -13.5
+  "asked_s": 16.65,
+  "start_s": 16.65,
+  "onset_s": 16.805,
+  "peak_s": 17.206,
+  "peak_db": -13.3
  },
  {
   "line": "demon",
   "cue": "the blow",
-  "asked_s": 22.433,
-  "start_s": 22.433,
-  "onset_s": 22.433,
-  "peak_s": 22.45,
-  "peak_db": -1.0
+  "asked_s": 18.4,
+  "start_s": 18.4,
+  "onset_s": 18.4,
+  "peak_s": 18.417,
+  "peak_db": -1.1
  },
  {
   "line": "demon",
   "cue": "whoosh",
-  "asked_s": 22.073,
-  "start_s": 22.073,
-  "onset_s": 22.166,
-  "peak_s": 22.463,
-  "peak_db": -27.4
+  "asked_s": 18.04,
+  "start_s": 18.04,
+  "onset_s": 18.134,
+  "peak_s": 18.348,
+  "peak_db": -27.6
  },
  {
   "line": "altar",
   "cue": "flame",
-  "asked_s": 23.133,
-  "start_s": 22.933,
-  "onset_s": 22.977,
-  "peak_s": 23.968,
-  "peak_db": -21.3
+  "asked_s": 18.5,
+  "start_s": 18.3,
+  "onset_s": 18.355,
+  "peak_s": 18.562,
+  "peak_db": -22.9
  },
  {
   "line": "altar",
   "cue": "anklet",
-  "asked_s": 24.133,
-  "start_s": 24.133,
-  "onset_s": 24.133,
-  "peak_s": 26.658,
-  "peak_db": -31.0
+  "asked_s": 19.5,
+  "start_s": 19.5,
+  "onset_s": 19.5,
+  "peak_s": 24.545,
+  "peak_db": -30.8
  },
  {
   "line": "wheel",
   "cue": "cut drum",
-  "asked_s": 25.333,
-  "start_s": 25.333,
-  "onset_s": 25.333,
-  "peak_s": 25.35,
-  "peak_db": -6.8
+  "asked_s": 20.667,
+  "start_s": 20.667,
+  "onset_s": 20.667,
+  "peak_s": 20.683,
+  "peak_db": -6.7
  },
  {
   "line": "wheel",
   "cue": "whoosh",
-  "asked_s": 26.167,
-  "start_s": 25.867,
-  "onset_s": 25.979,
-  "peak_s": 26.155,
-  "peak_db": -22.9
+  "asked_s": 21.333,
+  "start_s": 21.033,
+  "onset_s": 21.122,
+  "peak_s": 21.421,
+  "peak_db": -23.7
  },
  {
   "line": "wheel",
   "cue": "thunder",
-  "asked_s": 26.387,
-  "start_s": 26.387,
-  "onset_s": 26.387,
-  "peak_s": 26.398,
-  "peak_db": -19.5
+  "asked_s": 21.553,
+  "start_s": 21.553,
+  "onset_s": 21.553,
+  "peak_s": 21.568,
+  "peak_db": -18.8
  },
  {
   "line": "dice1",
   "cue": "dice rattle",
-  "asked_s": 27.467,
-  "start_s": 27.267,
-  "onset_s": 27.274,
-  "peak_s": 27.552,
-  "peak_db": -21.0
+  "asked_s": 22.633,
+  "start_s": 22.433,
+  "onset_s": 22.444,
+  "peak_s": 22.893,
+  "peak_db": -20.8
  },
  {
   "line": "dice1",
   "cue": "cut drum",
-  "asked_s": 27.467,
-  "start_s": 27.467,
-  "onset_s": 27.467,
-  "peak_s": 27.484,
+  "asked_s": 22.633,
+  "start_s": 22.633,
+  "onset_s": 22.633,
+  "peak_s": 22.65,
   "peak_db": -4.6
  },
  {
-  "line": "dice2",
+  "line": "stakes",
   "cue": "dice strike",
-  "asked_s": 31.0,
-  "start_s": 31.0,
-  "onset_s": 31.0,
-  "peak_s": 31.017,
+  "asked_s": 25.967,
+  "start_s": 25.967,
+  "onset_s": 25.967,
+  "peak_s": 25.984,
   "peak_db": -1.4
  },
  {
-  "line": "dice2",
+  "line": "stakes",
   "cue": "dice clack",
-  "asked_s": 31.0,
-  "start_s": 30.988,
-  "onset_s": 30.988,
-  "peak_s": 30.994,
-  "peak_db": -13.1
+  "asked_s": 25.967,
+  "start_s": 25.955,
+  "onset_s": 25.955,
+  "peak_s": 25.96,
+  "peak_db": -13.4
  },
  {
-  "line": "dice3",
-  "cue": "cut drum",
-  "asked_s": 31.1,
-  "start_s": 31.1,
-  "onset_s": 31.1,
-  "peak_s": 31.126,
-  "peak_db": -12.4
+  "line": "stakes",
+  "cue": "cut drum (inside the sentence)",
+  "asked_s": 26.067,
+  "start_s": 26.067,
+  "onset_s": 26.067,
+  "peak_s": 26.093,
+  "peak_db": -12.3
  },
  {
-  "line": "dice3",
+  "line": "stakes",
   "cue": "sweep",
-  "asked_s": 31.993,
-  "start_s": 31.893,
-  "onset_s": 31.958,
-  "peak_s": 32.104,
-  "peak_db": -26.5
+  "asked_s": 26.969,
+  "start_s": 26.869,
+  "onset_s": 26.937,
+  "peak_s": 27.03,
+  "peak_db": -27.1
  },
  {
   "line": "cloth1",
   "cue": "cut drum",
-  "asked_s": 32.767,
-  "start_s": 32.767,
-  "onset_s": 32.767,
-  "peak_s": 32.784,
+  "asked_s": 27.733,
+  "start_s": 27.733,
+  "onset_s": 27.733,
+  "peak_s": 27.75,
   "peak_db": -4.7
  },
  {
   "line": "cloth1",
   "cue": "cloth",
-  "asked_s": 32.967,
-  "start_s": 32.967,
-  "onset_s": 33.032,
-  "peak_s": 33.129,
-  "peak_db": -22.6
+  "asked_s": 27.933,
+  "start_s": 27.933,
+  "onset_s": 27.996,
+  "peak_s": 28.125,
+  "peak_db": -22.9
  },
  {
   "line": "cloth1",
   "cue": "cloth",
-  "asked_s": 33.567,
-  "start_s": 33.567,
-  "onset_s": 33.638,
-  "peak_s": 33.754,
-  "peak_db": -21.9
+  "asked_s": 28.633,
+  "start_s": 28.633,
+  "onset_s": 28.698,
+  "peak_s": 28.797,
+  "peak_db": -22.3
  },
  {
   "line": "cloth2",
   "cue": "cut drum",
-  "asked_s": 34.467,
-  "start_s": 34.467,
-  "onset_s": 34.467,
-  "peak_s": 34.484,
-  "peak_db": -6.1
+  "asked_s": 29.3,
+  "start_s": 29.3,
+  "onset_s": 29.3,
+  "peak_s": 29.317,
+  "peak_db": -6.2
  },
  {
   "line": "cloth2",
   "cue": "cloth",
-  "asked_s": 34.967,
-  "start_s": 34.967,
-  "onset_s": 35.034,
-  "peak_s": 35.159,
-  "peak_db": -23.4
+  "asked_s": 29.8,
+  "start_s": 29.8,
+  "onset_s": 29.867,
+  "peak_s": 29.982,
+  "peak_db": -23.2
  },
  {
   "line": "exile",
   "cue": "cut drum",
-  "asked_s": 36.7,
-  "start_s": 36.7,
-  "onset_s": 36.7,
-  "peak_s": 36.717,
-  "peak_db": -6.9
+  "asked_s": 31.2,
+  "start_s": 31.2,
+  "onset_s": 31.2,
+  "peak_s": 31.217,
+  "peak_db": -6.7
  },
  {
   "line": "exile",
   "cue": "steps",
-  "asked_s": 36.75,
-  "start_s": 36.75,
-  "onset_s": 36.75,
-  "peak_s": 37.263,
-  "peak_db": -14.3
+  "asked_s": 31.25,
+  "start_s": 31.25,
+  "onset_s": 31.25,
+  "peak_s": 31.748,
+  "peak_db": -14.2
  },
  {
-  "line": "needle1",
+  "line": "needle",
   "cue": "cut drum",
-  "asked_s": 38.467,
-  "start_s": 38.467,
-  "onset_s": 38.467,
-  "peak_s": 38.484,
-  "peak_db": -3.4
+  "asked_s": 32.9,
+  "start_s": 32.9,
+  "onset_s": 32.9,
+  "peak_s": 32.917,
+  "peak_db": -3.5
  },
  {
-  "line": "needle1",
+  "line": "needle",
   "cue": "staff",
-  "asked_s": 38.767,
-  "start_s": 38.767,
-  "onset_s": 38.767,
-  "peak_s": 38.772,
+  "asked_s": 33.2,
+  "start_s": 33.2,
+  "onset_s": 33.2,
+  "peak_s": 33.205,
   "peak_db": -14.1
  },
  {
-  "line": "needle2",
-  "cue": "cut drum",
-  "asked_s": 39.867,
-  "start_s": 39.867,
-  "onset_s": 39.867,
-  "peak_s": 39.884,
+  "line": "needle",
+  "cue": "cut drum (the close-up)",
+  "asked_s": 34.233,
+  "start_s": 34.233,
+  "onset_s": 34.233,
+  "peak_s": 34.25,
   "peak_db": -1.4
  },
  {
   "line": "armies",
   "cue": "conch",
-  "asked_s": 42.1,
-  "start_s": 41.767,
-  "onset_s": 41.906,
-  "peak_s": 42.307,
-  "peak_db": -16.4
+  "asked_s": 37.067,
+  "start_s": 36.733,
+  "onset_s": 36.872,
+  "peak_s": 37.22,
+  "peak_db": -15.9
  },
  {
   "line": "armies",
   "cue": "cut drum",
-  "asked_s": 42.1,
-  "start_s": 42.1,
-  "onset_s": 42.1,
-  "peak_s": 42.117,
+  "asked_s": 37.067,
+  "start_s": 37.067,
+  "onset_s": 37.067,
+  "peak_s": 37.084,
   "peak_db": -0.3
+ },
+ {
+  "line": "armies",
+  "cue": "hooves",
+  "asked_s": 37.467,
+  "start_s": 37.467,
+  "onset_s": 37.469,
+  "peak_s": 37.7,
+  "peak_db": -13.7
+ },
+ {
+  "line": "bow",
+  "cue": "cut drum",
+  "asked_s": 39.567,
+  "start_s": 39.567,
+  "onset_s": 39.567,
+  "peak_s": 39.583,
+  "peak_db": -4.0
  },
  {
   "line": "bow",
   "cue": "bow falls",
-  "asked_s": 45.24,
-  "start_s": 45.24,
-  "onset_s": 45.24,
-  "peak_s": 45.266,
-  "peak_db": -8.3
- },
- {
-  "line": "arrows1",
-  "cue": "arrows",
-  "asked_s": 46,
-  "start_s": 45.7,
-  "onset_s": 45.791,
-  "peak_s": 46.037,
-  "peak_db": -20.5
- },
- {
-  "line": "arrows1",
-  "cue": "arrow flights",
-  "asked_s": 46,
-  "start_s": 45.8,
-  "onset_s": 45.837,
-  "peak_s": 46.095,
-  "peak_db": -21.3
- },
- {
-  "line": "arrows1",
-  "cue": "cut hit",
-  "asked_s": 46,
-  "start_s": 46,
-  "onset_s": 46.0,
-  "peak_s": 46.017,
-  "peak_db": -1.0
- },
- {
-  "line": "arrows2",
-  "cue": "cut hit",
-  "asked_s": 46.933,
-  "start_s": 46.933,
-  "onset_s": 46.933,
-  "peak_s": 46.95,
-  "peak_db": -4.7
- },
- {
-  "line": "boy1",
-  "cue": "cut hit",
-  "asked_s": 48.633,
-  "start_s": 48.633,
-  "onset_s": 48.633,
-  "peak_s": 48.65,
-  "peak_db": -1.1
- },
- {
-  "line": "boy2",
-  "cue": "cut hit",
-  "asked_s": 49.4,
-  "start_s": 49.4,
-  "onset_s": 49.4,
-  "peak_s": 49.417,
-  "peak_db": -4.7
- },
- {
-  "line": "mud1",
-  "cue": "cut hit",
-  "asked_s": 50.667,
-  "start_s": 50.667,
-  "onset_s": 50.667,
-  "peak_s": 50.684,
-  "peak_db": -1.0
- },
- {
-  "line": "mud2",
-  "cue": "cut hit",
-  "asked_s": 51.367,
-  "start_s": 51.367,
-  "onset_s": 51.367,
-  "peak_s": 51.384,
-  "peak_db": -4.6
- },
- {
-  "line": "raid",
-  "cue": "cut hit",
-  "asked_s": 52.7,
-  "start_s": 52.7,
-  "onset_s": 52.7,
-  "peak_s": 52.717,
-  "peak_db": -1.1
- },
- {
-  "line": "boy1",
-  "cue": "hooves",
-  "asked_s": 48.683,
-  "start_s": 48.683,
-  "onset_s": 48.686,
-  "peak_s": 48.916,
-  "peak_db": -6.9
- },
- {
-  "line": "mud2",
-  "cue": "creak",
-  "asked_s": 52.38,
-  "start_s": 52.1,
-  "onset_s": 52.155,
-  "peak_s": 52.369,
-  "peak_db": -20.5
- },
- {
-  "line": "mud2",
-  "cue": "the wheel drops",
-  "asked_s": 52.6,
-  "start_s": 52.6,
-  "onset_s": 52.6,
-  "peak_s": 52.617,
-  "peak_db": -0.2
- },
- {
-  "line": "raid",
-  "cue": "steps",
-  "asked_s": 52.75,
-  "start_s": 52.75,
-  "onset_s": 52.75,
-  "peak_s": 53.264,
-  "peak_db": -12.9
- },
- {
-  "line": "raid",
-  "cue": "blade",
-  "asked_s": 53.2,
-  "start_s": 53.2,
-  "onset_s": 53.251,
-  "peak_s": 53.356,
-  "peak_db": -25.0
- },
- {
-  "line": "curse",
-  "cue": "cut hit",
-  "asked_s": 54.633,
-  "start_s": 54.633,
-  "onset_s": 54.633,
-  "peak_s": 54.65,
-  "peak_db": 0.1
- },
- {
-  "line": "curse",
-  "cue": "cloth",
-  "asked_s": 55.995,
-  "start_s": 55.895,
-  "onset_s": 55.966,
-  "peak_s": 56.068,
-  "peak_db": -23.4
- },
- {
-  "line": "dog",
-  "cue": "steps",
-  "asked_s": 57.583,
-  "start_s": 57.583,
-  "onset_s": 57.583,
-  "peak_s": 58.116,
-  "peak_db": -17.4
+  "asked_s": 41.096,
+  "start_s": 41.096,
+  "onset_s": 41.096,
+  "peak_s": 41.122,
+  "peak_db": -8.2
  },
  {
   "line": "vish",
   "cue": "cut drum",
-  "asked_s": 61.733,
-  "start_s": 61.733,
-  "onset_s": 61.733,
-  "peak_s": 61.75,
+  "asked_s": 42.033,
+  "start_s": 42.033,
+  "onset_s": 42.033,
+  "peak_s": 42.05,
   "peak_db": -6.3
  },
  {
   "line": "vish",
   "cue": "breath",
-  "asked_s": 61.883,
-  "start_s": 61.883,
-  "onset_s": 61.933,
-  "peak_s": 62.099,
-  "peak_db": -30.3
+  "asked_s": 42.153,
+  "start_s": 42.153,
+  "onset_s": 42.206,
+  "peak_s": 42.438,
+  "peak_db": -29.9
  },
  {
   "line": "vish",
   "cue": "the light",
-  "asked_s": 63.602,
-  "start_s": 63.602,
-  "onset_s": 63.602,
-  "peak_s": 63.619,
+  "asked_s": 42.953,
+  "start_s": 42.953,
+  "onset_s": 42.953,
+  "peak_s": 42.97,
   "peak_db": 0.5
  },
  {
   "line": "vish",
   "cue": "thunder",
-  "asked_s": 63.602,
-  "start_s": 63.602,
-  "onset_s": 63.602,
-  "peak_s": 63.736,
-  "peak_db": -15.3
+  "asked_s": 42.953,
+  "start_s": 42.953,
+  "onset_s": 42.953,
+  "peak_s": 42.998,
+  "peak_db": -16.6
  },
  {
   "line": "vish",
   "cue": "drum",
-  "asked_s": 64.102,
-  "start_s": 64.102,
-  "onset_s": 64.102,
-  "peak_s": 64.119,
+  "asked_s": 43.453,
+  "start_s": 43.453,
+  "onset_s": 43.453,
+  "peak_s": 43.47,
+  "peak_db": -6.8
+ },
+ {
+  "line": "vish",
+  "cue": "drum",
+  "asked_s": 43.953,
+  "start_s": 43.953,
+  "onset_s": 43.953,
+  "peak_s": 43.97,
+  "peak_db": -1.9
+ },
+ {
+  "line": "vish",
+  "cue": "drum",
+  "asked_s": 44.453,
+  "start_s": 44.453,
+  "onset_s": 44.453,
+  "peak_s": 44.47,
+  "peak_db": -6.8
+ },
+ {
+  "line": "vish",
+  "cue": "drum",
+  "asked_s": 44.953,
+  "start_s": 44.953,
+  "onset_s": 44.953,
+  "peak_s": 44.97,
+  "peak_db": -2.0
+ },
+ {
+  "line": "vish",
+  "cue": "drum",
+  "asked_s": 45.453,
+  "start_s": 45.453,
+  "onset_s": 45.453,
+  "peak_s": 45.47,
+  "peak_db": -6.8
+ },
+ {
+  "line": "vish",
+  "cue": "drum",
+  "asked_s": 45.953,
+  "start_s": 45.953,
+  "onset_s": 45.953,
+  "peak_s": 45.97,
+  "peak_db": -2.0
+ },
+ {
+  "line": "vish",
+  "cue": "drum",
+  "asked_s": 46.453,
+  "start_s": 46.453,
+  "onset_s": 46.453,
+  "peak_s": 46.47,
   "peak_db": -6.7
  },
  {
   "line": "vish",
   "cue": "drum",
-  "asked_s": 64.602,
-  "start_s": 64.602,
-  "onset_s": 64.602,
-  "peak_s": 64.619,
+  "asked_s": 46.953,
+  "start_s": 46.953,
+  "onset_s": 46.953,
+  "peak_s": 46.97,
   "peak_db": -1.9
  },
  {
   "line": "vish",
   "cue": "drum",
-  "asked_s": 65.102,
-  "start_s": 65.102,
-  "onset_s": 65.102,
-  "peak_s": 65.119,
+  "asked_s": 47.453,
+  "start_s": 47.453,
+  "onset_s": 47.453,
+  "peak_s": 47.47,
+  "peak_db": -6.7
+ },
+ {
+  "line": "vish",
+  "cue": "drum",
+  "asked_s": 47.953,
+  "start_s": 47.953,
+  "onset_s": 47.953,
+  "peak_s": 47.97,
+  "peak_db": -2.0
+ },
+ {
+  "line": "vish",
+  "cue": "drum",
+  "asked_s": 48.453,
+  "start_s": 48.453,
+  "onset_s": 48.453,
+  "peak_s": 48.47,
   "peak_db": -6.8
  },
  {
-  "line": "vish",
-  "cue": "drum",
-  "asked_s": 65.602,
-  "start_s": 65.602,
-  "onset_s": 65.602,
-  "peak_s": 65.619,
-  "peak_db": -1.9
+  "line": "arrows",
+  "cue": "arrows",
+  "asked_s": 48.933,
+  "start_s": 48.633,
+  "onset_s": 48.739,
+  "peak_s": 48.98,
+  "peak_db": -20.0
  },
  {
-  "line": "vish",
-  "cue": "drum",
-  "asked_s": 66.102,
-  "start_s": 66.102,
-  "onset_s": 66.102,
-  "peak_s": 66.119,
-  "peak_db": -6.8
+  "line": "arrows",
+  "cue": "arrow flights",
+  "asked_s": 48.933,
+  "start_s": 48.733,
+  "onset_s": 48.77,
+  "peak_s": 48.853,
+  "peak_db": -21.3
  },
  {
-  "line": "vish",
-  "cue": "drum",
-  "asked_s": 66.602,
-  "start_s": 66.602,
-  "onset_s": 66.602,
-  "peak_s": 66.619,
-  "peak_db": -1.9
+  "line": "arrows",
+  "cue": "cut hit",
+  "asked_s": 48.933,
+  "start_s": 48.933,
+  "onset_s": 48.933,
+  "peak_s": 48.95,
+  "peak_db": -1.0
  },
  {
-  "line": "vish",
-  "cue": "drum",
-  "asked_s": 67.102,
-  "start_s": 67.102,
-  "onset_s": 67.102,
-  "peak_s": 67.119,
-  "peak_db": -6.8
+  "line": "boy",
+  "cue": "cut hit",
+  "asked_s": 51.2,
+  "start_s": 51.2,
+  "onset_s": 51.2,
+  "peak_s": 51.217,
+  "peak_db": -1.0
  },
  {
-  "line": "vish",
-  "cue": "drum",
-  "asked_s": 67.602,
-  "start_s": 67.602,
-  "onset_s": 67.602,
-  "peak_s": 67.619,
-  "peak_db": -1.9
+  "line": "mud",
+  "cue": "cut hit",
+  "asked_s": 53.6,
+  "start_s": 53.6,
+  "onset_s": 53.6,
+  "peak_s": 53.617,
+  "peak_db": -1.0
  },
  {
-  "line": "vish",
-  "cue": "drum",
-  "asked_s": 68.102,
-  "start_s": 68.102,
-  "onset_s": 68.102,
-  "peak_s": 68.119,
+  "line": "boy",
+  "cue": "hooves",
+  "asked_s": 51.25,
+  "start_s": 51.25,
+  "onset_s": 51.252,
+  "peak_s": 51.483,
   "peak_db": -6.9
  },
  {
-  "line": "word",
-  "cue": "staff",
-  "asked_s": 71.5,
-  "start_s": 71.5,
-  "onset_s": 71.5,
-  "peak_s": 71.505,
-  "peak_db": -15.3
+  "line": "mud",
+  "cue": "creak",
+  "asked_s": 55.647,
+  "start_s": 55.367,
+  "onset_s": 55.421,
+  "peak_s": 55.635,
+  "peak_db": -20.5
+ },
+ {
+  "line": "mud",
+  "cue": "the wheel drops",
+  "asked_s": 55.867,
+  "start_s": 55.867,
+  "onset_s": 55.867,
+  "peak_s": 55.884,
+  "peak_db": -0.2
+ },
+ {
+  "line": "curse",
+  "cue": "cut hit",
+  "asked_s": 55.967,
+  "start_s": 55.967,
+  "onset_s": 55.967,
+  "peak_s": 55.984,
+  "peak_db": 0.1
+ },
+ {
+  "line": "curse",
+  "cue": "cloth",
+  "asked_s": 57.875,
+  "start_s": 57.775,
+  "onset_s": 57.843,
+  "peak_s": 57.973,
+  "peak_db": -24.1
+ },
+ {
+  "line": "dog",
+  "cue": "steps",
+  "asked_s": 59.85,
+  "start_s": 59.85,
+  "onset_s": 59.85,
+  "peak_s": 60.348,
+  "peak_db": -17.1
  },
  {
   "line": "word",
   "cue": "staff",
-  "asked_s": 72.102,
-  "start_s": 72.102,
-  "onset_s": 72.102,
-  "peak_s": 72.107,
+  "asked_s": 67.426,
+  "start_s": 67.426,
+  "onset_s": 67.426,
+  "peak_s": 67.431,
+  "peak_db": -15.4
+ },
+ {
+  "line": "word",
+  "cue": "staff",
+  "asked_s": 68.272,
+  "start_s": 68.272,
+  "onset_s": 68.272,
+  "peak_s": 68.276,
   "peak_db": -15.7
  },
  {
   "line": "word",
   "cue": "staff",
-  "asked_s": 72.606,
-  "start_s": 72.606,
-  "onset_s": 72.606,
-  "peak_s": 72.61,
-  "peak_db": -13.1
+  "asked_s": 68.991,
+  "start_s": 68.991,
+  "onset_s": 68.991,
+  "peak_s": 68.995,
+  "peak_db": -12.8
  },
  {
   "line": "word",
   "cue": "bell",
-  "asked_s": 74.101,
-  "start_s": 74.101,
-  "onset_s": 74.101,
-  "peak_s": 74.107,
-  "peak_db": -11.9
+  "asked_s": 70.663,
+  "start_s": 70.663,
+  "onset_s": 70.663,
+  "peak_s": 70.683,
+  "peak_db": -12.1
  },
  {
   "line": "p1",
-  "cue": "cut drum",
-  "asked_s": 74.8,
-  "start_s": 74.8,
-  "onset_s": 74.8,
-  "peak_s": 74.817,
+  "cue": "drum on \"Every\"",
+  "asked_s": 71.433,
+  "start_s": 71.433,
+  "onset_s": 71.433,
+  "peak_s": 71.45,
   "peak_db": -4.1
  },
  {
   "line": "p1",
   "cue": "staff",
-  "asked_s": 74.82,
-  "start_s": 74.82,
-  "onset_s": 74.82,
-  "peak_s": 74.827,
-  "peak_db": -9.9
+  "asked_s": 71.453,
+  "start_s": 71.453,
+  "onset_s": 71.453,
+  "peak_s": 71.461,
+  "peak_db": -10.1
  },
  {
-  "line": "p2",
-  "cue": "cut drum",
-  "asked_s": 75.7,
-  "start_s": 75.7,
-  "onset_s": 75.7,
-  "peak_s": 75.717,
+  "line": "p1",
+  "cue": "drum on \"Every\"",
+  "asked_s": 72.58,
+  "start_s": 72.58,
+  "onset_s": 72.58,
+  "peak_s": 72.597,
   "peak_db": -2.5
  },
  {
-  "line": "p2",
+  "line": "p1",
   "cue": "staff",
-  "asked_s": 75.72,
-  "start_s": 75.72,
-  "onset_s": 75.72,
-  "peak_s": 75.725,
-  "peak_db": -10.6
+  "asked_s": 72.6,
+  "start_s": 72.6,
+  "onset_s": 72.6,
+  "peak_s": 72.607,
+  "peak_db": -10.7
  },
  {
-  "line": "p3",
-  "cue": "cut drum",
-  "asked_s": 76.533,
-  "start_s": 76.533,
-  "onset_s": 76.533,
-  "peak_s": 76.55,
-  "peak_db": -1.0
+  "line": "p1",
+  "cue": "drum on \"Every\"",
+  "asked_s": 73.612,
+  "start_s": 73.612,
+  "onset_s": 73.612,
+  "peak_s": 73.629,
+  "peak_db": -1.1
  },
  {
-  "line": "p3",
+  "line": "p1",
   "cue": "staff",
-  "asked_s": 76.553,
-  "start_s": 76.553,
-  "onset_s": 76.553,
-  "peak_s": 76.561,
-  "peak_db": -10.1
+  "asked_s": 73.632,
+  "start_s": 73.632,
+  "onset_s": 73.632,
+  "peak_s": 73.638,
+  "peak_db": -9.3
  },
  {
   "line": "first",
   "cue": "cut drum",
-  "asked_s": 77.367,
-  "start_s": 77.367,
-  "onset_s": 77.367,
-  "peak_s": 77.384,
-  "peak_db": -4.1
+  "asked_s": 74.633,
+  "start_s": 74.633,
+  "onset_s": 74.633,
+  "peak_s": 74.65,
+  "peak_db": -4.0
  },
  {
-  "line": "follow",
+  "line": "nothing",
   "cue": "cut drum",
-  "asked_s": 79.767,
-  "start_s": 79.767,
-  "onset_s": 79.767,
-  "peak_s": 79.783,
-  "peak_db": -6.0
+  "asked_s": 76.9,
+  "start_s": 76.9,
+  "onset_s": 76.9,
+  "peak_s": 76.917,
+  "peak_db": -6.1
  },
  {
-  "line": "follow",
-  "cue": "drum",
-  "asked_s": 81.564,
-  "start_s": 81.564,
-  "onset_s": 81.564,
-  "peak_s": 81.59,
-  "peak_db": -7.3
+  "line": "making",
+  "cue": "cut drum",
+  "asked_s": 78.667,
+  "start_s": 78.667,
+  "onset_s": 78.667,
+  "peak_s": 78.683,
+  "peak_db": -6.1
+ },
+ {
+  "line": "making",
+  "cue": "leaf",
+  "asked_s": 78.717,
+  "start_s": 78.717,
+  "onset_s": 78.784,
+  "peak_s": 78.917,
+  "peak_db": -30.6
+ },
+ {
+  "line": "making",
+  "cue": "leaf",
+  "asked_s": 79.017,
+  "start_s": 79.017,
+  "onset_s": 79.08,
+  "peak_s": 79.21,
+  "peak_db": -31.0
+ },
+ {
+  "line": "making",
+  "cue": "leaf",
+  "asked_s": 79.317,
+  "start_s": 79.317,
+  "onset_s": 79.383,
+  "peak_s": 79.491,
+  "peak_db": -31.2
+ },
+ {
+  "line": "making",
+  "cue": "leaf",
+  "asked_s": 79.617,
+  "start_s": 79.617,
+  "onset_s": 79.687,
+  "peak_s": 79.805,
+  "peak_db": -30.6
+ },
+ {
+  "line": "making",
+  "cue": "leaf",
+  "asked_s": 79.917,
+  "start_s": 79.917,
+  "onset_s": 79.983,
+  "peak_s": 80.101,
+  "peak_db": -31.9
+ },
+ {
+  "line": "making",
+  "cue": "leaf",
+  "asked_s": 80.217,
+  "start_s": 80.217,
+  "onset_s": 80.281,
+  "peak_s": 80.376,
+  "peak_db": -30.8
+ },
+ {
+  "line": "making",
+  "cue": "leaf",
+  "asked_s": 80.517,
+  "start_s": 80.517,
+  "onset_s": 80.584,
+  "peak_s": 80.695,
+  "peak_db": -30.7
+ },
+ {
+  "line": "support",
+  "cue": "cut drum",
+  "asked_s": 81.3,
+  "start_s": 81.3,
+  "onset_s": 81.3,
+  "peak_s": 81.317,
+  "peak_db": -5.3
  },
  {
   "line": "endcard",
   "cue": "the struck note (D)",
-  "asked_s": 82.5,
-  "start_s": 82.5,
-  "onset_s": 82.5,
-  "peak_s": 82.516,
-  "peak_db": -5.2
+  "asked_s": 84.667,
+  "start_s": 84.667,
+  "onset_s": 84.667,
+  "peak_s": 84.704,
+  "peak_db": -5.6
  },
  {
   "line": "endcard",
   "cue": "drum",
-  "asked_s": 82.502,
-  "start_s": 82.502,
-  "onset_s": 82.502,
-  "peak_s": 82.519,
+  "asked_s": 84.669,
+  "start_s": 84.669,
+  "onset_s": 84.669,
+  "peak_s": 84.685,
   "peak_db": -1.9
  }
 ]

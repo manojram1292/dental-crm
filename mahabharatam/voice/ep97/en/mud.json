@@ -1,51 +1,55 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: a Kokoro bm_lewis clip (synthetic; no real person)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "mud.s3.wav"
+  "mud.s4.wav"
  ],
  "spoken_as": "Karna's wheel, sunk in the earth.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 1.96,
+   "t1": 2.251,
    "words": 6,
    "text": "Karna's wheel, sunk in the earth."
   }
  ],
  "wordTimes": [
   [
-   0.0,
-   0.459
+   0.03,
+   0.44
   ],
   [
-   0.459,
-   0.659
+   0.44,
+   0.907
   ],
   [
-   0.659,
-   1.219
+   1.157,
+   1.3
   ],
   [
-   1.219,
-   1.499
+   1.3,
+   1.58
   ],
   [
-   1.499,
-   1.619
+   1.58,
+   1.68
   ],
   [
-   1.619,
-   1.779
+   1.68,
+   1.92
   ]
  ],
  "measured": {
-  "f0": 96.8,
-  "st": 11.9,
-  "edb": 19.2,
-  "pause": 0.18,
-  "dur": 1.88
+  "f0": 129.6,
+  "st": 11.8,
+  "edb": 15.1,
+  "dur": 2.03,
+  "jumps": 0.0,
+  "creak": 0.006,
+  "hnr": 12.6,
+  "jitter": 1.94,
+  "tail_db": -72.7
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

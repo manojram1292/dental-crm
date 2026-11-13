@@ -1,35 +1,55 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "armies.s2.wav"
+  "armies.s6.wav"
  ],
- "spoken_as": "Two armies.",
+ "spoken_as": "Two armies stand ready for war.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 1.087,
-   "words": 2,
-   "text": "Two armies."
+   "t1": 1.943,
+   "words": 6,
+   "text": "Two armies stand ready for war."
   }
  ],
  "wordTimes": [
   [
    0.0,
-   0.195
+   0.14
   ],
   [
-   0.195,
-   0.675
+   0.14,
+   0.48
+  ],
+  [
+   0.48,
+   0.8
+  ],
+  [
+   0.8,
+   1.16
+  ],
+  [
+   1.16,
+   1.4
+  ],
+  [
+   1.4,
+   1.68
   ]
  ],
  "measured": {
-  "f0": 109.9,
-  "st": 17.3,
-  "edb": 21.3,
-  "pause": 0.03,
-  "dur": 1.01
+  "f0": 121.2,
+  "st": 9.7,
+  "edb": 17.5,
+  "dur": 1.8,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.9,
+  "jitter": 2.64,
+  "tail_db": -69.8
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

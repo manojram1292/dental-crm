@@ -1,22 +1,29 @@
-/* THE FULL-EPIC TRAILER, SECOND CUT · "Mahabharatam: As Vyasa Told It" (script/trailer.en.json; pipeline number 97, never a
+/* THE FULL-EPIC TRAILER, THIRD CUT · "Mahabharatam: As Vyasa Told It" (script/trailer.en.json; pipeline number 97, never a
  * numbered episode). ONE SCENE PER SHOT: every script line is a shot, built to the plan in script/TRAILER-EDIT.md; every image
  * was read in the Critical Edition first (script/TRAILER-CHECK.md). Loads after ep41/_common (EP41), ep46/_common and
  * ep49/_common (EP49.boat). Figures: src/kit/characters/epic-cast.js.
  *
  * Rules of this cut:
+ *   · told once, in order: no picture and no phrase comes twice (the armies under the title, then the chariot between them at
+ *     the turn, are the one field, seen once from above and once on the ground);
+ *   · a sentence is one voice clip; where the picture cuts inside a sentence the script line carries "cutAt" and `multi`
+ *     changes picture on the frame before that word;
  *   · every camera move has a job (a push-in on a decision, a pull-back on a consequence, a cut three frames after an impact);
- *     no two neighbouring shots use the same move; nothing ever stands still (the gate fails a freeze over 0.3 s);
- *   · THE SPINE: the chariot between the armies (fieldWorld) in one blue-iron light: the opening, three wordless inserts, each
- *     closer, the turn, and the start of the universal form;
- *   · Krishna's lit face is withheld until the universal form: before it he is a dark shape, in profile or from behind;
- *   · captions are drawn here, not by kit/captions.js: one phrase at a time, at most two rows, cut with the shot (never after
- *     it), none on an insert; a plaque's box and letters arrive together.
+ *     nothing ever stands still (the gate fails a freeze over 0.3 s);
+ *   · Krishna is drawn in colour, his face in shadow or turned from us, until the universal form;
+ *   · captions are drawn here, not by kit/captions.js: one phrase at a time, at most two rows, cut with the shot; a plaque's
+ *     box and letters arrive together.
  */
 (function () {
   'use strict';
   const R = window.REEL, KIT = window.KIT, ST = KIT.stage, CAM = KIT.cam, ACT = KIT.act, TY = KIT.type, CH = KIT.characters, EP41 = window.EP41, EP49 = window.EP49;
   const { TAU, clamp, lerp, E, hash, PAL } = R;
   const W = R.W, H = R.H, GY = EP41.GY;
+  const SC = {}, scene = (d) => { SC[d.id] = d; R.scene(d); };
+  // One sentence, one voice clip, two pictures: the picture changes on the frame before word k of the line (script "cutAt": [k]).
+  const cutTimes = (env) => { const L = R.lines[env.index]; return (env.script.lines[env.index].cutAt || []).map((k) => Math.round((L.words[k].t0 - 0.07) * 30) / 30 - L.start); };
+  const multi = (id, ids, post) => scene({ id, draw(ctx, t, env) { const c = [0, ...cutTimes(env), env.dur]; let k = 0; while (k < ids.length - 1 && t >= c[k + 1] - 1e-6) k++;
+    const off = c[k]; SC[ids[k]].draw(ctx, t - off, { ...env, dur: c[k + 1] - c[k], speech: env.speech.map((x) => x - off), beats: (env.beats || []).map((x) => x - off) }); }, post });
   const fin = (ctx, T) => ST.finish(ctx, T, {});
   const lit = (p, from, x, front = 0.8, k = 1.15, o = {}) => ({ ...ST.light(p, { from, at: [x, GY], front, k }), fill: 0.3, ...o });
   const dark = (p, from, x, o = {}) => ({ ...ST.backlight(p, { from, at: [x, GY], front: 0.03, fill: 0.03, warm: o.warm || '#ffd070' }), ...o });   // a shape with a rim: the face is not lit
@@ -26,7 +33,7 @@
     if (q === 1) return CH[id].draw(g, { x, y, scale: s, facing, pose, light: L, expression: ex || { emo: 'calm' }, t: T, key: key || id });
     g.save(); g.scale(1 / q, 1 / q); CH[id].draw(g, { x: x * q, y: y * q, scale: s * q, facing, pose, light: L, expression: ex || { emo: 'calm' }, t: T, key: key || id }); g.restore(); };
   // a figure as a SHAPE: drawn aside, darkened to `a`, then laid in. Krishna before the universal form: no lit face.
-  const shape = (g, a, col, draw, noProbe) => { const b = R.buffer('tr-shape', W, H); b.clear(); const q = b.ctx, pr = R.probe;
+  const shape = (g, a, col, draw, noProbe, head) => { const b = R.buffer('tr-shape', W, H); b.clear(); const q = b.ctx, pr = R.probe;
     if (pr && pr.figures && !noProbe) {   // the gate's contrast probe reads the ground under a figure from the canvas it is drawn on: give it the picture, and the darkened colour
       const n0 = pr.figures.length, c = [parseInt(col.slice(1, 3), 16), parseInt(col.slice(3, 5), 16), parseInt(col.slice(5, 7), 16)];
       q.save(); q.setTransform(1, 0, 0, 1, 0, 0); q.drawImage(g.canvas, 0, 0); q.restore(); q.save(); q.setTransform(g.getTransform()); draw(q); q.restore(); R.resetCtx(q);
@@ -34,7 +41,11 @@
       b.clear(); }
     R.probe = null; q.save(); q.setTransform(g.getTransform()); draw(q); q.restore(); R.resetCtx(q); R.probe = pr;
     q.save(); q.setTransform(1, 0, 0, 1, 0, 0); q.globalCompositeOperation = 'source-atop'; q.globalAlpha = a; q.fillStyle = col; q.fillRect(0, 0, b.canvas.width, b.canvas.height); q.restore();
+    if (head) { const m = g.getTransform(), hx = m.a * head[0] + m.c * head[1] + m.e, hy = m.b * head[0] + m.d * head[1] + m.f, hr = head[2] * Math.hypot(m.a, m.b);   // the face in shadow: a soft dark over the head, fading at the shoulders
+      const sh = q.createRadialGradient(hx, hy, hr * 0.3, hx, hy, hr); sh.addColorStop(0, col); sh.addColorStop(0.55, col); sh.addColorStop(1, 'rgba(0,0,0,0)');
+      q.save(); q.setTransform(1, 0, 0, 1, 0, 0); q.globalCompositeOperation = 'source-atop'; q.globalAlpha = head[3] ?? 0.9; q.fillStyle = sh; q.fillRect(0, 0, b.canvas.width, b.canvas.height); q.restore(); }
     g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(b.canvas, 0, 0); g.restore(); };
+  const headOf = (x, y, s, k = 1) => [x, y - 985 * s, 300 * s * k];
   const beat = (env, i, d) => env.beats[i] ?? d;
   const bare = (pose) => ({ ...pose, bare: true });
   const ss = (a, b, x) => { const u = clamp((x - a) / (b - a)); return u * u * (3 - 2 * u); };
@@ -140,16 +151,14 @@
         if (bow > 0) { g.save(); g.translate(742, lerp(GY - 700, GY - 60, bow * bow)); g.rotate(1.25 * bow + 0.2); g.strokeStyle = '#1a1008'; g.lineWidth = 22; g.lineCap = 'round'; g.beginPath(); g.moveTo(30, -300); g.quadraticCurveTo(-120, 0, 30, 300); g.stroke(); g.strokeStyle = '#e7b54a'; g.lineWidth = 12; g.stroke(); g.restore(); }
         const ap = { w: { stand: 1 - sit, sit: 0.9 * sit, grieve: 0.55 * sit + 0.25 * bow * (1 - sit) }, bare: bow > 0 };
         fig('epicArjuna', g, T, AR[0], AR[1], AR[2], 'left', ap, lit(p, [560, 900], 640, 0.62, 1.2, { tint: ['#ffc8a0', 0.4] }), { emo: sit > 0.4 ? 'sorrow' : 'fear', gaze: [0.5, 0.2 + 0.5 * sit] }, 'fw-a');
-        if (!o.noKrishna) { const sx = Math.cos(Math.PI * E.inOutSine(turn));   // he turns on the spot: the shape narrows and opens the other way
-          g.save(); g.translate(KR[0], 0); g.scale(Math.max(0.08, Math.abs(sx)), 1); g.translate(-KR[0], 0);
-          shape(g, 0.86, '#080a1c', (q) => fig('epicKrishna', q, T, KR[0], KR[1], KR[2], sx > 0 ? 'left' : 'right', { w: { stand: 1 - 0.5 * turn, offer: 0.5 * turn } }, dark(p, [560, 1000], KR[0], { warm: '#ffc890' }), { emo: 'calm', gaze: [0.8, 0.1] }, 'fw-k')); g.restore(); }
+        if (!o.noKrishna) shape(g, 0.16, '#080a1c', (q) => fig('epicKrishna', q, T, KR[0], KR[1], KR[2], 'left', { w: { stand: 1 } }, lit(p, [560, 900], KR[0], 0.5, 1.0, { tint: ['#ffc8a0', 0.3] }), { emo: 'calm', gaze: [0.8, 0.1] }, 'fw-k'), false, headOf(KR[0], KR[1], KR[2]));
         chariot(g, 560, GY + 10, 1.0, -1, T, { flag: '#f0c020' }); } },
       { z: 1.3, haze: false, draw: (g) => ST.particles(g, T * 1.8, { kind: 'dust', count: 110, cam }) },
     ] });
   };
 
   // ── 0 · TITLE (no voice): from above the spears, down through the banners toward the red dawn; the name arrives large ──
-  R.scene({ id: 'title',
+  scene({ id: 'title',
     draw(ctx, t, env) {
       const T = env.T, S = env.strings, u = t / env.dur, cam = frame('crane', u, { z: 1.5, f: [540, 420] }, { z: 1.06, f: [540, 930] }, ev(E.outCubic)), mar = 130 * t;
       ST.shot(ctx, T, { pal: 'war-iron', cam, layers: [
@@ -175,18 +184,8 @@
     post: () => ({ bloom: 0.44, vignette: 0.5, paper: 0.3 }) });
 
   // ── 1 · FIELD, NOW (CE 6.23.21, 6.23.47, 6.24.9): down the banner to the one chariot between the armies ──
-  R.scene({ id: 'field',
-    draw(ctx, t, env) {
-      const T = env.T, u = t / env.dur, cam = frame('tilt', u, { z: 1.5, f: [560, 420], s: [540, 700] }, { z: 1.12, f: [570, 900], s: [540, 900] }, ev(E.outCubic));
-      fieldWorld(ctx, T, cam, { bow: 0.34 * ss(0.5, 1.0, u), turn: ss(0.55, 1.0, u) });
-      plq(ctx, env, t, 'Arjuna', 760, 330, env.dur * 0.45);
-      fin(ctx, T);
-    },
-    post: () => ({ bloom: 0.36, vignette: 0.5, paper: 0.3 }) });
 
   // ── INSERTS (wordless): the same chariot, each time closer. A: wide. B: the two figures. C: the hand on the bow. ──
-  R.scene({ id: 'insA', draw(ctx, t, env) { const T = env.T; fieldWorld(ctx, T, frame('push', t / env.dur, { z: 1.0, f: [560, 930] }, { z: 1.07, f: [560, 930] }, (x) => x), { bow: 0.36 + 0.03 * t, turn: 1 }); fin(ctx, T); }, post: () => ({ bloom: 0.36, vignette: 0.55, paper: 0.3 }) });
-  R.scene({ id: 'insB', draw(ctx, t, env) { const T = env.T; fieldWorld(ctx, T, frame('push', t / env.dur, { z: 1.9, f: [585, 700], s: [540, 800] }, { z: 2.08, f: [585, 700], s: [540, 800] }, (x) => x), { bow: 0.4 + 0.04 * t, turn: 1 }); fin(ctx, T); }, post: () => ({ bloom: 0.36, vignette: 0.55, paper: 0.3 }) });
   const handShot = (ctx, T, t, dur) => {   // the hand opening on the bow (6.23.47: visṛjya saśaraṃ cāpam)
     const u = t / dur, open = E.inOutSine(clamp(u * 1.15)), cam = frame('push', u, { z: 1.0, f: [540, 960] }, { z: 1.1, f: [560, 900] }, (x) => x), slip = 150 * open * open;
     ST.shot(ctx, T, { pal: 'war-iron', cam, layers: [
@@ -206,7 +205,6 @@
       { z: 1.4, haze: false, draw: (g) => ST.particles(g, T, { kind: 'dust', count: 40, cam }) },
     ] });
   };
-  R.scene({ id: 'insC', draw(ctx, t, env) { handShot(ctx, env.T, t, env.dur); fin(ctx, env.T); }, post: () => ({ bloom: 0.36, vignette: 0.55, paper: 0.3 }) });
 
   // ── 2 · VOW (CE 1.94.86–90): a slow push-in on the prince as the hand goes up; flowers begin to fall ──
   const vowWorld = (ctx, T, t, cam, b0, fall) => ST.shot(ctx, T, { pal: 'island-gold', cam, layers: [
@@ -219,7 +217,7 @@
     { z: 1.3, haze: false, draw: (g) => { ST.particles(g, T * 1.5, { kind: 'pollen', count: 50, cam }); ST.particles(g, T, { kind: 'petal', count: Math.round(80 * fall) + 2, cam }); } },
     { z: 1.9, haze: false, soft: 0.3, draw: (g, p) => ST.grass(g, p, { y: 1960, h: 300, T, count: 40 }) },
   ] });
-  R.scene({ id: 'vow', transition: { type: 'lamp', dur: 0.4, from: [500, 300], to: [420, 520] },
+  scene({ id: 'vow', transition: { type: 'lamp', dur: 0.4, from: [500, 300], to: [420, 520] },
     draw(ctx, t, env) {
       const T = env.T, b0 = env.speech[0] + 0.55 * (env.speech[1] - env.speech[0]), cam = frame('push', t / env.dur, { z: 1.0, f: [560, 880] }, { z: 1.85, f: [400, 640], s: [470, 760] }, (x) => x);
       vowWorld(ctx, T, t, cam, b0, clamp((t - b0) / 1.0));
@@ -229,7 +227,7 @@
     post: () => ({ bloom: 0.36, vignette: 0.42, paper: 0.3 }) });
 
   // ── 3 · RIVER (CE 1.104.10–15; 3.292.6–7): the basket, close; the pull-back, and the river takes it ──
-  R.scene({ id: 'river',
+  scene({ id: 'river',
     draw(ctx, t, env) {
       const T = env.T, u = t / env.dur, bx = lerp(560, 800, E.inOutSine(u)), by = 1150 + 8 * Math.sin(T * 1.7);
       const cam = frame('pull', u, { z: 2.2, f: [560, 1080], s: SPOT }, { z: 1.0, f: [540, 1000], s: [540, 1000] }, ev(E.inOutCubic));
@@ -256,7 +254,7 @@
     post: () => ({ bloom: 0.36, vignette: 0.4, paper: 0.3 }) });
 
   // ── 4 · COUSINS (CE 1.107.1): Duryodhana in the foreground; the focus goes to the five, then to the one seat ──
-  R.scene({ id: 'cousins',
+  scene({ id: 'cousins',
     draw(ctx, t, env) {
       const T = env.T, b1 = beat(env, 0, 1.2), b2 = beat(env, 1, 2.2), rk = E.inOutSine(clamp((t - b1 + 0.35) / 0.45)), back = E.inOutSine(clamp((t - b2 + 0.25) / 0.4));
       const cam = { ...CAM.rack(rk - back, { from: 1.0, to: 0.62, zoom: 1.0, soft: 0.9 }), zoom: lerp(1.08, 1.26, t / env.dur), px: lerp(-110, 120, t / env.dur) };
@@ -265,7 +263,7 @@
         { z: 0.3, draw: (g, p) => ST.pillars(g, p, { y: 1380, n: 5 }) },
         { z: 0.5, haze: false, draw: (g) => { KIT.glow(g, 600, 900, 520, '#fffbe0', 0.7 * (0.4 + 0.6 * back) * (0.9 + 0.1 * Math.sin(T * 5))); g.fillStyle = '#c8902a'; g.fillRect(520, 1010, 160, 250); g.fillRect(500, 900, 200, 120); g.fillStyle = '#ffe08a'; g.fillRect(490, 1000, 220, 20); g.fillStyle = '#8a2a14'; g.fillRect(530, 930, 140, 70); } },
         { z: 0.62, haze: false, draw: (g, p) => { g.fillStyle = '#0a1030'; g.fillRect(700, 640, 520, 720); g.fillStyle = '#c8902a'; g.fillRect(700, 630, 520, 16); g.strokeStyle = 'rgba(4,14,24,0.5)'; g.lineWidth = 6; for (let i = 0; i < 9; i++) { g.beginPath(); g.moveTo(720 + i * 58, 650); g.lineTo(716 + i * 58 + 5 * Math.sin(T * 1.4 + i), 1360); g.stroke(); }
-          const L = (x) => lit(p, [600, 500], x, 0.8, 1.15); const ids = ['epicYudhishthira', 'epicBhima', 'epicArjuna', 'nakula', 'sahadeva'], sc = [0.5, 0.56, 0.52, 0.5, 0.5];
+          const L = (x) => lit(p, [600, 500], x, 0.92, 1.3); const ids = ['epicYudhishthira', 'epicBhima', 'epicArjuna', 'nakula', 'sahadeva'], sc = [0.5, 0.56, 0.52, 0.5, 0.5];
           ids.forEach((id, i) => fig(id, g, T, 760 + i * 92, 1320 + (i % 2) * 14, sc[i], 'left', bare(ACT.pose(t, [[0, 'stand']], { prop: false })), L(760 + i * 92), { emo: 'calm', gaze: [0.8, 0] }, 'rv-' + i)); } },
         { z: 1, haze: false, draw: (g, p) => { g.fillStyle = '#4a3410'; g.fillRect(-900, GY + 20, 2880, 1200);
           fig('epicDuryodhana', g, T, 300, GY + 40, 0.96, 'right', ACT.pose(t, [[0, 'stand'], [b2 - 0.3, 'attend', { act: 0.5 }]]), lit(p, [900, 300], 300, 0.82, 1.2), { emo: ACT.emo(t, [[0, 'calm'], [b1, 'resolve']]), ...ACT.lead(t, [[0, [0.3, 0]], [b1 - 0.4, [0.9, 0]]]) }, 'rv-d'); } },
@@ -277,7 +275,7 @@
     post: () => ({ bloom: 0.28, vignette: 0.4, paper: 0.32 }) });
 
   // ── 5 · LAC (CE 1.132, 1.136): the lacquered house burns; down through the earth, six leave by a tunnel with one lamp ──
-  R.scene({ id: 'lac',
+  scene({ id: 'lac',
     draw(ctx, t, env) {
       const T = env.T, u = t / env.dur, cam = frame('tilt', u, { z: 1.12, f: [540, 520], s: [540, 960] }, { z: 1.12, f: [540, 1090], s: [540, 960] }, ev(E.inOutSine)), burn = E.outCubic(clamp(t / 0.4)), walk = 150 * t;
       ST.shot(ctx, T, { pal: 'wrath-crimson', cam, layers: [
@@ -302,7 +300,7 @@
     post: () => ({ bloom: 0.46, vignette: 0.5, paper: 0.3 }) });
 
   // ── 6 · DEMON (CE 1.139.1–4; 1.142.28–31): the rakshasa reaches; the blow lands; CUT three frames after the contact ──
-  R.scene({ id: 'demon',
+  scene({ id: 'demon',
     draw(ctx, t, env) {
       const T = env.T, hitT = env.dur - 0.1, u = t / env.dur, br = E.outCubic(clamp((t - hitT) / 0.1));
       const cam = shake({ ...CAM.orbit(u, { from: -1, to: 0.6, amp: 120, zoom: lerp(1.1, 1.32, u * u), turn: 0.02 }) }, T, 3 + 26 * br);
@@ -323,7 +321,7 @@
     post: () => ({ bloom: 0.3, vignette: 0.5, paper: 0.3 }) });
 
   // ── 7 · ALTAR (CE 1.155.41): Draupadi rises out of the middle of the fire-altar; the camera rises with her ──
-  R.scene({ id: 'altar', transition: { type: 'smoke', dur: 0.36, dir: -Math.PI / 2, color: '#3a1608' },
+  scene({ id: 'altar', transition: { type: 'smoke', dur: 0.36, dir: -Math.PI / 2, color: '#3a1608' },
     draw(ctx, t, env) {
       const T = env.T, up = E.outCubic(clamp(t / 1.5)), cam = frame('crane', t / env.dur, { z: 1.3, f: [540, 1250] }, { z: 1.1, f: [540, 900] }, ev(E.outCubic));
       EP41.hearth(ctx, T, cam, { fire: 1.25, fs: 1.9, key: 'tr-altar', figs: (g, p, fl) => {
@@ -339,7 +337,7 @@
 
   // ── 8 · WHEEL (CE 2.42.21–25): Krishna a dark shape lit only by the wheel; it leaves his hand and the camera goes with it;
   //        the fallen king's light comes back across the hall and enters him ──
-  R.scene({ id: 'wheel',
+  scene({ id: 'wheel',
     draw(ctx, t, env) {
       const T = env.T, th = Math.min(env.speech[1] - 0.25, env.dur - 1.5), fly = clamp((t - th) / 0.4), back = E.inOutSine(clamp((t - th - 0.55) / 0.8));
       const cam = frame('slide', clamp((t - th + 0.1) / 0.5) - 0.75 * ss(th + 0.5, th + 1.3, t), { z: 1.12, f: [470, 900] }, { z: 1.12, f: [760, 900] }, ev(E.inOutSine));
@@ -354,7 +352,7 @@
           const flash = Math.max(0, 1 - Math.abs(t - th - 0.45) / 0.18); if (flash > 0) { g.fillStyle = `rgba(255,236,190,${0.5 * flash})`; g.fillRect(-900, -900, 2880, 3720); }
           if (back > 0 && back < 1) { const lx = lerp(1380, KX + 10, back), ly = lerp(1150, GY - 560, back) - 240 * Math.sin(back * Math.PI); KIT.glow(g, lx, ly, 420, '#fff4d0', 0.9); KIT.glow(g, lx, ly, 150, '#ffffff', 1); g.fillStyle = '#ffffff'; g.beginPath(); g.arc(lx, ly, 34, 0, TAU); g.fill(); }
           KIT.glow(g, KX, GY - 520, 620 + 60 * Math.sin(T * 4), back >= 1 ? '#ffe6a0' : '#8aa4ff', back >= 1 ? 0.6 : 0.5);
-          shape(g, 0.84, '#04061c', (q) => fig('epicKrishna', q, T, KX, GY + 24, 0.94, 'right', ACT.pose(t, [[0, 'raise'], [th - 0.3, 'curse', { antic: 0.16, act: 0.14, settle: 0.4, an: 0.14, over: 0.12 }], [th + 0.8, 'stand', { act: 0.7 }]], { wind: 0.7 }), dark(p, [wp[0], wp[1]], KX, { warm: '#ffd070' }), { emo: 'calm', gaze: [0.9, 0] }, 'wh-k')); } },
+          shape(g, 0.18, '#04061c', (q) => fig('epicKrishna', q, T, KX, GY + 24, 0.94, 'right', ACT.pose(t, [[0, 'raise'], [th - 0.3, 'curse', { antic: 0.16, act: 0.14, settle: 0.4, an: 0.14, over: 0.12 }], [th + 0.8, 'stand', { act: 0.7 }]], { wind: 0.7 }), lit(p, [wp[0], wp[1]], KX, 0.6, 1.1, { tint: ['#ffd070', 0.3] }), { emo: 'calm', gaze: [0.9, 0] }, 'wh-k'), false, headOf(KX, GY + 24, 0.94)); } },
         { z: 1.4, haze: false, draw: (g) => ST.particles(g, T, { kind: 'ember', count: 50, cam }) },
       ] });
       plq(ctx, env, t, 'Krishna', 760, 640, 0.25);
@@ -375,7 +373,7 @@
       fig('epicShakuni', g, T, 860, GY + 30, 0.82, 'left', { w: { offer: 0.6 + 0.2 * rt, strike: 0.25 * (1 - rt), stand: 0.15 } }, lit(p, [880, 500], 860, 0.82, 1.2), { emo: 'joy', gaze: [0.7, 0.3] }, 'dc-s'); } },
     { z: 1.4, haze: false, draw: (g) => ST.particles(g, T, { kind: 'ember', count: 26, cam }) },
   ] });
-  R.scene({ id: 'dice1',
+  scene({ id: 'dice1',
     draw(ctx, t, env) { const T = env.T; diceHall(ctx, T, t, frame('push', t / env.dur, { z: 1.45, f: [300, 760], s: [470, 800] }, { z: 2.2, f: [245, 640], s: [470, 760] }, (x) => x), env); plq(ctx, env, t, 'Yudhishthira', 640, 300, 0.3); fin(ctx, T); },
     post: () => ({ bloom: 0.34, vignette: 0.52, paper: 0.32 }) });
   // the cloth from above (both dice2 and dice3): k = how far the hand has swept the stakes
@@ -392,11 +390,11 @@
   const crowns = (g, x, y) => { g.fillStyle = '#ffd860'; g.strokeStyle = '#7a4a10'; g.lineWidth = 4; for (let i = 0; i < 5; i++) { const cx = x + i * 92, cy = y + (i % 2) * 26; g.beginPath(); g.moveTo(cx - 38, cy); g.lineTo(cx - 38, cy - 54); g.lineTo(cx - 17, cy - 26); g.lineTo(cx, cy - 70); g.lineTo(cx + 17, cy - 26); g.lineTo(cx + 38, cy - 54); g.lineTo(cx + 38, cy); g.closePath(); g.fill(); g.stroke(); } };
   const city = (g, x, y) => { g.fillStyle = '#f4f8ff'; g.strokeStyle = '#8a8ea8'; g.lineWidth = 3; for (let i = 0; i < 5; i++) { const h = 90 + 50 * (i % 2); g.fillRect(x + i * 46, y - h, 40, h); g.strokeRect(x + i * 46, y - h, 40, h); g.beginPath(); g.moveTo(x + i * 46 - 4, y - h); g.lineTo(x + i * 46 + 20, y - h - 30); g.lineTo(x + i * 46 + 44, y - h); g.fill(); } };
   const veil = (g, x, y, T) => { g.fillStyle = '#ff5030'; g.strokeStyle = '#ffd860'; g.lineWidth = 6; g.beginPath(); for (let i = 0; i <= 20; i++) { const a = (i / 20) * TAU, r = 96 + 14 * Math.sin(a * 5 + T * 3); g.lineTo(x + Math.cos(a) * r * 1.3, y + Math.sin(a) * r * 0.8); } g.closePath(); g.fill(); g.stroke(); };
-  R.scene({ id: 'dice2',
+  scene({ id: 'dice2',
     draw(ctx, t, env) {
       const T = env.T, land = env.dur - 0.1, f = clamp(t / land), hit = clamp((t - land) / 0.1);
       const cam = shake(frame('tilt', t / env.dur, { z: 1.25, f: [540, 800], s: [540, 960] }, { z: 1.25, f: [540, 1000], s: [540, 960] }, ev(E.inQuad)), T, 22 * hit * (1 - hit) * 4);
-      clothTop(ctx, T, cam, { things: (g) => { city(g, 150, 520); crowns(g, 90, 1250);
+      clothTop(ctx, T, cam, { things: (g) => { city(g, 150, 520); crowns(g, 40, 1180);
         // the two dice fall toward us-and-down: large and blurred high above, small and sharp as they strike at the SPOT
         const s = lerp(3.4, 1, f * f), sp = (1 - f) * 14;
         g.fillStyle = `rgba(30,2,2,${0.5 * f})`; g.beginPath(); g.ellipse(SPOT[0], SPOT[1] + 14, 150 * lerp(2.2, 1, f), 60 * lerp(2.2, 1, f), 0, 0, TAU); g.fill();
@@ -406,21 +404,22 @@
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.34, vignette: 0.52, paper: 0.32 }) });
-  R.scene({ id: 'dice3',
+  scene({ id: 'dice3',
     draw(ctx, t, env) {
       const T = env.T, u = t / env.dur, b1 = beat(env, 0, env.dur * 0.5), s1 = E.inOutSine(clamp(t / Math.max(0.3, b1 - 0.05))), s2 = E.inOutSine(clamp((t - b1 + 0.05) / Math.max(0.3, env.dur - b1 - 0.1)));
       const cam = frame('slide', u, { z: 1.25, f: [380, 1040] }, { z: 1.25, f: [700, 1040] }, (x) => x);
       clothTop(ctx, T, cam, { things: (g) => {
         die(g, SPOT[0] - 74, SPOT[1] - 6, 1, 0.3, [[-24, -24], [24, 24], [0, 0]]); die(g, SPOT[0] + 84, SPOT[1] + 20, 1, -0.5, [[-26, -26], [26, 26], [-26, 26], [26, -26]]);
         city(g, 880 + 20 * Math.sin(T * 2), 520);
-        const cx = lerp(90, 700, s1), vx = lerp(-260, 800, s2); crowns(g, cx, 1250); veil(g, vx, 760, T);
+        const cx = lerp(40, 700, s1), vx = lerp(-260, 800, s2); crowns(g, cx, 1180); veil(g, vx, 760, T);
         // the hand that takes them: a teal sleeve and a fist, behind each stake in turn
-        const hx = s2 > 0.01 ? vx - 230 : cx - 150, hy = s2 > 0.01 ? 760 : 1230;
+        const hx = s2 > 0.01 ? vx - 230 : cx - 150, hy = s2 > 0.01 ? 760 : 1160;
         g.fillStyle = '#126a6a'; g.beginPath(); g.moveTo(hx - 900, hy - 120); g.lineTo(hx - 60, hy - 80); g.lineTo(hx - 60, hy + 80); g.lineTo(hx - 900, hy + 160); g.fill(); g.fillStyle = '#7a3aa0'; g.fillRect(hx - 100, hy - 84, 44, 168);
         g.fillStyle = '#b8845a'; g.beginPath(); g.ellipse(hx, hy, 86, 72, 0, 0, TAU); g.fill(); g.strokeStyle = '#6a4428'; g.lineWidth = 5; for (let i = 0; i < 3; i++) { g.beginPath(); g.moveTo(hx + 30, hy - 40 + i * 34); g.lineTo(hx + 80, hy - 34 + i * 34); g.stroke(); } } });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.34, vignette: 0.52, paper: 0.32 }) });
+  multi('stakes', ['dice2', 'dice3'], () => ({ bloom: 0.34, vignette: 0.52, paper: 0.32 }));
 
   // ── 10 · CLOTH (CE 2.61.40–41). cloth1: close, the cloth hauled across the frame. cloth2: the pull-back: the hall of kings
   //         around her, heads bowed; there is more cloth, and more. No cause is shown. ──
@@ -439,16 +438,16 @@
         fig('epicDraupadi', g, T, DX, GY + 26, 0.94, 'right', ACT.pose(t, [[0, 'shield'], [1.9, 'anjali', { act: 0.9 }]], { wind: 1.0 }), lit(p, [330, 300], DX, 0.92, 1.3), { emo: ACT.emo(t, [[0, 'fear'], [2.0, 'resolve']]), gaze: [0.2, -0.6] }, 'cl-d'); } },
       { z: 1.4, haze: false, draw: (g) => ST.particles(g, T * 2, { kind: 'dust', count: 70, cam }) },
     ] }); };
-  R.scene({ id: 'cloth1',
+  scene({ id: 'cloth1',
     draw(ctx, t, env) { const T = env.T, u = t / env.dur; clothHall(ctx, T, t, { ...CAM.orbit(u, { from: -0.2, to: 1, amp: 70, zoom: 1.5, turn: 0.014 }), py: -150 }, 0.1 * u, 1); fin(ctx, T); },
     post: () => ({ bloom: 0.3, vignette: 0.5, paper: 0.3 }) });
-  R.scene({ id: 'cloth2',
+  scene({ id: 'cloth2',
     draw(ctx, t, env) { const T = env.T, u = t / env.dur, d0 = R.lines[env.index - 1] ? R.lines[env.index - 1].end - R.lines[env.index - 1].start : 1.7;
       clothHall(ctx, T, t + d0, frame('pull', u, { z: 1.6, f: [400, 900], s: [540, 900] }, { z: 1.0, f: [540, 960] }, ev(E.outCubic)), 0.1 + 0.9 * u, 0); fin(ctx, T); },
     post: () => ({ bloom: 0.3, vignette: 0.5, paper: 0.3 }) });
 
   // ── 11 · EXILE (CE 2.67.9–10; 2.68.1 ajināny uttarīyāṇi): six walk away under great trees, deerskins on their shoulders ──
-  R.scene({ id: 'exile',
+  scene({ id: 'exile',
     draw(ctx, t, env) {
       const T = env.T, cam = frame('slide', t / env.dur, { z: 1.14, f: [420, 960] }, { z: 1.14, f: [640, 960] }, (x) => x), d = 110 * t;
       ST.shot(ctx, T, { pal: 'exile-forest', cam, layers: [
@@ -474,7 +473,7 @@
   // ── 12 · NEEDLE (CE 5.125.26). needle1: the court; the envoy a dark back in front; the focus goes to the king.
   //         needle2, THE CLOSE-UP: the push-in on his face; it goes on through the silence. ──
   const needleBg = [{ z: 0, haze: false, draw: (g) => { const gr = g.createLinearGradient(0, -400, 0, 1920); gr.addColorStop(0, '#0a0604'); gr.addColorStop(1, '#4a2212'); g.fillStyle = gr; g.fillRect(-900, -900, 2880, 3720); } }];
-  R.scene({ id: 'needle1',
+  scene({ id: 'needle1',
     draw(ctx, t, env) {
       const T = env.T, u = t / env.dur, cam = { ...CAM.rack(E.inOutSine(clamp(u * 1.6)), { from: 1.5, to: 0.8, zoom: 1.0, soft: 1 }), zoom: lerp(1.04, 1.24, u), px: lerp(70, -50, u) };
       ST.shot(ctx, T, { pal: 'dharma-copper', cam, layers: [
@@ -482,13 +481,13 @@
         { z: 0.3, draw: (g, p) => { ST.pillars(g, p, { y: 1500, n: 5 }); KIT.glow(g, 760, 760, 620, '#ffb070', 0.6 * KIT.flicker(T, 4)); } },
         { z: 0.8, haze: false, draw: (g, p) => { g.fillStyle = '#2a140a'; g.fillRect(-900, 1330, 2880, 1200); g.fillStyle = '#6a3414'; g.fillRect(560, 1090, 420, 250); g.fillStyle = '#c8902a'; g.fillRect(540, 1070, 460, 26); g.fillRect(560, 700, 30, 380); g.fillRect(950, 700, 30, 380); g.fillStyle = '#140a06'; g.fillRect(590, 716, 360, 356); g.fillStyle = '#c8902a'; g.fillRect(560, 700, 420, 18);   // the dark back of the seat: he is lit against it
           fig('epicDuryodhana', g, T, 770, 1300, 0.66, 'left', { w: { sit: 0.9, attend: 0.3 } }, lit(p, [760, 500], 770, 0.85, 1.2, { tint: ['#ffb070', 0.4] }), { emo: 'resolve', gaze: [0.9, 0] }, 'n1-d'); } },
-        { z: 1.5, haze: false, draw: (g, p) => shape(g, 0.9, '#0a0604', (q) => fig('epicKrishna', q, T, 150, 2250, 1.5, 'right', { w: { stand: 0.8, offer: 0.2 + 0.05 * Math.sin(T * 2) } }, dark(p, [760, 760], 150, { warm: '#ffb070' }), { emo: 'calm' }, 'n1-k'), true) },
+        { z: 1.5, haze: false, draw: (g, p) => shape(g, 0.3, '#0a0604', (q) => fig('epicKrishna', q, T, 150, 2250, 1.5, 'right', { w: { stand: 0.8, offer: 0.2 + 0.05 * Math.sin(T * 2) } }, lit(p, [760, 760], 150, 0.35, 0.9, { tint: ['#ffb070', 0.3] }), { emo: 'calm' }, 'n1-k'), true, headOf(150, 2250, 1.5, 1.15)) },
         { z: 1.7, haze: false, draw: (g) => ST.particles(g, T * 2, { kind: 'ember', count: 70, cam }) },
       ] });
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.3, vignette: 0.55, paper: 0.3 }) });
-  R.scene({ id: 'needle2',
+  scene({ id: 'needle2',
     draw(ctx, t, env) {
       const T = env.T, b0 = env.speech[1] - 0.5, cam = frame('push', t / env.dur, { z: 1.0, f: [520, 760], s: [540, 880] }, { z: 1.42, f: [500, 740], s: [540, 880] }, (x) => x);
       ST.shot(ctx, T, { pal: 'dharma-copper', cam, layers: [
@@ -501,15 +500,16 @@
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.3, vignette: 0.55, paper: 0.3 }) });
+  multi('needle', ['needle1', 'needle2'], () => ({ bloom: 0.3, vignette: 0.55, paper: 0.3 }));
 
   // ── 13 · ARMIES, THE TURN (CE 6.23.21): the conch, then the wide of the inserts, now held ──
-  R.scene({ id: 'armies',
+  scene({ id: 'armies',
     draw(ctx, t, env) { const T = env.T; fieldWorld(ctx, T, frame('crane', t / env.dur, { z: 1.5, f: [560, 500], s: [540, 760] }, { z: 1.0, f: [560, 940] }, ev(E.outCubic)), { bow: 0.42, turn: 1 }); fin(ctx, T); },
     post: () => ({ bloom: 0.38, vignette: 0.5, paper: 0.3 }) });
   // ── 14 · BOW (CE 6.23.47): the push-in on Arjuna as he sits and the bow leaves his hand ──
-  R.scene({ id: 'bow',
+  scene({ id: 'bow',
     draw(ctx, t, env) { const T = env.T, u = t / env.dur;
-      fieldWorld(ctx, T, frame('push', u, { z: 1.45, f: [640, 760], s: [540, 820] }, { z: 2.1, f: [690, 640], s: [540, 760] }, (x) => x), { bow: 0.42 + 0.58 * E.inQuad(clamp(u * 1.5)), sit: ss(0.2, 0.8, u), turn: 1 }); fin(ctx, T); },
+      fieldWorld(ctx, T, frame('push', u, { z: 1.45, f: [640, 760], s: [540, 820] }, { z: 2.1, f: [690, 640], s: [540, 760] }, (x) => x), { bow: 0.42 + 0.58 * E.inQuad(clamp(u * 1.5)), sit: ss(0.2, 0.8, u), turn: 1 }); plq(ctx, env, t, 'Arjuna', 800, 300, 0.3); fin(ctx, T); },
     post: () => ({ bloom: 0.36, vignette: 0.52, paper: 0.3 }) });
 
   // ── 15 · ARROWS (CE 6.114.81–85): from his face, back to the whole bed of arrows in the field at sunset ──
@@ -530,8 +530,8 @@
       ] }); };
   const prevDur = (env) => (R.lines[env.index - 1] ? R.lines[env.index - 1].end - R.lines[env.index - 1].start : 1);
   // arrows1: close, along his body toward the face, the arrows coming in. arrows2: the pull-back to the whole bed.
-  R.scene({ id: 'arrows1', draw(ctx, t, env) { const T = env.T; arrowsWorld(ctx, T, t, frame('slide', t / env.dur, { z: 2.3, f: [330, 960], s: [540, 900] }, { z: 2.3, f: [800, 960], s: [540, 900] }, (x) => x)); fin(ctx, T); }, post: () => ({ bloom: 0.38, vignette: 0.45, paper: 0.3 }) });
-  R.scene({ id: 'arrows2', draw(ctx, t, env) { const T = env.T; arrowsWorld(ctx, T, t + prevDur(env), frame('pull', t / env.dur, { z: 1.9, f: [800, 960], s: [540, 900] }, { z: 1.03, f: [540, 960] }, ev(E.outCubic))); fin(ctx, T); }, post: () => ({ bloom: 0.38, vignette: 0.45, paper: 0.3 }) });
+  // from his face, the arrows coming in, back to the whole bed
+  scene({ id: 'arrows', draw(ctx, t, env) { const T = env.T, u = t / env.dur; arrowsWorld(ctx, T, t + 0.3, frame('pull', u, { z: 2.3, f: [700, 960], s: [540, 900] }, { z: 1.03, f: [540, 960] }, ev(E.inOutSine))); fin(ctx, T); }, post: () => ({ bloom: 0.38, vignette: 0.45, paper: 0.3 }) });
 
   // ── 16 · BOY (CE 7.33.12; 7.48.13 eko bahubhiḥ): alone inside the wheel formation; the ring closes. The blow is not shown. ──
   const boyWorld = (ctx, T, cam, close) => {
@@ -547,8 +547,7 @@
         { z: 1.3, haze: false, draw: (g) => ST.particles(g, T, { kind: 'dust', count: 70, cam }) },
       ] }); };
   // boy1: close on him. boy2: wide, the ring closing.
-  R.scene({ id: 'boy1', draw(ctx, t, env) { const T = env.T; boyWorld(ctx, T, shake(frame('push', t / env.dur, { z: 1.9, f: [540, 620], s: [540, 760] }, { z: 2.25, f: [540, 600], s: [540, 760] }, (x) => x), T, 3), 0); fin(ctx, T); }, post: () => ({ bloom: 0.3, vignette: 0.55, paper: 0.3 }) });
-  R.scene({ id: 'boy2', draw(ctx, t, env) { const T = env.T, u = t / env.dur; boyWorld(ctx, T, shake({ ...CAM.orbit(u, { from: -1, to: 1, amp: 150, zoom: 1.12, turn: 0.035 }) }, T, 4), E.inQuad(0.15 + 0.85 * u)); fin(ctx, T); }, post: () => ({ bloom: 0.3, vignette: 0.55, paper: 0.3 }) });
+  scene({ id: 'boy', draw(ctx, t, env) { const T = env.T, u = t / env.dur; boyWorld(ctx, T, shake({ ...CAM.orbit(u, { from: -1, to: 1, amp: 150, zoom: lerp(1.55, 1.1, E.outCubic(u)), turn: 0.035 }) }, T, 4), E.inQuad(0.1 + 0.9 * u)); fin(ctx, T); }, post: () => ({ bloom: 0.3, vignette: 0.55, paper: 0.3 }) });
 
   // ── 17 · MUD (CE 8.66.60–65; 8.67.24): the wheel drops into the earth; CUT three frames after it stops. The red sun behind. ──
   const mudWorld = (ctx, T, cam, u, d, hit) => { const sunY = lerp(330, 520, u), sink = 30 * u + 120 * d;
@@ -558,21 +557,23 @@
         { z: 0.2, draw: (g, p) => ST.hills(g, p, { y: 860, h: 200, seed: 5, color: '#5a2a18' }) },
         { z: 1, haze: false, draw: (g, p) => { g.translate(0, -300); ST.ground(g, p, { y: 1170, color: '#4a2410', color2: '#140804' });
           g.save(); g.translate(700, 1420 + sink); g.rotate(-0.07 - 0.1 * d); chariot(g, 0, 0, 1.08, -1, T, { body: '#6a2a14', flag: '#f0b020', roll: 0.6 * u }); g.restore();
-          g.fillStyle = '#1c0c04'; g.fillRect(-900, 1330, 2880, 1200); g.fillStyle = '#2c1408'; g.beginPath(); g.ellipse(700, 1335, 330, 40, 0, Math.PI, 0); g.fill();
+          { const mg = g.createLinearGradient(0, 1330, 0, 2300); mg.addColorStop(0, '#4a200c'); mg.addColorStop(0.35, '#2c1206'); mg.addColorStop(1, '#160804'); g.fillStyle = mg; g.fillRect(-900, 1330, 2880, 1400);
+            for (let i = 0; i < 9; i++) { const yy = 1380 + i * i * 9 + i * 34, sw = 3 + i * 1.2; g.strokeStyle = `rgba(255,150,70,${0.34 - i * 0.02})`; g.lineWidth = sw; g.beginPath(); g.moveTo(-900, yy + 20); g.bezierCurveTo(100, yy - 30 - 4 * i, 900, yy + 40 + 5 * i, 1980, yy - 10); g.stroke(); g.strokeStyle = 'rgba(10,4,2,0.6)'; g.lineWidth = sw * 2.2; g.beginPath(); g.moveTo(-900, yy + 20 + sw * 1.6); g.bezierCurveTo(100, yy - 30 - 4 * i + sw * 1.6, 900, yy + 40 + 5 * i + sw * 1.6, 1980, yy - 10 + sw * 1.6); g.stroke(); }
+            for (let i = 0; i < 26; i++) { const x = -300 + 1700 * hash(i, 71), yy = 1400 + 760 * hash(i, 72) * hash(i, 72), r = 10 + 26 * hash(i, 73); g.fillStyle = '#1a0a04'; g.beginPath(); g.ellipse(x, yy, r * 1.5, r * 0.7, 0, 0, TAU); g.fill(); g.strokeStyle = 'rgba(255,160,80,0.5)'; g.lineWidth = 3; g.beginPath(); g.ellipse(x, yy, r * 1.5, r * 0.7, 0, Math.PI * 1.1, Math.PI * 1.9); g.stroke(); } }
+          g.fillStyle = '#2c1408'; g.beginPath(); g.ellipse(700, 1335, 330, 40, 0, Math.PI, 0); g.fill();
           if (hit > 0) for (let i = 0; i < 9; i++) { const a = -Math.PI * (0.1 + 0.8 * hash(i, 2)), r = 260 * hit; g.fillStyle = `rgba(90,50,24,${0.9 * (1 - hit)})`; g.beginPath(); g.arc(700 + Math.cos(a) * r * 1.4, 1330 + Math.sin(a) * r, 30 + 30 * hash(i, 3), 0, TAU); g.fill(); }
           fig('epicKarna', g, T, 300, 1320, 0.9, 'right', { w: { kneel: 0.7, reach: 0.7 + 0.2 * Math.sin(T * 8) }, wind: 0.4 }, { ...ST.backlight(p, { from: [560, sunY], at: [320, 1100], front: 0.04, fill: 0.02, warm: '#ffb060' }), bounce: ['#3a2a60', 0.15] }, { emo: 'wrath', gaze: [0.8, 0.5] }, 'md-k'); } },
         { z: 1.3, haze: false, draw: (g) => ST.particles(g, T, { kind: 'dust', count: 50, cam }) },
       ] });
       ctx.restore(); };
   // mud1: Karna heaving, the focus coming to him. mud2: down to the wheel; it drops; the hub is at the SPOT when it strikes (the basket, the dice).
-  R.scene({ id: 'mud1', draw(ctx, t, env) { const T = env.T, u = t / env.dur; mudWorld(ctx, T, { ...frame('rack', u, { z: 1.55, f: [360, 720], s: [540, 800] }, { z: 1.7, f: [380, 740], s: [540, 800] }, (x) => x), focus: lerp(0.5, 1, clamp(u * 2.5)), soft: 0.8 }, 0.3 * u, 0, 0); fin(ctx, T); }, post: () => ({ bloom: 0.42, vignette: 0.5, paper: 0.3 }) });
-  R.scene({ id: 'mud2',
+  scene({ id: 'mud',
     draw(ctx, t, env) { const T = env.T, u = t / env.dur, dropT = env.dur - 0.1, d = E.inQuad(clamp((t - (dropT - 0.22)) / 0.22)), hit = clamp((t - dropT) / 0.1);
-      mudWorld(ctx, T, shake(frame('tilt', u, { z: 1.25, f: [640, 800], s: [540, 800] }, { z: 1.25, f: [700, 1086], s: SPOT }, ev(E.inOutSine)), T, 26 * hit * (1 - hit) * 4), 0.3 + 0.7 * u, d, hit); fin(ctx, T); },
+      mudWorld(ctx, T, shake(frame('tilt', u, { z: 1.6, f: [380, 740], s: [540, 800] }, { z: 1.25, f: [700, 1086], s: SPOT }, ev(E.inOutSine)), T, 26 * hit * (1 - hit) * 4), u, d, hit); fin(ctx, T); },
     post: () => ({ bloom: 0.42, vignette: 0.5, paper: 0.3 }) });
 
   // ── 18 · RAID (CE 10.8.9–11): night; the sleeping camp; one man with a blade goes in, left to right, not by the gate ──
-  R.scene({ id: 'raid',
+  scene({ id: 'raid',
     draw(ctx, t, env) {
       const T = env.T, u = t / env.dur, cam = frame('slide', u, { z: 1.14, f: [690, 960] }, { z: 1.14, f: [390, 960] }, (x) => x), x = lerp(1180, 560, u);
       const tent = (g, tx, ty, s, lamp) => { g.fillStyle = '#0a2630'; g.beginPath(); g.moveTo(tx - 230 * s, ty); g.lineTo(tx, ty - 330 * s); g.lineTo(tx + 230 * s, ty); g.fill(); g.strokeStyle = 'rgba(184,224,232,0.5)'; g.lineWidth = 3; g.beginPath(); g.moveTo(tx - 230 * s, ty); g.lineTo(tx, ty - 330 * s); g.lineTo(tx + 230 * s, ty); g.stroke(); g.fillStyle = '#041016'; g.beginPath(); g.moveTo(tx - 50 * s, ty); g.lineTo(tx, ty - 170 * s); g.lineTo(tx + 50 * s, ty); g.fill(); if (lamp) { KIT.glow(g, tx, ty - 60 * s, 160 * s, '#ffc878', 0.5 * KIT.flicker(T, tx)); } g.fillStyle = '#1a3a44'; g.fillRect(tx - 3, ty - 420 * s, 6, 100 * s); g.fillStyle = '#c8401a'; g.beginPath(); g.moveTo(tx, ty - 420 * s); g.lineTo(tx + 60 * s, ty - 400 * s + 6 * Math.sin(T * 5 + tx)); g.lineTo(tx, ty - 380 * s); g.fill(); };
@@ -596,16 +597,17 @@
     post: () => ({ bloom: 0.34, vignette: 0.55, paper: 0.3 }) });
 
   // ── 19 · CURSE (CE 11.25.36–42): Gandhari, blindfolded, her hand rising toward a dark figure; a field of fires ──
-  R.scene({ id: 'curse',
+  scene({ id: 'curse',
     draw(ctx, t, env) {
-      const T = env.T, b0 = env.speech[0] + 0.6 * (env.speech[1] - env.speech[0]), cam = frame('push', t / env.dur, { z: 1.0, f: [560, 920] }, { z: 1.42, f: [450, 700], s: [520, 800] }, (x) => x);
+      const T = env.T, b0 = env.speech[0] + 0.6 * (env.speech[1] - env.speech[0]), cam = frame('push', t / env.dur, { z: 1.0, f: [560, 920] }, { z: 1.36, f: [610, 730], s: [540, 800] }, (x) => x);
       ST.shot(ctx, T, { pal: 'ash-grey', cam, layers: [
         { z: 0, draw: (g, p) => { ST.sky(g, p, { hz: 1000 }); KIT.glow(g, 540, 1000, 900, '#ff7a3a', 0.3); } },
         { z: 0.2, draw: (g, p) => ST.cloudBank(g, p, T, { y: 380, count: 8, speed: 22, color: '#5a5650', alpha: 0.9, size: 1.8 }) },
         { z: 0.6, haze: false, draw: (g) => { g.fillStyle = '#2a2622'; g.fillRect(-900, 1000, 2880, 1500); fires(g, T, 1000, 26); } },
         { z: 1, haze: false, draw: (g, p) => {
-          KIT.glow(g, 850, GY - 520, 420, '#ff9a4a', 0.4);
-          shape(g, 0.86, '#0c0806', (q) => fig('epicKrishna', q, T, 850, GY + 26, 0.88, 'left', ACT.pose(t, [[0, 'stand'], [b0, 'anjali', { act: 0.7 }]]), dark(p, [540, 1000], 850, { warm: '#ff9a4a' }), { emo: 'calm', gaze: [0.8, 0.3] }, 'cu-k'));
+          // a column of dark smoke behind him: in colour now, he has to stand out from the grey sky
+          { const sm = g.createRadialGradient(850, GY - 480, 60, 850, GY - 480, 640); sm.addColorStop(0, 'rgba(14,12,12,1)'); sm.addColorStop(0.7, 'rgba(20,18,18,0.92)'); sm.addColorStop(1, 'rgba(30,26,26,0)'); g.fillStyle = sm; g.save(); g.translate(850, GY - 480); g.scale(0.8, 1.3); g.translate(-850, -(GY - 480)); g.fillRect(-200, -900, 2100, 2800); g.restore(); }
+          shape(g, 0.2, '#0c0806', (q) => fig('epicKrishna', q, T, 850, GY + 26, 0.88, 'left', ACT.pose(t, [[0, 'stand'], [b0, 'anjali', { act: 0.7 }]]), lit(p, [540, 1000], 850, 0.75, 1.25, { tint: ['#ff9a4a', 0.2] }), { emo: 'calm', gaze: [0.8, 0.3] }, 'cu-k'), false, headOf(850, GY + 26, 0.88));
           fig('epicGandhari', g, T, 270, GY + 26, 0.9, 'right', ACT.pose(t, [[0, 'grieve'], [b0 - 0.65, 'curse', { antic: 0.22, act: 0.16, settle: 0.5 }]], { wind: 0.5 }), lit(p, [540, 300], 270, 0.9, 1.25), { emo: ACT.emo(t, [[0, 'sorrow'], [b0 - 0.5, 'wrath']]), gaze: [0.8, 0] }, 'cu-g'); } },
         { z: 1.3, haze: false, draw: (g) => ST.particles(g, T * 1.8, { kind: 'ember', count: 90, cam }) },
         { z: 1.6, haze: false, draw: (g) => ST.mist(g, T * 4, { y: 1500, h: 400, alpha: 0.4 }) },
@@ -623,7 +625,7 @@
     g.fillStyle = '#7a5a3a'; g.save(); g.translate(-118, -140); g.rotate(-0.9 + 0.55 * Math.sin(T * 11) * (0.25 + 0.75 * wag)); g.fillRect(-84, -11, 90, 22); g.restore();
     g.fillStyle = '#e8d8c0'; g.beginPath(); g.ellipse(20, -98, 84, 26, 0, 0, Math.PI); g.fill();
     g.restore(); };
-  R.scene({ id: 'dog',
+  scene({ id: 'dog',
     draw(ctx, t, env) {
       const T = env.T, u = t / env.dur, b0 = env.dur * 0.42, cam = frame('crane', u, { z: 1.62, f: [500, 1120] }, { z: 1.0, f: [560, 880] }, (x) => x);
       const go = E.outCubic(clamp(t / (b0 + 0.2))), kx = lerp(480, 700, go), turned = t > b0 + 0.25, stop = clamp((t - b0) / 0.4);
@@ -690,83 +692,91 @@
     for (let i = 8; i >= 0; i--) for (const sd of [-1, 1]) { const a = lerp(-1.42, 0.62, i / 8), ang = sd > 0 ? a : Math.PI - a; vArm(g, 540 + sd * 215, 850 + i * 5, ang, 400 + 45 * ((i * 3) % 4), T, i + (sd > 0 ? 0 : 9), sd > 0 ? WHAT[i] : WHAT[(i + 4) % 9]); }
     // the faces (10, 16, 23): three rows going out of the frame, the great face in the middle
     const row = (y, s, xs, seed, turn) => xs.forEach((x, j) => vFace(g, x, y + 10 * Math.sin(T * 0.7 + j + seed), s, T, j + seed, { tusks: true, turn: x < 540 ? turn : turn }));
+    row(-150, 0.5, [-140, 40, 220, 400, 580, 760, 940, 1120], 23, 0.95);
     row(40, 0.62, [-80, 150, 380, 700, 930, 1160], 11, 0.94);
     row(250, 0.78, [20, 270, 810, 1060], 5, 0.92);
     row(540, 0.95, [-60, 180, 900, 1140], 1, 0.88);
     vFace(g, 540, 470 + 6 * Math.sin(T * 0.6), 1.5, T, 0, { sunMoon: true });
     // the earth and the two armies, small; the heroes run into the mouths like rivers to the sea, like moths into a flame (26–29)
-    g.fillStyle = '#1a0a1e'; g.fillRect(-2600, 1235, 6300, 3000); const gg = g.createLinearGradient(0, 1235, 0, 1420); gg.addColorStop(0, 'rgba(255,190,90,0.55)'); gg.addColorStop(1, 'rgba(255,190,90,0)'); g.fillStyle = gg; g.fillRect(-2600, 1235, 6300, 190);
+    { const eg = g.createLinearGradient(0, 1235, 0, 2000); eg.addColorStop(0, '#8a4420'); eg.addColorStop(0.25, '#6a2c20'); eg.addColorStop(0.7, '#3a1630'); eg.addColorStop(1, '#241028'); g.fillStyle = eg; g.fillRect(-2600, 1235, 6300, 3000); }
+    // the two armies under it (26 dhārtarāṣṭrasya putrāḥ … asmadīyair api yodhamukhyaiḥ: both sides), row behind row down to our feet, an aisle between them where the one chariot stands; its light on their spears and on the ground
+    { g.save(); g.globalCompositeOperation = 'lighter'; g.translate(540, 1235); g.scale(1, 0.34); KIT.glow(g, 0, 0, 1500, '#ffc060', 0.3); g.restore(); }
+    for (const [yy, sc_] of [[1292, 0.3], [1352, 0.42], [1440, 0.6], [1570, 0.86], [1760, 1.2], [2030, 1.7]]) { const n = Math.round(15 / Math.sqrt(sc_)), gap = 90 + 260 * (sc_ - 0.3);
+      army(g, 540 - gap - 1500, 540 - gap, yy, n, 1, sc_ > 0.8 ? '#12060f' : '#1e0a18', T, { s: sc_, flag: '#e7b54a', spear: '#ffe0a0' }); army(g, 540 + gap, 540 + gap + 1500, yy, n, -1, sc_ > 0.8 ? '#12060f' : '#1e0a18', T, { s: sc_, flag: '#c8401a', spear: '#ffe0a0' }); }
     for (const sd of [-1, 1]) for (let i = 0; i < 40; i++) { const x = 540 + sd * (110 + i * 13 + 5 * hash(i, 7)), y = 1238 + 8 * hash(i, 6); g.strokeStyle = '#0a0612'; g.lineWidth = 5; g.beginPath(); g.moveTo(x, y); g.lineTo(x, y - 22); g.stroke(); g.strokeStyle = '#ffe0a0'; g.lineWidth = 1.6; g.beginPath(); g.moveTo(x + sd * 2, y - 16); g.lineTo(x + sd * 5, y - 40 - 3 * Math.sin(T * 3 + i)); g.stroke(); }
     const mouths = [[540, 640], [171, 646], [909, 646], [278, 337], [802, 337]];
-    for (let i = 0; i < 150; i++) { const sd = i % 2 ? 1 : -1, m = mouths[sd < 0 ? [0, 1, 3][i % 3] : [0, 2, 4][i % 3]], u = (T * (0.16 + 0.1 * hash(i, 3)) + hash(i, 4)) % 1, x0 = 540 + sd * (130 + 420 * hash(i, 5)), y0 = 1222;
-      const cx = lerp(x0, m[0], 0.2) + sd * 260 * hash(i, 12), cy = 1000, q = u * u, x = (1 - q) * (1 - q) * x0 + 2 * q * (1 - q) * cx + q * q * m[0], y = (1 - q) * (1 - q) * y0 + 2 * q * (1 - q) * cy + q * q * m[1], s = lerp(9, 3, q), onBody = Math.abs(x - 540) < 170 && y > 860;
+    for (let i = 0; i < 230; i++) { const sd = i % 2 ? 1 : -1, m = mouths[sd < 0 ? [0, 1, 3][i % 3] : [0, 2, 4][i % 3]], u = (T * (0.16 + 0.1 * hash(i, 3)) + hash(i, 4)) % 1, deep = hash(i, 13) * hash(i, 14), x0 = 540 + sd * (130 + 420 * hash(i, 5)) * (1 + 0.5 * deep), y0 = 1222 + 620 * deep;
+      const cx = lerp(x0, m[0], 0.2) + sd * 260 * hash(i, 12), cy = 1000, q = u * u, x = (1 - q) * (1 - q) * x0 + 2 * q * (1 - q) * cx + q * q * m[0], y = (1 - q) * (1 - q) * y0 + 2 * q * (1 - q) * cy + q * q * m[1], s = lerp(9 + 16 * deep, 3, q), onBody = Math.abs(x - 540) < 170 && y > 860;
       g.fillStyle = q > 0.8 ? `rgba(255,${200 - 120 * (q - 0.8) * 5},60,${1 - (q - 0.8) * 4})` : onBody ? '#ffe9a8' : '#140818'; g.beginPath(); g.ellipse(x, y, s * 0.6, s * 1.5, 0, 0, TAU); g.fill(); if (q < 0.8) { g.fillStyle = onBody ? '#ffffff' : 'rgba(60,20,10,0.9)'; g.fillRect(x + 1, y - s * 2.6, 1.6, s * 1.6); } }
     KIT.glow(g, VA[0], VA[1] - 40, 150, '#fff4c0', 0.7 * (far || 0));   // a pool of light round the speck, only once he is small
     void k;
   };
-  R.scene({ id: 'vish',
+  scene({ id: 'vish',
     draw(ctx, t, env) {
-      const T = env.T, w = env.words, sp2 = w[6] ? w[6].t0 : 2.4, lightK = ss(0.2, sp2 - 0.9, t), moveT = sp2 - 1.5;
+      const T = env.T, w = env.words, sp2 = w[4] ? w[4].t0 : 2.0, lightK = ss(0.15, sp2 - 0.75, t), moveT = Math.max(0.2, sp2 - 1.6), PULL = 1.5;
       // the camera: the point of his face stays under it while it draws back and up, about twenty-one times
-      const e = E.inOutCubic(clamp((t - moveT) / 2.3)), creep = clamp((t - moveT - 2.3) / Math.max(0.5, env.dur - moveT - 2.3));
+      const e = E.inOutCubic(clamp((t - moveT) / PULL)), creep = clamp((t - moveT - PULL) / Math.max(0.5, env.dur - moveT - PULL));
       const Z = Math.exp(lerp(Math.log(30), Math.log(1.075), e)) * lerp(1, 0.86, clamp(t / moveT) * (1 - e)) * lerp(1, 1 / 1.075, creep * e);
-      const face = [VA[0] - 3.2, VA[1] - 107.5], scr = [lerp(540, face[0], e), lerp(800, face[1], e)];
+      const face = [VA[0] - 3.2, VA[1] - 107.5], scr = [lerp(540, face[0], e), lerp(800, face[1] + 150, e)];   // the horizon ends low in the frame: the form above it, the armies below
       CAM.pull(0); CAM.crane(0);
       ctx.save(); ctx.fillStyle = '#12122a'; ctx.fillRect(0, 0, W, H);
       ctx.translate(scr[0], scr[1]); ctx.scale(Z, Z); ctx.translate(-face[0], -face[1]);
       // before the light: the field's blue-iron dusk around him
       if (lightK < 1) { const bg = ctx.createLinearGradient(0, 900, 0, 1260); bg.addColorStop(0, '#10102a'); bg.addColorStop(1, '#3a3050'); ctx.fillStyle = bg; ctx.fillRect(-2600, -3200, 6300, 7400); ctx.fillStyle = '#16142a'; ctx.fillRect(-2600, 1235, 6300, 3000); }
-      if (lightK > 0) { ctx.save(); ctx.globalAlpha = lightK; vishForm(ctx, T, lightK, e); ctx.restore(); }
+      if (lightK > 0) { ctx.save(); ctx.globalAlpha = lightK * lightK; vishForm(ctx, T, lightK, e); ctx.restore(); }   // the form comes up behind him more slowly than the light on his face (he must stand out from it)
       // Arjuna on the chariot: bowed, palms joined (14 praṇamya śirasā … kṛtāñjaliḥ), trembling (35 vepamānaḥ)
       const tr = 0.5 * Math.sin(T * 41) * lightK, p = ST.pal('war-iron');
       chariot(ctx, VA[0] - 12, VA[1] + 26, 0.135, -1, T, { flag: '#f0c020' });
       fig('epicArjuna', ctx, T, VA[0] + tr * 0.12, VA[1], VA[2], 'left', { w: { stand: 1 - 0.75 * lightK, anjali: 0.9 * lightK, kneel: 0.25 * lightK }, bare: true }, { dir: -Math.PI / 2 - 0.5, intensity: lerp(0.9, 1.7, lightK), front: lerp(0.5, 0.96, lightK), fill: 0.4, tint: [lightK > 0.3 ? '#fff0b0' : '#ffc8a0', 0.3 + 0.4 * lightK], minLum: 0.2 }, { emo: ACT.emo(t, [[0, 'fear'], [sp2 - 0.6, 'wonder', { dur: 0.5 }]]), gaze: [0.6, -0.9 * lightK] }, 'vi-a');
       ctx.restore();
       // the flood of light across the lens as it comes up
-      const fl = Math.max(0, 1 - Math.abs(t - (sp2 - 1.0)) / 0.45); if (fl > 0) { ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.fillStyle = `rgba(255,244,200,${0.55 * fl})`; ctx.fillRect(0, 0, W, H); ctx.restore(); }
+      const fl = Math.max(0, 1 - Math.abs(t - (sp2 - 0.85)) / 0.4); if (fl > 0) { ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.fillStyle = `rgba(255,244,200,${0.55 * fl})`; ctx.fillRect(0, 0, W, H); ctx.restore(); }
       // the ground under the caption band stays dark enough for the words
-      const sh = ctx.createLinearGradient(0, 1240, 0, 1560); sh.addColorStop(0, 'rgba(10,4,14,0)'); sh.addColorStop(1, `rgba(10,4,14,${0.6 * e})`); ctx.fillStyle = sh; ctx.fillRect(0, 1240, W, 700);
+      const sh = ctx.createLinearGradient(0, 1240, 0, 1560); sh.addColorStop(0, 'rgba(10,4,14,0)'); sh.addColorStop(1, `rgba(10,4,14,${0.22 * e})`); ctx.fillStyle = sh; ctx.fillRect(0, 1240, W, 700);
       fin(ctx, T);
     },
     post: (t) => ({ bloom: 0.55, vignette: 0.42, paper: 0.26 }) });
 
   // ── 22 · THE WORD: dark, embers; itihasa in gold; it opens into its three parts as each is said; then the meaning ──
-  R.scene({ id: 'word',
+  scene({ id: 'word',
     draw(ctx, t, env) {
       const T = env.T, S = env.strings, b = env.beats, w = env.words, u = t / env.dur, cam = frame('push', u, { z: 1.0, f: [540, 800] }, { z: 1.5, f: [540, 800] }, (x) => x);
       const tW = w[3] ? w[3].t0 : 0.9, tI = [w[4], w[5], w[6]].map((q, i) => (q ? q.t0 : 2 + i * 0.6)), tM = w[7] ? w[7].t0 : 4;
       ST.shot(ctx, T, { pal: 'arrival-umber-gold', cam, layers: [
         { z: 0, haze: false, draw: (g) => { const gr = g.createRadialGradient(540, 800, 80, 540, 800, 1300); gr.addColorStop(0, '#4a2c0a'); gr.addColorStop(0.5, '#1c1006'); gr.addColorStop(1, '#060302'); g.fillStyle = gr; g.fillRect(-900, -900, 2880, 3720); } },
-        { z: 0.5, haze: false, draw: (g) => { KIT.glow(g, 540, 800, 760 + 120 * Math.sin(T * 1.7), '#ffb040', 0.26 + 0.14 * u + 0.1 * Math.sin(T * 2.6));
+        { z: 0.5, haze: false, draw: (g) => { KIT.glow(g, 540, 800, 860 + 120 * Math.sin(T * 1.7), '#ffb040', 0.34 + 0.2 * u + 0.1 * Math.sin(T * 2.6));
           g.save(); g.translate(540, 800); g.globalCompositeOperation = 'lighter'; for (let i = 0; i < 14; i++) { const a = (i / 14) * TAU + T * 0.5; g.fillStyle = 'rgba(255,170,60,0.13)'; g.beginPath(); g.moveTo(0, 0); g.lineTo(Math.cos(a - 0.06) * 1700, Math.sin(a - 0.06) * 1700); g.lineTo(Math.cos(a + 0.06) * 1700, Math.sin(a + 0.06) * 1700); g.fill(); } g.restore(); } },
         { z: 1.2, haze: false, draw: (g) => ST.particles(g, T * 2.2, { kind: 'ember', count: 120, cam }) },
         { z: 1.6, haze: false, draw: (g) => ST.particles(g, T * 3 + 3, { kind: 'ember', count: 70, cam }) },
       ] });
-      const parts = S.wordParts.map((q) => q.toUpperCase()), gl = S.wordGloss, size = 150, y = 820, sheen = ((t * 0.8) % 1.5) * 1.5 - 0.4, zs = lerp(0.86, 0.98, u);
+      const parts = S.wordParts.map((q) => q.toUpperCase()), gl = S.wordGloss, size = 172, y = 800, sheen = ((t * 0.8) % 1.5) * 1.5 - 0.4, zs = lerp(0.9, 1.05, u);
       ctx.save(); ctx.translate(540, y); ctx.scale(zs, zs); ctx.translate(-540, -y);
       ctx.save(); ctx.font = R.font(size, 'display', 700); ctx.letterSpacing = '10px'; const ws = parts.map((q) => ctx.measureText(q).width); ctx.restore();
       const a0 = clamp((t - 0.03) / 0.22), sp = E.inOutSine(clamp((t - tI[0] + 0.12) / 0.3));
-      const tot = ws[0] + ws[1] + ws[2], gap = 86 * sp, x0 = 540 - (tot + 2 * gap) / 2; let x = x0;
+      const tot = ws[0] + ws[1] + ws[2], gap = 44 * sp, x0 = 540 - (tot + 2 * gap) / 2; let x = x0;
+      const fitK = Math.min(1, 930 / ((tot + 2 * gap) * 1.05 * (1 + 0.1 * sp)));   // the three parts, apart and struck, never wider than the frame
+      ctx.translate(540, y); ctx.scale(lerp(1, fitK, sp), lerp(1, fitK, sp)); ctx.translate(-540, -y);
       if (sp <= 0.02) KIT.goldText(ctx, S.wordWhole.toUpperCase(), 540, y, { size, spacing: 10, weight: 700, alpha: a0, glow: 0.45, sheen, key: 'tr-whole' });
-      else parts.forEach((q, i) => { const cx = x + ws[i] / 2, said = clamp((t - tI[i] + 0.04) / 0.14), lift = 1 + 0.12 * Math.sin(Math.PI * clamp((t - tI[i] + 0.04) / 0.4));
+      else parts.forEach((q, i) => { const cx = x + ws[i] / 2, said = clamp((t - tI[i] + 0.04) / 0.14), hitK = clamp((t - tI[i] + 0.04) / 0.32), lift = 1 + 0.22 * (1 - E.outCubic(hitK)) * (said > 0 ? 1 : 0);
+        if (said > 0 && hitK < 1) { ctx.save(); ctx.globalCompositeOperation = 'lighter'; KIT.glow(ctx, cx, y - 50, 300 + 260 * hitK, '#ffd070', 0.75 * (1 - hitK)); ctx.strokeStyle = `rgba(255,224,150,${0.8 * (1 - hitK)})`; ctx.lineWidth = 8; ctx.beginPath(); ctx.arc(cx, y - 50, 120 + 240 * E.outCubic(hitK), 0, TAU); ctx.stroke(); ctx.restore(); }
         ctx.save(); ctx.translate(cx, y - 50); ctx.scale(lift, lift); ctx.translate(-cx, -(y - 50));
-        KIT.goldText(ctx, q, cx, y, { size, spacing: 10, weight: 700, alpha: a0 * (sp > 0 ? lerp(0.45, 1, Math.max(said, 0)) : 1), glow: 0.45, sheen, key: 'tr-w' + i }); ctx.restore();
-        if (said > 0) { ctx.save(); ctx.globalAlpha = said; ctx.fillStyle = '#e7b54a'; ctx.fillRect(cx - ws[i] / 2, y + 34, ws[i], 4); ctx.font = R.font(54, 'caption', 600, 'italic'); ctx.textAlign = 'center'; ctx.fillStyle = '#fff0d0'; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(8); ctx.fillText(gl[i], cx, y + 104); ctx.restore(); }
+        KIT.goldText(ctx, q, cx, y, { size, spacing: 10, weight: 700, alpha: a0 * (sp > 0 ? lerp(0.4, 1, Math.max(said, 0)) : 1), glow: 0.6, sheen, key: 'tr-w' + i }); ctx.restore();
+        if (said > 0) { ctx.save(); ctx.globalAlpha = said; ctx.fillStyle = '#e7b54a'; ctx.fillRect(cx - ws[i] / 2, y + 38, ws[i], 5); ctx.font = R.font(62, 'caption', 600, 'italic'); ctx.textAlign = 'center'; ctx.fillStyle = '#fff0d0'; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(8); ctx.fillText(gl[i], cx, y + 116); ctx.restore(); }
         x += ws[i] + gap; });
-      const m = clamp((t - tM + 0.08) / 0.2); if (m > 0) KIT.goldText(ctx, S.wordMeaning.toUpperCase(), 540, 1130, { size: 76, spacing: 8, weight: 700, alpha: m, glow: 0.35, sheen: sheen - 0.2, key: 'tr-mean' });
+      const m = clamp((t - tM + 0.08) / 0.2); if (m > 0) KIT.goldText(ctx, S.wordMeaning.toUpperCase(), 540, 1110, { size: 88, spacing: 8, weight: 700, alpha: m, glow: 0.35, sheen: sheen - 0.2, key: 'tr-mean' });
       ctx.restore(); void b;
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.5, vignette: 0.55, paper: 0.3 }) });
 
   // ── 23 · THE PROMISE. p1: the eighteen books run up the frame. p2: the vow again, closer. p3: the spears again. ──
-  R.scene({ id: 'p1',
+  scene({ id: 'p1',
     draw(ctx, t, env) {
       const T = env.T, S = env.strings, u = t / env.dur, cam = frame('tilt', u, { z: 1.06, f: [540, 700] }, { z: 1.06, f: [540, 1100] }, (x) => x);
       ST.shot(ctx, T, { pal: 'memory-indigo', cam, layers: [
-        { z: 0, haze: false, draw: (g) => { const gr = g.createLinearGradient(0, -400, 0, 2200); gr.addColorStop(0, '#05061c'); gr.addColorStop(1, '#1a2470'); g.fillStyle = gr; g.fillRect(-900, -900, 2880, 3720); KIT.glow(g, 540, 900, 900, '#4a6ae0', 0.3); } },
+        { z: 0, haze: false, draw: (g) => { const gr = g.createLinearGradient(0, -400, 0, 2200); gr.addColorStop(0, '#05061c'); gr.addColorStop(1, '#1a2470'); g.fillStyle = gr; g.fillRect(-900, -900, 2880, 3720); const pk = Math.max(...[0.05, ...(env.beats || [])].map((b_) => (t >= b_ ? Math.exp(-(t - b_) / 0.25) : 0))); KIT.glow(g, 540, 900, 900, '#4a6ae0', 0.3); KIT.glow(g, 540, 900, 1100, '#ffc860', 0.35 * pk); } },
         { z: 1, haze: false, draw: (g) => { const B = S.books || []; g.textAlign = 'center'; g.font = R.font(58, 'display', 700);
-          B.forEach((nm, i) => { const col = i % 2, r = Math.floor(i / 2), x = col ? 790 : 290, y = 330 + r * 112 + (col ? 34 : 0), k = clamp((t - i * 0.022) / 0.1); if (k <= 0) return;
+          B.forEach((nm, i) => { const col = i % 2, r = Math.floor(i / 2), x = col ? 790 : 290, y = 330 + r * 112 + (col ? 34 : 0), k = clamp((t + 0.12 - i * 0.022) / 0.1); if (k <= 0) return;
             g.globalAlpha = k; g.fillStyle = 'rgba(8,10,40,0.7)'; g.fillRect(x - 235, y - 62, 470, 92); g.fillStyle = '#e7b54a'; g.fillRect(x - 235, y - 62, 470, 4); g.fillRect(x - 235, y + 26, 470, 4);
             let fs = 58; g.font = R.font(fs, 'display', 700); while (g.measureText(nm.toUpperCase()).width > 440 && fs > 30) { fs -= 2; g.font = R.font(fs, 'display', 700); } g.fillStyle = '#ffe9a8'; g.fillText(nm.toUpperCase(), x, y); }); g.globalAlpha = 1; } },
         { z: 1.4, haze: false, draw: (g) => ST.particles(g, T * 2, { kind: 'ember', count: 40, cam }) },
@@ -774,16 +784,10 @@
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.4, vignette: 0.5, paper: 0.3 }) });
-  R.scene({ id: 'p2',
-    draw(ctx, t, env) { const T = env.T; vowWorld(ctx, T, 2.2 + t, frame('pull', t / env.dur, { z: 2.3, f: [380, 520], s: [540, 760] }, { z: 1.7, f: [400, 640], s: [540, 800] }, (x) => x), 0.6, 1); fin(ctx, T); },
-    post: () => ({ bloom: 0.36, vignette: 0.42, paper: 0.3 }) });
-  R.scene({ id: 'p3',
-    draw(ctx, t, env) { const T = env.T; fieldWorld(ctx, T, frame('slide', t / env.dur, { z: 1.7, f: [60, 1050] }, { z: 1.7, f: [330, 1050] }, (x) => x), { bow: 1, sit: 1, turn: 1 }); fin(ctx, T); },
-    post: () => ({ bloom: 0.36, vignette: 0.5, paper: 0.3 }) });
 
   // ── 24 · FIRST: the Naimisha fire at the blue hour; the storyteller comes to it ──
   const firelit = (x, fl) => ({ ...EP41.lit(x, fl, 0.85), fill: 0.45, intensity: 1.5 });
-  R.scene({ id: 'first',
+  scene({ id: 'first',
     draw(ctx, t, env) {
       const T = env.T, cam = frame('crane', t / env.dur, { z: 1.34, f: [540, 560] }, { z: 1.06, f: [540, 960] }, ev(E.outCubic));
       const arrive = E.outCubic(clamp(t / (env.dur * 0.9))), sx = lerp(1240, 850, arrive);
@@ -796,9 +800,9 @@
     post: () => ({ bloom: 0.38, vignette: 0.5, paper: 0.3 }) });
 
   // ── 25 · FOLLOW: first light; Vyasa by the great fire, a hand opening to us; FOLLOW arrives on its word ──
-  R.scene({ id: 'follow',
+  scene({ id: 'nothing',
     draw(ctx, t, env) {
-      const T = env.T, S = env.strings, w = env.words, b1 = w[4] ? w[4].t0 : env.dur * 0.6, cam = frame('push', t / env.dur, { z: 1.02, f: [560, 1000] }, { z: 1.22, f: [600, 940] }, (x) => x), fl = KIT.flicker(T, 5);
+      const T = env.T, S = env.strings, w = env.words, b1 = env.dur * 0.4, cam = frame('push', t / env.dur, { z: 1.02, f: [560, 1000] }, { z: 1.22, f: [600, 940] }, (x) => x), fl = KIT.flicker(T, 5);
       ST.shot(ctx, T, { pal: 'naimisha-firstlight', cam, layers: [
         { z: 0, draw: (g, p) => ST.sky(g, p, { hz: 1330, sun: [240, 1180, 90] }) },
         { z: 0.25, draw: (g, p) => { ST.cloudBank(g, p, T, { y: 400, count: 5, size: 1.5, speed: 16 }); ST.treeline(g, p, { y: 1340, h: 760, T, seed: 21, kind: 'sal' }); } },
@@ -811,30 +815,84 @@
         { z: 1.4, haze: false, draw: (g) => ST.particles(g, T, { kind: 'ember', count: 44, box: [0, 300, 640, 1000], cam }) },
         { z: 1.9, haze: false, soft: 0.3, draw: (g, p) => { ST.trunks(g, p, { xs: [-230, 1300], w: 190 }); ST.grass(g, p, { y: 1950, h: 280, T, count: 40 }); } },
       ] });
-      const kf = clamp((t - b1 + 0.05) / 0.12);
-      if (kf > 0) { ctx.save(); ctx.globalAlpha = 0.62 * kf; ctx.fillStyle = '#120a08'; ctx.beginPath(); ctx.roundRect(60, 600, 600, 150, 22); ctx.fill(); ctx.restore();
-        KIT.goldText(ctx, (S.followWord || '').toUpperCase(), 360, 700, { size: 104, spacing: 10, weight: 700, alpha: kf, glow: 0.4, sheen: clamp((t - b1) / 0.8) * 1.5 - 0.25, key: 'tr-follow' }); }
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.36, vignette: 0.45, paper: 0.3 }) });
 
-  // ── 26 · THE END CARD: on the last word and one struck note. The source line, episode 1, FOLLOW. Embers and a slow pull. ──
-  R.scene({ id: 'endcard',
+  // ── MAKING: palm leaves laid down one after another, lines of writing on each, a cord through them: the series as it is made ──
+  scene({ id: 'making',
     draw(ctx, t, env) {
-      const T = env.T, S = env.strings, u = t / env.dur, cam = frame('pull', u, { z: 1.14, f: [540, 960] }, { z: 1.0, f: [540, 960] }, ev(E.outCubic)), z = lerp(1.05, 1, E.outCubic(u));
-      ST.shot(ctx, T, { pal: 'arrival-umber-gold', cam, layers: [
-        { z: 0, haze: false, draw: (g) => { const gr = g.createRadialGradient(540, 900, 80, 540, 900, 1400); gr.addColorStop(0, '#5a340c'); gr.addColorStop(0.5, '#1c1006'); gr.addColorStop(1, '#060302'); g.fillStyle = gr; g.fillRect(-900, -900, 2880, 3720); } },
-        { z: 0.5, haze: false, draw: (g) => { KIT.glow(g, 540, 900, 800, '#ffb040', 0.3 * (1 - 0.4 * u) + 0.04 * Math.sin(T * 3)); g.save(); g.translate(540, 900); g.globalCompositeOperation = 'lighter'; for (let i = 0; i < 14; i++) { const a = (i / 14) * TAU - T * 0.2; g.fillStyle = 'rgba(255,170,60,0.06)'; g.beginPath(); g.moveTo(0, 0); g.lineTo(Math.cos(a - 0.06) * 1700, Math.sin(a - 0.06) * 1700); g.lineTo(Math.cos(a + 0.06) * 1700, Math.sin(a + 0.06) * 1700); g.fill(); } g.restore(); } },
-        { z: 0.8, haze: false, draw: (g) => CH.hearthfire.draw(g, { x: 540, y: 1700, scale: 0.9, t: T, k: 1.1, key: 'ec-f' }) },
-        { z: 1.2, haze: false, draw: (g) => ST.particles(g, T * 1.6, { kind: 'ember', count: 80, cam }) },
-        { z: 1.6, haze: false, draw: (g) => ST.particles(g, T * 2.2 + 5, { kind: 'ember', count: 40, cam }) },
+      const T = env.T, u = t / env.dur, cam = frame('slide', u, { z: 1.1, f: [470, 900] }, { z: 1.1, f: [610, 980] }, (x) => x);
+      ST.shot(ctx, T, { pal: 'memory-indigo', cam, layers: [
+        { z: 0, haze: false, draw: (g) => { const gr = g.createLinearGradient(0, -400, 0, 2200); gr.addColorStop(0, '#0a0a24'); gr.addColorStop(1, '#2a1608'); g.fillStyle = gr; g.fillRect(-900, -900, 2880, 3720); KIT.glow(g, 540, 1500, 1200, '#ff9a3a', 0.3 * KIT.flicker(T, 3)); } },
+        { z: 1, haze: false, draw: (g) => { for (let i = 0; i < 7; i++) { const k = E.outCubic(clamp((t - 0.05 - i * 0.3) / 0.4)); if (k <= 0) continue; const y = 430 + i * 152, x = lerp(1700, 540 + (i % 2 ? 26 : -26), k), wr = clamp((t - 0.3 - i * 0.3) / 0.9), newest = clamp(1 - (t - 0.05 - i * 0.3) / 0.6);
+            g.save(); g.translate(x, y); g.rotate((i % 2 ? 1 : -1) * 0.012 + 0.2 * (1 - k)); g.fillStyle = 'rgba(0,0,0,0.4)'; g.beginPath(); g.roundRect(-392, -50, 800, 124, 14); g.fill();
+            if (newest > 0) KIT.glow(g, 0, 0, 520, '#ffd070', 0.5 * newest);
+            g.fillStyle = '#dcbc7c'; g.strokeStyle = '#7a5626'; g.lineWidth = 4; g.beginPath(); g.roundRect(-400, -60, 800, 120, 14); g.fill(); g.stroke();
+            g.fillStyle = '#3a2410'; for (const hx of [-250, 250]) { g.beginPath(); g.arc(hx, 0, 11, 0, TAU); g.fill(); }
+            g.strokeStyle = '#3a2410'; g.lineWidth = 5; g.lineCap = 'round'; for (let r = 0; r < 3; r++) { const yy = -32 + r * 32, upto = clamp(wr * 3 - r); if (upto <= 0) continue; g.beginPath(); for (let c = 0; c < Math.floor(26 * upto); c++) { const xx = -370 + c * 28.5; if (Math.abs(xx - 250) < 26 || Math.abs(xx + 250) < 26) continue; const hh = 8 + 9 * hash(i * 31 + r * 7 + c, 5); g.moveTo(xx, yy - hh * 0.5); g.quadraticCurveTo(xx + 9, yy - hh, xx + 18, yy + hh * 0.4); } g.stroke(); g.lineWidth = 3; g.beginPath(); g.moveTo(-374, yy - 13); g.lineTo(-374 + 748 * upto, yy - 13); g.stroke(); g.lineWidth = 5; }
+            g.restore(); }
+          g.strokeStyle = '#a8301a'; g.lineWidth = 7; const top = clamp(t / 0.4); for (const hx of [-250, 250]) { g.beginPath(); g.moveTo(540 + hx, 330); g.lineTo(540 + hx + 8 * Math.sin(T * 2 + hx), lerp(330, 430 + 152 * Math.min(6, t / 0.3), top)); g.stroke(); } } },
+        { z: 1.4, haze: false, draw: (g) => ST.particles(g, T * 2, { kind: 'ember', count: 50, cam }) },
       ] });
-      TY.source(ctx, T, 1, S, { y: 300 });
-      ctx.save(); ctx.translate(540, 800); ctx.scale(z, z); ctx.translate(-540, -800);
-      KIT.series.episodeTitle(ctx, T, 1, { ...S, episodeLabel: S.nextEpisodeLabel, episodeTitle: S.nextTitle }, { y: 640, key: 'tr-ep1' });
-      KIT.goldText(ctx, (S.followWord || '').toUpperCase(), 540, 960, { size: 150, spacing: 14, weight: 700, alpha: 1, glow: 0.45, sheen: ((t * 0.7) % 1.5) * 1.5 - 0.4, key: 'tr-follow2' });
-      ctx.fillStyle = PAL.gold; ctx.fillRect(540 - 260, 1010, 520, 4);
+      fin(ctx, T);
+    },
+    post: () => ({ bloom: 0.36, vignette: 0.5, paper: 0.32 }) });
+
+  // ── SUPPORT: the listeners' ring at the fire, from behind; one place in it is empty and lit ──
+  scene({ id: 'support',
+    draw(ctx, t, env) {
+      const T = env.T, u = t / env.dur, fl = KIT.flicker(T, 5), cam = frame('crane', u, { z: 1.3, f: [540, 640] }, { z: 1.05, f: [540, 940] }, ev(E.outCubic));
+      const sitter = (g, x, y, sc_, col, rim) => { g.fillStyle = col; g.beginPath(); g.ellipse(x, y - 150 * sc_, 150 * sc_, 200 * sc_, 0, 0, TAU); g.fill(); g.fillRect(x - 150 * sc_, y - 150 * sc_, 300 * sc_, 900); g.beginPath(); g.arc(x, y - 400 * sc_ + 3 * Math.sin(T * 1.3 + x), 72 * sc_, 0, TAU); g.fill();
+        g.strokeStyle = rim; g.lineWidth = 6 * sc_; g.beginPath(); g.arc(x, y - 400 * sc_ + 3 * Math.sin(T * 1.3 + x), 72 * sc_, -2.6, -0.5); g.stroke(); g.beginPath(); g.ellipse(x, y - 150 * sc_, 150 * sc_, 200 * sc_, 0, -2.5, -0.64); g.stroke(); };
+      ST.shot(ctx, T, { pal: 'hearth-amber', cam, layers: [
+        { z: 0, draw: (g, p) => ST.sky(g, p, { hz: 790, stars: 0.6, T }) },
+        { z: 0.3, draw: (g, p) => ST.treeline(g, p, { y: 830, h: 700, T, seed: 31, kind: 'sal' }) },
+        { z: 0.7, haze: false, draw: (g) => { const gg = g.createLinearGradient(0, 790, 0, 1900); gg.addColorStop(0, '#3a1c0a'); gg.addColorStop(1, '#1a0c06'); g.fillStyle = gg; g.fillRect(-900, 790, 2880, 2300); g.save(); g.globalCompositeOperation = 'lighter'; g.translate(540, 980); g.scale(1, 0.32); KIT.glow(g, 0, 0, 1200, '#ff8a2a', 0.7 * fl); g.restore();
+          for (const [x, sc_] of [[150, 0.5], [330, 0.46], [750, 0.46], [930, 0.5]]) sitter(g, x, 900, sc_, '#6a3414', 'rgba(255,200,120,0.95)');   // across the fire, facing us, lit
+          KIT.glow(g, 540, 750, 700, '#ff8a2a', 0.5 * fl); CH.hearthfire.draw(g, { x: 540, y: 980, scale: 0.58, t: T, k: 1.1, key: 'su-f' }); } },
+        { z: 1, haze: false, draw: (g) => {
+          // the empty place on our side of the fire: a mat, lit, waiting
+          const pu = 0.5 + 0.5 * Math.sin(T * 3.2), a = ss(0.2, 0.55, u); g.save(); g.translate(540, 1105); g.scale(1, 0.3); g.globalCompositeOperation = 'lighter'; KIT.glow(g, 0, 0, 330 + 40 * pu, '#ffd070', (0.5 + 0.3 * pu) * a); g.restore();
+          g.save(); g.translate(540, 1105); g.scale(1, 0.3); g.fillStyle = `rgba(214,160,74,${0.85 * a + 0.15})`; g.beginPath(); g.arc(0, 0, 165, 0, TAU); g.fill(); g.strokeStyle = `rgba(255,228,160,${a})`; g.lineWidth = 12; g.beginPath(); g.arc(0, 0, 165 + 30 * pu, 0, TAU); g.stroke(); g.restore();
+          for (const [x, y, sc_] of [[40, 1640, 1.1], [300, 1560, 0.96], [780, 1560, 0.96], [1040, 1640, 1.1]]) sitter(g, x, y, sc_, '#140906', 'rgba(255,170,90,0.9)'); } },
+        { z: 1.4, haze: false, draw: (g) => ST.particles(g, T, { kind: 'ember', count: 60, box: [240, 100, 600, 900], cam }) },
+      ] });
+      fin(ctx, T);
+    },
+    post: () => ({ bloom: 0.4, vignette: 0.5, paper: 0.3 }) });
+
+  // ── 26 · THE END CARD: on the last word and one struck note. The source line, episode 1, FOLLOW. Embers and a slow pull. ──
+  // Everything that must be read sits left of x = 920 and above y = 1500 (the platforms' own buttons and captions cover the rest).
+  scene({ id: 'endcard',
+    draw(ctx, t, env) {
+      const T = env.T, S = env.strings, u = t / env.dur, cam = frame('push', u, { z: 1.0, f: [540, 960] }, { z: 1.12, f: [540, 1000] }, (x) => x), z = lerp(1, 1.045, u), CXT = 490;
+      ST.shot(ctx, T, { pal: 'arrival-umber-gold', cam, layers: [
+        { z: 0, haze: false, draw: (g) => { const gr = g.createRadialGradient(540, 1300, 80, 540, 1300, 1500); gr.addColorStop(0, '#6a3c0c'); gr.addColorStop(0.5, '#1c1006'); gr.addColorStop(1, '#060302'); g.fillStyle = gr; g.fillRect(-900, -900, 2880, 3720); } },
+        { z: 0.5, haze: false, draw: (g) => { KIT.glow(g, 540, 1300, 900, '#ffb040', 0.3 + 0.05 * Math.sin(T * 3)); g.save(); g.translate(540, 1300); g.globalCompositeOperation = 'lighter'; for (let i = 0; i < 14; i++) { const a = (i / 14) * TAU - T * 0.25; g.fillStyle = 'rgba(255,170,60,0.07)'; g.beginPath(); g.moveTo(0, 0); g.lineTo(Math.cos(a - 0.06) * 1900, Math.sin(a - 0.06) * 1900); g.lineTo(Math.cos(a + 0.06) * 1900, Math.sin(a + 0.06) * 1900); g.fill(); } g.restore(); } },
+        { z: 0.8, haze: false, draw: (g) => CH.hearthfire.draw(g, { x: 540, y: 1960, scale: 0.8, t: T, k: 1.1, key: 'ec-f' }) },
+        { z: 1.2, haze: false, draw: (g) => ST.particles(g, T * 1.6, { kind: 'ember', count: 90, cam }) },
+        { z: 1.6, haze: false, draw: (g) => ST.particles(g, T * 2.2 + 5, { kind: 'ember', count: 50, cam }) },
+      ] });
+      const inn = (d) => E.outCubic(clamp((t - d) / 0.22)), fit = (txt, size, fam, wt, st, maxW) => { let fs = size; ctx.font = R.font(fs, fam, wt, st); while (ctx.measureText(txt).width > maxW && fs > 20) { fs -= 1; ctx.font = R.font(fs, fam, wt, st); } return fs; };
+      ctx.save(); ctx.translate(CXT, 760); ctx.scale(z, z); ctx.translate(-CXT, -760);
+      // 1 · FOLLOW: the largest thing on the card, in a ring that beats
+      const k1 = inn(0.02), FY = 600, pu = (T * 0.9) % 1;
+      if (k1 > 0) { ctx.save(); ctx.globalAlpha = k1; ctx.fillStyle = 'rgba(14,8,6,0.78)'; ctx.beginPath(); ctx.roundRect(CXT - 400, FY - 170, 800, 250, 40); ctx.fill(); ctx.strokeStyle = PAL.gold; ctx.lineWidth = 6; ctx.stroke();
+        for (const ph of [pu, (pu + 0.5) % 1]) { ctx.globalAlpha = k1 * 0.8 * (1 - ph); ctx.strokeStyle = '#ffe0a0'; ctx.lineWidth = 7 * (1 - ph) + 1; ctx.beginPath(); ctx.roundRect(CXT - 400 - 34 * ph, FY - 170 - 34 * ph, 800 + 68 * ph, 250 + 68 * ph, 40 + 20 * ph); ctx.stroke(); } ctx.restore();
+        KIT.goldText(ctx, (S.followWord || '').toUpperCase(), CXT, FY, { size: 150, spacing: 10, weight: 700, alpha: k1, glow: 0.5, sheen: ((t * 0.7) % 1.5) * 1.5 - 0.4, key: 'tr-follow2' }); }
+      // 2 · Watch Episode 1 · its name
+      const k2 = inn(0.3); if (k2 > 0) { ctx.save(); ctx.globalAlpha = k2; ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(8);
+        ctx.letterSpacing = '6px'; fit((S.nextEpisodeLabel || '').toUpperCase(), 78, 'display', 700, 'normal', 800); ctx.fillStyle = PAL.goldPale; ctx.fillText((S.nextEpisodeLabel || '').toUpperCase(), CXT, 870);
+        ctx.letterSpacing = '0px'; fit(S.nextTitle || '', 66, 'caption', 600, 'italic', 800); ctx.fillStyle = PAL.cream; ctx.fillText(S.nextTitle || '', CXT, 960); ctx.fillStyle = PAL.gold; ctx.fillRect(CXT - 220 * k2, 996, 440 * k2, 4); ctx.restore(); }
+      // 3 · support, small
+      const k3 = inn(0.6); if (k3 > 0) { ctx.save(); ctx.globalAlpha = k3; ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(6); fit(S.supportLine || '', 44, 'caption', 600, 'normal', 800); ctx.fillStyle = '#ffe9c0'; ctx.fillText(S.supportLine || '', CXT, 1090); ctx.restore(); }
+      // 4 · the source line, smallest
+      const k4 = inn(0.85); if (k4 > 0) { ctx.save(); ctx.globalAlpha = 0.92 * k4; ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(6); ctx.fillStyle = '#e8d8b8'; fit(S.sourceLine || '', 32, 'caption', 500, 'normal', 800); ctx.fillText(S.sourceLine || '', CXT, 1200); fit(S.madeLine || '', 28, 'caption', 500, 'normal', 800); ctx.fillText(S.madeLine || '', CXT, 1246); ctx.restore(); if (R.probe && k4 > 0.99) R.probe.type.source = 1; }
       ctx.restore();
+      // the pointer: three chevrons running down toward the account's own Follow button, bottom left
+      const k5 = inn(1.0); if (k5 > 0) { ctx.save(); ctx.strokeStyle = '#ffd070'; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.lineWidth = 12; for (let i = 0; i < 3; i++) { const ph = (T * 1.4 - i * 0.22) % 1, a = Math.sin(Math.PI * clamp(ph)); ctx.globalAlpha = k5 * (0.25 + 0.75 * a); const x = 190, y = 1300 + i * 58 + 10 * a; ctx.beginPath(); ctx.moveTo(x - 46, y); ctx.lineTo(x, y + 40); ctx.lineTo(x + 46, y); ctx.stroke(); } ctx.restore(); }
+      if (R.probe) R.probe.card = { follow: [CXT - 400, FY - 170, CXT + 400, FY + 80], lowestText: 1246 + 150, rightmostText: CXT + 400 * z };
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.42, vignette: 0.5, paper: 0.3 }) });

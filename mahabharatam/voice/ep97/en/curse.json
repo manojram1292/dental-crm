@@ -1,63 +1,63 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "curse.s0.wav"
+  "curse.s2.wav"
  ],
- "spoken_as": "A mother of a hundred sons will curse Krishna.",
+ "spoken_as": "A mother of a hundred sons curses Krishna.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 2.687,
-   "words": 9,
-   "text": "A mother of a hundred sons will curse Krishna."
+   "t1": 3.598,
+   "words": 8,
+   "text": "A mother of a hundred sons curses Krishna."
   }
  ],
  "wordTimes": [
   [
    0.0,
-   0.084
+   0.1
   ],
   [
-   0.084,
-   0.344
+   0.1,
+   0.556
   ],
   [
-   0.344,
-   0.544
+   0.619,
+   0.68
   ],
   [
-   0.544,
-   0.624
+   0.68,
+   0.82
   ],
   [
-   0.624,
-   0.944
+   0.82,
+   1.18
   ],
   [
-   0.944,
-   1.244
+   1.18,
+   1.9
   ],
   [
-   1.244,
-   1.684
+   2.221,
+   2.803
   ],
   [
-   1.684,
-   1.964
-  ],
-  [
-   1.964,
-   2.364
+   2.884,
+   3.16
   ]
  ],
  "measured": {
-  "f0": 116.0,
-  "st": 17.6,
-  "edb": 19.7,
-  "pause": 0.08,
-  "dur": 2.61
+  "f0": 126.8,
+  "st": 10.2,
+  "edb": 14.9,
+  "dur": 3.38,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.4,
+  "jitter": 2.27,
+  "tail_db": -72.8
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

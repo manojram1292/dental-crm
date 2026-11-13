@@ -1,0 +1,220 @@
+{
+ "file": "mix.en.wav",
+ "seconds": 84.67,
+ "stops": [
+  [
+   41.1,
+   41.7667
+  ],
+  [
+   68.4333,
+   69.1666
+  ]
+ ],
+ "holes": {
+  "floor_db": -26,
+  "windows": 1654,
+  "worst_window_db": -67.9,
+  "worst_window_at_s": 0.0,
+  "windows_under_floor": 262,
+  "under_floor_at_s": [
+   0.0,
+   0.05,
+   0.1,
+   0.15,
+   0.2,
+   0.25,
+   5.0,
+   5.15,
+   5.2,
+   5.25,
+   5.3,
+   5.35,
+   5.4,
+   6.2,
+   6.25,
+   7.35,
+   7.4,
+   7.65,
+   7.7,
+   7.75,
+   7.8,
+   7.85,
+   7.9,
+   7.95,
+   8.0,
+   8.45,
+   8.5,
+   8.95,
+   9.0,
+   10.35,
+   11.6,
+   11.65,
+   11.7,
+   11.75,
+   11.8,
+   11.85,
+   11.9,
+   11.95,
+   12.45,
+   12.9
+  ],
+  "worst_drop_db": 22.0,
+  "worst_drop_at_s": 6.2,
+  "drops_over_limit": 200,
+  "drops_at_s": [
+   5.0,
+   5.15,
+   5.2,
+   6.2,
+   6.25,
+   7.35,
+   7.4,
+   7.65,
+   7.7,
+   7.75,
+   7.8,
+   7.85,
+   7.9,
+   8.45,
+   8.5,
+   8.95,
+   9.0,
+   9.25,
+   10.85,
+   11.6,
+   11.65,
+   11.7,
+   11.75,
+   11.8,
+   11.85,
+   12.45,
+   12.9,
+   12.95,
+   13.3,
+   13.35,
+   13.75,
+   13.8,
+   13.85,
+   14.3,
+   14.4,
+   14.45,
+   14.5,
+   14.55,
+   14.6,
+   14.65
+  ],
+  "drop_limit_db": 10,
+  "drop_window_s": 0.3
+ },
+ "start": {
+  "first_100ms_db": -67.9,
+  "first_frame_33ms_db": -84.9,
+  "first_10ms_db": -86.7
+ },
+ "clipping": {
+  "samples_at_0.999": 0,
+  "peak_dbfs": -3.51
+ },
+ "recogniser": {
+  "heard": "Two armies wait. Between them, one archer will not fight. Long the four, a prince swears away his throne and his line. A mother gives her firstborn to the river. A hundred brothers, five cousins, one throne. A palace, built to burn. Bima breaks a man -eating demon. A woman rises from a fire altar. Krishna lets the wheel fly. Then the dice. A king steaks his kingdom, his brothers, his wife. They pull at her cloth. The cloth does not end. Thirteen years of exile, Duryodhana will not give a needlepoint of earth. Two armies. Arjuna lowers his bow. Bishma will full on a bed of arrows. A boy, alone against many. Karnas -Weepiel sunk in the earth. A camp raided in its sleep. A mother of a hundred sons will curse Krishna. Krishna, and at the end, a king will not abandon his dog. But first, Arjuna asks to see, Krishna shows him everything, but I am time. It calls itself Itihasa, Itihasa, so indeed it was, every book, every vow, every war, from the first verse to the last. Nothing added for effect. Follow Episode 1.",
+  "gaps_over_0.35s_inside_a_sentence": [
+   {
+    "after": "brothers,",
+    "before": "five",
+    "at_s": 16.04,
+    "gap_s": 0.52
+   },
+   {
+    "after": "cousins,",
+    "before": "one",
+    "at_s": 17.1,
+    "gap_s": 0.46
+   },
+   {
+    "after": "palace,",
+    "before": "built",
+    "at_s": 18.8,
+    "gap_s": 0.46
+   },
+   {
+    "after": "kingdom,",
+    "before": "his",
+    "at_s": 30.68,
+    "gap_s": 0.52
+   },
+   {
+    "after": "brothers,",
+    "before": "his",
+    "at_s": 31.58,
+    "gap_s": 0.42
+   },
+   {
+    "after": "exile,",
+    "before": "Duryodhana",
+    "at_s": 37.9,
+    "gap_s": 0.62
+   },
+   {
+    "after": "boy,",
+    "before": "alone",
+    "at_s": 48.98,
+    "gap_s": 0.36
+   },
+   {
+    "after": "Krishna,",
+    "before": "and",
+    "at_s": 57.28,
+    "gap_s": 0.52
+   },
+   {
+    "after": "end,",
+    "before": "a",
+    "at_s": 58.46,
+    "gap_s": 0.48
+   },
+   {
+    "after": "see,",
+    "before": "Krishna",
+    "at_s": 63.9,
+    "gap_s": 0.58
+   },
+   {
+    "after": "everything,",
+    "before": "but",
+    "at_s": 65.82,
+    "gap_s": 0.56
+   },
+   {
+    "after": "Itihasa,",
+    "before": "Itihasa,",
+    "at_s": 70.84,
+    "gap_s": 0.66
+   },
+   {
+    "after": "Itihasa,",
+    "before": "so",
+    "at_s": 72.14,
+    "gap_s": 1.1
+   },
+   {
+    "after": "was,",
+    "before": "every",
+    "at_s": 74.34,
+    "gap_s": 0.64
+   },
+   {
+    "after": "book,",
+    "before": "every",
+    "at_s": 75.36,
+    "gap_s": 0.44
+   },
+   {
+    "after": "vow,",
+    "before": "every",
+    "at_s": 76.14,
+    "gap_s": 0.42
+   }
+  ]
+ }
+}

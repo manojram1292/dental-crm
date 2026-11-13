@@ -1,15 +1,15 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "bow.s2.wav"
+  "bow.s0.wav"
  ],
  "spoken_as": "Arjuna lowers his bow.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 1.533,
+   "t1": 2.222,
    "words": 4,
    "text": "Arjuna lowers his bow."
   }
@@ -17,27 +17,31 @@
  "wordTimes": [
   [
    0.0,
-   0.389
+   0.54
   ],
   [
-   0.389,
-   0.689
+   0.54,
+   0.98
   ],
   [
-   0.689,
-   1.009
+   0.98,
+   1.6
   ],
   [
-   1.009,
-   1.269
+   1.69,
+   1.82
   ]
  ],
  "measured": {
-  "f0": 95.3,
-  "st": 22.2,
-  "edb": 16.5,
-  "pause": 0.08,
-  "dur": 1.45
+  "f0": 124.2,
+  "st": 14.2,
+  "edb": 17.5,
+  "dur": 2.0,
+  "jumps": 0.0,
+  "creak": 0.043,
+  "hnr": 11.7,
+  "jitter": 2.1,
+  "tail_db": -71.4
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

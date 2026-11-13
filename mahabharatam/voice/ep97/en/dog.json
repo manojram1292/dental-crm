@@ -1,15 +1,15 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "dog.s1.wav"
+  "dog.s2.wav"
  ],
  "spoken_as": "And at the end, a king will not abandon his dog.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 3.875,
+   "t1": 3.8,
    "words": 11,
    "text": "And at the end, a king will not abandon his dog."
   }
@@ -17,55 +17,59 @@
  "wordTimes": [
   [
    0.0,
-   0.168
+   0.14
   ],
   [
-   0.168,
-   0.281
+   0.14,
+   0.3
   ],
   [
-   0.281,
-   0.438
+   0.388,
+   0.44
   ],
   [
-   0.438,
-   0.775
+   0.44,
+   0.76
   ],
   [
-   1.202,
-   1.314
+   0.76,
+   1.1
   ],
   [
-   1.314,
-   1.629
+   1.1,
+   1.38
   ],
   [
-   1.629,
-   1.966
+   1.38,
+   1.72
   ],
   [
-   1.966,
-   2.168
+   1.72,
+   2.074
   ],
   [
-   2.168,
-   2.573
+   2.148,
+   2.38
   ],
   [
-   2.573,
-   3.067
+   2.38,
+   2.98
   ],
   [
-   3.067,
-   3.382
+   2.98,
+   3.34
   ]
  ],
  "measured": {
-  "f0": 91.7,
-  "st": 19.0,
-  "edb": 18.9,
-  "pause": 0.27,
-  "dur": 3.79
+  "f0": 122.0,
+  "st": 10.0,
+  "edb": 16.2,
+  "dur": 3.65,
+  "jumps": 0.33,
+  "creak": 0.0,
+  "hnr": 11.7,
+  "jitter": 2.22,
+  "tail_db": -69.0
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

@@ -55,6 +55,9 @@
  *     or more above 4.0 words/s.
  *   New rule: every shot of a second-cut trailer starts on the frame grid, at or a hair before its frame, never after.
  *   · length: a trailer with "cut" ≥ 2 must be 70–85 s (the first cut's 90 s limit stands for a script without "cut").
+ *   THIRD CUT ("cut": 3): 70–90 s; every picture ≥ 1.3 s and ≥ 3 spoken words (or "hit": true, ≥ 1.2 s); no three-word phrase twice; gaps over 0.35 s
+ *   inside a sentence printed and failed unless justified ("gapOk"); with --audio: no 100 ms window of the mix under −26 dBFS and no fall of more
+ *   than 10 dB within 0.3 s outside the two stops (tools/mix.py measures and reports it), the music ducked ≤ 10 dB.
  *   New rules, measured with --frames at 30 frames a second: no picture freeze over 0.3 s (mean frame difference under 0.3 % of full scale,
  *   ffmpeg freezedetect's n=0.003) · no caption drawn for a line other than the shot on screen (a caption alive after its cut) · captions of
  *   at most two rows · no caption on an "insert" shot.
@@ -293,7 +296,23 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
   // trailer, second cut: every cut on the frame grid, and never after its frame (a start a hair late puts a motion-blur sample of the old
   // picture and its caption into the first frame of the new one: the first cut's "ghost captions")
   if (trailer && sc.cut >= 2) for (const l of L.slice(1)) { const f = l.start * 30, off = f - Math.round(f); if (off > 1e-6 || off < -0.004) fails.push(`shot "${l.id}" starts ${off.toFixed(4)} frames off the frame grid at ${l.start} s (the frame at the cut would mix two pictures)`); }
-  if (trailer && sc.cut >= 2) { if (dur > 85 || dur < 70) fails.push(`duration ${dur.toFixed(2)} s (trailer, second cut: 70–85)`); }
+  if (trailer && sc.cut >= 3) {
+    // THE TRAILER, THIRD CUT (script "cut": 3; nothing else takes this path): 70–90 s; every shot (and every picture inside a sentence, "cutAt")
+    // at least 1.3 s and at least three spoken words, unless the line says "hit": true (a deliberate short hit, ≥ 1.2 s); no phrase twice;
+    // every gap between two words inside a sentence over 0.35 s is printed, and fails unless the line lists that word in "gapOk".
+    if (dur > 90 || dur < 70) fails.push(`duration ${dur.toFixed(2)} s (trailer, third cut: 70–90)`);
+    const subs = [];
+    for (const l of L) { const q = SL[l.id]; if (!q || q.voice === false) continue; const ks = [0, ...(q.cutAt || []), l.words.length], ts = [l.start, ...(q.cutAt || []).map((k) => Math.round((l.words[k].t0 - 0.07) * 30) / 30), l.end];
+      for (let i = 0; i + 1 < ks.length; i++) subs.push({ id: l.id + (ks.length > 2 ? `[${i + 1}]` : ''), len: ts[i + 1] - ts[i], words: ks[i + 1] - ks[i], hit: !!q.hit }); }
+    for (const x of subs) { if (x.words < 3 && !(x.hit && x.len >= 1.2)) fails.push(`shot "${x.id}" carries ${x.words} spoken word(s) (min 3, or "hit": true with ≥ 1.2 s on screen)`); if (x.len < (x.hit ? 1.2 : 1.3) - 1e-3) fails.push(`shot "${x.id}" is ${x.len.toFixed(2)} s long (min 1.3)`); }
+    info.push(`third cut: ${subs.length} pictures under the voice, shortest ${Math.min(...subs.map((x) => x.len)).toFixed(2)} s`);
+    const grams = new Map(), nw3 = (t) => t.toLowerCase().replace(/[^a-z' ]/g, ' ').split(/\s+/).filter(Boolean);
+    for (const l of sc.lines) { const w = nw3(l.text || ''); for (let i = 0; i + 3 <= w.length; i++) { const g = w.slice(i, i + 3).join(' '); if (grams.has(g) && grams.get(g) !== l.id) fails.push(`the phrase "${g}" is said twice (shots "${grams.get(g)}" and "${l.id}")`); grams.set(g, l.id); } }
+    const gaps = [];
+    for (const l of L) { const q = SL[l.id]; if (!q || q.voice === false) continue; for (let i = 0; i + 1 < l.words.length; i++) { const g = l.words[i + 1].t0 - l.words[i].t1; if (g > 0.35 && !/[.!?]["”’)]?$/.test(l.words[i].w)) { gaps.push(`${l.id} "${l.words[i].w} | ${l.words[i + 1].w}" ${g.toFixed(2)} s${(q.gapOk || []).includes(i + 1) ? ' (justified in the script)' : ''}`); if (!(q.gapOk || []).includes(i + 1)) fails.push(`a gap of ${g.toFixed(2)} s inside a sentence in "${l.id}" after "${l.words[i].w}" (max 0.35, or list word ${i + 1} in "gapOk")`); } } }
+    info.push(`gaps over 0.35 s inside a sentence: ${gaps.length ? gaps.join('; ') : 'none'}`);
+  }
+  else if (trailer && sc.cut >= 2) { if (dur > 85 || dur < 70) fails.push(`duration ${dur.toFixed(2)} s (trailer, second cut: 70–85)`); }
   else if (trailer) { if (dur > 90) fails.push(`duration ${dur.toFixed(2)} s (trailer max 90)`); else if (dur < 60) warns.push(`duration ${dur.toFixed(2)} s is under the trailer's 60–90 s`); }
   else if (dur > 59) fails.push(`duration ${dur.toFixed(2)} s (max 59)`);
   else if (dur < 54 || dur > 58) warns.push(`duration ${dur.toFixed(2)} s is outside the 54–58 s target`);
@@ -368,6 +387,14 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
           if (!rep.stems || rep.stems.length < 3) fails.push('the mix did not use three stems (amb, foley, mus): voice the episode and run tools/score.py first');
           else if (!(rep.music_under_voice_db <= -6)) fails.push(`the music is only ${rep.music_under_voice_db} dB lower under the voice (min 6)`);
           if (!(rep.true_peak_dbtp <= -1.5)) fails.push(`true peak ${rep.true_peak_dbtp} dBTP (max −1.5)`);
+          if (sc.kind === 'trailer' && sc.cut >= 3) {   // the trailer's third cut: no sound holes (measured by tools/mix.py on the finished mix)
+            const bf = rep.bed_floor;
+            if (!bf) fails.push('no bed_floor report in the mix (trailer, third cut): run tools/mix.py');
+            else { info.push(`sound floor: worst 100 ms window ${bf.worst_window_db} dBFS at ${bf.worst_window_at_s} s (floor ${bf.floor_db}), ${bf.windows_under_floor} window(s) under it · worst fall ${bf.worst_drop_db} dB within ${bf.drop_window_s} s at ${bf.worst_drop_at_s} s, ${bf.drops_over_limit} over ${bf.drop_limit_db} dB · before the bed was lifted: worst ${bf.before_lifting_the_bed.worst_window_db} dBFS, ${bf.before_lifting_the_bed.windows_under_floor} under, ${bf.before_lifting_the_bed.drops_over_limit} falls`);
+              if (bf.windows_under_floor) fails.push(`${bf.windows_under_floor} 100 ms window(s) of the mix under ${bf.floor_db} dBFS outside the two stops (first at ${bf.under_floor_at_s[0]} s)`);
+              if (bf.drops_over_limit) fails.push(`${bf.drops_over_limit} fall(s) of more than ${bf.drop_limit_db} dB within ${bf.drop_window_s} s outside the two stops (first at ${bf.drops_at_s[0]} s)`); }
+            if (!((rep.duck_db || {}).mus <= 10)) fails.push(`the music is ducked ${(rep.duck_db || {}).mus} dB under the voice (max 10)`);
+          }
         }
         if (sil.length === 1) warns.push('one real silence (two is the target where the story allows)');
       }
@@ -388,7 +415,7 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
     try {
       const page = reel.pages[0];
       const n = Math.floor(dur * fps);
-      const means = await page.evaluate(async ([n, fps]) => {
+      const means = await page.evaluate(async ([n, fps, rnd]) => {
         const c = window.__reelCanvas, g = c.getContext('2d');
         const out = [];
         for (let i = 0; i < n; i++) {
@@ -398,10 +425,10 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
           const d = g.getImageData(0, 0, c.width, c.height).data;
           const a = new Float32Array(c.width * c.height);
           for (let j = 0, k = 0; j < d.length; j += 4, k++) a[k] = 0.299 * d[j] + 0.587 * d[j + 1] + 0.114 * d[j + 2];
-          out.push(Array.from(a));
+          out.push(rnd ? Array.from(a, (v) => Math.round(v * 10) / 10) : Array.from(a));   // rnd: the trailer only (up to 90 s: unrounded, the reply is too long a string)
         }
         return out;
-      }, [n, fps]);
+      }, [n, fps, sc.kind === 'trailer']);
       // motion in the first half-second (the scorecard's Move@0.5: mean |frame(0.5 s) − frame(0)| ≥ 6 grey levels): ep 34 missed it
       { const A = means[Math.min(means.length - 1, Math.round(fps / 2))], B = means[0]; let s0 = 0; for (let k = 0; k < A.length; k++) s0 += Math.abs(A[k] - B[k]); const mv = s0 / A.length;
         info.push(`motion by 0.5 s ${mv.toFixed(1)}`); if (ep >= 31 && mv < 6) fails.push(`motion by 0.5 s is ${mv.toFixed(1)} grey levels (min 6)`); }

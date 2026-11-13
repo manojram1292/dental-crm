@@ -1,15 +1,15 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "wheel.s2.wav"
+  "wheel.s4.wav"
  ],
  "spoken_as": "Krishna lets the wheel fly.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 1.759,
+   "t1": 1.779,
    "words": 5,
    "text": "Krishna lets the wheel fly."
   }
@@ -17,31 +17,35 @@
  "wordTimes": [
   [
    0.0,
-   0.256
+   0.28
   ],
   [
-   0.256,
-   0.536
+   0.28,
+   0.54
   ],
   [
-   0.536,
-   0.816
+   0.54,
+   0.76
   ],
   [
-   0.816,
-   0.996
+   0.76,
+   1.152
   ],
   [
-   0.996,
-   1.496
+   1.249,
+   1.38
   ]
  ],
  "measured": {
-  "f0": 98.2,
-  "st": 19.6,
-  "edb": 21.1,
-  "pause": 0.06,
-  "dur": 1.68
+  "f0": 124.3,
+  "st": 11.3,
+  "edb": 18.4,
+  "dur": 1.63,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 9.7,
+  "jitter": 2.04,
+  "tail_db": -68.3
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

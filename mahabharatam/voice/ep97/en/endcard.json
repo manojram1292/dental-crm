@@ -1,32 +1,47 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "follow.s4.wav"
+  "endcard.s2.wav"
  ],
- "spoken_as": "one.",
+ "spoken_as": "Episode one is waiting.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 0.697,
-   "words": 1,
-   "text": "one."
+   "t1": 1.72,
+   "words": 4,
+   "text": "Episode one is waiting."
   }
  ],
  "wordTimes": [
   [
    0.0,
-   0.657
+   0.38
+  ],
+  [
+   0.38,
+   0.92
+  ],
+  [
+   0.996,
+   1.04
+  ],
+  [
+   1.04,
+   1.34
   ]
  ],
  "measured": {
-  "f0": 97.9,
-  "st": 11.6,
-  "edb": 19.2,
-  "pause": 0.0,
-  "dur": 0.65
+  "f0": 119.3,
+  "st": 11.3,
+  "edb": 14.6,
+  "dur": 1.59,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.0,
+  "jitter": 2.89,
+  "tail_db": -70.3
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened",
- "cut_from": "Follow. Episode one."
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

@@ -1,15 +1,15 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: a Kokoro bm_lewis clip (synthetic; no real person)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "boy.s0.wav"
+  "boy.s2.wav"
  ],
  "spoken_as": "A boy, alone against many.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 1.861,
+   "t1": 2.288,
    "words": 5,
    "text": "A boy, alone against many."
   }
@@ -17,31 +17,35 @@
  "wordTimes": [
   [
    0.0,
-   0.062
+   0.1
   ],
   [
-   0.062,
-   0.382
+   0.1,
+   0.57
   ],
   [
-   0.702,
-   0.962
+   0.811,
+   1.06
   ],
   [
-   0.962,
-   1.302
+   1.06,
+   1.54
   ],
   [
-   1.302,
-   1.642
+   1.54,
+   1.88
   ]
  ],
  "measured": {
-  "f0": 100.9,
-  "st": 10.5,
-  "edb": 21.1,
-  "pause": 0.24,
-  "dur": 1.78
+  "f0": 123.6,
+  "st": 9.3,
+  "edb": 16.0,
+  "dur": 2.1,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.7,
+  "jitter": 2.55,
+  "tail_db": -70.3
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

@@ -1,36 +1,55 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "every.s2.wav"
+  "p1.s3.wav"
  ],
- "spoken_as": "Every book.",
+ "spoken_as": "Every book. Every vow. Every war.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 0.573,
-   "words": 2,
-   "text": "Every book."
+   "t1": 3.009,
+   "words": 6,
+   "text": "Every book. Every vow. Every war."
   }
  ],
  "wordTimes": [
   [
-   0.02,
-   0.241
+   0.0,
+   0.28
   ],
   [
-   0.252,
-   0.533
+   0.28,
+   0.689
+  ],
+  [
+   1.027,
+   1.22
+  ],
+  [
+   1.22,
+   1.859
+  ],
+  [
+   2.059,
+   2.32
+  ],
+  [
+   2.32,
+   2.64
   ]
  ],
  "measured": {
-  "f0": 119.9,
-  "st": 12.8,
-  "edb": 20.6,
-  "pause": 0.06,
-  "dur": 0.5
+  "f0": 124.5,
+  "st": 5.7,
+  "edb": 14.2,
+  "dur": 2.83,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 13.6,
+  "jitter": 1.69,
+  "tail_db": -72.4
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened",
- "cut_from": "Every book. Every vow. Every war."
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

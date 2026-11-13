@@ -1,15 +1,15 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "cousins.s1.wav"
+  "cousins.s6.wav"
  ],
  "spoken_as": "A hundred brothers. Five cousins. One throne.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 2.639,
+   "t1": 3.631,
    "words": 7,
    "text": "A hundred brothers. Five cousins. One throne."
   }
@@ -17,39 +17,43 @@
  "wordTimes": [
   [
    0.0,
-   0.059
+   0.1
   ],
   [
-   0.059,
-   0.259
+   0.1,
+   0.4
   ],
   [
-   0.259,
-   0.559
+   0.4,
+   1.061
   ],
   [
-   1.019,
-   1.259
+   1.398,
+   1.58
   ],
   [
-   1.259,
-   1.579
+   1.58,
+   2.271
   ],
   [
-   1.999,
-   2.079
+   2.607,
+   2.936
   ],
   [
-   2.079,
-   2.319
+   3.017,
+   3.14
   ]
  ],
  "measured": {
-  "f0": 112.0,
-  "st": 19.6,
-  "edb": 19.2,
-  "pause": 0.24,
-  "dur": 2.56
+  "f0": 118.0,
+  "st": 8.4,
+  "edb": 17.5,
+  "dur": 3.49,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.6,
+  "jitter": 1.99,
+  "tail_db": -70.0
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

@@ -1,71 +1,75 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: the model's own default voice lowered 7 semitones (Praat 'Change gender': pitch median 94 Hz, formants x0.90)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "vow.s3.wav"
+  "vow.s10.wav"
  ],
- "spoken_as": "Long before, a prince swears away his throne and his line.",
+ "spoken_as": "Long ago, a prince swears away his throne and his line.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 3.705,
+   "t1": 3.814,
    "words": 11,
-   "text": "Long before, a prince swears away his throne and his line."
+   "text": "Long ago, a prince swears away his throne and his line."
   }
  ],
  "wordTimes": [
   [
    0.0,
-   0.206
+   0.12
   ],
   [
-   0.206,
-   0.526
+   0.12,
+   0.637
   ],
   [
-   0.866,
-   0.906
+   0.864,
+   0.952
   ],
   [
-   0.906,
-   1.126
+   1.018,
+   1.16
   ],
   [
-   1.126,
-   1.666
+   1.16,
+   1.68
   ],
   [
-   1.666,
-   1.946
+   1.68,
+   2.06
   ],
   [
-   1.946,
-   2.246
+   2.06,
+   2.396
   ],
   [
-   2.246,
-   2.566
+   2.52,
+   2.66
   ],
   [
-   2.566,
-   2.946
+   2.66,
+   2.98
   ],
   [
-   2.946,
-   3.126
+   2.98,
+   3.14
   ],
   [
-   3.126,
-   3.426
+   3.14,
+   3.4
   ]
  ],
  "measured": {
-  "f0": 109.3,
-  "st": 17.4,
-  "edb": 19.1,
-  "pause": 0.08,
-  "dur": 3.63
+  "f0": 119.6,
+  "st": 8.6,
+  "edb": 16.7,
+  "dur": 3.65,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.7,
+  "jitter": 2.12,
+  "tail_db": -70.5
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

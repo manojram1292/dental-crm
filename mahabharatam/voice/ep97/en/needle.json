@@ -1,16 +1,63 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox:default",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
+ "takes_from": [
+  "needle.s8.wav"
+ ],
  "spoken_as": "Duryodhana will not give a needle-point of earth.",
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 2.709,
+   "t0": 0,
+   "t1": 3.033,
    "words": 8,
    "text": "Duryodhana will not give a needle-point of earth."
   }
  ],
- "note": "written by the trailer take selector (scratchpad/trailer/select.py): chunk times are proportional, not measured; tempo x0.965 (pitch kept, ffmpeg atempo) to hold the gate speech rate",
- "tempo": 0.965
+ "wordTimes": [
+  [
+   0.0,
+   0.6
+  ],
+  [
+   0.6,
+   0.86
+  ],
+  [
+   0.86,
+   1.159
+  ],
+  [
+   1.233,
+   1.34
+  ],
+  [
+   1.34,
+   1.48
+  ],
+  [
+   1.48,
+   2.16
+  ],
+  [
+   2.16,
+   2.34
+  ],
+  [
+   2.34,
+   2.6
+  ]
+ ],
+ "measured": {
+  "f0": 127.5,
+  "st": 8.4,
+  "edb": 18.7,
+  "dur": 2.81,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.0,
+  "jitter": 2.23,
+  "tail_db": -69.1
+ },
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

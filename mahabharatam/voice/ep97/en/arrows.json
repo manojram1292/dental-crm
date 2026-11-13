@@ -1,59 +1,59 @@
 {
  "speaker": "narrator",
- "voice": "chatterbox (ONNX, CPU); reference: a Kokoro bm_lewis clip (synthetic; no real person)",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav): chosen from five references by measurement: fewest pitch jumps (0.08 a second), least creak (0.2 %), warmest tilt, takes within 1.7 semitones of each other",
  "engine": "chatterbox-onnx",
  "takes_from": [
-  "arrows.s1.wav"
+  "arrows.s3.wav"
  ],
- "spoken_as": "Bhishma will fall on a bed of arrows.",
+ "spoken_as": "Bhishma falls on a bed of arrows.",
  "chunks": [
   {
    "t0": 0,
-   "t1": 2.393,
-   "words": 8,
-   "text": "Bhishma will fall on a bed of arrows."
+   "t1": 2.145,
+   "words": 7,
+   "text": "Bhishma falls on a bed of arrows."
   }
  ],
  "wordTimes": [
   [
-   0.02,
-   0.368
+   0.03,
+   0.459
   ],
   [
-   0.368,
-   0.568
+   0.533,
+   0.6
   ],
   [
-   0.568,
-   0.888
+   0.6,
+   0.96
   ],
   [
-   0.888,
-   1.128
+   0.96,
+   1.04
   ],
   [
-   1.128,
-   1.228
+   1.04,
+   1.26
   ],
   [
-   1.228,
-   1.448
+   1.26,
+   1.44
   ],
   [
-   1.448,
-   1.608
-  ],
-  [
-   1.608,
-   1.928
+   1.44,
+   1.72
   ]
  ],
  "measured": {
-  "f0": 94.9,
-  "st": 11.2,
-  "edb": 19.2,
-  "pause": 0.11,
-  "dur": 2.31
+  "f0": 120.6,
+  "st": 8.8,
+  "edb": 18.2,
+  "dur": 2.0,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.0,
+  "jitter": 2.28,
+  "tail_db": -69.8
  },
- "note": "lab/review/trailer/v2/voice_select.py: word times are the recogniser's (faster-whisper base.en), moved with the trims; nobody has listened"
+ "note": "lab/review/trailer/v3/voice_select.py: whole sentences, one take each, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }
