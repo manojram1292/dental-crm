@@ -1,9 +1,9 @@
 {
  "music_under_voice_db": -19.2,
  "voice_over_bed": {
-  "median_db": 16.3,
-  "p10_db": 7.3,
-  "windows": 382,
+  "median_db": 17.5,
+  "p10_db": 10.7,
+  "windows": 349,
   "min_median_db": 15.0,
   "min_p10_db": 8.0
  },
@@ -16,7 +16,7 @@
  "duck_db": {
   "mus": 17.0,
   "amb": 11.0,
-  "foley": 8.0
+  "foley": 12.0
  },
  "duck_release_ms": 120,
  "rests": [
@@ -33,7 +33,7 @@
    "from_s": 40.81,
    "seconds": 1.36,
    "bed_dip_db": 3.5,
-   "quietest_window_db": -28.0,
+   "quietest_window_db": -28.1,
    "under_the_second_before_db": 9.7
   }
  ],
@@ -53,18 +53,18 @@
   "before_lifting_the_bed": {
    "worst_window_db": -40.2,
    "worst_window_at_s": 24.2,
-   "windows_under_floor": 7,
-   "worst_drop_db": 22.0,
+   "windows_under_floor": 8,
+   "worst_drop_db": 22.1,
    "worst_drop_at_s": 13.2,
    "drops_over_limit": 13
   },
-  "bed_lift_db_max": 13.6,
-  "bed_lifted_seconds": 2.21
+  "bed_lift_db_max": 14.2,
+  "bed_lifted_seconds": 2.22
  },
  "line_gain_multiplier": 2.6,
  "next_under_body_db": 5.6,
- "first_100ms_db": -30.2,
- "first_frame_33ms_db": -31.0,
+ "first_100ms_db": -29.9,
+ "first_frame_33ms_db": -30.7,
  "word_to_cut": [
   {
    "line": "hook",
@@ -124,7 +124,7 @@
  ],
  "least_word_to_cut_s": 0.371,
  "voice_eq": "as the trailer: high-pass 58 Hz, +1 dB under 160 Hz, \u22121 dB over 7.5 kHz, +1.5 dB at 3.2 kHz, \u22121.5 dB at 320 Hz, a short room 15 dB under",
- "lufs": -14.17,
+ "lufs": -14.18,
  "true_peak_dbtp": -3.32,
  "lra": 4.9,
  "timeline": "caaf8d710eab5c45",

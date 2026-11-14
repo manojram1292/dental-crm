@@ -51,10 +51,10 @@
   "floor_db": -34,
   "windows": 186,
   "worst_window_db": -32.7,
-  "worst_window_at_s": 26.05,
+  "worst_window_at_s": 43.65,
   "windows_under_floor": 0,
   "under_floor_at_s": [],
-  "worst_drop_db": 10.9,
+  "worst_drop_db": 11.0,
   "worst_drop_at_s": 54.95,
   "drops_over_limit": 0,
   "drops_at_s": [],
@@ -62,20 +62,20 @@
   "drop_window_s": 0.3
  },
  "voice_over_bed": {
-  "median_db": 15.4,
-  "p10_db": 8.2
+  "median_db": 17.9,
+  "p10_db": 11.4
  },
  "start": {
-  "first_100ms_db": -29.8,
-  "first_frame_33ms_db": -42.4,
-  "first_10ms_db": -44.6
+  "first_100ms_db": -30.2,
+  "first_frame_33ms_db": -44.4,
+  "first_10ms_db": -46.7
  },
  "clipping": {
   "samples_at_0.999": 0,
-  "peak_dbfs": -3.03
+  "peak_dbfs": -2.86
  },
  "recogniser": {
-  "heard": "How can a celibate sage have a daughter? A king asked a young, hermit woman who she was. People call me the sage, Canva's daughter. Hear why? Long ago, the penance of another sage frightened the king of the gods. He sent Minaka a nymph of heaven to break it. Vishvamitra desired her, and she was willing. By a river, a daughter was born, Menaka left her there and went back to heaven. In a forest of lions and tigers, birds ringed the child and kept her safe. The sage Canva found her and raised her as his own. Goded by birds by Shakuntas, so he named me Shakuntala. The king listened. A king's daughter then, he said. Be my wife.",
+  "heard": "How can a celibate sage have a daughter? A king asked a young, hermit woman who she was. People call me the sage, canvas daughter. Hear why? Long ago, the penance of another sage frightened the king of the gods. He sent Minaka a nymph of heaven to break it. Vishvamitra desired her, and she was willing. By a river, a daughter was born, Menaka left her there and went back to heaven. In a forest of lions and tigers, birds ringed the child and kept her safe. The sage Canva found her and raised her as his own. Goded by birds by Shakuntas, so he named me Shakuntala. The king listened. A king's daughter then, he said. Be my wife.",
   "transcribed_in_stretches_starting_at_s": [
    0.0,
    12.0,
@@ -102,11 +102,11 @@
    [
     "celibate",
     0.5,
-    1.0
+    0.98
    ],
    [
     "sage",
-    1.0,
+    0.98,
     1.22
    ],
    [
@@ -126,7 +126,7 @@
    ],
    [
     "A",
-    3.98,
+    4.0,
     4.06
    ],
    [
@@ -176,7 +176,7 @@
    ],
    [
     "People",
-    8.12,
+    8.2,
     8.2
    ],
    [
@@ -200,23 +200,23 @@
     9.16
    ],
    [
-    "Canva's",
-    9.76,
-    10.14
+    "canvas",
+    9.78,
+    9.86
    ],
    [
     "daughter.",
-    10.14,
-    10.36
+    9.86,
+    10.32
    ],
    [
     "Hear",
     10.98,
-    11.04
+    11.02
    ],
    [
     "why?",
-    11.04,
+    11.02,
     11.36
    ],
    [
@@ -227,7 +227,7 @@
    [
     "ago,",
     12.4,
-    12.72
+    12.7
    ],
    [
     "the",
@@ -262,11 +262,11 @@
    [
     "the",
     15.0,
-    15.5
+    15.48
    ],
    [
     "king",
-    15.5,
+    15.48,
     15.72
    ],
    [
@@ -312,16 +312,16 @@
    [
     "of",
     19.38,
-    19.52
+    19.54
    ],
    [
     "heaven",
-    19.52,
-    19.78
+    19.54,
+    19.76
    ],
    [
     "to",
-    19.78,
+    19.76,
     20.14
    ],
    [
@@ -336,17 +336,17 @@
    ],
    [
     "Vishvamitra",
-    21.82,
+    21.86,
     22.46
    ],
    [
     "desired",
     22.46,
-    22.74
+    22.72
    ],
    [
     "her,",
-    22.74,
+    22.72,
     23.28
    ],
    [
@@ -382,27 +382,27 @@
    [
     "river,",
     26.4,
-    26.68
+    26.7
    ],
    [
     "a",
-    26.68,
+    26.96,
     27.14
    ],
    [
     "daughter",
     27.14,
-    27.44
+    27.42
    ],
    [
     "was",
-    27.44,
+    27.42,
     27.78
    ],
    [
     "born,",
     27.78,
-    28.14
+    28.12
    ],
    [
     "Menaka",
@@ -412,11 +412,11 @@
    [
     "left",
     29.04,
-    29.58
+    29.56
    ],
    [
     "her",
-    29.58,
+    29.56,
     29.76
    ],
    [
@@ -467,11 +467,11 @@
    [
     "of",
     33.0,
-    33.4
+    33.38
    ],
    [
     "lions",
-    33.4,
+    33.38,
     33.66
    ],
    [
@@ -487,11 +487,11 @@
    [
     "birds",
     35.18,
-    35.48
+    35.46
    ],
    [
     "ringed",
-    35.48,
+    35.46,
     36.28
    ],
    [
@@ -522,7 +522,7 @@
    [
     "safe.",
     37.64,
-    38.04
+    38.02
    ],
    [
     "The",
@@ -532,11 +532,11 @@
    [
     "sage",
     39.01,
-    39.33
+    39.35
    ],
    [
     "Canva",
-    39.33,
+    39.35,
     39.95
    ],
    [
@@ -557,21 +557,21 @@
    [
     "raised",
     41.01,
-    41.35
+    41.33
    ],
    [
     "her",
-    41.35,
+    41.33,
     41.61
    ],
    [
     "as",
     41.61,
-    41.89
+    41.87
    ],
    [
     "his",
-    41.89,
+    41.87,
     42.05
    ],
    [
@@ -581,7 +581,7 @@
    ],
    [
     "Goded",
-    43.37,
+    43.39,
     44.05
    ],
    [
@@ -592,11 +592,11 @@
    [
     "birds",
     44.23,
-    44.61
+    44.63
    ],
    [
     "by",
-    44.61,
+    44.63,
     45.11
    ],
    [
@@ -606,7 +606,7 @@
    ],
    [
     "so",
-    46.23,
+    46.25,
     46.57
    ],
    [
@@ -627,7 +627,7 @@
    [
     "Shakuntala.",
     47.27,
-    48.05
+    48.07
    ],
    [
     "The",
@@ -662,7 +662,7 @@
    [
     "then,",
     51.55,
-    51.97
+    51.99
    ],
    [
     "he",
@@ -672,7 +672,7 @@
    [
     "said.",
     52.39,
-    52.67
+    52.65
    ],
    [
     "Be",
@@ -693,9 +693,9 @@
   "gaps_over_0.35s_inside_a_sentence": [
    {
     "after": "sage,",
-    "before": "Canva's",
+    "before": "canvas",
     "at_s": 9.16,
-    "gap_s": 0.6
+    "gap_s": 0.62
    },
    {
     "after": "her,",
@@ -706,8 +706,8 @@
    {
     "after": "born,",
     "before": "Menaka",
-    "at_s": 28.14,
-    "gap_s": 0.68
+    "at_s": 28.12,
+    "gap_s": 0.7
    },
    {
     "after": "tigers,",
@@ -719,14 +719,14 @@
     "after": "Shakuntas,",
     "before": "so",
     "at_s": 45.81,
-    "gap_s": 0.42
+    "gap_s": 0.44
    }
   ],
   "script_words": 126,
   "misheard": [
    {
     "script": "kanva's",
-    "heard": "canva's"
+    "heard": "canvas"
    },
    {
     "script": "menaka",
