@@ -230,9 +230,15 @@ cut 3; "episode gate" means the same tool for an ordinary episode. Nothing in th
 4. **One reference voice per film**, every take within 2 semitones of the set's median, no time-stretch over 4 %.
    *Not checked by any gate; measured by `voice_select.py` and written to `voice/ep97/en/select.json`. To adopt: a gate rule
    reading the voice side-cars' measured pitch.*
-5. **The music ducks 8 to 10 dB at most, with a fast release; no window under the floor; no fall of more than 10 dB within
-   0.3 s.** *Trailer gate: enforced (the mix measures and, where needed, lifts the bed). Episode gate: only "at least 6 dB
-   lower under the voice" is checked; episodes duck 11 dB with a 400 ms hold. To adopt.*
+5. **The voice stands clear: a median 15 dB over everything else while it speaks (10th percentile ≥ 8 dB).** *Corrected
+   2026-11-14 after the owner said episode 50 was "very noisy, the audio is not properly hearable".* The first version of this rule
+   ("the music ducks 8 to 10 dB at most, no window under −26 dBFS anywhere") was wrong for narration: it let the music sit 7 dB under
+   the voice and lifted the bed by up to 21 dB between words, so the voice was masked. Now (`tools/mix.py` RULES2): the duck is held
+   over each whole line, to its last word (music 15 dB, ambience 9, foley 4), the bed is carved 5 dB around 2.5 kHz while the voice
+   speaks, a line's quieter "mixDb" moves the voice only, and the floor (−34 dBFS) and fall (12 dB in 0.3 s) rules apply only BETWEEN
+   lines, where the bed may be lifted (never under the voice). The no-silence rule stands: between sentences the bed is still there.
+   *Episode gate ("rules": 2): enforced (`voice_over_bed` median and 10th percentile; duck 12–20 dB). The trailer was mixed under the
+   old rule and measures a median 9 dB; it has not been remixed.*
 6. **No picture and no phrase twice; no flash insert; no picture under 1.3 s or under three words.** *Trailer gate: enforced
    for phrases (three words) and for lengths; a repeated PICTURE is caught only between neighbours (pHash). Episode gate:
    neighbours' pHash only.*

@@ -326,8 +326,14 @@ def line_gains(tl, SL, N, mult=1.0):
 
 
 # ─── "rules": 2 (episodes scripted after the trailer; README "Standing rules learned from the trailer") ──────────────────────────
-RULES2 = {'duck': {'mus': 8.0, 'amb': 3.0, 'foley': 2.0}, 'release_s': 0.09, 'rest_dip_db': 3.5, 'next_under_db': 6.0, 'floor': {'floorDb': -26, 'dropDb': 10, 'dropWindowS': 0.3, 'endExemptS': 0.06},   # as the trailer; the check on the finished file leaves out 0.1 s (its decoded sound is a few ms longer)
-          'ceil_db': -2.5}   # the limiter's ceiling 1 dB under an older episode's: AAC overshoots voice onsets and drum hits; the mp4 must stay ≤ −1.5 dBTP
+RULES2 = {'duck': {'mus': 15.0, 'amb': 9.0, 'foley': 4.0}, 'release_s': 0.12, 'rest_dip_db': 3.5, 'next_under_db': 6.0, 'floor': {'floorDb': -34, 'dropDb': 12, 'dropWindowS': 0.3, 'endExemptS': 0.06},
+          'carve_db': 5.0, 'lift_max_db': 18.0, 'vob_median_min': 15.0, 'vob_p10_min': 8.0,
+          'ceil_db': -2.5}   # 2026-11-14, owner: "episode 50 is very noisy, the audio is not properly hearable". The first rules-2 mix ducked the music
+# only 8 dB on a word-by-word envelope and lifted the bed up to 21 dB wherever a window fell under -26 dBFS: the voice sat a median 6.7 dB over the bed
+# (a tenth of the speech level with it) and the bed pumped up between words. Now: the duck is held over each whole line (15 dB music, 9 ambience,
+# 4 foley), the bed is carved 5 dB around 2.5 kHz while the voice speaks, and the floor (-34 dBFS) and fall (12 dB in 0.3 s) rules are measured
+# only in the gaps BETWEEN lines (inside a line the voice is the sound; a quiet bed under it is the point), where the bed may be lifted up to
+# 18 dB, never under the voice. The voice must stand a median 15 dB (10th percentile 8 dB) over everything else, by a local fit per 100 ms.
 
 
 def main_rules2(ep, tag, lang, tl, sc):
@@ -359,9 +365,12 @@ def main_rules2(ep, tag, lang, tl, sc):
         sys.exit(f'{tag}: "rules": 2 needs the voice (tools/voice2.py) before the mix')
     voice = voice_room(voice_eq(voice_eq(voice, VOICE_EQ_TRAILER), VOICE_EQ_TRAILER3_ADD))
     voice *= db(VOICE_LUFS - lufs(voice))
-    e = maximum_filter1d(np.abs(voice).max(0), int(0.03 * SR))
-    key = np.clip((20 * np.log10(e + 1e-9) + 45) / 15, 0, 1)
-    sm = uniform_filter1d(maximum_filter1d(key, int(C['release_s'] * SR)), int(0.06 * SR))
+    span = np.zeros(N)   # the duck is held over each whole line (from 30 ms before its first sound to its last sound): no pumping between words
+    for l in L:
+        if l.get('voice'):
+            e_ = (l['words'][-1]['t1'] + 0.06) if l.get('words') else l['speechEnd']   # to the last word's end, not through the air after it
+            span[max(0, int((l['speechStart'] - 0.03) * SR)):min(N, int(min(e_, l['speechEnd']) * SR))] = 1
+    sm = uniform_filter1d(maximum_filter1d(span, int(C['release_s'] * SR)), int(0.05 * SR))
     # the rests: the bed runs on, 3.5 dB under its own level (as the approved trailer's two rests)
     ti = next((i for i, l in enumerate(L) if 'TURN' in SL.get(l['id'], {}).get('note', '')), None)
     rest_ix = [i for i, l in enumerate(L) if i and (i == ti or SL.get(l['id'], {}).get('rest'))]
@@ -386,45 +395,68 @@ def main_rules2(ep, tag, lang, tl, sc):
     nx = next((l for l in L if l['id'] == 'next' and not l.get('voice')), None)
     lgs = {}
 
+    bed0 = stems['mus'] + stems['amb']
+    b_, a_c = biquad('peak', 2500.0, -C['carve_db'], 0.8); bed_cut = sps.lfilter(b_, a_c, bed0, axis=1)
+    bed_carved = bed0 + (bed_cut - bed0) * sm
+
     def compose(bedg, mult, next_db):
-        x = voice + stems['foley'] + (stems['mus'] + stems['amb']) * db(bedg)
+        if mult not in lgs:
+            lgs[mult] = line_gains(tl, SL, N, mult)
+        x = voice * lgs[mult] + stems['foley'] + bed_carved * db(bedg)   # a line's "mixDb" moves the voice only: turning the whole mix down in a quiet line left holes in the bed
         if nx:
             i0 = int(nx['start'] * SR); r = min(int(0.5 * SR), N - i0); g = np.ones(N)
             g[i0:i0 + r] = db(np.linspace(0, -next_db, r)); g[i0 + r:] = db(-next_db); x = x * g
         n0 = int(0.003 * SR); x[:, :n0] *= np.linspace(0, 1, n0)
-        if mult not in lgs:
-            lgs[mult] = line_gains(tl, SL, N, mult)
-        return master(x * lgs[mult], C['ceil_db'])
+        return master(x, C['ceil_db'])
 
     bedg = np.zeros(N); next_db = C['next_under_db'] + 0.5
     for mult in (1.0, 1.5, 2.0, 2.6):
         mix = compose(bedg, mult, next_db)
         if lra(mix) >= LRA_MIN:
             break
+    spans = [(l['speechStart'] + 0.1, l['speechEnd'] - 0.1) for l in L if l.get('voice')]   # inside a line the voice is the sound: the floor and fall rules apply between lines
     rep0 = None
     for it in range(12):
-        rep, (t, lv, prev, ok, okd) = floor_report(mix, [], C['floor'], D)
+        rep, (t, lv, prev, ok, okd) = floor_report(mix, spans, C['floor'], D)
         if rep0 is None:
             rep0 = rep
         under_next = (lufs(mix[:, :int(nx['start'] * SR)]) - lufs(mix[:, int(nx['start'] * SR):])) if nx else 99
-        if rep['windows_under_floor'] == 0 and rep['drops_over_limit'] == 0 and under_next >= C['next_under_db'] - 0.5:
+        f100_ok = 10 * np.log10(np.mean(mix[:, :int(0.1 * SR)] ** 2) + 1e-12) >= C['floor']['floorDb']
+        if rep['windows_under_floor'] == 0 and rep['drops_over_limit'] == 0 and under_next >= C['next_under_db'] - 0.5 and f100_ok:
             break
         need = np.where(ok, np.maximum(0, C['floor']['floorDb'] + 1.5 - lv), 0)
         need = np.clip(np.where(okd, np.maximum(need, (prev - lv) - (C['floor']['dropDb'] - 1.5)), need), 0, 8)
         add_db = np.zeros(N)
         for i in np.nonzero(need > 0)[0]:
             a, b = int(t[i] * SR), int((t[i] + 0.1) * SR); add_db[a:b] = np.maximum(add_db[a:b], need[i])
-        bedg = np.minimum(bedg + uniform_filter1d(maximum_filter1d(add_db, int(0.04 * SR)), int(0.05 * SR)), 26.0)   # an episode's bed is quieter than the trailer's: up to 26 dB in a hole (the trailer's limit was 14)
+        for a_s, b_s in spans:   # never under the voice itself (the floor and fall rules only see the gaps between lines; the lift may ride the 0.12 s before a line)
+            add_db[int((a_s - 0.1) * SR):int((b_s + 0.1) * SR)] = 0
+        f100 = 10 * np.log10(np.mean(mix[:, :int(0.1 * SR)] ** 2) + 1e-12)
+        if f100 < C['floor']['floorDb'] + 1.0:   # sound from frame 0: the bed carries the first 100 ms up to the floor, ahead of the first word
+            s0 = int(min(0.1, spans[0][0] - 0.1 if spans else 0.1) * SR)
+            add_db[:max(s0, int(0.05 * SR))] = np.maximum(add_db[:max(s0, int(0.05 * SR))], C['floor']['floorDb'] + 2.0 - f100)
+        bedg = np.minimum(bedg + uniform_filter1d(maximum_filter1d(add_db, int(0.04 * SR)), int(0.05 * SR)), C['lift_max_db'])   # an episode's bed is quieter than the trailer's: up to 26 dB in a hole (the trailer's limit was 14)
         if under_next < C['next_under_db'] - 0.5:
             next_db += min(3.0, C['next_under_db'] - under_next)
         mix = compose(bedg, mult, next_db)
-    rep, (t, lv, prev, ok, okd) = floor_report(mix, [], C['floor'], D)
+    rep, (t, lv, prev, ok, okd) = floor_report(mix, spans, C['floor'], D)
     rep['before_lifting_the_bed'] = {k_: rep0[k_] for k_ in ('worst_window_db', 'worst_window_at_s', 'windows_under_floor', 'worst_drop_db', 'worst_drop_at_s', 'drops_over_limit')}
     rep['bed_lift_db_max'] = round(float(bedg.max()), 1); rep['bed_lifted_seconds'] = round(float((bedg > 0.5).sum() / SR), 2)
     for r_ in rests:   # what the rest is in the finished mix: its quietest 100 ms window, and how far that is under the second before it
         w = (t >= r_['from_s']) & (t + 0.1 <= r_['from_s'] + r_['seconds']); b4 = (t >= r_['from_s'] - 1.0) & (t < r_['from_s'])
         r_['quietest_window_db'] = round(float(lv[w].min()), 1) if w.any() else None
         r_['under_the_second_before_db'] = round(float(np.median(lv[b4]) - np.median(lv[w])), 1) if w.any() and b4.any() else None
+    # how far the voice stands over everything else while it speaks (100 ms windows where the voice is on)
+    vm = voice.mean(0); mm = mix.mean(0); w_ = int(0.1 * SR); vob = []
+    for i in range(0, N - w_, w_):
+        vv = vm[i:i + w_]; e_ = np.mean(vv ** 2)
+        if 10 * np.log10(e_ + 1e-12) < -45:
+            continue
+        a_ = float(np.dot(mm[i:i + w_], vv) / e_ / w_); r_ = mm[i:i + w_] - a_ * vv   # the voice's gain fitted locally (the limiter and per-line gains move it)
+        vob.append(10 * np.log10(np.mean((a_ * vv) ** 2) / (np.mean(r_ ** 2) + 1e-12)))
+    vob = np.array(vob) if vob else np.array([0.0])
+    report['voice_over_bed'] = {'median_db': round(float(np.median(vob)), 1), 'p10_db': round(float(np.percentile(vob, 10)), 1), 'windows': int(len(vob)),
+                                'min_median_db': C['vob_median_min'], 'min_p10_db': C['vob_p10_min']}
     out = os.path.join(ROOT, 'audio', tag, f'mix.{lang}.wav')
     write_wav(out, mix)
     write_wav(os.path.join(ROOT, 'audio', tag, f'voice-stem.{lang}.wav'), voice * db(-8.0))
@@ -597,6 +629,17 @@ def main():
         mix, report['bed_floor'] = bed_floor(mix, pre, _stems3, voice, tl, SL, N, ceil, _bed3, os.path.join(ROOT, 'audio', tag, 'score-trailer.json'), mult)
         report['line_gain_multiplier'] = mult
         write_wav(os.path.join(ROOT, 'audio', tag, f'voice-stem.{lang}.wav'), voice * db(-8.0))   # the voice alone as laid, EQ and room on, 8 dB down so that the file cannot clip (for the click checks)
+    # how far the voice stands over everything else while it speaks (100 ms windows where the voice is on)
+    vm = voice.mean(0); mm = mix.mean(0); w_ = int(0.1 * SR); vob = []
+    for i in range(0, N - w_, w_):
+        vv = vm[i:i + w_]; e_ = np.mean(vv ** 2)
+        if 10 * np.log10(e_ + 1e-12) < -45:
+            continue
+        a_ = float(np.dot(mm[i:i + w_], vv) / e_ / w_); r_ = mm[i:i + w_] - a_ * vv   # the voice's gain fitted locally (the limiter and per-line gains move it)
+        vob.append(10 * np.log10(np.mean((a_ * vv) ** 2) / (np.mean(r_ ** 2) + 1e-12)))
+    vob = np.array(vob) if vob else np.array([0.0])
+    report['voice_over_bed'] = {'median_db': round(float(np.median(vob)), 1), 'p10_db': round(float(np.percentile(vob, 10)), 1), 'windows': int(len(vob)),
+                                'min_median_db': C['vob_median_min'], 'min_p10_db': C['vob_p10_min']}
     out = os.path.join(ROOT, 'audio', tag, f'mix.{lang}.wav')
     write_wav(out, mix)
     if ep >= 41:

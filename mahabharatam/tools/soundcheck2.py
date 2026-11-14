@@ -20,9 +20,21 @@ else:
     raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', f, '-vn', '-ac', '2', '-ar', '48000', '-f', 'f32le', '-'], capture_output=True).stdout; x = np.frombuffer(raw, np.float32).reshape(-1, 2).T.astype(np.float64)
 stops = [[float(q) for q in p.split(',')] for p in arg('--stops', '').split(';') if p]
 cfg = {'floorDb': -26, 'dropDb': 10, 'dropWindowS': 0.3, 'endExemptS': 0.1}   # to 100 ms before the end (the bed goes out over the last 80 ms; a decoded mp4 is a few ms longer than the mix)
+_sc = json.load(open(arg('--script'))) if arg('--script') else {}
+if _sc.get('rules', 1) >= 2 and _sc.get('kind') != 'trailer' and arg('--timeline'):   # 2026-11-14: as tools/mix.py RULES2: the floor and fall rules between lines; inside a line the voice is the sound
+    _tl = json.load(open(arg('--timeline')))
+    cfg = dict(MX.RULES2['floor']); cfg['endExemptS'] = 0.1
+    stops = stops + [[l['speechStart'] + 0.1, l['speechEnd'] - 0.1] for l in _tl['lines'] if l.get('voice')]
 rep, _ = MX.floor_report(x, stops, cfg, x.shape[1] / SR)
 out = {'file': os.path.basename(f), 'seconds': round(x.shape[1] / SR, 2), 'stops': stops, 'holes': rep}
 r = lambda z: round(float(10 * np.log10(np.mean(z ** 2) + 1e-12)), 1)
+if arg('--voice-stem'):   # voice over everything else, a local fit per 100 ms (as tools/mix.py voice_over_bed)
+    _v = sf.read(arg('--voice-stem'), always_2d=True, dtype='float64')[0].T.mean(0); _m = x.mean(0); _n = min(len(_v), len(_m)); _w = 4800; _o = []
+    for i in range(0, _n - _w, _w):
+        vv = _v[i:i + _w]; e_ = np.mean(vv ** 2)
+        if 10 * np.log10(e_ + 1e-12) < -45: continue
+        a_ = np.dot(_m[i:i + _w], vv) / (e_ * _w); _o.append(10 * np.log10(np.mean((a_ * vv) ** 2) / (np.mean((_m[i:i + _w] - a_ * vv) ** 2) + 1e-12)))
+    if _o: out['voice_over_bed'] = {'median_db': round(float(np.median(_o)), 1), 'p10_db': round(float(np.percentile(_o, 10)), 1)}
 out['start'] = {'first_100ms_db': r(x[:, :4800]), 'first_frame_33ms_db': r(x[:, :1600]), 'first_10ms_db': r(x[:, :480])}
 out['clipping'] = {'samples_at_0.999': int((np.abs(x) >= 0.999).sum()), 'peak_dbfs': round(float(20 * np.log10(np.abs(x).max())), 2)}
 if '--no-asr' not in sys.argv:

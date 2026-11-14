@@ -1,5 +1,12 @@
 {
- "music_under_voice_db": -10.4,
+ "music_under_voice_db": -17.7,
+ "voice_over_bed": {
+  "median_db": 16.2,
+  "p10_db": 8.7,
+  "windows": 396,
+  "min_median_db": 15.0,
+  "min_p10_db": 8.0
+ },
  "rules": 2,
  "stems": [
   "mus",
@@ -7,57 +14,57 @@
   "foley"
  ],
  "duck_db": {
-  "mus": 8.0,
-  "amb": 3.0,
-  "foley": 2.0
+  "mus": 15.0,
+  "amb": 9.0,
+  "foley": 4.0
  },
- "duck_release_ms": 90,
+ "duck_release_ms": 120,
  "rests": [
   {
    "before": "gift",
    "from_s": 24.24,
    "seconds": 1.33,
    "bed_dip_db": 3.5,
-   "quietest_window_db": -24.5,
-   "under_the_second_before_db": -0.2
+   "quietest_window_db": -30.2,
+   "under_the_second_before_db": 1.9
   },
   {
    "before": "born",
    "from_s": 34.19,
    "seconds": 1.21,
    "bed_dip_db": 3.5,
-   "quietest_window_db": -24.5,
-   "under_the_second_before_db": 7.2
+   "quietest_window_db": -32.5,
+   "under_the_second_before_db": 9.7
   }
  ],
  "bed_floor": {
-  "floor_db": -26,
-  "windows": 1099,
-  "worst_window_db": -25.0,
-  "worst_window_at_s": 54.9,
+  "floor_db": -34,
+  "windows": 218,
+  "worst_window_db": -32.5,
+  "worst_window_at_s": 0.0,
   "windows_under_floor": 0,
   "under_floor_at_s": [],
-  "worst_drop_db": 8.8,
+  "worst_drop_db": 10.9,
   "worst_drop_at_s": 54.05,
   "drops_over_limit": 0,
   "drops_at_s": [],
-  "drop_limit_db": 10,
+  "drop_limit_db": 12,
   "drop_window_s": 0.3,
   "before_lifting_the_bed": {
-   "worst_window_db": -42.2,
-   "worst_window_at_s": 22.65,
-   "windows_under_floor": 205,
-   "worst_drop_db": 17.4,
-   "worst_drop_at_s": 53.05,
-   "drops_over_limit": 126
+   "worst_window_db": -40.1,
+   "worst_window_at_s": 25.5,
+   "windows_under_floor": 8,
+   "worst_drop_db": 15.5,
+   "worst_drop_at_s": 14.15,
+   "drops_over_limit": 8
   },
-  "bed_lift_db_max": 20.7,
-  "bed_lifted_seconds": 25.29
+  "bed_lift_db_max": 10.3,
+  "bed_lifted_seconds": 1.91
  },
  "line_gain_multiplier": 2.6,
- "next_under_body_db": 5.5,
- "first_100ms_db": -24.5,
- "first_frame_33ms_db": -21.7,
+ "next_under_body_db": 5.6,
+ "first_100ms_db": -32.5,
+ "first_frame_33ms_db": -30.5,
  "word_to_cut": [
   {
    "line": "hook",
@@ -123,8 +130,8 @@
  "least_word_to_cut_s": 0.528,
  "voice_eq": "as the trailer: high-pass 58 Hz, +1 dB under 160 Hz, \u22121 dB over 7.5 kHz, +1.5 dB at 3.2 kHz, \u22121.5 dB at 320 Hz, a short room 15 dB under",
  "lufs": -14.11,
- "true_peak_dbtp": -3.48,
- "lra": 4.3,
+ "true_peak_dbtp": -3.47,
+ "lra": 4.6,
  "timeline": "ee6c57eaed9a726a",
  "voiced": 12
 }

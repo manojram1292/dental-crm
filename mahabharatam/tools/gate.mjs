@@ -462,8 +462,14 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
             if (bf.windows_under_floor) fails.push(`${bf.windows_under_floor} 100 ms window(s) of the mix under ${bf.floor_db} dBFS (first at ${bf.under_floor_at_s[0]} s)`);
             if (bf.drops_over_limit) fails.push(`${bf.drops_over_limit} fall(s) of more than ${bf.drop_limit_db} dB within ${bf.drop_window_s} s (first at ${bf.drops_at_s[0]} s)`);
             if (!(rep.first_100ms_db >= bf.floor_db)) fails.push(`the first 100 ms are at ${rep.first_100ms_db} dBFS (sound from frame 0: min ${bf.floor_db})`);
-            if (!((rep.duck_db || {}).mus <= 10)) fails.push(`the music is ducked ${(rep.duck_db || {}).mus} dB under the voice (max 10)`);
-            if (!(rep.duck_release_ms <= 150)) fails.push(`the duck releases in ${rep.duck_release_ms} ms (max 150)`);
+            // 2026-11-14, owner: "episode 50 is very noisy, the audio is not properly hearable": the voice must stand clear of everything else
+            const vb = rep.voice_over_bed;
+            if (!vb) fails.push('no voice_over_bed report in the mix: run tools/mix.py');
+            else { info.push(`voice over bed: median ${vb.median_db} dB, 10th percentile ${vb.p10_db} dB (min ${vb.min_median_db} / ${vb.min_p10_db})`);
+              if (!(vb.median_db >= vb.min_median_db)) fails.push(`the voice stands only a median ${vb.median_db} dB over the rest of the mix (min ${vb.min_median_db})`);
+              if (!(vb.p10_db >= vb.min_p10_db)) fails.push(`in a tenth of the speech the voice stands under ${vb.p10_db} dB over the rest of the mix (min ${vb.min_p10_db})`); }
+            if (!((rep.duck_db || {}).mus >= 12 && (rep.duck_db || {}).mus <= 20)) fails.push(`the music is ducked ${(rep.duck_db || {}).mus} dB under the voice (12–20)`);
+            if (!(rep.duck_release_ms <= 200)) fails.push(`the duck releases in ${rep.duck_release_ms} ms (max 200)`);
             if (!(Math.abs(rep.lufs + 14) <= 0.7)) fails.push(`the mix is at ${rep.lufs} LUFS (−14 ± 0.7)`);
             const dips = (rep.rests || []).filter((r) => r.seconds >= 0.5 && r.bed_dip_db >= 3 && r.bed_dip_db <= 4 && r.quietest_window_db >= bf.floor_db);
             info.push(`${dips.length} rest(s) as dips: ${(rep.rests || []).map((r) => `before "${r.before}" ${r.seconds} s, quietest ${r.quietest_window_db} dBFS`).join('; ')}`);
