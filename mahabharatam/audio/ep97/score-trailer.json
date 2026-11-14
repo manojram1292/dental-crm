@@ -41,9 +41,9 @@
  ],
  "binaural": {
   "line": "vish",
-  "leftHz": 110,
-  "rightHz": 117,
-  "dbfs": -37
+  "leftHz": 98,
+  "rightHz": 105,
+  "dbfs": -38
  },
  "divine": true
 }

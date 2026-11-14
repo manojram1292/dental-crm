@@ -50,7 +50,7 @@
   "dbfs": -38
  },
  "source": "THE FULL-EPIC TRAILER, third cut (pipeline number 97; never a numbered episode). Told once, in order, no image and no phrase twice. Every beat was read in the constituted text of the BORI Critical Edition (GRETIL e-text, lab/ce/): the verses, a Sanskrit quotation for each and everything cut or reworded are in script/TRAILER-CHECK.md; the edit is planned shot by shot in script/TRAILER-EDIT.md. In short: 1.94.86-90, 1.104.10-15 and 3.292.6-7, 1.107.1, 1.132.8-12 and 1.136.4-10, 1.139.1-4 and 1.142.28-31, 1.155.41, 2.42.21-25, 2.53-54 and 2.58.29-37, 2.61.40-41 (the cloth: no cause is named; Krishna is not shown), 2.67.9-10 and 2.68.1 (deerskins), 5.125.26, 6.23.21-47 (the chariot between the armies; the bow let go), 6.33.3-35 (the universal form; 'I am Time' is 6.33.32 kalo 'smi), 6.114.81-85, 7.33.12 and 7.48.13, 8.66.60-65 and 8.67.24, 11.25.36-42, 17.1.23-31 and 17.3.7-8, 1.1.52 (itihasa). 'Iti-ha-asa: so indeed it was' is the traditional analysis of the word, not a verse.",
- "structure": "TITLE (music from the first frame, the name, no voice) -> THE STORY ONCE, IN ORDER, in the present tense: the vow, the river, the cousins, the fire, the demon, the altar, the wheel, the dice, the cloth, exile, the needle-point -> STOP 1 -> the conch: two armies, the only time they are named; Arjuna lowers his bow; the universal form, the one long hold -> the war in order, the fastest cutting -> the curse -> the dog -> STOP 2 -> the word itihasa -> the promise -> who makes this and what to do -> the end card, held.",
+ "structure": "TITLE (music from the first frame, the name, no voice) -> THE STORY ONCE, IN ORDER, in the present tense: the vow, the river, the cousins, the fire, the demon, the altar, the wheel, the dice, the cloth, exile, the needle-point -> a rest (a dip, no silence) -> the conch: two armies, the only time they are named; Arjuna lowers his bow; the universal form, the one long hold -> the war in order, the fastest cutting -> the curse -> the dog -> a rest -> the word itihasa -> the promise -> who makes this and what to do -> the end card, held.",
  "names": {
   "Bhima": "strongest of the five",
   "Krishna": "of the Vrishnis, the wheel-bearer",
@@ -379,7 +379,7 @@
    ],
    "pal": "dharma-copper",
    "cam": "rack",
-   "note": "ONE SENTENCE, ONE CLIP, TWO PICTURES (CE 5.125.26): the court, the envoy (Krishna, in colour, his back to us) in the foreground, the focus going to the king on his seat; on the frame before 'a needle-point' THE CLOSE-UP: a push-in on Duryodhana's face. STOP 1: on the frame after 'earth' every sound cuts to nothing; the push, the lamp and the embers go on."
+   "note": "ONE SENTENCE, ONE CLIP, TWO PICTURES (CE 5.125.26): the court, the envoy (Krishna, in colour, his back to us) in the foreground, the focus going to the king on his seat; on the frame before 'a needle-point' THE CLOSE-UP: a push-in on Duryodhana's face. A REST, NOT A SILENCE (v3.1): after 'earth' the sound dips 3.5 dB, the low horn held, the bed and the clock running; the push, the lamp and the embers go on."
   },
   {
    "id": "armies",
@@ -400,7 +400,7 @@
    "pal": "war-iron",
    "cam": "crane",
    "mixDb": 1.5,
-   "note": "THE TURN (CE 6.23.20-21), out of the first stop: the conch before the cut; both armies, one chariot standing between them. The only time the armies are named."
+   "note": "THE TURN (CE 6.23.20-21): the conch enters over the held horn before the cut; both armies, one chariot standing between them. The only time the armies are named."
   },
   {
    "id": "bow",
@@ -441,7 +441,7 @@
    "cam": "pull+crane",
    "signature": true,
    "mixDb": 1.5,
-   "note": "THE SIGNATURE SHOT AND THE ONE LONG HOLD (CE 6.33.3-35; every drawn element is cited in TRAILER-CHECK.md): tight on Arjuna's face; the light of a thousand suns comes up on it; the camera pulls back and up until he is a speck with joined palms under a form with many faces, eyes and arms that leaves the frame on every side; below it the two armies lit by it, and streams of warriors going up into its mouths. Where it happens in the text: between the lowered bow and the war."
+   "note": "THE SIGNATURE SHOT AND THE ONE LONG HOLD (CE 6.33.3-35; every drawn element is cited in TRAILER-CHECK.md): Krishna's own words ('I am Time') are doubled an octave below and ring in a temple hall, with a bell and a low swell on 'Time'; two low tones 7 Hz apart, one in each ear, run under the whole shot. Tight on Arjuna's face; the light of a thousand suns comes up on it; the camera pulls back and up until he is a speck with joined palms under a form with many faces, eyes and arms that leaves the frame on every side; below it the two armies lit by it, and streams of warriors going up into its mouths. Where it happens in the text: between the lowered bow and the war."
   },
   {
    "id": "arrows",
@@ -541,7 +541,7 @@
    "pal": "mist-lavender",
    "cam": "crane",
    "mixDb": -3,
-   "note": "CE 17.1.23-31, 17.3.7: snow and the mountain; the old king walking up, the dog at his heel; he stops and turns to it. The quietest shot. STOP 2: after 'dog' every sound cuts dead, the clock with it; the snow goes on falling."
+   "note": "CE 17.1.23-31, 17.3.7: snow and the mountain; the old king walking up, the dog at his heel; he stops and turns to it. The quietest shot. A REST, NOT A SILENCE (v3.1): after 'dog' the sound dips 3.5 dB; the flute holds, the clock goes on; the snow goes on falling."
   },
   {
    "id": "word",
@@ -570,7 +570,7 @@
    "pal": "arrival-umber-gold",
    "cam": "push",
    "mixDb": -1.5,
-   "note": "After the full stop (CE 1.1.52): dark, embers; the word in gold, large, a slow push-in; its three parts land on the three spoken syllables, each with its gloss; then the meaning. One struck note under 'was'."
+   "note": "After the rest (CE 1.1.52): dark, embers; the word in gold, large, a slow push-in; its three parts land on the three spoken syllables, each with its gloss; then the meaning. One struck note under 'was'."
   },
   {
    "id": "p1",

@@ -55,6 +55,10 @@
  *     or more above 4.0 words/s.
  *   New rule: every shot of a second-cut trailer starts on the frame grid, at or a hair before its frame, never after.
  *   · length: a trailer with "cut" ≥ 2 must be 70–85 s (the first cut's 90 s limit stands for a script without "cut").
+ *   FROM v3.1 ("noStops": true): NO silence at all (a silence ≥ 0.6 s at −45 dB fails, where every other script must have one), and the floor and fall rules
+ *   cover the whole film. The standing rules this trailer taught, and which of them the episode gate does not yet enforce, are in README.md
+ *   ("Standing rules learned from the trailer"): to adopt for episodes are no dead air, sound from frame 0, a duck of 8–10 dB with the floor rule,
+ *   frame-snapped cuts with captions gone by the cut, and a word ending ≥ 150 ms before its cut.
  *   THIRD CUT ("cut": 3): 70–90 s; every picture ≥ 1.3 s and ≥ 3 spoken words (or "hit": true, ≥ 1.2 s); no three-word phrase twice; gaps over 0.35 s
  *   inside a sentence printed and failed unless justified ("gapOk"); with --audio: no 100 ms window of the mix under −26 dBFS and no fall of more
  *   than 10 dB within 0.3 s outside the two stops (tools/mix.py measures and reports it), the music ducked ≤ 10 dB.

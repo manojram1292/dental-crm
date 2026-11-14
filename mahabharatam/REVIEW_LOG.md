@@ -695,3 +695,60 @@ Looked at, on the final render: the whole film at 0.25 s steps (`lab/review/trai
 Still weak: nobody has listened to it; the voice is steadier and flatter than v2's (pitch range 8 to 12 semitones a line against 18); the recogniser writes "Bhima" as "Beemer" and "Karna's" as "Hana's"; the first shot of the needle-point sentence is dim (the king small in a doorway, 1.3 s); the palm-leaf shot opens on three almost empty frames; the lower quarter of several shots is plain ground under the caption; the demon is back and the night raid is out, for length; the film is 0.6 s under its 90 s limit.
 
 To re-run: `python3 -I lab/review/trailer/v3/mkscript.py`; `lab/voicelab/venv/bin/python lab/review/trailer/v3/voice_select.py lab/review/trailer/v3/voice/takes` (to make takes again: `python3 -I lab/review/trailer/v3/clips.py REF.wav jobs.json`, then `lab/review/trailer/v3/voice/gen.py jobs.json DIR`); `node tools/render.mjs --ep 97 --workers 2 --out trailer.mp4` (needs about 11 GB free for frames); `lab/review/trailer/v3/finish.sh`; `lab/voicelab/venv/bin/python lab/review/trailer/v3/soundcheck.py trailer-share.mp4 --stops "36.0333,36.7333;63.8667,64.5666" --script script/trailer.en.json --voice-stem audio/ep97/voice-stem.en.wav --timeline build/timeline.ep97.en.json`.
+
+### Trailer v3.1 · sound only (2026-11-14)
+
+The owner on v3: "a cut again" near 36 s and "a small lag cut" at the dog line; "I am Time" must sound divine; add binaural
+beats; wrap up. Both faults were the two deliberate silences. Picture untouched (the video stream of `trailer.mp4` is copied;
+its frame checksums are the same before and after); remixed, re-muxed, share copy re-encoded.
+
+- The two stops are gone: where they were the stems dip 3.5 dB and the horn (36 s) and the flute (64 s) are held through; the
+  clock runs on to the word shot. Quietest 100 ms window around 36 s: -83.5 dBFS before, -23.7 after; around 64 s: -86.3
+  before, -25.3 after. The floor rule now covers the whole film with no exempt window: 1785 windows, 0 under -26 dBFS, worst
+  -25.4; worst fall 9.8 dB.
+- "I am Time": the words doubled an octave below with the formants kept (-9 dB), a wide double, a 3.5 s temple hall with 60 ms
+  pre-delay that rings to 49.3 s (into the Bhishma shot), a bell and a low swell on "Time", a second conch. "Krishna shows him
+  everything" gets a lighter share (-15 dB).
+- Under the universal form only: 98 Hz in the left ear and 105 Hz in the right, about -37.5 dBFS each, 18 dB under the voice
+  there. (110 and 117 Hz were tried first and sat on the drone's Pa and the motif's B-flat.) In the mono fold-down the level
+  swings 0.21 dB at 7 Hz.
+
+## Trailer lessons
+
+A trailer was made three times before the owner stopped hearing and seeing faults in it. What each fault was, as a rule for all
+later work. After each: whether a gate checks it today. "Trailer gate" means `tools/gate.mjs` for a script of kind "trailer",
+cut 3; "episode gate" means the same tool for an ordinary episode. Nothing in the episode gate was changed in this pass.
+
+1. **No full silence.** A rest is a dip of a few dB with the bed still running, never dead air: viewers hear dead air as a
+   playback fault ("a cut", "a lag"). *Trailer gate: enforced (any silence fails; no 100 ms window under -26 dBFS anywhere).
+   Episode gate: the OPPOSITE is enforced today (it requires a silence of at least 0.6 s at -45 dB, and `tools/mix.py` mutes
+   before the turn). To adopt: replace that rule with a dip and the floor rule.*
+2. **Sound from frame 0.** No fade-in from silence. *Trailer gate: enforced by the floor rule (the first window counts).
+   Episode gate: not checked; `tools/mix.py` fades every episode in over 0.35 s. To adopt.*
+3. **A sentence is one voice take.** The picture may cut inside a sentence by word timing (script "cutAt"); the voice is never
+   spliced from clips. *Trailer gate: gaps over 0.35 s inside a sentence fail; that a line is one take is by construction
+   (`lab/review/trailer/v3/voice_select.py`), not checked. Episode gate: not checked.*
+4. **One reference voice per film**, every take within 2 semitones of the set's median, no time-stretch over 4 %.
+   *Not checked by any gate; measured by `voice_select.py` and written to `voice/ep97/en/select.json`. To adopt: a gate rule
+   reading the voice side-cars' measured pitch.*
+5. **The music ducks 8 to 10 dB at most, with a fast release; no window under the floor; no fall of more than 10 dB within
+   0.3 s.** *Trailer gate: enforced (the mix measures and, where needed, lifts the bed). Episode gate: only "at least 6 dB
+   lower under the voice" is checked; episodes duck 11 dB with a 400 ms hold. To adopt.*
+6. **No picture and no phrase twice; no flash insert; no picture under 1.3 s or under three words.** *Trailer gate: enforced
+   for phrases (three words) and for lengths; a repeated PICTURE is caught only between neighbours (pHash). Episode gate:
+   neighbours' pHash only.*
+7. **A word finishes at least 150 ms before its picture cut.** *Not checked by any gate. In this trailer every cut at the end
+   of a line has 360 ms or more; the two cuts inside sentences do not meet it (118 ms after "kingdom,"; and the needle-point
+   cut falls in running speech, 67 ms before "a"). To adopt: a gate rule on last-word end against the cut, and "cutAt" only
+   where the take has a pause.*
+8. **Captions gone by the cut; cut times on the frame grid.** *Trailer gate: enforced (30 fps pass; frame-grid rule).
+   Episode gate: not checked; episode timelines are not frame-snapped. To adopt (`timing.frameSnap`).*
+9. **No black-silhouette principal characters.** A figure withheld is drawn in colour with the face in shadow or turned away;
+   a solid black shape reads as a rendering error. *Both gates check figure-against-ground contrast, which a black shape
+   passes; the rule itself is not checkable there. A review rule.*
+10. **Save takes and intermediates in the repo tree** (`lab/review/...`), not the scratchpad; a container restart clears the
+    scratchpad and kills background jobs. **A full 90 s render needs about 11 GB of free disk** for its frames; check before
+    starting. *Not checked. To adopt: `tools/render.mjs` could refuse to start without the space.*
+11. **Measure the finished file the way a first-time viewer meets it**: every 0.25 s of picture looked at, the recogniser run
+    on the final mix (in stretches: in one pass over 90 s it skipped six seconds), levels traced. A file that passes freeze
+    and loudness checks can still "stick". *A review step (`lab/review/trailer/v3/sheets.py`, `soundcheck.py`).*

@@ -1,0 +1,1202 @@
+{
+ "file": "trailer-share.mp4",
+ "seconds": 89.37,
+ "stops": [],
+ "holes": {
+  "floor_db": -26,
+  "windows": 1785,
+  "worst_window_db": -25.6,
+  "worst_window_at_s": 66.65,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 9.9,
+  "worst_drop_at_s": 84.2,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 10,
+  "drop_window_s": 0.3
+ },
+ "start": {
+  "first_100ms_db": -17.0,
+  "first_frame_33ms_db": -16.5,
+  "first_10ms_db": -19.5
+ },
+ "clipping": {
+  "samples_at_0.999": 0,
+  "peak_dbfs": -2.98
+ },
+ "recogniser": {
+  "heard": "Long ago, a prince swears away his throne and his line, a mother gives her firstborn to the river, a hundred brothers, five cousins, one throne. A palace built to burn, Beamer breaks a man eating demon. A woman rises from a fire altar, Krishna lets the wheel fly, then the dice. A king steaks his kingdom, his brothers, his wife. They pull at her cloth. The cloth does not end. 13 years of exile, Duryodhana will not give a needle point of earth. Two armies stand ready for war. Arjuna lowers his bow. He asks to see. Krishna shows him everything. I am time. Bhisma falls on a bed of arrows, a boy, alone against many. Harner's wheel sunk in the earth. A mother of a hundred sons curses Krishna, and at the end, a king will not abandon his dog. It calls itself Itihasa, Iti, Pa, Asa. So indeed it was. Every book, every vow, every war, from the first verse to the last, nothing added for effect. We are making this episode by episode if you want it told this way, follow and support the series. Episode 1 is waiting.",
+  "transcribed_in_stretches_starting_at_s": [
+   0.0,
+   14.23,
+   27.73,
+   42.03,
+   55.97,
+   71.43,
+   89.37
+  ],
+  "words": [
+   [
+    "Long",
+    0.0,
+    0.1
+   ],
+   [
+    "ago,",
+    0.1,
+    4.0
+   ],
+   [
+    "a",
+    4.4,
+    4.5
+   ],
+   [
+    "prince",
+    4.5,
+    4.76
+   ],
+   [
+    "swears",
+    4.76,
+    5.28
+   ],
+   [
+    "away",
+    5.28,
+    5.64
+   ],
+   [
+    "his",
+    5.64,
+    5.88
+   ],
+   [
+    "throne",
+    5.88,
+    6.26
+   ],
+   [
+    "and",
+    6.26,
+    6.58
+   ],
+   [
+    "his",
+    6.58,
+    6.74
+   ],
+   [
+    "line,",
+    6.74,
+    7.0
+   ],
+   [
+    "a",
+    7.5,
+    7.72
+   ],
+   [
+    "mother",
+    7.72,
+    7.94
+   ],
+   [
+    "gives",
+    7.94,
+    8.24
+   ],
+   [
+    "her",
+    8.24,
+    8.52
+   ],
+   [
+    "firstborn",
+    8.52,
+    9.26
+   ],
+   [
+    "to",
+    9.26,
+    9.6
+   ],
+   [
+    "the",
+    9.6,
+    9.72
+   ],
+   [
+    "river,",
+    9.72,
+    9.96
+   ],
+   [
+    "a",
+    10.58,
+    10.64
+   ],
+   [
+    "hundred",
+    10.64,
+    10.96
+   ],
+   [
+    "brothers,",
+    10.96,
+    11.32
+   ],
+   [
+    "five",
+    11.92,
+    12.1
+   ],
+   [
+    "cousins,",
+    12.1,
+    12.48
+   ],
+   [
+    "one",
+    13.16,
+    13.32
+   ],
+   [
+    "throne.",
+    13.32,
+    13.7
+   ],
+   [
+    "A",
+    14.23,
+    14.37
+   ],
+   [
+    "palace",
+    14.37,
+    14.69
+   ],
+   [
+    "built",
+    14.69,
+    15.31
+   ],
+   [
+    "to",
+    15.31,
+    15.67
+   ],
+   [
+    "burn,",
+    15.67,
+    15.93
+   ],
+   [
+    "Beamer",
+    16.55,
+    16.77
+   ],
+   [
+    "breaks",
+    16.77,
+    17.05
+   ],
+   [
+    "a",
+    17.05,
+    17.27
+   ],
+   [
+    "man",
+    17.27,
+    17.43
+   ],
+   [
+    "eating",
+    17.43,
+    17.63
+   ],
+   [
+    "demon.",
+    17.63,
+    18.03
+   ],
+   [
+    "A",
+    18.65,
+    18.65
+   ],
+   [
+    "woman",
+    18.65,
+    18.87
+   ],
+   [
+    "rises",
+    18.87,
+    19.23
+   ],
+   [
+    "from",
+    19.23,
+    19.63
+   ],
+   [
+    "a",
+    19.63,
+    19.73
+   ],
+   [
+    "fire",
+    19.73,
+    19.95
+   ],
+   [
+    "altar,",
+    19.95,
+    20.21
+   ],
+   [
+    "Krishna",
+    21.01,
+    21.01
+   ],
+   [
+    "lets",
+    21.01,
+    21.27
+   ],
+   [
+    "the",
+    21.27,
+    21.49
+   ],
+   [
+    "wheel",
+    21.49,
+    21.65
+   ],
+   [
+    "fly,",
+    21.65,
+    22.07
+   ],
+   [
+    "then",
+    22.99,
+    22.99
+   ],
+   [
+    "the",
+    22.99,
+    23.27
+   ],
+   [
+    "dice.",
+    23.27,
+    23.57
+   ],
+   [
+    "A",
+    24.35,
+    24.37
+   ],
+   [
+    "king",
+    24.37,
+    24.59
+   ],
+   [
+    "steaks",
+    24.59,
+    25.19
+   ],
+   [
+    "his",
+    25.19,
+    25.35
+   ],
+   [
+    "kingdom,",
+    25.35,
+    25.61
+   ],
+   [
+    "his",
+    26.13,
+    26.21
+   ],
+   [
+    "brothers,",
+    26.21,
+    26.47
+   ],
+   [
+    "his",
+    26.93,
+    27.05
+   ],
+   [
+    "wife.",
+    27.05,
+    27.29
+   ],
+   [
+    "They",
+    27.73,
+    27.89
+   ],
+   [
+    "pull",
+    27.89,
+    28.13
+   ],
+   [
+    "at",
+    28.13,
+    28.35
+   ],
+   [
+    "her",
+    28.35,
+    28.51
+   ],
+   [
+    "cloth.",
+    28.51,
+    28.73
+   ],
+   [
+    "The",
+    29.43,
+    29.43
+   ],
+   [
+    "cloth",
+    29.43,
+    29.69
+   ],
+   [
+    "does",
+    29.69,
+    30.05
+   ],
+   [
+    "not",
+    30.05,
+    30.37
+   ],
+   [
+    "end.",
+    30.37,
+    30.59
+   ],
+   [
+    "13",
+    31.43,
+    31.61
+   ],
+   [
+    "years",
+    31.61,
+    31.85
+   ],
+   [
+    "of",
+    31.85,
+    32.07
+   ],
+   [
+    "exile,",
+    32.07,
+    32.39
+   ],
+   [
+    "Duryodhana",
+    33.01,
+    33.57
+   ],
+   [
+    "will",
+    33.57,
+    33.81
+   ],
+   [
+    "not",
+    33.81,
+    34.03
+   ],
+   [
+    "give",
+    34.03,
+    34.31
+   ],
+   [
+    "a",
+    34.31,
+    34.43
+   ],
+   [
+    "needle",
+    34.43,
+    34.65
+   ],
+   [
+    "point",
+    34.65,
+    35.09
+   ],
+   [
+    "of",
+    35.09,
+    35.31
+   ],
+   [
+    "earth.",
+    35.31,
+    35.53
+   ],
+   [
+    "Two",
+    37.09,
+    37.65
+   ],
+   [
+    "armies",
+    37.65,
+    37.99
+   ],
+   [
+    "stand",
+    37.99,
+    38.31
+   ],
+   [
+    "ready",
+    38.31,
+    38.67
+   ],
+   [
+    "for",
+    38.67,
+    38.93
+   ],
+   [
+    "war.",
+    38.93,
+    39.19
+   ],
+   [
+    "Arjuna",
+    39.75,
+    40.19
+   ],
+   [
+    "lowers",
+    40.19,
+    40.59
+   ],
+   [
+    "his",
+    40.59,
+    41.15
+   ],
+   [
+    "bow.",
+    41.15,
+    41.43
+   ],
+   [
+    "He",
+    42.03,
+    42.31
+   ],
+   [
+    "asks",
+    42.31,
+    42.61
+   ],
+   [
+    "to",
+    42.61,
+    42.91
+   ],
+   [
+    "see.",
+    42.91,
+    43.11
+   ],
+   [
+    "Krishna",
+    44.09,
+    44.09
+   ],
+   [
+    "shows",
+    44.09,
+    44.45
+   ],
+   [
+    "him",
+    44.45,
+    44.65
+   ],
+   [
+    "everything.",
+    44.65,
+    44.91
+   ],
+   [
+    "I",
+    46.37,
+    46.41
+   ],
+   [
+    "am",
+    46.41,
+    46.59
+   ],
+   [
+    "time.",
+    46.59,
+    46.83
+   ],
+   [
+    "Bhisma",
+    48.91,
+    49.27
+   ],
+   [
+    "falls",
+    49.27,
+    49.59
+   ],
+   [
+    "on",
+    49.59,
+    49.95
+   ],
+   [
+    "a",
+    49.95,
+    50.01
+   ],
+   [
+    "bed",
+    50.01,
+    50.23
+   ],
+   [
+    "of",
+    50.23,
+    50.45
+   ],
+   [
+    "arrows,",
+    50.45,
+    50.63
+   ],
+   [
+    "a",
+    50.63,
+    51.33
+   ],
+   [
+    "boy,",
+    51.33,
+    51.65
+   ],
+   [
+    "alone",
+    51.97,
+    52.45
+   ],
+   [
+    "against",
+    52.45,
+    52.77
+   ],
+   [
+    "many.",
+    52.77,
+    53.11
+   ],
+   [
+    "Harner's",
+    53.75,
+    54.11
+   ],
+   [
+    "wheel",
+    54.11,
+    54.27
+   ],
+   [
+    "sunk",
+    54.27,
+    54.97
+   ],
+   [
+    "in",
+    54.97,
+    55.23
+   ],
+   [
+    "the",
+    55.23,
+    55.37
+   ],
+   [
+    "earth.",
+    55.37,
+    55.59
+   ],
+   [
+    "A",
+    55.97,
+    56.21
+   ],
+   [
+    "mother",
+    56.21,
+    56.49
+   ],
+   [
+    "of",
+    56.49,
+    56.81
+   ],
+   [
+    "a",
+    56.81,
+    56.93
+   ],
+   [
+    "hundred",
+    56.93,
+    57.29
+   ],
+   [
+    "sons",
+    57.29,
+    57.79
+   ],
+   [
+    "curses",
+    57.79,
+    58.53
+   ],
+   [
+    "Krishna,",
+    58.53,
+    59.15
+   ],
+   [
+    "and",
+    60.09,
+    60.11
+   ],
+   [
+    "at",
+    60.11,
+    60.27
+   ],
+   [
+    "the",
+    60.27,
+    60.45
+   ],
+   [
+    "end,",
+    60.45,
+    60.71
+   ],
+   [
+    "a",
+    61.09,
+    61.11
+   ],
+   [
+    "king",
+    61.11,
+    61.37
+   ],
+   [
+    "will",
+    61.37,
+    61.71
+   ],
+   [
+    "not",
+    61.71,
+    61.95
+   ],
+   [
+    "abandon",
+    61.95,
+    62.41
+   ],
+   [
+    "his",
+    62.41,
+    62.99
+   ],
+   [
+    "dog.",
+    62.99,
+    63.41
+   ],
+   [
+    "It",
+    64.57,
+    64.81
+   ],
+   [
+    "calls",
+    64.81,
+    65.11
+   ],
+   [
+    "itself",
+    65.11,
+    65.51
+   ],
+   [
+    "Itihasa,",
+    65.51,
+    66.67
+   ],
+   [
+    "Iti,",
+    67.47,
+    67.87
+   ],
+   [
+    "Pa,",
+    68.29,
+    68.39
+   ],
+   [
+    "Asa.",
+    69.21,
+    69.47
+   ],
+   [
+    "So",
+    70.05,
+    70.19
+   ],
+   [
+    "indeed",
+    70.19,
+    70.39
+   ],
+   [
+    "it",
+    70.39,
+    70.67
+   ],
+   [
+    "was.",
+    70.67,
+    70.93
+   ],
+   [
+    "Every",
+    71.43,
+    71.81
+   ],
+   [
+    "book,",
+    71.81,
+    72.05
+   ],
+   [
+    "every",
+    72.45,
+    72.81
+   ],
+   [
+    "vow,",
+    72.81,
+    73.05
+   ],
+   [
+    "every",
+    73.53,
+    73.87
+   ],
+   [
+    "war,",
+    73.87,
+    74.19
+   ],
+   [
+    "from",
+    74.49,
+    74.83
+   ],
+   [
+    "the",
+    74.83,
+    74.99
+   ],
+   [
+    "first",
+    74.99,
+    75.35
+   ],
+   [
+    "verse",
+    75.35,
+    75.63
+   ],
+   [
+    "to",
+    75.63,
+    76.15
+   ],
+   [
+    "the",
+    76.15,
+    76.27
+   ],
+   [
+    "last,",
+    76.27,
+    76.45
+   ],
+   [
+    "nothing",
+    77.23,
+    77.27
+   ],
+   [
+    "added",
+    77.27,
+    77.47
+   ],
+   [
+    "for",
+    77.47,
+    77.83
+   ],
+   [
+    "effect.",
+    77.83,
+    78.07
+   ],
+   [
+    "We",
+    78.85,
+    78.85
+   ],
+   [
+    "are",
+    78.85,
+    78.91
+   ],
+   [
+    "making",
+    78.91,
+    79.13
+   ],
+   [
+    "this",
+    79.13,
+    79.41
+   ],
+   [
+    "episode",
+    79.41,
+    79.93
+   ],
+   [
+    "by",
+    79.93,
+    80.29
+   ],
+   [
+    "episode",
+    80.29,
+    80.63
+   ],
+   [
+    "if",
+    80.63,
+    81.45
+   ],
+   [
+    "you",
+    81.45,
+    81.61
+   ],
+   [
+    "want",
+    81.61,
+    81.77
+   ],
+   [
+    "it",
+    81.77,
+    81.93
+   ],
+   [
+    "told",
+    81.93,
+    82.11
+   ],
+   [
+    "this",
+    82.11,
+    82.37
+   ],
+   [
+    "way,",
+    82.37,
+    82.59
+   ],
+   [
+    "follow",
+    82.83,
+    82.97
+   ],
+   [
+    "and",
+    82.97,
+    83.31
+   ],
+   [
+    "support",
+    83.31,
+    83.53
+   ],
+   [
+    "the",
+    83.53,
+    83.81
+   ],
+   [
+    "series.",
+    83.81,
+    84.09
+   ],
+   [
+    "Episode",
+    85.21,
+    85.21
+   ],
+   [
+    "1",
+    85.21,
+    85.65
+   ],
+   [
+    "is",
+    85.65,
+    85.93
+   ],
+   [
+    "waiting.",
+    85.93,
+    86.19
+   ]
+  ],
+  "gaps_over_0.35s_inside_a_sentence": [
+   {
+    "after": "ago,",
+    "before": "a",
+    "at_s": 4.0,
+    "gap_s": 0.4
+   },
+   {
+    "after": "line,",
+    "before": "a",
+    "at_s": 7.0,
+    "gap_s": 0.5
+   },
+   {
+    "after": "river,",
+    "before": "a",
+    "at_s": 9.96,
+    "gap_s": 0.62
+   },
+   {
+    "after": "brothers,",
+    "before": "five",
+    "at_s": 11.32,
+    "gap_s": 0.6
+   },
+   {
+    "after": "cousins,",
+    "before": "one",
+    "at_s": 12.48,
+    "gap_s": 0.68
+   },
+   {
+    "after": "burn,",
+    "before": "Beamer",
+    "at_s": 15.93,
+    "gap_s": 0.62
+   },
+   {
+    "after": "altar,",
+    "before": "Krishna",
+    "at_s": 20.21,
+    "gap_s": 0.8
+   },
+   {
+    "after": "fly,",
+    "before": "then",
+    "at_s": 22.07,
+    "gap_s": 0.92
+   },
+   {
+    "after": "kingdom,",
+    "before": "his",
+    "at_s": 25.61,
+    "gap_s": 0.52
+   },
+   {
+    "after": "brothers,",
+    "before": "his",
+    "at_s": 26.47,
+    "gap_s": 0.46
+   },
+   {
+    "after": "exile,",
+    "before": "Duryodhana",
+    "at_s": 32.39,
+    "gap_s": 0.62
+   },
+   {
+    "after": "Krishna,",
+    "before": "and",
+    "at_s": 59.15,
+    "gap_s": 0.94
+   },
+   {
+    "after": "end,",
+    "before": "a",
+    "at_s": 60.71,
+    "gap_s": 0.38
+   },
+   {
+    "after": "Itihasa,",
+    "before": "Iti,",
+    "at_s": 66.67,
+    "gap_s": 0.8
+   },
+   {
+    "after": "Iti,",
+    "before": "Pa,",
+    "at_s": 67.87,
+    "gap_s": 0.42
+   },
+   {
+    "after": "Pa,",
+    "before": "Asa.",
+    "at_s": 68.39,
+    "gap_s": 0.82
+   },
+   {
+    "after": "book,",
+    "before": "every",
+    "at_s": 72.05,
+    "gap_s": 0.4
+   },
+   {
+    "after": "vow,",
+    "before": "every",
+    "at_s": 73.05,
+    "gap_s": 0.48
+   },
+   {
+    "after": "last,",
+    "before": "nothing",
+    "at_s": 76.45,
+    "gap_s": 0.78
+   }
+  ],
+  "script_words": 194,
+  "misheard": [
+   {
+    "script": "first born",
+    "heard": "firstborn"
+   },
+   {
+    "script": "bhima",
+    "heard": "beamer"
+   },
+   {
+    "script": "stakes",
+    "heard": "steaks"
+   },
+   {
+    "script": "thirteen",
+    "heard": "13"
+   },
+   {
+    "script": "bhishma",
+    "heard": "bhisma"
+   },
+   {
+    "script": "karna's",
+    "heard": "harner's"
+   },
+   {
+    "script": "ha",
+    "heard": "pa"
+   },
+   {
+    "script": "one",
+    "heard": "1"
+   }
+  ]
+ },
+ "voice_stem": {
+  "peak_dbfs": -2.37,
+  "samples_at_0.999": 0,
+  "boundaries": 56,
+  "ordinary_speech_step_99pct_db": -27.7,
+  "loudest_step_at_a_boundary_db": -80.0,
+  "boundaries_with_a_step_over_-40_db": [],
+  "boundaries_with_level_over_-30_db": []
+ },
+ "pauses_inside_sentences_in_the_voice_files": {
+  "over_0.35_s": [],
+  "longest": [
+   {
+    "shot": "curse",
+    "after": "sons",
+    "before": "curses",
+    "silence_s": 0.32
+   },
+   {
+    "shot": "word",
+    "after": "itself",
+    "before": "itihasa.",
+    "silence_s": 0.25
+   },
+   {
+    "shot": "boy",
+    "after": "boy,",
+    "before": "alone",
+    "silence_s": 0.23
+   },
+   {
+    "shot": "mud",
+    "after": "wheel,",
+    "before": "sunk",
+    "silence_s": 0.23
+   },
+   {
+    "shot": "vow",
+    "after": "ago,",
+    "before": "a",
+    "silence_s": 0.22
+   }
+  ]
+ }
+}
