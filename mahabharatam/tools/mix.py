@@ -326,12 +326,12 @@ def line_gains(tl, SL, N, mult=1.0):
 
 
 # ─── "rules": 2 (episodes scripted after the trailer; README "Standing rules learned from the trailer") ──────────────────────────
-RULES2 = {'duck': {'mus': 15.0, 'amb': 9.0, 'foley': 4.0}, 'release_s': 0.12, 'rest_dip_db': 3.5, 'next_under_db': 6.0, 'floor': {'floorDb': -34, 'dropDb': 12, 'dropWindowS': 0.3, 'endExemptS': 0.06},
+RULES2 = {'duck': {'mus': 17.0, 'amb': 11.0, 'foley': 12.0}, 'release_s': 0.12, 'rest_dip_db': 3.5, 'next_under_db': 6.0, 'floor': {'floorDb': -34, 'dropDb': 12, 'dropWindowS': 0.3, 'endExemptS': 0.06},
           'carve_db': 5.0, 'lift_max_db': 18.0, 'vob_median_min': 15.0, 'vob_p10_min': 8.0,
           'ceil_db': -2.5}   # 2026-11-14, owner: "episode 50 is very noisy, the audio is not properly hearable". The first rules-2 mix ducked the music
 # only 8 dB on a word-by-word envelope and lifted the bed up to 21 dB wherever a window fell under -26 dBFS: the voice sat a median 6.7 dB over the bed
-# (a tenth of the speech level with it) and the bed pumped up between words. Now: the duck is held over each whole line (15 dB music, 9 ambience,
-# 4 foley), the bed is carved 5 dB around 2.5 kHz while the voice speaks, and the floor (-34 dBFS) and fall (12 dB in 0.3 s) rules are measured
+# (a tenth of the speech level with it) and the bed pumped up between words. Now: the duck is held over each whole line (17 dB music, 11 ambience,
+# 12 foley: a chariot or hoof loop sits louder than the music), the bed is carved 5 dB around 2.5 kHz while the voice speaks, and the floor (-34 dBFS) and fall (12 dB in 0.3 s) rules are measured
 # only in the gaps BETWEEN lines (inside a line the voice is the sound; a quiet bed under it is the point), where the bed may be lifted up to
 # 18 dB, never under the voice. The voice must stand a median 15 dB (10th percentile 8 dB) over everything else, by a local fit per 100 ms.
 
@@ -448,9 +448,11 @@ def main_rules2(ep, tag, lang, tl, sc):
         r_['under_the_second_before_db'] = round(float(np.median(lv[b4]) - np.median(lv[w])), 1) if w.any() and b4.any() else None
     # how far the voice stands over everything else while it speaks (100 ms windows where the voice is on)
     vm = voice.mean(0); mm = mix.mean(0); w_ = int(0.1 * SR); vob = []
+    _lv = np.array([10 * np.log10(np.mean(vm[i:i + w_] ** 2) + 1e-12) for i in range(0, N - w_, w_)])
+    _thr = max(-45.0, float(np.median(_lv[_lv > -45])) - 12.0) if (_lv > -45).any() else -45.0   # windows of actual speech: within 12 dB of the voice's median (breaths and the gaps between words left out)
     for i in range(0, N - w_, w_):
         vv = vm[i:i + w_]; e_ = np.mean(vv ** 2)
-        if 10 * np.log10(e_ + 1e-12) < -45:
+        if 10 * np.log10(e_ + 1e-12) < _thr:
             continue
         a_ = float(np.dot(mm[i:i + w_], vv) / e_ / w_); r_ = mm[i:i + w_] - a_ * vv   # the voice's gain fitted locally (the limiter and per-line gains move it)
         vob.append(10 * np.log10(np.mean((a_ * vv) ** 2) / (np.mean(r_ ** 2) + 1e-12)))
@@ -631,9 +633,11 @@ def main():
         write_wav(os.path.join(ROOT, 'audio', tag, f'voice-stem.{lang}.wav'), voice * db(-8.0))   # the voice alone as laid, EQ and room on, 8 dB down so that the file cannot clip (for the click checks)
     # how far the voice stands over everything else while it speaks (100 ms windows where the voice is on)
     vm = voice.mean(0); mm = mix.mean(0); w_ = int(0.1 * SR); vob = []
+    _lv = np.array([10 * np.log10(np.mean(vm[i:i + w_] ** 2) + 1e-12) for i in range(0, N - w_, w_)])
+    _thr = max(-45.0, float(np.median(_lv[_lv > -45])) - 12.0) if (_lv > -45).any() else -45.0   # windows of actual speech: within 12 dB of the voice's median (breaths and the gaps between words left out)
     for i in range(0, N - w_, w_):
         vv = vm[i:i + w_]; e_ = np.mean(vv ** 2)
-        if 10 * np.log10(e_ + 1e-12) < -45:
+        if 10 * np.log10(e_ + 1e-12) < _thr:
             continue
         a_ = float(np.dot(mm[i:i + w_], vv) / e_ / w_); r_ = mm[i:i + w_] - a_ * vv   # the voice's gain fitted locally (the limiter and per-line gains move it)
         vob.append(10 * np.log10(np.mean((a_ * vv) ** 2) / (np.mean(r_ ** 2) + 1e-12)))

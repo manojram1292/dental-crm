@@ -30,9 +30,10 @@ out = {'file': os.path.basename(f), 'seconds': round(x.shape[1] / SR, 2), 'stops
 r = lambda z: round(float(10 * np.log10(np.mean(z ** 2) + 1e-12)), 1)
 if arg('--voice-stem'):   # voice over everything else, a local fit per 100 ms (as tools/mix.py voice_over_bed)
     _v = sf.read(arg('--voice-stem'), always_2d=True, dtype='float64')[0].T.mean(0); _m = x.mean(0); _n = min(len(_v), len(_m)); _w = 4800; _o = []
+    _lv = np.array([10 * np.log10(np.mean(_v[i:i + _w] ** 2) + 1e-12) for i in range(0, _n - _w, _w)]); _thr = max(-45.0, float(np.median(_lv[_lv > -45])) - 12.0)
     for i in range(0, _n - _w, _w):
         vv = _v[i:i + _w]; e_ = np.mean(vv ** 2)
-        if 10 * np.log10(e_ + 1e-12) < -45: continue
+        if 10 * np.log10(e_ + 1e-12) < _thr: continue
         a_ = np.dot(_m[i:i + _w], vv) / (e_ * _w); _o.append(10 * np.log10(np.mean((a_ * vv) ** 2) / (np.mean((_m[i:i + _w] - a_ * vv) ** 2) + 1e-12)))
     if _o: out['voice_over_bed'] = {'median_db': round(float(np.median(_o)), 1), 'p10_db': round(float(np.percentile(_o, 10)), 1)}
 out['start'] = {'first_100ms_db': r(x[:, :4800]), 'first_frame_33ms_db': r(x[:, :1600]), 'first_10ms_db': r(x[:, :480])}

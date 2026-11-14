@@ -1,32 +1,81 @@
 {
  "file": "episode55-share.mp4",
  "seconds": 54.04,
- "stops": [],
+ "stops": [
+  [
+   0.16,
+   2.2942
+  ],
+  [
+   3.85,
+   8.5382
+  ],
+  [
+   9.549999999999999,
+   12.3581
+  ],
+  [
+   13.3833,
+   16.199299999999997
+  ],
+  [
+   17.2166,
+   22.61
+  ],
+  [
+   24.383300000000002,
+   27.6623
+  ],
+  [
+   28.4833,
+   31.7233
+  ],
+  [
+   32.75,
+   36.0271
+  ],
+  [
+   37.050000000000004,
+   40.7091
+  ],
+  [
+   42.266600000000004,
+   46.0945
+  ],
+  [
+   47.1166,
+   51.9915
+  ]
+ ],
  "holes": {
-  "floor_db": -26,
-  "windows": 1077,
-  "worst_window_db": -25.3,
-  "worst_window_at_s": 53.2,
+  "floor_db": -34,
+  "windows": 232,
+  "worst_window_db": -33.1,
+  "worst_window_at_s": 53.5,
   "windows_under_floor": 0,
   "under_floor_at_s": [],
-  "worst_drop_db": 9.0,
-  "worst_drop_at_s": 53.0,
+  "worst_drop_db": 11.0,
+  "worst_drop_at_s": 53.25,
   "drops_over_limit": 0,
   "drops_at_s": [],
-  "drop_limit_db": 10,
+  "drop_limit_db": 12,
   "drop_window_s": 0.3
  },
+ "voice_over_bed": {
+  "median_db": 14.8,
+  "p10_db": 6.8
+ },
  "start": {
-  "first_100ms_db": -23.4,
-  "first_frame_33ms_db": -23.1,
-  "first_10ms_db": -25.5
+  "first_100ms_db": -31.7,
+  "first_frame_33ms_db": -31.9,
+  "first_10ms_db": -33.8
  },
  "clipping": {
   "samples_at_0.999": 0,
-  "peak_dbfs": -3.05
+  "peak_dbfs": -2.97
  },
  "recogniser": {
-  "heard": "be my wife, my kingdom is yours. King Dushyanta had found Shakuntala alone in a forest hermitage. Wait for my father, he will give me to you. You are your own to give, if you wish it. He meant a Gandhava marriage, their own choice, no priest, no witness. Then promise me, my son shall be king after you. He agreed at once, took her hand and they were married. He left, promising to send an army for her. Her foster father, Canva, came home and knew it all. You have done no wrong, your son will rule the whole earth. Years later, she was still there, with a son who tied up lions.",
+  "heard": "be my wife, my kingdom is yours. King Dushyanta had found Shakuntala alone in a forest hermitage. Wait for my father, he will give me to you. You are your own to give, if you wish it. He meant a Gandhava marriage, their own choice, no priest, no witness. Then promise me, my son shall be king after you. He agreed at once, took her hand, and they were married. He left, promising to send an army for her. Her foster father, Canva, came home and knew it all. You have done no wrong, your son will rule the whole earth. Years later, she was still there, with a son who tied up lions.",
   "transcribed_in_stretches_starting_at_s": [
    0.0,
    13.03,
@@ -52,23 +101,23 @@
    ],
    [
     "my",
-    1.14,
-    1.22
+    1.12,
+    1.2
    ],
    [
     "kingdom",
-    1.22,
-    1.48
+    1.2,
+    1.5
    ],
    [
     "is",
-    1.48,
+    1.5,
     1.74
    ],
    [
     "yours.",
     1.74,
-    1.96
+    1.94
    ],
    [
     "King",
@@ -83,11 +132,11 @@
    [
     "had",
     4.66,
-    5.26
+    5.24
    ],
    [
     "found",
-    5.26,
+    5.24,
     5.58
    ],
    [
@@ -98,11 +147,11 @@
    [
     "alone",
     6.38,
-    6.86
+    6.9
    ],
    [
     "in",
-    6.86,
+    6.9,
     7.3
    ],
    [
@@ -122,7 +171,7 @@
    ],
    [
     "Wait",
-    9.44,
+    9.46,
     9.6
    ],
    [
@@ -138,21 +187,21 @@
    [
     "father,",
     10.02,
-    10.42
+    10.32
    ],
    [
     "he",
-    10.86,
+    10.84,
     11.02
    ],
    [
     "will",
     11.02,
-    11.36
+    11.34
    ],
    [
     "give",
-    11.36,
+    11.34,
     11.56
    ],
    [
@@ -173,16 +222,16 @@
    [
     "You",
     13.03,
-    13.45
+    13.43
    ],
    [
     "are",
-    13.45,
-    13.65
+    13.43,
+    13.63
    ],
    [
     "your",
-    13.65,
+    13.63,
     13.85
    ],
    [
@@ -198,7 +247,7 @@
    [
     "give,",
     14.43,
-    14.69
+    14.71
    ],
    [
     "if",
@@ -228,41 +277,41 @@
    [
     "meant",
     17.23,
-    17.51
+    17.53
    ],
    [
     "a",
-    17.51,
+    17.53,
     17.97
    ],
    [
     "Gandhava",
     17.97,
-    18.49
+    18.55
    ],
    [
     "marriage,",
-    18.49,
+    18.55,
     18.93
    ],
    [
     "their",
-    19.51,
+    19.49,
     19.61
    ],
    [
     "own",
     19.61,
-    19.83
+    19.85
    ],
    [
     "choice,",
-    19.83,
+    19.85,
     20.09
    ],
    [
     "no",
-    20.67,
+    20.65,
     20.77
    ],
    [
@@ -278,11 +327,11 @@
    [
     "witness.",
     21.79,
-    22.15
+    22.17
    ],
    [
     "Then",
-    23.79,
+    24.25,
     24.37
    ],
    [
@@ -293,7 +342,7 @@
    [
     "me,",
     24.63,
-    24.99
+    24.97
    ],
    [
     "my",
@@ -318,16 +367,16 @@
    [
     "king",
     26.55,
-    26.79
+    26.81
    ],
    [
     "after",
-    26.79,
-    27.23
+    26.81,
+    27.21
    ],
    [
     "you.",
-    27.23,
+    27.21,
     27.49
    ],
    [
@@ -352,27 +401,27 @@
    ],
    [
     "took",
-    29.63,
+    29.61,
     29.83
    ],
    [
     "her",
     29.83,
-    30.05
+    30.03
    ],
    [
-    "hand",
-    30.05,
+    "hand,",
+    30.03,
     30.37
    ],
    [
     "and",
-    30.37,
-    30.83
+    30.71,
+    30.85
    ],
    [
     "they",
-    30.83,
+    30.85,
     31.01
    ],
    [
@@ -387,7 +436,7 @@
    ],
    [
     "He",
-    32.67,
+    32.69,
     32.79
    ],
    [
@@ -397,7 +446,7 @@
    ],
    [
     "promising",
-    33.59,
+    33.61,
     33.95
    ],
    [
@@ -408,11 +457,11 @@
    [
     "send",
     34.35,
-    34.61
+    34.63
    ],
    [
     "an",
-    34.61,
+    34.63,
     34.85
    ],
    [
@@ -432,7 +481,7 @@
    ],
    [
     "Her",
-    37.01,
+    36.99,
     37.05
    ],
    [
@@ -443,16 +492,16 @@
    [
     "father,",
     37.27,
-    37.89
+    37.87
    ],
    [
     "Canva,",
     38.13,
-    38.55
+    38.57
    ],
    [
     "came",
-    38.99,
+    38.97,
     39.13
    ],
    [
@@ -478,7 +527,7 @@
    [
     "all.",
     40.25,
-    40.47
+    40.49
    ],
    [
     "You",
@@ -507,7 +556,7 @@
    ],
    [
     "your",
-    43.77,
+    43.85,
     44.07
    ],
    [
@@ -533,11 +582,11 @@
    [
     "whole",
     45.29,
-    45.51
+    45.49
    ],
    [
     "earth.",
-    45.51,
+    45.49,
     45.95
    ],
    [
@@ -552,12 +601,12 @@
    ],
    [
     "she",
-    47.93,
-    48.15
+    47.91,
+    48.17
    ],
    [
     "was",
-    48.15,
+    48.17,
     48.29
    ],
    [
@@ -572,38 +621,38 @@
    ],
    [
     "with",
-    49.43,
+    49.53,
     49.61
    ],
    [
     "a",
     49.61,
-    49.71
+    49.73
    ],
    [
     "son",
-    49.71,
+    49.73,
     50.05
    ],
    [
     "who",
     50.05,
-    50.61
+    50.59
    ],
    [
     "tied",
-    50.61,
-    50.91
+    50.59,
+    50.87
    ],
    [
     "up",
-    50.91,
+    50.87,
     51.17
    ],
    [
     "lions.",
     51.17,
-    51.47
+    51.49
    ]
   ],
   "gaps_over_0.35s_inside_a_sentence": [
@@ -611,31 +660,31 @@
     "after": "wife,",
     "before": "my",
     "at_s": 0.62,
-    "gap_s": 0.52
+    "gap_s": 0.5
    },
    {
     "after": "father,",
     "before": "he",
-    "at_s": 10.42,
-    "gap_s": 0.44
+    "at_s": 10.32,
+    "gap_s": 0.52
    },
    {
     "after": "give,",
     "before": "if",
-    "at_s": 14.69,
-    "gap_s": 0.56
+    "at_s": 14.71,
+    "gap_s": 0.54
    },
    {
     "after": "marriage,",
     "before": "their",
     "at_s": 18.93,
-    "gap_s": 0.58
+    "gap_s": 0.56
    },
    {
     "after": "choice,",
     "before": "no",
     "at_s": 20.09,
-    "gap_s": 0.58
+    "gap_s": 0.56
    },
    {
     "after": "priest,",
@@ -647,31 +696,31 @@
     "after": "once,",
     "before": "took",
     "at_s": 29.17,
-    "gap_s": 0.46
+    "gap_s": 0.44
    },
    {
     "after": "left,",
     "before": "promising",
     "at_s": 33.13,
-    "gap_s": 0.46
+    "gap_s": 0.48
    },
    {
     "after": "Canva,",
     "before": "came",
-    "at_s": 38.55,
-    "gap_s": 0.44
+    "at_s": 38.57,
+    "gap_s": 0.4
    },
    {
     "after": "wrong,",
     "before": "your",
     "at_s": 43.33,
-    "gap_s": 0.44
+    "gap_s": 0.52
    },
    {
     "after": "there,",
     "before": "with",
     "at_s": 49.01,
-    "gap_s": 0.42
+    "gap_s": 0.52
    }
   ],
   "script_words": 120,

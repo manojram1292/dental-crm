@@ -1,32 +1,77 @@
 {
  "file": "episode52-share.mp4",
  "seconds": 54.44,
- "stops": [],
+ "stops": [
+  [
+   0.16,
+   2.28
+  ],
+  [
+   3.85,
+   7.1875
+  ],
+  [
+   8.1166,
+   11.9154
+  ],
+  [
+   12.8166,
+   17.199499999999997
+  ],
+  [
+   18.116600000000002,
+   20.8221
+  ],
+  [
+   21.9833,
+   26.144499999999997
+  ],
+  [
+   27.75,
+   35.6834
+  ],
+  [
+   36.6166,
+   40.599
+  ],
+  [
+   42.0666,
+   46.012
+  ],
+  [
+   49.283300000000004,
+   52.366
+  ]
+ ],
  "holes": {
-  "floor_db": -26,
-  "windows": 1085,
-  "worst_window_db": -25.2,
-  "worst_window_at_s": 54.2,
+  "floor_db": -34,
+  "windows": 257,
+  "worst_window_db": -32.7,
+  "worst_window_at_s": 7.95,
   "windows_under_floor": 0,
   "under_floor_at_s": [],
-  "worst_drop_db": 8.9,
-  "worst_drop_at_s": 53.4,
+  "worst_drop_db": 10.9,
+  "worst_drop_at_s": 53.5,
   "drops_over_limit": 0,
   "drops_at_s": [],
-  "drop_limit_db": 10,
+  "drop_limit_db": 12,
   "drop_window_s": 0.3
  },
+ "voice_over_bed": {
+  "median_db": 14.4,
+  "p10_db": 7.3
+ },
  "start": {
-  "first_100ms_db": -24.4,
-  "first_frame_33ms_db": -22.9,
-  "first_10ms_db": -23.0
+  "first_100ms_db": -32.6,
+  "first_frame_33ms_db": -32.8,
+  "first_10ms_db": -33.3
  },
  "clipping": {
   "samples_at_0.999": 0,
-  "peak_dbfs": -3.2
+  "peak_dbfs": -3.04
  },
  "recogniser": {
-  "heard": "Five brothers, five gods. The king asked, which god was born as who? The five pandavar brothers each carried part of a god. the God of justice, the wind, the God's king, and the twin horsemen. Karna, born in armour, was part of the sun. And the God above all gods, part of him came to earth as Krishna. But dark powers had been born first. Duryodhana, who lit the feud, was born from the spirit of strife. A portion of the goddess of fortune rose from an altar, the Raupadi. The wise who hear this do not lose heart in hard times. And now the King wished to hear his own family's story.",
+  "heard": "Five brothers, five gods. The king asked, which god was born as whom? The five pound of our brothers, each carried part of a god. The God of justice, the wind, the God's king, and the twin horsemen. Karna, born in armor, was part of the sun. And the God above all gods, part of him came to earth as Krishna. But dark powers had been born first. Duryodhana, who lit the feud, was born from the spirit of strife. A portion of the goddess of fortune rose from an altar, the Raupadi. The wise who hear this, do not lose heart in hard times. And now the king wished to hear his own family's story.",
   "transcribed_in_stretches_starting_at_s": [
    0.0,
    12.47,
@@ -43,21 +88,21 @@
    [
     "brothers,",
     0.36,
-    0.68
+    0.66
    ],
    [
     "five",
-    1.36,
+    1.34,
     1.58
    ],
    [
     "gods.",
     1.58,
-    1.9
+    1.92
    ],
    [
     "The",
-    3.46,
+    3.16,
     3.82
    ],
    [
@@ -72,7 +117,7 @@
    ],
    [
     "which",
-    4.9,
+    5.02,
     5.14
    ],
    [
@@ -88,21 +133,21 @@
    [
     "born",
     5.86,
-    6.14
+    6.16
    ],
    [
     "as",
-    6.14,
-    6.52
+    6.16,
+    6.5
    ],
    [
-    "who?",
-    6.52,
-    6.82
+    "whom?",
+    6.5,
+    6.84
    ],
    [
     "The",
-    7.7,
+    7.9,
     8.1
    ],
    [
@@ -111,68 +156,78 @@
     8.4
    ],
    [
-    "pandavar",
+    "pound",
     8.4,
-    8.98
+    8.68
    ],
    [
-    "brothers",
-    8.98,
-    9.48
+    "of",
+    8.68,
+    8.92
+   ],
+   [
+    "our",
+    8.92,
+    9.06
+   ],
+   [
+    "brothers,",
+    9.06,
+    9.46
    ],
    [
     "each",
-    9.48,
-    10.12
+    9.84,
+    10.14
    ],
    [
     "carried",
-    10.12,
+    10.14,
     10.56
    ],
    [
     "part",
     10.56,
-    10.92
+    10.9
    ],
    [
     "of",
-    10.92,
-    11.24
+    10.9,
+    11.22
    ],
    [
     "a",
-    11.24,
-    11.34
+    11.22,
+    11.32
    ],
    [
     "god.",
-    11.34,
+    11.32,
     11.6
    ],
    [
-    "the",
+    "The",
     12.47,
     12.81
    ],
    [
     "God",
     12.81,
-    13.07
+    13.05
    ],
    [
     "of",
-    13.07,
+    13.05,
     13.23
    ],
    [
     "justice,",
     13.23,
-    13.49
+    13.47
    ],
    [
     "the",
-    14.15,
+    14.19,
     14.21
    ],
    [
@@ -182,7 +237,7 @@
    ],
    [
     "the",
-    14.95,
+    14.97,
     15.03
    ],
    [
@@ -213,12 +268,12 @@
    [
     "horsemen.",
     16.25,
-    17.01
+    17.03
    ],
    [
     "Karna,",
-    17.81,
-    18.25
+    17.75,
+    18.23
    ],
    [
     "born",
@@ -231,7 +286,7 @@
     19.07
    ],
    [
-    "armour,",
+    "armor,",
     19.07,
     19.27
    ],
@@ -248,11 +303,11 @@
    [
     "of",
     19.97,
-    20.19
+    20.21
    ],
    [
     "the",
-    20.19,
+    20.21,
     20.33
    ],
    [
@@ -262,22 +317,22 @@
    ],
    [
     "And",
-    21.77,
+    21.87,
     22.01
    ],
    [
     "the",
     22.01,
-    22.15
+    22.13
    ],
    [
     "God",
-    22.15,
-    22.35
+    22.13,
+    22.37
    ],
    [
     "above",
-    22.35,
+    22.37,
     22.69
    ],
    [
@@ -293,16 +348,16 @@
    [
     "part",
     23.87,
-    24.19
+    24.17
    ],
    [
     "of",
-    24.19,
-    24.41
+    24.17,
+    24.39
    ],
    [
     "him",
-    24.41,
+    24.39,
     24.55
    ],
    [
@@ -318,16 +373,16 @@
    [
     "earth",
     24.99,
-    25.21
+    25.23
    ],
    [
     "as",
-    25.21,
-    25.53
+    25.23,
+    25.51
    ],
    [
     "Krishna.",
-    25.53,
+    25.51,
     25.71
    ],
    [
@@ -343,36 +398,36 @@
    [
     "powers",
     28.08,
-    28.56
+    28.52
    ],
    [
     "had",
-    28.56,
+    28.52,
     28.98
    ],
    [
     "been",
     28.98,
-    29.14
+    29.16
    ],
    [
     "born",
-    29.14,
-    29.46
+    29.16,
+    29.44
    ],
    [
     "first.",
-    29.46,
+    29.44,
     29.94
    ],
    [
     "Duryodhana,",
-    30.96,
-    31.6
+    31.02,
+    31.62
    ],
    [
     "who",
-    32.02,
+    32.06,
     32.16
    ],
    [
@@ -388,7 +443,7 @@
    [
     "feud,",
     32.58,
-    32.8
+    32.82
    ],
    [
     "was",
@@ -423,7 +478,7 @@
    [
     "strife.",
     35.08,
-    35.36
+    35.34
    ],
    [
     "A",
@@ -458,27 +513,27 @@
    [
     "fortune",
     37.64,
-    37.9
+    37.92
    ],
    [
     "rose",
-    37.9,
+    37.92,
     38.42
    ],
    [
     "from",
     38.42,
-    38.82
+    38.84
    ],
    [
     "an",
-    38.82,
+    38.84,
     38.92
    ],
    [
     "altar,",
     38.92,
-    39.14
+    39.12
    ],
    [
     "the",
@@ -498,11 +553,11 @@
    [
     "wise",
     42.05,
-    42.33
+    42.35
    ],
    [
     "who",
-    42.33,
+    42.35,
     42.65
    ],
    [
@@ -511,18 +566,18 @@
     42.89
    ],
    [
-    "this",
+    "this,",
     42.89,
     43.21
    ],
    [
     "do",
-    43.21,
-    43.79
+    43.69,
+    43.81
    ],
    [
     "not",
-    43.79,
+    43.81,
     44.01
    ],
    [
@@ -552,12 +607,12 @@
    ],
    [
     "And",
-    48.23,
-    48.87
+    48.27,
+    48.89
    ],
    [
     "now",
-    48.87,
+    48.89,
     49.51
    ],
    [
@@ -566,13 +621,13 @@
     49.73
    ],
    [
-    "King",
+    "king",
     49.73,
-    49.93
+    49.95
    ],
    [
     "wished",
-    49.93,
+    49.95,
     50.27
    ],
    [
@@ -603,39 +658,45 @@
    [
     "story.",
     51.79,
-    52.11
+    52.17
    ]
   ],
   "gaps_over_0.35s_inside_a_sentence": [
    {
     "after": "brothers,",
     "before": "five",
-    "at_s": 0.68,
+    "at_s": 0.66,
     "gap_s": 0.68
    },
    {
     "after": "asked,",
     "before": "which",
     "at_s": 4.32,
-    "gap_s": 0.58
+    "gap_s": 0.7
+   },
+   {
+    "after": "brothers,",
+    "before": "each",
+    "at_s": 9.46,
+    "gap_s": 0.38
    },
    {
     "after": "justice,",
     "before": "the",
-    "at_s": 13.49,
-    "gap_s": 0.66
+    "at_s": 13.47,
+    "gap_s": 0.72
    },
    {
     "after": "wind,",
     "before": "the",
     "at_s": 14.39,
-    "gap_s": 0.56
+    "gap_s": 0.58
    },
    {
     "after": "Karna,",
     "before": "born",
-    "at_s": 18.25,
-    "gap_s": 0.52
+    "at_s": 18.23,
+    "gap_s": 0.54
    },
    {
     "after": "gods,",
@@ -646,35 +707,41 @@
    {
     "after": "Duryodhana,",
     "before": "who",
-    "at_s": 31.6,
-    "gap_s": 0.42
+    "at_s": 31.62,
+    "gap_s": 0.44
    },
    {
     "after": "feud,",
     "before": "was",
-    "at_s": 32.8,
-    "gap_s": 0.54
+    "at_s": 32.82,
+    "gap_s": 0.52
    },
    {
     "after": "altar,",
     "before": "the",
-    "at_s": 39.14,
-    "gap_s": 0.74
+    "at_s": 39.12,
+    "gap_s": 0.76
+   },
+   {
+    "after": "this,",
+    "before": "do",
+    "at_s": 43.21,
+    "gap_s": 0.48
    }
   ],
   "script_words": 126,
   "misheard": [
    {
-    "script": "whom",
-    "heard": "who"
-   },
-   {
     "script": "pandava",
-    "heard": "pandavar"
+    "heard": "pound of our"
    },
    {
     "script": "gods'",
     "heard": "god's"
+   },
+   {
+    "script": "armour",
+    "heard": "armor"
    },
    {
     "script": "draupadi",

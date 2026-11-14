@@ -1,32 +1,81 @@
 {
  "file": "episode54-share.mp4",
  "seconds": 55.98,
- "stops": [],
+ "stops": [
+  [
+   0.16,
+   2.4836
+  ],
+  [
+   4.05,
+   7.399
+  ],
+  [
+   8.15,
+   11.59
+  ],
+  [
+   12.35,
+   16.7367
+  ],
+  [
+   17.5166,
+   20.880599999999998
+  ],
+  [
+   21.650000000000002,
+   24.7933
+  ],
+  [
+   26.25,
+   31.676299999999998
+  ],
+  [
+   32.45,
+   38.2374
+  ],
+  [
+   39.016600000000004,
+   42.522
+  ],
+  [
+   43.8333,
+   48.2339
+  ],
+  [
+   49.016600000000004,
+   54.1862
+  ]
+ ],
  "holes": {
-  "floor_db": -26,
-  "windows": 1116,
-  "worst_window_db": -25.2,
-  "worst_window_at_s": 55.45,
+  "floor_db": -34,
+  "windows": 186,
+  "worst_window_db": -32.7,
+  "worst_window_at_s": 26.05,
   "windows_under_floor": 0,
   "under_floor_at_s": [],
-  "worst_drop_db": 8.9,
+  "worst_drop_db": 10.9,
   "worst_drop_at_s": 54.95,
   "drops_over_limit": 0,
   "drops_at_s": [],
-  "drop_limit_db": 10,
+  "drop_limit_db": 12,
   "drop_window_s": 0.3
  },
+ "voice_over_bed": {
+  "median_db": 15.4,
+  "p10_db": 8.2
+ },
  "start": {
-  "first_100ms_db": -24.4,
-  "first_frame_33ms_db": -27.3,
-  "first_10ms_db": -29.4
+  "first_100ms_db": -29.8,
+  "first_frame_33ms_db": -42.4,
+  "first_10ms_db": -44.6
  },
  "clipping": {
   "samples_at_0.999": 0,
-  "peak_dbfs": -2.11
+  "peak_dbfs": -3.03
  },
  "recogniser": {
-  "heard": "How can a celibate sage have a daughter? A king asked a young, hermit woman who she was. People call me the sage, canvas daughter. Hear why? Long ago, the penance of another sage frightened the king of the gods. He sent Minaka a nymph of heaven to break it. Vishvamitra desired her, and she was willing. By a river, a daughter was born, Manaka left her there and went back to heaven. In a forest of lions and tigers, birds ringed the child and kept her safe. The sage Canva found her and raised her as his own. Goded by birds, by Shakuntas, so he named me Shakuntalak. The king listened. A king's daughter then, he said. Be my wife.",
+  "heard": "How can a celibate sage have a daughter? A king asked a young, hermit woman who she was. People call me the sage, Canva's daughter. Hear why? Long ago, the penance of another sage frightened the king of the gods. He sent Minaka a nymph of heaven to break it. Vishvamitra desired her, and she was willing. By a river, a daughter was born, Menaka left her there and went back to heaven. In a forest of lions and tigers, birds ringed the child and kept her safe. The sage Canva found her and raised her as his own. Goded by birds by Shakuntas, so he named me Shakuntala. The king listened. A king's daughter then, he said. Be my wife.",
   "transcribed_in_stretches_starting_at_s": [
    0.0,
    12.0,
@@ -53,27 +102,27 @@
    [
     "celibate",
     0.5,
-    0.98
+    1.0
    ],
    [
     "sage",
-    0.98,
-    1.24
+    1.0,
+    1.22
    ],
    [
     "have",
-    1.24,
+    1.22,
     1.74
    ],
    [
     "a",
     1.74,
-    1.86
+    1.84
    ],
    [
     "daughter?",
-    1.86,
-    2.08
+    1.84,
+    2.1
    ],
    [
     "A",
@@ -108,11 +157,11 @@
    [
     "woman",
     5.96,
-    6.2
+    6.18
    ],
    [
     "who",
-    6.2,
+    6.18,
     6.54
    ],
    [
@@ -127,7 +176,7 @@
    ],
    [
     "People",
-    8.08,
+    8.12,
     8.2
    ],
    [
@@ -148,16 +197,16 @@
    [
     "sage,",
     8.8,
-    9.18
+    9.16
    ],
    [
-    "canvas",
-    9.78,
-    9.86
+    "Canva's",
+    9.76,
+    10.14
    ],
    [
     "daughter.",
-    9.86,
+    10.14,
     10.36
    ],
    [
@@ -178,46 +227,46 @@
    [
     "ago,",
     12.4,
-    12.74
+    12.72
    ],
    [
     "the",
-    13.1,
+    12.76,
     13.28
    ],
    [
     "penance",
     13.28,
-    13.7
+    13.72
    ],
    [
     "of",
-    13.7,
+    13.72,
     13.88
    ],
    [
     "another",
     13.88,
-    14.1
+    14.12
    ],
    [
     "sage",
-    14.1,
-    14.6
+    14.12,
+    14.58
    ],
    [
     "frightened",
-    14.6,
+    14.58,
     15.0
    ],
    [
     "the",
     15.0,
-    15.48
+    15.5
    ],
    [
     "king",
-    15.48,
+    15.5,
     15.72
    ],
    [
@@ -238,11 +287,11 @@
    [
     "He",
     17.46,
-    17.5
+    17.48
    ],
    [
     "sent",
-    17.5,
+    17.48,
     17.74
    ],
    [
@@ -268,11 +317,11 @@
    [
     "heaven",
     19.52,
-    19.76
+    19.78
    ],
    [
     "to",
-    19.76,
+    19.78,
     20.14
    ],
    [
@@ -293,26 +342,26 @@
    [
     "desired",
     22.46,
-    22.72
+    22.74
    ],
    [
     "her,",
-    22.72,
+    22.74,
     23.28
    ],
    [
     "and",
-    23.76,
+    23.78,
     23.86
    ],
    [
     "she",
     23.86,
-    24.06
+    24.08
    ],
    [
     "was",
-    24.06,
+    24.08,
     24.28
    ],
    [
@@ -323,31 +372,31 @@
    [
     "By",
     25.2,
-    26.28
+    26.26
    ],
    [
     "a",
-    26.28,
+    26.26,
     26.4
    ],
    [
     "river,",
     26.4,
-    26.7
+    26.68
    ],
    [
     "a",
-    26.94,
+    26.68,
     27.14
    ],
    [
     "daughter",
     27.14,
-    27.4
+    27.44
    ],
    [
     "was",
-    27.4,
+    27.44,
     27.78
    ],
    [
@@ -356,18 +405,18 @@
     28.14
    ],
    [
-    "Manaka",
-    28.84,
-    29.02
+    "Menaka",
+    28.82,
+    29.04
    ],
    [
     "left",
-    29.02,
-    29.56
+    29.04,
+    29.58
    ],
    [
     "her",
-    29.56,
+    29.58,
     29.76
    ],
    [
@@ -388,11 +437,11 @@
    [
     "back",
     30.56,
-    30.9
+    30.92
    ],
    [
     "to",
-    30.9,
+    30.92,
     31.2
    ],
    [
@@ -418,11 +467,11 @@
    [
     "of",
     33.0,
-    33.38
+    33.4
    ],
    [
     "lions",
-    33.38,
+    33.4,
     33.66
    ],
    [
@@ -437,7 +486,7 @@
    ],
    [
     "birds",
-    35.1,
+    35.18,
     35.48
    ],
    [
@@ -473,7 +522,7 @@
    [
     "safe.",
     37.64,
-    38.02
+    38.04
    ],
    [
     "The",
@@ -483,11 +532,11 @@
    [
     "sage",
     39.01,
-    39.35
+    39.33
    ],
    [
     "Canva",
-    39.35,
+    39.33,
     39.95
    ],
    [
@@ -498,11 +547,11 @@
    [
     "her",
     40.41,
-    40.61
+    40.63
    ],
    [
     "and",
-    40.61,
+    40.63,
     41.01
    ],
    [
@@ -513,41 +562,41 @@
    [
     "her",
     41.35,
-    41.59
+    41.61
    ],
    [
     "as",
-    41.59,
-    41.85
+    41.61,
+    41.89
    ],
    [
     "his",
-    41.85,
+    41.89,
     42.05
    ],
    [
     "own.",
     42.05,
-    42.33
+    42.35
    ],
    [
     "Goded",
-    43.39,
-    44.07
+    43.37,
+    44.05
    ],
    [
     "by",
-    44.07,
+    44.05,
     44.23
    ],
    [
-    "birds,",
+    "birds",
     44.23,
     44.61
    ],
    [
     "by",
-    45.07,
+    44.61,
     45.11
    ],
    [
@@ -576,13 +625,13 @@
     47.27
    ],
    [
-    "Shakuntalak.",
+    "Shakuntala.",
     47.27,
-    48.19
+    48.05
    ],
    [
     "The",
-    48.95,
+    48.87,
     49.03
    ],
    [
@@ -593,11 +642,11 @@
    [
     "listened.",
     49.33,
-    49.85
+    49.87
    ],
    [
     "A",
-    50.71,
+    50.75,
     50.77
    ],
    [
@@ -608,16 +657,16 @@
    [
     "daughter",
     51.27,
-    51.53
+    51.55
    ],
    [
     "then,",
-    51.53,
+    51.55,
     51.97
    ],
    [
     "he",
-    52.23,
+    52.29,
     52.39
    ],
    [
@@ -633,50 +682,38 @@
    [
     "my",
     53.35,
-    53.63
+    53.61
    ],
    [
     "wife.",
-    53.63,
-    53.87
+    53.61,
+    53.89
    ]
   ],
   "gaps_over_0.35s_inside_a_sentence": [
    {
     "after": "sage,",
-    "before": "canvas",
-    "at_s": 9.18,
+    "before": "Canva's",
+    "at_s": 9.16,
     "gap_s": 0.6
-   },
-   {
-    "after": "ago,",
-    "before": "the",
-    "at_s": 12.74,
-    "gap_s": 0.36
    },
    {
     "after": "her,",
     "before": "and",
     "at_s": 23.28,
-    "gap_s": 0.48
+    "gap_s": 0.5
    },
    {
     "after": "born,",
-    "before": "Manaka",
+    "before": "Menaka",
     "at_s": 28.14,
-    "gap_s": 0.7
+    "gap_s": 0.68
    },
    {
     "after": "tigers,",
     "before": "birds",
     "at_s": 34.58,
-    "gap_s": 0.52
-   },
-   {
-    "after": "birds,",
-    "before": "by",
-    "at_s": 44.61,
-    "gap_s": 0.46
+    "gap_s": 0.6
    },
    {
     "after": "Shakuntas,",
@@ -689,15 +726,11 @@
   "misheard": [
    {
     "script": "kanva's",
-    "heard": "canvas"
+    "heard": "canva's"
    },
    {
     "script": "menaka",
     "heard": "minaka"
-   },
-   {
-    "script": "menaka",
-    "heard": "manaka"
    },
    {
     "script": "kanva",
@@ -706,10 +739,6 @@
    {
     "script": "guarded",
     "heard": "goded"
-   },
-   {
-    "script": "shakuntala",
-    "heard": "shakuntalak"
    },
    {
     "script": "next a marriage without witnesses",
