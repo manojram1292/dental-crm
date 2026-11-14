@@ -1,6 +1,16 @@
 {
  "voice_eq": "trailer: high-pass 58 Hz, +1 dB shelf under 160 Hz, \u22121 dB over 7.5 kHz; third cut: +1.5 dB presence at 3.2 kHz, \u22121.5 dB at 320 Hz (boxiness), and a short room (70 ms, 15 dB under)",
- "music_under_voice_db": -7.9,
+ "divine": {
+  "quoted_words_from_s": 46.24,
+  "to_s": 47.09,
+  "light_share_from_s": 43.75,
+  "octave_below_db": -9,
+  "octave_below_light_db": -15,
+  "double_db": -9.0,
+  "hall": "3.5 s tail, 60 ms pre-delay, 7 dB under the words",
+  "hall_still_over_-50_dbfs_until_s": 49.29
+ },
+ "music_under_voice_db": -8.8,
  "stems": [
   "mus",
   "amb",
@@ -12,7 +22,7 @@
   "foley": 2.0
  },
  "duck_release_ms": 150,
- "voice_stem_peak_dbfs": 2.38,
+ "voice_stem_peak_dbfs": 5.63,
  "ceiling": "trailer: \u22122.5 dBTP in the limiter (\u22123.5 on the mix) so that the encoded mp4 stays under \u22121.5 dBTP",
  "rests_in_score": [
   "armies",
@@ -21,32 +31,32 @@
  "rests": [],
  "bed_floor": {
   "floor_db": -26,
-  "windows": 1749,
-  "worst_window_db": -25.2,
+  "windows": 1785,
+  "worst_window_db": -25.4,
   "worst_window_at_s": 66.65,
   "windows_under_floor": 0,
   "under_floor_at_s": [],
-  "worst_drop_db": 9.6,
+  "worst_drop_db": 9.8,
   "worst_drop_at_s": 84.2,
   "drops_over_limit": 0,
   "drops_at_s": [],
   "drop_limit_db": 10,
   "drop_window_s": 0.3,
   "before_lifting_the_bed": {
-   "worst_window_db": -31.1,
+   "worst_window_db": -31.3,
    "worst_window_at_s": 60.95,
-   "windows_under_floor": 86,
-   "worst_drop_db": 15.6,
+   "windows_under_floor": 119,
+   "worst_drop_db": 16.0,
    "worst_drop_at_s": 18.3,
-   "drops_over_limit": 135
+   "drops_over_limit": 156
   },
-  "bed_lift_db_max": 8.8,
-  "bed_lifted_seconds": 24.36
+  "bed_lift_db_max": 9.5,
+  "bed_lifted_seconds": 27.28
  },
  "line_gain_multiplier": 1.0,
- "lufs": -14.15,
+ "lufs": -14.19,
  "true_peak_dbtp": -3.3,
- "lra": 4.4,
- "timeline": "2edaf8f7f379eadf",
+ "lra": 4.7,
+ "timeline": "710789a768d2b7cf",
  "voiced": 28
 }

@@ -1,16 +1,7 @@
 {
- "stops": [
-  [
-   36.0333,
-   36.7333
-  ],
-  [
-   63.8667,
-   64.5666
-  ]
- ],
+ "stops": [],
  "clock": {
-  "ticks": 100,
+  "ticks": 102,
   "tempo_steps": [
    [
     0.5,
@@ -30,12 +21,29 @@
    ]
   ],
   "first": 0.5,
-  "last": 63.567
+  "last": 64.067
  },
  "motif": "Sa Pa komal-Dha Pa (D A B-flat A); the last note of the film is Sa (D), struck",
  "cut": 3,
  "cuts_inside_sentences": {
   "stakes": 26.0667,
   "needle": 34.2333
- }
+ },
+ "dips_where_the_stops_were": [
+  [
+   36.0333,
+   36.7333
+  ],
+  [
+   63.8667,
+   64.5666
+  ]
+ ],
+ "binaural": {
+  "line": "vish",
+  "leftHz": 110,
+  "rightHz": 117,
+  "dbfs": -37
+ },
+ "divine": true
 }

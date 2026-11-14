@@ -522,6 +522,15 @@
   "peak_db": -6.8
  },
  {
+  "line": "vish",
+  "cue": "temple bell on \"Time\"",
+  "asked_s": 46.563,
+  "start_s": 46.563,
+  "onset_s": 46.563,
+  "peak_s": 46.811,
+  "peak_db": -7.7
+ },
+ {
   "line": "arrows",
   "cue": "arrows",
   "asked_s": 48.933,
