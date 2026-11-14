@@ -1,0 +1,2 @@
+gate ep49: hook 8 w, speech ends 2.67 s · story starts 3.77 s · duration 57.27 s · turn "found" at 49.5 % · 2.57 words/s · 3 names, ≤ 1 new per 10 s · 3 names identified · previous question answered at 3.8 s · 5 ambiences · 7 music moods · 3 J/L cuts · 2 rests · 6 palettes, hue run ≤ 2 · 7 camera moves · 3 medium transitions · silences ≥ 0.6 s at −45 dB: 2 (longest 1.02 s) · LRA 5.5 LU · stems mus+amb+foley · music -13.3 dB under voice · TP -2.08 · Next -10.5 dB vs body
+gate ep49: passed
