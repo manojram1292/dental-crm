@@ -60,14 +60,16 @@ def build(tl, sc):
     # ── the two stops (frame-exact) ──
     s1a, s1b = fceil(L['needle']['speechEnd'] + 0.04), st('armies') - 10 * FR   # the conch swells: begun 10 frames early it is heard about 6 before the cut
     s2a, s2b = fceil(L['dog']['speechEnd'] + 0.05), st('word')
-    stops = [(s1a, s1b), (s2a, s2b)]
+    NOSTOP = bool(sc.get('noStops'))   # v3.1: the owner heard the two silences as faults. No dead air: a dip of a few dB, the bed and the clock running through
+    dips = [(s1a, s1b), (s2a, s2b)]
+    stops = [] if NOSTOP else dips
     in_stop = lambda t: any(a <= t < b for a, b in stops)
 
     # ── THE CLOCK (foley stem) ──
     seg = [(0.5, 60), (st('cousins'), 72), (st('dice1'), 90), (st('armies'), 120)]
     quiet = (st('dog'), en('dog'))
     t, k, ticks = 0.5, 0, []
-    while t < s2a - 0.02:
+    while t < (st('word') - 0.1 if NOSTOP else s2a - 0.02):
         bpm = [b for a, b in seg if t >= a - 1e-6][-1]
         nxt = [a for a, b in seg if a > t + 1e-6]
         if not in_stop(t):
@@ -180,7 +182,7 @@ def build(tl, sc):
     drum(st('needle'), 0.9, 0.6, 'needle', 'cut drum')
     cue('needle', 'staff', st('needle') + 0.3, S.mridangam('ta', (key, 'st9'), 0.7), p=0.3)
     drum(nk, 1.0, 0.9, 'needle', 'cut drum (the close-up)')
-    add(mus_w, pan(horn([SA * 0.5, SA * 0.5 * 16 / 15], [0.5, max(0.3, s1a - nk - 0.5)], (key, 'm3b'), 0.9, 0.9), 0.0), nk)
+    add(mus_w, pan(horn([SA * 0.5, SA * 0.5 * 16 / 15], [0.5, max(0.3, (st('armies') + 0.6 if NOSTOP else s1a) - nk - 0.5)], (key, 'm3b'), 0.9, 0.9), 0.0), nk)
 
     # ── THE TURN: the conch before the armies; the bow; the universal form ──
     cue('armies', 'conch', s1b, S.conch((key, 'c13'), 233.08, 2.4, 1.6), bus=mus_w, asked=st('armies'))
@@ -213,6 +215,21 @@ def build(tl, sc):
         drum(tb_, 0.9 if i % 2 else 0.7, 0.9 if i % 2 else 0.3, 'vish', 'drum')
     add(mus_w, pan(S.conch((key, 'c21'), 233.08, 2.6, 1.2), -0.2), rev + 0.05)
 
+    if sc.get('divine'):
+        tI, tT = wt('vish', 8)['t0'], wt('vish', 10)['t0']
+        cue('vish', 'temple bell on "Time"', tT, S.ghanta(SA * 1.5, 4.5, (key, 'dv1'), 0.9), bus=mus_w, asked=tT)
+        add(mus_w, pan(S.ghanta(SA * 0.75, 5.0, (key, 'dv2'), 0.7), 0.0), tT + 0.01)
+        add(mus_w, pan(S.conch((key, 'dv3'), 174.6, 3.2, 1.1), 0.25), tI - 0.9)
+        n_sw = smp(tT - (tI - 1.6) + 2.2)
+        t_sw = tvec(n_sw)
+        pk = tT - (tI - 1.6)
+        env_sw = np.where(t_sw < pk, (t_sw / pk) ** 2.0, np.exp(-(t_sw - pk) / 0.7))
+        sw = (np.sin(2 * np.pi * SA / 4 * t_sw) + 0.6 * np.sin(2 * np.pi * SA / 2 * t_sw + 1.0) + 0.35 * np.sin(2 * np.pi * SA * 0.75 * t_sw + 2.0)) * env_sw * 0.5
+        add(mus_d, pan(sw, 0.0), tI - 1.6)   # a low swell (Sa, an octave and two below, and Pa) peaking on "Time"
+    bn = sc.get('binaural')
+    if bn:   # two low sines, one in each ear, 7 Hz apart, under the universal form only; set in dBFS after the stems are balanced (below)
+        pass
+
     # ── THE WAR, in order: the arrows before their picture; the motif at full weight; a hit on every cut ──
     t0 = st('arrows')
     war_end = en('mud')
@@ -242,7 +259,7 @@ def build(tl, sc):
     b0 = L['curse']['speechStart'] + 0.6 * (L['curse']['speechEnd'] - L['curse']['speechStart'])
     cue('curse', 'cloth', b0 - 0.5, S.foley_hit('cloth', (key, 'c9'), 1) * 1.8, p=-0.3, asked=b0 - 0.4)
     cue('dog', 'steps', st('dog') + 0.05, S.foley_hit('steps', (key, 'stp3'), 0.42 * (s2a - st('dog'))) * 0.9, p=0.1)
-    add(mus_w, pan(S.bansuri([SA * 3, SA * 2.25, SA * 2], [1.1, 1.0, max(0.8, s2a - st('dog') - 2.6)], (key, 'm6'), 0.35) * 0.7, -0.1), st('dog') + 0.3)
+    add(mus_w, pan(S.bansuri([SA * 3, SA * 2.25, SA * 2], [1.1, 1.0, max(0.8, (st('word') + 0.4 if NOSTOP else s2a) - st('dog') - 2.6)], (key, 'm6'), 0.35) * 0.7, -0.1), st('dog') + 0.3)
 
     # ── THE WORD: out of the stop. The drone and embers; a wooden tap and a low drum on each of the three parts; a bell on "was" ──
     wl = L['word']
@@ -306,14 +323,22 @@ def build(tl, sc):
     # THE STOPS: every stem to digital silence between two frames (2 ms ramps)
     gate = np.ones(N)
     rp = smp(0.002)
+    dipg = np.zeros(N)
+    if NOSTOP:
+        for a, b in dips:   # where the stops were: 3.5 dB down, eased over 120 ms, everything still sounding
+            dipg[smp(a):smp(b)] = -3.5
+        from scipy.ndimage import uniform_filter1d as _uf
+        dipg = _uf(dipg, smp(0.12))
     for a, b in stops:
         i0, i1 = smp(a), smp(b)
         gate[i0:i1] = 0
         gate[max(0, i0 - rp):i0] = np.linspace(1, 0, min(rp, i0))
         gate[i1:i1 + rp] = np.linspace(0, 1, rp)[:max(0, min(rp, N - i1))]
-    i1 = smp(s2b)
-    up = smp(0.12)   # the word shot comes up out of the stop within four frames
-    gate[i1:i1 + up] *= np.linspace(0, 1, up) ** 1.2
+    if not NOSTOP:
+        i1 = smp(s2b)
+        up = smp(0.12)   # the word shot comes up out of the stop within four frames
+        gate[i1:i1 + up] *= np.linspace(0, 1, up) ** 1.2
+    gate = gate * db(dipg)
     edge = env_curve([(0, 1), (D - 0.03, 1), (D, 0)], N)   # sound from the first sample; the last 30 ms only are faded
     mus, amb, fol = mus * gate * edge, amb * gate * edge, fol * gate * edge
     mus *= db(-18.5 - lufs(mus))
@@ -329,8 +354,18 @@ def build(tl, sc):
     tot = mus + amb + fol
     tpk = true_peak_db(tot)
     k = db(-2.3 - tpk) if tpk > -2.0 else 1.0
+    if sc.get('binaural'):
+        bn = sc['binaural']
+        a_, b_ = L[bn['line']]['speechStart'] - 0.2, st('arrows')
+        nb = smp(b_ - a_)
+        tb = tvec(nb)
+        eb = env_curve([(0, 0), (1.2, 1), (max(1.3, b_ - a_ - 0.5), 1), (b_ - a_, 0)], nb) * db(bn['dbfs']) * np.sqrt(2)
+        pair = np.stack([np.sin(2 * np.pi * bn['leftHz'] * tb), np.sin(2 * np.pi * bn['rightHz'] * tb)]) * eb
+        mus = mus.copy()
+        add(mus, pair / k, a_)   # (divided by k: the stems are scaled by k just below, and this level is absolute)
     stems = {'amb': amb * k, 'foley': fol * k, 'mus': mus * k}
     meta = {'stops': [[round(a, 4), round(b, 4)] for a, b in stops], 'clock': {'ticks': len(ticks), 'tempo_steps': [[round(a, 3), b] for a, b in seg], 'first': ticks[0][0], 'last': ticks[-1][0]},
             'motif': 'Sa Pa komal-Dha Pa (D A B-flat A); the last note of the film is Sa (D), struck', 'cut': 3,
-            'cuts_inside_sentences': {'stakes': round(float(sk), 4), 'needle': round(float(nk), 4)}}
+            'cuts_inside_sentences': {'stakes': round(float(sk), 4), 'needle': round(float(nk), 4)}, 'dips_where_the_stops_were': [[round(a, 4), round(b, 4)] for a, b in dips] if NOSTOP else [],
+            'binaural': sc.get('binaural'), 'divine': bool(sc.get('divine'))}
     return stems, log, meta

@@ -376,7 +376,9 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
       const sil = [...sd.matchAll(/silence_duration: ([\d.]+)/g)].map((m) => +m[1]);
       const all = ebur(mixf);
       info.push(`silences ≥ 0.6 s at −45 dB: ${sil.length}${sil.length ? ` (longest ${Math.max(...sil).toFixed(2)} s)` : ''} · LRA ${all.LRA} LU`);
-      if (!sil.length) fails.push('no silence ≥ 0.6 s at ≤ −45 dB in the mix');
+      const noStops = sc.kind === 'trailer' && sc.cut >= 3 && sc.noStops;   // the trailer from v3.1: no dead air at all (viewers took the two stops for playback faults)
+      if (noStops) { if (sil.length) fails.push(`a silence of ${Math.max(...sil).toFixed(2)} s in the mix (this trailer has none: a rest is a dip, never dead air)`); }
+      else if (!sil.length) fails.push('no silence ≥ 0.6 s at ≤ −45 dB in the mix');
       if (!(all.LRA >= 4)) fails.push(`LRA ${all.LRA} LU (min 4)`);
       if (ep >= 41) {
         const rp = path.join(ROOT, 'audio', tag, `mix.${lang}.json`);
@@ -396,7 +398,7 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
             if (!((rep.duck_db || {}).mus <= 10)) fails.push(`the music is ducked ${(rep.duck_db || {}).mus} dB under the voice (max 10)`);
           }
         }
-        if (sil.length === 1) warns.push('one real silence (two is the target where the story allows)');
+        if (sil.length === 1 && !noStops) warns.push('one real silence (two is the target where the story allows)');
       }
       const nxl = L.find((l) => l.id === 'next');
       if (nxl) {

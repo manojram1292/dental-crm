@@ -177,6 +177,57 @@ def voice_room(x):
     return x + wet * k
 
 
+def divine_voice(voice, tl, cfg, N, octave_path):
+    """Krishna's own words in the trailer (script "divine"): under the voice, the same words an octave below (formants kept; made
+    by lab/review/trailer/v3/divine.py); a wide double (two short delays, one each side, slowly moving); and a temple hall
+    (pre-delay, a long tail) that rings on into the next shot. The sentence before gets a lighter share. Returns the voice bus
+    with the double and the chorus in it, and the hall on a bus of its own (it must not hold the music down while it rings)."""
+    from scipy.signal import fftconvolve, butter, sosfilt
+    l = next(q for q in tl['lines'] if q['id'] == cfg['line'])
+    w = l['words']
+    tA, tB, tE = w[cfg['lightFromWord']]['t0'] - 0.05, w[cfg['fromWord']]['t0'] - 0.06, w[-1]['t1'] + 0.25
+    env = np.zeros(N)   # 0 outside, the light share on the sentence before, 1 on the quoted words
+    lightk = db(cfg['lightDb'] - cfg['octaveDb'])
+    env[int(tA * SR):int(tB * SR)] = lightk
+    env[int(tB * SR):int(tE * SR)] = 1.0
+    env = uniform_filter1d(env, int(0.04 * SR))
+    octv = read_wav(octave_path)
+    i0 = int(round(l['speechStart'] * SR))
+    o = np.zeros((2, N))
+    n = min(octv.shape[1], N - i0)
+    o[:, i0:i0 + n] = octv[:, :n]
+    a, b = int(tB * SR), int(tE * SR)
+    rms = lambda z: np.sqrt(np.mean(z ** 2) + 1e-12)
+    o *= rms(voice[:, a:b]) / rms(o[:, a:b]) * db(cfg['octaveDb'])
+    src = (voice + o) * env   # what is doubled and sent to the hall
+    # the wide double: 13 ms left, 19 ms right, each drifting by 2.5 ms
+    t = np.arange(N) / SR
+    dbl = np.zeros((2, N))
+    for ch, (d0, rate) in enumerate(((0.013, 0.31), (0.019, 0.23))):
+        d = (d0 + 0.0025 * np.sin(2 * np.pi * rate * t + ch)) * SR
+        idx = np.arange(N) - d
+        i = np.clip(np.floor(idx).astype(int), 0, N - 2)
+        fr = idx - np.floor(idx)
+        dbl[ch] = (src[1 - ch, i] * (1 - fr) + src[1 - ch, i + 1] * fr) * (idx >= 0)
+    # the hall
+    r = np.random.default_rng(1108)
+    nh = int((cfg['hallSeconds'] + 0.3) * SR)
+    th = np.arange(nh) / SR
+    pre = cfg['preDelayMs'] / 1000
+    ir = np.stack([r.standard_normal(nh) * np.exp(-np.maximum(0, th - pre) * 6.91 / cfg['hallSeconds']) * (th >= pre) for _ in range(2)])
+    ir = sosfilt(butter(2, [140, 6000], 'bandpass', fs=SR, output='sos'), ir, axis=-1)
+    k0, k1 = max(0, int((tA - 0.2) * SR)), min(N, int((tE + 0.2) * SR))
+    wet = np.zeros((2, N))
+    for ch in range(2):
+        y = fftconvolve(src[ch, k0:k1], ir[ch])
+        m = min(len(y), N - k0)
+        wet[ch, k0:k0 + m] = y[:m]
+    wet *= rms(voice[:, a:b]) / rms(wet[:, a:int((tE + 0.5) * SR)]) * db(-7.0)
+    out = voice + o * env + dbl * db(-9.0)
+    return out, wet, {'quoted_words_from_s': round(tB, 2), 'to_s': round(tE, 2), 'light_share_from_s': round(tA, 2), 'octave_below_db': cfg['octaveDb'], 'octave_below_light_db': cfg['lightDb'], 'double_db': -9.0,
+                      'hall': f"{cfg['hallSeconds']} s tail, {cfg['preDelayMs']} ms pre-delay, 7 dB under the words", 'hall_still_over_-50_dbfs_until_s': round(float(np.nonzero(np.abs(wet).max(0) > db(-50))[0][-1] / SR), 2)}
+
+
 def win_levels(x, win=0.1, hop=0.05):
     """RMS (dBFS, both channels) of every 100 ms window, hop 50 ms → (start times, levels)."""
     m = (x ** 2).mean(axis=0)
@@ -236,7 +287,7 @@ def bed_floor(mix, pre, stems, voice, tl, SL, N, ceil, cfg, sheet, mult=1.0):
         for a, b in stops:
             bedg[int(a * SR):int(b * SR)] = 0
         g = db(bedg)
-        x = voice + stems['foley'] + (stems['mus'] + stems['amb']) * g
+        x = voice + stems['foley'] + stems.get('fx', 0) + (stems['mus'] + stems['amb']) * g
         n0 = int(0.003 * SR)
         x[:, :n0] *= np.linspace(0, 1, n0)
         mix = master(x * lg, ceil)
@@ -313,6 +364,10 @@ def main():
             voice = voice_room(voice_eq(voice, VOICE_EQ_TRAILER3_ADD))
             report['voice_eq'] += '; third cut: +1.5 dB presence at 3.2 kHz, −1.5 dB at 320 Hz (boxiness), and a short room (70 ms, 15 dB under)'
         voice *= db(VOICE_LUFS - lufs(voice))
+        _fx3 = np.zeros((2, N))
+        _dv = _t3 and json.load(open(_scp)).get('divine')
+        if _dv:
+            voice, _fx3, report['divine'] = divine_voice(voice, tl, _dv, N, os.path.join(ROOT, 'audio', tag, 'vish.octave.wav'))
         # duck the music under the voice
         e = np.abs(voice).max(0)
         e = maximum_filter1d(e, int(0.03 * SR))
@@ -327,7 +382,8 @@ def main():
             sm = uniform_filter1d(hold, int(0.06 * SR))
             mix = voice.copy()
             _duck = STEM_DUCK_TRAILER3 if _t3 else STEM_DUCK
-            _stems3 = {}
+            _stems3 = {'fx': _fx3}
+            mix += _fx3
             for n_, d_ in _duck.items():
                 st_ = read_wav(stem_paths[n_])[:, :N]
                 st_ = np.pad(st_, ((0, 0), (0, N - st_.shape[1])))
