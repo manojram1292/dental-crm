@@ -1,0 +1,31 @@
+{
+ "file": "episode54-share.mp4",
+ "bytes": 18147782,
+ "megabytes_decimal": 18.15,
+ "profile": "High",
+ "level": 5.0,
+ "pix_fmt": "yuv420p",
+ "size": "1080x1920",
+ "r_frame_rate": "30/1",
+ "avg_frame_rate": "30/1",
+ "frames": 1679,
+ "frame_step_min_max_s": [
+  0.03333,
+  0.03333
+ ],
+ "video_start_s": 0.0,
+ "audio_start_s": 0.0,
+ "first_audio_packet_s": -0.021333,
+ "audio": "aac 48000 Hz 2 ch",
+ "moov_before_mdat": true,
+ "first_frame_is_key": true,
+ "first_60_frames_one_each": true,
+ "keyframes": 37,
+ "longest_gap_between_keyframes_s": 2.0,
+ "keyframes_in_first_5_s": [
+  0.0,
+  2.0,
+  3.7
+ ],
+ "asked_keyframes_missing": []
+}

@@ -1,30 +1,92 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8748000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "found~0.s0.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "The sage Kanva found her, and raised her as his own.",
+ "heard": "the sage Canva found her and raised her as his own.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.2711,
-   "words": 3,
-   "speed": 0.875,
-   "text": "The sage Kanva"
-  },
-  {
-   "t0": 1.3511,
-   "t1": 2.1808,
-   "words": 2,
-   "speed": 0.875,
-   "text": "found her,"
-  },
-  {
-   "t0": 2.3808,
-   "t1": 4.0895,
-   "words": 6,
-   "speed": 0.875,
-   "text": "and raised her as his own."
+   "t0": 0,
+   "t1": 3.705,
+   "words": 11,
+   "text": "The sage Kanva found her, and raised her as his own."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.1
+  ],
+  [
+   0.1,
+   0.575
+  ],
+  [
+   0.654,
+   1.171
+  ],
+  [
+   1.298,
+   1.48
+  ],
+  [
+   1.48,
+   1.756
+  ],
+  [
+   2.018,
+   2.08
+  ],
+  [
+   2.08,
+   2.42
+  ],
+  [
+   2.42,
+   2.68
+  ],
+  [
+   2.68,
+   2.98
+  ],
+  [
+   2.98,
+   3.12
+  ],
+  [
+   3.12,
+   3.58
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.26,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 125.7,
+  "st": 8.4,
+  "edb": 15.7,
+  "dur": 3.56,
+  "jumps": 0.42,
+  "creak": 0.0,
+  "hnr": 11.4,
+  "jitter": 2.22,
+  "tail_db": -73.3
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": -0.21,
+ "names": {
+  "Kanva": {
+   "heard": "canva",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

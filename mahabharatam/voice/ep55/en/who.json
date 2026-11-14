@@ -1,30 +1,92 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8262,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "who~0.s3.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "King Dushyanta had found Shakuntala alone in a forest hermitage.",
+ "heard": "King Dushyanta had found Shakuntala alone in a forest hermitage.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.2107,
-   "words": 2,
-   "speed": 0.826,
-   "text": "King Dushyanta"
-  },
-  {
-   "t0": 1.2707,
-   "t1": 2.8467,
-   "words": 3,
-   "speed": 0.826,
-   "text": "had found Shakuntala"
-  },
-  {
-   "t0": 2.9067,
-   "t1": 4.9577,
-   "words": 5,
-   "speed": 0.826,
-   "text": "alone in a forest hermitage."
+   "t0": 0,
+   "t1": 4.888,
+   "words": 10,
+   "text": "King Dushyanta had found Shakuntala alone in a forest hermitage."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.2
+  ],
+  [
+   0.2,
+   1.195
+  ],
+  [
+   1.444,
+   1.583
+  ],
+  [
+   1.675,
+   1.8
+  ],
+  [
+   1.8,
+   2.64
+  ],
+  [
+   2.64,
+   3.14
+  ],
+  [
+   3.14,
+   3.54
+  ],
+  [
+   3.54,
+   3.692
+  ],
+  [
+   3.764,
+   3.92
+  ],
+  [
+   3.92,
+   4.759
+  ]
+ ],
+ "lead_air_ms": 29,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.25,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 125.8,
+  "st": 11.2,
+  "edb": 19.3,
+  "dur": 4.74,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.3,
+  "jitter": 2.27,
+  "tail_db": -81.0
+ },
+ "film_median_hz": 125.7,
+ "semitones_from_film_median": 0.01,
+ "names": {
+  "Dushyanta": {
+   "heard": "dushyanta",
+   "fit": 1.0
+  },
+  "Shakuntala": {
+   "heard": "shakuntala",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

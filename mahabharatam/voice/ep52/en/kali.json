@@ -1,37 +1,124 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "kali~0.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "But dark powers had been born first. Duryodhana, who lit the feud, was born from the spirit of strife.",
+ "heard": "but dark powers had been born first. Duryodhana, who lit the feud, was born from the spirit of strife.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 2.3486,
-   "words": 7,
-   "speed": 0.891,
-   "text": "But dark powers had been born first."
-  },
-  {
-   "t0": 2.6486,
-   "t1": 3.599,
-   "words": 1,
-   "speed": 0.891,
-   "text": "Duryodhana,"
-  },
-  {
-   "t0": 3.679,
-   "t1": 4.8694,
-   "words": 4,
-   "speed": 0.891,
-   "text": "who lit the feud,"
-  },
-  {
-   "t0": 4.9894,
-   "t1": 7.1402,
-   "words": 7,
-   "speed": 0.891,
-   "text": "was born from the spirit of strife."
+   "t0": 0,
+   "t1": 8.133,
+   "words": 19,
+   "text": "But dark powers had been born first. Duryodhana, who lit the feud, was born from the spirit of strife."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.167
+  ],
+  [
+   0.282,
+   0.651
+  ],
+  [
+   0.727,
+   1.0
+  ],
+  [
+   1.0,
+   1.34
+  ],
+  [
+   1.34,
+   1.5
+  ],
+  [
+   1.5,
+   2.044
+  ],
+  [
+   2.142,
+   2.583
+  ],
+  [
+   3.072,
+   4.193
+  ],
+  [
+   4.456,
+   4.52
+  ],
+  [
+   4.52,
+   4.751
+  ],
+  [
+   4.886,
+   4.981
+  ],
+  [
+   5.046,
+   5.404
+  ],
+  [
+   5.766,
+   5.956
+  ],
+  [
+   6.03,
+   6.409
+  ],
+  [
+   6.477,
+   6.54
+  ],
+  [
+   6.54,
+   6.833
+  ],
+  [
+   6.902,
+   7.268
+  ],
+  [
+   7.349,
+   7.42
+  ],
+  [
+   7.42,
+   7.926
+  ]
+ ],
+ "lead_air_ms": 29,
+ "tail_air_ms": 200,
+ "longest_pause_s": 0.49,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 135.5,
+  "st": 13.0,
+  "edb": 19.8,
+  "dur": 7.9,
+  "jumps": 0.43,
+  "creak": 0.0,
+  "hnr": 11.6,
+  "jitter": 2.0,
+  "tail_db": -45.4
+ },
+ "film_median_hz": 127.6,
+ "semitones_from_film_median": 1.04,
+ "names": {
+  "Duryodhana": {
+   "heard": "duryodhana",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

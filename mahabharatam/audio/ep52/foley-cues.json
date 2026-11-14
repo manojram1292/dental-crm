@@ -11,172 +11,190 @@
  {
   "line": "hook",
   "cue": "thunder@1",
-  "asked_s": 2.252,
-  "start_s": 2.252,
-  "onset_s": 2.252,
-  "peak_s": 2.259,
+  "asked_s": 1.765,
+  "start_s": 1.765,
+  "onset_s": 1.765,
+  "peak_s": 1.771,
   "peak_db": -15.4
  },
  {
   "line": "asked",
   "cue": "cloth",
-  "asked_s": 4.061,
-  "start_s": 4.061,
-  "onset_s": 4.126,
-  "peak_s": 4.255,
+  "asked_s": 3.58,
+  "start_s": 3.58,
+  "onset_s": 3.645,
+  "peak_s": 3.774,
   "peak_db": -30.1
  },
  {
   "line": "asked",
   "cue": "flame@1",
-  "asked_s": 7.028,
-  "start_s": 7.028,
-  "onset_s": 7.063,
-  "peak_s": 7.128,
-  "peak_db": -27.1
+  "asked_s": 6.762,
+  "start_s": 6.762,
+  "onset_s": 6.809,
+  "peak_s": 7.016,
+  "peak_db": -26.3
  },
  {
   "line": "five",
   "cue": "whoosh@1",
-  "asked_s": 12.495,
-  "start_s": 12.195,
-  "onset_s": 12.291,
-  "peak_s": 12.498,
+  "asked_s": 11.337,
+  "start_s": 11.037,
+  "onset_s": 11.133,
+  "peak_s": 11.34,
   "peak_db": -28.7
  },
  {
   "line": "five",
-  "cue": "whoosh@2",
-  "asked_s": 13.568,
-  "start_s": 13.218,
-  "onset_s": 13.31,
-  "peak_s": 13.546,
-  "peak_db": -29.2
+  "cue": "cloth",
+  "asked_s": 7.847,
+  "start_s": 7.847,
+  "onset_s": 7.91,
+  "peak_s": 8.054,
+  "peak_db": -30.4
  },
  {
-  "line": "five",
-  "cue": "thunder@3",
-  "asked_s": 14.877,
-  "start_s": 14.877,
-  "onset_s": 14.877,
-  "peak_s": 14.986,
-  "peak_db": -13.4
+  "line": "gods",
+  "cue": "whoosh@0",
+  "asked_s": 12.817,
+  "start_s": 12.492,
+  "onset_s": 12.574,
+  "peak_s": 12.789,
+  "peak_db": -29.1
  },
  {
-  "line": "five",
-  "cue": "hooves@4",
-  "asked_s": 16.313,
-  "start_s": 16.313,
-  "onset_s": 16.316,
-  "peak_s": 16.546,
-  "peak_db": -5.2
+  "line": "gods",
+  "cue": "whoosh@1",
+  "asked_s": 14.217,
+  "start_s": 13.867,
+  "onset_s": 13.97,
+  "peak_s": 14.265,
+  "peak_db": -27.8
+ },
+ {
+  "line": "gods",
+  "cue": "thunder@2",
+  "asked_s": 15.017,
+  "start_s": 15.017,
+  "onset_s": 15.017,
+  "peak_s": 15.023,
+  "peak_db": -14.6
+ },
+ {
+  "line": "gods",
+  "cue": "hooves@3",
+  "asked_s": 16.037,
+  "start_s": 16.037,
+  "onset_s": 16.039,
+  "peak_s": 16.27,
+  "peak_db": -5.4
  },
  {
   "line": "karna",
   "cue": "flame@1",
-  "asked_s": 20.497,
-  "start_s": 20.497,
-  "onset_s": 20.554,
-  "peak_s": 20.728,
-  "peak_db": -25.2
+  "asked_s": 20.317,
+  "start_s": 20.317,
+  "onset_s": 20.368,
+  "peak_s": 20.619,
+  "peak_db": -24.3
  },
  {
   "line": "karna",
   "cue": "cloth",
-  "asked_s": 17.227,
-  "start_s": 17.227,
-  "onset_s": 17.294,
-  "peak_s": 17.415,
-  "peak_db": -29.9
+  "asked_s": 17.847,
+  "start_s": 17.847,
+  "onset_s": 17.916,
+  "peak_s": 18.006,
+  "peak_db": -29.4
  },
  {
   "line": "krishna",
   "cue": "water",
-  "asked_s": 21.548,
-  "start_s": 21.548,
-  "onset_s": 21.707,
-  "peak_s": 24.797,
-  "peak_db": -27.1
+  "asked_s": 21.713,
+  "start_s": 21.713,
+  "onset_s": 21.802,
+  "peak_s": 24.429,
+  "peak_db": -27.8
  },
  {
   "line": "krishna",
   "cue": "whoosh@2",
-  "asked_s": 25.036,
-  "start_s": 24.715,
-  "onset_s": 24.809,
-  "peak_s": 25.037,
-  "peak_db": -27.6
+  "asked_s": 24.763,
+  "start_s": 24.418,
+  "onset_s": 24.518,
+  "peak_s": 24.706,
+  "peak_db": -28.1
  },
  {
   "line": "kali",
   "cue": "thunder@1",
-  "asked_s": 29.714,
-  "start_s": 29.714,
-  "onset_s": 29.714,
-  "peak_s": 29.784,
-  "peak_db": -14.8
+  "asked_s": 30.722,
+  "start_s": 30.722,
+  "onset_s": 30.722,
+  "peak_s": 30.728,
+  "peak_db": -16.8
  },
  {
   "line": "kali",
   "cue": "growl@2",
-  "asked_s": 32.92,
-  "start_s": 32.57,
-  "onset_s": 32.715,
-  "peak_s": 33.122,
-  "peak_db": -15.8
+  "asked_s": 34.19,
+  "start_s": 33.84,
+  "onset_s": 33.985,
+  "peak_s": 34.399,
+  "peak_db": -16.1
  },
  {
   "line": "draupadi",
   "cue": "flame",
-  "asked_s": 34.735,
-  "start_s": 34.735,
-  "onset_s": 34.789,
-  "peak_s": 35.081,
-  "peak_db": -22.6
+  "asked_s": 36.347,
+  "start_s": 36.347,
+  "onset_s": 36.389,
+  "peak_s": 37.051,
+  "peak_db": -25.2
  },
  {
   "line": "draupadi",
   "cue": "anklet@1",
-  "asked_s": 37.281,
-  "start_s": 37.281,
-  "onset_s": 37.281,
-  "peak_s": 42.326,
-  "peak_db": -31.2
+  "asked_s": 38.457,
+  "start_s": 38.457,
+  "onset_s": 38.457,
+  "peak_s": 38.461,
+  "peak_db": -30.9
  },
  {
   "line": "payoff",
   "cue": "cloth@0",
-  "asked_s": 41.938,
-  "start_s": 41.751,
-  "onset_s": 41.819,
-  "peak_s": 41.941,
-  "peak_db": -30.0
+  "asked_s": 42.907,
+  "start_s": 42.707,
+  "onset_s": 42.773,
+  "peak_s": 42.906,
+  "peak_db": -29.4
  },
  {
   "line": "payoff",
   "cue": "flame",
-  "asked_s": 39.85,
-  "start_s": 39.85,
-  "onset_s": 39.932,
-  "peak_s": 40.688,
-  "peak_db": -22.6
+  "asked_s": 41.247,
+  "start_s": 41.247,
+  "onset_s": 41.31,
+  "peak_s": 41.436,
+  "peak_db": -21.1
  },
  {
   "line": "cliff",
   "cue": "hooves@2",
-  "asked_s": 48.553,
-  "start_s": 48.553,
-  "onset_s": 48.556,
-  "peak_s": 48.786,
-  "peak_db": -5.9
+  "asked_s": 49.033,
+  "start_s": 49.033,
+  "onset_s": 49.036,
+  "peak_s": 49.266,
+  "peak_db": -6.3
  },
  {
   "line": "cliff",
   "cue": "birds",
-  "asked_s": 48.533,
-  "start_s": 48.533,
-  "onset_s": 48.539,
-  "peak_s": 49.699,
-  "peak_db": -21.4
+  "asked_s": 49.013,
+  "start_s": 49.013,
+  "onset_s": 49.022,
+  "peak_s": 49.255,
+  "peak_db": -21.9
  }
 ]

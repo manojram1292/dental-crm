@@ -1,0 +1,82 @@
+{
+ "hook": [
+  {
+   "k": 0,
+   "text": "Is anyone here?",
+   "spell": {},
+   "seeds": 7
+  }
+ ],
+ "line": [
+  {
+   "k": 0,
+   "text": "The story of the epic's royal house begins with Dushyanta, of Puru's line.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "hunt": [
+  {
+   "k": 0,
+   "text": "One day he rode out to hunt, with hundreds of horses and elephants.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "deeper": [
+  {
+   "k": 0,
+   "text": "Chasing deer, hungry and thirsty, he came to another forest.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "lovely": [
+  {
+   "k": 0,
+   "text": "By the river Malini, in a wood loud with birds, stood the hermitage of the sage Kanva.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "left": [
+  {
+   "k": 0,
+   "text": "He left his army at the forest's edge, and laid aside the signs of a king.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "chant": [
+  {
+   "k": 0,
+   "text": "He walked in among sacred fires and chanting.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "empty": [
+  {
+   "k": 0,
+   "text": "But the sage's own place was empty.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "came": [
+  {
+   "k": 0,
+   "text": "A young woman in a hermit's dress came out and welcomed him. Her father, she said, was gathering fruit.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "cliff": [
+  {
+   "k": 0,
+   "text": "Her father? Kanva was sworn to celibacy. Who was she?",
+   "spell": {},
+   "seeds": 5
+  }
+ ]
+}

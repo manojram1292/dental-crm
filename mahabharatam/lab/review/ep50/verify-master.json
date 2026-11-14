@@ -1,0 +1,98 @@
+{
+ "file": "episode50.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 1653,
+ "seconds": 55.1,
+ "low_motion": [],
+ "exact_repeats": 0,
+ "median_frame_difference": 0.84,
+ "least_moving_second": [
+  45.13,
+  0.41
+ ],
+ "dead_air_under_-45dB_over_0.3s": [],
+ "speech_gaps_over_0.6s": [
+  [
+   "hook",
+   "ferry",
+   1.37
+  ],
+  [
+   "ferry",
+   "sage",
+   0.65
+  ],
+  [
+   "sage",
+   "watching",
+   0.65
+  ],
+  [
+   "watching",
+   "mist",
+   0.66
+  ],
+  [
+   "mist",
+   "maiden",
+   0.68
+  ],
+  [
+   "maiden",
+   "gift",
+   1.33
+  ],
+  [
+   "gift",
+   "scent",
+   0.68
+  ],
+  [
+   "scent",
+   "born",
+   1.21
+  ],
+  [
+   "born",
+   "grew",
+   0.66
+  ],
+  [
+   "grew",
+   "promise",
+   0.67
+  ],
+  [
+   "promise",
+   "cliff",
+   0.67
+  ]
+ ],
+ "voice_files_with_pause_over_0.45_or_head_over_0.10_or_tail_over_0.15": [
+  {
+   "line": "hook",
+   "longest_pause": 0.07,
+   "head": 0.03,
+   "tail": 0.2
+  },
+  {
+   "line": "mist",
+   "longest_pause": 0.15,
+   "head": 0.03,
+   "tail": 0.2
+  },
+  {
+   "line": "scent",
+   "longest_pause": 0.31,
+   "head": 0.03,
+   "tail": 0.15
+  },
+  {
+   "line": "born",
+   "longest_pause": 0.34,
+   "head": 0.03,
+   "tail": 0.18
+  }
+ ]
+}

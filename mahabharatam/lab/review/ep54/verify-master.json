@@ -1,0 +1,64 @@
+{
+ "file": "episode54.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 1679,
+ "seconds": 55.97,
+ "low_motion": [],
+ "exact_repeats": 0,
+ "median_frame_difference": 0.84,
+ "least_moving_second": [
+  33.17,
+  0.28
+ ],
+ "dead_air_under_-45dB_over_0.3s": [],
+ "speech_gaps_over_0.6s": [
+  [
+   "hook",
+   "asked",
+   1.37
+  ],
+  [
+   "saw",
+   "left",
+   1.26
+  ],
+  [
+   "found",
+   "name",
+   1.11
+  ]
+ ],
+ "voice_files_with_pause_over_0.45_or_head_over_0.10_or_tail_over_0.15": [
+  {
+   "line": "hook",
+   "longest_pause": 0.04,
+   "head": 0.03,
+   "tail": 0.2
+  },
+  {
+   "line": "asked",
+   "longest_pause": 0.06,
+   "head": 0.03,
+   "tail": 0.17
+  },
+  {
+   "line": "said",
+   "longest_pause": 0.27,
+   "head": 0.02,
+   "tail": 0.16
+  },
+  {
+   "line": "sent",
+   "longest_pause": 0.25,
+   "head": 0.03,
+   "tail": 0.2
+  },
+  {
+   "line": "cliff",
+   "longest_pause": 0.42,
+   "head": 0.02,
+   "tail": 0.2
+  }
+ ]
+}

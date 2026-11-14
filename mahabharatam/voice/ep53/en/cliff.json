@@ -1,37 +1,88 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "cliff~0.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Her father? Kanva was sworn to celibacy. Who was she?",
+ "heard": "A father, Canba was sworn to celibacy, who was she?",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 0.9377,
-   "words": 2,
-   "speed": 0.891,
-   "text": "Her father?"
-  },
-  {
-   "t0": 1.2377,
-   "t1": 1.9069,
-   "words": 1,
-   "speed": 0.891,
-   "text": "Kanva"
-  },
-  {
-   "t0": 1.9669,
-   "t1": 3.5873,
-   "words": 4,
-   "speed": 0.891,
-   "text": "was sworn to celibacy."
-  },
-  {
-   "t0": 3.8872,
-   "t1": 4.9052,
-   "words": 3,
-   "speed": 0.891,
-   "text": "Who was she?"
+   "t0": 0,
+   "t1": 3.836,
+   "words": 10,
+   "text": "Her father? Kanva was sworn to celibacy. Who was she?"
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.03,
+   0.215
+  ],
+  [
+   0.28,
+   0.675
+  ],
+  [
+   0.992,
+   1.28
+  ],
+  [
+   1.28,
+   1.52
+  ],
+  [
+   1.52,
+   1.8
+  ],
+  [
+   1.8,
+   2.1
+  ],
+  [
+   2.1,
+   2.851
+  ],
+  [
+   3.045,
+   3.12
+  ],
+  [
+   3.12,
+   3.32
+  ],
+  [
+   3.32,
+   3.679
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 149,
+ "longest_pause_s": 0.32,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 129.2,
+  "st": 13.3,
+  "edb": 17.8,
+  "dur": 3.66,
+  "jumps": 0.0,
+  "creak": 0.017,
+  "hnr": 11.0,
+  "jitter": 2.86,
+  "tail_db": -72.1
+ },
+ "film_median_hz": 129.0,
+ "semitones_from_film_median": 0.03,
+ "names": {
+  "Kanva": {
+   "heard": "canba",
+   "fit": 0.8
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

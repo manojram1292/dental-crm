@@ -66,6 +66,25 @@
  *   ffmpeg freezedetect's n=0.003) · no caption drawn for a line other than the shot on screen (a caption alive after its cut) · captions of
  *   at most two rows · no caption on an "insert" shot.
  *
+ * "RULES": 2 (a script-level field; episodes scripted after the trailer: 50, 52–60 and on. Scripts without it, 00–49 and 51, gate exactly
+ * as before). The trailer's lessons as episode rules; every earlier rule that does not conflict stands (hook, turn, rate, names, loop,
+ * palettes, camera, signature, contrast, pHash variety …):
+ *   SCRIPT: "credits": "source-only" (strings.sourceLine, no madeLine) · timing.frameSnap, every cut on the frame grid · no picture
+ *   under 1.3 s (the Next band apart) · no three-word phrase twice · no "jcut"/"lcut" (speech stays inside its own picture; ambLead /
+ *   ambLag still make the J- and L-cuts) · once voiced: every line has a tools/voice2.py side-car (Chatterbox, one take, "stretch"
+ *   ≤ 0.04, recogniser "wordTimes", 120–250 ms of air after the last sound), every line's median pitch within 2 semitones of the
+ *   film's, no gap over 0.35 s inside a sentence (or "gapOk"), every line's last word ends ≥ 150 ms before its cut.
+ *   Speech rate, as the trailer's: words over (speech + the pause after each line, up to 0.4 s) ≤ 2.6 words/s, and no line of four
+ *   words or more above 4.0 words/s (the Chatterbox voice has no inner [p:] pauses; its pauses are between the lines).
+ *   --audio: NO silence (the old "a silence ≥ 0.6 s" rule is replaced by: ≥ 1 REST that is a DIP, 2 the target: the mix report's
+ *   "rests", bed 3–4 dB down and still above the floor) · sound in the first 100 ms · no 100 ms window under −26 dBFS and no fall over
+ *   10 dB in 0.3 s anywhere · music ducked ≤ 10 dB, release ≤ 150 ms · −14 ± 0.7 LUFS · true peak ≤ −1.5 dBTP · the Next band ≥ 5 dB
+ *   under the body (was 8: a drop of 8–10 dB at once would break the fall rule; tools/mix.py takes it down 6 dB over 0.5 s).
+ *   --frames, at 30 frames a second: no freeze over 0.3 s (a mean frame difference under 0.2 grey levels at 1/8 size without grain;
+ *   the trailer's 0.765 is printed as "slow stretches": an episode's camera is slower than the trailer's) · no caption alive after its cut · no picture twice (pHash ≤ 12 between ANY
+ *   two shots, not only neighbours).
+ *   Review rules no gate can check (tools/episode_loop.md, the viewer pass): no black-silhouette principals; plaques arrive whole.
+ *
  * tools/render.mjs runs this gate (with --frames and --audio, after the score and the mix) before rendering; --no-gate skips it (only for re-renders of
  * episodes made before the gate existed, whose format predates these targets).
  */
@@ -139,6 +158,7 @@ function scriptChecks41({ ep, sc, SL, L, dur, lang, firsts }) {
   const cat = catalogTitles(), S = sc.strings || {};
   if (ep !== 99 && sc.kind !== 'intro' && sc.kind !== 'trailer' && cat[ep] && S.episodeTitle !== cat[ep]) fails.push(`episodeTitle "${S.episodeTitle}" ≠ catalog "${cat[ep]}"`);
   if (ep !== 99 && sc.kind !== 'intro' && sc.kind !== 'trailer' && cat[ep + 1] && S.nextTitle !== cat[ep + 1]) fails.push(`nextTitle "${S.nextTitle}" ≠ catalog "${cat[ep + 1]}"`);
+  if ((sc.rules || 1) >= 2 && sc.kind !== 'trailer' && sc.credits !== 'source-only') fails.push('"rules": 2 needs "credits": "source-only" (the source line only on screen)');
   if (sc.credits === 'source-only') { if (!S.sourceLine) fails.push('strings.sourceLine is required'); if (S.madeLine) fails.push('"credits": "source-only" but strings.madeLine is set (the owner: the source line only)'); }   // owner, 14 Nov: no "Voices: synthetic · Drawn in code" on screen
   else if (!S.sourceLine || !/synthetic/i.test(S.madeLine || '')) fails.push('strings.sourceLine and strings.madeLine ("Voices: synthetic · Drawn in code") are required');
   // sound: three layers, J/L cuts, rests
@@ -321,6 +341,37 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
   else if (trailer) { if (dur > 90) fails.push(`duration ${dur.toFixed(2)} s (trailer max 90)`); else if (dur < 60) warns.push(`duration ${dur.toFixed(2)} s is under the trailer's 60–90 s`); }
   else if (dur > 59) fails.push(`duration ${dur.toFixed(2)} s (max 59)`);
   else if (dur < 54 || dur > 58) warns.push(`duration ${dur.toFixed(2)} s is outside the 54–58 s target`);
+  const R2 = (sc.rules || 1) >= 2 && !trailer;   // episodes scripted after the trailer; nothing below this flag touches an older script
+  if (R2) {
+    if (!(sc.timing && sc.timing.frameSnap)) fails.push('"rules": 2 needs "timing": { "frameSnap": true } (cuts on the frame grid)');
+    for (const l of L.slice(1)) { const f = l.start * 30, off = f - Math.round(f); if (off > 1e-6 || off < -0.004) fails.push(`shot "${l.id}" starts ${off.toFixed(4)} frames off the frame grid at ${l.start} s`); }
+    for (const l of L) if (l.id !== 'next' && l.end - l.start < 1.3 - 1e-3) fails.push(`picture "${l.id}" is ${(l.end - l.start).toFixed(2)} s long (min 1.3)`);
+    info.push(`rules 2: shortest picture ${Math.min(...L.filter((l) => l.id !== 'next').map((l) => l.end - l.start)).toFixed(2)} s`);
+    const grams = new Map(), nw3 = (t) => t.toLowerCase().replace(/[^a-z' ]/g, ' ').split(/\s+/).filter(Boolean);
+    for (const l of sc.lines) { if (l.id === 'next') continue; const w = nw3(l.text || ''); for (let i = 0; i + 3 <= w.length; i++) { const g = w.slice(i, i + 3).join(' '); if (grams.has(g) && grams.get(g) !== l.id) fails.push(`the phrase "${g}" is said twice (lines "${grams.get(g)}" and "${l.id}")`); grams.set(g, l.id); } }
+    for (const l of sc.lines) if (l.jcut || l.lcut) fails.push(`line "${l.id}" uses jcut/lcut (rules 2: speech stays inside its picture; use ambLead / ambLag)`);
+    // the voice, once made (tools/voice2.py side-cars)
+    const vl = L.filter((l) => l.voice), f0s = [];
+    if (!vl.length) info.push('voice not made yet (voice rules not applied)');
+    else {
+      let minCut = Infinity, minCutId = '', maxGap = 0;
+      for (const l of vl) {
+        const sp = path.join(ROOT, l.voice.replace(/\.wav$/, '.json')), sd = fs.existsSync(sp) ? JSON.parse(fs.readFileSync(sp, 'utf8')) : null;
+        if (!sd || !/chatterbox/.test(sd.engine || '') || !sd.one_take) { fails.push(`line "${l.id}": the voice is not a tools/voice2.py take (Chatterbox, one take)`); continue; }
+        if (!(Math.abs(sd.stretch || 0) <= 0.04)) fails.push(`line "${l.id}": time-stretch ${sd.stretch} (max 0.04)`);
+        if (!Array.isArray(sd.wordTimes) || sd.wordTimes.length !== l.words.length) fails.push(`line "${l.id}": no recogniser word times for the captions`);
+        if (!(sd.tail_air_ms >= 120 && sd.tail_air_ms <= 250)) fails.push(`line "${l.id}": ${sd.tail_air_ms} ms of air after the last sound (120–250)`);
+        if (sd.measured && sd.measured.f0 > 0) f0s.push([l.id, sd.measured.f0]);
+        const q = SL[l.id];
+        for (let i = 0; i + 1 < l.words.length; i++) { const g = l.words[i + 1].t0 - l.words[i].t1; if (!/[.!?:;]["”’)]?$/.test(l.words[i].w)) maxGap = Math.max(maxGap, g); if (g > 0.35 && !/[.!?:;]["”’)]?$/.test(l.words[i].w) && !(q.gapOk || []).includes(i + 1)) fails.push(`a gap of ${g.toFixed(2)} s inside a sentence in "${l.id}" after "${l.words[i].w}" (max 0.35, or list word ${i + 1} in "gapOk")`); }
+        const m = l.end - l.words[l.words.length - 1].t1; if (m < minCut) { minCut = m; minCutId = l.id; }
+        if (m < 0.15 - 1e-6) fails.push(`the last word of "${l.id}" ends ${(m * 1000).toFixed(0)} ms before its cut (min 150)`);
+        if (l.speechStart < l.start - 1e-6) fails.push(`the voice of "${l.id}" starts before its picture`);
+      }
+      if (f0s.length) { const med = [...f0s.map((x) => x[1])].sort((a, b) => a - b)[f0s.length >> 1]; let worst = 0; for (const [id, f] of f0s) { const st = 12 * Math.log2(f / med); worst = Math.max(worst, Math.abs(st)); if (Math.abs(st) > 2) fails.push(`the voice of "${id}" is ${st.toFixed(1)} semitones from the film's median (${med} Hz; max 2)`); }
+        info.push(`voice: ${vl.length} lines, one take each, median ${med} Hz, farthest ${worst.toFixed(1)} st · longest gap inside a sentence ${maxGap.toFixed(2)} s · least word-to-cut ${(minCut * 1000).toFixed(0)} ms ("${minCutId}")`); }
+    }
+  }
   const ti = L.findIndex((l) => /TURN/.test(SL[l.id]?.note || ''));
   if (ti < 0) fails.push('no line is marked TURN in its note');
   else {
@@ -332,7 +383,7 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
     if (pre < 800 && rest < 0.8) fails.push(`no ≥ 0.8 s rest before the turn (pre ${pre} ms, gap ${rest.toFixed(2)} s)`);
   }
   if (ep >= 31) {
-    const trailer0 = sc.kind === 'trailer';
+    const trailer0 = sc.kind === 'trailer' || (sc.rules || 1) >= 2;   // "rules": 2 speaks with the trailer's voice (one take a line, no inner [p:] pauses), so its rate is measured the trailer's way
     const voiced = L.filter((l) => l.voice || l.spoken);
     const words = voiced.reduce((n, l) => n + SL[l.id].text.split(/\s+/).filter(Boolean).length, 0);
     const speech = voiced.reduce((n, l) => n + (l.speechEnd - l.speechStart), 0);
@@ -382,8 +433,8 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
       const all = ebur(mixf);
       info.push(`silences ≥ 0.6 s at −45 dB: ${sil.length}${sil.length ? ` (longest ${Math.max(...sil).toFixed(2)} s)` : ''} · LRA ${all.LRA} LU`);
       const noStops = sc.kind === 'trailer' && sc.cut >= 3 && sc.noStops;   // the trailer from v3.1: no dead air at all (viewers took the two stops for playback faults)
-      if (noStops) { if (sil.length) fails.push(`a silence of ${Math.max(...sil).toFixed(2)} s in the mix (this trailer has none: a rest is a dip, never dead air)`); }
-      else if (!sil.length) fails.push('no silence ≥ 0.6 s at ≤ −45 dB in the mix');
+      if (noStops || R2) { if (sil.length) fails.push(`a silence of ${Math.max(...sil).toFixed(2)} s in the mix (${R2 ? 'rules 2' : 'this trailer'}: none allowed; a rest is a dip, never dead air)`); }
+      else if (!sil.length) fails.push('no silence ≥ 0.6 s at ≤ −45 dB in the mix');   // (scripts before "rules": 2 only)
       if (!(all.LRA >= 4)) fails.push(`LRA ${all.LRA} LU (min 4)`);
       if (ep >= 41) {
         const rp = path.join(ROOT, 'audio', tag, `mix.${lang}.json`);
@@ -403,13 +454,30 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
             if (!((rep.duck_db || {}).mus <= 10)) fails.push(`the music is ducked ${(rep.duck_db || {}).mus} dB under the voice (max 10)`);
           }
         }
-        if (sil.length === 1 && !noStops) warns.push('one real silence (two is the target where the story allows)');
+        if (R2 && rep) {
+          const bf = rep.bed_floor;
+          if (rep.rules !== 2 || !bf) fails.push('the mix was not made under "rules": 2 (run tools/mix.py)');
+          else {
+            info.push(`sound floor: worst 100 ms window ${bf.worst_window_db} dBFS at ${bf.worst_window_at_s} s, ${bf.windows_under_floor} under ${bf.floor_db} · worst fall ${bf.worst_drop_db} dB in ${bf.drop_window_s} s, ${bf.drops_over_limit} over ${bf.drop_limit_db} · first 100 ms ${rep.first_100ms_db} dBFS · ${rep.lufs} LUFS · duck ${(rep.duck_db || {}).mus} dB, release ${rep.duck_release_ms} ms`);
+            if (bf.windows_under_floor) fails.push(`${bf.windows_under_floor} 100 ms window(s) of the mix under ${bf.floor_db} dBFS (first at ${bf.under_floor_at_s[0]} s)`);
+            if (bf.drops_over_limit) fails.push(`${bf.drops_over_limit} fall(s) of more than ${bf.drop_limit_db} dB within ${bf.drop_window_s} s (first at ${bf.drops_at_s[0]} s)`);
+            if (!(rep.first_100ms_db >= bf.floor_db)) fails.push(`the first 100 ms are at ${rep.first_100ms_db} dBFS (sound from frame 0: min ${bf.floor_db})`);
+            if (!((rep.duck_db || {}).mus <= 10)) fails.push(`the music is ducked ${(rep.duck_db || {}).mus} dB under the voice (max 10)`);
+            if (!(rep.duck_release_ms <= 150)) fails.push(`the duck releases in ${rep.duck_release_ms} ms (max 150)`);
+            if (!(Math.abs(rep.lufs + 14) <= 0.7)) fails.push(`the mix is at ${rep.lufs} LUFS (−14 ± 0.7)`);
+            const dips = (rep.rests || []).filter((r) => r.seconds >= 0.5 && r.bed_dip_db >= 3 && r.bed_dip_db <= 4 && r.quietest_window_db >= bf.floor_db);
+            info.push(`${dips.length} rest(s) as dips: ${(rep.rests || []).map((r) => `before "${r.before}" ${r.seconds} s, quietest ${r.quietest_window_db} dBFS`).join('; ')}`);
+            if (dips.length < 1) fails.push('no rest (a dip of 3–4 dB with the bed running, ≥ 0.5 s) in the mix');
+            else if (dips.length < 2) warns.push('one rest (two dips is the target where the story allows)');
+          }
+        }
+        if (sil.length === 1 && !noStops && !R2) warns.push('one real silence (two is the target where the story allows)');
       }
       const nxl = L.find((l) => l.id === 'next');
       if (nxl) {
         const d = ebur(mixf, nxl.start).I - ebur(mixf, null, nxl.start).I;
         info.push(`Next ${d.toFixed(1)} dB vs body`);
-        if (!(d <= -8)) fails.push(`Next only ${d.toFixed(1)} dB under the body (min 8)`);
+        if (!(d <= (R2 ? -5 : -8))) fails.push(`Next only ${d.toFixed(1)} dB under the body (min ${R2 ? 5 : 8})`);
       }
     }
   }
@@ -454,7 +522,12 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
         const f41 = await frameChecks41({ ep, lang, fps, means, L, SL, page, reel, trailerKind: trailer });
         fails.push(...f41.fails); warns.push(...f41.warns); info.push(...f41.info);
       }
-      if (trailer) {
+      if (R2) {   // no picture twice: any two shots, not only neighbours
+        const sh2 = L.filter((l) => l.id !== 'next'), mids = sh2.map((l) => phash(means[Math.min(means.length - 1, Math.floor(((l.start + l.end) / 2) * fps))])); let lo = 99, pair = '';
+        for (let i = 0; i < mids.length; i++) for (let j = i + 2; j < mids.length; j++) { const d = ham(mids[i], mids[j]); if (d < lo) { lo = d; pair = `"${sh2[i].id}" and "${sh2[j].id}"`; } if (d <= 12) fails.push(`the picture of "${sh2[i].id}" comes back in "${sh2[j].id}" (pHash ${d}; no picture twice)`); }
+        info.push(`rules 2: nearest two non-adjacent shots pHash ${lo} (${pair})`);
+      }
+      if (trailer || R2) {
         // THE TRAILER'S OWN RULES, at 30 frames a second: no freeze over 0.3 s; no caption alive after its shot's cut; ≤ 2 rows; none on an insert;
         // and, for a title opening, the title fully drawn and legible at 1.5 s.
         const F = 30, nn = Math.floor(dur * F);
@@ -476,12 +549,15 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
             ls.sort((p, q) => p - q); title = { alpha: pr.title.alpha, contrast: (ls[Math.floor(ls.length * 0.92)] + 0.05) / (ls[Math.floor(ls.length * 0.15)] + 0.05) }; }
           return { diffs, caps, title };
         }, [nn, F]);
+        if (process.env.GATE_DUMP) fs.writeFileSync(process.env.GATE_DUMP, JSON.stringify(tr.diffs));   // the 30 fps frame differences, for calibration
         const frz = []; let r0 = -1;
-        for (let i = 0; i <= tr.diffs.length; i++) { const low = i < tr.diffs.length && tr.diffs[i] < 0.003 * 255; if (low && r0 < 0) r0 = i; if (!low && r0 >= 0) { if ((i - r0) / F > 0.3) frz.push([r0 / F, (i - r0) / F]); r0 = -1; } }
-        info.push(`trailer: ${frz.length} freeze(s) over 0.3 s · median frame difference ${[...tr.diffs].sort((p, q) => p - q)[tr.diffs.length >> 1].toFixed(2)}`);
+        const FRZ = trailer ? 0.003 * 255 : 0.2;   // rules 2: an episode's camera is slower than the trailer's (median difference about 0.6 grey levels against 2.3): a FREEZE is a stretch where next to nothing changes (under 0.2 levels a frame, no grain); stretches under the trailer's 0.765 are printed as "slow"
+        for (let i = 0; i <= tr.diffs.length; i++) { const low = i < tr.diffs.length && tr.diffs[i] < FRZ; if (low && r0 < 0) r0 = i; if (!low && r0 >= 0) { if ((i - r0) / F > 0.3) frz.push([r0 / F, (i - r0) / F]); r0 = -1; } }
+        if (!trailer) { let n = 0, r = 0, tot = 0; for (let i = 0; i <= tr.diffs.length; i++) { if (i < tr.diffs.length && tr.diffs[i] < 0.765) r++; else { if (r / F > 0.3) { n++; tot += r / F; } r = 0; } } info.push(`slow stretches (under the trailer's freeze threshold for over 0.3 s; not a fail): ${n}, ${tot.toFixed(1)} s in all`); }
+        info.push(`${trailer ? 'trailer' : 'rules 2, 30 fps'}: ${frz.length} freeze(s) over 0.3 s · median frame difference ${[...tr.diffs].sort((p, q) => p - q)[tr.diffs.length >> 1].toFixed(2)}`);
         for (const [t, d] of frz.slice(0, 40)) fails.push(`picture frozen for ${d.toFixed(2)} s at ${t.toFixed(2)} s in "${(L.find((l) => t >= l.start && t < l.end) || {}).id}" (max 0.3)`);
-        const ghost = tr.caps.filter((q) => q.line !== q.shot), rows = tr.caps.filter((q) => q.rows > 2), onIns = tr.caps.filter((q) => SL[q.shot] && SL[q.shot].insert);
-        info.push(`trailer captions: ${tr.caps.length} frames with a caption, ${ghost.length} after their cut, ${rows.length} over two rows, ${onIns.length} on an insert`);
+        const ghost = tr.caps.filter((q) => q.line !== q.shot), rows = trailer ? tr.caps.filter((q) => q.rows > 2) : [], onIns = trailer ? tr.caps.filter((q) => SL[q.shot] && SL[q.shot].insert) : [];
+        info.push(`${trailer ? 'trailer ' : ''}captions: ${tr.caps.length} frames with a caption, ${ghost.length} after their cut, ${rows.length} over two rows, ${onIns.length} on an insert`);
         if (ghost.length) fails.push(`a caption of "${ghost[0].line}" is still drawn (alpha ${ghost[0].alpha.toFixed(2)}) over shot "${ghost[0].shot}" at ${ghost[0].t.toFixed(2)} s`);
         if (rows.length) fails.push(`a caption of ${rows[0].rows} rows at ${rows[0].t.toFixed(2)} s (max 2)`);
         if (onIns.length) fails.push(`a caption on the insert "${onIns[0].shot}" at ${onIns[0].t.toFixed(2)} s`);

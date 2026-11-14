@@ -1,0 +1,158 @@
+[
+ {
+  "id": "hook~0",
+  "text": "How can a celibate sage have a daughter?",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
+ },
+ {
+  "id": "asked~0",
+  "text": "A king asked a young hermit woman who she was.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "said~0",
+  "text": "People call me the sage Kanva's daughter. Hear why.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.55,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "tapas~0",
+  "text": "Long ago, the penance of another sage frightened the king of the gods.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "sent~0",
+  "text": "He sent Menaka, a nymph of heaven, to break it.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "saw~0",
+  "text": "Vishvamitra desired her; and she was willing.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "left~0",
+  "text": "By a river, a daughter was born. Menaka left her there, and went back to heaven.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "birds~0",
+  "text": "In a forest of lions and tigers, birds ringed the child and kept her safe.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "found~0",
+  "text": "The sage Kanva found her, and raised her as his own.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "name~0",
+  "text": "Guarded by birds, by shakuntas: so he named me Shakuntala.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.55,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "cliff~0",
+  "text": "The king listened. A king's daughter, then, he said: be my wife.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ }
+]

@@ -1,30 +1,83 @@
 {
- "speaker": "shakuntala",
- "voice": "af_bella",
- "speed": 0.84,
- "pitch": 0.0,
+ "speaker": "narrator",
+ "script_speaker": "shakuntala",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "terms~0.s2.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Then promise me: my son shall be king after you.",
+ "heard": "then promise me, my son shall be king after you.\"",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.0423,
-   "words": 3,
-   "speed": 0.84,
-   "text": "Then promise me:"
-  },
-  {
-   "t0": 1.3423,
-   "t1": 2.0735,
-   "words": 2,
-   "speed": 0.84,
-   "text": "my son"
-  },
-  {
-   "t0": 2.1335,
-   "t1": 3.418,
-   "words": 5,
-   "speed": 0.84,
-   "text": "shall be king after you."
+   "t0": 0,
+   "t1": 3.479,
+   "words": 10,
+   "text": "\"Then promise me: my son shall be king after you.\""
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.14
+  ],
+  [
+   0.14,
+   0.34
+  ],
+  [
+   0.34,
+   0.814
+  ],
+  [
+   1.192,
+   1.34
+  ],
+  [
+   1.34,
+   1.72
+  ],
+  [
+   1.72,
+   2.08
+  ],
+  [
+   2.08,
+   2.348
+  ],
+  [
+   2.409,
+   2.5
+  ],
+  [
+   2.5,
+   3.352
+  ],
+  [
+   3.44,
+   3.479
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.38,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 125.8,
+  "st": 11.9,
+  "edb": 17.7,
+  "dur": 3.33,
+  "jumps": 0.0,
+  "creak": 0.013,
+  "hnr": 10.0,
+  "jitter": 2.42,
+  "tail_db": -78.6
+ },
+ "film_median_hz": 125.7,
+ "semitones_from_film_median": 0.01,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

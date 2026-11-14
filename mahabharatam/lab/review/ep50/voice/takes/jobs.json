@@ -1,0 +1,16 @@
+[
+ {
+  "id": "born~1",
+  "text": "That same day, on a river island, she bore a son.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ }
+]

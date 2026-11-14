@@ -1,23 +1,71 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "empty~0.s2.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "But the sage's own place was empty.",
+ "heard": "but the sage's own place was empty.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.6196,
-   "words": 5,
-   "speed": 0.891,
-   "text": "But the sage's own place"
-  },
-  {
-   "t0": 1.6996,
-   "t1": 2.7298,
-   "words": 2,
-   "speed": 0.891,
-   "text": "was empty."
+   "t0": 0,
+   "t1": 2.347,
+   "words": 7,
+   "text": "But the sage's own place was empty."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.1
+  ],
+  [
+   0.1,
+   0.2
+  ],
+  [
+   0.2,
+   0.74
+  ],
+  [
+   0.74,
+   0.96
+  ],
+  [
+   0.96,
+   1.32
+  ],
+  [
+   1.32,
+   1.64
+  ],
+  [
+   1.64,
+   2.181
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 160,
+ "longest_pause_s": 0.0,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 131.0,
+  "st": 12.4,
+  "edb": 16.4,
+  "dur": 2.16,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 8.7,
+  "jitter": 2.7,
+  "tail_db": -71.4
+ },
+ "film_median_hz": 129.0,
+ "semitones_from_film_median": 0.27,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

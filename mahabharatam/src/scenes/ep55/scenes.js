@@ -45,7 +45,7 @@
   // 3 · WAIT: she looks down the path toward the river, a hand lifted to it; he follows her look, then shakes his head
   R.scene({ id: 'wait', transition: { type: 'dissolve', dur: 0.3 },
     draw(ctx, t, env) {
-      const T = env.T, b1 = env.beats[1] ?? 2.6, cam = CAM.slide(t / env.dur, { from: -70, to: 70, zoom: 1.2 });
+      const T = env.T, b1 = env.beats[1] ?? 2.6, cam = CAM.drift(CAM.push(t / env.dur, { from: 1.5, to: 1.68, focus: [700, 760] }), T, 1.0);   // on her: she speaks (the two-shot is `who`'s picture)
       yard(ctx, T, cam, 'hermitage-green', (g, p) => {
         king(g, p, T, 280, GY + 10, 0.84, { ex: { emo: 'resolve', ...ACT.lead(t, [[0, [0.9, 0]], [1.2, [-0.8, 0]], [b1, [0.9, 0]]], 0.4, 0.3) }, key: 'wt-k' });
         girl(g, p, T, 700, GY, 0.8, { pose: ACT.pose(t, [[0, 'speak'], [0.8, 'point', { act: 0.5 }]]), ex: { emo: 'tender', speak: talk(env, t), gaze: [0.7, 0] }, key: 'wt-g' }); });
@@ -56,7 +56,7 @@
   // 4 · SELF: the low sun through the trees: the king, earnest, a hand on his own chest and then opened toward her
   R.scene({ id: 'self', transition: { type: 'dissolve', dur: 0.3 },
     draw(ctx, t, env) {
-      const T = env.T, b0 = env.beats[0] ?? 1.1, cam = CAM.push(t / env.dur, { from: 1.14, to: 1.3, focus: [420, 800] });
+      const T = env.T, b0 = env.beats[0] ?? 1.1, cam = CAM.drift(CAM.push(t / env.dur, { from: 1.5, to: 1.7, focus: [360, 740] }), T, 1.0);   // on him: he speaks
       yard(ctx, T, cam, 'wedding-turmeric', (g, p) => {
         king(g, p, T, 330, GY + 10, 0.92, { pose: ACT.pose(t, [[0, 'anjali'], [b0 + 0.4, 'offer', { act: 0.5 }]]), L: EP51.bright('#fff0dc', 1.5), ex: { emo: 'tender', speak: talk(env, t), gaze: [0.9, 0] }, key: 'sf-k' });
         girl(g, p, T, 800, GY, 0.84, { L: { dir: -Math.PI / 2 - 0.3, intensity: 0.42, front: 0.3, fill: 0.15, minLum: 0.04 }, ex: { emo: 'wonder', gaze: [0.8, 0.3] }, key: 'sf-g' }); }, { shaftX: 900, shaftA: -0.6, shafts: 0.24 });
@@ -67,10 +67,10 @@
   // 5 · GANDHARVA: evening mist shuts the yard off from the world: no fire, no priest, no guests; a ring of empty grass seats
   R.scene({ id: 'gandharva', transition: { type: 'smoke', dur: 0.7, dir: 0, color: '#e8e4f8' },
     draw(ctx, t, env) {
-      const T = env.T, cam = CAM.orbit(t / env.dur, { from: -1, to: 1, amp: 130, zoom: 1.12 }), m = E.inOutSine(clamp(t / 2.4));
+      const T = env.T, cam0 = CAM.orbit(t / env.dur, { from: -1, to: 1, amp: 130, zoom: 0.98 }), cam = { ...cam0, py: cam0.py - 90 }, m = E.inOutSine(clamp(t / 2.4));   // wider and lower than `who`: the night wood over them
       yard(ctx, T, cam, 'mist-lavender', (g, p) => {
         for (let i = 0; i < 7; i++) { const a = Math.PI + (i / 6) * Math.PI, x = 520 + Math.cos(a) * 430, y = GY - 20 + Math.sin(a) * -90; g.fillStyle = KIT.hex(p.near, '#c8b070', 0.4); g.beginPath(); g.ellipse(x, y, 70, 20, 0, 0, TAU); g.fill(); }
-        king(g, p, T, 330, GY + 10, 0.8, { ex: { emo: 'tender', gaze: [0.9, 0] }, key: 'gd-k' }); girl(g, p, T, 720, GY, 0.76, { ex: { emo: 'wonder', gaze: [0.8, 0.4] }, key: 'gd-g' }); }, { mist: 0.75 * m, shafts: false, dust: 'firefly' });
+        king(g, p, T, 400, GY + 10, 0.8, { ex: { emo: 'tender', gaze: [0.9, 0] }, key: 'gd-k' }); girl(g, p, T, 690, GY, 0.76, { ex: { emo: 'wonder', gaze: [0.8, 0.4] }, key: 'gd-g' }); }, { mist: 0.75 * m, shafts: false, dust: 'firefly' });
       TY.tag(ctx, T, clamp((t - (env.beats[0] ?? 1.6)) / 0.4), 'gandharva marriage · lawful for a king', { x: 540, y: 250, size: 42, out: out(t, env) });
       fin(ctx, T);
     },
@@ -91,7 +91,7 @@
   //     between them at the centre of the frame; petals come down; no fire, no witness
   R.scene({ id: 'wed', transition: { type: 'lamp', dur: 0.7, from: [540, 760], to: [540, 800] },
     draw(ctx, t, env) {
-      const T = env.T, b1 = env.beats[1] ?? 2.1, j = E.inOutSine(clamp((t - b1 + 0.9) / 0.9)), cam = CAM.push(t / env.dur, { from: 1.0, to: 1.1, focus: [540, 900] });
+      const T = env.T, b1 = env.beats[1] ?? 2.1, j = E.inOutSine(clamp((t - b1 + 0.9) / 0.9)), cam = CAM.drift(CAM.push(t / env.dur, { from: 1.0, to: 1.16, focus: [540, 900] }), T, 2.4);
       ST.within(ctx, T, { shape: 'leaves', pal: 'island-gold', box: [80, 300, 920, 1080], open: 1, draw: (g) => {
         EP51.wood(g, T, cam, 'island-gold', { seed: 181, trunks: false, shafts: 0.22, dust: 'petal', dustN: 60, figs: (gg, p) => {
           gg.fillStyle = '#2f4a1a'; gg.beginPath(); KIT.scallopPath(gg, 540, 860, 420, 470, 13, 7, 0.16); gg.fill(); KIT.glow(gg, 540, 900, 520, '#fff4c0', 0.3 * j);
@@ -108,7 +108,9 @@
       EP51.land(ctx, T, cam, 'noon-ochre', { sun: [200, 900, 110], hz: 1040, treeH: 420, dust: 'dust', seed: 190,
         far: (g, p) => { F(g, T, 'shakuntala', 150, 1070, 0.3, { f: 'right', pose: 'attend', L: EP51.bright('#fff0dc', 1.5), ex: { emo: 'tender' }, key: 'ar-g' }); },
         figs: (g, p) => { for (let i = 0; i < 12; i++) { g.fillStyle = '#3a2408'; g.fillRect(900 + i * 40 + d, 760 - 30 * hash(i, 3), 5, 400); }
-          KIT.army.draw(g, 'chariot', { x: 640 + d, y: 1190, s: 1.3, dir: 1, t: T, gait: clamp(t / 2), fill: '#3a1a0c', line: '#120806', gold: '#f0c050', rim: '#fff0b0', light: -Math.PI / 2, banner: '#1f8a5a' });
+          KIT.army.draw(g, 'chariot', { x: 640 + d, y: 1190, s: 1.3, dir: 1, t: T, gait: clamp(t / 2), fill: '#7a3f1c', line: '#2a1408', gold: '#f0c050', rim: '#fff0b0', light: -Math.PI / 2, banner: '#1f8a5a' });
+          if (t < env.dur) { const rg = g.createRadialGradient(597 + d, 990, 20, 597 + d, 990, 190); rg.addColorStop(0, 'rgba(40,22,8,0.7)'); rg.addColorStop(1, 'rgba(40,22,8,0)'); g.fillStyle = rg; g.fillRect(397 + d, 790, 400, 400); }   // a dark pool behind him: the pale trees were his own colour
+          if (t < env.dur) F(g, T, 'dushyanta', 597 + d, 1099, 0.26, { f: 'right', pose: { w: { attend: 0.6, stand: 0.4 } }, L: { dir: -Math.PI / 2 - 0.3, intensity: 1.25, front: 0.8, fill: 0.5 }, ex: { emo: 'resolve', gaze: [0.9, 0] }, key: 'ar-k' });   // the king in colour: no black-silhouette principal
  } });
       TY.tag(ctx, T, clamp((t - 0.9) / 0.4), 'he promised it again and again', { x: 540, y: 250, size: 42, out: out(t, env) });
       fin(ctx, T);
@@ -118,7 +120,7 @@
   // 9 · KANVA: a rack focus from Shakuntala in the foreground, turned away, her head bent, to the old sage at the gate
   R.scene({ id: 'kanva', transition: { type: 'dissolve', dur: 0.4 },
     draw(ctx, t, env) {
-      const T = env.T, b0 = env.beats[0] ?? 1.6, cam = CAM.rack(E.inOutSine(clamp((t - b0 + 0.4) / 1.2)), { from: 1.5, to: 1, zoom: 1.1 }), come = 120 * E.outCubic(clamp(t / 1.6));
+      const T = env.T, b0 = env.beats[0] ?? 1.6, cam = CAM.drift(CAM.rack(E.inOutSine(clamp(t / 0.7)), { from: 1.5, to: 1, zoom: 1.1 + 0.1 * clamp(t / env.dur) }), T, 2.4), come = 120 * E.outCubic(clamp(t / 1.6));
       EP51.wood(ctx, T, cam, 'river-jade', { seed: 120, trunks: false,
         figs: (g, p) => F(g, T, 'kanva', 150 + come, GY - 40, 0.7, { f: 'right', pose: ACT.pose(t, [[0, 'walk'], [1.6, 'attend', { act: 0.5 }]], { phase: ACT.stride(come, 0.7), prop: 'bundle' }), L: EP51.bright('#fff0dc', 1.5), ex: { emo: ACT.emo(t, [[0, 'calm'], [b0 + 0.6, 'tender']]), gaze: [0.9, 0] }, key: 'kv-k' }),
         near: (g, p) => F(g, T, 'shakuntala', 860, 1900, 1.25, { f: 'right', pose: { w: { grieve: 0.5, stand: 0.5 } }, L: EP51.bright('#fff0dc', 1.5), ex: { emo: 'sorrow', gaze: [0.4, 0.8] }, key: 'kv-g' }) });
@@ -131,7 +133,7 @@
   // 10 · BLESS (a second silence): Kanva's hand raised over her bowed head; a tilt up from her face to his, grave and kind
   R.scene({ id: 'bless', transition: { type: 'dissolve', dur: 0.4 },
     draw(ctx, t, env) {
-      const T = env.T, b = env.beats, b0 = b[0] ?? 2.1, b1 = b[1] ?? 3.4, cam = CAM.tilt(E.inOutSine(clamp((t - b0 + 0.6) / 2.6)), { from: 150, to: -170, zoom: 1.2 });
+      const T = env.T, b = env.beats, b0 = b[0] ?? 2.1, b1 = b[1] ?? 3.4, cam = CAM.drift(CAM.tilt(E.inOutSine(clamp((t - b0 + 0.6) / 2.6)), { from: 150, to: -170, zoom: 1.2 + 0.1 * clamp(t / env.dur) }), T, 2.4);
       yard(ctx, T, cam, 'release-gold', (g, p) => {
         F(g, T, 'kanva', 360, GY + 10, 1.02, { f: 'right', pose: ACT.pose(t, [[0, 'stand'], [0.9, 'bless', { act: 0.6 }]], { prop: false }), L: EP51.bright('#fff0dc', 1.5), ex: { emo: 'tender', speak: talk(env, t), gaze: [0.8, 0.4] }, key: 'bl-k' });
         girl(g, p, T, 830, GY + 10, 0.86, { pose: ACT.pose(t, [[0, 'bow'], [b1 + 0.3, 'anjali', { act: 0.6 }]]), ex: { emo: ACT.emo(t, [[0, 'sorrow'], [b1, 'joy', { dur: 0.7 }]]), gaze: [0.7, 0.3] }, key: 'bl-g' }); }, { shaftX: 800, shaftA: -0.5, shafts: 0.22 });
@@ -142,7 +144,7 @@
   // 11 · CLIFF: the same yard, years on: Shakuntala at the door; across the foreground a small boy holding a rope; at the
   //      rope's end, a full-grown lion lying down
   const cliff = (ctx, T, t, env, b) => {
-    const cam = CAM.drift(CAM.slide(clamp(t / 6.6), { from: -130, to: 130, zoom: 1.12 }), T, 1.4), a = E.outCubic(clamp((t - (b[1] ?? 2.1) + 0.5) / 0.8));
+    const cam1 = CAM.drift(CAM.slide(clamp(t / 6.6), { from: -130, to: 130, zoom: 1.12 }), T, 1.4), cam = { ...cam1, py: cam1.py + 250 }, a =   /* raised: the boy and the lion were under the caption band */ E.outCubic(clamp((t - (b[1] ?? 2.1) + 0.5) / 0.8));
     yard(ctx, T, cam, 'hunt-emerald', (g, p) => {
       girl(g, p, T, 840, GY - 30, 0.66, { ex: { emo: 'calm', gaze: [0.8, 0.2] }, key: 'cl-g' });
       g.save(); g.globalAlpha = 1; g.translate(-600 * (1 - a), 0);

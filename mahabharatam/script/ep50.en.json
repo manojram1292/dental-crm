@@ -8,8 +8,11 @@
     "wordsPerSecond": 2.4,
     "voiceGap": 0.35,
     "voiceLead": 0.12,
-    "tail": 0.25
+    "tail": 0.25,
+    "frameSnap": true
   },
+  "rules": 2,
+  "credits": "source-only",
   "voice": {
     "pauses": {
       "ellipsis": 420,
@@ -56,8 +59,7 @@
     "recapLine": "A girl found inside a fish grew up rowing a ferry: Satyavati.",
     "nextEpisodeLabel": "Episode 51",
     "nextTitle": "The Burden of the Earth",
-    "sourceLine": "Adi Parva 1.57 · BORI Critical Edition",
-    "madeLine": "Voices: synthetic · Drawn in code"
+    "sourceLine": "Adi Parva 1.57 · BORI Critical Edition"
   },
   "lines": [
     {
@@ -95,7 +97,7 @@
       "say": "Satyavati, [p:80] a fisherman's daughter, [p:100] rowed a ferry.",
       "est": 3.0,
       "pre": 250,
-      "post": 300,
+      "post": 400,
       "emphasis": [
         "Satyavati,"
       ],
@@ -120,7 +122,7 @@
       "say": "One day [p:60] the sage Parashara, [p:60] on pilgrimage, [p:60] saw her, [p:150] and desired her.",
       "est": 3.0,
       "pre": 250,
-      "post": 300,
+      "post": 400,
       "emphasis": [
         "Parashara,"
       ],
@@ -148,7 +150,7 @@
       "say": "Holy one, [p:120] sages are watching from both banks.",
       "est": 3.0,
       "pre": 250,
-      "post": 300,
+      "post": 400,
       "beats": [
         2,
         7
@@ -169,7 +171,7 @@
       "say": "So he raised a mist [p:100] that hid the river.",
       "est": 3.0,
       "pre": 250,
-      "post": 300,
+      "post": 400,
       "beats": [
         4,
         8
@@ -193,7 +195,7 @@
       "say": "I am a maiden. [p:240] How can I go home?",
       "est": 3.0,
       "pre": 250,
-      "post": 300,
+      "post": 400,
       "beats": [
         3,
         8
@@ -217,7 +219,7 @@
       "say": "You will remain a maiden. [p:280] Now choose a gift.",
       "est": 3.0,
       "pre": 900,
-      "post": 300,
+      "post": 400,
       "beats": [
         4,
         8
@@ -241,7 +243,7 @@
       "say": "She chose a fragrance [p:80] for her smell of fish, [p:200] and gladly agreed.",
       "est": 3.0,
       "pre": 250,
-      "post": 300,
+      "post": 400,
       "beats": [
         3,
         8,
@@ -262,11 +264,10 @@
     {
       "id": "born",
       "speed": 1.1,
-      "text": "That same day, on an island, she bore a son.",
-      "say": "That same day, [p:60] on an island, [p:140] she bore a son.",
+      "text": "That same day, on a river island, she bore a son.",
       "est": 3.0,
       "pre": 800,
-      "post": 300,
+      "post": 400,
       "beats": [
         2,
         5,
@@ -295,7 +296,7 @@
       "say": "He grew at once: [p:120] Dvaipayana, [p:60] the island-born. [p:240] We call him Vyasa.",
       "est": 3.0,
       "pre": 250,
-      "post": 300,
+      "post": 400,
       "emphasis": [
         "Dvaipayana,",
         "Vyasa."
@@ -322,7 +323,7 @@
       "say": "Mother, [p:150] think of me, [p:200] and I will come.",
       "est": 3.0,
       "pre": 250,
-      "post": 300,
+      "post": 400,
       "beats": [
         0,
         3,

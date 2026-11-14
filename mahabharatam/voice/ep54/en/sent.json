@@ -1,30 +1,88 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8748000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "sent~0.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "He sent Menaka, a nymph of heaven, to break it.",
+ "heard": "He sent Manaka a nymph of heaven to break it.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.403,
-   "words": 3,
-   "speed": 0.875,
-   "text": "He sent Menaka,"
-  },
-  {
-   "t0": 1.503,
-   "t1": 2.75,
-   "words": 4,
-   "speed": 0.875,
-   "text": "a nymph of heaven,"
-  },
-  {
-   "t0": 2.9,
-   "t1": 3.8653,
-   "words": 3,
-   "speed": 0.875,
-   "text": "to break it."
+   "t0": 0,
+   "t1": 3.564,
+   "words": 10,
+   "text": "He sent Menaka, a nymph of heaven, to break it."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.08
+  ],
+  [
+   0.08,
+   0.517
+  ],
+  [
+   0.578,
+   1.231
+  ],
+  [
+   1.496,
+   1.54
+  ],
+  [
+   1.54,
+   1.928
+  ],
+  [
+   2.014,
+   2.12
+  ],
+  [
+   2.12,
+   2.34
+  ],
+  [
+   2.34,
+   2.74
+  ],
+  [
+   2.74,
+   2.96
+  ],
+  [
+   2.96,
+   3.359
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 200,
+ "longest_pause_s": 0.26,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 135.4,
+  "st": 10.6,
+  "edb": 19.7,
+  "dur": 3.33,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.8,
+  "jitter": 2.45,
+  "tail_db": -75.2
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": 1.07,
+ "names": {
+  "Menaka": {
+   "heard": "menaka",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

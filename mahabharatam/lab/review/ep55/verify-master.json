@@ -1,0 +1,87 @@
+{
+ "file": "episode55.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 1620,
+ "seconds": 54.0,
+ "low_motion": [],
+ "exact_repeats": 0,
+ "median_frame_difference": 0.72,
+ "least_moving_second": [
+  7.83,
+  0.36
+ ],
+ "dead_air_under_-45dB_over_0.3s": [],
+ "speech_gaps_over_0.6s": [
+  [
+   "hook",
+   "who",
+   1.36
+  ],
+  [
+   "who",
+   "wait",
+   0.81
+  ],
+  [
+   "wait",
+   "self",
+   0.83
+  ],
+  [
+   "self",
+   "gandharva",
+   0.82
+  ],
+  [
+   "gandharva",
+   "terms",
+   1.57
+  ],
+  [
+   "terms",
+   "wed",
+   0.62
+  ],
+  [
+   "wed",
+   "army",
+   0.83
+  ],
+  [
+   "army",
+   "kanva",
+   0.82
+  ],
+  [
+   "kanva",
+   "bless",
+   1.36
+  ],
+  [
+   "bless",
+   "cliff",
+   0.82
+  ]
+ ],
+ "voice_files_with_pause_over_0.45_or_head_over_0.10_or_tail_over_0.15": [
+  {
+   "line": "wed",
+   "longest_pause": 0.27,
+   "head": 0.03,
+   "tail": 0.15
+  },
+  {
+   "line": "bless",
+   "longest_pause": 0.4,
+   "head": 0.03,
+   "tail": 0.2
+  },
+  {
+   "line": "cliff",
+   "longest_pause": 0.41,
+   "head": 0.03,
+   "tail": 0.15
+  }
+ ]
+}

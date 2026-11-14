@@ -8,8 +8,11 @@
     "wordsPerSecond": 2.4,
     "voiceGap": 0.35,
     "voiceLead": 0.12,
-    "tail": 0.25
+    "tail": 0.25,
+    "frameSnap": true
   },
+  "rules": 2,
+  "credits": "source-only",
   "voice": {
     "pauses": {
       "ellipsis": 420,
@@ -53,8 +56,7 @@
     "recapLine": "A young hermit woman told a king how birds had guarded her as a baby.",
     "nextEpisodeLabel": "Episode 56",
     "nextTitle": "The Boy Who Tamed Lions",
-    "sourceLine": "Adi Parva 1.67 · BORI Critical Edition",
-    "madeLine": "Voices: synthetic · Drawn in code"
+    "sourceLine": "Adi Parva 1.67 · BORI Critical Edition"
   },
   "lines": [
     {
@@ -92,8 +94,8 @@
       "text": "King Dushyanta had found Shakuntala alone in a forest hermitage.",
       "say": "King Dushyanta [p:60] had found Shakuntala [p:60] alone in a forest hermitage.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 550,
       "emphasis": [
         "Dushyanta",
         "Shakuntala"
@@ -121,8 +123,8 @@
       "text": "\"Wait for my father. He will give me to you.\"",
       "say": "Wait for my father. [p:260] He will give me to you.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 550,
       "beats": [
         3,
         9
@@ -143,8 +145,8 @@
       "text": "\"You are your own to give, if you wish it.\"",
       "say": "You are your own to give, [p:250] if you wish it.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 550,
       "beats": [
         5,
         9
@@ -165,7 +167,7 @@
       "text": "He meant a gandharva marriage: their own choice, no priest, no witness.",
       "say": "He meant a gandharva marriage: [p:260] their own choice, [p:150] no priest, [p:150] no witness.",
       "est": 3.0,
-      "pre": 220,
+      "pre": 250,
       "post": 600,
       "beats": [
         4,
@@ -222,8 +224,8 @@
       "text": "He agreed at once, took her hand, and they were married.",
       "say": "He agreed at once, [p:200] took her hand, [p:200] and they were married.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 550,
       "beats": [
         1,
         5,
@@ -251,8 +253,8 @@
       "text": "He left, promising to send an army for her.",
       "say": "He left, [p:120] promising to send an army for her.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 550,
       "beats": [
         1,
         2,
@@ -275,8 +277,8 @@
       "text": "Her foster father, Kanva, came home and knew it all.",
       "say": "Her foster father, [p:60] Kanva, [p:80] came home [p:150] and knew it all.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 550,
       "emphasis": [
         "Kanva,"
       ],
@@ -305,7 +307,7 @@
       "say": "You have done no wrong. [p:350] Your son [p:60] will rule the whole earth.",
       "est": 3.0,
       "pre": 800,
-      "post": 260,
+      "post": 550,
       "rest": true,
       "beats": [
         4,
@@ -331,8 +333,8 @@
       "text": "Years later she was still there: with a son who tied up lions.",
       "say": "Years later [p:100] she was still there: [p:300] with a son [p:60] who tied up lions.",
       "est": 3.0,
-      "pre": 220,
-      "post": 400,
+      "pre": 250,
+      "post": 550,
       "beats": [
         1,
         5,

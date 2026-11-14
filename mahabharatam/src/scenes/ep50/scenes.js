@@ -22,7 +22,7 @@
   R.scene({ id: 'hook',
     draw(ctx, t, env) {
       const T = env.T, b0 = env.beats[0] ?? 0.4, cam = CAM.drift(CAM.crane(clamp(t / 3.4), { from: 0.92, to: 1.3, y0: -260, y1: 60, ease: E.outCubic }), T, 0.5), fl = 1 + 0.3 * Math.sin(Math.PI * clamp((t - b0) / 0.5));
-      EP47.island(ctx, T, cam, 'island-gold', (g) => { KIT.glow(g, 540, 1040, 560 * fl, '#fff0b0', 0.6); CH.vyasaChild.draw(g, { x: 540, y: 1262, scale: 0.9, facing: 'left', pose: 'stand', light: { dir: -Math.PI / 2, intensity: 1.2, front: 0.05, fill: 0, tint: ['#ffd060', 0.6] }, expression: { emo: 'calm' }, t: T, key: 'hk-c' }); }, { sun: [540, 700, 130], mist: 0.35 });
+      EP47.island(ctx, T, cam, 'island-gold', (g) => { KIT.glow(g, 540, 1040, 560 * fl, '#fff0b0', 0.6); CH.vyasaChild.draw(g, { x: 540, y: 1262, scale: 0.62, facing: 'left', pose: 'stand', light: { dir: -Math.PI / 2, intensity: 1.2, front: 0.55, fill: 0.4, tint: ['#ffd060', 0.6] }, expression: { emo: 'calm' }, t: T, key: 'hk-c' }); }, { sun: [540, 700, 130], mist: 0.35 });
       const sp = env.speech[1], out = clamp((t - sp - 0.05) / 0.3), line = env.script.lines[0];
       KIT.series.hookCard(ctx, T, clamp(t / 0.2), line.text, { y: 1490, size: 76, gold: line.hookGold, out });
       const tk = clamp((t - sp - 0.15) / 0.6);
@@ -69,7 +69,7 @@
   const herFace = (g, p, T, t, emo, lead, speak, key, L) => CH.satyavati.draw(g, { x: 640, y: 2960, scale: 2.5, facing: 'left', pose: { w: { stand: 1 }, prop: false }, light: L || ST.light(p, { from: [200, 200], at: [600, 1200], k: 1.0, front: 0.3 }), expression: { emo, speak, ...lead }, t: T, key });
   R.scene({ id: 'watching', transition: { type: 'dissolve', dur: 0.3 },
     draw(ctx, t, env) {
-      const T = env.T, b0 = env.beats[0] ?? 1.4, b1 = env.beats[1] ?? 3.2, cam = CAM.pull(clamp(t / env.dur), { from: 1.16, to: 1.0, focus: [540, 760] });
+      const T = env.T, b0 = env.beats[0] ?? 1.4, b1 = env.beats[1] ?? 3.2, cam = CAM.drift(CAM.pull(clamp(t / env.dur), { from: 1.3, to: 1.0, focus: [540, 760] }), T, 1.2);
       faceShot(ctx, T, cam, 'yamuna-deep', (g, p) => herFace(g, p, T, t, 'resolve', ACT.lead(t, [[0, [0.8, 0.1]], [b0 - 0.3, [0.2, -0.3]], [b0 + 0.6, [-0.9, -0.2]], [b1, [0.8, 0]]], 0.35, 0.1), talk(env, t), 'wt-s'), { far: (g, p) => watchers(g, p, 1070) });
       fin(ctx, T);
     },
@@ -98,7 +98,7 @@
   // 6 · MAIDEN (close-up, second half): her face in the mist: the steadiness gives way to worry, then lifts to him: she is bargaining
   R.scene({ id: 'maiden', transition: { type: 'dissolve', dur: 0.3 },
     draw(ctx, t, env) {
-      const T = env.T, b0 = env.beats[0] ?? 1, b1 = env.beats[1] ?? 3, cam = CAM.push(t / env.dur, { from: 1.0, to: 1.1, focus: [540, 760] });
+      const T = env.T, b0 = env.beats[0] ?? 1, b1 = env.beats[1] ?? 3, cam = CAM.push(t / env.dur, { from: 1.38, to: 1.6, focus: [470, 700] });   // nearer than `watching`: the same face must not be the same picture
       faceShot(ctx, T, cam, 'mist-lavender', (g, p) => herFace(g, p, T, t, ACT.emo(t, [[0, 'resolve'], [b0 - 0.3, 'fear', { dur: 0.5 }], [b1 - 0.3, 'resolve', { dur: 0.5 }]]), ACT.lead(t, [[0, [0.8, 0]], [b0 - 0.2, [0.5, 0.8]], [b1 - 0.4, [0.9, -0.1]]], 0.35, 0.14), talk(env, t), 'md-s', ST.light(p, { from: [200, 200], at: [600, 1200], k: 0.95, front: 0.22 })), { mist: 0.75 });
       fin(ctx, T);
     },
@@ -154,10 +154,10 @@
   // 10 · GREW: the child stands; in one tilt upward he is a boy, a youth in bark cloth: Dvaipayana, the island-born: Vyasa
   R.scene({ id: 'grew', transition: { type: 'dissolve', dur: 0.35 },
     draw(ctx, t, env) {
-      const T = env.T, b = env.beats, b0 = b[0] ?? 0.5, b1 = b[1] ?? 1.6, b2 = b[2] ?? 5.2, grow = E.inOutSine(clamp((t - b0) / 1.6)), cam = CAM.tilt(grow, { from: 160, to: -60, zoom: 1.14 }), s = lerp(0.5, 1.2, grow);
+      const T = env.T, b = env.beats, b0 = b[0] ?? 0.5, b1 = b[1] ?? 1.6, b2 = b[2] ?? 5.2, grow = E.inOutSine(clamp((t - b0) / 1.6)), cam = CAM.drift(CAM.tilt(grow, { from: 160, to: -60, zoom: 1.14 + 0.22 * clamp(t / env.dur) }), T, 1.6), s = lerp(0.5, 1.2, grow);
       isle(ctx, T, cam, (g, p) => {
         KIT.glow(g, 620, 1262 - 520 * s, 700, '#fff0b0', 0.5 + 0.2 * Math.sin(Math.PI * grow));
-        CH.vyasaChild.draw(g, { x: 620, y: 1262, scale: s, facing: 'left', pose: ACT.pose(t, [[0, 'stand'], [b2 - 0.5, 'anjali', { act: 0.6 }]]), light: { dir: -Math.PI / 2 - 0.4, intensity: 1.2, front: 0.06, fill: 0, wrap: 0.6, tint: ['#ffcf7a', 0.6] }, expression: { emo: 'calm', gaze: [0.6, 0] }, t: T, key: 'gw-c' });
+        CH.vyasaChild.draw(g, { x: 620, y: 1262, scale: s, facing: 'left', pose: ACT.pose(t, [[0, 'stand'], [b2 - 0.5, 'anjali', { act: 0.6 }]]), light: { dir: -Math.PI / 2 - 0.4, intensity: 1.2, front: 0.55, fill: 0.4, wrap: 0.6, tint: ['#ffcf7a', 0.6] }, expression: { emo: 'calm', gaze: [0.6, 0] }, t: T, key: 'gw-c' });
       });
       TY.plaque(ctx, T, clamp((t - b1) / 0.6), ...names(env, 'Dvaipayana'), { x: 290, y: 270, out: clamp((t - b2 + 0.3) / 0.3) });
       TY.plaque(ctx, T, clamp((t - b2) / 0.5), ...names(env, 'Vyasa'), { x: 290, y: 270, out: clamp((t - (env.dur - 0.3)) / 0.25) });
@@ -175,7 +175,7 @@
         { z: 0.4, draw: (g, p) => ST.treeline(g, p, { y: HZ + 20, h: 1100, gap: 300, T, seed: 81, kind: 'banyan' }) },
         { z: 0.8, haze: false, draw: (g) => { const mg = g.createLinearGradient(0, GY - 1000, 0, GY); mg.addColorStop(0, 'rgba(232,244,214,0)'); mg.addColorStop(1, 'rgba(232,244,214,0.8)'); g.fillStyle = mg; g.fillRect(-900, GY - 1000, 2880, 1000); ST.shafts(g, T, { x: 500, angle: 0.2, alpha: 0.14 }); } },
         { z: 1, haze: false, draw: (g, p) => { ST.ground(g, p, { y: GY - 20 });
-          CH.vyasaChild.draw(g, { x: 330 - d, y: GY + 10, scale: 1.3, facing: turned ? 'left' : 'right', pose: ACT.pose(t, [[0, 'anjali'], [b2, 'walk', { act: 0.4 }]], { phase: ACT.stride(d, 0.9) }), light: { dir: -Math.PI / 2, intensity: 1.1, front: 0.05, fill: 0 }, expression: { emo: 'tender', speak: talk(env, t), gaze: [0.8, 0] }, t: T, key: 'pm-v' }); } },
+          CH.vyasaChild.draw(g, { x: 330 - d, y: GY + 10, scale: 1.3, facing: turned ? 'left' : 'right', pose: ACT.pose(t, [[0, 'anjali'], [b2, 'walk', { act: 0.4 }]], { phase: ACT.stride(d, 0.9) }), light: { dir: -Math.PI / 2, intensity: 1.1, front: 0.6, fill: 0.45 }, expression: { emo: 'tender', speak: talk(env, t), gaze: [0.8, 0] }, t: T, key: 'pm-v' }); } },
         { z: 1.2, haze: false, draw: (g, p) => CH.satyavati.draw(g, { x: 860, y: GY + 30, scale: 1.0, facing: 'left', pose: ACT.pose(t, [[0, 'attend'], [b2 - 0.2, 'bless', { act: 0.6 }]], { prop: false }), light: ST.light(p, { from: [300, 200], at: [860, GY], front: 0.2 }), expression: { emo: 'tender', gaze: [0.8, 0.1] }, t: T, key: 'pm-s' }) },
       ] });
       fin(ctx, T);
@@ -187,9 +187,9 @@
     const cam = CAM.drift(CAM.pull(clamp(t / 5.6), { from: 1.3, to: 1.02, focus: [300, 1100] }), T, 1.8);
     ST.shot(ctx, T, { pal: 'war-iron', cam, layers: [
       { z: 0, draw: (g, p) => ST.sky(g, p, { hz: 1500 }) },
-      { z: 0.2, haze: false, draw: (g) => { const a = clamp((t - b[1] + 0.4) / 0.8); for (let i = 0; i < 46; i++) { const u = (T * 0.07 * (0.5 + hash(i, 1)) + hash(i, 2)) % 1, x = 1080 * hash(i, 3), y = -100 + 1500 * u; g.globalAlpha = a * (1 - u * 0.6); g.strokeStyle = '#fff0c0'; g.lineWidth = 3; g.beginPath(); g.moveTo(x, y - 70); g.lineTo(x, y); g.stroke(); g.fillStyle = '#ffffff'; g.beginPath(); g.arc(x, y, 5 + 4 * hash(i, 4), 0, TAU); g.fill(); } g.globalAlpha = 1; } },
+      { z: 0.2, haze: false, draw: (g) => { const a = 0.45 * clamp((t - 0.2) / 0.8) + 0.55 * clamp((t - b[1] + 0.4) / 0.8); for (let i = 0; i < 46; i++) { const u = (T * 0.07 * (0.5 + hash(i, 1)) + hash(i, 2)) % 1, x = 1080 * hash(i, 3), y = -100 + 1500 * u; g.globalAlpha = a * (1 - u * 0.6); g.strokeStyle = '#fff0c0'; g.lineWidth = 3; g.beginPath(); g.moveTo(x, y - 70); g.lineTo(x, y); g.stroke(); g.fillStyle = '#ffffff'; g.beginPath(); g.arc(x, y, 5 + 4 * hash(i, 4), 0, TAU); g.fill(); } g.globalAlpha = 1; } },
       { z: 0.5, draw: (g, p) => ST.hills(g, p, { y: 1500, h: 300, seed: 131 }) },
-      { z: 1, haze: false, draw: (g, p) => { ST.ground(g, p, { y: 1480 }); CH.kingJanamejaya.draw(g, { x: 230, y: 1470, scale: 1.0, facing: 'right', pose: ACT.pose(t, [[0, 'anjali'], [b[1] - 0.3, 'attend', { act: 0.5 }]]), light: { dir: -Math.PI / 2 - 0.3, intensity: 1.5, front: 1, fill: 0.8, tint: ['#e8ecff', 0.6], minLum: 0.5 }, expression: { emo: 'wonder', ...ACT.lead(t, [[0, [0.8, 0]], [b[1] - 0.4, [0.7, -1]]], 0.4, 0.3) }, t: T, key: 'cl-k' }); } },
+      { z: 1, haze: false, draw: (g, p) => { ST.ground(g, p, { y: 1480 }); CH.kingJanamejaya.draw(g, { x: 300, y: 1470, scale: 1.0, facing: 'right', pose: ACT.pose(t, [[0, 'anjali'], [b[1] - 0.3, 'attend', { act: 0.5 }]]), light: { dir: -Math.PI / 2 - 0.3, intensity: 1.5, front: 1, fill: 0.8, tint: ['#e8ecff', 0.6], minLum: 0.5 }, expression: { emo: 'wonder', ...ACT.lead(t, [[0, [0.8, 0]], [b[1] - 0.4, [0.7, -1]]], 0.4, 0.3) }, t: T, key: 'cl-k' }); } },
     ] });
     TY.plaque(ctx, T, clamp((t - 0.6) / 0.6), ...names(env, 'Janamejaya'), { x: 760, y: 760, out: clamp((t - 3.2) / 0.3) });
     TY.source(ctx, T, clamp((t - 0.4) / 0.4), env.strings, { y: 110 });

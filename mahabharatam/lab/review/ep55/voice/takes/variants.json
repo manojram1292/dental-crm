@@ -1,0 +1,90 @@
+{
+ "hook": [
+  {
+   "k": 0,
+   "text": "Be my wife. My kingdom is yours.",
+   "spell": {},
+   "seeds": 7
+  }
+ ],
+ "who": [
+  {
+   "k": 0,
+   "text": "King Dushyanta had found Shakuntala alone in a forest hermitage.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "wait": [
+  {
+   "k": 0,
+   "text": "Wait for my father. He will give me to you.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "self": [
+  {
+   "k": 0,
+   "text": "You are your own to give, if you wish it.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "gandharva": [
+  {
+   "k": 0,
+   "text": "He meant a gandharva marriage: their own choice, no priest, no witness.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "terms": [
+  {
+   "k": 0,
+   "text": "Then promise me: my son shall be king after you.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "wed": [
+  {
+   "k": 0,
+   "text": "He agreed at once, took her hand, and they were married.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "army": [
+  {
+   "k": 0,
+   "text": "He left, promising to send an army for her.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "kanva": [
+  {
+   "k": 0,
+   "text": "Her foster father, Kanva, came home and knew it all.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "bless": [
+  {
+   "k": 0,
+   "text": "You have done no wrong. Your son will rule the whole earth.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "cliff": [
+  {
+   "k": 0,
+   "text": "Years later she was still there: with a son who tied up lions.",
+   "spell": {},
+   "seeds": 5
+  }
+ ]
+}

@@ -1,0 +1,144 @@
+[
+ {
+  "id": "hook~0",
+  "text": "Is anyone here?",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.55,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
+ },
+ {
+  "id": "line~0",
+  "text": "The story of the epic's royal house begins with Dushyanta, of Puru's line.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "hunt~0",
+  "text": "One day he rode out to hunt, with hundreds of horses and elephants.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "deeper~0",
+  "text": "Chasing deer, hungry and thirsty, he came to another forest.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "lovely~0",
+  "text": "By the river Malini, in a wood loud with birds, stood the hermitage of the sage Kanva.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "left~0",
+  "text": "He left his army at the forest's edge, and laid aside the signs of a king.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "chant~0",
+  "text": "He walked in among sacred fires and chanting.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "empty~0",
+  "text": "But the sage's own place was empty.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "came~0",
+  "text": "A young woman in a hermit's dress came out and welcomed him. Her father, she said, was gathering fruit.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "cliff~0",
+  "text": "Her father? Kanva was sworn to celibacy. Who was she?",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ }
+]

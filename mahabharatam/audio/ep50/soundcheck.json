@@ -1,0 +1,448 @@
+{
+ "episode": 50,
+ "duration": 55.1,
+ "stems": {
+  "amb": {
+   "rms_db": -36.0,
+   "peak_db": -18.6,
+   "loudest_at_s": 27.79,
+   "loudest_rms_db": -30.8
+  },
+  "foley": {
+   "rms_db": -42.2,
+   "peak_db": -14.8,
+   "loudest_at_s": 51.61,
+   "loudest_rms_db": -30.9
+  },
+  "mus": {
+   "rms_db": -28.0,
+   "peak_db": -4.1,
+   "loudest_at_s": 53.93,
+   "loudest_rms_db": -16.3
+  }
+ },
+ "foley": [
+  {
+   "line": "hook",
+   "cue": "water",
+   "asked_s": 0.08,
+   "onset_s": 0.346,
+   "audio_offset_frames": 8.0,
+   "peak_offset_frames": 8.6,
+   "peak_db": -34.4,
+   "picture_peak_s": 0.167,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 1.45,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "hook",
+   "cue": "oar@0",
+   "asked_s": 0.14,
+   "onset_s": 0.346,
+   "audio_offset_frames": 6.2,
+   "peak_offset_frames": 7.7,
+   "peak_db": -34.4,
+   "picture_peak_s": 0.167,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 1.87,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "ferry",
+   "cue": "oar",
+   "asked_s": 3.18,
+   "onset_s": 3.28,
+   "audio_offset_frames": 3.0,
+   "peak_offset_frames": 6.0,
+   "peak_db": -36.8,
+   "picture_peak_s": 3.333,
+   "picture_offset_frames": 5,
+   "picture_change_at_cue": 4.36,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "ferry",
+   "cue": "water",
+   "asked_s": 3.18,
+   "onset_s": 3.28,
+   "audio_offset_frames": 3.0,
+   "peak_offset_frames": 6.0,
+   "peak_db": -36.8,
+   "picture_peak_s": 3.333,
+   "picture_offset_frames": 5,
+   "picture_change_at_cue": 4.36,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "sage",
+   "cue": "steps@1",
+   "asked_s": 11.743,
+   "onset_s": 11.741,
+   "audio_offset_frames": -0.1,
+   "peak_offset_frames": 0.6,
+   "peak_db": -25.2,
+   "picture_peak_s": 11.8,
+   "picture_offset_frames": 2,
+   "picture_change_at_cue": 0.81,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "sage",
+   "cue": "creak@1",
+   "asked_s": 11.743,
+   "onset_s": 11.741,
+   "audio_offset_frames": -0.1,
+   "peak_offset_frames": 0.6,
+   "peak_db": -25.2,
+   "picture_peak_s": 11.8,
+   "picture_offset_frames": 2,
+   "picture_change_at_cue": 0.81,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "sage",
+   "cue": "staff@0",
+   "asked_s": 9.324,
+   "onset_s": 9.323,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.2,
+   "peak_db": -25.4,
+   "picture_peak_s": 9.367,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 2.21,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "watching",
+   "cue": "oar@0",
+   "asked_s": 15.312,
+   "onset_s": 15.202,
+   "audio_offset_frames": -3.3,
+   "peak_offset_frames": 7.7,
+   "peak_db": -38.1,
+   "picture_peak_s": 15.167,
+   "picture_offset_frames": -4,
+   "picture_change_at_cue": 0.51,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "watching",
+   "cue": "water",
+   "asked_s": 14.047,
+   "onset_s": 14.325,
+   "audio_offset_frames": 8.4,
+   "peak_offset_frames": 8.7,
+   "peak_db": -37.3,
+   "picture_peak_s": 14.133,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 10.06,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "mist",
+   "cue": "whoosh@0",
+   "asked_s": 19.17,
+   "onset_s": 19.05,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 2.6,
+   "peak_db": -34.7,
+   "picture_peak_s": 19.4,
+   "picture_offset_frames": 7,
+   "picture_change_at_cue": 3.92,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "mist",
+   "cue": "water",
+   "asked_s": 18.18,
+   "onset_s": 18.408,
+   "audio_offset_frames": 6.8,
+   "peak_offset_frames": 8.6,
+   "peak_db": -39.2,
+   "picture_peak_s": 18.4,
+   "picture_offset_frames": 7,
+   "picture_change_at_cue": 7.1,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "maiden",
+   "cue": "breath@0",
+   "asked_s": 22.01,
+   "onset_s": 21.89,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -0.0,
+   "peak_db": -42.9,
+   "picture_peak_s": 21.833,
+   "picture_offset_frames": -5,
+   "picture_change_at_cue": 0.83,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "maiden",
+   "cue": "drip",
+   "asked_s": 21.38,
+   "onset_s": 21.875,
+   "audio_offset_frames": 14.9,
+   "peak_offset_frames": 1.1,
+   "peak_db": -45.1,
+   "picture_peak_s": 21.5,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 7.27,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "gift",
+   "cue": "staff@0",
+   "asked_s": 26.967,
+   "onset_s": 26.965,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.2,
+   "peak_db": -25.6,
+   "picture_peak_s": 26.9,
+   "picture_offset_frames": -2,
+   "picture_change_at_cue": 6.07,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "scent",
+   "cue": "anklet@0",
+   "asked_s": 31.02,
+   "onset_s": 31.018,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.2,
+   "peak_db": -40.0,
+   "picture_peak_s": 30.733,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 2.23,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "scent",
+   "cue": "leaf@1",
+   "asked_s": 32.204,
+   "onset_s": 32.084,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 0.0,
+   "peak_db": -41.2,
+   "picture_peak_s": 31.9,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 0.64,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "born",
+   "cue": "water",
+   "asked_s": 34.68,
+   "onset_s": 34.9,
+   "audio_offset_frames": 6.6,
+   "peak_offset_frames": 7.2,
+   "peak_db": -36.1,
+   "picture_peak_s": 34.8,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 3.33,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "born",
+   "cue": "breath@2",
+   "asked_s": 38.24,
+   "onset_s": 38.12,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 3.9,
+   "peak_db": -37.5,
+   "picture_peak_s": 37.933,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 1.01,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "grew",
+   "cue": "whoosh@0",
+   "asked_s": 39.783,
+   "onset_s": 39.663,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 0.1,
+   "peak_db": -35.6,
+   "picture_peak_s": 39.6,
+   "picture_offset_frames": -5,
+   "picture_change_at_cue": 4.05,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "grew",
+   "cue": "leaf@1",
+   "asked_s": 40.865,
+   "onset_s": 40.745,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 0.0,
+   "peak_db": -42.0,
+   "picture_peak_s": 40.9,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 2.72,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "promise",
+   "cue": "steps@2",
+   "asked_s": 46.937,
+   "onset_s": 46.938,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 0.4,
+   "peak_db": -25.2,
+   "picture_peak_s": 46.833,
+   "picture_offset_frames": -3,
+   "picture_change_at_cue": 1.58,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "promise",
+   "cue": "birds",
+   "asked_s": 44.847,
+   "onset_s": 44.852,
+   "audio_offset_frames": 0.2,
+   "peak_offset_frames": 0.6,
+   "peak_db": -29.7,
+   "picture_peak_s": 44.967,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 9.15,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "cliff",
+   "cue": "thunder@1",
+   "asked_s": 51.41,
+   "onset_s": 51.409,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.2,
+   "peak_db": -23.6,
+   "picture_peak_s": 51.3,
+   "picture_offset_frames": -3,
+   "picture_change_at_cue": 1.09,
+   "picture_change_median": 0.77
+  },
+  {
+   "line": "cliff",
+   "cue": "whoosh@2",
+   "asked_s": 52.69,
+   "onset_s": 52.57,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -3.4,
+   "peak_db": -32.2,
+   "picture_peak_s": 53.0,
+   "picture_offset_frames": 9,
+   "picture_change_at_cue": 0.61,
+   "picture_change_median": 0.77
+  }
+ ],
+ "ambience": [
+  {
+   "line": "hook",
+   "amb": "river",
+   "rms_db": -36.5,
+   "centroid_hz": 2074
+  },
+  {
+   "line": "ferry",
+   "amb": "river",
+   "rms_db": -35.7,
+   "centroid_hz": 1880
+  },
+  {
+   "line": "sage",
+   "amb": "river",
+   "rms_db": -35.9,
+   "centroid_hz": 2061
+  },
+  {
+   "line": "watching",
+   "amb": "river",
+   "rms_db": -35.5,
+   "centroid_hz": 1996
+  },
+  {
+   "line": "mist",
+   "amb": "river",
+   "rms_db": -36.0,
+   "centroid_hz": 2032
+  },
+  {
+   "line": "maiden",
+   "amb": "river",
+   "rms_db": -36.0,
+   "centroid_hz": 1993
+  },
+  {
+   "line": "gift",
+   "amb": "river",
+   "rms_db": -35.1,
+   "centroid_hz": 1882
+  },
+  {
+   "line": "scent",
+   "amb": "meadow",
+   "rms_db": -35.2,
+   "centroid_hz": 3364
+  },
+  {
+   "line": "born",
+   "amb": "river",
+   "rms_db": -35.4,
+   "centroid_hz": 1908
+  },
+  {
+   "line": "grew",
+   "amb": "river",
+   "rms_db": -35.7,
+   "centroid_hz": 2048
+  },
+  {
+   "line": "promise",
+   "amb": "forest-day",
+   "rms_db": -38.8,
+   "centroid_hz": 2641
+  },
+  {
+   "line": "cliff",
+   "amb": "sky",
+   "rms_db": -37.5,
+   "centroid_hz": 708
+  },
+  {
+   "line": "next",
+   "amb": "sky",
+   "rms_db": -37.8,
+   "centroid_hz": 599
+  }
+ ],
+ "mix": {
+  "peak_db": -3.51,
+  "samples_at_full_scale": 0,
+  "seconds_under_-50dB": 0.0,
+  "energy_pct": {
+   "under_120": 12.63,
+   "120_500": 58.55,
+   "500_2k": 20.79,
+   "2k_6k": 7.27,
+   "over_6k": 0.77
+  }
+ },
+ "ambience_places": {
+  "river": {
+   "lines": 9,
+   "centroid_hz": 1986
+  },
+  "meadow": {
+   "lines": 1,
+   "centroid_hz": 3364
+  },
+  "forest-day": {
+   "lines": 1,
+   "centroid_hz": 2641
+  },
+  "sky": {
+   "lines": 2,
+   "centroid_hz": 654
+  }
+ }
+}

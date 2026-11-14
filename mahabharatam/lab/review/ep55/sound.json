@@ -1,0 +1,768 @@
+{
+ "file": "episode55-share.mp4",
+ "seconds": 54.04,
+ "stops": [],
+ "holes": {
+  "floor_db": -26,
+  "windows": 1077,
+  "worst_window_db": -25.3,
+  "worst_window_at_s": 53.2,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 9.0,
+  "worst_drop_at_s": 53.0,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 10,
+  "drop_window_s": 0.3
+ },
+ "start": {
+  "first_100ms_db": -23.4,
+  "first_frame_33ms_db": -23.1,
+  "first_10ms_db": -25.5
+ },
+ "clipping": {
+  "samples_at_0.999": 0,
+  "peak_dbfs": -3.05
+ },
+ "recogniser": {
+  "heard": "be my wife, my kingdom is yours. King Dushyanta had found Shakuntala alone in a forest hermitage. Wait for my father, he will give me to you. You are your own to give, if you wish it. He meant a Gandhava marriage, their own choice, no priest, no witness. Then promise me, my son shall be king after you. He agreed at once, took her hand and they were married. He left, promising to send an army for her. Her foster father, Canva, came home and knew it all. You have done no wrong, your son will rule the whole earth. Years later, she was still there, with a son who tied up lions.",
+  "transcribed_in_stretches_starting_at_s": [
+   0.0,
+   13.03,
+   28.13,
+   41.37,
+   54.04
+  ],
+  "words": [
+   [
+    "be",
+    0.0,
+    0.2
+   ],
+   [
+    "my",
+    0.2,
+    0.36
+   ],
+   [
+    "wife,",
+    0.36,
+    0.62
+   ],
+   [
+    "my",
+    1.14,
+    1.22
+   ],
+   [
+    "kingdom",
+    1.22,
+    1.48
+   ],
+   [
+    "is",
+    1.48,
+    1.74
+   ],
+   [
+    "yours.",
+    1.74,
+    1.96
+   ],
+   [
+    "King",
+    3.94,
+    3.94
+   ],
+   [
+    "Dushyanta",
+    3.94,
+    4.66
+   ],
+   [
+    "had",
+    4.66,
+    5.26
+   ],
+   [
+    "found",
+    5.26,
+    5.58
+   ],
+   [
+    "Shakuntala",
+    5.58,
+    6.38
+   ],
+   [
+    "alone",
+    6.38,
+    6.86
+   ],
+   [
+    "in",
+    6.86,
+    7.3
+   ],
+   [
+    "a",
+    7.3,
+    7.38
+   ],
+   [
+    "forest",
+    7.38,
+    7.66
+   ],
+   [
+    "hermitage.",
+    7.66,
+    8.42
+   ],
+   [
+    "Wait",
+    9.44,
+    9.6
+   ],
+   [
+    "for",
+    9.6,
+    9.86
+   ],
+   [
+    "my",
+    9.86,
+    10.02
+   ],
+   [
+    "father,",
+    10.02,
+    10.42
+   ],
+   [
+    "he",
+    10.86,
+    11.02
+   ],
+   [
+    "will",
+    11.02,
+    11.36
+   ],
+   [
+    "give",
+    11.36,
+    11.56
+   ],
+   [
+    "me",
+    11.56,
+    11.78
+   ],
+   [
+    "to",
+    11.78,
+    11.96
+   ],
+   [
+    "you.",
+    11.96,
+    12.2
+   ],
+   [
+    "You",
+    13.03,
+    13.45
+   ],
+   [
+    "are",
+    13.45,
+    13.65
+   ],
+   [
+    "your",
+    13.65,
+    13.85
+   ],
+   [
+    "own",
+    13.85,
+    14.17
+   ],
+   [
+    "to",
+    14.17,
+    14.43
+   ],
+   [
+    "give,",
+    14.43,
+    14.69
+   ],
+   [
+    "if",
+    15.25,
+    15.37
+   ],
+   [
+    "you",
+    15.37,
+    15.55
+   ],
+   [
+    "wish",
+    15.55,
+    15.77
+   ],
+   [
+    "it.",
+    15.77,
+    16.01
+   ],
+   [
+    "He",
+    16.85,
+    17.23
+   ],
+   [
+    "meant",
+    17.23,
+    17.51
+   ],
+   [
+    "a",
+    17.51,
+    17.97
+   ],
+   [
+    "Gandhava",
+    17.97,
+    18.49
+   ],
+   [
+    "marriage,",
+    18.49,
+    18.93
+   ],
+   [
+    "their",
+    19.51,
+    19.61
+   ],
+   [
+    "own",
+    19.61,
+    19.83
+   ],
+   [
+    "choice,",
+    19.83,
+    20.09
+   ],
+   [
+    "no",
+    20.67,
+    20.77
+   ],
+   [
+    "priest,",
+    20.77,
+    21.09
+   ],
+   [
+    "no",
+    21.67,
+    21.79
+   ],
+   [
+    "witness.",
+    21.79,
+    22.15
+   ],
+   [
+    "Then",
+    23.79,
+    24.37
+   ],
+   [
+    "promise",
+    24.37,
+    24.63
+   ],
+   [
+    "me,",
+    24.63,
+    24.99
+   ],
+   [
+    "my",
+    25.27,
+    25.63
+   ],
+   [
+    "son",
+    25.63,
+    26.03
+   ],
+   [
+    "shall",
+    26.03,
+    26.37
+   ],
+   [
+    "be",
+    26.37,
+    26.55
+   ],
+   [
+    "king",
+    26.55,
+    26.79
+   ],
+   [
+    "after",
+    26.79,
+    27.23
+   ],
+   [
+    "you.",
+    27.23,
+    27.49
+   ],
+   [
+    "He",
+    28.13,
+    28.51
+   ],
+   [
+    "agreed",
+    28.51,
+    28.73
+   ],
+   [
+    "at",
+    28.73,
+    28.95
+   ],
+   [
+    "once,",
+    28.95,
+    29.17
+   ],
+   [
+    "took",
+    29.63,
+    29.83
+   ],
+   [
+    "her",
+    29.83,
+    30.05
+   ],
+   [
+    "hand",
+    30.05,
+    30.37
+   ],
+   [
+    "and",
+    30.37,
+    30.83
+   ],
+   [
+    "they",
+    30.83,
+    31.01
+   ],
+   [
+    "were",
+    31.01,
+    31.17
+   ],
+   [
+    "married.",
+    31.17,
+    31.55
+   ],
+   [
+    "He",
+    32.67,
+    32.79
+   ],
+   [
+    "left,",
+    32.79,
+    33.13
+   ],
+   [
+    "promising",
+    33.59,
+    33.95
+   ],
+   [
+    "to",
+    33.95,
+    34.35
+   ],
+   [
+    "send",
+    34.35,
+    34.61
+   ],
+   [
+    "an",
+    34.61,
+    34.85
+   ],
+   [
+    "army",
+    34.85,
+    35.25
+   ],
+   [
+    "for",
+    35.25,
+    35.57
+   ],
+   [
+    "her.",
+    35.57,
+    35.85
+   ],
+   [
+    "Her",
+    37.01,
+    37.05
+   ],
+   [
+    "foster",
+    37.05,
+    37.27
+   ],
+   [
+    "father,",
+    37.27,
+    37.89
+   ],
+   [
+    "Canva,",
+    38.13,
+    38.55
+   ],
+   [
+    "came",
+    38.99,
+    39.13
+   ],
+   [
+    "home",
+    39.13,
+    39.43
+   ],
+   [
+    "and",
+    39.43,
+    39.79
+   ],
+   [
+    "knew",
+    39.79,
+    40.05
+   ],
+   [
+    "it",
+    40.05,
+    40.25
+   ],
+   [
+    "all.",
+    40.25,
+    40.47
+   ],
+   [
+    "You",
+    41.37,
+    42.29
+   ],
+   [
+    "have",
+    42.29,
+    42.41
+   ],
+   [
+    "done",
+    42.41,
+    42.63
+   ],
+   [
+    "no",
+    42.63,
+    42.99
+   ],
+   [
+    "wrong,",
+    42.99,
+    43.33
+   ],
+   [
+    "your",
+    43.77,
+    44.07
+   ],
+   [
+    "son",
+    44.07,
+    44.43
+   ],
+   [
+    "will",
+    44.43,
+    44.75
+   ],
+   [
+    "rule",
+    44.75,
+    45.01
+   ],
+   [
+    "the",
+    45.01,
+    45.29
+   ],
+   [
+    "whole",
+    45.29,
+    45.51
+   ],
+   [
+    "earth.",
+    45.51,
+    45.95
+   ],
+   [
+    "Years",
+    46.51,
+    47.13
+   ],
+   [
+    "later,",
+    47.13,
+    47.63
+   ],
+   [
+    "she",
+    47.93,
+    48.15
+   ],
+   [
+    "was",
+    48.15,
+    48.29
+   ],
+   [
+    "still",
+    48.29,
+    48.67
+   ],
+   [
+    "there,",
+    48.67,
+    49.01
+   ],
+   [
+    "with",
+    49.43,
+    49.61
+   ],
+   [
+    "a",
+    49.61,
+    49.71
+   ],
+   [
+    "son",
+    49.71,
+    50.05
+   ],
+   [
+    "who",
+    50.05,
+    50.61
+   ],
+   [
+    "tied",
+    50.61,
+    50.91
+   ],
+   [
+    "up",
+    50.91,
+    51.17
+   ],
+   [
+    "lions.",
+    51.17,
+    51.47
+   ]
+  ],
+  "gaps_over_0.35s_inside_a_sentence": [
+   {
+    "after": "wife,",
+    "before": "my",
+    "at_s": 0.62,
+    "gap_s": 0.52
+   },
+   {
+    "after": "father,",
+    "before": "he",
+    "at_s": 10.42,
+    "gap_s": 0.44
+   },
+   {
+    "after": "give,",
+    "before": "if",
+    "at_s": 14.69,
+    "gap_s": 0.56
+   },
+   {
+    "after": "marriage,",
+    "before": "their",
+    "at_s": 18.93,
+    "gap_s": 0.58
+   },
+   {
+    "after": "choice,",
+    "before": "no",
+    "at_s": 20.09,
+    "gap_s": 0.58
+   },
+   {
+    "after": "priest,",
+    "before": "no",
+    "at_s": 21.09,
+    "gap_s": 0.58
+   },
+   {
+    "after": "once,",
+    "before": "took",
+    "at_s": 29.17,
+    "gap_s": 0.46
+   },
+   {
+    "after": "left,",
+    "before": "promising",
+    "at_s": 33.13,
+    "gap_s": 0.46
+   },
+   {
+    "after": "Canva,",
+    "before": "came",
+    "at_s": 38.55,
+    "gap_s": 0.44
+   },
+   {
+    "after": "wrong,",
+    "before": "your",
+    "at_s": 43.33,
+    "gap_s": 0.44
+   },
+   {
+    "after": "there,",
+    "before": "with",
+    "at_s": 49.01,
+    "gap_s": 0.42
+   }
+  ],
+  "script_words": 120,
+  "misheard": [
+   {
+    "script": "gandharva",
+    "heard": "gandhava"
+   },
+   {
+    "script": "kanva",
+    "heard": "canva"
+   },
+   {
+    "script": "next the boy who tamed lions",
+    "heard": ""
+   }
+  ]
+ },
+ "voice_stem": {
+  "peak_dbfs": -6.17,
+  "samples_at_0.999": 0,
+  "boundaries": 22,
+  "ordinary_speech_step_99pct_db": -24.5,
+  "loudest_step_at_a_boundary_db": -78.1,
+  "boundaries_with_a_step_over_-40_db": [],
+  "boundaries_with_level_over_-30_db": []
+ },
+ "pauses_inside_sentences_in_the_voice_files": {
+  "over_0.35_s": [
+   {
+    "shot": "terms",
+    "after": "me:",
+    "before": "my",
+    "silence_s": 0.37
+   },
+   {
+    "shot": "cliff",
+    "after": "there:",
+    "before": "with",
+    "silence_s": 0.41
+   }
+  ],
+  "longest": [
+   {
+    "shot": "cliff",
+    "after": "there:",
+    "before": "with",
+    "silence_s": 0.41
+   },
+   {
+    "shot": "terms",
+    "after": "me:",
+    "before": "my",
+    "silence_s": 0.37
+   },
+   {
+    "shot": "cliff",
+    "after": "son",
+    "before": "who",
+    "silence_s": 0.29
+   },
+   {
+    "shot": "wed",
+    "after": "hand,",
+    "before": "and",
+    "silence_s": 0.27
+   },
+   {
+    "shot": "who",
+    "after": "Dushyanta",
+    "before": "had",
+    "silence_s": 0.24
+   },
+   {
+    "shot": "self",
+    "after": "give,",
+    "before": "if",
+    "silence_s": 0.24
+   },
+   {
+    "shot": "kanva",
+    "after": "father,",
+    "before": "Kanva,",
+    "silence_s": 0.23
+   },
+   {
+    "shot": "wed",
+    "after": "once,",
+    "before": "took",
+    "silence_s": 0.22
+   }
+  ]
+ }
+}

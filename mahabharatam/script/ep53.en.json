@@ -8,8 +8,11 @@
     "wordsPerSecond": 2.4,
     "voiceGap": 0.35,
     "voiceLead": 0.12,
-    "tail": 0.25
+    "tail": 0.25,
+    "frameSnap": true
   },
+  "rules": 2,
+  "credits": "source-only",
   "voice": {
     "pauses": {
       "ellipsis": 420,
@@ -54,8 +57,7 @@
     "recapLine": "King Janamejaya asked for his own family's story, from the beginning.",
     "nextEpisodeLabel": "Episode 54",
     "nextTitle": "The Girl the Birds Protected",
-    "sourceLine": "Adi Parva 1.62–65 · BORI Critical Edition",
-    "madeLine": "Voices: synthetic · Drawn in code"
+    "sourceLine": "Adi Parva 1.62–65 · BORI Critical Edition"
   },
   "lines": [
     {
@@ -91,8 +93,8 @@
       "text": "The story of the epic's royal house begins with Dushyanta, of Puru's line.",
       "say": "The story of the epic's royal house [p:60] begins with Dushyanta, [p:120] of Puru's line.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 450,
       "emphasis": [
         "Dushyanta,"
       ],
@@ -120,8 +122,8 @@
       "text": "One day he rode out to hunt, with hundreds of horses and elephants.",
       "say": "One day he rode out to hunt, [p:150] with hundreds of horses [p:60] and elephants.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 450,
       "beats": [
         3,
         9,
@@ -145,8 +147,8 @@
       "text": "Chasing deer, hungry and thirsty, he came to another forest.",
       "say": "Chasing deer, [p:100] hungry and thirsty, [p:120] he came to another forest.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 450,
       "beats": [
         1,
         4,
@@ -169,8 +171,8 @@
       "text": "By the river Malini, in a wood loud with birds, stood the hermitage of the sage Kanva.",
       "say": "By the river Malini, [p:100] in a wood loud with birds, [p:150] stood the hermitage [p:60] of the sage Kanva.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 450,
       "emphasis": [
         "Malini,",
         "Kanva."
@@ -233,8 +235,8 @@
       "text": "He walked in among sacred fires and chanting.",
       "say": "He walked in [p:60] among sacred fires [p:60] and chanting.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 450,
       "beats": [
         2,
         5,
@@ -260,7 +262,7 @@
       "text": "But the sage's own place was empty.",
       "say": "But the sage's own place [p:80] was empty.",
       "est": 3.0,
-      "pre": 220,
+      "pre": 250,
       "post": 500,
       "beats": [
         4,
@@ -284,7 +286,7 @@
       "say": "A young woman [p:60] in a hermit's dress [p:60] came out [p:60] and welcomed him. [p:350] Her father, [p:60] she said, [p:60] was gathering fruit.",
       "est": 3.0,
       "pre": 800,
-      "post": 260,
+      "post": 450,
       "rest": true,
       "beats": [
         2,
@@ -315,8 +317,8 @@
       "text": "Her father? Kanva was sworn to celibacy. Who was she?",
       "say": "Her father? [p:300] Kanva [p:60] was sworn to celibacy. [p:300] Who was she?",
       "est": 3.0,
-      "pre": 220,
-      "post": 400,
+      "pre": 250,
+      "post": 450,
       "emphasis": [
         "Kanva"
       ],

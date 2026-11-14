@@ -1,0 +1,353 @@
+{
+ "Satyavati": {
+  "spelling": "Satyavati",
+  "heard": "satyavati",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Satyavati",
+    "ep": 50,
+    "line": "ferry",
+    "takes": 5,
+    "best_heard": "satyavati",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep50/ferry"
+ },
+ "Parashara": {
+  "spelling": "Parashara",
+  "heard": "parashara",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Parashara",
+    "ep": 50,
+    "line": "sage",
+    "takes": 5,
+    "best_heard": "parashara",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep50/sage"
+ },
+ "Dvaipayana": {
+  "spelling": "Dvaipayana",
+  "heard": "devaipayana",
+  "fit": 0.95,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Dvaipayana",
+    "ep": 50,
+    "line": "grew",
+    "takes": 5,
+    "best_heard": "devaipayana",
+    "best_fit": 0.95,
+    "median_fit": 0.95
+   }
+  ],
+  "from": "ep50/grew"
+ },
+ "Vyasa": {
+  "spelling": "Vyasa",
+  "heard": "vyasa",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Vyasa",
+    "ep": 50,
+    "line": "grew",
+    "takes": 5,
+    "best_heard": "vyasa",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep50/grew"
+ },
+ "Pandava": {
+  "spelling": "Pandava",
+  "heard": "pandavar",
+  "fit": 0.93,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Pandava",
+    "ep": 52,
+    "line": "five",
+    "takes": 5,
+    "best_heard": "pandava",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep52/five"
+ },
+ "Karna": {
+  "spelling": "Karna",
+  "heard": "karna",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Karna",
+    "ep": 52,
+    "line": "karna",
+    "takes": 5,
+    "best_heard": "karna",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep52/karna"
+ },
+ "Krishna": {
+  "spelling": "Krishna",
+  "heard": "krishna",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Krishna",
+    "ep": 52,
+    "line": "krishna",
+    "takes": 5,
+    "best_heard": "krishna",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep52/krishna"
+ },
+ "Duryodhana": {
+  "spelling": "Duryodhana",
+  "heard": "duryodhana",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Duryodhana",
+    "ep": 52,
+    "line": "kali",
+    "takes": 5,
+    "best_heard": "duryodhana",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep52/kali"
+ },
+ "Draupadi": {
+  "spelling": "Draupadi",
+  "heard": "draupadi",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Draupadi",
+    "ep": 52,
+    "line": "draupadi",
+    "takes": 5,
+    "best_heard": "draupadi",
+    "best_fit": 1.0,
+    "median_fit": 0.59
+   }
+  ],
+  "from": "ep52/draupadi"
+ },
+ "Puru": {
+  "spelling": "Puru",
+  "heard": "poru's",
+  "fit": 0.75,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Puru",
+    "ep": 53,
+    "line": "line",
+    "takes": 5,
+    "best_heard": "puru's",
+    "best_fit": 1.0,
+    "median_fit": 0.75
+   }
+  ],
+  "from": "ep53/line"
+ },
+ "Dushyanta": {
+  "spelling": "Dushyanta",
+  "heard": "dushyanta",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Dushyanta",
+    "ep": 53,
+    "line": "line",
+    "takes": 5,
+    "best_heard": "dushyanta",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   },
+   {
+    "spelling": "Dushyanta",
+    "ep": 55,
+    "line": "who",
+    "takes": 5,
+    "best_heard": "dushyanta",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep55/who"
+ },
+ "Malini": {
+  "spelling": "Malini",
+  "heard": "malini",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Malini",
+    "ep": 53,
+    "line": "lovely",
+    "takes": 5,
+    "best_heard": "malini",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep53/lovely"
+ },
+ "Kanva": {
+  "spelling": "Kanva",
+  "heard": "canva",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Kanva",
+    "ep": 53,
+    "line": "lovely",
+    "takes": 5,
+    "best_heard": "canva",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   },
+   {
+    "spelling": "Kanva",
+    "ep": 53,
+    "line": "cliff",
+    "takes": 5,
+    "best_heard": "canva",
+    "best_fit": 1.0,
+    "median_fit": 0.8
+   },
+   {
+    "spelling": "Kanva",
+    "ep": 54,
+    "line": "said",
+    "takes": 5,
+    "best_heard": "canva's",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   },
+   {
+    "spelling": "Kanva",
+    "ep": 54,
+    "line": "found",
+    "takes": 5,
+    "best_heard": "canva",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   },
+   {
+    "spelling": "Kanva",
+    "ep": 55,
+    "line": "kanva",
+    "takes": 5,
+    "best_heard": "canva",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep55/kanva"
+ },
+ "Menaka": {
+  "spelling": "Menaka",
+  "heard": "manaka",
+  "fit": 0.83,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Menaka",
+    "ep": 54,
+    "line": "sent",
+    "takes": 5,
+    "best_heard": "menaka",
+    "best_fit": 1.0,
+    "median_fit": 0.83
+   },
+   {
+    "spelling": "Menaka",
+    "ep": 54,
+    "line": "left",
+    "takes": 5,
+    "best_heard": "menaka",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep54/left"
+ },
+ "Vishvamitra": {
+  "spelling": "Vishvamitra",
+  "heard": "vishvamitra",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Vishvamitra",
+    "ep": 54,
+    "line": "saw",
+    "takes": 5,
+    "best_heard": "vishvamitra",
+    "best_fit": 1.0,
+    "median_fit": 0.95
+   }
+  ],
+  "from": "ep54/saw"
+ },
+ "Shakuntala": {
+  "spelling": "Shakuntala",
+  "heard": "shakuntala",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Shakuntala",
+    "ep": 54,
+    "line": "name",
+    "takes": 5,
+    "best_heard": "shakuntala",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   },
+   {
+    "spelling": "Shakuntala",
+    "ep": 55,
+    "line": "who",
+    "takes": 5,
+    "best_heard": "shakuntala",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep55/who"
+ }
+}

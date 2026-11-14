@@ -1,23 +1,85 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "asked~0.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "The king asked: which god was born as whom?",
+ "heard": "The King asked, which God was born as whom?",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.0917,
-   "words": 3,
-   "speed": 0.891,
-   "text": "The king asked:"
-  },
-  {
-   "t0": 1.2917,
-   "t1": 3.1718,
-   "words": 6,
-   "speed": 0.891,
-   "text": "which god was born as whom?"
+   "t0": 0,
+   "t1": 3.538,
+   "words": 9,
+   "text": "The king asked: which god was born as whom?"
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.08
+  ],
+  [
+   0.08,
+   0.32
+  ],
+  [
+   0.32,
+   0.875
+  ],
+  [
+   1.302,
+   1.565
+  ],
+  [
+   1.647,
+   1.78
+  ],
+  [
+   1.78,
+   2.193
+  ],
+  [
+   2.325,
+   2.46
+  ],
+  [
+   2.46,
+   2.917
+  ],
+  [
+   3.012,
+   3.372
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 157,
+ "longest_pause_s": 0.43,
+ "pauses_shortened": [
+  {
+   "at_s": 1.09,
+   "was_s": 0.44,
+   "now_s": 0.42
+  }
+ ],
+ "measured": {
+  "f0": 127.2,
+  "st": 12.2,
+  "edb": 19.4,
+  "dur": 3.35,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 12.0,
+  "jitter": 2.13,
+  "tail_db": -72.3
+ },
+ "film_median_hz": 127.6,
+ "semitones_from_film_median": -0.05,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

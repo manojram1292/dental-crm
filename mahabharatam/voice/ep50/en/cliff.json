@@ -1,30 +1,97 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "cliff~0.s0.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Then the king asked: why were these godlike heroes born on earth?",
+ "heard": "Then the king asked, why were these godlike heroes born on earth?",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.3496,
-   "words": 4,
-   "speed": 0.891,
-   "text": "Then the king asked:"
-  },
-  {
-   "t0": 1.5496,
-   "t1": 3.5603,
-   "words": 5,
-   "speed": 0.891,
-   "text": "why were these godlike heroes"
-  },
-  {
-   "t0": 3.6403,
-   "t1": 4.8822,
-   "words": 3,
-   "speed": 0.891,
-   "text": "born on earth?"
+   "t0": 0,
+   "t1": 5.058,
+   "words": 12,
+   "text": "Then the king asked: why were these godlike heroes born on earth?"
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.24
+  ],
+  [
+   0.24,
+   0.452
+  ],
+  [
+   0.518,
+   0.64
+  ],
+  [
+   0.64,
+   1.262
+  ],
+  [
+   1.719,
+   1.88
+  ],
+  [
+   1.88,
+   2.16
+  ],
+  [
+   2.16,
+   2.4
+  ],
+  [
+   2.4,
+   3.16
+  ],
+  [
+   3.16,
+   3.56
+  ],
+  [
+   3.56,
+   4.1
+  ],
+  [
+   4.1,
+   4.44
+  ],
+  [
+   4.44,
+   4.769
+  ]
+ ],
+ "lead_air_ms": 22,
+ "tail_air_ms": 141,
+ "longest_pause_s": 0.46,
+ "pauses_shortened": [
+  {
+   "at_s": 1.49,
+   "was_s": 0.47,
+   "now_s": 0.45
+  }
+ ],
+ "measured": {
+  "f0": 130.6,
+  "st": 10.5,
+  "edb": 17.6,
+  "dur": 4.9,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 12.2,
+  "jitter": 2.07,
+  "tail_db": -70.5
+ },
+ "film_median_hz": 127.7,
+ "semitones_from_film_median": 0.39,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

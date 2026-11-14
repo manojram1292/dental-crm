@@ -1,0 +1,125 @@
+{
+ "music_under_voice_db": -9.9,
+ "rules": 2,
+ "stems": [
+  "mus",
+  "amb",
+  "foley"
+ ],
+ "duck_db": {
+  "mus": 8.0,
+  "amb": 3.0,
+  "foley": 2.0
+ },
+ "duck_release_ms": 90,
+ "rests": [
+  {
+   "before": "terms",
+   "from_s": 22.71,
+   "seconds": 1.57,
+   "bed_dip_db": 3.5,
+   "quietest_window_db": -24.5,
+   "under_the_second_before_db": 2.9
+  },
+  {
+   "before": "bless",
+   "from_s": 40.81,
+   "seconds": 1.36,
+   "bed_dip_db": 3.5,
+   "quietest_window_db": -24.5,
+   "under_the_second_before_db": 7.6
+  }
+ ],
+ "bed_floor": {
+  "floor_db": -26,
+  "windows": 1078,
+  "worst_window_db": -25.1,
+  "worst_window_at_s": 53.85,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 8.9,
+  "worst_drop_at_s": 53.0,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 10,
+  "drop_window_s": 0.3,
+  "before_lifting_the_bed": {
+   "worst_window_db": -36.7,
+   "worst_window_at_s": 23.85,
+   "windows_under_floor": 190,
+   "worst_drop_db": 20.9,
+   "worst_drop_at_s": 14.95,
+   "drops_over_limit": 88
+  },
+  "bed_lift_db_max": 15.4,
+  "bed_lifted_seconds": 23.65
+ },
+ "line_gain_multiplier": 2.0,
+ "next_under_body_db": 5.4,
+ "first_100ms_db": -23.7,
+ "first_frame_33ms_db": -24.1,
+ "word_to_cut": [
+  {
+   "line": "hook",
+   "last_word_ends_before_cut_s": 1.23,
+   "first_word_after_cut_s": 0.06
+  },
+  {
+   "line": "who",
+   "last_word_ends_before_cut_s": 0.691,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "wait",
+   "last_word_ends_before_cut_s": 0.703,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "self",
+   "last_word_ends_before_cut_s": 0.731,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "gandharva",
+   "last_word_ends_before_cut_s": 0.755,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "terms",
+   "last_word_ends_before_cut_s": 0.371,
+   "first_word_after_cut_s": 0.95
+  },
+  {
+   "line": "wed",
+   "last_word_ends_before_cut_s": 0.734,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "army",
+   "last_word_ends_before_cut_s": 0.712,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "kanva",
+   "last_word_ends_before_cut_s": 0.683,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "bless",
+   "last_word_ends_before_cut_s": 0.779,
+   "first_word_after_cut_s": 0.8
+  },
+  {
+   "line": "cliff",
+   "last_word_ends_before_cut_s": 0.735,
+   "first_word_after_cut_s": 0.25
+  }
+ ],
+ "least_word_to_cut_s": 0.371,
+ "voice_eq": "as the trailer: high-pass 58 Hz, +1 dB under 160 Hz, \u22121 dB over 7.5 kHz, +1.5 dB at 3.2 kHz, \u22121.5 dB at 320 Hz, a short room 15 dB under",
+ "lufs": -14.1,
+ "true_peak_dbtp": -3.33,
+ "lra": 4.1,
+ "timeline": "caaf8d710eab5c45",
+ "voiced": 11
+}

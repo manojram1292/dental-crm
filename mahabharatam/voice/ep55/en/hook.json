@@ -1,23 +1,71 @@
 {
- "speaker": "dushyanta",
- "voice": "am_adam",
- "speed": 1.008,
- "pitch": 0.5,
+ "speaker": "narrator",
+ "script_speaker": "dushyanta",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "hook~0.s5.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Be my wife. My kingdom is yours.",
+ "heard": "Be my wife, my kingdom is yours.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 0.8627,
-   "words": 3,
-   "speed": 1.008,
-   "text": "Be my wife."
-  },
-  {
-   "t0": 1.1127,
-   "t1": 2.3985,
-   "words": 4,
-   "speed": 1.008,
-   "text": "My kingdom is yours."
+   "t0": 0,
+   "t1": 2.334,
+   "words": 7,
+   "text": "\"Be my wife. My kingdom is yours.\""
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.038
+  ],
+  [
+   0.098,
+   0.3
+  ],
+  [
+   0.3,
+   0.78
+  ],
+  [
+   1.068,
+   1.12
+  ],
+  [
+   1.12,
+   1.44
+  ],
+  [
+   1.44,
+   1.68
+  ],
+  [
+   1.68,
+   2.21
+  ]
+ ],
+ "lead_air_ms": 21,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.29,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 113.4,
+  "st": 8.7,
+  "edb": 21.1,
+  "dur": 2.19,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.3,
+  "jitter": 2.26,
+  "tail_db": -77.9
+ },
+ "film_median_hz": 125.7,
+ "semitones_from_film_median": -1.78,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

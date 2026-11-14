@@ -1,0 +1,100 @@
+{
+ "file": "episode52.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 1632,
+ "seconds": 54.4,
+ "low_motion": [],
+ "exact_repeats": 0,
+ "median_frame_difference": 1.19,
+ "least_moving_second": [
+  5.2,
+  0.34
+ ],
+ "dead_air_under_-45dB_over_0.3s": [],
+ "speech_gaps_over_0.6s": [
+  [
+   "hook",
+   "asked",
+   1.37
+  ],
+  [
+   "asked",
+   "five",
+   0.73
+  ],
+  [
+   "five",
+   "gods",
+   0.7
+  ],
+  [
+   "gods",
+   "karna",
+   0.72
+  ],
+  [
+   "karna",
+   "krishna",
+   0.96
+  ],
+  [
+   "krishna",
+   "kali",
+   1.41
+  ],
+  [
+   "kali",
+   "draupadi",
+   0.73
+  ],
+  [
+   "draupadi",
+   "payoff",
+   1.27
+  ],
+  [
+   "payoff",
+   "cliff",
+   3.07
+  ]
+ ],
+ "voice_files_with_pause_over_0.45_or_head_over_0.10_or_tail_over_0.15": [
+  {
+   "line": "asked",
+   "longest_pause": 0.42,
+   "head": 0.03,
+   "tail": 0.16
+  },
+  {
+   "line": "five",
+   "longest_pause": 0.3,
+   "head": 0.03,
+   "tail": 0.2
+  },
+  {
+   "line": "krishna",
+   "longest_pause": 0.4,
+   "head": 0.03,
+   "tail": 0.17
+  },
+  {
+   "line": "kali",
+   "longest_pause": 0.26,
+   "head": 0.03,
+   "tail": 0.2
+  },
+  {
+   "line": "draupadi",
+   "longest_pause": 0.42,
+   "head": 0.03,
+   "tail": 0.16
+  },
+  {
+   "line": "payoff",
+   "longest_pause": 0.25,
+   "head": 0.03,
+   "tail": 0.2
+  }
+ ]
+}

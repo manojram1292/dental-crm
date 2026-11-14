@@ -1,0 +1,449 @@
+{
+ "episode": 53,
+ "duration": 54.9,
+ "stems": {
+  "amb": {
+   "rms_db": -35.5,
+   "peak_db": -15.9,
+   "loudest_at_s": 28.16,
+   "loudest_rms_db": -28.9
+  },
+  "foley": {
+   "rms_db": -32.9,
+   "peak_db": -15.5,
+   "loudest_at_s": 12.2,
+   "loudest_rms_db": -25.1
+  },
+  "mus": {
+   "rms_db": -27.7,
+   "peak_db": -3.2,
+   "loudest_at_s": 53.73,
+   "loudest_rms_db": -16.8
+  }
+ },
+ "foley": [
+  {
+   "line": "hook",
+   "cue": "birds",
+   "asked_s": 0.08,
+   "onset_s": 0.088,
+   "audio_offset_frames": 0.2,
+   "peak_offset_frames": 3.8,
+   "peak_db": -30.4,
+   "picture_peak_s": 0.367,
+   "picture_offset_frames": 9,
+   "picture_change_at_cue": 1.38,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "hook",
+   "cue": "step@0",
+   "asked_s": 0.48,
+   "onset_s": 0.374,
+   "audio_offset_frames": -3.2,
+   "peak_offset_frames": 0.4,
+   "peak_db": -30.4,
+   "picture_peak_s": 0.4,
+   "picture_offset_frames": -2,
+   "picture_change_at_cue": 1.9,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "line",
+   "cue": "cloth",
+   "asked_s": 2.78,
+   "onset_s": 2.844,
+   "audio_offset_frames": 1.9,
+   "peak_offset_frames": 5.0,
+   "peak_db": -43.5,
+   "picture_peak_s": 2.933,
+   "picture_offset_frames": 5,
+   "picture_change_at_cue": 6.49,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "line",
+   "cue": "steps@1",
+   "asked_s": 6.353,
+   "onset_s": 6.355,
+   "audio_offset_frames": 0.0,
+   "peak_offset_frames": 0.4,
+   "peak_db": -30.6,
+   "picture_peak_s": 6.067,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 0.58,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "hunt",
+   "cue": "hooves",
+   "asked_s": 9.28,
+   "onset_s": 9.285,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 7.1,
+   "peak_db": -20.0,
+   "picture_peak_s": 9.4,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 11.56,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "hunt",
+   "cue": "thunder@1",
+   "asked_s": 12.01,
+   "onset_s": 11.931,
+   "audio_offset_frames": -2.4,
+   "peak_offset_frames": 1.7,
+   "peak_db": -19.7,
+   "picture_peak_s": 11.9,
+   "picture_offset_frames": -3,
+   "picture_change_at_cue": 2.54,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "hunt",
+   "cue": "wings@2",
+   "asked_s": 12.79,
+   "onset_s": 12.67,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -3.6,
+   "peak_db": -20.4,
+   "picture_peak_s": 12.5,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 2.43,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "deeper",
+   "cue": "hooves@0",
+   "asked_s": 15.017,
+   "onset_s": 15.019,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 7.1,
+   "peak_db": -20.2,
+   "picture_peak_s": 14.7,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 1.69,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "deeper",
+   "cue": "breath@1",
+   "asked_s": 16.787,
+   "onset_s": 16.702,
+   "audio_offset_frames": -2.5,
+   "peak_offset_frames": 4.4,
+   "peak_db": -21.0,
+   "picture_peak_s": 16.567,
+   "picture_offset_frames": -7,
+   "picture_change_at_cue": 0.96,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "lovely",
+   "cue": "birds",
+   "asked_s": 20.08,
+   "onset_s": 19.96,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -4.5,
+   "peak_db": -34.7,
+   "picture_peak_s": 20.367,
+   "picture_offset_frames": 9,
+   "picture_change_at_cue": 2.73,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "lovely",
+   "cue": "water@2",
+   "asked_s": 24.81,
+   "onset_s": 25.106,
+   "audio_offset_frames": 8.9,
+   "peak_offset_frames": 9.0,
+   "peak_db": -40.8,
+   "picture_peak_s": 24.5,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 2.11,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "lovely",
+   "cue": "leaf@0",
+   "asked_s": 20.83,
+   "onset_s": 20.71,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 0.0,
+   "peak_db": -35.0,
+   "picture_peak_s": 20.633,
+   "picture_offset_frames": -6,
+   "picture_change_at_cue": 3.13,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "left",
+   "cue": "cloth@1",
+   "asked_s": 30.765,
+   "onset_s": 30.645,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -0.0,
+   "peak_db": -42.9,
+   "picture_peak_s": 30.7,
+   "picture_offset_frames": -2,
+   "picture_change_at_cue": 0.52,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "left",
+   "cue": "thud@2",
+   "asked_s": 33.077,
+   "onset_s": 33.078,
+   "audio_offset_frames": 0.0,
+   "peak_offset_frames": 0.3,
+   "peak_db": -20.6,
+   "picture_peak_s": 32.867,
+   "picture_offset_frames": -6,
+   "picture_change_at_cue": 0.7,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "chant",
+   "cue": "chant",
+   "asked_s": 34.18,
+   "onset_s": 34.356,
+   "audio_offset_frames": 5.3,
+   "peak_offset_frames": 6.6,
+   "peak_db": -44.4,
+   "picture_peak_s": 34.467,
+   "picture_offset_frames": 9,
+   "picture_change_at_cue": 9.63,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "chant",
+   "cue": "flame@1",
+   "asked_s": 35.85,
+   "onset_s": 35.73,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -3.0,
+   "peak_db": -28.7,
+   "picture_peak_s": 35.8,
+   "picture_offset_frames": -2,
+   "picture_change_at_cue": 1.64,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "chant",
+   "cue": "steps@0",
+   "asked_s": 34.793,
+   "onset_s": 34.794,
+   "audio_offset_frames": 0.0,
+   "peak_offset_frames": 0.8,
+   "peak_db": -30.7,
+   "picture_peak_s": 34.5,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 0.93,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "empty",
+   "cue": "step",
+   "asked_s": 38.213,
+   "onset_s": 38.216,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 0.4,
+   "peak_db": -29.1,
+   "picture_peak_s": 38.333,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 5.5,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "empty",
+   "cue": "birds",
+   "asked_s": 38.213,
+   "onset_s": 38.216,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 0.4,
+   "peak_db": -29.1,
+   "picture_peak_s": 38.333,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 5.5,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "came",
+   "cue": "anklet@0",
+   "asked_s": 42.293,
+   "onset_s": 42.292,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.2,
+   "peak_db": -45.8,
+   "picture_peak_s": 42.0,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 0.88,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "came",
+   "cue": "cloth@1",
+   "asked_s": 44.133,
+   "onset_s": 44.021,
+   "audio_offset_frames": -3.4,
+   "peak_offset_frames": -0.1,
+   "peak_db": -42.3,
+   "picture_peak_s": 44.367,
+   "picture_offset_frames": 7,
+   "picture_change_at_cue": 0.49,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "came",
+   "cue": "water@2",
+   "asked_s": 44.973,
+   "onset_s": 44.853,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -4.5,
+   "peak_db": -41.0,
+   "picture_peak_s": 44.833,
+   "picture_offset_frames": -4,
+   "picture_change_at_cue": 0.66,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "came",
+   "cue": "leaf@4",
+   "asked_s": 47.97,
+   "onset_s": 47.942,
+   "audio_offset_frames": -0.9,
+   "peak_offset_frames": 3.7,
+   "peak_db": -42.7,
+   "picture_peak_s": 47.667,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 0.48,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "cliff",
+   "cue": "birds@0",
+   "asked_s": 49.497,
+   "onset_s": 49.504,
+   "audio_offset_frames": 0.2,
+   "peak_offset_frames": 3.1,
+   "peak_db": -35.4,
+   "picture_peak_s": 49.2,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 0.82,
+   "picture_change_median": 0.84
+  },
+  {
+   "line": "cliff",
+   "cue": "wings@2",
+   "asked_s": 52.262,
+   "onset_s": 52.19,
+   "audio_offset_frames": -2.2,
+   "peak_offset_frames": 0.0,
+   "peak_db": -44.4,
+   "picture_peak_s": 52.2,
+   "picture_offset_frames": -2,
+   "picture_change_at_cue": 0.79,
+   "picture_change_median": 0.84
+  }
+ ],
+ "ambience": [
+  {
+   "line": "hook",
+   "amb": "forest-day",
+   "rms_db": -38.0,
+   "centroid_hz": 2455
+  },
+  {
+   "line": "line",
+   "amb": "court",
+   "rms_db": -47.8,
+   "centroid_hz": 332
+  },
+  {
+   "line": "hunt",
+   "amb": "forest-day",
+   "rms_db": -35.0,
+   "centroid_hz": 2069
+  },
+  {
+   "line": "deeper",
+   "amb": "forest-day",
+   "rms_db": -35.5,
+   "centroid_hz": 1575
+  },
+  {
+   "line": "lovely",
+   "amb": "river",
+   "rms_db": -34.3,
+   "centroid_hz": 1900
+  },
+  {
+   "line": "left",
+   "amb": "forest-day",
+   "rms_db": -33.5,
+   "centroid_hz": 1296
+  },
+  {
+   "line": "chant",
+   "amb": "hearth",
+   "rms_db": -37.8,
+   "centroid_hz": 694
+  },
+  {
+   "line": "empty",
+   "amb": "forest-day",
+   "rms_db": -35.8,
+   "centroid_hz": 3144
+  },
+  {
+   "line": "came",
+   "amb": "forest-day",
+   "rms_db": -35.2,
+   "centroid_hz": 2019
+  },
+  {
+   "line": "cliff",
+   "amb": "river",
+   "rms_db": -34.2,
+   "centroid_hz": 2042
+  },
+  {
+   "line": "next",
+   "amb": "river",
+   "rms_db": -35.1,
+   "centroid_hz": 1863
+  }
+ ],
+ "mix": {
+  "peak_db": -3.51,
+  "samples_at_full_scale": 0,
+  "seconds_under_-50dB": 0.0,
+  "energy_pct": {
+   "under_120": 16.54,
+   "120_500": 56.79,
+   "500_2k": 19.8,
+   "2k_6k": 6.08,
+   "over_6k": 0.8
+  }
+ },
+ "ambience_places": {
+  "forest-day": {
+   "lines": 6,
+   "centroid_hz": 2093
+  },
+  "court": {
+   "lines": 1,
+   "centroid_hz": 332
+  },
+  "river": {
+   "lines": 3,
+   "centroid_hz": 1935
+  },
+  "hearth": {
+   "lines": 1,
+   "centroid_hz": 694
+  }
+ }
+}

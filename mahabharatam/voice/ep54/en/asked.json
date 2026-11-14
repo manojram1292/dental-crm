@@ -1,23 +1,83 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8748000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "asked~0.s3.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "A king asked a young hermit woman who she was.",
+ "heard": "A king asked a young hermit woman who she was.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 2.0748,
-   "words": 7,
-   "speed": 0.875,
-   "text": "A king asked a young hermit woman"
-  },
-  {
-   "t0": 2.1748,
-   "t1": 3.2736,
-   "words": 3,
-   "speed": 0.875,
-   "text": "who she was."
+   "t0": 0,
+   "t1": 3.549,
+   "words": 10,
+   "text": "A king asked a young hermit woman who she was."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.12
+  ],
+  [
+   0.12,
+   0.36
+  ],
+  [
+   0.36,
+   1.062
+  ],
+  [
+   1.128,
+   1.2
+  ],
+  [
+   1.2,
+   1.48
+  ],
+  [
+   1.48,
+   2.02
+  ],
+  [
+   2.02,
+   2.22
+  ],
+  [
+   2.22,
+   2.58
+  ],
+  [
+   2.58,
+   2.82
+  ],
+  [
+   2.82,
+   3.372
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 171,
+ "longest_pause_s": 0.07,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 129.9,
+  "st": 11.6,
+  "edb": 17.1,
+  "dur": 3.35,
+  "jumps": 0.0,
+  "creak": 0.012,
+  "hnr": 12.2,
+  "jitter": 2.29,
+  "tail_db": -70.9
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": 0.36,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

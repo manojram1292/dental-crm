@@ -1,37 +1,94 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8262,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "kanva~0.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Her foster father, Kanva, came home and knew it all.",
+ "heard": "Her foster father, Canva, came home and knew it all.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.4752,
-   "words": 3,
-   "speed": 0.826,
-   "text": "Her foster father,"
-  },
-  {
-   "t0": 1.5552,
-   "t1": 2.3351,
-   "words": 1,
-   "speed": 0.826,
-   "text": "Kanva,"
-  },
-  {
-   "t0": 2.4151,
-   "t1": 3.3405,
-   "words": 2,
-   "speed": 0.826,
-   "text": "came home"
-  },
-  {
-   "t0": 3.4905,
-   "t1": 4.6426,
-   "words": 4,
-   "speed": 0.826,
-   "text": "and knew it all."
+   "t0": 0,
+   "t1": 3.859,
+   "words": 10,
+   "text": "Her foster father, Kanva, came home and knew it all."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.181
+  ],
+  [
+   0.273,
+   0.34
+  ],
+  [
+   0.34,
+   1.79
+  ],
+  [
+   2.02,
+   2.02
+  ],
+  [
+   2.09,
+   2.18
+  ],
+  [
+   2.18,
+   2.48
+  ],
+  [
+   2.48,
+   2.84
+  ],
+  [
+   2.84,
+   3.1
+  ],
+  [
+   3.1,
+   3.28
+  ],
+  [
+   3.28,
+   3.734
+  ]
+ ],
+ "lead_air_ms": 29,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.23,
+ "pauses_shortened": [
+  {
+   "at_s": 1.94,
+   "was_s": 0.36,
+   "now_s": 0.3
+  }
+ ],
+ "measured": {
+  "f0": 134.5,
+  "st": 11.4,
+  "edb": 17.5,
+  "dur": 3.71,
+  "jumps": 0.0,
+  "creak": 0.012,
+  "hnr": 12.7,
+  "jitter": 1.93,
+  "tail_db": -68.9
+ },
+ "film_median_hz": 125.7,
+ "semitones_from_film_median": 1.17,
+ "names": {
+  "Kanva": {
+   "heard": "canva",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

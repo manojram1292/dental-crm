@@ -1,37 +1,96 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "grew~0.s3.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "He grew at once: Dvaipayana, the island-born. We call him Vyasa.",
+ "heard": "He grew at once, Devaipayana, the island born. We call him Vyasa.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.258,
-   "words": 4,
-   "speed": 0.891,
-   "text": "He grew at once:"
-  },
-  {
-   "t0": 1.378,
-   "t1": 2.4544,
-   "words": 1,
-   "speed": 0.891,
-   "text": "Dvaipayana,"
-  },
-  {
-   "t0": 2.5344,
-   "t1": 3.7517,
-   "words": 2,
-   "speed": 0.891,
-   "text": "the island-born."
-  },
-  {
-   "t0": 4.0017,
-   "t1": 5.4184,
-   "words": 4,
-   "speed": 0.891,
-   "text": "We call him Vyasa."
+   "t0": 0,
+   "t1": 4.659,
+   "words": 11,
+   "text": "He grew at once: Dvaipayana, the island-born. We call him Vyasa."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.1
+  ],
+  [
+   0.1,
+   0.3
+  ],
+  [
+   0.3,
+   0.48
+  ],
+  [
+   0.48,
+   0.953
+  ],
+  [
+   1.182,
+   1.976
+  ],
+  [
+   2.185,
+   2.22
+  ],
+  [
+   2.22,
+   3.006
+  ],
+  [
+   3.351,
+   3.4
+  ],
+  [
+   3.4,
+   3.58
+  ],
+  [
+   3.58,
+   3.8
+  ],
+  [
+   3.8,
+   4.529
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 124,
+ "longest_pause_s": 0.35,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 129.4,
+  "st": 11.4,
+  "edb": 17.7,
+  "dur": 4.5,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.6,
+  "jitter": 2.59,
+  "tail_db": -57.5
+ },
+ "film_median_hz": 127.7,
+ "semitones_from_film_median": 0.23,
+ "names": {
+  "Vyasa": {
+   "heard": "vyasa",
+   "fit": 1.0
+  },
+  "Dvaipayana": {
+   "heard": "devaipayana",
+   "fit": 0.95
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

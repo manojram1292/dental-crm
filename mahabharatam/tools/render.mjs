@@ -48,6 +48,10 @@ if (!a['no-gate']) {
 }
 const audio = path.join(ROOT, 'audio', tag, `mix.${lang}.wav`);
 
+// From the trailer (lesson 10): a render needs room. About 4 MB a frame on disk, and the browser pages need memory; refuse rather than die at frame 2608.
+{ const st = fs.statfsSync(ROOT), freeGb = (st.bavail * st.bsize) / 1e9, memGb = +(fs.readFileSync('/proc/meminfo', 'utf8').match(/MemAvailable:\s+(\d+)/) || [0, 1e9])[1] / 1e6;
+  const nfr = Math.round((+(a.to ?? tl.duration) - +(a.from ?? 0)) * 30), needGb = a.from != null || a.to != null ? nfr * 0.0045 + 0.5 : 11;
+  if (!a['no-space-check'] && (freeGb < needGb || memGb < 4)) { console.error(`render refused: ${freeGb.toFixed(1)} GB of disk free (need ${needGb.toFixed(1)}) and ${memGb.toFixed(1)} GB of memory available (need 4). Clear stale .frames-* directories first.`); process.exit(1); } }
 const reel = await openReel({ scale, pages: workers, lang, ep });
 const { FPS, FRAMES, DURATION } = reel.info;
 if (Math.abs(DURATION - tl.duration) > 1e-6) throw new Error(`page duration ${DURATION} ≠ timeline ${tl.duration}`);

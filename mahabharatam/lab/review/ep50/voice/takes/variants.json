@@ -1,0 +1,104 @@
+{
+ "hook": [
+  {
+   "k": 0,
+   "text": "The poet was born on an island.",
+   "spell": {},
+   "seeds": 7
+  }
+ ],
+ "ferry": [
+  {
+   "k": 0,
+   "text": "Satyavati, a fisherman's daughter, rowed a ferry.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "sage": [
+  {
+   "k": 0,
+   "text": "One day the sage Parashara, on pilgrimage, saw her, and desired her.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "watching": [
+  {
+   "k": 0,
+   "text": "Holy one, sages are watching from both banks.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "mist": [
+  {
+   "k": 0,
+   "text": "So he raised a mist that hid the river.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "maiden": [
+  {
+   "k": 0,
+   "text": "I am a maiden. How can I go home?",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "gift": [
+  {
+   "k": 0,
+   "text": "You will remain a maiden. Now choose a gift.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "scent": [
+  {
+   "k": 0,
+   "text": "She chose a fragrance for her smell of fish, and gladly agreed.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "born": [
+  {
+   "k": 0,
+   "text": "That same day, on an island, she bore a son.",
+   "spell": {},
+   "seeds": 5
+  },
+  {
+   "k": 1,
+   "text": "That same day, on a river island, she bore a son.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "grew": [
+  {
+   "k": 0,
+   "text": "He grew at once: Dvaipayana, the island-born. We call him Vyasa.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "promise": [
+  {
+   "k": 0,
+   "text": "Mother, think of me, and I will come.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "cliff": [
+  {
+   "k": 0,
+   "text": "Then the king asked: why were these godlike heroes born on earth?",
+   "spell": {},
+   "seeds": 5
+  }
+ ]
+}

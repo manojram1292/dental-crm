@@ -2899,6 +2899,7 @@ def build_layers(tl):
     L = {l['id']: l for l in tl['lines']}
     amb, fol = np.zeros((2, N)), np.zeros((2, N))
     bus_dry, bus_wet, _bed, bell, hit, stereo = _tb_buses(N)
+    R2 = sc.get('rules', 1) >= 2   # scripts written after the trailer (README "Standing rules learned from the trailer")
     # 1 · ambience: one bed per location, cross-faded 0.5 s; ambLead / ambLag move the audio cut off the picture cut
     segs = _segments(tl, SL, 'amb', 'night-fire')
     for i, (kind, t0, t1, first) in enumerate(segs):
@@ -2906,14 +2907,14 @@ def build_layers(tl):
         lag = (SL[segs[i + 1][3]['id']].get('ambLag', 0) / 1000) if i + 1 < len(segs) else 0
         a, b = max(0, t0 - lead - 0.25), min(D, t1 + lag + 0.25)
         n = smp(b - a)
-        x = amb_bed(kind, n, (key, i)) * _loop_env(n, 0.5, 0.5)
+        x = amb_bed(kind, n, (key, i)) * _loop_env(n, 0.004 if R2 and a <= 0 else 0.5, 0.08 if R2 and b >= D - 1e-6 else 0.5)   # "rules": 2: sound from frame 0 (no fade-in from silence)
         add(amb, x, a)
     # 2 · music by mood
     for i, (kind, t0, t1, _f) in enumerate(_segments(tl, SL, 'music', 'still')):
         a, b = max(0, t0 - 0.3), min(D, t1 + 0.6)
         n = smp(b - a)
         dry, wet = music_bed(kind, n, (key, i))
-        e = _loop_env(n, 0.6, 0.9)
+        e = _loop_env(n, 0.004 if R2 and a <= 0 else 0.6, 0.08 if R2 and b >= D - 1e-6 else 0.9)   # and no fade to silence at the end: the film loops into its first frame
         add(bus_dry, dry * e, a)
         add(bus_wet, wet * e, a)
     # 3 · foley and the older sfx cues
@@ -2968,7 +2969,7 @@ def build_layers(tl):
     b_, a_ = sps.iirpeak(2600, 1.2, fs=SR)
     mus = mus - 0.25 * sps.lfilter(b_, a_, mus, axis=-1)
     fol = fol + reverb(fol, make_ir(1.2, 1.6, 'room2')) * 0.18
-    edge = env_curve([(0, 0), (0.05, 1), (D - 0.7, 1), (D - 0.02, 0), (D, 0)], N)
+    edge = env_curve([(0, 0), (0.003, 1), (D - 0.05, 1), (D, 0)], N) if R2 else env_curve([(0, 0), (0.05, 1), (D - 0.7, 1), (D - 0.02, 0), (D, 0)], N)   # "rules": 2: no 0.7 s fade to silence at the end (it was a hole the mix then had to fill), no fade-in
     # balance: music −24, ambience −29 LUFS; the foley is set by its peaks (−15 dBFS: sparse sounds have no meaningful LUFS)
     mus = hpf(mus, 30) * edge
     amb = hpf(amb, 40) * edge

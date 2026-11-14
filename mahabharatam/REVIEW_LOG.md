@@ -713,6 +713,164 @@ its frame checksums are the same before and after); remixed, re-muxed, share cop
   there. (110 and 117 Hz were tried first and sat on the drone's Pa and the motif's B-flat.) In the mono fold-down the level
   swings 0.21 dB at 7 Hz.
 
+### Trailer v3.2 · end card only (2026-11-14)
+
+The owner on v3.1: "Everything is good… the synthetic voice line is not needed, it's overkill. Don't provide that information."
+The end card keeps "Text: the Mahabharata · BORI Critical Edition" (now 34 px at y 1212, midway between the support line and the
+pointer) and no longer shows "Voices: synthetic · Drawn in code". The script says `"credits": "source-only"` and has no
+`strings.madeLine`; the gate accepts that flag (and fails a madeLine beside it); `mkscript.py` writes it.
+
+Only the affected frames were rendered (`node tools/render.mjs --ep 97 --video-only --from 84.7333 --to 89.3667`, 139 frames; the
+source line first appears 0.85 s into the card, at frame 2566, and the master has a keyframe at 2542) and spliced in by stream
+copy. Measured: 2681 frames before and after; frames 0–2541 decode bit-identical (framemd5), frames 2542–2680 differ; the audio
+stream is the same packets (md5 of the copied stream equal); video 89.3667 s, audio 89.365 s, both starting at 0. Share copy
+re-encoded with v3's settings: 19.39 MB, High 4.2, a keyframe on every asked cut, 0 freezes, SSIM against the master mean 0.9625,
+worst 0.9339; -14.3 LUFS. Looked at: the two frames either side of the splice and three frames of the card
+(`lab/review/trailer/v32/card.jpg`). Files and the splice record: `lab/review/trailer/v32/`. Not re-scored: the script's
+signature changed with the flag, so `audio/ep97/music.json` no longer matches the timeline; the sound in the file is v3.1's,
+untouched; a future re-mix must re-run `tools/score_trailer3.py` first.
+
+## The episode pipeline under "rules": 2 (2026-11-14)
+
+The trailer's lessons, adopted for every episode scripted from now on (50, 52–55 in this batch). What was built, once:
+
+- `tools/rules2.py` puts a script under the rules; `tools/gate.mjs` reads `"rules": 2` (header: "RULES": 2) and leaves every other
+  script alone. Proof: the gate's output with `--audio` for 44, 48, 49 and 51 is byte-identical between commit f40a7a8 (before this
+  work) and now (`lab/review/gate-proof/gNN.before.txt` / `.after.txt`); their timelines and mixes on disk are unchanged (md5).
+- `tools/voice2.py` (the voice), `tools/mix.py` `main_rules2` (the mix), `tools/score.py` (sound from frame 0 and no fade at the end
+  for these scripts only), `tools/stills.mjs` (preview stills from the canvas), `tools/finish.sh` (share copy and every check on the
+  finished files), `tools/sheets.py`, `tools/checks.py`, `tools/soundcheck2.py`, `tools/sharecheck.py`, `tools/row.py`,
+  `tools/pauses.py`; `tools/render.mjs` refuses a render without the disk and memory, and has `--video-only` for a splice.
+- The order of work, and the viewer pass: `tools/episode_loop.md`. README "Standing rules learned from the trailer" lists what was
+  decided where a lesson met an older rule (speech rate, rests, the Next band, the freeze threshold).
+
+What the pilot (episode 50) showed and what was changed in the loop because of it:
+
+- The Chatterbox voice reads faster than Kokoro (about 3 words a second inside a sentence): episode 50 came out at 51.7 s and
+  3.0 words/s by the old measure. Selection now prefers the slower of equally even takes (`--pace 40`), the rate is measured the
+  trailer's way, and the length is brought into 54–58 s with the pauses between lines (`tools/pauses.py`), never by stretching.
+- The episodes' beds are quieter than the trailer's: before lifting, episode 50 had 212 windows under −26 dBFS (worst −42) and 126
+  falls. The bed is lifted in the holes by up to 26 dB (episode 50: 20.6) (the trailer: 14). NOBODY HAS HEARD what that lift sounds like.
+- At the trailer's freeze threshold every episode shot is "frozen" most of the time (the camera is slower). See README for the
+  threshold the gate uses instead; the stretches under the trailer's threshold are printed, not failed.
+- "No three-word phrase twice" caught five natural repeats ("on an island", "the god of", "was born as", "part of the", "the king
+  asked"); the lines were reworded inside what the verse check verified (below, per episode).
+
+## Episodes 50–55 · production log (2026-11-14; 51 is the earlier render, 50 and 52–55 under "rules": 2)
+
+One render each. For every "rules": 2 episode: voice by `tools/voice2.py` (Chatterbox, the trailer's reference, one take a line, no
+stretch), mix by `main_rules2`, the viewer pass on preview stills every 0.25 s before the render, the full gate, then
+`tools/finish.sh` on the finished files. "Looked at" below means: every pre-render 0.25 s sheet, and on the finished file the
+contact sheet and both frames of every cut; the finished file's 0.25 s sheets were made (`lab/review/epNN/post-pass-*.jpg`) but
+not all opened. Nobody has listened to any of them.
+
+### Episode 51 · The Burden of the Earth (53.2 s) · the row that was missing
+
+Rendered on 12 November under the old rules (Kokoro voices, two real silences); not re-made. Measured now on `episode51.mp4`
+(`tools/row.py`): hook 6 words by 2.42 s, motion by 0.5 s 16.9, turn 44 %, 2.53 words/s, −14.1 LUFS, −2.2 dBTP, LRA 4.8, 2 silences
+(longest 1.04 s), Next −10.4 dB, foley 19 of 22 on the beat, share 15.6 MB, 0 freezes over 0.3 s on the share file. It still shows
+"Voices: synthetic · Drawn in code" and fades in from silence: it predates the owner's decisions and was not touched. No viewer
+pass was done on it in this session.
+
+### Episode 50 · Born on an Island (55.1 s) · the pilot of the loop
+
+Script: `born` reworded to "That same day, on a river island, she bore a son." (the hook already says "on an island"; the island is
+in the Yamuna, 1.57.69). Voice: 67 takes, 12 lines, film median 127.5 Hz, lines within 0.6 semitones, 0 recogniser errors in the
+chosen takes (it writes "rode" for "rowed" and "Devaipayana"). Gate with frames and audio passed before the render; verify clean:
+0 freezes (master and share), worst 100 ms window −25.1 dBFS, 0 falls over 10 dB (worst 8.9), first 100 ms −24.7 dBFS, −14.2 LUFS,
+peak −2.9 dBFS on the share file, share 17.9 MB, SSIM 0.966. On the final mix the recogniser misses nothing but homophones ("rode",
+"sun") and writes "maid" once for "maiden".
+
+Viewer pass. Hook: a small child on an island in gold light, the camera coming down to him, the claim on the water; by one second
+you know what you see and the question is "which poet?". Turn: after the dip Parashara stands up into gold light and "Choose"
+lands with his words; picture and music brighten together. End: the king alone under slowly falling lights and a question; quiet,
+second to the island at dawn. Changed because of it: the child and the youth were black shapes (now dark skin, bark cloth, the face
+readable); `maiden` was the same close-up as `watching` (now nearer); `grew` and `cliff` stood still for 1.4–1.8 s (drift, a slow
+push, the falling lights from the first second); the king stood against the left edge; the hook's child is smaller so that the
+hook is not the picture of `grew`. Still weak: the caption band crosses the standing figures' legs in `born` and `grew`; three
+texts at once in `ferry` (recap band, plaque, caption), as in every episode since 41.
+
+### Episode 52 · Gods in Disguise (54.4 s)
+
+Script: `krishna` "And the god above all gods? Part of him came to earth as Krishna." (was "the god of gods … was born as":
+both phrases were also in other lines; devadeva, and the chapter is the descent of portions); `draupadi` "A portion of the
+goddess of fortune …"; `cliff` "And now the king wished to hear his own family's story." (1.62.1–2); and the 22-word `five` is now
+two lines, `five` ("The five Pandava brothers each carried part of a god.") and `gods` ("The god of justice, the wind, the gods'
+king, and the twin horsemen."): the same words, one caption and one picture each. Catalog cliffhanger updated. One gap inside a
+sentence is 0.36 s (limit 0.35), after "feud,": justified in the script (`gapOk`).
+Voice: 57 takes, 10 lines, lines within 0.9 semitones of the median. Verify clean (the file is one frame shorter than the
+timeline, as the encoder ends on the sound): 0 freezes, worst window −25.1 dBFS, worst fall 8.8 dB, −14.2 LUFS, share 18.1 MB. On
+the final mix the recogniser writes "pan of our" for "Pandava" and "the raupadi" for "Draupadi" (on the takes alone: "Pandavar",
+"Draupadi").
+
+Viewer pass. Hook: five small men in a row with vast dim gods behind them and the claim in four words; it moves, but the lower half
+of the frame is dark ground. Turn: Duryodhana in violet, the green-eyed shade rising behind him, "Strife". End: the teller's line
+before the whole cast, the arc card, then the hunt as a teaser. Changed because of it: the nine-second list shot (a five-row
+caption over one still picture, which was also the hook's picture) became two shots; Krishna rose through the caption band during
+the crane and is now shown once the crane has ended; five shots that stood still got a slow move; the arc card breathes. Still
+weak: it is a catalogue episode: four name plaques in 4.5 s in `gods`, three in `karna`; the lower third is dark ground in five
+shots; the Kali plaque is small.
+
+### Episode 53 · The King and the Hermitage (54.9 s)
+
+Script unchanged in words. Voice: 52 takes, 10 lines, lines within 1.4 semitones of the median, 0 recogniser errors; it writes
+"Canva" / "Canba" for Kanva and "Poru's" for Puru's (the same sounds spelt otherwise: counted as heard). Verify clean: 0 freezes,
+worst window −25.4 dBFS, worst fall 9.0 dB, −14.2 LUFS, share 17.7 MB, SSIM 0.962.
+
+Viewer pass. Hook: a man at a hut door in green light calls "Is anyone here?"; a face, a question, birds moving; you stay to learn
+who answers. Turn: he walks into the wood alone, crown and cloth left in the foreground, "Guest". End: the young woman, the king,
+a blue wood and a question that the next title answers. Changed because of it: the king on his chariot in `deeper` was a black
+shape for 5.5 s (a figure in colour stands in the car now; the car is brown wood); `empty` was a small picture in a door-shaped
+frame on black, which read as a shrunken video (full frame now); `line`, `left`, `empty` and `came` each stood still for up to
+2.7 s (slow moves added). Still weak: the charioteer is part of the chariot drawing and is still a dark shape; the first second of
+`left` has the king out of focus (the focus starts on the crown); the king is dim against the dark back of his throne in `line`;
+a four-row caption in `came`.
+
+**Sound re-muxed after the render, episodes 50, 52 and 53 (picture untouched).** The first check of episode 53's share file found
+one 100 ms window at −30.3 dBFS, 150 ms before the end. Cause: `tools/score.py` faded every episode's stems to silence over the
+last 0.7 s, and the mix had been lifting the bed by up to 26 dB to fill that. For "rules": 2 the fade is now 50 ms, the lift fell
+to 15–21 dB, and the three episodes already rendered were re-mixed and re-muxed with the video stream copied (md5 of the video
+stream equal before and after, master and share; `tools/remux.sh N`). The floor rule is measured to 60 ms before the end in
+the mix and to 100 ms before the end on the finished file (its decoded sound is a few ms longer).
+
+### Episode 54 · The Girl the Birds Protected (56.0 s)
+
+Script unchanged in words. Voice: 57 takes, 11 lines, lines within 1.1 semitones, 0 recogniser errors ("here why" for "Hear why",
+"Canva"); the hook's take is chosen for briskness (the first choice, a slow one, ended at 3.42 s: the limit is 3.0).
+Verify clean: 0 freezes, worst window −25.2 dBFS, worst fall 8.9 dB, −14.2 LUFS, share 18.2 MB, SSIM 0.966. On the final mix
+the recogniser writes "Minaka" / "Manaka", "Canva", "Shakuntalak" and, once, "goded" for "guarded" (on the take alone: "guarded").
+
+Viewer pass. Hook: birds standing round a small glowing child on a blue shore, and the question itself as the card; the strongest
+opening of the batch. Turn: Menaka rises from the river bank and leaves the child, "Alone". End: in a maroon dusk the king stands
+up and asks; quieter than the middle, where the birds ring the child (the peak). Changed because of it: `said` and `name` were the
+same wood at the same size (the first is nearer now); `tapas`, `left` and `birds` stood still for up to 1.7 s (slow moves).
+Still weak: the cliffhanger is dark maroon and is not the second-strongest picture; in `birds` the child is only a glow inside a
+tree-shaped vignette on black; a blurred white shape in the foreground of `saw`; two plaques in `tapas` within three seconds.
+
+### Episode 55 · A Marriage Without Witnesses (54.0 s)
+
+Script unchanged in words. Voice: 57 takes, 11 lines; the hook's take is 1.8 semitones under the film's median (inside the 2
+allowed; the farthest of the batch); 1 recogniser error in the chosen takes ("Gandhava" for "gandharva"). Verify clean: 0 freezes,
+worst window −25.3 dBFS, worst fall 9.0 dB, −14.2 LUFS, LRA 4.1 (the limit is 4), share 17.3 MB, SSIM 0.964.
+
+Viewer pass. Hook: the king reaches toward her in a maroon dusk, "Be my wife. My kingdom is yours."; two faces and a proposal; you
+stay for her answer. Turn: her face alone, "Then promise me: my son shall be king after you", "Promise": the peak. End: years
+later, the boy and a tied lion beside her; the next title answers it. Changed because of it: the first 23 seconds were one
+two-shot in five colours (the camera now goes to whoever speaks: her in `wait`, him in `self`; the night shot is wider); the king
+on his chariot in `army` was a black shape (now a figure in colour on a brown car); Kanva was out of focus for 2.3 s while he was
+being named (sharp by 0.7 s); the boy and the lion of the last picture were under the caption band (raised); `wed`, `kanva` and
+`bless` stood still for up to 1.1 s. Still weak: 54.03 s is the lower edge of the target; Shakuntala is a blur in the foreground
+of `kanva` throughout; `wed` is a small picture in a leaf-shaped frame on dark; the charioteer is still a dark shape.
+
+### Totals and what is not known (episodes 50, 52–55)
+
+Renders: 5 full renders for 5 episodes; no picture was re-rendered or spliced. The sound of 50, 52 and 53 was re-muxed once
+(see above). Nobody has listened: the voice (one Chatterbox voice for narration AND quoted speech, women's lines included), the
+names, the bed lifted by 15–21 dB in the pauses, the rests as dips and the 6 dB Next band are all judged by measurement only.
+Names the recogniser does not write as spelt, on the takes or on the final mix: Kanva ("Canva", "Canba"), Dvaipayana
+("Devaipayana"), Pandava ("Pandavar"; "pan of our" in the mix), Draupadi ("the raupadi" in the mix), Menaka ("Minaka", "Manaka"),
+Puru ("Poru", "Horu"), gandharva ("Gandhava"). No second spelling was tried for any of them (`voice/names.json`).
+
 ## Trailer lessons
 
 A trailer was made three times before the owner stopped hearing and seeing faults in it. What each fault was, as a rule for all

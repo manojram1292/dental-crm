@@ -1,0 +1,424 @@
+{
+ "episode": 51,
+ "duration": 53.2,
+ "stems": {
+  "amb": {
+   "rms_db": -34.5,
+   "peak_db": -14.8,
+   "loudest_at_s": 21.44,
+   "loudest_rms_db": -26.5
+  },
+  "foley": {
+   "rms_db": -36.9,
+   "peak_db": -15.2,
+   "loudest_at_s": 22.06,
+   "loudest_rms_db": -25.1
+  },
+  "mus": {
+   "rms_db": -26.8,
+   "peak_db": -4.2,
+   "loudest_at_s": 21.27,
+   "loudest_rms_db": -17.6
+  }
+ },
+ "foley": [
+  {
+   "line": "hook",
+   "cue": "thunder",
+   "asked_s": 0.08,
+   "onset_s": 0.079,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.2,
+   "peak_db": -31.0,
+   "picture_peak_s": 0.367,
+   "picture_offset_frames": 9,
+   "picture_change_at_cue": 2.82,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "hook",
+   "cue": "breath@0",
+   "asked_s": 0.819,
+   "onset_s": 0.801,
+   "audio_offset_frames": -0.5,
+   "peak_offset_frames": -0.3,
+   "peak_db": -36.7,
+   "picture_peak_s": 0.533,
+   "picture_offset_frames": -9,
+   "picture_change_at_cue": 3.5,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "secret",
+   "cue": "cloth",
+   "asked_s": 3.599,
+   "onset_s": 3.666,
+   "audio_offset_frames": 2.0,
+   "peak_offset_frames": 6.3,
+   "peak_db": -44.7,
+   "picture_peak_s": 3.833,
+   "picture_offset_frames": 7,
+   "picture_change_at_cue": 1.45,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "secret",
+   "cue": "flame@1",
+   "asked_s": 6.57,
+   "onset_s": 6.621,
+   "audio_offset_frames": 1.5,
+   "peak_offset_frames": 7.1,
+   "peak_db": -40.3,
+   "picture_peak_s": 6.6,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 1.78,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "kings",
+   "cue": "birds",
+   "asked_s": 7.991,
+   "onset_s": 7.998,
+   "audio_offset_frames": 0.2,
+   "peak_offset_frames": 8.6,
+   "peak_db": -36.8,
+   "picture_peak_s": 8.1,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 21.16,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "kings",
+   "cue": "steps@1",
+   "asked_s": 10.299,
+   "onset_s": 10.3,
+   "audio_offset_frames": 0.0,
+   "peak_offset_frames": 0.4,
+   "peak_db": -31.9,
+   "picture_peak_s": 10.533,
+   "picture_offset_frames": 7,
+   "picture_change_at_cue": 1.59,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "asuras",
+   "cue": "thunder@0",
+   "asked_s": 14.186,
+   "onset_s": 14.185,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.3,
+   "peak_db": -30.0,
+   "picture_peak_s": 14.033,
+   "picture_offset_frames": -5,
+   "picture_change_at_cue": 4.32,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "asuras",
+   "cue": "whoosh@2",
+   "asked_s": 17.622,
+   "onset_s": 17.502,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": -1.2,
+   "peak_db": -43.0,
+   "picture_peak_s": 17.433,
+   "picture_offset_frames": -6,
+   "picture_change_at_cue": 3.57,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "crushed",
+   "cue": "hooves",
+   "asked_s": 18.613,
+   "onset_s": 18.615,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 7.1,
+   "peak_db": -21.6,
+   "picture_peak_s": 18.733,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 4.93,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "crushed",
+   "cue": "growl@1",
+   "asked_s": 21.301,
+   "onset_s": 21.191,
+   "audio_offset_frames": -3.3,
+   "peak_offset_frames": 2.1,
+   "peak_db": -20.4,
+   "picture_peak_s": 21.2,
+   "picture_offset_frames": -3,
+   "picture_change_at_cue": 1.18,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "crushed",
+   "cue": "thud@2",
+   "asked_s": 22.063,
+   "onset_s": 21.979,
+   "audio_offset_frames": -2.5,
+   "peak_offset_frames": 1.2,
+   "peak_db": -18.5,
+   "picture_peak_s": 21.8,
+   "picture_offset_frames": -8,
+   "picture_change_at_cue": 0.95,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "weight",
+   "cue": "breath@0",
+   "asked_s": 24.764,
+   "onset_s": 24.644,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 0.1,
+   "peak_db": -49.7,
+   "picture_peak_s": 24.533,
+   "picture_offset_frames": -7,
+   "picture_change_at_cue": 0.79,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "weight",
+   "cue": "creak@1",
+   "asked_s": 26.674,
+   "onset_s": 26.559,
+   "audio_offset_frames": -3.5,
+   "peak_offset_frames": 0.8,
+   "peak_db": -45.4,
+   "picture_peak_s": 26.533,
+   "picture_offset_frames": -4,
+   "picture_change_at_cue": 1.37,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "went",
+   "cue": "steps",
+   "asked_s": 27.554,
+   "onset_s": 27.556,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 1.1,
+   "peak_db": -31.7,
+   "picture_peak_s": 27.8,
+   "picture_offset_frames": 7,
+   "picture_change_at_cue": 10.0,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "went",
+   "cue": "anklet@1",
+   "asked_s": 29.538,
+   "onset_s": 29.498,
+   "audio_offset_frames": -1.2,
+   "peak_offset_frames": -1.0,
+   "peak_db": -31.9,
+   "picture_peak_s": 29.567,
+   "picture_offset_frames": 1,
+   "picture_change_at_cue": 4.88,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "knew",
+   "cue": "cloth@0",
+   "asked_s": 32.387,
+   "onset_s": 32.305,
+   "audio_offset_frames": -2.5,
+   "peak_offset_frames": -0.0,
+   "peak_db": -44.1,
+   "picture_peak_s": 32.167,
+   "picture_offset_frames": -7,
+   "picture_change_at_cue": 0.59,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "command",
+   "cue": "thunder@0",
+   "asked_s": 34.577,
+   "onset_s": 34.576,
+   "audio_offset_frames": -0.0,
+   "peak_offset_frames": 0.4,
+   "peak_db": -31.1,
+   "picture_peak_s": 34.533,
+   "picture_offset_frames": -1,
+   "picture_change_at_cue": 15.37,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "command",
+   "cue": "cloth",
+   "asked_s": 34.437,
+   "onset_s": 34.576,
+   "audio_offset_frames": 4.2,
+   "peak_offset_frames": 4.6,
+   "peak_db": -31.1,
+   "picture_peak_s": 34.533,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 8.49,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "agreed",
+   "cue": "water",
+   "asked_s": 40.776,
+   "onset_s": 40.935,
+   "audio_offset_frames": 4.8,
+   "peak_offset_frames": 6.0,
+   "peak_db": -46.2,
+   "picture_peak_s": 40.9,
+   "picture_offset_frames": 4,
+   "picture_change_at_cue": 6.81,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "agreed",
+   "cue": "whoosh@1",
+   "asked_s": 43.112,
+   "onset_s": 42.992,
+   "audio_offset_frames": -3.6,
+   "peak_offset_frames": 2.6,
+   "peak_db": -41.7,
+   "picture_peak_s": 42.933,
+   "picture_offset_frames": -5,
+   "picture_change_at_cue": 0.92,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "cliff",
+   "cue": "whoosh",
+   "asked_s": 45.82,
+   "onset_s": 45.952,
+   "audio_offset_frames": 4.0,
+   "peak_offset_frames": 8.8,
+   "peak_db": -42.9,
+   "picture_peak_s": 45.933,
+   "picture_offset_frames": 3,
+   "picture_change_at_cue": 7.18,
+   "picture_change_median": 1.05
+  },
+  {
+   "line": "cliff",
+   "cue": "steps@1",
+   "asked_s": 48.168,
+   "onset_s": 48.169,
+   "audio_offset_frames": 0.1,
+   "peak_offset_frames": 0.4,
+   "peak_db": -32.1,
+   "picture_peak_s": 48.333,
+   "picture_offset_frames": 5,
+   "picture_change_at_cue": 0.6,
+   "picture_change_median": 1.05
+  }
+ ],
+ "ambience": [
+  {
+   "line": "hook",
+   "amb": "void",
+   "rms_db": -41.5,
+   "centroid_hz": 189
+  },
+  {
+   "line": "secret",
+   "amb": "satra",
+   "rms_db": -36.3,
+   "centroid_hz": 228
+  },
+  {
+   "line": "kings",
+   "amb": "meadow",
+   "rms_db": -33.8,
+   "centroid_hz": 3329
+  },
+  {
+   "line": "asuras",
+   "amb": "void",
+   "rms_db": -41.3,
+   "centroid_hz": 266
+  },
+  {
+   "line": "crushed",
+   "amb": "storm",
+   "rms_db": -27.3,
+   "centroid_hz": 1125
+  },
+  {
+   "line": "weight",
+   "amb": "void",
+   "rms_db": -41.1,
+   "centroid_hz": 313
+  },
+  {
+   "line": "went",
+   "amb": "heaven",
+   "rms_db": -37.4,
+   "centroid_hz": 448
+  },
+  {
+   "line": "knew",
+   "amb": "heaven",
+   "rms_db": -42.3,
+   "centroid_hz": 486
+  },
+  {
+   "line": "command",
+   "amb": "heaven",
+   "rms_db": -38.4,
+   "centroid_hz": 452
+  },
+  {
+   "line": "agreed",
+   "amb": "sky",
+   "rms_db": -35.1,
+   "centroid_hz": 756
+  },
+  {
+   "line": "cliff",
+   "amb": "sky",
+   "rms_db": -34.7,
+   "centroid_hz": 838
+  },
+  {
+   "line": "next",
+   "amb": "sky",
+   "rms_db": -37.4,
+   "centroid_hz": 662
+  }
+ ],
+ "mix": {
+  "peak_db": -2.51,
+  "samples_at_full_scale": 0,
+  "seconds_under_-50dB": 1.91,
+  "energy_pct": {
+   "under_120": 11.75,
+   "120_500": 51.55,
+   "500_2k": 27.15,
+   "2k_6k": 7.08,
+   "over_6k": 2.47
+  }
+ },
+ "ambience_places": {
+  "void": {
+   "lines": 3,
+   "centroid_hz": 256
+  },
+  "satra": {
+   "lines": 1,
+   "centroid_hz": 228
+  },
+  "meadow": {
+   "lines": 1,
+   "centroid_hz": 3329
+  },
+  "storm": {
+   "lines": 1,
+   "centroid_hz": 1125
+  },
+  "heaven": {
+   "lines": 3,
+   "centroid_hz": 462
+  },
+  "sky": {
+   "lines": 3,
+   "centroid_hz": 752
+  }
+ }
+}

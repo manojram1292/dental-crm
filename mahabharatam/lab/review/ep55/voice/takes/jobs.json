@@ -1,0 +1,158 @@
+[
+ {
+  "id": "hook~0",
+  "text": "Be my wife. My kingdom is yours.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.55,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
+ },
+ {
+  "id": "who~0",
+  "text": "King Dushyanta had found Shakuntala alone in a forest hermitage.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "wait~0",
+  "text": "Wait for my father. He will give me to you.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.55,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "self~0",
+  "text": "You are your own to give, if you wish it.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.55,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "gandharva~0",
+  "text": "He meant a gandharva marriage: their own choice, no priest, no witness.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "terms~0",
+  "text": "Then promise me: my son shall be king after you.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.55,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "wed~0",
+  "text": "He agreed at once, took her hand, and they were married.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "army~0",
+  "text": "He left, promising to send an army for her.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "kanva~0",
+  "text": "Her foster father, Kanva, came home and knew it all.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "bless~0",
+  "text": "You have done no wrong. Your son will rule the whole earth.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.55,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "cliff~0",
+  "text": "Years later she was still there: with a son who tied up lions.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ }
+]

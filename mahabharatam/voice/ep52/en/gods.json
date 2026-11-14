@@ -1,0 +1,101 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "gods~0.s2.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "The god of justice, the wind, the gods' king, and the twin horsemen.",
+ "heard": "the God of justice, the wind, the God's king, and the twin horsemen.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 4.583,
+   "words": 13,
+   "text": "The god of justice, the wind, the gods' king, and the twin horsemen."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.1
+  ],
+  [
+   0.1,
+   0.36
+  ],
+  [
+   0.36,
+   0.5
+  ],
+  [
+   0.5,
+   1.245
+  ],
+  [
+   1.441,
+   1.5
+  ],
+  [
+   1.5,
+   1.948
+  ],
+  [
+   2.256,
+   2.3
+  ],
+  [
+   2.3,
+   2.68
+  ],
+  [
+   2.68,
+   3.12
+  ],
+  [
+   3.12,
+   3.2
+  ],
+  [
+   3.2,
+   3.32
+  ],
+  [
+   3.32,
+   3.52
+  ],
+  [
+   3.52,
+   4.427
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 149,
+ "longest_pause_s": 0.31,
+ "pauses_shortened": [
+  {
+   "at_s": 2.1,
+   "was_s": 0.35,
+   "now_s": 0.3
+  }
+ ],
+ "measured": {
+  "f0": 123.9,
+  "st": 10.2,
+  "edb": 18.5,
+  "dur": 4.4,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 9.6,
+  "jitter": 2.38,
+  "tail_db": -85.7
+ },
+ "film_median_hz": 127.6,
+ "semitones_from_film_median": -0.51,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

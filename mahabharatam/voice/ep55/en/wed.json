@@ -1,30 +1,87 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8262,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "wed~0.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "He agreed at once, took her hand, and they were married.",
+ "heard": "He agreed at once, took her hand, and they were married.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.4741,
-   "words": 4,
-   "speed": 0.826,
-   "text": "He agreed at once,"
-  },
-  {
-   "t0": 1.6741,
-   "t1": 2.7141,
-   "words": 3,
-   "speed": 0.826,
-   "text": "took her hand,"
-  },
-  {
-   "t0": 2.9141,
-   "t1": 4.221,
-   "words": 4,
-   "speed": 0.826,
-   "text": "and they were married."
+   "t0": 0,
+   "t1": 3.44,
+   "words": 11,
+   "text": "He agreed at once, took her hand, and they were married."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.12
+  ],
+  [
+   0.12,
+   0.34
+  ],
+  [
+   0.34,
+   0.56
+  ],
+  [
+   0.56,
+   1.097
+  ],
+  [
+   1.323,
+   1.44
+  ],
+  [
+   1.44,
+   1.66
+  ],
+  [
+   1.66,
+   2.111
+  ],
+  [
+   2.39,
+   2.48
+  ],
+  [
+   2.48,
+   2.62
+  ],
+  [
+   2.62,
+   2.78
+  ],
+  [
+   2.78,
+   3.283
+  ]
+ ],
+ "lead_air_ms": 26,
+ "tail_air_ms": 151,
+ "longest_pause_s": 0.28,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 117.7,
+  "st": 9.3,
+  "edb": 16.6,
+  "dur": 3.26,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.1,
+  "jitter": 2.46,
+  "tail_db": -72.4
+ },
+ "film_median_hz": 125.7,
+ "semitones_from_film_median": -1.14,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

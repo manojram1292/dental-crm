@@ -1,0 +1,27 @@
+{
+ "file": "episode54-share.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 1679,
+ "seconds": 55.97,
+ "low_motion": [
+  [
+   23.53,
+   0.9
+  ]
+ ],
+ "exact_repeats": 0,
+ "median_frame_difference": 0.75,
+ "least_moving_second": [
+  23.53,
+  0.25
+ ],
+ "dead_air_under_-45dB_over_0.3s": [],
+ "ssim_vs_master": {
+  "mean": 0.9656,
+  "worst": 0.9339,
+  "worst_at_s": 43.3,
+  "runs_under_0.90": [],
+  "frames_under_0.90": 0
+ }
+}

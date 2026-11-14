@@ -1,0 +1,27 @@
+{
+ "file": "episode55-share.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 1620,
+ "seconds": 54.0,
+ "low_motion": [
+  [
+   7.83,
+   0.87
+  ]
+ ],
+ "exact_repeats": 0,
+ "median_frame_difference": 0.63,
+ "least_moving_second": [
+  7.83,
+  0.22
+ ],
+ "dead_air_under_-45dB_over_0.3s": [],
+ "ssim_vs_master": {
+  "mean": 0.9635,
+  "worst": 0.9364,
+  "worst_at_s": 9.43,
+  "runs_under_0.90": [],
+  "frames_under_0.90": 0
+ }
+}

@@ -1,30 +1,88 @@
 {
- "speaker": "shakuntala",
- "voice": "af_bella",
- "speed": 0.84,
- "pitch": 0.0,
+ "speaker": "narrator",
+ "script_speaker": "shakuntala",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "name~0.s2.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Guarded by birds, by shakuntas: so he named me Shakuntala.",
+ "heard": "guarded by birds by Shakuntas, so he named me Shakuntala.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.2323,
-   "words": 3,
-   "speed": 0.84,
-   "text": "Guarded by birds,"
-  },
-  {
-   "t0": 1.3323,
-   "t1": 2.4772,
-   "words": 2,
-   "speed": 0.84,
-   "text": "by shakuntas:"
-  },
-  {
-   "t0": 2.7372,
-   "t1": 4.3124,
-   "words": 5,
-   "speed": 0.84,
-   "text": "so he named me Shakuntala."
+   "t0": 0,
+   "t1": 4.601,
+   "words": 10,
+   "text": "\"Guarded by birds, by shakuntas: so he named me Shakuntala.\""
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.3
+  ],
+  [
+   0.3,
+   0.52
+  ],
+  [
+   0.52,
+   1.198
+  ],
+  [
+   1.294,
+   1.624
+  ],
+  [
+   1.686,
+   2.277
+  ],
+  [
+   2.688,
+   2.82
+  ],
+  [
+   2.82,
+   2.96
+  ],
+  [
+   2.96,
+   3.2
+  ],
+  [
+   3.2,
+   3.689
+  ],
+  [
+   3.776,
+   4.475
+  ]
+ ],
+ "lead_air_ms": 25,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.41,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 130.6,
+  "st": 11.6,
+  "edb": 18.4,
+  "dur": 4.46,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.0,
+  "jitter": 2.16,
+  "tail_db": -70.4
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": 0.45,
+ "names": {
+  "Shakuntala": {
+   "heard": "shakuntala",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

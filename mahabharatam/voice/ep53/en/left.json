@@ -1,37 +1,113 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "left~0.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "He left his army at the forest's edge, and laid aside the signs of a king.",
+ "heard": "He left his army at the forest's edge and laid aside the signs of a king.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.1915,
-   "words": 4,
-   "speed": 0.891,
-   "text": "He left his army"
-  },
-  {
-   "t0": 1.2515,
-   "t1": 2.6707,
-   "words": 4,
-   "speed": 0.891,
-   "text": "at the forest's edge,"
-  },
-  {
-   "t0": 2.8707,
-   "t1": 4.0329,
-   "words": 3,
-   "speed": 0.891,
-   "text": "and laid aside"
-  },
-  {
-   "t0": 4.0929,
-   "t1": 5.4908,
-   "words": 5,
-   "speed": 0.891,
-   "text": "the signs of a king."
+   "t0": 0,
+   "t1": 5.03,
+   "words": 16,
+   "text": "He left his army at the forest's edge, and laid aside the signs of a king."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.1
+  ],
+  [
+   0.1,
+   0.381
+  ],
+  [
+   0.481,
+   0.6
+  ],
+  [
+   0.6,
+   0.92
+  ],
+  [
+   0.92,
+   1.143
+  ],
+  [
+   1.21,
+   1.344
+  ],
+  [
+   1.45,
+   1.96
+  ],
+  [
+   2.048,
+   2.379
+  ],
+  [
+   2.69,
+   2.76
+  ],
+  [
+   2.76,
+   3.02
+  ],
+  [
+   3.02,
+   3.36
+  ],
+  [
+   3.36,
+   3.72
+  ],
+  [
+   3.72,
+   3.98
+  ],
+  [
+   3.98,
+   4.36
+  ],
+  [
+   4.36,
+   4.42
+  ],
+  [
+   4.42,
+   4.89
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 133,
+ "longest_pause_s": 0.31,
+ "pauses_shortened": [
+  {
+   "at_s": 2.54,
+   "was_s": 0.48,
+   "now_s": 0.3
+  }
+ ],
+ "measured": {
+  "f0": 132.0,
+  "st": 6.6,
+  "edb": 16.0,
+  "dur": 4.87,
+  "jumps": 0.3,
+  "creak": 0.0,
+  "hnr": 11.5,
+  "jitter": 2.15,
+  "tail_db": -69.4
+ },
+ "film_median_hz": 129.0,
+ "semitones_from_film_median": 0.4,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

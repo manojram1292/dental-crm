@@ -1,0 +1,762 @@
+{
+ "file": "episode52-share.mp4",
+ "seconds": 54.44,
+ "stops": [],
+ "holes": {
+  "floor_db": -26,
+  "windows": 1085,
+  "worst_window_db": -25.2,
+  "worst_window_at_s": 54.2,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 8.9,
+  "worst_drop_at_s": 53.4,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 10,
+  "drop_window_s": 0.3
+ },
+ "start": {
+  "first_100ms_db": -24.4,
+  "first_frame_33ms_db": -22.9,
+  "first_10ms_db": -23.0
+ },
+ "clipping": {
+  "samples_at_0.999": 0,
+  "peak_dbfs": -3.2
+ },
+ "recogniser": {
+  "heard": "Five brothers, five gods. The king asked, which god was born as who? The five pandavar brothers each carried part of a god. the God of justice, the wind, the God's king, and the twin horsemen. Karna, born in armour, was part of the sun. And the God above all gods, part of him came to earth as Krishna. But dark powers had been born first. Duryodhana, who lit the feud, was born from the spirit of strife. A portion of the goddess of fortune rose from an altar, the Raupadi. The wise who hear this do not lose heart in hard times. And now the King wished to hear his own family's story.",
+  "transcribed_in_stretches_starting_at_s": [
+   0.0,
+   12.47,
+   26.7,
+   41.17,
+   54.44
+  ],
+  "words": [
+   [
+    "Five",
+    0.0,
+    0.36
+   ],
+   [
+    "brothers,",
+    0.36,
+    0.68
+   ],
+   [
+    "five",
+    1.36,
+    1.58
+   ],
+   [
+    "gods.",
+    1.58,
+    1.9
+   ],
+   [
+    "The",
+    3.46,
+    3.82
+   ],
+   [
+    "king",
+    3.82,
+    4.02
+   ],
+   [
+    "asked,",
+    4.02,
+    4.32
+   ],
+   [
+    "which",
+    4.9,
+    5.14
+   ],
+   [
+    "god",
+    5.14,
+    5.48
+   ],
+   [
+    "was",
+    5.48,
+    5.86
+   ],
+   [
+    "born",
+    5.86,
+    6.14
+   ],
+   [
+    "as",
+    6.14,
+    6.52
+   ],
+   [
+    "who?",
+    6.52,
+    6.82
+   ],
+   [
+    "The",
+    7.7,
+    8.1
+   ],
+   [
+    "five",
+    8.1,
+    8.4
+   ],
+   [
+    "pandavar",
+    8.4,
+    8.98
+   ],
+   [
+    "brothers",
+    8.98,
+    9.48
+   ],
+   [
+    "each",
+    9.48,
+    10.12
+   ],
+   [
+    "carried",
+    10.12,
+    10.56
+   ],
+   [
+    "part",
+    10.56,
+    10.92
+   ],
+   [
+    "of",
+    10.92,
+    11.24
+   ],
+   [
+    "a",
+    11.24,
+    11.34
+   ],
+   [
+    "god.",
+    11.34,
+    11.6
+   ],
+   [
+    "the",
+    12.47,
+    12.81
+   ],
+   [
+    "God",
+    12.81,
+    13.07
+   ],
+   [
+    "of",
+    13.07,
+    13.23
+   ],
+   [
+    "justice,",
+    13.23,
+    13.49
+   ],
+   [
+    "the",
+    14.15,
+    14.21
+   ],
+   [
+    "wind,",
+    14.21,
+    14.39
+   ],
+   [
+    "the",
+    14.95,
+    15.03
+   ],
+   [
+    "God's",
+    15.03,
+    15.41
+   ],
+   [
+    "king,",
+    15.41,
+    15.59
+   ],
+   [
+    "and",
+    15.91,
+    15.93
+   ],
+   [
+    "the",
+    15.93,
+    16.03
+   ],
+   [
+    "twin",
+    16.03,
+    16.25
+   ],
+   [
+    "horsemen.",
+    16.25,
+    17.01
+   ],
+   [
+    "Karna,",
+    17.81,
+    18.25
+   ],
+   [
+    "born",
+    18.77,
+    18.87
+   ],
+   [
+    "in",
+    18.87,
+    19.07
+   ],
+   [
+    "armour,",
+    19.07,
+    19.27
+   ],
+   [
+    "was",
+    19.61,
+    19.77
+   ],
+   [
+    "part",
+    19.77,
+    19.97
+   ],
+   [
+    "of",
+    19.97,
+    20.19
+   ],
+   [
+    "the",
+    20.19,
+    20.33
+   ],
+   [
+    "sun.",
+    20.33,
+    20.57
+   ],
+   [
+    "And",
+    21.77,
+    22.01
+   ],
+   [
+    "the",
+    22.01,
+    22.15
+   ],
+   [
+    "God",
+    22.15,
+    22.35
+   ],
+   [
+    "above",
+    22.35,
+    22.69
+   ],
+   [
+    "all",
+    22.69,
+    23.05
+   ],
+   [
+    "gods,",
+    23.05,
+    23.25
+   ],
+   [
+    "part",
+    23.87,
+    24.19
+   ],
+   [
+    "of",
+    24.19,
+    24.41
+   ],
+   [
+    "him",
+    24.41,
+    24.55
+   ],
+   [
+    "came",
+    24.55,
+    24.77
+   ],
+   [
+    "to",
+    24.77,
+    24.99
+   ],
+   [
+    "earth",
+    24.99,
+    25.21
+   ],
+   [
+    "as",
+    25.21,
+    25.53
+   ],
+   [
+    "Krishna.",
+    25.53,
+    25.71
+   ],
+   [
+    "But",
+    26.7,
+    27.76
+   ],
+   [
+    "dark",
+    27.76,
+    28.08
+   ],
+   [
+    "powers",
+    28.08,
+    28.56
+   ],
+   [
+    "had",
+    28.56,
+    28.98
+   ],
+   [
+    "been",
+    28.98,
+    29.14
+   ],
+   [
+    "born",
+    29.14,
+    29.46
+   ],
+   [
+    "first.",
+    29.46,
+    29.94
+   ],
+   [
+    "Duryodhana,",
+    30.96,
+    31.6
+   ],
+   [
+    "who",
+    32.02,
+    32.16
+   ],
+   [
+    "lit",
+    32.16,
+    32.34
+   ],
+   [
+    "the",
+    32.34,
+    32.58
+   ],
+   [
+    "feud,",
+    32.58,
+    32.8
+   ],
+   [
+    "was",
+    33.34,
+    33.5
+   ],
+   [
+    "born",
+    33.5,
+    33.86
+   ],
+   [
+    "from",
+    33.86,
+    34.18
+   ],
+   [
+    "the",
+    34.18,
+    34.34
+   ],
+   [
+    "spirit",
+    34.34,
+    34.72
+   ],
+   [
+    "of",
+    34.72,
+    35.08
+   ],
+   [
+    "strife.",
+    35.08,
+    35.36
+   ],
+   [
+    "A",
+    36.54,
+    36.58
+   ],
+   [
+    "portion",
+    36.58,
+    36.88
+   ],
+   [
+    "of",
+    36.88,
+    37.08
+   ],
+   [
+    "the",
+    37.08,
+    37.2
+   ],
+   [
+    "goddess",
+    37.2,
+    37.42
+   ],
+   [
+    "of",
+    37.42,
+    37.64
+   ],
+   [
+    "fortune",
+    37.64,
+    37.9
+   ],
+   [
+    "rose",
+    37.9,
+    38.42
+   ],
+   [
+    "from",
+    38.42,
+    38.82
+   ],
+   [
+    "an",
+    38.82,
+    38.92
+   ],
+   [
+    "altar,",
+    38.92,
+    39.14
+   ],
+   [
+    "the",
+    39.88,
+    39.88
+   ],
+   [
+    "Raupadi.",
+    39.88,
+    40.34
+   ],
+   [
+    "The",
+    41.17,
+    42.05
+   ],
+   [
+    "wise",
+    42.05,
+    42.33
+   ],
+   [
+    "who",
+    42.33,
+    42.65
+   ],
+   [
+    "hear",
+    42.65,
+    42.89
+   ],
+   [
+    "this",
+    42.89,
+    43.21
+   ],
+   [
+    "do",
+    43.21,
+    43.79
+   ],
+   [
+    "not",
+    43.79,
+    44.01
+   ],
+   [
+    "lose",
+    44.01,
+    44.31
+   ],
+   [
+    "heart",
+    44.31,
+    44.65
+   ],
+   [
+    "in",
+    44.65,
+    44.99
+   ],
+   [
+    "hard",
+    44.99,
+    45.17
+   ],
+   [
+    "times.",
+    45.17,
+    45.65
+   ],
+   [
+    "And",
+    48.23,
+    48.87
+   ],
+   [
+    "now",
+    48.87,
+    49.51
+   ],
+   [
+    "the",
+    49.51,
+    49.73
+   ],
+   [
+    "King",
+    49.73,
+    49.93
+   ],
+   [
+    "wished",
+    49.93,
+    50.27
+   ],
+   [
+    "to",
+    50.27,
+    50.49
+   ],
+   [
+    "hear",
+    50.49,
+    50.67
+   ],
+   [
+    "his",
+    50.67,
+    50.95
+   ],
+   [
+    "own",
+    50.95,
+    51.15
+   ],
+   [
+    "family's",
+    51.15,
+    51.79
+   ],
+   [
+    "story.",
+    51.79,
+    52.11
+   ]
+  ],
+  "gaps_over_0.35s_inside_a_sentence": [
+   {
+    "after": "brothers,",
+    "before": "five",
+    "at_s": 0.68,
+    "gap_s": 0.68
+   },
+   {
+    "after": "asked,",
+    "before": "which",
+    "at_s": 4.32,
+    "gap_s": 0.58
+   },
+   {
+    "after": "justice,",
+    "before": "the",
+    "at_s": 13.49,
+    "gap_s": 0.66
+   },
+   {
+    "after": "wind,",
+    "before": "the",
+    "at_s": 14.39,
+    "gap_s": 0.56
+   },
+   {
+    "after": "Karna,",
+    "before": "born",
+    "at_s": 18.25,
+    "gap_s": 0.52
+   },
+   {
+    "after": "gods,",
+    "before": "part",
+    "at_s": 23.25,
+    "gap_s": 0.62
+   },
+   {
+    "after": "Duryodhana,",
+    "before": "who",
+    "at_s": 31.6,
+    "gap_s": 0.42
+   },
+   {
+    "after": "feud,",
+    "before": "was",
+    "at_s": 32.8,
+    "gap_s": 0.54
+   },
+   {
+    "after": "altar,",
+    "before": "the",
+    "at_s": 39.14,
+    "gap_s": 0.74
+   }
+  ],
+  "script_words": 126,
+  "misheard": [
+   {
+    "script": "whom",
+    "heard": "who"
+   },
+   {
+    "script": "pandava",
+    "heard": "pandavar"
+   },
+   {
+    "script": "gods'",
+    "heard": "god's"
+   },
+   {
+    "script": "draupadi",
+    "heard": "the raupadi"
+   },
+   {
+    "script": "the end of an arc vyasa begins",
+    "heard": ""
+   },
+   {
+    "script": "next the king and the hermitage",
+    "heard": ""
+   }
+  ]
+ },
+ "voice_stem": {
+  "peak_dbfs": -5.6,
+  "samples_at_0.999": 0,
+  "boundaries": 20,
+  "ordinary_speech_step_99pct_db": -25.1,
+  "loudest_step_at_a_boundary_db": -63.9,
+  "boundaries_with_a_step_over_-40_db": [],
+  "boundaries_with_level_over_-30_db": []
+ },
+ "pauses_inside_sentences_in_the_voice_files": {
+  "over_0.35_s": [
+   {
+    "shot": "asked",
+    "after": "asked:",
+    "before": "which",
+    "silence_s": 0.42
+   },
+   {
+    "shot": "draupadi",
+    "after": "altar:",
+    "before": "Draupadi.",
+    "silence_s": 0.42
+   }
+  ],
+  "longest": [
+   {
+    "shot": "asked",
+    "after": "asked:",
+    "before": "which",
+    "silence_s": 0.42
+   },
+   {
+    "shot": "draupadi",
+    "after": "altar:",
+    "before": "Draupadi.",
+    "silence_s": 0.42
+   },
+   {
+    "shot": "five",
+    "after": "brothers",
+    "before": "each",
+    "silence_s": 0.3
+   },
+   {
+    "shot": "gods",
+    "after": "wind,",
+    "before": "the",
+    "silence_s": 0.3
+   },
+   {
+    "shot": "karna",
+    "after": "Karna,",
+    "before": "born",
+    "silence_s": 0.27
+   },
+   {
+    "shot": "kali",
+    "after": "Duryodhana,",
+    "before": "who",
+    "silence_s": 0.26
+   },
+   {
+    "shot": "payoff",
+    "after": "this",
+    "before": "do",
+    "silence_s": 0.25
+   }
+  ]
+ }
+}

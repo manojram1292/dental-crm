@@ -1,0 +1,2 @@
+gate ep48: hook 6 w, speech ends 2.87 s · story starts 3.57 s · duration 56.47 s · turn "dice" at 41.2 % · 2.30 words/s · 3 names, ≤ 2 new per 10 s · 3 names identified · previous question answered at 7.8 s · 4 ambiences · 9 music moods · 2 J/L cuts · 2 rests · 9 palettes, hue run ≤ 2 · 5 camera moves · 4 medium transitions · silences ≥ 0.6 s at −45 dB: 2 (longest 1.07 s) · LRA 5.7 LU · stems mus+amb+foley · music -10 dB under voice · TP -2.35 · Next -10.4 dB vs body
+gate ep48: passed

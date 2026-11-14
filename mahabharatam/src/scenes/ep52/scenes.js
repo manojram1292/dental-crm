@@ -16,8 +16,8 @@
 
   const MEN = ['yudhishthira', 'bhima', 'arjuna', 'nakula', 'sahadeva'], MX = [130, 335, 540, 745, 950];
   // the god behind man i, large (x, y = his feet); lit k = 0..1
-  const god = (g, T, i, x, y, s, k = 1) => { const L = { ...GL, intensity: 0.9 + 0.5 * k, front: 0.5 + 0.4 * k };
-    KIT.glow(g, x, y - 700 * s, 560 * s, '#fff0c0', 0.55 + 0.35 * k);
+  const god = (g, T, i, x, y, s, k = 1, gc = '#fff0c0') => { const L = { ...GL, intensity: 0.9 + 0.5 * k, front: 0.5 + 0.4 * k };
+    KIT.glow(g, x, y - 700 * s, 560 * s, gc, 0.55 + 0.35 * k);
     if (i === 0) CH.dharma.draw(g, { x, y, scale: s * 0.95, facing: 'left', pose: { w: { bless: 0.6, stand: 0.4 }, prop: 'staff' }, light: { dir: -Math.PI / 2, intensity: 0.16, front: 0.1, fill: 0.05, tint: ['#40305a', 0.8], minLum: 0.01 }, expression: { emo: 'calm' }, t: T, key: 'god0' });
     else if (i === 2) CH.indra.draw(g, { x, y, scale: s * 0.9, facing: 'left', pose: { name: 'protect', k: 0.6 }, light: L, t: T, key: 'god2' });
     else CH.deva.draw(g, { x, y, scale: s, index: i === 1 ? 3 : i === 3 ? 1 : 5, facing: i === 4 ? 'right' : 'left', pose: { name: 'raise', k: i === 1 ? 0.5 : 0.15 }, light: L, t: T, key: 'god' + i }); };
@@ -28,7 +28,7 @@
   // 1 · HOOK: five warriors in a row on a ridge at gold dawn; behind each, vast in the sky, a pale standing god; a pull back
   R.scene({ id: 'hook',
     draw(ctx, t, env) {
-      const T = env.T, b1 = env.beats[1] ?? 2.2, cam = CAM.drift(CAM.pull(E.outCubic(clamp(t / 3.2)), { from: 1.5, to: 1.02, focus: [540, 1050] }), T, 0.5), k = E.outCubic(clamp((t - b1 + 0.5) / 0.8));
+      const T = env.T, b1 = env.beats[1] ?? 2.2, cam = CAM.drift(CAM.pull(E.outSine(clamp(t / (env.dur + 0.4))), { from: 1.5, to: 1.02, focus: [540, 1050] }), T, 2.4), k = E.outCubic(clamp((t - b1 + 0.5) / 0.8));
       ridge(ctx, T, cam, 'island-gold', { sun: [540, 600, 150],
         far: (g) => { for (let i = 0; i < 5; i++) god(g, T, i, MX[i] + (i - 2) * 40, 1060, 0.92, k); },
         figs: (g, p) => { for (let i = 0; i < 5; i++) man(g, p, T, i, MX[i], 1075 + Math.abs(i - 2) * 10, 0.5); } });
@@ -40,7 +40,7 @@
   // 2 · ASKED (the frame; the close-up): the king's face: eager, then awe as the answer begins
   R.scene({ id: 'asked', transition: { type: 'smoke', dur: 0.6, dir: -Math.PI / 2, color: '#1a4a5a' },
     draw(ctx, t, env) {
-      const T = env.T, b1 = env.beats[1] ?? 3, cam = CAM.push(t / env.dur, { from: 1.0, to: 1.1, focus: [540, 780] });
+      const T = env.T, b1 = env.beats[1] ?? 3, cam = CAM.drift(CAM.push(t / env.dur, { from: 1.0, to: 1.1, focus: [540, 780] }), T, 0.8);
       EP46.hall(ctx, T, cam, { pal: 'satra-teal-night', fx: -200, fire: 0.8, fs: 1.0, crowd: 0.5, front: () => {}, figs: (g, p, fl) => {
         CH.kingJanamejaya.draw(g, { x: 660, y: 2960, scale: 2.5, facing: 'left', pose: { w: { anjali: 0.5, stand: 0.5 } }, light: { ...EP46.lit(660, fl, 0.85, -200), fill: 0.45, intensity: 1.4 }, expression: { emo: ACT.emo(t, [[0, 'resolve'], [b1 - 0.6, 'wonder', { dur: 0.6 }]]), speak: 0, ...ACT.lead(t, [[0, [0.8, 0.1]], [b1 - 0.5, [0.7, -0.4]]], 0.35, 0.15) }, t: T, key: 'as-k' });
         const gr = g.createLinearGradient(0, 1060, 0, 1560); gr.addColorStop(0, 'rgba(4,14,20,0)'); gr.addColorStop(0.5, 'rgba(4,14,20,0.85)'); gr.addColorStop(1, 'rgba(4,14,20,0.96)'); g.fillStyle = gr; g.fillRect(-900, 1060, 2880, 1800); } });
@@ -50,17 +50,29 @@
     },
     post: POST(0.36, 0.5) });
 
-  // 3 · FIVE: a slow track along the row; as each god is named his great figure brightens and the man's plaque arrives
+  // 3 · FIVE: close on the brothers: a slow track along the row; their gods dim and vast behind (the hook's picture is the wide one)
   R.scene({ id: 'five', transition: { type: 'brush', dur: 0.5, angle: 0.2, color: '#fff6c8' },
     draw(ctx, t, env) {
-      const T = env.T, b = env.beats, bt = [b[1] ?? 4.8, b[2] ?? 5.8, b[3] ?? 7.1, b[4] ?? 8.5], cam = CAM.slide(E.inOutSine(clamp((t - 2.6) / (env.dur - 3.0))), { from: -150, to: 150, zoom: 1.2 });
-      const lit = (i) => clamp((t - [bt[0], bt[1], bt[2], bt[3], bt[3] + 0.3][i] + 0.4) / 0.6);
+      const T = env.T, u = t / env.dur, cam = CAM.drift(CAM.slide(E.inOutSine(clamp(u)), { from: -210, to: 210, zoom: 1.72 }), T, 0.8);
       ridge(ctx, T, cam, 'messenger-dawn', { sun: [540, 560, 130],
-        far: (g) => { for (let i = 0; i < 5; i++) god(g, T, i, MX[i] + (i - 2) * 40, 1060, 0.92, lit(i)); },
-        figs: (g, p) => { for (let i = 0; i < 5; i++) man(g, p, T, i, MX[i], 1075 + Math.abs(i - 2) * 10, 0.5, { pose: ACT.pose(t, [[0, 'stand'], [[bt[0], bt[1], bt[2], bt[3], bt[3] + 0.3][i], 'attend', { act: 0.4 }]]) }); } });
+        far: (g) => { for (let i = 0; i < 5; i++) KIT.glow(g, MX[i] + (i - 2) * 40, 420, 500, '#fff0c0', 0.3 + 0.1 * Math.sin(T * 1.3 + i)); },   // the gods are kept for the next picture
+        figs: (g, p) => { for (let i = 0; i < 5; i++) man(g, p, T, i, MX[i], 1075 + Math.abs(i - 2) * 10, 0.5, { pose: ACT.pose(t, [[0, 'stand'], [0.5 + i * 0.5, 'attend', { act: 0.4 }]]) }); } });
+      TY.tag(ctx, T, clamp((t - 0.5) / 0.4), 'the five Pandavas · sons of Pandu', { x: 540, y: 250, size: 42, out: out(t, env, 0.3) });
+      fin(ctx, T);
+    },
+    post: POST(0.4, 0.4) });
+
+  // 3b · GODS (split from FIVE, 14 Nov): the same ridge under a pale sky: a track along the row; each god brightens as he is named,
+  //      and his son's plaque arrives (the camera of the old FIVE: a slide along the row)
+  R.scene({ id: 'gods', transition: { type: 'dissolve', dur: 0.4 },
+    draw(ctx, t, env) {
+      const T = env.T, b = env.beats, bt = [b[0] ?? 0.4, b[1] ?? 1.6, b[2] ?? 2.6, b[3] ?? 3.8], cam0 = CAM.drift(CAM.slide(clamp(t / env.dur), { from: -150, to: 150, zoom: 1.2 }), T, 1.4), cam = { ...cam0, py: cam0.py - 120 };   // lower than the hook's frame: more sky, the gods' whole height
+      const at = [bt[0], bt[1], bt[2], bt[3], bt[3] + 0.3], lit = (i) => clamp((t - at[i] + 0.3) / 0.6);
+      ridge(ctx, T, cam, 'riverbank-pearl', { sun: [540, 520, 60],
+        far: (g) => { for (let i = 0; i < 5; i++) god(g, T, i, MX[i] + (i - 2) * 40, 1060, 0.92, lit(i), '#cfe6ff'); },
+        figs: (g, p) => { for (let i = 0; i < 5; i++) man(g, p, T, i, MX[i], 1075 + Math.abs(i - 2) * 10, 0.5, { pose: ACT.pose(t, [[0, 'stand'], [at[i], 'attend', { act: 0.4 }]]) }); } });
       const seq = [['Yudhishthira', bt[0], bt[1]], ['Bhima', bt[1], bt[2]], ['Arjuna', bt[2], bt[3]], ['Nakula', bt[3], env.dur]];
-      for (const [n, a, z] of seq) TY.plaque(ctx, T, clamp((t - a) / 0.45), n === 'Nakula' ? 'Nakula · Sahadeva' : n, env.script.names[n], { x: 540, y: 250, size: 50, out: clamp((t - z + 0.25) / 0.25) });
-      TY.tag(ctx, T, clamp((t - 0.8) / 0.4), 'the five Pandavas · sons of Pandu', { x: 540, y: 250, size: 42, out: clamp((t - bt[0] + 0.4) / 0.3) });
+      for (const [n, a, z] of seq) TY.plaque(ctx, T, clamp((t - a) / 0.4), n === 'Nakula' ? 'Nakula · Sahadeva' : n, env.script.names[n], { x: 540, y: 250, size: 50, out: clamp((t - z + 0.22) / 0.22) });
       fin(ctx, T);
     },
     post: POST(0.4, 0.4) });
@@ -68,7 +80,7 @@
   // 4 · KARNA: a tilt up: a lone warrior in gold, his back to a huge low sun in which the Sun god stands
   R.scene({ id: 'karna', transition: { type: 'dissolve', dur: 0.35 },
     draw(ctx, t, env) {
-      const T = env.T, b1 = env.beats[1] ?? 3.3, cam = CAM.tilt(E.inOutSine(clamp(t / 3.2)), { from: 210, to: -120, zoom: 1.12 });
+      const T = env.T, b1 = env.beats[1] ?? 3.3, cam = CAM.drift(CAM.tilt(E.inOutSine(clamp(t / 3.2)), { from: 210, to: -120, zoom: 1.12 + 0.22 * clamp(t / env.dur) }), T, 3.4);
       ridge(ctx, T, cam, 'wedding-turmeric', { sun: [540, 560, 330],
         far: (g) => { KIT.glow(g, 540, 560, 900, '#fff0a0', 0.4); CH.deva.draw(g, { x: 230, y: 1075, scale: 0.95, index: 4, facing: 'right', pose: { name: 'raise', k: 0.3 }, light: { ...GL, intensity: 1.2 }, t: T, key: 'kr-s' }); },
         figs: (g, p) => { const rg = g.createRadialGradient(420, 820, 60, 420, 820, 520); rg.addColorStop(0, 'rgba(30,20,10,0.75)'); rg.addColorStop(1, 'rgba(30,20,10,0)'); g.fillStyle = rg; g.fillRect(-200, 250, 1300, 1150); EP51.fig(g, T, 'karna', 420, 1100, 0.7, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [1.2, 'attend', { act: 0.5 }]]), L: EP51.bright('#fff0c0', 1.6), ex: { emo: 'resolve', gaze: [0.8, -0.2] }, key: 'kr-k' }); } });
@@ -82,11 +94,11 @@
   // 5 · KRISHNA (the signature shot): a crane down from the great dark four-armed god to a dark young man in yellow below
   R.scene({ id: 'krishna', transition: { type: 'lamp', dur: 0.8, from: [540, 700], to: [540, 520] },
     draw(ctx, t, env) {
-      const T = env.T, b = env.beats, b1 = b[1] ?? 2, b2 = b[2] ?? 3.6, cam = CAM.crane(E.inOutSine(clamp(t / (env.dur - 0.4))), { from: 1.5, to: 1.04, y0: -330, y1: 40 });
+      const T = env.T, b = env.beats, b1 = b[1] ?? 2, b2 = b[2] ?? 3.6, cam = CAM.drift(CAM.crane(E.inOutSine(clamp(t / 2.3)), { from: 1.5, to: 1.04 + 0.2 * clamp((t - 2.0) / 3.5), y0: -330, y1: 40 }), T, 2.2), kin = clamp((t - Math.max(b1 - 0.2, 1.7)) / 0.6);   // the crane ends before Krishna is shown: he must not rise through the caption band
       EP51.heaven(ctx, T, cam, 'crystal-sky', { floor: 1220, sun: [860, 300, 80],
         back: (g) => KIT.glow(g, 540, 560, 900, '#9ab8ff', 0.45),
         mid: (g) => CH.vishnu.draw(g, { x: 540, y: 1000, scale: 0.9, facing: 'front', pose: { name: 'bless', k: 0.7 }, light: { dir: -Math.PI / 2 - 0.3, intensity: 1.3, front: 0.9, fill: 0.6 }, t: T, key: 'ks-v' }),
-        figs: (g, p) => { KIT.glow(g, 540, 1000, 420, '#ffe890', 0.35 * clamp((t - b1) / 0.8)); EP51.fig(g, T, 'krishna', 540, 1250, 0.56, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [b2 - 0.5, 'bless', { act: 0.5 }]]), L: EP51.bright('#fff0c0', 1.35), ex: { emo: 'tender', gaze: [0.6, 0] }, key: 'ks-k' }); } });
+        figs: (g, p) => { KIT.glow(g, 540, 1000, 420, '#ffe890', 0.35 * clamp((t - b1) / 0.8)); if (kin > 0.01) { g.save(); g.globalAlpha *= kin; EP51.fig(g, T, 'krishna', 540, 1250, 0.56, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [b2 - 0.5, 'bless', { act: 0.5 }]]), L: EP51.bright('#fff0c0', 1.35), ex: { emo: 'tender', gaze: [0.6, 0] }, key: 'ks-k' }); g.restore(); } } });
       TY.plaque(ctx, T, clamp((t - 0.6) / 0.5), ...names(env, 'Narayana'), { x: 195, y: 850, size: 44, out: clamp((t - b2 + 0.5) / 0.3) });
       TY.plaque(ctx, T, clamp((t - b2 + 0.1) / 0.5), ...names(env, 'Krishna'), { x: 195, y: 850, size: 46, out: out(t, env, 0.3) });
       fin(ctx, T);
@@ -96,11 +108,11 @@
   // 6 · KALI (the turn, after a silence): a crowned prince with a mace, seen from below; behind him a tall dark shape with a green eye
   R.scene({ id: 'kali', transition: { type: 'dissolve', dur: 0.4 },
     draw(ctx, t, env) {
-      const T = env.T, b = env.beats, b0 = b[0] ?? 0.95, b1 = b[1] ?? 3.3, b2 = b[2] ?? 6.5, cam = CAM.push(t / env.dur, { from: 1.04, to: 1.24, focus: [540, 760] }), rise = E.outCubic(clamp((t - b1 + 0.6) / 1.4));
-      EP51.void(ctx, T, cam, 'venom-violet', { gy: 1300, glow: [540, 700, 900, '#5aff8a', 0.12 + 0.14 * rise],
+      const T = env.T, b = env.beats, b0 = b[0] ?? 0.95, b1 = b[1] ?? 3.3, b2 = b[2] ?? 6.5, cam = CAM.drift(CAM.push(t / env.dur, { from: 1.0, to: 1.36, focus: [540, 820] }), T, 2.2), rise = E.outCubic(clamp((t - b1 + 0.6) / 1.4));
+      EP51.void(ctx, T, cam, 'venom-violet', { gy: 1300, glow: [540, 700, 900 + 140 * Math.sin(T * 1.7), '#5aff8a', 0.14 + 0.14 * rise + 0.07 * Math.sin(T * 2.3)],
         back: (g, p) => { ST.hills(g, p, { y: 1320, h: 240, seed: 221, peaks: 0.6 }); g.save(); g.beginPath(); g.rect(-900, -900, 2880, 2200 + 0 * rise); g.clip(); EP51.fig(g, T, 'kaliShade', 600, 1400 + 500 * (1 - rise), 1.36, { f: 'left', pose: { w: { bless: 0.3, stand: 0.7 } }, L: { dir: -Math.PI / 2, intensity: 1.2, front: 0.25, fill: 0.2, tint: ['#5aff8a', 0.7], minLum: 0.24 }, ex: { emo: 'wrath', gaze: [0.6, 0.6] }, key: 'kl-s' }); g.restore(); },
         figs: (g, p) => EP51.fig(g, T, 'duryodhana', 500, 1330, 0.8, { f: 'left', pose: ACT.pose(t, [[0, 'stand'], [b1, 'raise', { act: 0.5 }]], { prop: 'club' }), L: { dir: -Math.PI / 2 - 0.5, intensity: 1.25, front: 0.6, fill: 0.35, tint: ['#d8c0ff', 0.5], minLum: 0.3 }, ex: { emo: ACT.emo(t, [[0, 'resolve'], [b1, 'wrath']]), gaze: [0.8, -0.1] }, key: 'kl-d' }),
-        dust: 'ash', dustN: 30 });
+        dust: 'ash', dustN: 120 });
       TY.plaque(ctx, T, clamp((t - b1 + 0.3) / 0.5), ...names(env, 'Duryodhana'), { x: 175, y: 760, size: 36, out: clamp((t - b2 + 0.9) / 0.3) });
       TY.plaque(ctx, T, clamp((t - b2 + 0.5) / 0.5), 'Kali', 'the spirit of strife · not the goddess Kālī', { x: 235, y: 760, size: 36, out: out(t, env, 0.3) });
       TY.turnWord(ctx, T, clamp((t - b2) / 0.6), 'Strife', { x: 810, y: 1010, size: 84, out: out(t, env, 0.3), sub: 'Adi 1.61.80' });
@@ -112,7 +124,7 @@
   // 7 · DRAUPADI: a tilt up a low altar flame to a dark woman in gold rising from it; a pale goddess vast behind her
   R.scene({ id: 'draupadi', transition: { type: 'ink', dur: 0.6, at: [540, 1100], color: '#6a1a44' },
     draw(ctx, t, env) {
-      const T = env.T, b = env.beats, b1 = b[1] ?? 2.6, b2 = b[2] ?? 3.9, cam = CAM.tilt(E.inOutSine(clamp(t / 3.4)), { from: 220, to: -100, zoom: 1.12 }), rise = E.outCubic(clamp((t - 0.6) / 2.0));
+      const T = env.T, b = env.beats, b1 = b[1] ?? 2.6, b2 = b[2] ?? 3.9, cam = CAM.drift(CAM.tilt(E.inOutSine(clamp(t / 3.4)), { from: 220, to: -100, zoom: 1.12 + 0.08 * clamp(t / env.dur) }), T, 1.4), rise = E.outCubic(clamp((t - 0.6) / 2.0));
       EP51.heaven(ctx, T, cam, 'brahma-rose', { floor: GY + 60,
         back: (g) => { g.fillStyle = 'rgba(122,36,84,0.6)'; g.beginPath(); g.ellipse(560, 760, 620, 900, 0, 0, TAU); g.fill(); },
         mid: (g) => EP51.fig(g, T, 'shri', 560, 1330, 1.25, { f: 'left', pose: { w: { bless: 0.6, stand: 0.4 } }, L: EP51.bright('#fff4e0', 1.4), ex: { emo: 'tender', gaze: [0.4, 0.6] }, key: 'dp-s' }),
@@ -137,7 +149,7 @@
       TY.plaque(ctx, T, clamp((t - 1.2) / 0.5), ...names(env, 'Vaishampayana'), { x: 540, y: 150, size: 44, out: clamp((t - 4.4) / 0.3) });
       fin(ctx, T); },
     post: POST(0.46, 0.36) });
-  R.scene({ id: 'arcend', draw(ctx, t, env) { const T = env.T; row(ctx, T, 30 + t, env, CAM.still({ zoom: 1.08, x: 90 }), true); ctx.fillStyle = 'rgba(20,12,6,0.72)'; ctx.fillRect(0, 0, R.W, R.H); EP46.arcCard(ctx, T, clamp(t / 0.25) * (1 - clamp((t - (env.dur - 0.2)) / 0.2)), env.strings); fin(ctx, T); }, post: POST(0.36, 0.5) });
+  R.scene({ id: 'arcend', draw(ctx, t, env) { const T = env.T; row(ctx, T, 30 + t, env, CAM.drift(CAM.push(clamp(t / env.dur), { from: 1.08, to: 1.34, focus: [630, 900] }), T, 4.0), true); ctx.fillStyle = 'rgba(20,12,6,0.6)'; ctx.fillRect(0, 0, R.W, R.H); KIT.glow(ctx, 540, 960, 760 + 120 * Math.sin(T * 2.6), '#ffb040', 0.16 + 0.07 * Math.sin(T * 2.6)); EP46.arcCard(ctx, T, clamp(t / 0.25) * (1 - clamp((t - (env.dur - 0.2)) / 0.2)), env.strings); fin(ctx, T); }, post: POST(0.36, 0.5) });
 
   // 10 · CLIFF: a green forest: a crowned rider with a bow at full gallop on his chariot, deer leaping ahead, spears behind
   const cliff = (ctx, T, t, env) => {

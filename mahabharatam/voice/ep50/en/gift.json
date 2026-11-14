@@ -1,23 +1,79 @@
 {
- "speaker": "parashara",
- "voice": "bm_lewis",
- "speed": 0.8480000000000001,
- "pitch": -1.0,
+ "speaker": "narrator",
+ "script_speaker": "parashara",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "gift~0.s2.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "You will remain a maiden. Now choose a gift.",
+ "heard": "you will remain a maiden. Now choose a gift.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.642,
-   "words": 5,
-   "speed": 0.848,
-   "text": "You will remain a maiden."
-  },
-  {
-   "t0": 1.922,
-   "t1": 3.398,
-   "words": 4,
-   "speed": 0.848,
-   "text": "Now choose a gift."
+   "t0": 0,
+   "t1": 4.072,
+   "words": 9,
+   "text": "\"You will remain a maiden. Now choose a gift.\""
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.26
+  ],
+  [
+   0.26,
+   0.56
+  ],
+  [
+   0.56,
+   0.98
+  ],
+  [
+   0.98,
+   1.4
+  ],
+  [
+   1.4,
+   1.979
+  ],
+  [
+   2.344,
+   2.642
+  ],
+  [
+   2.706,
+   2.92
+  ],
+  [
+   2.92,
+   3.4
+  ],
+  [
+   3.4,
+   3.945
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 124,
+ "longest_pause_s": 0.36,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 127.5,
+  "st": 11.7,
+  "edb": 18.4,
+  "dur": 3.92,
+  "jumps": 0.0,
+  "creak": 0.007,
+  "hnr": 13.6,
+  "jitter": 2.2,
+  "tail_db": -71.8
+ },
+ "film_median_hz": 127.7,
+ "semitones_from_film_median": -0.03,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

@@ -1,23 +1,83 @@
 {
- "speaker": "shakuntala",
- "voice": "af_bella",
- "speed": 0.84,
- "pitch": 0.0,
+ "speaker": "narrator",
+ "script_speaker": "shakuntala",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "wait~0.s3.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Wait for my father. He will give me to you.",
+ "heard": "Wait for my father, he will give me to you.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.2583,
-   "words": 4,
-   "speed": 0.84,
-   "text": "Wait for my father."
-  },
-  {
-   "t0": 1.5183,
-   "t1": 2.8072,
-   "words": 6,
-   "speed": 0.84,
-   "text": "He will give me to you."
+   "t0": 0,
+   "t1": 3.008,
+   "words": 10,
+   "text": "\"Wait for my father. He will give me to you.\""
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.33
+  ],
+  [
+   0.39,
+   0.4
+  ],
+  [
+   0.4,
+   0.56
+  ],
+  [
+   0.56,
+   1.179
+  ],
+  [
+   1.477,
+   1.58
+  ],
+  [
+   1.58,
+   1.9
+  ],
+  [
+   1.9,
+   2.12
+  ],
+  [
+   2.12,
+   2.32
+  ],
+  [
+   2.32,
+   2.5
+  ],
+  [
+   2.5,
+   2.88
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.3,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 114.6,
+  "st": 13.4,
+  "edb": 20.2,
+  "dur": 2.86,
+  "jumps": 0.0,
+  "creak": 0.009,
+  "hnr": 11.5,
+  "jitter": 2.28,
+  "tail_db": -72.0
+ },
+ "film_median_hz": 125.7,
+ "semitones_from_film_median": -1.6,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

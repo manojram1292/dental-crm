@@ -191,8 +191,28 @@ the tools for them (episodes 0–40 draw and mix exactly as before: `node tools/
 
 ## Standing rules learned from the trailer (three cuts, November 2026)
 
-For every film from here on. The trailer's own gate enforces those marked so; the ordinary-episode gate does not yet (it was
-left as it is), so until it does these are review rules for episodes.
+For every film from here on. **Adopted for episodes on 14 November 2026**: a script that says `"rules": 2` (episodes 50, 52–55 and
+every later one; `python3 -I tools/rules2.py --ep N`) is gated, voiced, scored and mixed under these rules; scripts without the
+field (00–49, 51) gate exactly as before (proof: `lab/review/gate-proof/`). The order of work that keeps the render to ONE per
+episode is `tools/episode_loop.md`; the rules as the gate states them are in the header of `tools/gate.mjs` ("RULES": 2). The
+"Episode gate:" notes under each lesson below describe the gate as it was BEFORE the adoption and are kept as the record.
+
+What the adoption decided where a lesson met an older rule:
+
+- **Voice**: `tools/voice2.py` (Chatterbox, the trailer's bm_daniel reference, one take a line, no stretch, pitch within 2 semitones
+  of the film's median, recogniser word times for the captions, a per-name record in `voice/names.json`). One voice reads every
+  line, quoted speech included; `script/cast.json`'s Kokoro voices are not used by these episodes.
+- **Speech rate**: this voice reads at about 3 words a second inside a sentence and has no inner `[p:]` pauses, so the 2.6 words/s
+  limit is measured the trailer's way (the pause after each line, up to 0.4 s, counted with the speech), with no line over 4.0.
+- **Rests**: "two silences" became "two rests that are dips" (the bed 3.5 dB under its own level, never under −26 dBFS).
+- **Next band**: 6 dB under the body, reached over 0.5 s (was 10 dB at once: that is itself a fall of more than 10 dB in 0.3 s).
+- **Freeze**: an episode's camera is slower than the trailer's (median frame difference about 0.6 grey levels against 2.3). The
+  pre-render gate fails a stretch over 0.3 s under 0.2 grey levels a frame (next to nothing moves) and prints the stretches under
+  the trailer's own threshold as "slow"; the finished mp4 is checked with freezedetect n=0.003, d=0.3 as the trailer was.
+- **Credits**: `"credits": "source-only"`: the source line alone; no "Voices: synthetic · Drawn in code" on screen.
+- **Review rules no gate can check** (the viewer pass in `tools/episode_loop.md`): no black-silhouette principal; plaques whole.
+
+The trailer's own gate enforces those marked so.
 
 A trailer was made three times before the owner stopped hearing and seeing faults in it. What each fault was, as a rule for all
 later work. After each: whether a gate checks it today. "Trailer gate" means `tools/gate.mjs` for a script of kind "trailer",
@@ -311,6 +331,20 @@ node tools/preview.mjs purity --ep 2                 # draw() must be a pure fun
 node tools/render.mjs --ep 2 [--mb 8]                # final render → episode02.mp4
 node tools/modelsheet.mjs                            # lab/model-sheet.html → CHARACTERS.png
 node tools/modelsheet.mjs --solo parashurama --out x.png   # one character, large, in every pose
+```
+
+From "rules": 2 (episodes 50, 52 and on) the whole order of work is `tools/episode_loop.md`:
+
+```bash
+python3 -I tools/rules2.py --ep N                    # once: put the script under the rules
+node tools/gate.mjs --ep N                           # 1 script check (free)
+lab/voicelab/venv/bin/python tools/voice2.py jobs|gen|select --ep N    # 2 voice (Chatterbox; names: voice/names.json)
+python3 -I tools/score.py --ep N && python3 -I tools/mix.py --ep N && node tools/gate.mjs --ep N --audio   # 3 mix + audio gate
+node tools/stills.mjs --ep N && node tools/gate.mjs --ep N --frames --audio   # 4 preview stills (viewer pass) + full gate
+node tools/render.mjs --ep N --workers 2             # 5 the one render (refuses under 11 GB disk / 4 GB memory)
+tools/finish.sh N                                    # 6 share copy + every check on the finished files + sheets
+python3 -I tools/row.py --ep N                       # the QUALITY_SCORECARD.md row
+node tools/render.mjs --ep N --video-only --from A --to B --out seg.mp4   # 7 only for a splice (one shot redrawn)
 ```
 
 The share copy is made with `ffmpeg -i episodeNN.mp4 -c:v libx264 -crf 23 -preset slow -c:a aac -b:a 160k episodeNN-share.mp4`. If that comes out over 20 MB (episode 8's fire and falling serpents did: 22 MB), cap it: add `-maxrate 2500k -bufsize 5000k` (episode 8's share copy is made that way, 16 MB).

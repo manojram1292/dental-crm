@@ -1,30 +1,97 @@
 {
- "speaker": "kanva",
- "voice": "bm_george",
- "speed": 0.8,
- "pitch": 0.5,
+ "speaker": "narrator",
+ "script_speaker": "kanva",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "bless~0.s2.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "You have done no wrong. Your son will rule the whole earth.",
+ "heard": "You have done no wrong, your son will rule the whole earth.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.9167,
-   "words": 5,
-   "speed": 0.8,
-   "text": "You have done no wrong."
-  },
-  {
-   "t0": 2.2667,
-   "t1": 3.4207,
-   "words": 2,
-   "speed": 0.8,
-   "text": "Your son"
-  },
-  {
-   "t0": 3.4807,
-   "t1": 5.8931,
-   "words": 5,
-   "speed": 0.8,
-   "text": "will rule the whole earth."
+   "t0": 0,
+   "t1": 4.028,
+   "words": 12,
+   "text": "\"You have done no wrong. Your son will rule the whole earth.\""
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.12
+  ],
+  [
+   0.12,
+   0.331
+  ],
+  [
+   0.395,
+   0.48
+  ],
+  [
+   0.48,
+   0.84
+  ],
+  [
+   0.84,
+   1.341
+  ],
+  [
+   1.761,
+   1.86
+  ],
+  [
+   1.86,
+   2.26
+  ],
+  [
+   2.26,
+   2.56
+  ],
+  [
+   2.56,
+   2.84
+  ],
+  [
+   2.84,
+   3.14
+  ],
+  [
+   3.14,
+   3.32
+  ],
+  [
+   3.32,
+   3.821
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 200,
+ "longest_pause_s": 0.42,
+ "pauses_shortened": [
+  {
+   "at_s": 1.55,
+   "was_s": 0.48,
+   "now_s": 0.42
+  }
+ ],
+ "measured": {
+  "f0": 125.1,
+  "st": 10.6,
+  "edb": 15.3,
+  "dur": 3.8,
+  "jumps": 0.0,
+  "creak": 0.021,
+  "hnr": 13.3,
+  "jitter": 2.03,
+  "tail_db": -72.4
+ },
+ "film_median_hz": 125.7,
+ "semitones_from_film_median": -0.08,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

@@ -6544,11 +6544,12 @@
         "theme-demons-and-rakshasas",
         "theme-women-of-the-epic",
         "theme-truth",
-        "char-sauti"
+        "char-sauti",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": "In the text the Pauloma parva (Adi 1.4–12) is told before the Astika parva (1.13–53); the series tells it after. Said on screen in episode 41 (recap band, source line) and episode 46 (source line).",
@@ -6593,11 +6594,12 @@
         "layer-side",
         "theme-births-and-origins",
         "theme-demons-and-rakshasas",
-        "theme-women-of-the-epic"
+        "theme-women-of-the-epic",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,
@@ -6642,11 +6644,12 @@
         "layer-side",
         "theme-curses",
         "theme-gods",
-        "theme-dharma-dilemmas"
+        "theme-dharma-dilemmas",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,
@@ -6691,11 +6694,12 @@
         "layer-side",
         "theme-love-stories",
         "theme-serpents",
-        "theme-death-and-grief"
+        "theme-death-and-grief",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,
@@ -6742,11 +6746,12 @@
         "theme-love-stories",
         "theme-death-and-grief",
         "theme-boons",
-        "theme-vows"
+        "theme-vows",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,
@@ -6793,11 +6798,12 @@
         "theme-curses",
         "theme-wisdom",
         "theme-serpents",
-        "theme-sages"
+        "theme-sages",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,
@@ -6931,11 +6937,12 @@
         "theme-teachers-and-students",
         "theme-sages",
         "char-vyasa",
-        "char-janamejaya"
+        "char-janamejaya",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,
@@ -6986,11 +6993,12 @@
         "char-yudhishthira",
         "char-duryodhana",
         "char-draupadi",
-        "char-krishna"
+        "char-krishna",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,
@@ -7037,11 +7045,12 @@
         "theme-births-and-origins",
         "theme-women-of-the-epic",
         "theme-animals-and-birds",
-        "char-satyavati"
+        "char-satyavati",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,
@@ -7091,11 +7100,12 @@
         "theme-women-of-the-epic",
         "theme-sages",
         "char-satyavati",
-        "char-vyasa"
+        "char-vyasa",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,
@@ -7143,11 +7153,12 @@
         "theme-gods",
         "theme-demons-and-rakshasas",
         "theme-fate-and-time",
-        "char-parashurama"
+        "char-parashurama",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,
@@ -7170,8 +7181,8 @@
          "label": "Adi 1.61"
         }
        ],
-       "synopsis": "The king asks which god was born as whom. The five Pandava brothers each carried part of a god: the god of justice, the wind, the gods' king, and the twin horsemen. Karna, born in armour, was part of the sun; of Narayana, god of gods, a part was born as Krishna. But dark powers had been born first: Duryodhana, who lit the feud, was born from Kali, the spirit of strife; old danavas were born as kings. A part of the goddess of fortune rose from an altar: Draupadi. Whoever hears this, says the teller, will not lose heart in hard times.",
-       "cliffhanger": "Then the king asked for his own family's story.",
+       "synopsis": "The king asks which god was born as whom. The five Pandava brothers each carried part of a god: the god of justice, the wind, the gods' king, and the twin horsemen. Karna, born in armour, was part of the sun; of Narayana, the god above all gods, a part came to earth as Krishna. But dark powers had been born first: Duryodhana, who lit the feud, was born from Kali, the spirit of strife; old danavas were born as kings. A part of the goddess of fortune rose from an altar: Draupadi. Whoever hears this, says the teller, will not lose heart in hard times.",
+       "cliffhanger": "And now the king wished to hear his own family's story.",
        "characters": [
         "vaishampayana",
         "janamejaya",
@@ -7200,11 +7211,12 @@
         "char-krishna",
         "char-karna",
         "char-duryodhana",
-        "char-bhishma"
+        "char-bhishma",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": "The CE's creation genealogies (1.59–60) are passed over, not dramatised; the source line says so.",
@@ -7307,11 +7319,12 @@
         "layer-side",
         "theme-kingship",
         "theme-love-stories",
-        "theme-sages"
+        "theme-sages",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,
@@ -7364,11 +7377,12 @@
         "theme-animals-and-birds",
         "char-shakuntala",
         "char-vishvamitra",
-        "char-indra"
+        "char-indra",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,
@@ -7414,11 +7428,12 @@
         "theme-love-stories",
         "theme-vows",
         "theme-women-of-the-epic",
-        "char-shakuntala"
+        "char-shakuntala",
+        "lang-en"
        ],
-       "status": "in_production",
+       "status": "released",
        "languages": {
-        "en": "in_production"
+        "en": "released"
        },
        "tradition_note": false,
        "reorder_note": null,

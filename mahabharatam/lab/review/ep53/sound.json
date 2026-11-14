@@ -1,0 +1,745 @@
+{
+ "file": "episode53-share.mp4",
+ "seconds": 54.91,
+ "stops": [],
+ "holes": {
+  "floor_db": -26,
+  "windows": 1095,
+  "worst_window_db": -25.4,
+  "worst_window_at_s": 54.15,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 9.0,
+  "worst_drop_at_s": 53.85,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 10,
+  "drop_window_s": 0.3
+ },
+ "start": {
+  "first_100ms_db": -24.4,
+  "first_frame_33ms_db": -24.3,
+  "first_10ms_db": -25.8
+ },
+ "clipping": {
+  "samples_at_0.999": 0,
+  "peak_dbfs": -3.04
+ },
+ "recogniser": {
+  "heard": "Is anyone here? The story of the epic's royal house begins with Dushyanta of Horu's line. One day he rode out to hunt with hundreds of horses and elephants. Chasing deer, hungry and thirsty, he came to another forest. By the river Malini, in a wood, loud with birds, stood the hermitage of the sage Canva. He left his army at the forest's edge and laid aside the signs of a king. He walked in among sacred fires and chanting, but the sage's own place was empty. A young woman in a hermit's dress came out and welcomed him. Her father, she said, was gathering fruit. Her father, Canbo, was sworn to celibacy. Who was she?",
+  "transcribed_in_stretches_starting_at_s": [
+   0.0,
+   14.37,
+   27.77,
+   41.23,
+   54.91
+  ],
+  "words": [
+   [
+    "Is",
+    0.0,
+    0.22
+   ],
+   [
+    "anyone",
+    0.22,
+    0.48
+   ],
+   [
+    "here?",
+    0.48,
+    1.1
+   ],
+   [
+    "The",
+    2.88,
+    3.02
+   ],
+   [
+    "story",
+    3.02,
+    3.44
+   ],
+   [
+    "of",
+    3.44,
+    3.76
+   ],
+   [
+    "the",
+    3.76,
+    3.88
+   ],
+   [
+    "epic's",
+    3.88,
+    4.36
+   ],
+   [
+    "royal",
+    4.36,
+    4.56
+   ],
+   [
+    "house",
+    4.56,
+    4.98
+   ],
+   [
+    "begins",
+    4.98,
+    5.7
+   ],
+   [
+    "with",
+    5.7,
+    6.18
+   ],
+   [
+    "Dushyanta",
+    6.18,
+    6.88
+   ],
+   [
+    "of",
+    6.88,
+    7.54
+   ],
+   [
+    "Horu's",
+    7.54,
+    8.08
+   ],
+   [
+    "line.",
+    8.08,
+    8.24
+   ],
+   [
+    "One",
+    9.36,
+    9.6
+   ],
+   [
+    "day",
+    9.6,
+    9.84
+   ],
+   [
+    "he",
+    9.84,
+    10.14
+   ],
+   [
+    "rode",
+    10.14,
+    10.36
+   ],
+   [
+    "out",
+    10.36,
+    10.64
+   ],
+   [
+    "to",
+    10.64,
+    10.9
+   ],
+   [
+    "hunt",
+    10.9,
+    11.06
+   ],
+   [
+    "with",
+    11.06,
+    11.68
+   ],
+   [
+    "hundreds",
+    11.68,
+    12.0
+   ],
+   [
+    "of",
+    12.0,
+    12.48
+   ],
+   [
+    "horses",
+    12.48,
+    12.78
+   ],
+   [
+    "and",
+    12.78,
+    13.12
+   ],
+   [
+    "elephants.",
+    13.12,
+    13.38
+   ],
+   [
+    "Chasing",
+    14.37,
+    15.01
+   ],
+   [
+    "deer,",
+    15.01,
+    15.29
+   ],
+   [
+    "hungry",
+    15.77,
+    16.13
+   ],
+   [
+    "and",
+    16.13,
+    16.57
+   ],
+   [
+    "thirsty,",
+    16.57,
+    16.87
+   ],
+   [
+    "he",
+    17.63,
+    17.65
+   ],
+   [
+    "came",
+    17.65,
+    17.89
+   ],
+   [
+    "to",
+    17.89,
+    18.19
+   ],
+   [
+    "another",
+    18.19,
+    18.51
+   ],
+   [
+    "forest.",
+    18.51,
+    19.09
+   ],
+   [
+    "By",
+    20.37,
+    20.41
+   ],
+   [
+    "the",
+    20.41,
+    20.67
+   ],
+   [
+    "river",
+    20.67,
+    20.83
+   ],
+   [
+    "Malini,",
+    20.83,
+    21.37
+   ],
+   [
+    "in",
+    22.01,
+    22.07
+   ],
+   [
+    "a",
+    22.07,
+    22.17
+   ],
+   [
+    "wood,",
+    22.17,
+    22.45
+   ],
+   [
+    "loud",
+    22.85,
+    23.01
+   ],
+   [
+    "with",
+    23.01,
+    23.47
+   ],
+   [
+    "birds,",
+    23.47,
+    23.83
+   ],
+   [
+    "stood",
+    24.39,
+    24.63
+   ],
+   [
+    "the",
+    24.63,
+    24.83
+   ],
+   [
+    "hermitage",
+    24.83,
+    25.59
+   ],
+   [
+    "of",
+    25.59,
+    25.93
+   ],
+   [
+    "the",
+    25.93,
+    26.07
+   ],
+   [
+    "sage",
+    26.07,
+    26.39
+   ],
+   [
+    "Canva.",
+    26.39,
+    27.05
+   ],
+   [
+    "He",
+    27.77,
+    28.81
+   ],
+   [
+    "left",
+    28.81,
+    28.99
+   ],
+   [
+    "his",
+    28.99,
+    29.31
+   ],
+   [
+    "army",
+    29.31,
+    29.65
+   ],
+   [
+    "at",
+    29.65,
+    29.87
+   ],
+   [
+    "the",
+    29.87,
+    29.99
+   ],
+   [
+    "forest's",
+    29.99,
+    30.65
+   ],
+   [
+    "edge",
+    30.65,
+    30.93
+   ],
+   [
+    "and",
+    30.93,
+    31.49
+   ],
+   [
+    "laid",
+    31.49,
+    31.75
+   ],
+   [
+    "aside",
+    31.75,
+    32.03
+   ],
+   [
+    "the",
+    32.03,
+    32.45
+   ],
+   [
+    "signs",
+    32.45,
+    32.69
+   ],
+   [
+    "of",
+    32.69,
+    33.07
+   ],
+   [
+    "a",
+    33.07,
+    33.15
+   ],
+   [
+    "king.",
+    33.15,
+    33.39
+   ],
+   [
+    "He",
+    34.21,
+    34.45
+   ],
+   [
+    "walked",
+    34.45,
+    34.69
+   ],
+   [
+    "in",
+    34.69,
+    35.01
+   ],
+   [
+    "among",
+    35.01,
+    35.39
+   ],
+   [
+    "sacred",
+    35.39,
+    35.81
+   ],
+   [
+    "fires",
+    35.81,
+    36.33
+   ],
+   [
+    "and",
+    36.33,
+    36.79
+   ],
+   [
+    "chanting,",
+    36.79,
+    37.07
+   ],
+   [
+    "but",
+    38.17,
+    38.47
+   ],
+   [
+    "the",
+    38.47,
+    38.61
+   ],
+   [
+    "sage's",
+    38.61,
+    39.17
+   ],
+   [
+    "own",
+    39.17,
+    39.31
+   ],
+   [
+    "place",
+    39.31,
+    39.71
+   ],
+   [
+    "was",
+    39.71,
+    40.03
+   ],
+   [
+    "empty.",
+    40.03,
+    40.41
+   ],
+   [
+    "A",
+    41.23,
+    42.13
+   ],
+   [
+    "young",
+    42.13,
+    42.29
+   ],
+   [
+    "woman",
+    42.29,
+    42.65
+   ],
+   [
+    "in",
+    42.65,
+    42.95
+   ],
+   [
+    "a",
+    42.95,
+    43.05
+   ],
+   [
+    "hermit's",
+    43.05,
+    43.51
+   ],
+   [
+    "dress",
+    43.51,
+    43.73
+   ],
+   [
+    "came",
+    43.73,
+    44.13
+   ],
+   [
+    "out",
+    44.13,
+    44.47
+   ],
+   [
+    "and",
+    44.47,
+    44.69
+   ],
+   [
+    "welcomed",
+    44.69,
+    45.03
+   ],
+   [
+    "him.",
+    45.03,
+    45.33
+   ],
+   [
+    "Her",
+    45.93,
+    45.95
+   ],
+   [
+    "father,",
+    45.95,
+    46.37
+   ],
+   [
+    "she",
+    46.53,
+    46.65
+   ],
+   [
+    "said,",
+    46.65,
+    46.91
+   ],
+   [
+    "was",
+    47.19,
+    47.25
+   ],
+   [
+    "gathering",
+    47.25,
+    47.61
+   ],
+   [
+    "fruit.",
+    47.61,
+    48.05
+   ],
+   [
+    "Her",
+    49.05,
+    49.33
+   ],
+   [
+    "father,",
+    49.33,
+    49.67
+   ],
+   [
+    "Canbo,",
+    50.11,
+    50.51
+   ],
+   [
+    "was",
+    50.61,
+    50.73
+   ],
+   [
+    "sworn",
+    50.73,
+    50.99
+   ],
+   [
+    "to",
+    50.99,
+    51.31
+   ],
+   [
+    "celibacy.",
+    51.31,
+    51.91
+   ],
+   [
+    "Who",
+    52.29,
+    52.33
+   ],
+   [
+    "was",
+    52.33,
+    52.55
+   ],
+   [
+    "she?",
+    52.55,
+    52.77
+   ]
+  ],
+  "gaps_over_0.35s_inside_a_sentence": [
+   {
+    "after": "deer,",
+    "before": "hungry",
+    "at_s": 15.29,
+    "gap_s": 0.48
+   },
+   {
+    "after": "thirsty,",
+    "before": "he",
+    "at_s": 16.87,
+    "gap_s": 0.76
+   },
+   {
+    "after": "Malini,",
+    "before": "in",
+    "at_s": 21.37,
+    "gap_s": 0.64
+   },
+   {
+    "after": "wood,",
+    "before": "loud",
+    "at_s": 22.45,
+    "gap_s": 0.4
+   },
+   {
+    "after": "birds,",
+    "before": "stood",
+    "at_s": 23.83,
+    "gap_s": 0.56
+   },
+   {
+    "after": "chanting,",
+    "before": "but",
+    "at_s": 37.07,
+    "gap_s": 1.1
+   },
+   {
+    "after": "father,",
+    "before": "Canbo,",
+    "at_s": 49.67,
+    "gap_s": 0.44
+   }
+  ],
+  "script_words": 122,
+  "misheard": [
+   {
+    "script": "puru's",
+    "heard": "horu's"
+   },
+   {
+    "script": "kanva",
+    "heard": "canva"
+   },
+   {
+    "script": "kanva",
+    "heard": "canbo"
+   },
+   {
+    "script": "next the girl the birds protected",
+    "heard": ""
+   }
+  ]
+ },
+ "voice_stem": {
+  "peak_dbfs": -5.3,
+  "samples_at_0.999": 0,
+  "boundaries": 20,
+  "ordinary_speech_step_99pct_db": -25.1,
+  "loudest_step_at_a_boundary_db": -61.5,
+  "boundaries_with_a_step_over_-40_db": [],
+  "boundaries_with_level_over_-30_db": []
+ },
+ "pauses_inside_sentences_in_the_voice_files": {
+  "over_0.35_s": [],
+  "longest": [
+   {
+    "shot": "line",
+    "after": "house",
+    "before": "begins",
+    "silence_s": 0.3
+   },
+   {
+    "shot": "hunt",
+    "after": "hunt,",
+    "before": "with",
+    "silence_s": 0.3
+   },
+   {
+    "shot": "deeper",
+    "after": "thirsty,",
+    "before": "he",
+    "silence_s": 0.3
+   },
+   {
+    "shot": "lovely",
+    "after": "Malini,",
+    "before": "in",
+    "silence_s": 0.3
+   },
+   {
+    "shot": "left",
+    "after": "edge,",
+    "before": "and",
+    "silence_s": 0.3
+   },
+   {
+    "shot": "line",
+    "after": "Dushyanta,",
+    "before": "of",
+    "silence_s": 0.26
+   },
+   {
+    "shot": "deeper",
+    "after": "deer,",
+    "before": "hungry",
+    "silence_s": 0.23
+   },
+   {
+    "shot": "lovely",
+    "after": "birds,",
+    "before": "stood",
+    "silence_s": 0.23
+   }
+  ]
+ }
+}

@@ -1,37 +1,101 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8262,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "cliff~0.s0.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Years later she was still there: with a son who tied up lions.",
+ "heard": "Years later, she was still there, with a son who tied up lions.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 0.9757,
-   "words": 2,
-   "speed": 0.826,
-   "text": "Years later"
-  },
-  {
-   "t0": 1.0757,
-   "t1": 2.3497,
-   "words": 4,
-   "speed": 0.826,
-   "text": "she was still there:"
-  },
-  {
-   "t0": 2.6497,
-   "t1": 3.6282,
-   "words": 3,
-   "speed": 0.826,
-   "text": "with a son"
-  },
-  {
-   "t0": 3.6883,
-   "t1": 5.2894,
-   "words": 4,
-   "speed": 0.826,
-   "text": "who tied up lions."
+   "t0": 0,
+   "t1": 5.075,
+   "words": 13,
+   "text": "Years later she was still there: with a son who tied up lions."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.2
+  ],
+  [
+   0.2,
+   0.784
+  ],
+  [
+   0.998,
+   1.14
+  ],
+  [
+   1.14,
+   1.28
+  ],
+  [
+   1.28,
+   1.68
+  ],
+  [
+   1.68,
+   2.109
+  ],
+  [
+   2.529,
+   2.6
+  ],
+  [
+   2.6,
+   2.7
+  ],
+  [
+   2.7,
+   3.231
+  ],
+  [
+   3.535,
+   3.58
+  ],
+  [
+   3.58,
+   3.86
+  ],
+  [
+   3.86,
+   4.175
+  ],
+  [
+   4.269,
+   4.915
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 153,
+ "longest_pause_s": 0.42,
+ "pauses_shortened": [
+  {
+   "at_s": 2.32,
+   "was_s": 0.46,
+   "now_s": 0.42
+  }
+ ],
+ "measured": {
+  "f0": 122.8,
+  "st": 9.8,
+  "edb": 18.2,
+  "dur": 4.89,
+  "jumps": 0.35,
+  "creak": 0.014,
+  "hnr": 9.9,
+  "jitter": 2.27,
+  "tail_db": -74.1
+ },
+ "film_median_hz": 125.7,
+ "semitones_from_film_median": -0.4,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

@@ -1,30 +1,89 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "deeper~0.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Chasing deer, hungry and thirsty, he came to another forest.",
+ "heard": "Chasing deer, hungry and thirsty, he came to another forest.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.0255,
-   "words": 2,
-   "speed": 0.891,
-   "text": "Chasing deer,"
-  },
-  {
-   "t0": 1.1255,
-   "t1": 2.5624,
-   "words": 3,
-   "speed": 0.891,
-   "text": "hungry and thirsty,"
-  },
-  {
-   "t0": 2.6824,
-   "t1": 4.4235,
-   "words": 5,
-   "speed": 0.891,
-   "text": "he came to another forest."
+   "t0": 0,
+   "t1": 4.931,
+   "words": 10,
+   "text": "Chasing deer, hungry and thirsty, he came to another forest."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.4
+  ],
+  [
+   0.4,
+   1.024
+  ],
+  [
+   1.277,
+   1.52
+  ],
+  [
+   1.52,
+   2.051
+  ],
+  [
+   2.17,
+   2.656
+  ],
+  [
+   2.967,
+   3.02
+  ],
+  [
+   3.02,
+   3.26
+  ],
+  [
+   3.26,
+   3.56
+  ],
+  [
+   3.56,
+   4.178
+  ],
+  [
+   4.268,
+   4.771
+  ]
+ ],
+ "lead_air_ms": 24,
+ "tail_air_ms": 152,
+ "longest_pause_s": 0.31,
+ "pauses_shortened": [
+  {
+   "at_s": 2.81,
+   "was_s": 0.33,
+   "now_s": 0.3
+  }
+ ],
+ "measured": {
+  "f0": 139.8,
+  "st": 13.8,
+  "edb": 18.4,
+  "dur": 4.76,
+  "jumps": 0.0,
+  "creak": 0.006,
+  "hnr": 11.5,
+  "jitter": 2.45,
+  "tail_db": -58.6
+ },
+ "film_median_hz": 129.0,
+ "semitones_from_film_median": 1.39,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

@@ -1,30 +1,96 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "draupadi~0.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "A portion of the goddess of fortune rose from an altar: Draupadi.",
+ "heard": "A portion of the goddess of fortune rose from an altar, Draupadi.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.9414,
-   "words": 7,
-   "speed": 0.891,
-   "text": "A part of the goddess of fortune"
-  },
-  {
-   "t0": 2.0414,
-   "t1": 3.4343,
-   "words": 4,
-   "speed": 0.891,
-   "text": "rose from an altar:"
-  },
-  {
-   "t0": 3.6943,
-   "t1": 4.6347,
-   "words": 1,
-   "speed": 0.891,
-   "text": "Draupadi."
+   "t0": 0,
+   "t1": 4.182,
+   "words": 12,
+   "text": "A portion of the goddess of fortune rose from an altar: Draupadi."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.08
+  ],
+  [
+   0.08,
+   0.34
+  ],
+  [
+   0.34,
+   0.56
+  ],
+  [
+   0.56,
+   0.68
+  ],
+  [
+   0.68,
+   0.88
+  ],
+  [
+   0.88,
+   1.161
+  ],
+  [
+   1.265,
+   1.36
+  ],
+  [
+   1.36,
+   1.94
+  ],
+  [
+   1.94,
+   2.3
+  ],
+  [
+   2.3,
+   2.4
+  ],
+  [
+   2.4,
+   2.859
+  ],
+  [
+   3.282,
+   4.016
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 157,
+ "longest_pause_s": 0.42,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 128.8,
+  "st": 14.9,
+  "edb": 20.3,
+  "dur": 4.0,
+  "jumps": 0.8,
+  "creak": 0.02,
+  "hnr": 9.5,
+  "jitter": 3.01,
+  "tail_db": -72.2
+ },
+ "film_median_hz": 127.6,
+ "semitones_from_film_median": 0.16,
+ "names": {
+  "Draupadi": {
+   "heard": "draupadi",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

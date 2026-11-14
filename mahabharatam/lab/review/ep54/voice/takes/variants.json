@@ -1,0 +1,90 @@
+{
+ "hook": [
+  {
+   "k": 0,
+   "text": "How can a celibate sage have a daughter?",
+   "spell": {},
+   "seeds": 7
+  }
+ ],
+ "asked": [
+  {
+   "k": 0,
+   "text": "A king asked a young hermit woman who she was.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "said": [
+  {
+   "k": 0,
+   "text": "People call me the sage Kanva's daughter. Hear why.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "tapas": [
+  {
+   "k": 0,
+   "text": "Long ago, the penance of another sage frightened the king of the gods.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "sent": [
+  {
+   "k": 0,
+   "text": "He sent Menaka, a nymph of heaven, to break it.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "saw": [
+  {
+   "k": 0,
+   "text": "Vishvamitra desired her; and she was willing.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "left": [
+  {
+   "k": 0,
+   "text": "By a river, a daughter was born. Menaka left her there, and went back to heaven.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "birds": [
+  {
+   "k": 0,
+   "text": "In a forest of lions and tigers, birds ringed the child and kept her safe.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "found": [
+  {
+   "k": 0,
+   "text": "The sage Kanva found her, and raised her as his own.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "name": [
+  {
+   "k": 0,
+   "text": "Guarded by birds, by shakuntas: so he named me Shakuntala.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "cliff": [
+  {
+   "k": 0,
+   "text": "The king listened. A king's daughter, then, he said: be my wife.",
+   "spell": {},
+   "seeds": 5
+  }
+ ]
+}

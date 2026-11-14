@@ -1,0 +1,125 @@
+{
+ "music_under_voice_db": -10.6,
+ "rules": 2,
+ "stems": [
+  "mus",
+  "amb",
+  "foley"
+ ],
+ "duck_db": {
+  "mus": 8.0,
+  "amb": 3.0,
+  "foley": 2.0
+ },
+ "duck_release_ms": 90,
+ "rests": [
+  {
+   "before": "left",
+   "from_s": 24.89,
+   "seconds": 1.26,
+   "bed_dip_db": 3.5,
+   "quietest_window_db": -24.5,
+   "under_the_second_before_db": 6.1
+  },
+  {
+   "before": "name",
+   "from_s": 42.62,
+   "seconds": 1.11,
+   "bed_dip_db": 3.5,
+   "quietest_window_db": -24.5,
+   "under_the_second_before_db": 4.6
+  }
+ ],
+ "bed_floor": {
+  "floor_db": -26,
+  "windows": 1117,
+  "worst_window_db": -25.0,
+  "worst_window_at_s": 55.8,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 8.8,
+  "worst_drop_at_s": 54.9,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 10,
+  "drop_window_s": 0.3,
+  "before_lifting_the_bed": {
+   "worst_window_db": -36.2,
+   "worst_window_at_s": 25.3,
+   "windows_under_floor": 219,
+   "worst_drop_db": 21.3,
+   "worst_drop_at_s": 13.0,
+   "drops_over_limit": 128
+  },
+  "bed_lift_db_max": 16.1,
+  "bed_lifted_seconds": 26.0
+ },
+ "line_gain_multiplier": 2.0,
+ "next_under_body_db": 5.5,
+ "first_100ms_db": -24.5,
+ "first_frame_33ms_db": -28.4,
+ "word_to_cut": [
+  {
+   "line": "hook",
+   "last_word_ends_before_cut_s": 1.322,
+   "first_word_after_cut_s": 0.06
+  },
+  {
+   "line": "asked",
+   "last_word_ends_before_cut_s": 0.478,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "said",
+   "last_word_ends_before_cut_s": 0.476,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "tapas",
+   "last_word_ends_before_cut_s": 0.475,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "sent",
+   "last_word_ends_before_cut_s": 0.524,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "saw",
+   "last_word_ends_before_cut_s": 0.432,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "left",
+   "last_word_ends_before_cut_s": 0.459,
+   "first_word_after_cut_s": 0.95
+  },
+  {
+   "line": "birds",
+   "last_word_ends_before_cut_s": 0.583,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "found",
+   "last_word_ends_before_cut_s": 0.437,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "name",
+   "last_word_ends_before_cut_s": 0.458,
+   "first_word_after_cut_s": 0.8
+  },
+  {
+   "line": "cliff",
+   "last_word_ends_before_cut_s": 0.552,
+   "first_word_after_cut_s": 0.25
+  }
+ ],
+ "least_word_to_cut_s": 0.432,
+ "voice_eq": "as the trailer: high-pass 58 Hz, +1 dB under 160 Hz, \u22121 dB over 7.5 kHz, +1.5 dB at 3.2 kHz, \u22121.5 dB at 320 Hz, a short room 15 dB under",
+ "lufs": -14.1,
+ "true_peak_dbtp": -3.43,
+ "lra": 4.6,
+ "timeline": "7d6634fd3ce14b3b",
+ "voiced": 11
+}

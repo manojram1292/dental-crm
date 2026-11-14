@@ -1,0 +1,22 @@
+{
+ "file": "episode52-share.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 1632,
+ "seconds": 54.4,
+ "low_motion": [],
+ "exact_repeats": 0,
+ "median_frame_difference": 1.14,
+ "least_moving_second": [
+  5.23,
+  0.27
+ ],
+ "dead_air_under_-45dB_over_0.3s": [],
+ "ssim_vs_master": {
+  "mean": 0.9732,
+  "worst": 0.943,
+  "worst_at_s": 41.43,
+  "runs_under_0.90": [],
+  "frames_under_0.90": 0
+ }
+}

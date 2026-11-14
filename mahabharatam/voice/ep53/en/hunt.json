@@ -1,30 +1,101 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "hunt~0.s2.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "One day he rode out to hunt, with hundreds of horses and elephants.",
+ "heard": "One day he rode out to hunt, with hundreds of horses and elephants.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.8638,
-   "words": 7,
-   "speed": 0.891,
-   "text": "One day he rode out to hunt,"
-  },
-  {
-   "t0": 2.0138,
-   "t1": 3.6607,
-   "words": 4,
-   "speed": 0.891,
-   "text": "with hundreds of horses"
-  },
-  {
-   "t0": 3.7207,
-   "t1": 4.8099,
-   "words": 2,
-   "speed": 0.891,
-   "text": "and elephants."
+   "t0": 0,
+   "t1": 4.439,
+   "words": 13,
+   "text": "One day he rode out to hunt, with hundreds of horses and elephants."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.16
+  ],
+  [
+   0.16,
+   0.42
+  ],
+  [
+   0.42,
+   0.7
+  ],
+  [
+   0.7,
+   0.9
+  ],
+  [
+   0.9,
+   1.253
+  ],
+  [
+   1.341,
+   1.42
+  ],
+  [
+   1.42,
+   1.833
+  ],
+  [
+   2.141,
+   2.24
+  ],
+  [
+   2.24,
+   2.56
+  ],
+  [
+   2.56,
+   3.02
+  ],
+  [
+   3.02,
+   3.34
+  ],
+  [
+   3.34,
+   3.68
+  ],
+  [
+   3.68,
+   4.264
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 172,
+ "longest_pause_s": 0.31,
+ "pauses_shortened": [
+  {
+   "at_s": 1.99,
+   "was_s": 0.33,
+   "now_s": 0.3
+  }
+ ],
+ "measured": {
+  "f0": 129.6,
+  "st": 9.4,
+  "edb": 18.6,
+  "dur": 4.24,
+  "jumps": 0.0,
+  "creak": 0.003,
+  "hnr": 10.3,
+  "jitter": 2.55,
+  "tail_db": -70.6
+ },
+ "film_median_hz": 129.0,
+ "semitones_from_film_median": 0.08,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

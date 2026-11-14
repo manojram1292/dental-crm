@@ -8,8 +8,11 @@
     "wordsPerSecond": 2.4,
     "voiceGap": 0.35,
     "voiceLead": 0.12,
-    "tail": 0.25
+    "tail": 0.25,
+    "frameSnap": true
   },
+  "rules": 2,
+  "credits": "source-only",
   "voice": {
     "pauses": {
       "ellipsis": 420,
@@ -70,7 +73,6 @@
     "nextEpisodeLabel": "Episode 53",
     "nextTitle": "The King and the Hermitage",
     "sourceLine": "Adi Parva 1.61 · the text lists the demons first · chapters 59–60 passed over · BORI Critical Edition",
-    "madeLine": "Voices: synthetic · Drawn in code",
     "arcLabel": "The end of an arc",
     "arcTitle": "Vyasa Begins",
     "arcRange": "Episodes 47–52",
@@ -111,8 +113,8 @@
       "text": "The king asked: which god was born as whom?",
       "say": "The king asked: [p:200] which god was born as whom?",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 450,
       "beats": [
         2,
         8
@@ -134,34 +136,53 @@
     {
       "id": "five",
       "speed": 1.1,
-      "text": "The five Pandava brothers each carried part of a god: the god of justice, the wind, the gods' king, and the twin horsemen.",
-      "say": "The five Pandava brothers [p:60] each carried part of a god: [p:240] the god of justice, [p:160] the wind, [p:160] the gods' king, [p:160] and the twin horsemen.",
+      "text": "The five Pandava brothers each carried part of a god.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 450,
       "emphasis": [
         "Pandava"
       ],
       "beats": [
-        9,
-        13,
-        15,
-        18,
-        22
+        2,
+        9
       ],
       "music": "awe",
       "amb": "sky",
       "foley": [
         "whoosh@1",
-        "whoosh@2",
-        "thunder@3",
-        "hooves@4"
+        "cloth"
       ],
       "pal": "messenger-dawn",
       "cam": "slide",
       "tr": "brush",
-      "note": "STORY 1 (messenger-dawn; answers the hook and episode 51's question): a slow track along the row; as each god is named his great figure brightens behind his man and a plaque arrives under the man: Yudhishthira · a part of Dharma; Bhima · a part of the Wind; Arjuna · a part of Indra; Nakula, Sahadeva · a part of the Ashvins. The gods are whole, large figures, never emblems.",
+      "note": "STORY: close on the five brothers in a row, a slow track along their faces; their gods stand dim and vast behind (tag: the five Pandavas · sons of Pandu). Split from the next line on 14 Nov (one idea, one caption; the list of gods gets its own picture).",
       "mixDb": 1
+    },
+    {
+      "id": "gods",
+      "speed": 1.1,
+      "text": "The god of justice, the wind, the gods' king, and the twin horsemen.",
+      "est": 3.0,
+      "pre": 250,
+      "post": 450,
+      "beats": [
+        1,
+        5,
+        7,
+        11
+      ],
+      "music": "awe",
+      "foley": [
+        "whoosh@0",
+        "whoosh@1",
+        "thunder@2",
+        "hooves@3"
+      ],
+      "pal": "riverbank-pearl",
+      "cam": "slide",
+      "mixDb": 1,
+      "note": "STORY: the same ridge under a pale sky: a track along the row, the gods vast behind the brothers; each god brightens as he is named and his son's plaque arrives beside him (Yudhishthira · Bhima · Arjuna · Nakula and Sahadeva). CE 1.61.84–85 (as the line it was split from)."
     },
     {
       "id": "karna",
@@ -169,7 +190,7 @@
       "text": "Karna, born in armour, was part of the sun.",
       "say": "Karna, [p:100] born in armour, [p:120] was part of the sun.",
       "est": 3.0,
-      "pre": 220,
+      "pre": 250,
       "post": 700,
       "emphasis": [
         "Karna,"
@@ -194,11 +215,10 @@
     {
       "id": "krishna",
       "speed": 1.1,
-      "text": "And the god of gods? Part of him was born as Krishna.",
-      "say": "And the god of gods? [p:300] Part of him [p:60] was born as Krishna.",
+      "text": "And the god above all gods? Part of him came to earth as Krishna.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 450,
       "emphasis": [
         "Krishna."
       ],
@@ -253,16 +273,19 @@
       "pal": "venom-violet",
       "cam": "push",
       "note": "STORY 4 · THE TURN (≈ 50 %) after a real silence · NEW LIGHT (venom-violet): a crowned prince with a mace, seen from below; behind him, where the others had gods, a tall dark shape with a green eye (plaques: Duryodhana · eldest of the hundred Kauravas; KALI · the spirit of strife · not the goddess Kālī). In the hold, two small plaques: Jarasandha · the danava Viprachitti; Shishupala · the daitya Hiranyakashipu. The word of the turn: STRIFE.",
-      "mixDb": -0.5
+      "mixDb": -0.5,
+      "gapOk": [
+        12
+      ],
+      "gapNote": "the comma pause after \"feud,\" measures 0.36 s in the chosen take (limit 0.35): a breath before the main clause, kept"
     },
     {
       "id": "draupadi",
       "speed": 1.1,
-      "text": "A part of the goddess of fortune rose from an altar: Draupadi.",
-      "say": "A part of the goddess of fortune [p:100] rose from an altar: [p:260] Draupadi.",
+      "text": "A portion of the goddess of fortune rose from an altar: Draupadi.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 450,
       "emphasis": [
         "Draupadi."
       ],
@@ -324,10 +347,9 @@
     {
       "id": "cliff",
       "speed": 1.1,
-      "text": "Then the king asked for his own family's story.",
-      "say": "Then the king asked [p:80] for his own family's story.",
+      "text": "And now the king wished to hear his own family's story.",
       "est": 3.0,
-      "pre": 220,
+      "pre": 250,
       "post": 600,
       "beats": [
         2,

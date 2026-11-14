@@ -1,37 +1,126 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "lovely~0.s0.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "By the river Malini, in a wood loud with birds, stood the hermitage of the sage Kanva.",
+ "heard": "by the river Malini, in a wood loud with birds, stood the hermitage of the sage Canva.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.43,
-   "words": 4,
-   "speed": 0.891,
-   "text": "By the river Malini,"
-  },
-  {
-   "t0": 1.53,
-   "t1": 3.3192,
-   "words": 6,
-   "speed": 0.891,
-   "text": "in a wood loud with birds,"
-  },
-  {
-   "t0": 3.4692,
-   "t1": 4.6558,
-   "words": 3,
-   "speed": 0.891,
-   "text": "stood the hermitage"
-  },
-  {
-   "t0": 4.7158,
-   "t1": 6.1485,
-   "words": 4,
-   "speed": 0.891,
-   "text": "of the sage Kanva."
+   "t0": 0,
+   "t1": 7.037,
+   "words": 17,
+   "text": "By the river Malini, in a wood loud with birds, stood the hermitage of the sage Kanva."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.24
+  ],
+  [
+   0.24,
+   0.4
+  ],
+  [
+   0.4,
+   0.58
+  ],
+  [
+   0.58,
+   1.42
+  ],
+  [
+   1.731,
+   1.82
+  ],
+  [
+   1.82,
+   1.92
+  ],
+  [
+   1.92,
+   2.385
+  ],
+  [
+   2.549,
+   2.74
+  ],
+  [
+   2.74,
+   3.315
+  ],
+  [
+   3.413,
+   3.957
+  ],
+  [
+   4.196,
+   4.4
+  ],
+  [
+   4.4,
+   4.56
+  ],
+  [
+   4.56,
+   5.391
+  ],
+  [
+   5.629,
+   5.68
+  ],
+  [
+   5.68,
+   5.82
+  ],
+  [
+   5.82,
+   6.14
+  ],
+  [
+   6.14,
+   6.909
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.31,
+ "pauses_shortened": [
+  {
+   "at_s": 1.58,
+   "was_s": 0.4,
+   "now_s": 0.3
+  }
+ ],
+ "measured": {
+  "f0": 133.8,
+  "st": 11.6,
+  "edb": 17.3,
+  "dur": 6.89,
+  "jumps": 0.0,
+  "creak": 0.002,
+  "hnr": 12.3,
+  "jitter": 2.49,
+  "tail_db": -84.5
+ },
+ "film_median_hz": 129.0,
+ "semitones_from_film_median": 0.63,
+ "names": {
+  "Kanva": {
+   "heard": "canva",
+   "fit": 1.0
+  },
+  "Malini": {
+   "heard": "malini",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

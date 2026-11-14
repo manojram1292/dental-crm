@@ -1,23 +1,79 @@
 {
- "speaker": "satyavati",
- "voice": "bf_emma",
- "speed": 0.882,
- "pitch": 0.5,
+ "speaker": "narrator",
+ "script_speaker": "satyavati",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "maiden~0.s3.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "I am a maiden. How can I go home?",
+ "heard": "I am a maiden, how can I go home?",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.3558,
-   "words": 4,
-   "speed": 0.882,
-   "text": "I am a maiden."
-  },
-  {
-   "t0": 1.6058,
-   "t1": 3.1295,
-   "words": 5,
-   "speed": 0.882,
-   "text": "How can I go home?"
+   "t0": 0,
+   "t1": 2.689,
+   "words": 9,
+   "text": "\"I am a maiden. How can I go home?\""
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.22
+  ],
+  [
+   0.22,
+   0.38
+  ],
+  [
+   0.38,
+   0.46
+  ],
+  [
+   0.46,
+   1.088
+  ],
+  [
+   1.263,
+   1.4
+  ],
+  [
+   1.4,
+   1.64
+  ],
+  [
+   1.64,
+   1.8
+  ],
+  [
+   1.8,
+   2.0
+  ],
+  [
+   2.0,
+   2.564
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.17,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 131.2,
+  "st": 11.7,
+  "edb": 15.3,
+  "dur": 2.54,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.2,
+  "jitter": 2.53,
+  "tail_db": -77.7
+ },
+ "film_median_hz": 127.7,
+ "semitones_from_film_median": 0.47,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

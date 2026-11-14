@@ -1,0 +1,748 @@
+{
+ "file": "episode50-share.mp4",
+ "seconds": 55.1,
+ "stops": [],
+ "holes": {
+  "floor_db": -26,
+  "windows": 1099,
+  "worst_window_db": -25.1,
+  "worst_window_at_s": 54.35,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 8.8,
+  "worst_drop_at_s": 54.05,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 10,
+  "drop_window_s": 0.3
+ },
+ "start": {
+  "first_100ms_db": -24.5,
+  "first_frame_33ms_db": -21.6,
+  "first_10ms_db": -21.1
+ },
+ "clipping": {
+  "samples_at_0.999": 0,
+  "peak_dbfs": -2.58
+ },
+ "recogniser": {
+  "heard": "The poet was born on an island. Satyavati, a fisherman's daughter, rode a ferry. One day the sage Parashara on pilgrimage saw her and desired her. Holy one. Sages are watching from both banks. So he raised a mist that hid the river. I am amazed. How can I go home? You will remain a maiden. Now choose a gift. She chose a fragrance for her smell of fish and gladly agreed. That same day, on a river island, she bore a sun. He grew at once. Devipayana, the island born, we call him Vyasa. Mother, think of me, and I will come. Then the king asked, why were these God -like heroes born on Earth?",
+  "transcribed_in_stretches_starting_at_s": [
+   0.0,
+   13.97,
+   30.07,
+   44.77,
+   55.1
+  ],
+  "words": [
+   [
+    "The",
+    0.0,
+    0.14
+   ],
+   [
+    "poet",
+    0.14,
+    0.38
+   ],
+   [
+    "was",
+    0.38,
+    0.64
+   ],
+   [
+    "born",
+    0.64,
+    0.94
+   ],
+   [
+    "on",
+    0.94,
+    1.16
+   ],
+   [
+    "an",
+    1.16,
+    1.26
+   ],
+   [
+    "island.",
+    1.26,
+    1.52
+   ],
+   [
+    "Satyavati,",
+    3.62,
+    4.22
+   ],
+   [
+    "a",
+    4.56,
+    4.68
+   ],
+   [
+    "fisherman's",
+    4.68,
+    5.38
+   ],
+   [
+    "daughter,",
+    5.38,
+    5.6
+   ],
+   [
+    "rode",
+    6.12,
+    6.34
+   ],
+   [
+    "a",
+    6.34,
+    6.56
+   ],
+   [
+    "ferry.",
+    6.56,
+    6.86
+   ],
+   [
+    "One",
+    7.9,
+    8.02
+   ],
+   [
+    "day",
+    8.02,
+    8.3
+   ],
+   [
+    "the",
+    8.3,
+    8.6
+   ],
+   [
+    "sage",
+    8.6,
+    8.92
+   ],
+   [
+    "Parashara",
+    8.92,
+    9.86
+   ],
+   [
+    "on",
+    9.86,
+    10.46
+   ],
+   [
+    "pilgrimage",
+    10.46,
+    10.74
+   ],
+   [
+    "saw",
+    10.74,
+    11.76
+   ],
+   [
+    "her",
+    11.76,
+    12.1
+   ],
+   [
+    "and",
+    12.1,
+    12.46
+   ],
+   [
+    "desired",
+    12.46,
+    12.88
+   ],
+   [
+    "her.",
+    12.88,
+    13.32
+   ],
+   [
+    "Holy",
+    13.97,
+    14.55
+   ],
+   [
+    "one.",
+    14.55,
+    14.81
+   ],
+   [
+    "Sages",
+    15.43,
+    15.61
+   ],
+   [
+    "are",
+    15.61,
+    15.87
+   ],
+   [
+    "watching",
+    15.87,
+    16.17
+   ],
+   [
+    "from",
+    16.17,
+    16.55
+   ],
+   [
+    "both",
+    16.55,
+    16.81
+   ],
+   [
+    "banks.",
+    16.81,
+    17.21
+   ],
+   [
+    "So",
+    18.49,
+    18.53
+   ],
+   [
+    "he",
+    18.53,
+    18.69
+   ],
+   [
+    "raised",
+    18.69,
+    18.89
+   ],
+   [
+    "a",
+    18.89,
+    19.17
+   ],
+   [
+    "mist",
+    19.17,
+    19.39
+   ],
+   [
+    "that",
+    19.39,
+    19.87
+   ],
+   [
+    "hid",
+    19.87,
+    20.11
+   ],
+   [
+    "the",
+    20.11,
+    20.31
+   ],
+   [
+    "river.",
+    20.31,
+    20.53
+   ],
+   [
+    "I",
+    21.59,
+    21.77
+   ],
+   [
+    "am",
+    21.77,
+    21.95
+   ],
+   [
+    "amazed.",
+    21.95,
+    22.13
+   ],
+   [
+    "How",
+    22.85,
+    22.97
+   ],
+   [
+    "can",
+    22.97,
+    23.21
+   ],
+   [
+    "I",
+    23.21,
+    23.35
+   ],
+   [
+    "go",
+    23.35,
+    23.57
+   ],
+   [
+    "home?",
+    23.57,
+    23.79
+   ],
+   [
+    "You",
+    25.27,
+    25.81
+   ],
+   [
+    "will",
+    25.81,
+    26.11
+   ],
+   [
+    "remain",
+    26.11,
+    26.53
+   ],
+   [
+    "a",
+    26.53,
+    26.99
+   ],
+   [
+    "maiden.",
+    26.99,
+    27.27
+   ],
+   [
+    "Now",
+    28.09,
+    28.09
+   ],
+   [
+    "choose",
+    28.09,
+    28.49
+   ],
+   [
+    "a",
+    28.49,
+    28.97
+   ],
+   [
+    "gift.",
+    28.97,
+    29.23
+   ],
+   [
+    "She",
+    30.07,
+    30.49
+   ],
+   [
+    "chose",
+    30.49,
+    30.73
+   ],
+   [
+    "a",
+    30.73,
+    30.87
+   ],
+   [
+    "fragrance",
+    30.87,
+    31.21
+   ],
+   [
+    "for",
+    31.21,
+    31.57
+   ],
+   [
+    "her",
+    31.57,
+    31.69
+   ],
+   [
+    "smell",
+    31.69,
+    31.91
+   ],
+   [
+    "of",
+    31.91,
+    32.07
+   ],
+   [
+    "fish",
+    32.07,
+    32.33
+   ],
+   [
+    "and",
+    32.33,
+    32.93
+   ],
+   [
+    "gladly",
+    32.93,
+    33.25
+   ],
+   [
+    "agreed.",
+    33.25,
+    33.75
+   ],
+   [
+    "That",
+    34.99,
+    35.55
+   ],
+   [
+    "same",
+    35.55,
+    35.79
+   ],
+   [
+    "day,",
+    35.79,
+    36.11
+   ],
+   [
+    "on",
+    36.39,
+    36.73
+   ],
+   [
+    "a",
+    36.73,
+    36.79
+   ],
+   [
+    "river",
+    36.79,
+    36.93
+   ],
+   [
+    "island,",
+    36.93,
+    37.35
+   ],
+   [
+    "she",
+    37.97,
+    38.05
+   ],
+   [
+    "bore",
+    38.05,
+    38.25
+   ],
+   [
+    "a",
+    38.25,
+    38.43
+   ],
+   [
+    "sun.",
+    38.43,
+    38.67
+   ],
+   [
+    "He",
+    39.51,
+    39.79
+   ],
+   [
+    "grew",
+    39.79,
+    39.97
+   ],
+   [
+    "at",
+    39.97,
+    40.19
+   ],
+   [
+    "once.",
+    40.19,
+    40.35
+   ],
+   [
+    "Devipayana,",
+    40.93,
+    41.49
+   ],
+   [
+    "the",
+    41.83,
+    41.91
+   ],
+   [
+    "island",
+    41.91,
+    42.13
+   ],
+   [
+    "born,",
+    42.13,
+    42.51
+   ],
+   [
+    "we",
+    43.03,
+    43.09
+   ],
+   [
+    "call",
+    43.09,
+    43.29
+   ],
+   [
+    "him",
+    43.29,
+    43.51
+   ],
+   [
+    "Vyasa.",
+    43.51,
+    43.95
+   ],
+   [
+    "Mother,",
+    44.77,
+    45.23
+   ],
+   [
+    "think",
+    45.59,
+    45.79
+   ],
+   [
+    "of",
+    45.79,
+    45.99
+   ],
+   [
+    "me,",
+    45.99,
+    46.23
+   ],
+   [
+    "and",
+    46.23,
+    46.51
+   ],
+   [
+    "I",
+    46.51,
+    46.75
+   ],
+   [
+    "will",
+    46.75,
+    46.93
+   ],
+   [
+    "come.",
+    46.93,
+    47.21
+   ],
+   [
+    "Then",
+    48.03,
+    48.41
+   ],
+   [
+    "the",
+    48.41,
+    48.67
+   ],
+   [
+    "king",
+    48.67,
+    48.89
+   ],
+   [
+    "asked,",
+    48.89,
+    49.21
+   ],
+   [
+    "why",
+    49.85,
+    50.19
+   ],
+   [
+    "were",
+    50.19,
+    50.43
+   ],
+   [
+    "these",
+    50.43,
+    50.67
+   ],
+   [
+    "God",
+    50.67,
+    51.07
+   ],
+   [
+    "-like",
+    51.07,
+    51.45
+   ],
+   [
+    "heroes",
+    51.45,
+    51.85
+   ],
+   [
+    "born",
+    51.85,
+    52.35
+   ],
+   [
+    "on",
+    52.35,
+    52.71
+   ],
+   [
+    "Earth?",
+    52.71,
+    52.93
+   ]
+  ],
+  "gaps_over_0.35s_inside_a_sentence": [
+   {
+    "after": "daughter,",
+    "before": "rode",
+    "at_s": 5.6,
+    "gap_s": 0.52
+   },
+   {
+    "after": "island,",
+    "before": "she",
+    "at_s": 37.35,
+    "gap_s": 0.62
+   },
+   {
+    "after": "born,",
+    "before": "we",
+    "at_s": 42.51,
+    "gap_s": 0.52
+   },
+   {
+    "after": "Mother,",
+    "before": "think",
+    "at_s": 45.23,
+    "gap_s": 0.36
+   },
+   {
+    "after": "asked,",
+    "before": "why",
+    "at_s": 49.21,
+    "gap_s": 0.64
+   }
+  ],
+  "script_words": 122,
+  "misheard": [
+   {
+    "script": "rowed",
+    "heard": "rode"
+   },
+   {
+    "script": "a maiden",
+    "heard": "amazed"
+   },
+   {
+    "script": "son",
+    "heard": "sun"
+   },
+   {
+    "script": "dvaipayana",
+    "heard": "devipayana"
+   },
+   {
+    "script": "godlike",
+    "heard": "god like"
+   },
+   {
+    "script": "next the burden of the earth",
+    "heard": ""
+   }
+  ]
+ },
+ "voice_stem": {
+  "peak_dbfs": -5.01,
+  "samples_at_0.999": 0,
+  "boundaries": 24,
+  "ordinary_speech_step_99pct_db": -25.6,
+  "loudest_step_at_a_boundary_db": -79.3,
+  "boundaries_with_a_step_over_-40_db": [],
+  "boundaries_with_level_over_-30_db": []
+ },
+ "pauses_inside_sentences_in_the_voice_files": {
+  "over_0.35_s": [
+   {
+    "shot": "cliff",
+    "after": "asked:",
+    "before": "why",
+    "silence_s": 0.45
+   }
+  ],
+  "longest": [
+   {
+    "shot": "cliff",
+    "after": "asked:",
+    "before": "why",
+    "silence_s": 0.45
+   },
+   {
+    "shot": "born",
+    "after": "day,",
+    "before": "on",
+    "silence_s": 0.34
+   },
+   {
+    "shot": "watching",
+    "after": "one,",
+    "before": "sages",
+    "silence_s": 0.33
+   },
+   {
+    "shot": "born",
+    "after": "island,",
+    "before": "she",
+    "silence_s": 0.32
+   },
+   {
+    "shot": "ferry",
+    "after": "daughter,",
+    "before": "rowed",
+    "silence_s": 0.31
+   },
+   {
+    "shot": "scent",
+    "after": "fish,",
+    "before": "and",
+    "silence_s": 0.31
+   },
+   {
+    "shot": "sage",
+    "after": "Parashara,",
+    "before": "on",
+    "silence_s": 0.25
+   },
+   {
+    "shot": "promise",
+    "after": "\"Mother,",
+    "before": "think",
+    "silence_s": 0.25
+   }
+  ]
+ }
+}

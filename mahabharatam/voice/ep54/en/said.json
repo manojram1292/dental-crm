@@ -1,23 +1,84 @@
 {
- "speaker": "shakuntala",
- "voice": "af_bella",
- "speed": 0.84,
- "pitch": 0.0,
+ "speaker": "narrator",
+ "script_speaker": "shakuntala",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "said~0.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "People call me the sage Kanva's daughter. Hear why.",
+ "heard": "People call me the sage, Canva's daughter, here why.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 2.4577,
-   "words": 7,
-   "speed": 0.84,
-   "text": "People call me the sage Kanva's daughter."
-  },
-  {
-   "t0": 2.7177,
-   "t1": 3.504,
-   "words": 2,
-   "speed": 0.84,
-   "text": "Hear why."
+   "t0": 0,
+   "t1": 3.64,
+   "words": 9,
+   "text": "\"People call me the sage Kanva's daughter. Hear why.\""
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.24
+  ],
+  [
+   0.24,
+   0.5
+  ],
+  [
+   0.5,
+   0.66
+  ],
+  [
+   0.66,
+   0.76
+  ],
+  [
+   0.76,
+   1.422
+  ],
+  [
+   1.643,
+   2.134
+  ],
+  [
+   2.198,
+   2.614
+  ],
+  [
+   2.908,
+   3.0
+  ],
+  [
+   3.0,
+   3.474
+  ]
+ ],
+ "lead_air_ms": 23,
+ "tail_air_ms": 162,
+ "longest_pause_s": 0.29,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 132.6,
+  "st": 11.9,
+  "edb": 19.6,
+  "dur": 3.46,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.4,
+  "jitter": 2.51,
+  "tail_db": -71.1
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": 0.71,
+ "names": {
+  "Kanva": {
+   "heard": "canva's",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

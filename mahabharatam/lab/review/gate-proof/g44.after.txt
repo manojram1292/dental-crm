@@ -1,0 +1,2 @@
+gate ep44: hook 6 w, speech ends 2.89 s · story starts 3.89 s · duration 56.23 s · turn "snake" at 53.7 % · 2.46 words/s · 3 names, ≤ 2 new per 10 s · 3 names identified · previous question answered at 3.9 s · 5 ambiences · 6 music moods · 2 J/L cuts · 2 rests · 6 palettes, hue run ≤ 2 · 8 camera moves · 3 medium transitions · silences ≥ 0.6 s at −45 dB: 2 (longest 1.12 s) · LRA 5.1 LU · stems mus+amb+foley · music -13.3 dB under voice · TP -2.15 · Next -10.4 dB vs body
+gate ep44: passed

@@ -34,7 +34,7 @@
   // 2 · LINE: a tilt down a pale palace wall with a painted line of kings to the living king on his throne
   R.scene({ id: 'line', transition: { type: 'brush', dur: 0.5, angle: 0.2, color: '#f4e8c8' },
     draw(ctx, t, env) {
-      const T = env.T, b1 = env.beats[1] ?? 3.3, cam = CAM.tilt(E.inOutSine(clamp(t / 3.6)), { from: -330, to: 60, zoom: 1.12 });
+      const T = env.T, b1 = env.beats[1] ?? 3.3, cam = CAM.drift(CAM.tilt(E.inOutSine(clamp(t / 3.6)), { from: -330, to: 60, zoom: 1.12 + 0.14 * clamp((t - 2.4) / (env.dur - 2.4)) }), T, 1.8);
       EP51.court(ctx, T, cam, 'seat-ivory', { tx: 540, ty: 1330, ts: 0.95, tcol: '#3a100c', crowd: 0.6, glow: 0.3,
         back: (g, p) => { for (let i = 0; i < 6; i++) { const x = 140 + i * 160, y = 150 - 60 * (i % 2); g.fillStyle = KIT.hex(p.near, p.accent, 0.3); g.beginPath(); g.ellipse(x, y, 44, 110, 0, 0, TAU); g.fill(); g.beginPath(); g.arc(x, y - 150, 30, 0, TAU); g.fill(); g.fillStyle = '#c89a30'; g.beginPath(); g.moveTo(x - 26, y - 176); g.lineTo(x, y - 230); g.lineTo(x + 26, y - 176); g.closePath(); g.fill(); if (i < 5) { g.strokeStyle = '#c89a30'; g.lineWidth = 5; g.beginPath(); g.moveTo(x + 46, y); g.lineTo(x + 114, y + (i % 2 ? -60 : 60)); g.stroke(); } } },
         figs: (g, p) => F(g, T, 'dushyanta', 540, 1040, 0.72, { f: 'left', pose: 'sit', L: { dir: -Math.PI / 2 - 0.3, intensity: 0.38, front: 0.3, fill: 0.14, minLum: 0.05 }, ex: { emo: 'resolve', gaze: [0.7, 0] }, key: 'ln-k' }) });
@@ -66,7 +66,8 @@
       const T = env.T, cam = CAM.pull(clamp(t / env.dur), { from: 1.5, to: 1.02, focus: [640, 1000] }), d = 160 * E.outCubic(t / env.dur);
       EP51.land(ctx, T, cam, 'noon-ochre', { sun: [540, 300, 90], trees: false, hz: 1100, hillH: 160, dust: 'dust', clouds: false,
         far: (g) => { g.fillStyle = '#2a5a2a'; for (let i = 0; i < 14; i++) { g.beginPath(); g.arc(-80 + i * 44, 1100 - 10 * hash(i, 2), 40, 0, TAU); g.fill(); } },
-        figs: (g, p) => { KIT.army.draw(g, 'chariot', { x: 780 - d, y: 1290, s: 2.0, dir: -1, t: T, gait: 1 - 0.7 * (t / env.dur), fill: '#3a1a0c', line: '#120806', gold: '#f0c050', rim: '#fff0b0', light: -Math.PI / 2, banner: '#1f8a5a' });
+        figs: (g, p) => { KIT.army.draw(g, 'chariot', { x: 780 - d, y: 1290, s: 2.0, dir: -1, t: T, gait: 1 - 0.7 * (t / env.dur), fill: '#7a3f1c', line: '#2a1408', gold: '#f0c050', rim: '#fff0b0', light: -Math.PI / 2, banner: '#1f8a5a' });
+          if (t < env.dur) F(g, T, 'dushyanta', 847 - d, 1150, 0.4, { f: 'left', pose: { w: { attend: 0.6, stand: 0.4 } }, L: { dir: -Math.PI / 2 - 0.3, intensity: 0.95, front: 0.62, fill: 0.3 }, ex: { emo: 'weary', gaze: [0.9, 0.1] }, key: 'dp-k' });   // the king in colour: no black-silhouette principal
           } });
       fin(ctx, T);
     },
@@ -89,7 +90,7 @@
   // 6 · LEFT (the turn): a rack focus from the crown and sash laid on a cloth to the king walking away in a plain dhoti
   R.scene({ id: 'left', transition: { type: 'dissolve', dur: 0.4 },
     draw(ctx, t, env) {
-      const T = env.T, b = env.beats, b1 = b[1] ?? 3.3, b2 = b[2] ?? 5.9, cam = CAM.rack(E.inOutSine(clamp((t - 1.0) / 1.4)), { from: 1.4, to: 1, zoom: 1.1 }), d = 200 * clamp(t / env.dur);
+      const T = env.T, b = env.beats, b1 = b[1] ?? 3.3, b2 = b[2] ?? 5.9, cam = CAM.drift(CAM.rack(E.inOutSine(clamp((t - 0.5) / 1.2)), { from: 1.4, to: 1, zoom: 1.1 + 0.1 * clamp(t / env.dur) }), T, 2.2), d = 200 * clamp(t / env.dur);
       EP51.wood(ctx, T, cam, 'hermitage-green', { seed: 125, trunks: [-220, 1300],
         far: (g) => { for (let i = 0; i < 16; i++) { g.fillStyle = '#143a1c'; g.fillRect(40 + i * 28, HZ - 330 - 30 * hash(i, 3), 4, 330); } },
         figs: (g, p) => king(g, p, T, 560 + d, GY - 60, 0.62, { pose: ACT.pose(t, [[0, 'walk']], { phase: ACT.stride(d, 0.62) }), ex: { emo: 'calm', gaze: [0.8, 0] }, key: 'lf-k' }),
@@ -117,9 +118,9 @@
   // 8 · EMPTY: seen through the hut's dark doorway: the king small in the bright yard, looking about
   R.scene({ id: 'empty', transition: { type: 'dissolve', dur: 0.35 },
     draw(ctx, t, env) {
-      const T = env.T, b0 = env.beats[0] ?? 1.4, cam = CAM.push(t / env.dur, { from: 1.0, to: 1.08, focus: [540, 1000] });
-      ST.within(ctx, T, { shape: 'door', pal: 'thicket-shade', box: [250, 300, 580, 1260], open: 1, color: '#06120c', draw: (g) => {
-        EP51.wood(g, T, cam, 'thicket-shade', { seed: 127, trunks: false, shafts: 0.22, figs: (gg, p) => king(gg, p, T, 540, GY - 40, 0.6, { f: t > b0 ? 'left' : 'right', pose: ACT.pose(t, [[0, 'attend'], [b0, 'speak', { act: 0.4 }]]), L: EP51.bright('#f0ffb0', 1.3), ex: { emo: 'wonder', gaze: [0.8, -0.2] }, key: 'em-k' }) }); } });
+      const T = env.T, b0 = env.beats[0] ?? 1.4, cam = CAM.drift(CAM.push(t / env.dur, { from: 1.0, to: 1.16, focus: [540, 900] }), T, 2.0);
+      // full frame (was a small picture inside a door-shaped frame on black: it read as a shrunken video)
+      EP51.wood(ctx, T, cam, 'thicket-shade', { seed: 127, trunks: false, shafts: 0.22, figs: (gg, p) => king(gg, p, T, 540, GY - 40, 0.72, { f: t > b0 ? 'left' : 'right', pose: ACT.pose(t, [[0, 'attend'], [b0, 'speak', { act: 0.4 }]]), L: EP51.bright('#f0ffb0', 1.3), ex: { emo: 'wonder', gaze: [0.8, -0.2] }, key: 'em-k' }) });
       fin(ctx, T);
     },
     post: POST(0.3, 0.5) });
@@ -129,11 +130,11 @@
   R.scene({ id: 'came', transition: { type: 'dissolve', dur: 0.4 },
     draw(ctx, t, env) {
       const T = env.T, b = env.beats, b2 = b[2] ?? 5.0, b3 = b[3] ?? 6.0, cu = t > b2 - 1.2 && t < b3 + 0.5;
-      if (cu) { const u = t - (b2 - 1.2), cam = CAM.push(clamp(u / 2.6), { from: 1.0, to: 1.1, focus: [540, 780] });
+      if (cu) { const u = t - (b2 - 1.2), cam = CAM.drift(CAM.push(clamp(u / 2.6), { from: 1.0, to: 1.1, focus: [540, 780] }), T, 1.6);
         EP51.wood(ctx, T, cam, 'meadow-spring', { seed: 120, trunks: false, figs: (g, p) => {
           F(g, T, 'dushyantaPlain', 430, 2960, 2.5, { f: 'right', pose: 'stand', L: ST.light(p, { from: [860, 200], at: [500, 1200], k: 1.0, front: 0.4 }), ex: { emo: ACT.emo(u, [[0, 'weary'], [0.8, 'wonder', { dur: 0.6 }], [1.9, 'tender', { dur: 0.5 }]]), ...ACT.lead(u, [[0, [0.5, 0.4]], [0.7, [0.9, 0]]], 0.4, 0.2) }, key: 'cm-kc' });
           const gr = g.createLinearGradient(0, 1060, 0, 1560); gr.addColorStop(0, 'rgba(20,40,10,0)'); gr.addColorStop(0.5, 'rgba(20,40,10,0.85)'); gr.addColorStop(1, 'rgba(20,40,10,0.96)'); g.fillStyle = gr; g.fillRect(-900, 1060, 2880, 1800); } });
-      } else { const late = t >= b3 + 0.5, cam = CAM.push(clamp(t / env.dur), { from: 1.04, to: 1.14, focus: [600, 900] }), step = 170 * E.outCubic(clamp((t - 0.6) / 1.6));
+      } else { const late = t >= b3 + 0.5, cam = CAM.drift(CAM.push(clamp(t / env.dur), { from: 1.04, to: 1.14, focus: [600, 900] }), T, 1.6), step = 170 * E.outCubic(clamp((t - 0.6) / 1.6));
         yard(ctx, T, cam, 'meadow-spring', (g, p) => {
           king(g, p, T, 250, GY + 10, 0.8, { pose: late ? { w: { attend: 1 } } : 'stand', ex: { emo: 'wonder', gaze: [0.9, 0] }, key: 'cm-k' });
           girl(g, p, T, 860 - step, GY, 0.76, { pose: late ? ACT.pose(t, [[0, 'attend'], [b3 + 0.9, 'point', { act: 0.5 }]]) : ACT.pose(t, [[0, 'walk'], [2.0, 'offer', { act: 0.5 }]], { phase: ACT.stride(step, 0.76) }), ex: { emo: 'tender', gaze: [0.8, 0] }, key: 'cm-g' });

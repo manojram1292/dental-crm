@@ -1,0 +1,90 @@
+{
+ "hook": [
+  {
+   "k": 0,
+   "text": "Five brothers. Five gods.",
+   "spell": {},
+   "seeds": 7
+  }
+ ],
+ "asked": [
+  {
+   "k": 0,
+   "text": "The king asked: which god was born as whom?",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "five": [
+  {
+   "k": 0,
+   "text": "The five Pandava brothers each carried part of a god: the god of justice, the wind, the gods' king, and the twin horsemen.",
+   "spell": {},
+   "seeds": 5
+  },
+  {
+   "k": 1,
+   "text": "The five Pandava brothers each carried part of a god.",
+   "spell": {
+    "Pandava": "Pandava"
+   },
+   "seeds": 5
+  }
+ ],
+ "karna": [
+  {
+   "k": 0,
+   "text": "Karna, born in armour, was part of the sun.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "krishna": [
+  {
+   "k": 0,
+   "text": "And the god above all gods? Part of him came to earth as Krishna.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "kali": [
+  {
+   "k": 0,
+   "text": "But dark powers had been born first. Duryodhana, who lit the feud, was born from the spirit of strife.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "draupadi": [
+  {
+   "k": 0,
+   "text": "A portion of the goddess of fortune rose from an altar: Draupadi.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "payoff": [
+  {
+   "k": 0,
+   "text": "The wise who hear this do not lose heart in hard times.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "cliff": [
+  {
+   "k": 0,
+   "text": "And now the king wished to hear his own family's story.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "gods": [
+  {
+   "k": 0,
+   "text": "The god of justice, the wind, the gods' king, and the twin horsemen.",
+   "spell": {},
+   "seeds": 5
+  }
+ ]
+}

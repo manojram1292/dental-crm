@@ -1,30 +1,91 @@
 {
- "speaker": "vaishampayana",
- "voice": "bm_daniel",
- "speed": 0.8904,
- "pitch": 1.0,
+ "speaker": "narrator",
+ "script_speaker": "vaishampayana",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "payoff~0.s2.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "The wise who hear this do not lose heart in hard times.",
+ "heard": "The wise who hear this, do not lose heart in hard times.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.7445,
-   "words": 5,
-   "speed": 0.89,
-   "text": "The wise who hear this"
-  },
-  {
-   "t0": 1.8945,
-   "t1": 3.476,
-   "words": 4,
-   "speed": 0.89,
-   "text": "do not lose heart"
-  },
-  {
-   "t0": 3.556,
-   "t1": 5.0836,
-   "words": 3,
-   "speed": 0.89,
-   "text": "in hard times."
+   "t0": 0,
+   "t1": 4.145,
+   "words": 12,
+   "text": "\"The wise who hear this do not lose heart in hard times.\""
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.08
+  ],
+  [
+   0.08,
+   0.36
+  ],
+  [
+   0.36,
+   0.68
+  ],
+  [
+   0.68,
+   0.94
+  ],
+  [
+   0.94,
+   1.532
+  ],
+  [
+   1.789,
+   1.84
+  ],
+  [
+   1.84,
+   2.06
+  ],
+  [
+   2.06,
+   2.3
+  ],
+  [
+   2.3,
+   2.68
+  ],
+  [
+   2.68,
+   3.0
+  ],
+  [
+   3.0,
+   3.22
+  ],
+  [
+   3.22,
+   3.936
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 200,
+ "longest_pause_s": 0.26,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 134.5,
+  "st": 13.8,
+  "edb": 20.5,
+  "dur": 3.92,
+  "jumps": 0.0,
+  "creak": 0.004,
+  "hnr": 9.5,
+  "jitter": 2.52,
+  "tail_db": -61.6
+ },
+ "film_median_hz": 127.6,
+ "semitones_from_film_median": 0.91,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

@@ -187,4 +187,11 @@ Foley column: cues whose onset or peak lies within 2 frames of the beat they wer
 | 47 | 56.8 | 6 w · 2.99 s | 11.9 | 54 % | 2.34 | 7 · 2 | 8 · 4 | -14.1 · -2.2 · 5.2 | 2 (1.02 s) | -10.4 dB | -33.2 · -36.8 · -27.7 | 18 of 20 | -2.5 dBFS · 0 | 20 · 30.2 | 18.0 |
 | 48 | 56.5 | 6 w · 2.87 s | 20.5 | 41 % | 2.30 | 9 · 2 | 5 · 4 | -14.0 · -2.2 · 5.7 | 2 (1.07 s) | -10.4 dB | -34.1 · -36.8 · -25.4 | 21 of 24 | -2.5 dBFS · 0 | 24 · 30.2 | 17.6 |
 | 49 | 57.3 | 8 w · 2.67 s | 23.3 | 50 % | 2.57 | 6 · 2 | 7 · 3 | -14.0 · -2.1 · 5.5 | 2 (1.02 s) | -10.4 dB | -35.8 · -44.7 · -27.6 | 15 of 25 | -2.5 dBFS · 0 | 22 · 29.3 | 18.4 |
-| 50 | not rendered (work stopped by request on 2026-11-12; see REVIEW_LOG.md) | | | | | | | | | | | | | | |
+| 50 | 55.1 | 7 w · 1.98 s | 19.7 | 45 % | 2.38 | 8 · 2 | 7 · 3 | -14.2 · -3.3 · 4.3 | 0 · 2 dips | -5.5 dB | -36.0 · -42.2 · -28.0 | 16 of 24 | -3.51 dBFS · 0 | 24 · 30.2 | 17.9 |
+| 51 | 53.2 | 6 w · 2.42 s | 16.9 | 44 % | 2.53 | 10 · 2 | 6 · 4 | -14.1 · -2.2 · 4.8 | 2 (1.04 s) | -10.4 dB | -34.5 · -36.9 · -26.8 | 19 of 22 | -2.51 dBFS · 0 | 26 · 29.3 | 15.6 |
+| 52 | 54.4 | 4 w · 2.38 s | 9.8 | 49 % | 2.51 | 10 · 2 | 6 · 4 | -14.1 · -2.8 · 4.6 | 0 · 2 dips | -5.5 dB | -33.9 · -34.8 · -26.9 | 18 of 22 | -3.51 dBFS · 0 | 26 · 33.1 | 18.1 |
+| 53 | 54.9 | 3 w · 1.58 s | 13.0 | 51 % | 2.4 | 9 · 1 | 8 · 3 | -14.2 · -2.6 · 5.1 | 0 · 2 dips | -5.3 dB | -35.5 · -32.9 · -27.7 | 20 of 25 | -3.51 dBFS · 0 | 22 · 30.4 | 17.7 |
+| 54 | 56.0 | 8 w · 2.58 s | 30.8 | 45 % | 2.4 | 8 · 2 | 7 · 4 | -14.1 · -3.0 · 4.6 | 0 · 2 dips | -5.5 dB | -34.7 · -42.3 · -27.9 | 16 of 26 | -3.51 dBFS · 0 | 26 · 30.2 | 18.1 |
+| 55 | 54.0 | 7 w · 2.39 s | 13.8 | 43 % | 2.47 | 10 · 2 | 8 · 3 | -14.1 · -3.2 · 4.1 | 0 · 2 dips | -5.4 dB | -34.2 · -39.2 · -28.2 | 17 of 23 | -3.51 dBFS · 0 | 26 · 30.2 | 17.3 |
+
+Rows 50 and 52 on are "rules": 2 episodes (the trailer's lessons; README): W/s is the gate's measure (the pause after each line, up to 0.4 s, counted with the speech); Silences reads "0 · N dips" (no silence is allowed; the rests are dips of the bed); Next is 5–6 dB under the body by rule (was 10). Row 51 is the earlier render under the old rules. Measured on the finished mp4 as before; the checks particular to these episodes (0 freezes over 0.3 s, no 100 ms window under −26 dBFS, no fall over 10 dB in 0.3 s, the recogniser on the final mix) are in `lab/review/epNN/finish.log` and REVIEW_LOG.md.

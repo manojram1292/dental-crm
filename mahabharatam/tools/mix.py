@@ -244,7 +244,7 @@ def floor_report(x, stops, cfg, D):
     ok = np.ones(len(t), bool)
     for a, b in stops:
         ok &= ~((t + 0.1 > a - 0.005) & (t < b + 0.1))   # a window touching a stop, or the first 100 ms after one
-    ok &= t + 0.1 <= D - 0.06
+    ok &= t + 0.1 <= D - cfg.get('endExemptS', 0.06)   # the trailer leaves its last 60 ms out; a "rules": 2 episode is measured to 100 ms before its end (the bed goes out over the last 80 ms, as a film ends)
     k = int(round(cfg['dropWindowS'] / 0.05))
     prev = np.array([lv[max(0, i - k):i + 1].max() for i in range(len(lv))])
     okd = ok.copy()
@@ -325,11 +325,134 @@ def line_gains(tl, SL, N, mult=1.0):
     return db(uniform_filter1d(g, int(0.3 * SR)))
 
 
+# ─── "rules": 2 (episodes scripted after the trailer; README "Standing rules learned from the trailer") ──────────────────────────
+RULES2 = {'duck': {'mus': 8.0, 'amb': 3.0, 'foley': 2.0}, 'release_s': 0.09, 'rest_dip_db': 3.5, 'next_under_db': 6.0, 'floor': {'floorDb': -26, 'dropDb': 10, 'dropWindowS': 0.3, 'endExemptS': 0.06},   # as the trailer; the check on the finished file leaves out 0.1 s (its decoded sound is a few ms longer)
+          'ceil_db': -2.5}   # the limiter's ceiling 1 dB under an older episode's: AAC overshoots voice onsets and drum hits; the mp4 must stay ≤ −1.5 dBTP
+
+
+def main_rules2(ep, tag, lang, tl, sc):
+    """The mix of an episode whose script says "rules": 2. What differs from the older episodes (which are mixed exactly as before):
+      · SOUND FROM FRAME 0 (a 3 ms ramp, no fade-in) and NO SILENCE ANYWHERE: a rest (the gap before the TURN line and before every
+        line marked "rest": true) is a DIP: the duck lets go as in any pause and the bed runs on 3.5 dB under its own level; it does not stop;
+      · the music ducks 8 dB (ambience 3, foley 2) and comes back within 90 ms;
+      · after mastering, wherever a 100 ms window is under −26 dBFS or more than 10 dB under the loudest of the 300 ms before it,
+        the bed (music + ambience) is raised there and the whole mastered again, until neither happens (reported as "bed_floor");
+      · the Next band sits 6 dB under the body, reached over 0.5 s (10 dB at once would itself be a fall of over 10 dB in 0.3 s);
+      · the narrator's chain is the approved trailer's (chest kept, +1.5 dB presence, a short room), since it is the trailer's voice;
+      · about −14 LUFS, limiter ceiling −2.5 dBTP so the encoded file stays under −1.5.
+    Writes mix.<lang>.wav, mix.<lang>.json and voice-stem.<lang>.wav."""
+    C = RULES2
+    N = int(round(tl['duration'] * SR)); D = N / SR
+    SL = {l['id']: l for l in sc['lines']}; L = tl['lines']
+    side = os.path.join(ROOT, 'audio', tag, 'music.json')
+    stamp = json.load(open(side))['stamp'] if os.path.exists(side) else {}
+    if stamp.get('timeline') != tl['signature']:
+        sys.exit(f'audio/{tag} was scored for timeline {stamp.get("timeline")}, not {tl["signature"]} ({lang}): run `python3 tools/score.py --ep {ep} --lang {lang}`')
+    voice = np.zeros((2, N)); placed = []
+    for l in L:
+        if not l.get('voice'):
+            continue
+        v = read_wav(os.path.join(ROOT, l['voice'])); i0 = int(round(l['speechStart'] * SR)); n = min(v.shape[1], N - i0)
+        if n > 0:
+            voice[:, i0:i0 + n] += v[:, :n]; placed.append(l['id'])
+    if not placed:
+        sys.exit(f'{tag}: "rules": 2 needs the voice (tools/voice2.py) before the mix')
+    voice = voice_room(voice_eq(voice_eq(voice, VOICE_EQ_TRAILER), VOICE_EQ_TRAILER3_ADD))
+    voice *= db(VOICE_LUFS - lufs(voice))
+    e = maximum_filter1d(np.abs(voice).max(0), int(0.03 * SR))
+    key = np.clip((20 * np.log10(e + 1e-9) + 45) / 15, 0, 1)
+    sm = uniform_filter1d(maximum_filter1d(key, int(C['release_s'] * SR)), int(0.06 * SR))
+    # the rests: the bed runs on, 3.5 dB under its own level (as the approved trailer's two rests)
+    ti = next((i for i, l in enumerate(L) if 'TURN' in SL.get(l['id'], {}).get('note', '')), None)
+    rest_ix = [i for i, l in enumerate(L) if i and (i == ti or SL.get(l['id'], {}).get('rest'))]
+    dip = np.zeros(N); rests = []
+    for i in rest_ix:
+        prev = next((l for l in reversed(L[:i]) if l.get('voice')), None)
+        a, b = (prev['speechEnd'] if prev else L[i]['start']) - 0.05, L[i]['speechStart'] + 0.05
+        dip[int((a + 0.1) * SR):int((b - 0.1) * SR)] = C['rest_dip_db']
+        rests.append({'before': L[i]['id'], 'from_s': round(a + 0.05, 2), 'seconds': round(max(0, b - a - 0.1), 2), 'bed_dip_db': C['rest_dip_db']})
+    dip = uniform_filter1d(dip, int(0.12 * SR))
+    stems = {}
+    rmsdb = lambda z: 10 * np.log10(np.mean(z ** 2) + 1e-12)
+    for n_, d_ in C['duck'].items():
+        pth = os.path.join(ROOT, 'audio', tag, f'{n_}.wav')
+        if not os.path.exists(pth):
+            sys.exit(f'audio/{tag}/{n_}.wav missing: run tools/score.py')
+        st_ = read_wav(pth)[:, :N]; st_ = np.pad(st_, ((0, 0), (0, N - st_.shape[1])))
+        stems[n_] = st_ * db(-d_ * sm - (dip if n_ != 'foley' else 0))
+        if n_ == 'mus':
+            on, off = sm > 0.9, sm < 0.1
+            report['music_under_voice_db'] = round(float(rmsdb(stems[n_][:, on]) - rmsdb(st_[:, off])), 1) if on.any() and off.any() else None
+    nx = next((l for l in L if l['id'] == 'next' and not l.get('voice')), None)
+    lgs = {}
+
+    def compose(bedg, mult, next_db):
+        x = voice + stems['foley'] + (stems['mus'] + stems['amb']) * db(bedg)
+        if nx:
+            i0 = int(nx['start'] * SR); r = min(int(0.5 * SR), N - i0); g = np.ones(N)
+            g[i0:i0 + r] = db(np.linspace(0, -next_db, r)); g[i0 + r:] = db(-next_db); x = x * g
+        n0 = int(0.003 * SR); x[:, :n0] *= np.linspace(0, 1, n0)
+        if mult not in lgs:
+            lgs[mult] = line_gains(tl, SL, N, mult)
+        return master(x * lgs[mult], C['ceil_db'])
+
+    bedg = np.zeros(N); next_db = C['next_under_db'] + 0.5
+    for mult in (1.0, 1.5, 2.0, 2.6):
+        mix = compose(bedg, mult, next_db)
+        if lra(mix) >= LRA_MIN:
+            break
+    rep0 = None
+    for it in range(12):
+        rep, (t, lv, prev, ok, okd) = floor_report(mix, [], C['floor'], D)
+        if rep0 is None:
+            rep0 = rep
+        under_next = (lufs(mix[:, :int(nx['start'] * SR)]) - lufs(mix[:, int(nx['start'] * SR):])) if nx else 99
+        if rep['windows_under_floor'] == 0 and rep['drops_over_limit'] == 0 and under_next >= C['next_under_db'] - 0.5:
+            break
+        need = np.where(ok, np.maximum(0, C['floor']['floorDb'] + 1.5 - lv), 0)
+        need = np.clip(np.where(okd, np.maximum(need, (prev - lv) - (C['floor']['dropDb'] - 1.5)), need), 0, 8)
+        add_db = np.zeros(N)
+        for i in np.nonzero(need > 0)[0]:
+            a, b = int(t[i] * SR), int((t[i] + 0.1) * SR); add_db[a:b] = np.maximum(add_db[a:b], need[i])
+        bedg = np.minimum(bedg + uniform_filter1d(maximum_filter1d(add_db, int(0.04 * SR)), int(0.05 * SR)), 26.0)   # an episode's bed is quieter than the trailer's: up to 26 dB in a hole (the trailer's limit was 14)
+        if under_next < C['next_under_db'] - 0.5:
+            next_db += min(3.0, C['next_under_db'] - under_next)
+        mix = compose(bedg, mult, next_db)
+    rep, (t, lv, prev, ok, okd) = floor_report(mix, [], C['floor'], D)
+    rep['before_lifting_the_bed'] = {k_: rep0[k_] for k_ in ('worst_window_db', 'worst_window_at_s', 'windows_under_floor', 'worst_drop_db', 'worst_drop_at_s', 'drops_over_limit')}
+    rep['bed_lift_db_max'] = round(float(bedg.max()), 1); rep['bed_lifted_seconds'] = round(float((bedg > 0.5).sum() / SR), 2)
+    for r_ in rests:   # what the rest is in the finished mix: its quietest 100 ms window, and how far that is under the second before it
+        w = (t >= r_['from_s']) & (t + 0.1 <= r_['from_s'] + r_['seconds']); b4 = (t >= r_['from_s'] - 1.0) & (t < r_['from_s'])
+        r_['quietest_window_db'] = round(float(lv[w].min()), 1) if w.any() else None
+        r_['under_the_second_before_db'] = round(float(np.median(lv[b4]) - np.median(lv[w])), 1) if w.any() and b4.any() else None
+    out = os.path.join(ROOT, 'audio', tag, f'mix.{lang}.wav')
+    write_wav(out, mix)
+    write_wav(os.path.join(ROOT, 'audio', tag, f'voice-stem.{lang}.wav'), voice * db(-8.0))
+    # word-to-cut margins: every line's last word against the end of its picture, its first against the start
+    margins = []
+    for l in L:
+        if l.get('voice') and l.get('words'):
+            margins.append({'line': l['id'], 'last_word_ends_before_cut_s': round(l['end'] - l['words'][-1]['t1'], 3), 'first_word_after_cut_s': round(l['words'][0]['t0'] - l['start'], 3)})
+    report.update({'rules': 2, 'stems': list(C['duck']), 'duck_db': C['duck'], 'duck_release_ms': int(C['release_s'] * 1000), 'rests': rests, 'bed_floor': rep, 'line_gain_multiplier': mult,
+                   'next_under_body_db': round(float(lufs(mix[:, :int(nx['start'] * SR)]) - lufs(mix[:, int(nx['start'] * SR):])), 1) if nx else None,
+                   'first_100ms_db': round(float(rmsdb(mix[:, :int(0.1 * SR)])), 1), 'first_frame_33ms_db': round(float(rmsdb(mix[:, :int(SR / 30)])), 1),
+                   'word_to_cut': margins, 'least_word_to_cut_s': min((m_['last_word_ends_before_cut_s'] for m_ in margins), default=None),
+                   'voice_eq': 'as the trailer: high-pass 58 Hz, +1 dB under 160 Hz, −1 dB over 7.5 kHz, +1.5 dB at 3.2 kHz, −1.5 dB at 320 Hz, a short room 15 dB under',
+                   'lufs': round(float(lufs(mix)), 2), 'true_peak_dbtp': round(float(true_peak_db(mix)), 2), 'lra': round(lra(mix), 1), 'timeline': tl['signature'], 'voiced': len(placed)})
+    json.dump(report, open(os.path.join(ROOT, 'audio', tag, f'mix.{lang}.json'), 'w'), indent=1)
+    print(f'wrote audio/{tag}/mix.{lang}.wav  {tl["duration"]:.2f} s  {lufs(mix):.1f} LUFS  {true_peak_db(mix):.2f} dBTP  LRA {lra(mix):.1f}  ("rules": 2) · floor: worst window {rep["worst_window_db"]} dBFS at {rep["worst_window_at_s"]} s, {rep["windows_under_floor"]} under · worst fall {rep["worst_drop_db"]} dB, {rep["drops_over_limit"]} over · '
+          f'bed lifted up to {rep["bed_lift_db_max"]} dB over {rep["bed_lifted_seconds"]} s · Next {report["next_under_body_db"]} dB under · first 100 ms {report["first_100ms_db"]} dBFS · least word-to-cut {report["least_word_to_cut_s"]} s · rests {[(r_["before"], r_["seconds"], r_["quietest_window_db"]) for r_ in rests]}')
+
+
 def main():
     args = sys.argv[1:]
     lang = args[args.index('--lang') + 1] if '--lang' in args else 'en'
     ep, tag = ep_tag(args)
     tl = json.load(open(os.path.join(ROOT, 'build', f'timeline.{tag}.{lang}.json')))
+    _scp0 = os.path.join(ROOT, 'script', f'{tag}.{lang}.json')
+    _sc0 = json.load(open(_scp0)) if os.path.exists(_scp0) else {}
+    if _sc0.get('rules', 1) >= 2 and _sc0.get('kind') != 'trailer':   # episodes scripted after the trailer: their own path; every other script is mixed below exactly as before
+        return main_rules2(ep, tag, lang, tl, _sc0)
     N = int(round(tl['duration'] * SR))
     music_path = os.path.join(ROOT, 'audio', tag, 'music.wav')
     side = os.path.join(ROOT, 'audio', tag, 'music.json')

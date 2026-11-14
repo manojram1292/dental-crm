@@ -1,30 +1,95 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8748000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "tapas~0.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Long ago, the penance of another sage frightened the king of the gods.",
+ "heard": "Long ago, the penance of another sage frightened the king of the gods.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 0.9287,
-   "words": 2,
-   "speed": 0.875,
-   "text": "Long ago,"
-  },
-  {
-   "t0": 1.0288,
-   "t1": 2.7898,
-   "words": 5,
-   "speed": 0.875,
-   "text": "the penance of another sage"
-  },
-  {
-   "t0": 2.8898,
-   "t1": 4.7997,
-   "words": 6,
-   "speed": 0.875,
-   "text": "frightened the king of the gods."
+   "t0": 0,
+   "t1": 4.587,
+   "words": 13,
+   "text": "Long ago, the penance of another sage frightened the king of the gods."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.16
+  ],
+  [
+   0.16,
+   0.734
+  ],
+  [
+   0.967,
+   1.0
+  ],
+  [
+   1.0,
+   1.5
+  ],
+  [
+   1.5,
+   1.62
+  ],
+  [
+   1.62,
+   1.86
+  ],
+  [
+   1.86,
+   2.584
+  ],
+  [
+   2.676,
+   2.78
+  ],
+  [
+   2.78,
+   3.24
+  ],
+  [
+   3.24,
+   3.44
+  ],
+  [
+   3.44,
+   3.78
+  ],
+  [
+   3.78,
+   3.88
+  ],
+  [
+   3.88,
+   4.442
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 142,
+ "longest_pause_s": 0.23,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 125.6,
+  "st": 8.4,
+  "edb": 18.6,
+  "dur": 4.41,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.1,
+  "jitter": 2.32,
+  "tail_db": -72.1
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": -0.23,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

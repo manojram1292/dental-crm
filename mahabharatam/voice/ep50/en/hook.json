@@ -1,23 +1,71 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "hook~0.s2.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "The poet was born on an island.",
+ "heard": "The poet was born on an island.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 0.8142,
-   "words": 2,
-   "speed": 0.891,
-   "text": "The poet"
-  },
-  {
-   "t0": 0.8942,
-   "t1": 2.4991,
-   "words": 5,
-   "speed": 0.891,
-   "text": "was born on an island."
+   "t0": 0,
+   "t1": 1.917,
+   "words": 7,
+   "text": "The poet was born on an island."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.08
+  ],
+  [
+   0.08,
+   0.422
+  ],
+  [
+   0.5,
+   0.56
+  ],
+  [
+   0.56,
+   0.88
+  ],
+  [
+   0.88,
+   1.1
+  ],
+  [
+   1.1,
+   1.2
+  ],
+  [
+   1.2,
+   1.713
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 200,
+ "longest_pause_s": 0.08,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 128.3,
+  "st": 10.6,
+  "edb": 17.5,
+  "dur": 1.69,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 12.3,
+  "jitter": 2.26,
+  "tail_db": -69.2
+ },
+ "film_median_hz": 127.7,
+ "semitones_from_film_median": 0.08,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

@@ -1,0 +1,82 @@
+{
+ "file": "episode53.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 1647,
+ "seconds": 54.9,
+ "low_motion": [],
+ "exact_repeats": 0,
+ "median_frame_difference": 0.76,
+ "least_moving_second": [
+  29.77,
+  0.4
+ ],
+ "dead_air_under_-45dB_over_0.3s": [],
+ "speech_gaps_over_0.6s": [
+  [
+   "hook",
+   "line",
+   1.37
+  ],
+  [
+   "line",
+   "hunt",
+   0.72
+  ],
+  [
+   "hunt",
+   "deeper",
+   0.73
+  ],
+  [
+   "deeper",
+   "lovely",
+   0.7
+  ],
+  [
+   "lovely",
+   "left",
+   1.43
+  ],
+  [
+   "left",
+   "chant",
+   0.6
+  ],
+  [
+   "chant",
+   "empty",
+   0.7
+  ],
+  [
+   "empty",
+   "came",
+   1.3
+  ],
+  [
+   "came",
+   "cliff",
+   0.73
+  ]
+ ],
+ "voice_files_with_pause_over_0.45_or_head_over_0.10_or_tail_over_0.15": [
+  {
+   "line": "hunt",
+   "longest_pause": 0.3,
+   "head": 0.03,
+   "tail": 0.17
+  },
+  {
+   "line": "deeper",
+   "longest_pause": 0.3,
+   "head": 0.02,
+   "tail": 0.15
+  },
+  {
+   "line": "empty",
+   "longest_pause": 0.04,
+   "head": 0.03,
+   "tail": 0.16
+  }
+ ]
+}

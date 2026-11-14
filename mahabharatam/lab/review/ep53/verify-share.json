@@ -1,0 +1,27 @@
+{
+ "file": "episode53-share.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 1647,
+ "seconds": 54.9,
+ "low_motion": [
+  [
+   29.83,
+   0.83
+  ]
+ ],
+ "exact_repeats": 0,
+ "median_frame_difference": 0.67,
+ "least_moving_second": [
+  29.67,
+  0.24
+ ],
+ "dead_air_under_-45dB_over_0.3s": [],
+ "ssim_vs_master": {
+  "mean": 0.9618,
+  "worst": 0.9381,
+  "worst_at_s": 28.2,
+  "runs_under_0.90": [],
+  "frames_under_0.90": 0
+ }
+}

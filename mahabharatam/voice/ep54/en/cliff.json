@@ -1,44 +1,97 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8748000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "cliff~0.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "The king listened. A king's daughter, then, he said: be my wife.",
+ "heard": "The king listened. A king's daughter then, he said. Be my wife.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.2464,
-   "words": 3,
-   "speed": 0.875,
-   "text": "The king listened."
-  },
-  {
-   "t0": 1.5964,
-   "t1": 2.7173,
-   "words": 3,
-   "speed": 0.875,
-   "text": "A king's daughter,"
-  },
-  {
-   "t0": 2.7973,
-   "t1": 3.4195,
-   "words": 1,
-   "speed": 0.875,
-   "text": "then,"
-  },
-  {
-   "t0": 3.5195,
-   "t1": 4.343,
-   "words": 2,
-   "speed": 0.875,
-   "text": "he said:"
-  },
-  {
-   "t0": 4.543,
-   "t1": 5.6551,
-   "words": 3,
-   "speed": 0.875,
-   "text": "be my wife."
+   "t0": 0,
+   "t1": 5.37,
+   "words": 12,
+   "text": "The king listened. A king's daughter, then, he said: be my wife."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.171
+  ],
+  [
+   0.274,
+   0.44
+  ],
+  [
+   0.44,
+   1.347
+  ],
+  [
+   1.772,
+   1.884
+  ],
+  [
+   1.951,
+   2.36
+  ],
+  [
+   2.36,
+   2.64
+  ],
+  [
+   2.64,
+   3.228
+  ],
+  [
+   3.429,
+   3.48
+  ],
+  [
+   3.48,
+   3.909
+  ],
+  [
+   4.246,
+   4.42
+  ],
+  [
+   4.42,
+   4.68
+  ],
+  [
+   4.68,
+   5.131
+  ]
+ ],
+ "lead_air_ms": 23,
+ "tail_air_ms": 200,
+ "longest_pause_s": 0.43,
+ "pauses_shortened": [
+  {
+   "at_s": 1.56,
+   "was_s": 0.48,
+   "now_s": 0.42
+  }
+ ],
+ "measured": {
+  "f0": 135.2,
+  "st": 14.2,
+  "edb": 19.1,
+  "dur": 5.15,
+  "jumps": 0.3,
+  "creak": 0.003,
+  "hnr": 13.2,
+  "jitter": 2.25,
+  "tail_db": -72.9
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": 1.05,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

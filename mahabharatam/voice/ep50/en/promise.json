@@ -1,30 +1,75 @@
 {
- "speaker": "vyasa",
- "voice": "bm_george",
- "speed": 0.7904,
- "pitch": -2.5,
+ "speaker": "narrator",
+ "script_speaker": "vyasa",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "promise~0.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Mother, think of me, and I will come.",
+ "heard": "Mother, think of me and I will come.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 0.8205,
-   "words": 1,
-   "speed": 0.79,
-   "text": "Mother,"
-  },
-  {
-   "t0": 0.9705,
-   "t1": 2.1585,
-   "words": 3,
-   "speed": 0.79,
-   "text": "think of me,"
-  },
-  {
-   "t0": 2.3585,
-   "t1": 4.0617,
-   "words": 4,
-   "speed": 0.79,
-   "text": "and I will come."
+   "t0": 0,
+   "t1": 2.56,
+   "words": 8,
+   "text": "\"Mother, think of me, and I will come.\""
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.366
+  ],
+  [
+   0.627,
+   0.76
+  ],
+  [
+   0.76,
+   0.98
+  ],
+  [
+   0.98,
+   1.2
+  ],
+  [
+   1.2,
+   1.5
+  ],
+  [
+   1.5,
+   1.72
+  ],
+  [
+   1.72,
+   1.92
+  ],
+  [
+   1.92,
+   2.426
+  ]
+ ],
+ "lead_air_ms": 18,
+ "tail_air_ms": 128,
+ "longest_pause_s": 0.26,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 126.4,
+  "st": 10.2,
+  "edb": 17.5,
+  "dur": 2.41,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.3,
+  "jitter": 2.35,
+  "tail_db": -69.1
+ },
+ "film_median_hz": 127.7,
+ "semitones_from_film_median": -0.18,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

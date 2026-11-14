@@ -1,23 +1,79 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "mist~0.s0.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "So he raised a mist that hid the river.",
+ "heard": "so he raised a mist that hid the river.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.3673,
-   "words": 5,
-   "speed": 0.891,
-   "text": "So he raised a mist"
-  },
-  {
-   "t0": 1.4673,
-   "t1": 2.7246,
-   "words": 4,
-   "speed": 0.891,
-   "text": "that hid the river."
+   "t0": 0,
+   "t1": 2.519,
+   "words": 9,
+   "text": "So he raised a mist that hid the river."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.18
+  ],
+  [
+   0.18,
+   0.32
+  ],
+  [
+   0.32,
+   0.54
+  ],
+  [
+   0.54,
+   0.82
+  ],
+  [
+   0.82,
+   1.293
+  ],
+  [
+   1.458,
+   1.5
+  ],
+  [
+   1.5,
+   1.74
+  ],
+  [
+   1.74,
+   1.96
+  ],
+  [
+   1.96,
+   2.313
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 200,
+ "longest_pause_s": 0.17,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 129.8,
+  "st": 7.2,
+  "edb": 20.0,
+  "dur": 2.29,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.0,
+  "jitter": 2.66,
+  "tail_db": -70.1
+ },
+ "film_median_hz": 127.7,
+ "semitones_from_film_median": 0.28,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

@@ -1,30 +1,110 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.8910000000000001,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "line~0.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "The story of the epic's royal house begins with Dushyanta, of Puru's line.",
+ "heard": "The story of the epic's royal house begins with Dushyanta of Poru's line.",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 2.1851,
-   "words": 7,
-   "speed": 0.891,
-   "text": "The story of the epic's royal house"
-  },
-  {
-   "t0": 2.2451,
-   "t1": 3.8059,
-   "words": 3,
-   "speed": 0.891,
-   "text": "begins with Dushyanta,"
-  },
-  {
-   "t0": 3.9259,
-   "t1": 5.1405,
-   "words": 3,
-   "speed": 0.891,
-   "text": "of Puru's line."
+   "t0": 0,
+   "t1": 5.776,
+   "words": 13,
+   "text": "The story of the epic's royal house begins with Dushyanta, of Puru's line."
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.1
+  ],
+  [
+   0.1,
+   0.5
+  ],
+  [
+   0.5,
+   0.82
+  ],
+  [
+   0.82,
+   0.94
+  ],
+  [
+   0.94,
+   1.42
+  ],
+  [
+   1.42,
+   1.6
+  ],
+  [
+   1.6,
+   2.271
+  ],
+  [
+   2.576,
+   2.76
+  ],
+  [
+   2.76,
+   3.299
+  ],
+  [
+   3.403,
+   4.252
+  ],
+  [
+   4.515,
+   4.631
+  ],
+  [
+   4.716,
+   5.14
+  ],
+  [
+   5.14,
+   5.632
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 139,
+ "longest_pause_s": 0.31,
+ "pauses_shortened": [
+  {
+   "at_s": 2.42,
+   "was_s": 0.39,
+   "now_s": 0.3
+  }
+ ],
+ "measured": {
+  "f0": 132.7,
+  "st": 12.2,
+  "edb": 18.2,
+  "dur": 5.61,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.1,
+  "jitter": 2.34,
+  "tail_db": -74.9
+ },
+ "film_median_hz": 129.0,
+ "semitones_from_film_median": 0.49,
+ "names": {
+  "Puru": {
+   "heard": "poru's",
+   "fit": 0.75
+  },
+  "Dushyanta": {
+   "heard": "dushyanta",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

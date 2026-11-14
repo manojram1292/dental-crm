@@ -1,0 +1,795 @@
+{
+ "file": "episode54-share.mp4",
+ "seconds": 55.98,
+ "stops": [],
+ "holes": {
+  "floor_db": -26,
+  "windows": 1116,
+  "worst_window_db": -25.2,
+  "worst_window_at_s": 55.45,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 8.9,
+  "worst_drop_at_s": 54.95,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 10,
+  "drop_window_s": 0.3
+ },
+ "start": {
+  "first_100ms_db": -24.4,
+  "first_frame_33ms_db": -27.3,
+  "first_10ms_db": -29.4
+ },
+ "clipping": {
+  "samples_at_0.999": 0,
+  "peak_dbfs": -2.11
+ },
+ "recogniser": {
+  "heard": "How can a celibate sage have a daughter? A king asked a young, hermit woman who she was. People call me the sage, canvas daughter. Hear why? Long ago, the penance of another sage frightened the king of the gods. He sent Minaka a nymph of heaven to break it. Vishvamitra desired her, and she was willing. By a river, a daughter was born, Manaka left her there and went back to heaven. In a forest of lions and tigers, birds ringed the child and kept her safe. The sage Canva found her and raised her as his own. Goded by birds, by Shakuntas, so he named me Shakuntalak. The king listened. A king's daughter then, he said. Be my wife.",
+  "transcribed_in_stretches_starting_at_s": [
+   0.0,
+   12.0,
+   25.2,
+   38.67,
+   55.98
+  ],
+  "words": [
+   [
+    "How",
+    0.0,
+    0.2
+   ],
+   [
+    "can",
+    0.2,
+    0.38
+   ],
+   [
+    "a",
+    0.38,
+    0.5
+   ],
+   [
+    "celibate",
+    0.5,
+    0.98
+   ],
+   [
+    "sage",
+    0.98,
+    1.24
+   ],
+   [
+    "have",
+    1.24,
+    1.74
+   ],
+   [
+    "a",
+    1.74,
+    1.86
+   ],
+   [
+    "daughter?",
+    1.86,
+    2.08
+   ],
+   [
+    "A",
+    3.98,
+    4.06
+   ],
+   [
+    "king",
+    4.06,
+    4.3
+   ],
+   [
+    "asked",
+    4.3,
+    4.76
+   ],
+   [
+    "a",
+    4.76,
+    5.16
+   ],
+   [
+    "young,",
+    5.16,
+    5.44
+   ],
+   [
+    "hermit",
+    5.7,
+    5.96
+   ],
+   [
+    "woman",
+    5.96,
+    6.2
+   ],
+   [
+    "who",
+    6.2,
+    6.54
+   ],
+   [
+    "she",
+    6.54,
+    6.76
+   ],
+   [
+    "was.",
+    6.76,
+    7.1
+   ],
+   [
+    "People",
+    8.08,
+    8.2
+   ],
+   [
+    "call",
+    8.2,
+    8.54
+   ],
+   [
+    "me",
+    8.54,
+    8.7
+   ],
+   [
+    "the",
+    8.7,
+    8.8
+   ],
+   [
+    "sage,",
+    8.8,
+    9.18
+   ],
+   [
+    "canvas",
+    9.78,
+    9.86
+   ],
+   [
+    "daughter.",
+    9.86,
+    10.36
+   ],
+   [
+    "Hear",
+    10.98,
+    11.04
+   ],
+   [
+    "why?",
+    11.04,
+    11.36
+   ],
+   [
+    "Long",
+    12.0,
+    12.4
+   ],
+   [
+    "ago,",
+    12.4,
+    12.74
+   ],
+   [
+    "the",
+    13.1,
+    13.28
+   ],
+   [
+    "penance",
+    13.28,
+    13.7
+   ],
+   [
+    "of",
+    13.7,
+    13.88
+   ],
+   [
+    "another",
+    13.88,
+    14.1
+   ],
+   [
+    "sage",
+    14.1,
+    14.6
+   ],
+   [
+    "frightened",
+    14.6,
+    15.0
+   ],
+   [
+    "the",
+    15.0,
+    15.48
+   ],
+   [
+    "king",
+    15.48,
+    15.72
+   ],
+   [
+    "of",
+    15.72,
+    16.02
+   ],
+   [
+    "the",
+    16.02,
+    16.14
+   ],
+   [
+    "gods.",
+    16.14,
+    16.34
+   ],
+   [
+    "He",
+    17.46,
+    17.5
+   ],
+   [
+    "sent",
+    17.5,
+    17.74
+   ],
+   [
+    "Minaka",
+    17.74,
+    18.3
+   ],
+   [
+    "a",
+    18.3,
+    18.96
+   ],
+   [
+    "nymph",
+    18.96,
+    19.38
+   ],
+   [
+    "of",
+    19.38,
+    19.52
+   ],
+   [
+    "heaven",
+    19.52,
+    19.76
+   ],
+   [
+    "to",
+    19.76,
+    20.14
+   ],
+   [
+    "break",
+    20.14,
+    20.38
+   ],
+   [
+    "it.",
+    20.38,
+    20.64
+   ],
+   [
+    "Vishvamitra",
+    21.82,
+    22.46
+   ],
+   [
+    "desired",
+    22.46,
+    22.72
+   ],
+   [
+    "her,",
+    22.72,
+    23.28
+   ],
+   [
+    "and",
+    23.76,
+    23.86
+   ],
+   [
+    "she",
+    23.86,
+    24.06
+   ],
+   [
+    "was",
+    24.06,
+    24.28
+   ],
+   [
+    "willing.",
+    24.28,
+    24.6
+   ],
+   [
+    "By",
+    25.2,
+    26.28
+   ],
+   [
+    "a",
+    26.28,
+    26.4
+   ],
+   [
+    "river,",
+    26.4,
+    26.7
+   ],
+   [
+    "a",
+    26.94,
+    27.14
+   ],
+   [
+    "daughter",
+    27.14,
+    27.4
+   ],
+   [
+    "was",
+    27.4,
+    27.78
+   ],
+   [
+    "born,",
+    27.78,
+    28.14
+   ],
+   [
+    "Manaka",
+    28.84,
+    29.02
+   ],
+   [
+    "left",
+    29.02,
+    29.56
+   ],
+   [
+    "her",
+    29.56,
+    29.76
+   ],
+   [
+    "there",
+    29.76,
+    30.0
+   ],
+   [
+    "and",
+    30.0,
+    30.36
+   ],
+   [
+    "went",
+    30.36,
+    30.56
+   ],
+   [
+    "back",
+    30.56,
+    30.9
+   ],
+   [
+    "to",
+    30.9,
+    31.2
+   ],
+   [
+    "heaven.",
+    31.2,
+    31.46
+   ],
+   [
+    "In",
+    32.44,
+    32.48
+   ],
+   [
+    "a",
+    32.48,
+    32.6
+   ],
+   [
+    "forest",
+    32.6,
+    33.0
+   ],
+   [
+    "of",
+    33.0,
+    33.38
+   ],
+   [
+    "lions",
+    33.38,
+    33.66
+   ],
+   [
+    "and",
+    33.66,
+    34.22
+   ],
+   [
+    "tigers,",
+    34.22,
+    34.58
+   ],
+   [
+    "birds",
+    35.1,
+    35.48
+   ],
+   [
+    "ringed",
+    35.48,
+    36.28
+   ],
+   [
+    "the",
+    36.28,
+    36.4
+   ],
+   [
+    "child",
+    36.4,
+    36.72
+   ],
+   [
+    "and",
+    36.72,
+    37.12
+   ],
+   [
+    "kept",
+    37.12,
+    37.36
+   ],
+   [
+    "her",
+    37.36,
+    37.64
+   ],
+   [
+    "safe.",
+    37.64,
+    38.02
+   ],
+   [
+    "The",
+    38.67,
+    39.01
+   ],
+   [
+    "sage",
+    39.01,
+    39.35
+   ],
+   [
+    "Canva",
+    39.35,
+    39.95
+   ],
+   [
+    "found",
+    39.95,
+    40.41
+   ],
+   [
+    "her",
+    40.41,
+    40.61
+   ],
+   [
+    "and",
+    40.61,
+    41.01
+   ],
+   [
+    "raised",
+    41.01,
+    41.35
+   ],
+   [
+    "her",
+    41.35,
+    41.59
+   ],
+   [
+    "as",
+    41.59,
+    41.85
+   ],
+   [
+    "his",
+    41.85,
+    42.05
+   ],
+   [
+    "own.",
+    42.05,
+    42.33
+   ],
+   [
+    "Goded",
+    43.39,
+    44.07
+   ],
+   [
+    "by",
+    44.07,
+    44.23
+   ],
+   [
+    "birds,",
+    44.23,
+    44.61
+   ],
+   [
+    "by",
+    45.07,
+    45.11
+   ],
+   [
+    "Shakuntas,",
+    45.11,
+    45.81
+   ],
+   [
+    "so",
+    46.23,
+    46.57
+   ],
+   [
+    "he",
+    46.57,
+    46.71
+   ],
+   [
+    "named",
+    46.71,
+    46.91
+   ],
+   [
+    "me",
+    46.91,
+    47.27
+   ],
+   [
+    "Shakuntalak.",
+    47.27,
+    48.19
+   ],
+   [
+    "The",
+    48.95,
+    49.03
+   ],
+   [
+    "king",
+    49.03,
+    49.33
+   ],
+   [
+    "listened.",
+    49.33,
+    49.85
+   ],
+   [
+    "A",
+    50.71,
+    50.77
+   ],
+   [
+    "king's",
+    50.77,
+    51.27
+   ],
+   [
+    "daughter",
+    51.27,
+    51.53
+   ],
+   [
+    "then,",
+    51.53,
+    51.97
+   ],
+   [
+    "he",
+    52.23,
+    52.39
+   ],
+   [
+    "said.",
+    52.39,
+    52.67
+   ],
+   [
+    "Be",
+    53.31,
+    53.35
+   ],
+   [
+    "my",
+    53.35,
+    53.63
+   ],
+   [
+    "wife.",
+    53.63,
+    53.87
+   ]
+  ],
+  "gaps_over_0.35s_inside_a_sentence": [
+   {
+    "after": "sage,",
+    "before": "canvas",
+    "at_s": 9.18,
+    "gap_s": 0.6
+   },
+   {
+    "after": "ago,",
+    "before": "the",
+    "at_s": 12.74,
+    "gap_s": 0.36
+   },
+   {
+    "after": "her,",
+    "before": "and",
+    "at_s": 23.28,
+    "gap_s": 0.48
+   },
+   {
+    "after": "born,",
+    "before": "Manaka",
+    "at_s": 28.14,
+    "gap_s": 0.7
+   },
+   {
+    "after": "tigers,",
+    "before": "birds",
+    "at_s": 34.58,
+    "gap_s": 0.52
+   },
+   {
+    "after": "birds,",
+    "before": "by",
+    "at_s": 44.61,
+    "gap_s": 0.46
+   },
+   {
+    "after": "Shakuntas,",
+    "before": "so",
+    "at_s": 45.81,
+    "gap_s": 0.42
+   }
+  ],
+  "script_words": 126,
+  "misheard": [
+   {
+    "script": "kanva's",
+    "heard": "canvas"
+   },
+   {
+    "script": "menaka",
+    "heard": "minaka"
+   },
+   {
+    "script": "menaka",
+    "heard": "manaka"
+   },
+   {
+    "script": "kanva",
+    "heard": "canva"
+   },
+   {
+    "script": "guarded",
+    "heard": "goded"
+   },
+   {
+    "script": "shakuntala",
+    "heard": "shakuntalak"
+   },
+   {
+    "script": "next a marriage without witnesses",
+    "heard": ""
+   }
+  ]
+ },
+ "voice_stem": {
+  "peak_dbfs": -5.29,
+  "samples_at_0.999": 0,
+  "boundaries": 22,
+  "ordinary_speech_step_99pct_db": -25.2,
+  "loudest_step_at_a_boundary_db": -75.5,
+  "boundaries_with_a_step_over_-40_db": [],
+  "boundaries_with_level_over_-30_db": []
+ },
+ "pauses_inside_sentences_in_the_voice_files": {
+  "over_0.35_s": [
+   {
+    "shot": "saw",
+    "after": "her;",
+    "before": "and",
+    "silence_s": 0.37
+   },
+   {
+    "shot": "name",
+    "after": "shakuntas:",
+    "before": "so",
+    "silence_s": 0.4
+   }
+  ],
+  "longest": [
+   {
+    "shot": "name",
+    "after": "shakuntas:",
+    "before": "so",
+    "silence_s": 0.4
+   },
+   {
+    "shot": "saw",
+    "after": "her;",
+    "before": "and",
+    "silence_s": 0.37
+   },
+   {
+    "shot": "cliff",
+    "after": "said:",
+    "before": "be",
+    "silence_s": 0.33
+   },
+   {
+    "shot": "birds",
+    "after": "tigers,",
+    "before": "birds",
+    "silence_s": 0.3
+   },
+   {
+    "shot": "found",
+    "after": "her,",
+    "before": "and",
+    "silence_s": 0.26
+   },
+   {
+    "shot": "sent",
+    "after": "Menaka,",
+    "before": "a",
+    "silence_s": 0.25
+   },
+   {
+    "shot": "tapas",
+    "after": "ago,",
+    "before": "the",
+    "silence_s": 0.23
+   },
+   {
+    "shot": "said",
+    "after": "sage",
+    "before": "Kanva's",
+    "silence_s": 0.22
+   }
+  ]
+ }
+}

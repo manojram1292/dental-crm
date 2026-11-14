@@ -1,28 +1,130 @@
 {
- "music_under_voice_db": -14.0,
+ "music_under_voice_db": -10.4,
+ "rules": 2,
  "stems": [
   "mus",
   "amb",
   "foley"
  ],
  "duck_db": {
-  "mus": 11.0,
-  "amb": 5.0,
+  "mus": 8.0,
+  "amb": 3.0,
   "foley": 2.0
  },
+ "duck_release_ms": 90,
  "rests": [
   {
    "before": "gift",
-   "seconds": 1.11
+   "from_s": 24.24,
+   "seconds": 1.33,
+   "bed_dip_db": 3.5,
+   "quietest_window_db": -24.5,
+   "under_the_second_before_db": -0.2
   },
   {
    "before": "born",
-   "seconds": 1.01
+   "from_s": 34.19,
+   "seconds": 1.21,
+   "bed_dip_db": 3.5,
+   "quietest_window_db": -24.5,
+   "under_the_second_before_db": 7.2
   }
  ],
- "lufs": -14.06,
- "true_peak_dbtp": -2.32,
- "lra": 6.3,
- "timeline": "01d0afb4ef64eab9",
+ "bed_floor": {
+  "floor_db": -26,
+  "windows": 1099,
+  "worst_window_db": -25.0,
+  "worst_window_at_s": 54.9,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 8.8,
+  "worst_drop_at_s": 54.05,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 10,
+  "drop_window_s": 0.3,
+  "before_lifting_the_bed": {
+   "worst_window_db": -42.2,
+   "worst_window_at_s": 22.65,
+   "windows_under_floor": 205,
+   "worst_drop_db": 17.4,
+   "worst_drop_at_s": 53.05,
+   "drops_over_limit": 126
+  },
+  "bed_lift_db_max": 20.7,
+  "bed_lifted_seconds": 25.29
+ },
+ "line_gain_multiplier": 2.6,
+ "next_under_body_db": 5.5,
+ "first_100ms_db": -24.5,
+ "first_frame_33ms_db": -21.7,
+ "word_to_cut": [
+  {
+   "line": "hook",
+   "last_word_ends_before_cut_s": 1.327,
+   "first_word_after_cut_s": 0.06
+  },
+  {
+   "line": "ferry",
+   "last_word_ends_before_cut_s": 0.556,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "sage",
+   "last_word_ends_before_cut_s": 0.528,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "watching",
+   "last_word_ends_before_cut_s": 0.548,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "mist",
+   "last_word_ends_before_cut_s": 0.637,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "maiden",
+   "last_word_ends_before_cut_s": 0.553,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "gift",
+   "last_word_ends_before_cut_s": 0.555,
+   "first_word_after_cut_s": 0.9
+  },
+  {
+   "line": "scent",
+   "last_word_ends_before_cut_s": 0.567,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "born",
+   "last_word_ends_before_cut_s": 0.593,
+   "first_word_after_cut_s": 0.8
+  },
+  {
+   "line": "grew",
+   "last_word_ends_before_cut_s": 0.554,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "promise",
+   "last_word_ends_before_cut_s": 0.557,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "cliff",
+   "last_word_ends_before_cut_s": 0.714,
+   "first_word_after_cut_s": 0.25
+  }
+ ],
+ "least_word_to_cut_s": 0.528,
+ "voice_eq": "as the trailer: high-pass 58 Hz, +1 dB under 160 Hz, \u22121 dB over 7.5 kHz, +1.5 dB at 3.2 kHz, \u22121.5 dB at 320 Hz, a short room 15 dB under",
+ "lufs": -14.11,
+ "true_peak_dbtp": -3.48,
+ "lra": 4.3,
+ "timeline": "ee6c57eaed9a726a",
  "voiced": 12
 }

@@ -8,8 +8,11 @@
     "wordsPerSecond": 2.4,
     "voiceGap": 0.35,
     "voiceLead": 0.12,
-    "tail": 0.25
+    "tail": 0.25,
+    "frameSnap": true
   },
+  "rules": 2,
+  "credits": "source-only",
   "voice": {
     "pauses": {
       "ellipsis": 420,
@@ -57,8 +60,7 @@
     "recapLine": "King Dushyanta, alone in a forest hermitage, met a young woman.",
     "nextEpisodeLabel": "Episode 55",
     "nextTitle": "A Marriage Without Witnesses",
-    "sourceLine": "Adi Parva 1.65–66 · BORI Critical Edition",
-    "madeLine": "Voices: synthetic · Drawn in code"
+    "sourceLine": "Adi Parva 1.65–66 · BORI Critical Edition"
   },
   "lines": [
     {
@@ -95,8 +97,8 @@
       "text": "A king asked a young hermit woman who she was.",
       "say": "A king asked a young hermit woman [p:100] who she was.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 300,
       "beats": [
         1,
         6
@@ -121,8 +123,8 @@
       "text": "\"People call me the sage Kanva's daughter. Hear why.\"",
       "say": "People call me the sage Kanva's daughter. [p:260] Hear why.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 300,
       "emphasis": [
         "Kanva's"
       ],
@@ -146,8 +148,8 @@
       "text": "Long ago, the penance of another sage frightened the king of the gods.",
       "say": "Long ago, [p:100] the penance of another sage [p:100] frightened the king of the gods.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 300,
       "beats": [
         6,
         7
@@ -171,8 +173,8 @@
       "text": "He sent Menaka, a nymph of heaven, to break it.",
       "say": "He sent Menaka, [p:100] a nymph of heaven, [p:150] to break it.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 300,
       "emphasis": [
         "Menaka,"
       ],
@@ -199,8 +201,8 @@
       "text": "Vishvamitra desired her; and she was willing.",
       "say": "Vishvamitra desired her; [p:250] and she was willing.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 300,
       "emphasis": [
         "Vishvamitra"
       ],
@@ -227,7 +229,7 @@
       "say": "By a river, [p:80] a daughter was born. [p:350] Menaka left her there, [p:150] and went back to heaven.",
       "est": 3.0,
       "pre": 950,
-      "post": 400,
+      "post": 300,
       "rest": true,
       "sfx": [
         "silence"
@@ -256,8 +258,8 @@
       "text": "In a forest of lions and tigers, birds ringed the child and kept her safe.",
       "say": "In a forest [p:60] of lions and tigers, [p:200] birds ringed the child [p:100] and kept her safe.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 300,
       "beats": [
         4,
         6,
@@ -284,8 +286,8 @@
       "text": "The sage Kanva found her, and raised her as his own.",
       "say": "The sage Kanva [p:80] found her, [p:200] and raised her as his own.",
       "est": 3.0,
-      "pre": 220,
-      "post": 260,
+      "pre": 250,
+      "post": 300,
       "emphasis": [
         "Kanva"
       ],
@@ -315,7 +317,7 @@
       "say": "Guarded by birds, [p:100] by shakuntas: [p:260] so he named me Shakuntala.",
       "est": 3.0,
       "pre": 800,
-      "post": 260,
+      "post": 300,
       "rest": true,
       "emphasis": [
         "Shakuntala."
@@ -345,8 +347,8 @@
       "text": "The king listened. A king's daughter, then, he said: be my wife.",
       "say": "The king listened. [p:350] A king's daughter, then, [p:100] he said: [p:200] be my wife.",
       "est": 3.0,
-      "pre": 220,
-      "post": 400,
+      "pre": 250,
+      "post": 300,
       "beats": [
         2,
         5,

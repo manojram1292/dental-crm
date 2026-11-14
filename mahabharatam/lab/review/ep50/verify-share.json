@@ -1,0 +1,22 @@
+{
+ "file": "episode50-share.mp4",
+ "freezes_d0.3": [],
+ "freezes_d0.4": [],
+ "frames": 1653,
+ "seconds": 55.1,
+ "low_motion": [],
+ "exact_repeats": 0,
+ "median_frame_difference": 0.76,
+ "least_moving_second": [
+  32.33,
+  0.27
+ ],
+ "dead_air_under_-45dB_over_0.3s": [],
+ "ssim_vs_master": {
+  "mean": 0.966,
+  "worst": 0.9401,
+  "worst_at_s": 14.17,
+  "runs_under_0.90": [],
+  "frames_under_0.90": 0
+ }
+}

@@ -1,23 +1,75 @@
 {
  "speaker": "narrator",
- "voice": "am_michael",
- "speed": 0.972,
- "pitch": 0,
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "hook~0.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "How can a celibate sage have a daughter?",
+ "heard": "How can a celibate sage have a daughter?",
+ "recogniser_errors": 0,
  "chunks": [
   {
-   "t0": 0.0,
-   "t1": 1.5558,
-   "words": 5,
-   "speed": 0.972,
-   "text": "How can a celibate sage"
-  },
-  {
-   "t0": 1.6158,
-   "t1": 2.55,
-   "words": 3,
-   "speed": 0.972,
-   "text": "have a daughter?"
+   "t0": 0,
+   "t1": 2.524,
+   "words": 8,
+   "text": "How can a celibate sage have a daughter?"
   }
  ],
- "note": "written by tools/voice.py: chunk times in the wav (s) and how many caption words each holds"
+ "wordTimes": [
+  [
+   0.0,
+   0.16
+  ],
+  [
+   0.16,
+   0.32
+  ],
+  [
+   0.32,
+   0.42
+  ],
+  [
+   0.42,
+   0.92
+  ],
+  [
+   0.92,
+   1.2
+  ],
+  [
+   1.2,
+   1.66
+  ],
+  [
+   1.66,
+   1.76
+  ],
+  [
+   1.76,
+   2.318
+  ]
+ ],
+ "lead_air_ms": 25,
+ "tail_air_ms": 200,
+ "longest_pause_s": 0.0,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 126.0,
+  "st": 15.5,
+  "edb": 18.9,
+  "dur": 2.3,
+  "jumps": 0.0,
+  "creak": 0.028,
+  "hnr": 9.2,
+  "jitter": 3.12,
+  "tail_db": -71.5
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": -0.17,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
 }

@@ -1,28 +1,120 @@
 {
- "music_under_voice_db": -13.0,
+ "music_under_voice_db": -9.2,
+ "rules": 2,
  "stems": [
   "mus",
   "amb",
   "foley"
  ],
  "duck_db": {
-  "mus": 11.0,
-  "amb": 5.0,
+  "mus": 8.0,
+  "amb": 3.0,
   "foley": 2.0
  },
+ "duck_release_ms": 90,
  "rests": [
   {
    "before": "kali",
-   "seconds": 1.12
+   "from_s": 26.24,
+   "seconds": 1.41,
+   "bed_dip_db": 3.5,
+   "quietest_window_db": -24.5,
+   "under_the_second_before_db": 6.2
   },
   {
    "before": "payoff",
-   "seconds": 0.97
+   "from_s": 40.7,
+   "seconds": 1.27,
+   "bed_dip_db": 3.5,
+   "quietest_window_db": -24.5,
+   "under_the_second_before_db": 2.8
   }
  ],
- "lufs": -14.07,
- "true_peak_dbtp": -2.24,
- "lra": 5.8,
- "timeline": "b6bf7d54a4a3af12",
- "voiced": 9
+ "bed_floor": {
+  "floor_db": -26,
+  "windows": 1086,
+  "worst_window_db": -25.0,
+  "worst_window_at_s": 53.75,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 8.8,
+  "worst_drop_at_s": 53.4,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 10,
+  "drop_window_s": 0.3,
+  "before_lifting_the_bed": {
+   "worst_window_db": -35.1,
+   "worst_window_at_s": 30.6,
+   "windows_under_floor": 159,
+   "worst_drop_db": 18.8,
+   "worst_drop_at_s": 5.3,
+   "drops_over_limit": 98
+  },
+  "bed_lift_db_max": 16.1,
+  "bed_lifted_seconds": 21.76
+ },
+ "line_gain_multiplier": 1.5,
+ "next_under_body_db": 5.5,
+ "first_100ms_db": -24.3,
+ "first_frame_33ms_db": -22.9,
+ "word_to_cut": [
+  {
+   "line": "hook",
+   "last_word_ends_before_cut_s": 1.252,
+   "first_word_after_cut_s": 0.06
+  },
+  {
+   "line": "asked",
+   "last_word_ends_before_cut_s": 0.645,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "five",
+   "last_word_ends_before_cut_s": 0.655,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "gods",
+   "last_word_ends_before_cut_s": 0.623,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "karna",
+   "last_word_ends_before_cut_s": 0.843,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "krishna",
+   "last_word_ends_before_cut_s": 0.629,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "kali",
+   "last_word_ends_before_cut_s": 0.691,
+   "first_word_after_cut_s": 0.95
+  },
+  {
+   "line": "draupadi",
+   "last_word_ends_before_cut_s": 0.634,
+   "first_word_after_cut_s": 0.25
+  },
+  {
+   "line": "payoff",
+   "last_word_ends_before_cut_s": 1.531,
+   "first_word_after_cut_s": 0.8
+  },
+  {
+   "line": "cliff",
+   "last_word_ends_before_cut_s": 0.727,
+   "first_word_after_cut_s": 0.25
+  }
+ ],
+ "least_word_to_cut_s": 0.623,
+ "voice_eq": "as the trailer: high-pass 58 Hz, +1 dB under 160 Hz, \u22121 dB over 7.5 kHz, +1.5 dB at 3.2 kHz, \u22121.5 dB at 320 Hz, a short room 15 dB under",
+ "lufs": -14.09,
+ "true_peak_dbtp": -3.45,
+ "lra": 4.6,
+ "timeline": "2b9514e9f979071c",
+ "voiced": 10
 }

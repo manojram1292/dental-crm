@@ -47,7 +47,7 @@
   // 3 · SAID (the close-up): her face: a smile, then the look turns inward and grave as she begins
   R.scene({ id: 'said', transition: { type: 'dissolve', dur: 0.3 },
     draw(ctx, t, env) {
-      const T = env.T, b1 = env.beats[1] ?? 2.6, cam = CAM.push(t / env.dur, { from: 1.0, to: 1.1, focus: [540, 780] });
+      const T = env.T, b1 = env.beats[1] ?? 2.6, cam = CAM.drift(CAM.push(t / env.dur, { from: 1.14, to: 1.3, focus: [470, 720] }), T, 1.0);   // nearer: `name` is the same wood and must not be the same picture
       EP51.wood(ctx, T, cam, 'meadow-spring', { seed: 120, trunks: false, figs: (g, p) => {
         F(g, T, 'shakuntala', 640, 2960, 2.5, { f: 'left', pose: 'stand', L: ST.light(p, { from: [200, 200], at: [600, 1200], k: 1.0, front: 0.4 }), ex: { emo: ACT.emo(t, [[0, 'joy'], [b1 - 0.5, 'resolve', { dur: 0.6 }]]), speak: talk(env, t), ...ACT.lead(t, [[0, [0.8, 0]], [b1 - 0.4, [0.4, 0.6]]], 0.4, 0.2) }, key: 'sd-g' });
         const gr = g.createLinearGradient(0, 1060, 0, 1560); gr.addColorStop(0, 'rgba(20,40,10,0)'); gr.addColorStop(0.5, 'rgba(20,40,10,0.85)'); gr.addColorStop(1, 'rgba(20,40,10,0.96)'); g.fillStyle = gr; g.fillRect(-900, 1060, 2880, 1800); } });
@@ -58,7 +58,7 @@
   // 4 · TAPAS: a tilt up: a gaunt ascetic motionless, arms raised, heat shimmering off him; above, a crowned god grips his seat
   R.scene({ id: 'tapas', transition: { type: 'ink', dur: 0.6, at: [540, 1100], color: '#2a140c' },
     draw(ctx, t, env) {
-      const T = env.T, b0 = env.beats[0] ?? 1.8, cam = CAM.tilt(E.inOutSine(clamp((t - 0.8) / 2.6)), { from: 200, to: -230, zoom: 1.12 });
+      const T = env.T, b0 = env.beats[0] ?? 1.8, cam = CAM.drift(CAM.tilt(E.inOutSine(clamp((t - 0.8) / 2.6)), { from: 200, to: -230, zoom: 1.12 + 0.12 * clamp(t / env.dur) }), T, 2.2);
       EP51.void(ctx, T, cam, 'dharma-copper', { gy: 1300, glow: [540, 900, 800, '#ff9a40', 0.3 + 0.1 * Math.sin(T * 5)],
         back: (g, p) => { ST.hills(g, p, { y: 1320, h: 300, seed: 161, peaks: 0.5 }); EP51.clouds(g, T, 380, 5, '#5a3a40', 0.95, 6, 61, 1.4); CH.indra.draw(g, { x: 560, y: 330, scale: 0.5, facing: 'left', pose: { name: 'sit' }, light: { dir: Math.PI / 2, intensity: 1.2, front: 0.8, fill: 0.5, tint: ['#ffb070', 0.5] }, t: T, key: 'tp-i' }); },
         figs: (g, p) => { for (let i = 0; i < 6; i++) { g.strokeStyle = 'rgba(255,170,80,0.35)'; g.lineWidth = 6; g.beginPath(); const x = 400 + i * 56; g.moveTo(x, 700); g.bezierCurveTo(x + 30 * Math.sin(T * 3 + i), 520, x - 30 * Math.sin(T * 3 + i), 360, x + 10, 160); g.stroke(); }
@@ -101,7 +101,7 @@
   // 7 · LEFT (the turn): Menaka kneels and lays a swaddled new-born on the grass by the water; she rises into the pale sky
   R.scene({ id: 'left', transition: { type: 'dissolve', dur: 0.45 },
     draw(ctx, t, env) {
-      const T = env.T, b = env.beats, b1 = b[1] ?? 3.4, b2 = b[2] ?? 5.1, b3 = b[3] ?? 6.6, up = E.inCubic(clamp((t - b2) / 2.2)), cam = CAM.tilt(E.inOutSine(clamp((t - b2) / 2.2)), { from: 60, to: -260, zoom: 1.12 });
+      const T = env.T, b = env.beats, b1 = b[1] ?? 3.4, b2 = b[2] ?? 5.1, b3 = b[3] ?? 6.6, up = E.inCubic(clamp((t - b2) / 2.2)), cam = CAM.drift(CAM.tilt(E.inOutSine(clamp((t - b2) / 2.2)), { from: 60, to: -260, zoom: 1.12 + 0.2 * clamp(t / env.dur) }), T, 4.0);
       bank(ctx, T, cam, 'riverbank-pearl', (g, p) => {
         EP49.infant(g, 470, 1120, 1.1, 0.5 * clamp((t - 1.2) / 0.6));
         KIT.glow(g, 620, 800 - 800 * up, 300, '#d8fbff', 0.5 * up);
@@ -116,7 +116,7 @@
   //     pool of last light, the infant ringed by birds standing wing to wing, more dropping in from above
   R.scene({ id: 'birds', transition: { type: 'smoke', dur: 0.7, dir: Math.PI, color: '#24103a' },
     draw(ctx, t, env) {
-      const T = env.T, b1 = env.beats[1] ?? 2.4, k = clamp(0.35 + (t - b1 + 0.8) / 1.6), cam = CAM.push(t / env.dur, { from: 1.0, to: 1.12, focus: [540, 1000] });
+      const T = env.T, b1 = env.beats[1] ?? 2.4, k = clamp(0.35 + (t - b1 + 0.8) / 1.6), cam = CAM.drift(CAM.push(E.outSine(clamp(t / env.dur)), { from: 1.0, to: 1.3, focus: [540, 1000] }), T, 5.0);
       ST.within(ctx, T, { shape: 'leaves', pal: 'venom-violet', box: [90, 300, 900, 1000], open: 1, draw: (g) => {
         EP51.wood(g, T, cam, 'venom-violet', { seed: 171, trunks: false, shafts: false, dust: 'firefly', figs: (gg) => {
           KIT.glow(gg, 540, 1000, 620, '#fff0c0', 0.5); gg.fillStyle = 'rgba(255,236,190,0.5)'; gg.beginPath(); gg.ellipse(540, 1080, 430, 130, 0, 0, TAU); gg.fill();
