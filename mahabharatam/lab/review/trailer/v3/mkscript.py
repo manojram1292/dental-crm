@@ -8,7 +8,7 @@ base = json.load(open(f'{ROOT}/script/ep43.en.json'))
 sc = {k: base[k] for k in ('lang', 'fonts', 'timing', 'voice', 'captionBand')}
 sc['timing'] = dict(sc['timing'], voiceGap=0.2, tail=0.0, frameSnap=True)
 sc.update({
- "episode": 97, "kind": "trailer", "cut": 3, "scoreStops": True, "bedFloor": {"floorDb": -26, "dropDb": 10, "dropWindowS": 0.3},
+ "episode": 97, "kind": "trailer", "credits": "source-only", "cut": 3, "scoreStops": True, "bedFloor": {"floorDb": -26, "dropDb": 10, "dropWindowS": 0.3},
  "noStops": True, "divine": {"line": "vish", "fromWord": 8, "lightFromWord": 4, "octaveDb": -9, "lightDb": -15, "hallSeconds": 3.5, "preDelayMs": 60}, "binaural": {"line": "vish", "leftHz": 98, "rightHz": 105, "dbfs": -38},
  "source": "THE FULL-EPIC TRAILER, third cut (pipeline number 97; never a numbered episode). Told once, in order, no image and no phrase twice. Every beat was read in the constituted text of the BORI Critical Edition (GRETIL e-text, lab/ce/): the verses, a Sanskrit quotation for each and everything cut or reworded are in script/TRAILER-CHECK.md; the edit is planned shot by shot in script/TRAILER-EDIT.md. In short: 1.94.86-90, 1.104.10-15 and 3.292.6-7, 1.107.1, 1.132.8-12 and 1.136.4-10, 1.139.1-4 and 1.142.28-31, 1.155.41, 2.42.21-25, 2.53-54 and 2.58.29-37, 2.61.40-41 (the cloth: no cause is named; Krishna is not shown), 2.67.9-10 and 2.68.1 (deerskins), 5.125.26, 6.23.21-47 (the chariot between the armies; the bow let go), 6.33.3-35 (the universal form; 'I am Time' is 6.33.32 kalo 'smi), 6.114.81-85, 7.33.12 and 7.48.13, 8.66.60-65 and 8.67.24, 11.25.36-42, 17.1.23-31 and 17.3.7-8, 1.1.52 (itihasa). 'Iti-ha-asa: so indeed it was' is the traditional analysis of the word, not a verse.",
  "structure": "TITLE (music from the first frame, the name, no voice) -> THE STORY ONCE, IN ORDER, in the present tense: the vow, the river, the cousins, the fire, the demon, the altar, the wheel, the dice, the cloth, exile, the needle-point -> a rest (a dip, no silence) -> the conch: two armies, the only time they are named; Arjuna lowers his bow; the universal form, the one long hold -> the war in order, the fastest cutting -> the curse -> the dog -> a rest -> the word itihasa -> the promise -> who makes this and what to do -> the end card, held.",
@@ -20,7 +20,7 @@ sc.update({
   "nextEpisodeLabel": "Watch Episode 1", "nextTitle": "The Storyteller Arrives", "followWord": "Follow", "supportLine": "Support the series: follow, share, comment",
   "wordParts": ["iti", "ha", "asa"], "wordGloss": ["so", "indeed", "it was"], "wordWhole": "itihasa", "wordMeaning": "So indeed it was",
   "books": ["Adi", "Sabha", "Vana", "Virata", "Udyoga", "Bhishma", "Drona", "Karna", "Shalya", "Sauptika", "Stri", "Shanti", "Anushasana", "Ashvamedhika", "Ashramavasika", "Mausala", "Mahaprasthanika", "Svargarohana"],
-  "sourceLine": "Text: the Mahabharata · BORI Critical Edition", "madeLine": "Voices: synthetic · Drawn in code"},
+  "sourceLine": "Text: the Mahabharata · BORI Critical Edition"},
 })
 L = []
 def shot(id, text, **k):

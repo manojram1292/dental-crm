@@ -26,6 +26,8 @@
  },
  "episode": 97,
  "kind": "trailer",
+ "credits": "source-only",
+ "credits": "source-only",
  "cut": 3,
  "scoreStops": true,
  "bedFloor": {
@@ -114,8 +116,7 @@
    "Mahaprasthanika",
    "Svargarohana"
   ],
-  "sourceLine": "Text: the Mahabharata · BORI Critical Edition",
-  "madeLine": "Voices: synthetic · Drawn in code"
+  "sourceLine": "Text: the Mahabharata · BORI Critical Edition"
  },
  "lines": [
   {

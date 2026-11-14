@@ -34,6 +34,9 @@ const py = process.env.PYTHON || 'python3';
 
 // 1. Timeline, 2. score (cached by timeline signature + score source), 3. mix.
 const tl = buildTimeline(lang, { ep });
+const videoOnly = !!a['video-only'];   // a patch segment for a splice (tools/episode_loop.md, step 7): frames only; no score, no mix, no gate, no audio in the file
+if (videoOnly) console.log('video only: no score, mix, gate or audio (a segment to splice into an existing master)');
+else {
 if (!a['no-score']) execFileSync(py, [path.join(ROOT, 'tools/score.py'), '--ep', String(ep), '--lang', lang], { stdio: 'inherit' });
 execFileSync(py, [path.join(ROOT, 'tools/mix.py'), '--ep', String(ep), '--lang', lang], { stdio: 'inherit' });
 // 4. The pre-render gate (after the score and the mix, before any final frame) (tools/gate.mjs): hook ≤ 8 w / ≤ 3.0 s, story ≤ 5 s, turn 40–60 %, ≤ 59 s, Next ≤ 1.2 s, no static
@@ -41,6 +44,7 @@ execFileSync(py, [path.join(ROOT, 'tools/mix.py'), '--ep', String(ep), '--lang',
 if (!a['no-gate']) {
   const g = await gate(ep, { lang, frames: true, audio: true });
   if (!g.ok) { console.error(`render refused by the gate: ${g.fails.join('; ')}`); process.exit(1); }
+}
 }
 const audio = path.join(ROOT, 'audio', tag, `mix.${lang}.wav`);
 
@@ -74,7 +78,7 @@ if (errs.length) {
 }
 
 const ffArgs = ['-y', '-loglevel', 'error', '-framerate', String(FPS), '-start_number', String(f0), '-i', path.join(framesDir, 'f%04d.png')];
-const hasAudio = fs.existsSync(audio);
+const hasAudio = !videoOnly && fs.existsSync(audio);
 if (hasAudio) ffArgs.push('-ss', String(f0 / FPS), '-t', String((f1 - f0) / FPS), '-i', audio);
 ffArgs.push(
   '-vf', 'scale=in_range=pc:out_range=tv:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p',

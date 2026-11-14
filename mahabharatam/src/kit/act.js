@@ -176,8 +176,8 @@
     const w = Math.max(ctx.measureText(l1).width, ctx.measureText(l2).width) + 48;
     // the source line keeps ONE fixed place (it never moves to dodge a figure): a face under it is reported to the gate, and the shot is re-staged
     if (hits([x - w / 2, y - size * 1.05, x + w / 2, y + size * 1.55])) note('type', 'faceHit:source');
-    ctx.fillStyle = 'rgba(12,8,6,0.7)'; ctx.beginPath(); ctx.roundRect(x - w / 2, y - size * 1.05, w, size * 2.6, 14); ctx.fill();
-    ctx.fillStyle = PAL.goldPale; ctx.fillText(l1, x, y); ctx.fillStyle = PAL.cream; ctx.fillText(l2, x, y + size * 1.2);
+    ctx.fillStyle = 'rgba(12,8,6,0.7)'; ctx.beginPath(); ctx.roundRect(x - w / 2, y - size * 1.05, w, size * (l2 ? 2.6 : 1.5), 14); ctx.fill();   // one line when the script's "credits" is "source-only" (no madeLine)
+    ctx.fillStyle = PAL.goldPale; ctx.fillText(l1, x, y); if (l2) { ctx.fillStyle = PAL.cream; ctx.fillText(l2, x, y + size * 1.2); }
     ctx.restore();
   };
   /** A small upright label. */

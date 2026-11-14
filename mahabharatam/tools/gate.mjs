@@ -139,7 +139,8 @@ function scriptChecks41({ ep, sc, SL, L, dur, lang, firsts }) {
   const cat = catalogTitles(), S = sc.strings || {};
   if (ep !== 99 && sc.kind !== 'intro' && sc.kind !== 'trailer' && cat[ep] && S.episodeTitle !== cat[ep]) fails.push(`episodeTitle "${S.episodeTitle}" ≠ catalog "${cat[ep]}"`);
   if (ep !== 99 && sc.kind !== 'intro' && sc.kind !== 'trailer' && cat[ep + 1] && S.nextTitle !== cat[ep + 1]) fails.push(`nextTitle "${S.nextTitle}" ≠ catalog "${cat[ep + 1]}"`);
-  if (!S.sourceLine || !/synthetic/i.test(S.madeLine || '')) fails.push('strings.sourceLine and strings.madeLine ("Voices: synthetic · Drawn in code") are required');
+  if (sc.credits === 'source-only') { if (!S.sourceLine) fails.push('strings.sourceLine is required'); if (S.madeLine) fails.push('"credits": "source-only" but strings.madeLine is set (the owner: the source line only)'); }   // owner, 14 Nov: no "Voices: synthetic · Drawn in code" on screen
+  else if (!S.sourceLine || !/synthetic/i.test(S.madeLine || '')) fails.push('strings.sourceLine and strings.madeLine ("Voices: synthetic · Drawn in code") are required');
   // sound: three layers, J/L cuts, rests
   let amb = null; const ambs = new Set(), moods = new Set(); let mood = 'still', jl = 0;
   for (const l of sc.lines) {

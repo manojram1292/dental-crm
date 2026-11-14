@@ -888,11 +888,11 @@
       // 3 · support, small
       const k3 = inn(0.6); if (k3 > 0) { ctx.save(); ctx.globalAlpha = k3; ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(6); fit(S.supportLine || '', 44, 'caption', 600, 'normal', 800); ctx.fillStyle = '#ffe9c0'; ctx.fillText(S.supportLine || '', CXT, 1090); ctx.restore(); }
       // 4 · the source line, smallest
-      const k4 = inn(0.85); if (k4 > 0) { ctx.save(); ctx.globalAlpha = 0.92 * k4; ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(6); ctx.fillStyle = '#e8d8b8'; fit(S.sourceLine || '', 32, 'caption', 500, 'normal', 800); ctx.fillText(S.sourceLine || '', CXT, 1200); fit(S.madeLine || '', 28, 'caption', 500, 'normal', 800); ctx.fillText(S.madeLine || '', CXT, 1246); ctx.restore(); if (R.probe && k4 > 0.99) R.probe.type.source = 1; }
+      const k4 = inn(0.85); if (k4 > 0) { ctx.save(); ctx.globalAlpha = 0.92 * k4; ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = R.px(6); ctx.fillStyle = '#e8d8b8'; if (S.madeLine) { fit(S.sourceLine || '', 32, 'caption', 500, 'normal', 800); ctx.fillText(S.sourceLine || '', CXT, 1200); fit(S.madeLine || '', 28, 'caption', 500, 'normal', 800); ctx.fillText(S.madeLine || '', CXT, 1246); } else { fit(S.sourceLine || '', 34, 'caption', 500, 'normal', 800); ctx.fillText(S.sourceLine || '', CXT, 1212); }   /* "credits": "source-only": one line, set midway between the support line and the pointer */ ctx.restore(); if (R.probe && k4 > 0.99) R.probe.type.source = 1; }
       ctx.restore();
       // the pointer: three chevrons running down toward the account's own Follow button, bottom left
       const k5 = inn(1.0); if (k5 > 0) { ctx.save(); ctx.strokeStyle = '#ffd070'; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.lineWidth = 12; for (let i = 0; i < 3; i++) { const ph = (T * 1.4 - i * 0.22) % 1, a = Math.sin(Math.PI * clamp(ph)); ctx.globalAlpha = k5 * (0.25 + 0.75 * a); const x = 190, y = 1300 + i * 58 + 10 * a; ctx.beginPath(); ctx.moveTo(x - 46, y); ctx.lineTo(x, y + 40); ctx.lineTo(x + 46, y); ctx.stroke(); } ctx.restore(); }
-      if (R.probe) R.probe.card = { follow: [CXT - 400, FY - 170, CXT + 400, FY + 80], lowestText: 1246 + 150, rightmostText: CXT + 400 * z };
+      if (R.probe) R.probe.card = { follow: [CXT - 400, FY - 170, CXT + 400, FY + 80], lowestText: (S.madeLine ? 1246 : 1212) + 150, rightmostText: CXT + 400 * z };
       fin(ctx, T);
     },
     post: () => ({ bloom: 0.42, vignette: 0.5, paper: 0.3 }) });
