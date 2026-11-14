@@ -66,20 +66,20 @@
   "drop_window_s": 0.3
  },
  "voice_over_bed": {
-  "median_db": 16.0,
-  "p10_db": 9.3
+  "median_db": 18.1,
+  "p10_db": 12.0
  },
  "start": {
   "first_100ms_db": -32.7,
-  "first_frame_33ms_db": -30.6,
-  "first_10ms_db": -30.0
+  "first_frame_33ms_db": -30.5,
+  "first_10ms_db": -29.8
  },
  "clipping": {
   "samples_at_0.999": 0,
-  "peak_dbfs": -3.1
+  "peak_dbfs": -3.04
  },
  "recogniser": {
-  "heard": "The poet was born on an island. Satya Vati, a fisherman's daughter, rode a ferry. One day the sage Parashara, on pilgrimage, saw her and desired her. Holy one. Sages are watching from both banks. So he raised a mist that hid the river. I am a maiden. How can I go home? You will remain a maiden. Now choose a gift. She chose a fragrance for her smell of fish and gladly agreed. That same day, on a river island, she bore a sun. He grew at once. Devipayana, the island born. We call him Vyasa. Mother, think of me and I will come. Then the king asked, why were these God -like heroes born on Earth?",
+  "heard": "The poet was born on an island. Satyavati, a fisherman's daughter, rode a ferry. One day the sage Parashara, on pilgrimage, saw her and desired her. Holy one. Sages are watching from both banks. So he raised a mist that hid the river. I am a maiden. How can I go home? You will remain a maiden. Now choose a gift. She chose a fragrance for her smell of fish, and gladly agreed. That same day, on a river island, she bore a son. He grew at once. Devaipayana, the island born. We call him Vyasa. Mother, think of me, and I will come. Then the king asked, why were these God -like heroes born on Earth?",
   "transcribed_in_stretches_starting_at_s": [
    0.0,
    13.97,
@@ -96,11 +96,11 @@
    [
     "poet",
     0.14,
-    0.38
+    0.36
    ],
    [
     "was",
-    0.38,
+    0.36,
     0.64
    ],
    [
@@ -124,18 +124,13 @@
     1.52
    ],
    [
-    "Satya",
-    3.48,
-    3.82
-   ],
-   [
-    "Vati,",
-    3.82,
-    4.16
+    "Satyavati,",
+    3.66,
+    4.22
    ],
    [
     "a",
-    4.6,
+    4.62,
     4.68
    ],
    [
@@ -151,11 +146,11 @@
    [
     "rode",
     6.24,
-    6.36
+    6.34
    ],
    [
     "a",
-    6.36,
+    6.34,
     6.56
    ],
    [
@@ -166,11 +161,11 @@
    [
     "One",
     7.96,
-    8.04
+    8.02
    ],
    [
     "day",
-    8.04,
+    8.02,
     8.3
    ],
    [
@@ -190,7 +185,7 @@
    ],
    [
     "on",
-    10.38,
+    10.4,
     10.46
    ],
    [
@@ -206,22 +201,22 @@
    [
     "her",
     11.8,
-    12.08
+    12.1
    ],
    [
     "and",
-    12.08,
+    12.1,
     12.46
    ],
    [
     "desired",
     12.46,
-    12.86
+    12.84
    ],
    [
     "her.",
-    12.86,
-    13.3
+    12.84,
+    13.32
    ],
    [
     "Holy",
@@ -231,26 +226,26 @@
    [
     "one.",
     14.53,
-    14.79
+    14.81
    ],
    [
     "Sages",
     15.43,
-    15.61
+    15.63
    ],
    [
     "are",
-    15.61,
+    15.63,
     15.87
    ],
    [
     "watching",
     15.87,
-    16.21
+    16.19
    ],
    [
     "from",
-    16.21,
+    16.19,
     16.55
    ],
    [
@@ -330,7 +325,7 @@
    ],
    [
     "How",
-    22.89,
+    22.87,
     22.97
    ],
    [
@@ -346,26 +341,26 @@
    [
     "go",
     23.35,
-    23.57
+    23.55
    ],
    [
     "home?",
-    23.57,
+    23.55,
     23.79
    ],
    [
     "You",
-    25.29,
+    25.25,
     25.81
    ],
    [
     "will",
     25.81,
-    26.11
+    26.13
    ],
    [
     "remain",
-    26.11,
+    26.13,
     26.51
    ],
    [
@@ -416,11 +411,11 @@
    [
     "fragrance",
     30.87,
-    31.21
+    31.11
    ],
    [
     "for",
-    31.21,
+    31.11,
     31.57
    ],
    [
@@ -436,46 +431,46 @@
    [
     "of",
     31.91,
-    32.07
+    32.05
    ],
    [
-    "fish",
-    32.07,
+    "fish,",
+    32.05,
     32.35
    ],
    [
     "and",
-    32.35,
-    32.91
+    32.81,
+    32.93
    ],
    [
     "gladly",
-    32.91,
+    32.93,
     33.25
    ],
    [
     "agreed.",
     33.25,
-    33.79
+    33.73
    ],
    [
     "That",
-    34.95,
+    35.17,
     35.55
    ],
    [
     "same",
     35.55,
-    35.79
+    35.81
    ],
    [
     "day,",
-    35.79,
+    35.81,
     36.11
    ],
    [
     "on",
-    36.43,
+    36.17,
     36.73
    ],
    [
@@ -495,7 +490,7 @@
    ],
    [
     "she",
-    37.97,
+    37.95,
     38.05
    ],
    [
@@ -509,18 +504,18 @@
     38.43
    ],
    [
-    "sun.",
+    "son.",
     38.43,
-    38.67
+    38.69
    ],
    [
     "He",
-    39.45,
-    39.77
+    39.57,
+    39.79
    ],
    [
     "grew",
-    39.77,
+    39.79,
     39.97
    ],
    [
@@ -534,9 +529,9 @@
     40.35
    ],
    [
-    "Devipayana,",
-    40.91,
-    41.47
+    "Devaipayana,",
+    40.99,
+    41.49
    ],
    [
     "the",
@@ -580,7 +575,7 @@
    ],
    [
     "think",
-    45.57,
+    45.61,
     45.79
    ],
    [
@@ -589,18 +584,18 @@
     45.99
    ],
    [
-    "me",
+    "me,",
     45.99,
     46.23
    ],
    [
     "and",
-    46.23,
-    46.51
+    46.45,
+    46.53
    ],
    [
     "I",
-    46.51,
+    46.53,
     46.75
    ],
    [
@@ -635,12 +630,12 @@
    ],
    [
     "why",
-    49.85,
-    50.17
+    49.83,
+    50.19
    ],
    [
     "were",
-    50.17,
+    50.19,
     50.43
    ],
    [
@@ -651,11 +646,11 @@
    [
     "God",
     50.67,
-    51.05
+    51.07
    ],
    [
     "-like",
-    51.05,
+    51.07,
     51.45
    ],
    [
@@ -681,10 +676,10 @@
   ],
   "gaps_over_0.35s_inside_a_sentence": [
    {
-    "after": "Vati,",
+    "after": "Satyavati,",
     "before": "a",
-    "at_s": 4.16,
-    "gap_s": 0.44
+    "at_s": 4.22,
+    "gap_s": 0.4
    },
    {
     "after": "daughter,",
@@ -696,7 +691,7 @@
     "after": "Parashara,",
     "before": "on",
     "at_s": 9.86,
-    "gap_s": 0.52
+    "gap_s": 0.54
    },
    {
     "after": "pilgrimage,",
@@ -705,41 +700,45 @@
     "gap_s": 0.9
    },
    {
+    "after": "fish,",
+    "before": "and",
+    "at_s": 32.35,
+    "gap_s": 0.46
+   },
+   {
     "after": "island,",
     "before": "she",
     "at_s": 37.35,
-    "gap_s": 0.62
+    "gap_s": 0.6
    },
    {
-    "after": "Devipayana,",
+    "after": "Devaipayana,",
     "before": "the",
-    "at_s": 41.47,
-    "gap_s": 0.38
+    "at_s": 41.49,
+    "gap_s": 0.36
+   },
+   {
+    "after": "Mother,",
+    "before": "think",
+    "at_s": 45.25,
+    "gap_s": 0.36
    },
    {
     "after": "asked,",
     "before": "why",
     "at_s": 49.21,
-    "gap_s": 0.64
+    "gap_s": 0.62
    }
   ],
   "script_words": 122,
   "misheard": [
    {
-    "script": "satyavati",
-    "heard": "satya vati"
-   },
-   {
     "script": "rowed",
     "heard": "rode"
    },
    {
-    "script": "son",
-    "heard": "sun"
-   },
-   {
     "script": "dvaipayana",
-    "heard": "devipayana"
+    "heard": "devaipayana"
    },
    {
     "script": "godlike",
