@@ -41,6 +41,7 @@ A series of vertical short videos retelling the Mahabharata faithfully, for YouT
   - `catalog/series.json`: titles and status of every episode.
   - `script/ARC-41-50.md` and `script/ARC-51-60.md`: arc plans, the CE verse check for every beat, and the reviews.
   - `script/TRAILER-EDIT.md` (the trailer's shot plan) and `script/TRAILER-CHECK.md` (its verse check).
+- **VFX:** `VFX-PIPELINE.md`, with the `photoreal-cg` skill at `.claude/skills/photoreal-cg/SKILL.md`. Three.js 0.187.0, HyperFrames 0.9.55 and Blender 4.5 LTS (`bpy`, in `lab/vfx/venv`) are installed. Browser AI steps (ChatGPT, Flow, Muse) run on the owner's Mac, not in the container.
 - **Code:**
   - `src/` holds the drawing engine, the character kit (`src/kit/characters/`) and scenes per episode (`src/scenes/epNN/`).
   - `tools/` holds the pipeline (see §4).
