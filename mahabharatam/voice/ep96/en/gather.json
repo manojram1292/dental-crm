@@ -1,0 +1,68 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "gather~1.s0.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Eighteen armies gather at Kooru-kshetra.",
+ "heard": "18 armies gather at Kooloo Keshitra.",
+ "recogniser_errors": 1,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 3.319,
+   "words": 5,
+   "text": "Eighteen armies gather at Kurukshetra."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.03,
+   0.527
+  ],
+  [
+   0.588,
+   0.9
+  ],
+  [
+   0.9,
+   1.28
+  ],
+  [
+   1.28,
+   1.588
+  ],
+  [
+   1.71,
+   3.166
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 149,
+ "longest_pause_s": 0.12,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 121.3,
+  "st": 10.6,
+  "edb": 16.2,
+  "dur": 3.14,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.8,
+  "jitter": 2.09,
+  "tail_db": -71.9
+ },
+ "film_median_hz": 123.8,
+ "semitones_from_film_median": -0.35,
+ "names": {
+  "Kurukshetra": {
+   "heard": "kulukeshitra",
+   "fit": 0.78
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

@@ -1,0 +1,2412 @@
+{
+ "summary": {
+  "episode": 96,
+  "reference": "Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+  "film_median_hz_all_passing_takes": 123.8,
+  "lines": 14,
+  "lowest_line_hz": 117.7,
+  "highest_line_hz": 135.0,
+  "spread_semitones_low_to_high": 2.37,
+  "lines_more_than_2_semitones_from_film_median": [],
+  "lines_with_recogniser_errors": {
+   "gather": 1,
+   "bhishma": 1,
+   "conch": 1
+  },
+  "names_weak_in_the_chosen_takes": [],
+  "takes_total": 80,
+  "time_stretch": "none",
+  "pauses_shortened": {
+   "bhishma": [
+    {
+     "at_s": 0.71,
+     "was_s": 0.36,
+     "now_s": 0.3
+    }
+   ],
+   "drona": [
+    {
+     "at_s": 1.47,
+     "was_s": 0.57,
+     "now_s": 0.42
+    }
+   ],
+   "lowers": [
+    {
+     "at_s": 2.05,
+     "was_s": 0.48,
+     "now_s": 0.42
+    }
+   ],
+   "promise": [
+    {
+     "at_s": 2.03,
+     "was_s": 0.36,
+     "now_s": 0.3
+    },
+    {
+     "at_s": 3.73,
+     "was_s": 0.46,
+     "now_s": 0.42
+    }
+   ]
+  },
+  "speech_seconds": 48.91
+ },
+ "lines": [
+  {
+   "line": "cousins",
+   "text": "A hundred brothers. Five cousins. One throne.",
+   "chosen": "cousins~0.s1.wav",
+   "given_to_the_model": "A hundred brothers. Five cousins. One throne.",
+   "recogniser_errors_of_chosen": 0,
+   "passed_floor_and_pitch": 4,
+   "of": 5,
+   "takes": [
+    {
+     "take": "cousins~0.s0.wav",
+     "variant": 0,
+     "heard": "100 brothers, 5 cousins, one throne.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.62,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 138.0,
+     "st": 11.3,
+     "edb": 20.3,
+     "dur": 3.33,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 10.7,
+     "jitter": 2.58,
+     "tail_db": -82.8,
+     "bad": 1,
+     "dst": 1.89,
+     "score": 22.86
+    },
+    {
+     "take": "cousins~0.s1.wav",
+     "variant": 0,
+     "heard": "a hundred brothers, five cousins, one throne.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.27,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 134.2,
+     "st": 12.0,
+     "edb": 17.5,
+     "dur": 3.98,
+     "jumps": 0.0,
+     "creak": 0.012,
+     "hnr": 11.7,
+     "jitter": 2.48,
+     "tail_db": -68.0,
+     "bad": 0,
+     "dst": 1.4,
+     "score": 33.43
+    },
+    {
+     "take": "cousins~0.s2.wav",
+     "variant": 0,
+     "heard": "a hundred brothers, five cousins, one throne.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.23,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 127.7,
+     "st": 9.7,
+     "edb": 18.9,
+     "dur": 3.1,
+     "jumps": 0.0,
+     "creak": 0.01,
+     "hnr": 9.9,
+     "jitter": 2.44,
+     "tail_db": -67.0,
+     "bad": 0,
+     "dst": 0.54,
+     "score": 17.02
+    },
+    {
+     "take": "cousins~0.s3.wav",
+     "variant": 0,
+     "heard": "A hundred brothers, five cousins, one throne.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.17,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 132.0,
+     "st": 12.5,
+     "edb": 18.8,
+     "dur": 3.41,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 10.8,
+     "jitter": 2.55,
+     "tail_db": -70.4,
+     "bad": 0,
+     "dst": 1.12,
+     "score": 22.42
+    },
+    {
+     "take": "cousins~0.s4.wav",
+     "variant": 0,
+     "heard": "A hundred brothers, five cousins, one throne.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.21,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 135.4,
+     "st": 9.1,
+     "edb": 17.1,
+     "dur": 3.01,
+     "jumps": 0.51,
+     "creak": 0.0,
+     "hnr": 10.5,
+     "jitter": 2.53,
+     "tail_db": -62.7,
+     "bad": 0,
+     "dst": 1.56,
+     "score": 11.27
+    }
+   ]
+  },
+  {
+   "line": "needle",
+   "text": "Duryodhana will not give a needle-point of earth.",
+   "chosen": "needle~0.s4.wav",
+   "given_to_the_model": "Duryodhana will not give a needle-point of earth.",
+   "recogniser_errors_of_chosen": 0,
+   "passed_floor_and_pitch": 4,
+   "of": 5,
+   "takes": [
+    {
+     "take": "needle~0.s0.wav",
+     "variant": 0,
+     "heard": "Duryodhana will not give a needle point of Earth.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.63,
+     "names": {
+      "Duryodhana": [
+       "duryodhana",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 127.0,
+     "st": 9.3,
+     "edb": 22.4,
+     "dur": 3.08,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 11.2,
+     "jitter": 2.48,
+     "tail_db": -48.2,
+     "bad": 0,
+     "dst": 0.45,
+     "score": 24.55
+    },
+    {
+     "take": "needle~0.s1.wav",
+     "variant": 0,
+     "heard": "Juria Dana will not give a needle point of earth.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.38,
+     "names": {
+      "Duryodhana": [
+       "juriadana",
+       0.74
+      ]
+     },
+     "name_fit": 0.74,
+     "f0": 123.7,
+     "st": 8.3,
+     "edb": 21.0,
+     "dur": 3.03,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 11.4,
+     "jitter": 2.2,
+     "tail_db": -70.9,
+     "bad": 0,
+     "dst": -0.01,
+     "score": 19.65
+    },
+    {
+     "take": "needle~0.s2.wav",
+     "variant": 0,
+     "heard": "Duryodhana will not give a needle point of verse.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.65,
+     "names": {
+      "Duryodhana": [
+       "duryodhana",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 127.1,
+     "st": 12.5,
+     "edb": 19.9,
+     "dur": 3.19,
+     "jumps": 0.44,
+     "creak": 0.0,
+     "hnr": 11.2,
+     "jitter": 2.54,
+     "tail_db": -71.1,
+     "bad": 1,
+     "dst": 0.46,
+     "score": 24.0
+    },
+    {
+     "take": "needle~0.s3.wav",
+     "variant": 0,
+     "heard": "Duryodhana will not give a needle point of Earth.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.52,
+     "names": {
+      "Duryodhana": [
+       "duryodhana",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 122.1,
+     "st": 9.5,
+     "edb": 21.3,
+     "dur": 3.26,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 11.4,
+     "jitter": 2.13,
+     "tail_db": -68.2,
+     "bad": 0,
+     "dst": -0.23,
+     "score": 28.44
+    },
+    {
+     "take": "needle~0.s4.wav",
+     "variant": 0,
+     "heard": "Duryodhana will not give a needle point of Earth.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.42,
+     "names": {
+      "Duryodhana": [
+       "duryodhana",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 124.5,
+     "st": 9.1,
+     "edb": 19.1,
+     "dur": 3.29,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 12.2,
+     "jitter": 2.18,
+     "tail_db": -70.4,
+     "bad": 0,
+     "dst": 0.1,
+     "score": 29.32
+    }
+   ]
+  },
+  {
+   "line": "gather",
+   "text": "Eighteen armies gather at Kurukshetra.",
+   "chosen": "gather~1.s0.wav",
+   "given_to_the_model": "Eighteen armies gather at Kooru-kshetra.",
+   "recogniser_errors_of_chosen": 1,
+   "passed_floor_and_pitch": 10,
+   "of": 10,
+   "takes": [
+    {
+     "take": "gather~0.s0.wav",
+     "variant": 0,
+     "heard": "18 armies gather at Khuruk Shaitra.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.54,
+     "names": {
+      "Kurukshetra": [
+       "khurukshaitra",
+       0.83
+      ]
+     },
+     "name_fit": 0.83,
+     "f0": 126.2,
+     "st": 11.1,
+     "edb": 19.3,
+     "dur": 2.83,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.1,
+     "jitter": 2.72,
+     "tail_db": -65.0,
+     "bad": 1,
+     "dst": 0.34,
+     "score": 22.49
+    },
+    {
+     "take": "gather~0.s1.wav",
+     "variant": 0,
+     "heard": "18 armies gather at Kurukshetra.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.7,
+     "names": {
+      "Kurukshetra": [
+       "kurukshetra",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 126.7,
+     "st": 10.3,
+     "edb": 20.2,
+     "dur": 2.49,
+     "jumps": 0.0,
+     "creak": 0.033,
+     "hnr": 8.2,
+     "jitter": 2.54,
+     "tail_db": -70.0,
+     "bad": 1,
+     "dst": 0.41,
+     "score": 15.89
+    },
+    {
+     "take": "gather~0.s2.wav",
+     "variant": 0,
+     "heard": "18 armies gather at Kooluk Shetra.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.42,
+     "names": {
+      "Kurukshetra": [
+       "koolukshetra",
+       0.91
+      ]
+     },
+     "name_fit": 0.91,
+     "f0": 129.0,
+     "st": 10.6,
+     "edb": 18.2,
+     "dur": 3.07,
+     "jumps": 0.0,
+     "creak": 0.015,
+     "hnr": 9.8,
+     "jitter": 2.19,
+     "tail_db": -68.7,
+     "bad": 1,
+     "dst": 0.72,
+     "score": 28.12
+    },
+    {
+     "take": "gather~0.s3.wav",
+     "variant": 0,
+     "heard": "18 armies gather at Kurukshetra.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.55,
+     "names": {
+      "Kurukshetra": [
+       "kurukshetra",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 121.8,
+     "st": 11.4,
+     "edb": 18.8,
+     "dur": 2.39,
+     "jumps": 0.0,
+     "creak": 0.012,
+     "hnr": 8.3,
+     "jitter": 2.88,
+     "tail_db": -68.7,
+     "bad": 1,
+     "dst": -0.27,
+     "score": 13.49
+    },
+    {
+     "take": "gather~0.s4.wav",
+     "variant": 0,
+     "heard": "18 armies gather at Kudug Shaitva.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.44,
+     "names": {
+      "Kurukshetra": [
+       "kudugshaitva",
+       0.61
+      ]
+     },
+     "name_fit": 0.61,
+     "f0": 131.2,
+     "st": 11.6,
+     "edb": 20.3,
+     "dur": 2.69,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.8,
+     "jitter": 2.46,
+     "tail_db": -69.7,
+     "bad": 1,
+     "dst": 1.01,
+     "score": 15.57
+    },
+    {
+     "take": "gather~1.s0.wav",
+     "variant": 1,
+     "heard": "18 armies gather at Kulu-Keshitra.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.36,
+     "names": {
+      "Kurukshetra": [
+       "kulukeshitra",
+       0.78
+      ]
+     },
+     "name_fit": 0.78,
+     "f0": 121.4,
+     "st": 10.8,
+     "edb": 16.2,
+     "dur": 3.14,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 10.8,
+     "jitter": 2.11,
+     "tail_db": -70.0,
+     "bad": 1,
+     "dst": -0.33,
+     "score": 30.39
+    },
+    {
+     "take": "gather~1.s1.wav",
+     "variant": 1,
+     "heard": "18 armies gather at Kuru Shetara.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.24,
+     "names": {
+      "Kurukshetra": [
+       "kurushetara",
+       0.91
+      ]
+     },
+     "name_fit": 0.91,
+     "f0": 128.2,
+     "st": 8.2,
+     "edb": 16.8,
+     "dur": 2.18,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 10.1,
+     "jitter": 2.63,
+     "tail_db": -69.7,
+     "bad": 1,
+     "dst": 0.61,
+     "score": 7.86
+    },
+    {
+     "take": "gather~1.s2.wav",
+     "variant": 1,
+     "heard": "18 armies gather at Coral Cassetra.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.15,
+     "names": {
+      "Kurukshetra": [
+       "coralcassetra",
+       0.7
+      ]
+     },
+     "name_fit": 0.7,
+     "f0": 132.6,
+     "st": 10.3,
+     "edb": 16.6,
+     "dur": 3.05,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 11.3,
+     "jitter": 2.35,
+     "tail_db": -68.1,
+     "bad": 1,
+     "dst": 1.2,
+     "score": 24.01
+    },
+    {
+     "take": "gather~1.s3.wav",
+     "variant": 1,
+     "heard": "18 armies gather at Koulukeshitra.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.48,
+     "names": {
+      "Kurukshetra": [
+       "koulukeshitra",
+       0.75
+      ]
+     },
+     "name_fit": 0.75,
+     "f0": 121.5,
+     "st": 12.0,
+     "edb": 18.1,
+     "dur": 2.62,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 10.1,
+     "jitter": 2.54,
+     "tail_db": -64.9,
+     "bad": 1,
+     "dst": -0.32,
+     "score": 17.9
+    },
+    {
+     "take": "gather~1.s4.wav",
+     "variant": 1,
+     "heard": "18 armies gather at Kuru Keshetra.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.58,
+     "names": {
+      "Kurukshetra": [
+       "kurukeshetra",
+       0.96
+      ]
+     },
+     "name_fit": 0.96,
+     "f0": 122.1,
+     "st": 10.6,
+     "edb": 17.9,
+     "dur": 2.81,
+     "jumps": 0.0,
+     "creak": 0.005,
+     "hnr": 9.5,
+     "jitter": 2.4,
+     "tail_db": -68.6,
+     "bad": 1,
+     "dst": -0.23,
+     "score": 25.23
+    }
+   ]
+  },
+  {
+   "line": "bhishma",
+   "text": "Bhishma, the grandsire, leads the Kauravas.",
+   "chosen": "bhishma~0.s4.wav",
+   "given_to_the_model": "Bhishma, the grandsire, leads the Kauravas.",
+   "recogniser_errors_of_chosen": 1,
+   "passed_floor_and_pitch": 4,
+   "of": 5,
+   "takes": [
+    {
+     "take": "bhishma~0.s0.wav",
+     "variant": 0,
+     "heard": "Bishma, the grand sai, leads the core of us.",
+     "missed": 1,
+     "extra": 2,
+     "minprob": 0.16,
+     "names": {
+      "Bhishma": [
+       "bishma",
+       0.92
+      ],
+      "Kauravas": [
+       "us",
+       0.4
+      ]
+     },
+     "name_fit": 0.66,
+     "f0": 119.3,
+     "st": 14.3,
+     "edb": 19.7,
+     "dur": 3.11,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.5,
+     "jitter": 2.88,
+     "tail_db": -65.4,
+     "bad": 5,
+     "dst": -0.63,
+     "score": 16.08
+    },
+    {
+     "take": "bhishma~0.s1.wav",
+     "variant": 0,
+     "heard": "Bishma the Grand Saya leads the Kauravas.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.57,
+     "names": {
+      "Bhishma": [
+       "bishma",
+       0.92
+      ],
+      "Kauravas": [
+       "kauravas",
+       1.0
+      ]
+     },
+     "name_fit": 0.96,
+     "f0": 114.2,
+     "st": 11.0,
+     "edb": 20.1,
+     "dur": 2.78,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.7,
+     "jitter": 2.13,
+     "tail_db": -70.0,
+     "bad": 1,
+     "dst": -1.39,
+     "score": 17.29
+    },
+    {
+     "take": "bhishma~0.s2.wav",
+     "variant": 0,
+     "heard": "Bishma, the Grand Saya, leads the Kauravas.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.46,
+     "names": {
+      "Bhishma": [
+       "bishma",
+       0.92
+      ],
+      "Kauravas": [
+       "kauravas",
+       1.0
+      ]
+     },
+     "name_fit": 0.96,
+     "f0": 127.4,
+     "st": 10.4,
+     "edb": 17.7,
+     "dur": 3.05,
+     "jumps": 0.99,
+     "creak": 0.0,
+     "hnr": 10.8,
+     "jitter": 2.05,
+     "tail_db": -71.4,
+     "bad": 1,
+     "dst": 0.5,
+     "score": 19.04
+    },
+    {
+     "take": "bhishma~0.s3.wav",
+     "variant": 0,
+     "heard": "Bishma, the Grand Saya, leads the Kauravas.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.44,
+     "names": {
+      "Bhishma": [
+       "bishma",
+       0.92
+      ],
+      "Kauravas": [
+       "kauravas",
+       1.0
+      ]
+     },
+     "name_fit": 0.96,
+     "f0": 112.5,
+     "st": 13.8,
+     "edb": 18.5,
+     "dur": 2.73,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.0,
+     "jitter": 2.18,
+     "tail_db": -72.6,
+     "bad": 1,
+     "dst": -1.65,
+     "score": 13.8
+    },
+    {
+     "take": "bhishma~0.s4.wav",
+     "variant": 0,
+     "heard": "Bishma, the Grand Saya, leads the Kauravas.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.4,
+     "names": {
+      "Bhishma": [
+       "bishma",
+       0.92
+      ],
+      "Kauravas": [
+       "kauravas",
+       1.0
+      ]
+     },
+     "name_fit": 0.96,
+     "f0": 126.2,
+     "st": 10.7,
+     "edb": 17.3,
+     "dur": 3.27,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 10.3,
+     "jitter": 2.27,
+     "tail_db": -71.0,
+     "bad": 1,
+     "dst": 0.34,
+     "score": 28.11
+    }
+   ]
+  },
+  {
+   "line": "drona",
+   "text": "Drona taught them all. Now he fights for Duryodhana.",
+   "chosen": "drona~0.s0.wav",
+   "given_to_the_model": "Drona taught them all. Now he fights for Duryodhana.",
+   "recogniser_errors_of_chosen": 0,
+   "passed_floor_and_pitch": 5,
+   "of": 5,
+   "takes": [
+    {
+     "take": "drona~0.s0.wav",
+     "variant": 0,
+     "heard": "Drona taught them all. Now he fights for Duryodhana.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.77,
+     "names": {
+      "Drona": [
+       "drona",
+       1.0
+      ],
+      "Duryodhana": [
+       "duryodhana",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 130.6,
+     "st": 12.2,
+     "edb": 17.4,
+     "dur": 3.69,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 11.2,
+     "jitter": 2.7,
+     "tail_db": -62.2,
+     "bad": 0,
+     "dst": 0.93,
+     "score": 33.63
+    },
+    {
+     "take": "drona~0.s1.wav",
+     "variant": 0,
+     "heard": "Drona taught them all. Now he fights for Durya Dana.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.48,
+     "names": {
+      "Drona": [
+       "drona",
+       1.0
+      ],
+      "Duryodhana": [
+       "duryadana",
+       0.84
+      ]
+     },
+     "name_fit": 0.92,
+     "f0": 130.9,
+     "st": 10.2,
+     "edb": 19.4,
+     "dur": 3.29,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 11.6,
+     "jitter": 2.26,
+     "tail_db": -69.3,
+     "bad": 0,
+     "dst": 0.97,
+     "score": 24.18
+    },
+    {
+     "take": "drona~0.s2.wav",
+     "variant": 0,
+     "heard": "Drona taught them all. Now he fights for Duryodhana.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.71,
+     "names": {
+      "Drona": [
+       "drona",
+       1.0
+      ],
+      "Duryodhana": [
+       "duryodhana",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 128.3,
+     "st": 9.6,
+     "edb": 17.8,
+     "dur": 3.06,
+     "jumps": 0.46,
+     "creak": 0.0,
+     "hnr": 11.1,
+     "jitter": 2.41,
+     "tail_db": -71.5,
+     "bad": 0,
+     "dst": 0.63,
+     "score": 19.97
+    },
+    {
+     "take": "drona~0.s3.wav",
+     "variant": 0,
+     "heard": "Drona taught them all. Now he fights for Duryadhana.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.52,
+     "names": {
+      "Drona": [
+       "drona",
+       1.0
+      ],
+      "Duryodhana": [
+       "duryadhana",
+       0.9
+      ]
+     },
+     "name_fit": 0.95,
+     "f0": 126.2,
+     "st": 14.0,
+     "edb": 18.3,
+     "dur": 3.35,
+     "jumps": 0.41,
+     "creak": 0.0,
+     "hnr": 11.1,
+     "jitter": 2.41,
+     "tail_db": -69.1,
+     "bad": 0,
+     "dst": 0.34,
+     "score": 23.91
+    },
+    {
+     "take": "drona~0.s4.wav",
+     "variant": 0,
+     "heard": "Drona taught them all, now he fights for Dury Adana.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.38,
+     "names": {
+      "Drona": [
+       "drona",
+       1.0
+      ],
+      "Duryodhana": [
+       "duryadana",
+       0.84
+      ]
+     },
+     "name_fit": 0.92,
+     "f0": 125.4,
+     "st": 9.2,
+     "edb": 18.7,
+     "dur": 3.0,
+     "jumps": 0.0,
+     "creak": 0.009,
+     "hnr": 11.1,
+     "jitter": 2.54,
+     "tail_db": -67.8,
+     "bad": 0,
+     "dst": 0.23,
+     "score": 17.87
+    }
+   ]
+  },
+  {
+   "line": "karna",
+   "text": "Karna will not fight while Bhishma lives.",
+   "chosen": "karna~1.s1.wav",
+   "given_to_the_model": "Karna will not fight while Bhishma lives.",
+   "recogniser_errors_of_chosen": 0,
+   "passed_floor_and_pitch": 5,
+   "of": 5,
+   "takes": [
+    {
+     "take": "karna~1.s0.wav",
+     "variant": 1,
+     "heard": "Carner will not fight while Bishmar lives.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.47,
+     "names": {
+      "Bhishma": [
+       "bishmar",
+       0.86
+      ],
+      "Karna": [
+       "carner",
+       0.73
+      ]
+     },
+     "name_fit": 0.79,
+     "f0": 120.6,
+     "st": 10.7,
+     "edb": 20.4,
+     "dur": 2.35,
+     "jumps": 0.0,
+     "creak": 0.012,
+     "hnr": 9.4,
+     "jitter": 2.46,
+     "tail_db": -70.1,
+     "bad": 0,
+     "dst": -0.45,
+     "score": 19.56
+    },
+    {
+     "take": "karna~1.s1.wav",
+     "variant": 1,
+     "heard": "Carner will not fight while Bishmar lives.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.49,
+     "names": {
+      "Bhishma": [
+       "bishmar",
+       0.86
+      ],
+      "Karna": [
+       "carner",
+       0.73
+      ]
+     },
+     "name_fit": 0.79,
+     "f0": 118.3,
+     "st": 10.3,
+     "edb": 18.2,
+     "dur": 2.76,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.8,
+     "jitter": 2.33,
+     "tail_db": -69.2,
+     "bad": 0,
+     "dst": -0.78,
+     "score": 30.99
+    },
+    {
+     "take": "karna~1.s2.wav",
+     "variant": 1,
+     "heard": "Karna will not fight while Bishma lives.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.36,
+     "names": {
+      "Bhishma": [
+       "bishma",
+       0.92
+      ],
+      "Karna": [
+       "karna",
+       1.0
+      ]
+     },
+     "name_fit": 0.96,
+     "f0": 125.1,
+     "st": 10.5,
+     "edb": 21.1,
+     "dur": 2.21,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 10.1,
+     "jitter": 2.3,
+     "tail_db": -55.2,
+     "bad": 0,
+     "dst": 0.19,
+     "score": 19.89
+    },
+    {
+     "take": "karna~1.s3.wav",
+     "variant": 1,
+     "heard": "Carna will not fight while Bishma lives.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.34,
+     "names": {
+      "Bhishma": [
+       "bishma",
+       0.92
+      ],
+      "Karna": [
+       "carna",
+       1.0
+      ]
+     },
+     "name_fit": 0.96,
+     "f0": 119.3,
+     "st": 7.0,
+     "edb": 20.6,
+     "dur": 2.35,
+     "jumps": 1.3,
+     "creak": 0.0,
+     "hnr": 9.9,
+     "jitter": 2.54,
+     "tail_db": -68.3,
+     "bad": 0,
+     "dst": -0.63,
+     "score": 13.4
+    },
+    {
+     "take": "karna~1.s4.wav",
+     "variant": 1,
+     "heard": "Carner will not fight while Bishma lives.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.42,
+     "names": {
+      "Bhishma": [
+       "bishma",
+       0.92
+      ],
+      "Karna": [
+       "carner",
+       0.73
+      ]
+     },
+     "name_fit": 0.82,
+     "f0": 129.9,
+     "st": 8.5,
+     "edb": 18.8,
+     "dur": 1.97,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.5,
+     "jitter": 2.06,
+     "tail_db": -69.7,
+     "bad": 0,
+     "dst": 0.84,
+     "score": 10.74
+    }
+   ]
+  },
+  {
+   "line": "arjuna",
+   "text": "Arjuna, the archer, chose Krishna over an army.",
+   "chosen": "arjuna~0.s3.wav",
+   "given_to_the_model": "Arjuna, the archer, chose Krishna over an army.",
+   "recogniser_errors_of_chosen": 0,
+   "passed_floor_and_pitch": 4,
+   "of": 5,
+   "takes": [
+    {
+     "take": "arjuna~0.s0.wav",
+     "variant": 0,
+     "heard": "Arjuna the archer chose Krishna over an army.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.57,
+     "names": {
+      "Krishna": [
+       "krishna",
+       1.0
+      ],
+      "Arjuna": [
+       "arjuna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 114.8,
+     "st": 10.7,
+     "edb": 16.3,
+     "dur": 3.57,
+     "jumps": 0.4,
+     "creak": 0.0,
+     "hnr": 9.1,
+     "jitter": 2.55,
+     "tail_db": -55.5,
+     "bad": 0,
+     "dst": -1.3,
+     "score": 22.2
+    },
+    {
+     "take": "arjuna~0.s1.wav",
+     "variant": 0,
+     "heard": "Arjuna the archer chose Krishna over an army.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.79,
+     "names": {
+      "Krishna": [
+       "krishna",
+       1.0
+      ],
+      "Arjuna": [
+       "arjuna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 118.4,
+     "st": 11.9,
+     "edb": 17.3,
+     "dur": 3.37,
+     "jumps": 0.45,
+     "creak": 0.0,
+     "hnr": 8.9,
+     "jitter": 2.52,
+     "tail_db": -68.3,
+     "bad": 0,
+     "dst": -0.77,
+     "score": 21.02
+    },
+    {
+     "take": "arjuna~0.s2.wav",
+     "variant": 0,
+     "heard": "Arjuna, the archer, shows Krishna over an army.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.45,
+     "names": {
+      "Krishna": [
+       "krishna",
+       1.0
+      ],
+      "Arjuna": [
+       "arjuna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 124.7,
+     "st": 12.9,
+     "edb": 19.3,
+     "dur": 3.41,
+     "jumps": 0.0,
+     "creak": 0.019,
+     "hnr": 9.7,
+     "jitter": 2.55,
+     "tail_db": -70.6,
+     "bad": 1,
+     "dst": 0.13,
+     "score": 22.74
+    },
+    {
+     "take": "arjuna~0.s3.wav",
+     "variant": 0,
+     "heard": "Arjuna the archer chose Krishna over an army.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.65,
+     "names": {
+      "Krishna": [
+       "krishna",
+       1.0
+      ],
+      "Arjuna": [
+       "arjuna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 117.7,
+     "st": 13.9,
+     "edb": 16.3,
+     "dur": 3.61,
+     "jumps": 0.0,
+     "creak": 0.012,
+     "hnr": 9.5,
+     "jitter": 2.49,
+     "tail_db": -70.6,
+     "bad": 0,
+     "dst": -0.87,
+     "score": 26.68
+    },
+    {
+     "take": "arjuna~0.s4.wav",
+     "variant": 0,
+     "heard": "Arjuna the archer chose Krishna over an army.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.52,
+     "names": {
+      "Krishna": [
+       "krishna",
+       1.0
+      ],
+      "Arjuna": [
+       "arjuna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 119.9,
+     "st": 11.3,
+     "edb": 16.9,
+     "dur": 3.16,
+     "jumps": 0.0,
+     "creak": 0.009,
+     "hnr": 9.5,
+     "jitter": 2.51,
+     "tail_db": -70.6,
+     "bad": 0,
+     "dst": -0.55,
+     "score": 18.5
+    }
+   ]
+  },
+  {
+   "line": "krishna",
+   "text": "Krishna will lift no weapon. He drives the chariot.",
+   "chosen": "krishna~0.s0.wav",
+   "given_to_the_model": "Krishna will lift no weapon. He drives the chariot.",
+   "recogniser_errors_of_chosen": 0,
+   "passed_floor_and_pitch": 5,
+   "of": 5,
+   "takes": [
+    {
+     "take": "krishna~0.s0.wav",
+     "variant": 0,
+     "heard": "Krishna will lift no weapon. He drives the chariot.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.96,
+     "names": {
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 128.4,
+     "st": 11.3,
+     "edb": 18.5,
+     "dur": 3.3,
+     "jumps": 0.0,
+     "creak": 0.024,
+     "hnr": 9.7,
+     "jitter": 2.52,
+     "tail_db": -56.1,
+     "bad": 0,
+     "dst": 0.64,
+     "score": 27.05
+    },
+    {
+     "take": "krishna~0.s1.wav",
+     "variant": 0,
+     "heard": "Krishna will lift no weapon, he drives the chariot.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.88,
+     "names": {
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 125.7,
+     "st": 10.6,
+     "edb": 18.0,
+     "dur": 3.27,
+     "jumps": 0.0,
+     "creak": 0.02,
+     "hnr": 8.7,
+     "jitter": 2.09,
+     "tail_db": -68.8,
+     "bad": 0,
+     "dst": 0.27,
+     "score": 26.49
+    },
+    {
+     "take": "krishna~0.s2.wav",
+     "variant": 0,
+     "heard": "Krishna will lift no weapon, he drives the chariot.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.81,
+     "names": {
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 118.7,
+     "st": 10.8,
+     "edb": 18.3,
+     "dur": 3.22,
+     "jumps": 0.47,
+     "creak": 0.0,
+     "hnr": 9.9,
+     "jitter": 2.45,
+     "tail_db": -58.6,
+     "bad": 0,
+     "dst": -0.72,
+     "score": 23.2
+    },
+    {
+     "take": "krishna~0.s3.wav",
+     "variant": 0,
+     "heard": "Krishna will lift no weapon, he drives the chariot.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.95,
+     "names": {
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 119.4,
+     "st": 10.9,
+     "edb": 17.5,
+     "dur": 2.91,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.1,
+     "jitter": 2.42,
+     "tail_db": -70.5,
+     "bad": 0,
+     "dst": -0.62,
+     "score": 20.66
+    },
+    {
+     "take": "krishna~0.s4.wav",
+     "variant": 0,
+     "heard": "Krishna will lift no weapon, he drives the chariot.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.81,
+     "names": {
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 129.8,
+     "st": 10.6,
+     "edb": 18.7,
+     "dur": 3.09,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.3,
+     "jitter": 2.29,
+     "tail_db": -68.1,
+     "bad": 0,
+     "dst": 0.83,
+     "score": 22.98
+    }
+   ]
+  },
+  {
+   "line": "conch",
+   "text": "The conches sound. The first arrows fly.",
+   "chosen": "conch~0.s0.wav",
+   "given_to_the_model": "The conches sound. The first arrows fly.",
+   "recogniser_errors_of_chosen": 1,
+   "passed_floor_and_pitch": 5,
+   "of": 5,
+   "takes": [
+    {
+     "take": "conch~0.s0.wav",
+     "variant": 0,
+     "heard": "The conch's sound, the first arrows fly.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.76,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 118.6,
+     "st": 10.4,
+     "edb": 20.5,
+     "dur": 3.17,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 10.0,
+     "jitter": 1.97,
+     "tail_db": -67.5,
+     "bad": 1,
+     "dst": -0.74,
+     "score": 29.85
+    },
+    {
+     "take": "conch~0.s1.wav",
+     "variant": 0,
+     "heard": "The conscious sound, the first arrows fly.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.76,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 115.2,
+     "st": 11.5,
+     "edb": 21.1,
+     "dur": 2.51,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 7.4,
+     "jitter": 2.68,
+     "tail_db": -69.0,
+     "bad": 1,
+     "dst": -1.24,
+     "score": 11.15
+    },
+    {
+     "take": "conch~0.s2.wav",
+     "variant": 0,
+     "heard": "The conch's sound, the first arrows fly.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.83,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 120.4,
+     "st": 11.8,
+     "edb": 21.8,
+     "dur": 3.01,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.8,
+     "jitter": 2.25,
+     "tail_db": -70.1,
+     "bad": 1,
+     "dst": -0.48,
+     "score": 26.94
+    },
+    {
+     "take": "conch~0.s3.wav",
+     "variant": 0,
+     "heard": "The conscious sound, the first arrows fly.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.84,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 124.2,
+     "st": 12.9,
+     "edb": 21.5,
+     "dur": 2.84,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 8.4,
+     "jitter": 2.33,
+     "tail_db": -70.1,
+     "bad": 1,
+     "dst": 0.06,
+     "score": 22.63
+    },
+    {
+     "take": "conch~0.s4.wav",
+     "variant": 0,
+     "heard": "The conch's sound, the first arrows fly.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.83,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 118.9,
+     "st": 11.7,
+     "edb": 16.1,
+     "dur": 3.1,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 10.0,
+     "jitter": 2.29,
+     "tail_db": -70.6,
+     "bad": 1,
+     "dst": -0.69,
+     "score": 28.47
+    }
+   ]
+  },
+  {
+   "line": "between",
+   "text": "Arjuna asks for his chariot between the armies.",
+   "chosen": "between~0.s3.wav",
+   "given_to_the_model": "Arjuna asks for his chariot between the armies.",
+   "recogniser_errors_of_chosen": 0,
+   "passed_floor_and_pitch": 4,
+   "of": 5,
+   "takes": [
+    {
+     "take": "between~0.s0.wav",
+     "variant": 0,
+     "heard": "Arjuna asks for his chariot between the armies.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.91,
+     "names": {
+      "Arjuna": [
+       "arjuna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 125.9,
+     "st": 9.3,
+     "edb": 17.2,
+     "dur": 2.77,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.6,
+     "jitter": 2.52,
+     "tail_db": -68.9,
+     "bad": 0,
+     "dst": 0.3,
+     "score": 27.16
+    },
+    {
+     "take": "between~0.s1.wav",
+     "variant": 0,
+     "heard": "Arjuna asked for his chariot between the armies.",
+     "missed": 1,
+     "extra": 0,
+     "minprob": 0.94,
+     "names": {
+      "Arjuna": [
+       "arjuna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 123.0,
+     "st": 9.5,
+     "edb": 18.9,
+     "dur": 2.72,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.7,
+     "jitter": 2.51,
+     "tail_db": -69.0,
+     "bad": 1,
+     "dst": -0.11,
+     "score": 26.84
+    },
+    {
+     "take": "between~0.s2.wav",
+     "variant": 0,
+     "heard": "Arjuna asks for his chariot between the armies.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.79,
+     "names": {
+      "Arjuna": [
+       "arjuna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 117.1,
+     "st": 10.8,
+     "edb": 17.7,
+     "dur": 2.96,
+     "jumps": 0.51,
+     "creak": 0.015,
+     "hnr": 8.8,
+     "jitter": 2.57,
+     "tail_db": -69.9,
+     "bad": 0,
+     "dst": -0.96,
+     "score": 23.98
+    },
+    {
+     "take": "between~0.s3.wav",
+     "variant": 0,
+     "heard": "Arjuna asks for his chariot between the armies.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.75,
+     "names": {
+      "Arjuna": [
+       "arjuna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 117.7,
+     "st": 13.2,
+     "edb": 17.3,
+     "dur": 3.17,
+     "jumps": 0.0,
+     "creak": 0.033,
+     "hnr": 9.1,
+     "jitter": 2.35,
+     "tail_db": -69.8,
+     "bad": 0,
+     "dst": -0.87,
+     "score": 31.16
+    },
+    {
+     "take": "between~0.s4.wav",
+     "variant": 0,
+     "heard": "Arjuna asks for his chariot between the armies.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.79,
+     "names": {
+      "Arjuna": [
+       "arjuna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 128.0,
+     "st": 10.5,
+     "edb": 17.7,
+     "dur": 2.74,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.9,
+     "jitter": 2.3,
+     "tail_db": -66.4,
+     "bad": 0,
+     "dst": 0.58,
+     "score": 25.79
+    }
+   ]
+  },
+  {
+   "line": "lowers",
+   "text": "He sees teachers and kin. He lowers his bow.",
+   "chosen": "lowers~0.s3.wav",
+   "given_to_the_model": "He sees teachers and kin. He lowers his bow.",
+   "recogniser_errors_of_chosen": 0,
+   "passed_floor_and_pitch": 5,
+   "of": 5,
+   "takes": [
+    {
+     "take": "lowers~0.s0.wav",
+     "variant": 0,
+     "heard": "He sees teachers and kin. He lowers his bow.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.88,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 122.7,
+     "st": 11.9,
+     "edb": 20.0,
+     "dur": 2.92,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.2,
+     "jitter": 2.56,
+     "tail_db": -71.0,
+     "bad": 0,
+     "dst": -0.15,
+     "score": 16.86
+    },
+    {
+     "take": "lowers~0.s1.wav",
+     "variant": 0,
+     "heard": "He sees teachers and kin, he lowers his bow.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.89,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 126.7,
+     "st": 12.9,
+     "edb": 19.1,
+     "dur": 3.49,
+     "jumps": 0.41,
+     "creak": 0.024,
+     "hnr": 10.7,
+     "jitter": 2.26,
+     "tail_db": -69.2,
+     "bad": 0,
+     "dst": 0.41,
+     "score": 24.72
+    },
+    {
+     "take": "lowers~0.s2.wav",
+     "variant": 0,
+     "heard": "He sees teachers and kin, he lowers his bow.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.82,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 119.3,
+     "st": 13.4,
+     "edb": 18.6,
+     "dur": 2.92,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.3,
+     "jitter": 2.26,
+     "tail_db": -69.8,
+     "bad": 0,
+     "dst": -0.63,
+     "score": 16.14
+    },
+    {
+     "take": "lowers~0.s3.wav",
+     "variant": 0,
+     "heard": "He sees teachers and kin. He lowers his bow.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.44,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 119.2,
+     "st": 14.3,
+     "edb": 17.9,
+     "dur": 3.78,
+     "jumps": 0.4,
+     "creak": 0.028,
+     "hnr": 11.0,
+     "jitter": 2.27,
+     "tail_db": -66.8,
+     "bad": 0,
+     "dst": -0.65,
+     "score": 25.79
+    },
+    {
+     "take": "lowers~0.s4.wav",
+     "variant": 0,
+     "heard": "He sees teachers and kin. He lowers his bow.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.92,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 118.7,
+     "st": 15.2,
+     "edb": 20.6,
+     "dur": 3.53,
+     "jumps": 0.46,
+     "creak": 0.032,
+     "hnr": 9.7,
+     "jitter": 2.42,
+     "tail_db": -59.6,
+     "bad": 0,
+     "dst": -0.72,
+     "score": 22.61
+    }
+   ]
+  },
+  {
+   "line": "time",
+   "text": "Krishna shows his supreme form. \u201cI am Time.\u201d",
+   "chosen": "time~0.s7.wav",
+   "given_to_the_model": "Krishna shows his supreme form. I am Time.",
+   "recogniser_errors_of_chosen": 0,
+   "passed_floor_and_pitch": 10,
+   "of": 10,
+   "takes": [
+    {
+     "take": "time~0.s0.wav",
+     "variant": 0,
+     "heard": "Krsna shows his supreme form, I am Time.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.04,
+     "names": {
+      "Time": [
+       "time",
+       1.0
+      ],
+      "Krishna": [
+       "krsna",
+       0.83
+      ]
+     },
+     "name_fit": 0.92,
+     "f0": 111.5,
+     "st": 12.7,
+     "edb": 18.3,
+     "dur": 3.76,
+     "jumps": 0.0,
+     "creak": 0.036,
+     "hnr": 9.3,
+     "jitter": 2.79,
+     "tail_db": -71.6,
+     "bad": 0,
+     "dst": -1.8,
+     "score": 14.91
+    },
+    {
+     "take": "time~0.s1.wav",
+     "variant": 0,
+     "heard": "Krishna shows his supreme form, I am time.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.06,
+     "names": {
+      "Time": [
+       "time",
+       1.0
+      ],
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 117.3,
+     "st": 11.4,
+     "edb": 18.4,
+     "dur": 3.59,
+     "jumps": 0.9,
+     "creak": 0.009,
+     "hnr": 9.2,
+     "jitter": 2.62,
+     "tail_db": -67.9,
+     "bad": 0,
+     "dst": -0.93,
+     "score": 11.57
+    },
+    {
+     "take": "time~0.s2.wav",
+     "variant": 0,
+     "heard": "Krishna shows his supreme form, I am time.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.06,
+     "names": {
+      "Time": [
+       "time",
+       1.0
+      ],
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 123.3,
+     "st": 11.8,
+     "edb": 16.7,
+     "dur": 3.4,
+     "jumps": 0.0,
+     "creak": 0.02,
+     "hnr": 8.4,
+     "jitter": 2.79,
+     "tail_db": -70.2,
+     "bad": 0,
+     "dst": -0.06,
+     "score": 13.63
+    },
+    {
+     "take": "time~0.s3.wav",
+     "variant": 0,
+     "heard": "Krishna shows his supreme form, I am time.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.09,
+     "names": {
+      "Time": [
+       "time",
+       1.0
+      ],
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 111.3,
+     "st": 13.0,
+     "edb": 18.5,
+     "dur": 3.92,
+     "jumps": 0.0,
+     "creak": 0.043,
+     "hnr": 9.7,
+     "jitter": 2.44,
+     "tail_db": -70.2,
+     "bad": 0,
+     "dst": -1.84,
+     "score": 19.75
+    },
+    {
+     "take": "time~0.s4.wav",
+     "variant": 0,
+     "heard": "Krishna shows his supreme form, I Am Time.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.13,
+     "names": {
+      "Time": [
+       "time",
+       1.0
+      ],
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 116.6,
+     "st": 11.9,
+     "edb": 17.9,
+     "dur": 3.61,
+     "jumps": 0.0,
+     "creak": 0.019,
+     "hnr": 10.4,
+     "jitter": 2.46,
+     "tail_db": -66.0,
+     "bad": 0,
+     "dst": -1.03,
+     "score": 18.82
+    },
+    {
+     "take": "time~0.s5.wav",
+     "variant": 0,
+     "heard": "Krishna shows his supreme form, I am time.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.13,
+     "names": {
+      "Time": [
+       "time",
+       1.0
+      ],
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 124.7,
+     "st": 10.3,
+     "edb": 17.7,
+     "dur": 3.93,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 11.1,
+     "jitter": 1.9,
+     "tail_db": -62.0,
+     "bad": 0,
+     "dst": 0.13,
+     "score": 28.99
+    },
+    {
+     "take": "time~0.s6.wav",
+     "variant": 0,
+     "heard": "Krishna shows his supreme form, I am time.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.07,
+     "names": {
+      "Time": [
+       "time",
+       1.0
+      ],
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 117.4,
+     "st": 11.0,
+     "edb": 18.1,
+     "dur": 3.58,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.6,
+     "jitter": 2.35,
+     "tail_db": -61.1,
+     "bad": 0,
+     "dst": -0.91,
+     "score": 18.49
+    },
+    {
+     "take": "time~0.s7.wav",
+     "variant": 0,
+     "heard": "Krishna shows his Supreme Form, I Am Time.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.06,
+     "names": {
+      "Time": [
+       "time",
+       1.0
+      ],
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 118.7,
+     "st": 10.0,
+     "edb": 17.8,
+     "dur": 4.07,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 11.2,
+     "jitter": 1.78,
+     "tail_db": -82.5,
+     "bad": 0,
+     "dst": -0.72,
+     "score": 29.92
+    },
+    {
+     "take": "time~0.s8.wav",
+     "variant": 0,
+     "heard": "Krishna shows his supreme form, I am Time.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.07,
+     "names": {
+      "Time": [
+       "time",
+       1.0
+      ],
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 116.9,
+     "st": 9.8,
+     "edb": 17.7,
+     "dur": 3.3,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.7,
+     "jitter": 2.15,
+     "tail_db": -60.8,
+     "bad": 0,
+     "dst": -0.99,
+     "score": 14.24
+    },
+    {
+     "take": "time~0.s9.wav",
+     "variant": 0,
+     "heard": "Krishna shows his supreme form, I am time.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.05,
+     "names": {
+      "Time": [
+       "time",
+       1.0
+      ],
+      "Krishna": [
+       "krishna",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 118.3,
+     "st": 12.8,
+     "edb": 18.3,
+     "dur": 3.68,
+     "jumps": 0.0,
+     "creak": 0.04,
+     "hnr": 10.5,
+     "jitter": 2.15,
+     "tail_db": -69.1,
+     "bad": 0,
+     "dst": -0.78,
+     "score": 19.32
+    }
+   ]
+  },
+  {
+   "line": "promise",
+   "text": "Taken from the Critical Edition, the text scholars read. Nothing added for effect.",
+   "chosen": "promise~1.s4.wav",
+   "given_to_the_model": "Taken from the Critical Edition, the text scholars read. Nothing added for effect.",
+   "recogniser_errors_of_chosen": 0,
+   "passed_floor_and_pitch": 5,
+   "of": 5,
+   "takes": [
+    {
+     "take": "promise~1.s0.wav",
+     "variant": 1,
+     "heard": "Taken from the critical edition, the text scholars read, nothing added for effect.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.3,
+     "names": {
+      "Edition": [
+       "edition",
+       1.0
+      ],
+      "Critical": [
+       "critical",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 133.0,
+     "st": 11.4,
+     "edb": 20.1,
+     "dur": 5.57,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.7,
+     "jitter": 2.77,
+     "tail_db": -83.9,
+     "bad": 0,
+     "dst": 1.25,
+     "score": 20.0
+    },
+    {
+     "take": "promise~1.s1.wav",
+     "variant": 1,
+     "heard": "Taken from the critical edition, the text scholars read, nothing added for effect.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.09,
+     "names": {
+      "Edition": [
+       "edition",
+       1.0
+      ],
+      "Critical": [
+       "critical",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 128.2,
+     "st": 10.1,
+     "edb": 20.4,
+     "dur": 5.16,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 9.8,
+     "jitter": 2.62,
+     "tail_db": -71.4,
+     "bad": 0,
+     "dst": 0.61,
+     "score": 15.6
+    },
+    {
+     "take": "promise~1.s2.wav",
+     "variant": 1,
+     "heard": "Taken from the critical edition, the text scholars read, nothing added for effect.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.22,
+     "names": {
+      "Edition": [
+       "edition",
+       1.0
+      ],
+      "Critical": [
+       "critical",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 129.1,
+     "st": 12.3,
+     "edb": 20.4,
+     "dur": 5.34,
+     "jumps": 0.34,
+     "creak": 0.0,
+     "hnr": 9.2,
+     "jitter": 2.7,
+     "tail_db": -70.2,
+     "bad": 0,
+     "dst": 0.73,
+     "score": 15.42
+    },
+    {
+     "take": "promise~1.s3.wav",
+     "variant": 1,
+     "heard": "Taken from the critical edition, the text scholars read, nothing added for effect.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.2,
+     "names": {
+      "Edition": [
+       "edition",
+       1.0
+      ],
+      "Critical": [
+       "critical",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 115.7,
+     "st": 11.3,
+     "edb": 21.1,
+     "dur": 5.64,
+     "jumps": 0.0,
+     "creak": 0.0,
+     "hnr": 8.8,
+     "jitter": 2.64,
+     "tail_db": -69.9,
+     "bad": 0,
+     "dst": -1.16,
+     "score": 19.31
+    },
+    {
+     "take": "promise~1.s4.wav",
+     "variant": 1,
+     "heard": "Taken from the critical edition, the text scholars read, nothing added for effect.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.35,
+     "names": {
+      "Edition": [
+       "edition",
+       1.0
+      ],
+      "Critical": [
+       "critical",
+       1.0
+      ]
+     },
+     "name_fit": 1.0,
+     "f0": 126.2,
+     "st": 11.8,
+     "edb": 20.8,
+     "dur": 5.61,
+     "jumps": 0.0,
+     "creak": 0.006,
+     "hnr": 8.5,
+     "jitter": 2.58,
+     "tail_db": -72.2,
+     "bad": 0,
+     "dst": 0.34,
+     "score": 21.23
+    }
+   ]
+  },
+  {
+   "line": "endcard",
+   "text": "Follow. Episode one is waiting.",
+   "chosen": "endcard~0.s1.wav",
+   "given_to_the_model": "Follow. Episode one is waiting.",
+   "recogniser_errors_of_chosen": 0,
+   "passed_floor_and_pitch": 5,
+   "of": 5,
+   "takes": [
+    {
+     "take": "endcard~0.s0.wav",
+     "variant": 0,
+     "heard": "Follow Episode 1 is waiting.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.43,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 123.8,
+     "st": 12.0,
+     "edb": 20.9,
+     "dur": 2.06,
+     "jumps": 0.0,
+     "creak": 0.028,
+     "hnr": 9.6,
+     "jitter": 3.12,
+     "tail_db": -64.7,
+     "bad": 0,
+     "dst": 0.01,
+     "score": 14.76
+    },
+    {
+     "take": "endcard~0.s1.wav",
+     "variant": 0,
+     "heard": "Follow, Episode 1 is waiting.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.58,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 132.3,
+     "st": 13.6,
+     "edb": 19.5,
+     "dur": 2.45,
+     "jumps": 0.0,
+     "creak": 0.028,
+     "hnr": 9.7,
+     "jitter": 2.43,
+     "tail_db": -68.8,
+     "bad": 0,
+     "dst": 1.16,
+     "score": 25.33
+    },
+    {
+     "take": "endcard~0.s2.wav",
+     "variant": 0,
+     "heard": "Follow Episode 1 is waiting.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.32,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 129.6,
+     "st": 12.8,
+     "edb": 20.7,
+     "dur": 2.4,
+     "jumps": 0.0,
+     "creak": 0.039,
+     "hnr": 9.4,
+     "jitter": 2.81,
+     "tail_db": -82.5,
+     "bad": 0,
+     "dst": 0.8,
+     "score": 20.89
+    },
+    {
+     "take": "endcard~0.s3.wav",
+     "variant": 0,
+     "heard": "Follow Episode 1 is waiting.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.64,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 131.2,
+     "st": 16.8,
+     "edb": 19.3,
+     "dur": 2.01,
+     "jumps": 0.0,
+     "creak": 0.092,
+     "hnr": 9.7,
+     "jitter": 2.77,
+     "tail_db": -69.8,
+     "bad": 0,
+     "dst": 1.01,
+     "score": 9.03
+    },
+    {
+     "take": "endcard~0.s4.wav",
+     "variant": 0,
+     "heard": "Follow Episode 1 is waiting.",
+     "missed": 0,
+     "extra": 0,
+     "minprob": 0.5,
+     "names": {},
+     "name_fit": 1.0,
+     "f0": 123.0,
+     "st": 13.8,
+     "edb": 19.5,
+     "dur": 2.3,
+     "jumps": 0.68,
+     "creak": 0.061,
+     "hnr": 9.6,
+     "jitter": 2.97,
+     "tail_db": -71.1,
+     "bad": 0,
+     "dst": -0.11,
+     "score": 15.62
+    }
+   ]
+  }
+ ]
+}

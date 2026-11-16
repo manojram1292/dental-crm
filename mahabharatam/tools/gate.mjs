@@ -152,7 +152,7 @@ function scriptChecks41({ ep, sc, SL, L, dur, lang, firsts }) {
   if (sc.kind === 'intro' || sc.kind === 'trailer') info.push(`${sc.kind}: no previous episode to answer (rule not applied)`);   // only the series introduction (script "kind": "intro")
   else if (!pa) fails.push('"loop.prevAnsweredBy" must name the line that answers the previous episode\'s open question');
   else { info.push(`previous question answered at ${pa.start.toFixed(1)} s`); if (pa.start > 15) fails.push(`the previous episode's question is answered at ${pa.start.toFixed(1)} s (max 15)`); }
-  const prev = readScript(ep - 1, lang), next = readScript(ep + 1, lang);
+  const prev0 = readScript(ep - 1, lang), prev = prev0 && prev0.teaser ? null : prev0, next = readScript(ep + 1, lang);   // the war teaser (96, "teaser") is not an episode: it is never the previous script of the one after it
   if (prev && prev.loop && prev.loop.openQuestion && prev.loop.openQuestion !== lp.prevQuestion) fails.push(`"loop.prevQuestion" does not match episode ${ep - 1}'s openQuestion ("${prev.loop.openQuestion}")`);
   // titles against the catalog
   const cat = catalogTitles(), S = sc.strings || {};
@@ -325,7 +325,8 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
     // THE TRAILER, THIRD CUT (script "cut": 3; nothing else takes this path): 70–90 s; every shot (and every picture inside a sentence, "cutAt")
     // at least 1.3 s and at least three spoken words, unless the line says "hit": true (a deliberate short hit, ≥ 1.2 s); no phrase twice;
     // every gap between two words inside a sentence over 0.35 s is printed, and fails unless the line lists that word in "gapOk".
-    if (dur > 90 || dur < 70) fails.push(`duration ${dur.toFixed(2)} s (trailer, third cut: 70–90)`);
+    if (sc.teaser) { if (dur > 65 || dur < 55) fails.push(`duration ${dur.toFixed(2)} s (the teaser: 55–65)`); }   // THE WAR TEASER (script "teaser": 1, pipeline 96): about a minute
+    else if (dur > 90 || dur < 70) fails.push(`duration ${dur.toFixed(2)} s (trailer, third cut: 70–90)`);
     const subs = [];
     for (const l of L) { const q = SL[l.id]; if (!q || q.voice === false) continue; const ks = [0, ...(q.cutAt || []), l.words.length], ts = [l.start, ...(q.cutAt || []).map((k) => Math.round((l.words[k].t0 - 0.07) * 30) / 30), l.end];
       for (let i = 0; i + 1 < ks.length; i++) subs.push({ id: l.id + (ks.length > 2 ? `[${i + 1}]` : ''), len: ts[i + 1] - ts[i], words: ks[i + 1] - ks[i], hit: !!q.hit }); }
@@ -342,7 +343,8 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
   else if (dur > 59) fails.push(`duration ${dur.toFixed(2)} s (max 59)`);
   else if (dur < 54 || dur > 58) warns.push(`duration ${dur.toFixed(2)} s is outside the 54–58 s target`);
   const R2 = (sc.rules || 1) >= 2 && !trailer;   // episodes scripted after the trailer; nothing below this flag touches an older script
-  if (R2) {
+  const TZ = trailer && !!sc.teaser;   // the war teaser: a trailer-kind script voiced and mixed under the rules-2 voice and clarity rules
+  if (R2 || TZ) {
     if (!(sc.timing && sc.timing.frameSnap)) fails.push('"rules": 2 needs "timing": { "frameSnap": true } (cuts on the frame grid)');
     for (const l of L.slice(1)) { const f = l.start * 30, off = f - Math.round(f); if (off > 1e-6 || off < -0.004) fails.push(`shot "${l.id}" starts ${off.toFixed(4)} frames off the frame grid at ${l.start} s`); }
     for (const l of L) if (l.id !== 'next' && l.end - l.start < 1.3 - 1e-3) fails.push(`picture "${l.id}" is ${(l.end - l.start).toFixed(2)} s long (min 1.3)`);
@@ -445,7 +447,7 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
           if (!rep.stems || rep.stems.length < 3) fails.push('the mix did not use three stems (amb, foley, mus): voice the episode and run tools/score.py first');
           else if (!(rep.music_under_voice_db <= -6)) fails.push(`the music is only ${rep.music_under_voice_db} dB lower under the voice (min 6)`);
           if (!(rep.true_peak_dbtp <= -1.5)) fails.push(`true peak ${rep.true_peak_dbtp} dBTP (max −1.5)`);
-          if (sc.kind === 'trailer' && sc.cut >= 3) {   // the trailer's third cut: no sound holes (measured by tools/mix.py on the finished mix)
+          if (sc.kind === 'trailer' && sc.cut >= 3 && !sc.teaser) {   // the trailer's third cut: no sound holes (measured by tools/mix.py on the finished mix)
             const bf = rep.bed_floor;
             if (!bf) fails.push('no bed_floor report in the mix (trailer, third cut): run tools/mix.py');
             else { info.push(`sound floor: worst 100 ms window ${bf.worst_window_db} dBFS at ${bf.worst_window_at_s} s (floor ${bf.floor_db}), ${bf.windows_under_floor} window(s) under it · worst fall ${bf.worst_drop_db} dB within ${bf.drop_window_s} s at ${bf.worst_drop_at_s} s, ${bf.drops_over_limit} over ${bf.drop_limit_db} dB · before the bed was lifted: worst ${bf.before_lifting_the_bed.worst_window_db} dBFS, ${bf.before_lifting_the_bed.windows_under_floor} under, ${bf.before_lifting_the_bed.drops_over_limit} falls`);
@@ -454,7 +456,7 @@ export async function gate(ep, { lang = 'en', frames = false, audio = false, fps
             if (!((rep.duck_db || {}).mus <= 10)) fails.push(`the music is ducked ${(rep.duck_db || {}).mus} dB under the voice (max 10)`);
           }
         }
-        if (R2 && rep) {
+        if ((R2 || TZ) && rep) {   // the teaser is mixed by tools/mix.py main_rules2 (the voice-clarity rule)
           const bf = rep.bed_floor;
           if (rep.rules !== 2 || !bf) fails.push('the mix was not made under "rules": 2 (run tools/mix.py)');
           else {

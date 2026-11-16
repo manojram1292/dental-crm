@@ -91,8 +91,8 @@
  },
  "Karna": {
   "spelling": "Karna",
-  "heard": "karna",
-  "fit": 1.0,
+  "heard": "carner",
+  "fit": 0.73,
   "ok": true,
   "tried": [
    {
@@ -103,9 +103,18 @@
     "best_heard": "karna",
     "best_fit": 1.0,
     "median_fit": 1.0
+   },
+   {
+    "spelling": "Karna",
+    "ep": 96,
+    "line": "karna",
+    "takes": 5,
+    "best_heard": "karna",
+    "best_fit": 1.0,
+    "median_fit": 0.73
    }
   ],
-  "from": "ep52/karna"
+  "from": "ep96/karna"
  },
  "Krishna": {
   "spelling": "Krishna",
@@ -121,9 +130,36 @@
     "best_heard": "krishna",
     "best_fit": 1.0,
     "median_fit": 1.0
+   },
+   {
+    "spelling": "Krishna",
+    "ep": 96,
+    "line": "arjuna",
+    "takes": 5,
+    "best_heard": "krishna",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   },
+   {
+    "spelling": "Krishna",
+    "ep": 96,
+    "line": "krishna",
+    "takes": 5,
+    "best_heard": "krishna",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   },
+   {
+    "spelling": "Krishna",
+    "ep": 96,
+    "line": "time",
+    "takes": 10,
+    "best_heard": "krishna",
+    "best_fit": 1.0,
+    "median_fit": 1.0
    }
   ],
-  "from": "ep52/krishna"
+  "from": "ep96/time"
  },
  "Duryodhana": {
   "spelling": "Duryodhana",
@@ -139,9 +175,36 @@
     "best_heard": "duryodhana",
     "best_fit": 1.0,
     "median_fit": 1.0
+   },
+   {
+    "spelling": "Duryodhana",
+    "ep": 96,
+    "line": "bhima",
+    "takes": 5,
+    "best_heard": "duryodhana's",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   },
+   {
+    "spelling": "Duryodhana",
+    "ep": 96,
+    "line": "needle",
+    "takes": 5,
+    "best_heard": "duryodhana",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   },
+   {
+    "spelling": "Duryodhana",
+    "ep": 96,
+    "line": "drona",
+    "takes": 5,
+    "best_heard": "duryodhana",
+    "best_fit": 1.0,
+    "median_fit": 0.9
    }
   ],
-  "from": "ep52/kali"
+  "from": "ep96/drona"
  },
  "Draupadi": {
   "spelling": "Draupadi",
@@ -349,5 +412,194 @@
    }
   ],
   "from": "ep55/who"
+ },
+ "Kurukshetra": {
+  "spelling": "Kurukshetra",
+  "heard": "koolukshetra",
+  "fit": 0.91,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Kurukshetra",
+    "ep": 96,
+    "line": "gather",
+    "takes": 5,
+    "best_heard": "kurukshetra",
+    "best_fit": 1.0,
+    "median_fit": 0.91
+   },
+   {
+    "spelling": "Kooru-kshetra",
+    "ep": 96,
+    "line": "gather",
+    "takes": 5,
+    "best_heard": "kurukeshetra",
+    "best_fit": 0.96,
+    "median_fit": 0.78
+   }
+  ],
+  "from": "ep96/gather"
+ },
+ "Kauravas": {
+  "spelling": "Kauravas",
+  "heard": "kauravas",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Kauravas",
+    "ep": 96,
+    "line": "bhishma",
+    "takes": 5,
+    "best_heard": "kauravas",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep96/bhishma"
+ },
+ "Bhishma": {
+  "spelling": "Bhishma",
+  "heard": "bishmar",
+  "fit": 0.86,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Bhishma",
+    "ep": 96,
+    "line": "bhishma",
+    "takes": 5,
+    "best_heard": "bishma",
+    "best_fit": 0.92,
+    "median_fit": 0.92
+   },
+   {
+    "spelling": "Bhishma",
+    "ep": 96,
+    "line": "karna",
+    "takes": 5,
+    "best_heard": "bishma",
+    "best_fit": 0.92,
+    "median_fit": 0.92
+   }
+  ],
+  "from": "ep96/karna"
+ },
+ "Drona": {
+  "spelling": "Drona",
+  "heard": "drona",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Drona",
+    "ep": 96,
+    "line": "drona",
+    "takes": 5,
+    "best_heard": "drona",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep96/drona"
+ },
+ "Arjuna": {
+  "spelling": "Arjuna",
+  "heard": "arjuna",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Arjuna",
+    "ep": 96,
+    "line": "arjuna",
+    "takes": 5,
+    "best_heard": "arjuna",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   },
+   {
+    "spelling": "Arjuna",
+    "ep": 96,
+    "line": "between",
+    "takes": 5,
+    "best_heard": "arjuna",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep96/between"
+ },
+ "Bhima": {
+  "spelling": "Bhima",
+  "heard": "bhima",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Bhima",
+    "ep": 96,
+    "line": "bhima",
+    "takes": 5,
+    "best_heard": "bhima",
+    "best_fit": 1.0,
+    "median_fit": 0.5
+   }
+  ],
+  "from": "ep96/bhima"
+ },
+ "Time": {
+  "spelling": "Time",
+  "heard": "time",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Time",
+    "ep": 96,
+    "line": "time",
+    "takes": 10,
+    "best_heard": "time",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep96/time"
+ },
+ "Edition": {
+  "spelling": "Edition",
+  "heard": "edition",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Edition",
+    "ep": 96,
+    "line": "promise",
+    "takes": 5,
+    "best_heard": "edition",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep96/promise"
+ },
+ "Critical": {
+  "spelling": "Critical",
+  "heard": "critical",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Critical",
+    "ep": 96,
+    "line": "promise",
+    "takes": 5,
+    "best_heard": "critical",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep96/promise"
  }
 }

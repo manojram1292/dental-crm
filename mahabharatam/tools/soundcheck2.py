@@ -21,7 +21,7 @@ else:
 stops = [[float(q) for q in p.split(',')] for p in arg('--stops', '').split(';') if p]
 cfg = {'floorDb': -26, 'dropDb': 10, 'dropWindowS': 0.3, 'endExemptS': 0.1}   # to 100 ms before the end (the bed goes out over the last 80 ms; a decoded mp4 is a few ms longer than the mix)
 _sc = json.load(open(arg('--script'))) if arg('--script') else {}
-if _sc.get('rules', 1) >= 2 and _sc.get('kind') != 'trailer' and arg('--timeline'):   # 2026-11-14: as tools/mix.py RULES2: the floor and fall rules between lines; inside a line the voice is the sound
+if ((_sc.get('rules', 1) >= 2 and _sc.get('kind') != 'trailer') or _sc.get('teaser')) and arg('--timeline'):   # the war teaser (96) is mixed under RULES2 too   # 2026-11-14: as tools/mix.py RULES2: the floor and fall rules between lines; inside a line the voice is the sound
     _tl = json.load(open(arg('--timeline')))
     cfg = dict(MX.RULES2['floor']); cfg['endExemptS'] = 0.1
     stops = stops + [[l['speechStart'] + 0.1, l['speechEnd'] - 0.1] for l in _tl['lines'] if l.get('voice')]

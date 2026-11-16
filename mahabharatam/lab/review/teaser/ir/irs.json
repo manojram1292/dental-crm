@@ -1,0 +1,48 @@
+{
+ "source": "MIT IR Survey (Traer & McDermott, PNAS 2016, doi:10.1073/pnas.1612524113), via huggingface.co/datasets/benjamin-paine/mit-impulse-response-survey",
+ "license": "CC-BY 4.0",
+ "irs": [
+  {
+   "file": "041_TrainStation_SouthStationBoston.wav",
+   "location": "TrainStation",
+   "detail": "SouthStationBoston",
+   "rt60_est_s": 3.16,
+   "seconds": 2.0
+  },
+  {
+   "file": "133_SubwayStation_ParkStreetBoston.wav",
+   "location": "SubwayStation",
+   "detail": "ParkStreetBoston",
+   "rt60_est_s": 1.39,
+   "seconds": 1.98
+  },
+  {
+   "file": "256_Stairwell.wav",
+   "location": "Stairwell",
+   "detail": null,
+   "rt60_est_s": 1.42,
+   "seconds": 1.99
+  },
+  {
+   "file": "235_Outside_Field.wav",
+   "location": "Outside",
+   "detail": "Field",
+   "rt60_est_s": 0.06,
+   "seconds": 0.17
+  },
+  {
+   "file": "139_Outside_StreetsOfBoston.wav",
+   "location": "Outside",
+   "detail": "StreetsOfBoston",
+   "rt60_est_s": 3.51,
+   "seconds": 1.99
+  },
+  {
+   "file": "080_Outdoor_GrassyField.wav",
+   "location": "Outdoor",
+   "detail": "GrassyField",
+   "rt60_est_s": 0.04,
+   "seconds": 0.15
+  }
+ ]
+}

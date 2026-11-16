@@ -3022,6 +3022,9 @@ def main():
         src_hash += '+' + hashlib.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'score_trailer.py'), 'rb').read()).hexdigest()[:12]
         if _sc.get('cut', 2) >= 3:   # the third cut: its own cue sheet (tools/score_trailer3.py)
             src_hash += '+' + hashlib.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'score_trailer3.py'), 'rb').read()).hexdigest()[:12]
+    teaser = bool(_sc.get('teaser'))   # the war teaser (pipeline 96): its own score and sound design (tools/score_teaser.py); nothing else takes this path
+    if teaser:
+        src_hash += '+' + hashlib.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'score_teaser.py'), 'rb').read()).hexdigest()[:12]
     stamp = {'episode': ep, 'lang': lang, 'timeline': tl['signature'], 'duration': tl['duration'], 'score': src_hash}
     out_wav = os.path.join(ROOT, 'audio', tag, 'music.wav')
     side = os.path.join(ROOT, 'audio', tag, 'music.json')
@@ -3034,7 +3037,14 @@ def main():
         except Exception:
             pass
     if ep >= 41:
-        if trailer2:
+        if teaser:
+            sys.modules.setdefault('score', sys.modules[__name__])
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # also under python3 -I
+            import score_teaser
+            stems, tlog, tmeta = score_teaser.build(tl, _sc)
+            FOLEY_LOG.extend(tlog)
+            json.dump(tmeta, open(os.path.join(ROOT, 'audio', tag, 'score-teaser.json'), 'w'), indent=1)
+        elif trailer2:
             sys.modules.setdefault('score', sys.modules[__name__])   # score_trailer imports this module's instruments by name
             import score_trailer
             if _sc.get('cut', 2) >= 3:

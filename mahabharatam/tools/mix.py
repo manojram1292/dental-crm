@@ -487,6 +487,8 @@ def main():
     _sc0 = json.load(open(_scp0)) if os.path.exists(_scp0) else {}
     if _sc0.get('rules', 1) >= 2 and _sc0.get('kind') != 'trailer':   # episodes scripted after the trailer: their own path; every other script is mixed below exactly as before
         return main_rules2(ep, tag, lang, tl, _sc0)
+    if _sc0.get('teaser'):   # the war teaser (pipeline 96, script "teaser": 1): mixed under the rules-2 voice-clarity rule (voice a median 15 dB over everything else)
+        return main_rules2(ep, tag, lang, tl, _sc0)
     N = int(round(tl['duration'] * SR))
     music_path = os.path.join(ROOT, 'audio', tag, 'music.wav')
     side = os.path.join(ROOT, 'audio', tag, 'music.json')

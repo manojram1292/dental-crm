@@ -1,0 +1,63 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "endcard~0.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Follow. Episode one is waiting.",
+ "heard": "Follow Episode 1 is waiting.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 2.629,
+   "words": 5,
+   "text": "Follow. Episode one is waiting."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.49
+  ],
+  [
+   0.741,
+   1.08
+  ],
+  [
+   1.08,
+   1.46
+  ],
+  [
+   1.46,
+   1.78
+  ],
+  [
+   1.78,
+   2.472
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 148,
+ "longest_pause_s": 0.25,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 132.3,
+  "st": 13.6,
+  "edb": 19.5,
+  "dur": 2.45,
+  "jumps": 0.0,
+  "creak": 0.028,
+  "hnr": 9.7,
+  "jitter": 2.42,
+  "tail_db": -70.6
+ },
+ "film_median_hz": 123.8,
+ "semitones_from_film_median": 1.16,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

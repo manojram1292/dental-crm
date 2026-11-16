@@ -910,3 +910,83 @@ cut 3; "episode gate" means the same tool for an ordinary episode. Nothing in th
 11. **Measure the finished file the way a first-time viewer meets it**: every 0.25 s of picture looked at, the recogniser run
     on the final mix (in stretches: in one pass over 90 s it skipped six seconds), levels traced. A file that passes freeze
     and loudness checks can still "stick". *A review step (`lab/review/trailer/v3/sheets.py`, `soundcheck.py`).*
+
+## War teaser · pipeline 96 (2026-11-16): `teaser.mp4`, `teaser-share.mp4`
+
+The owner asked for a first teaser of about a minute, built as a build: the war, with the 3D technique for its world (the figures stay
+drawn), the principal characters introduced slower, a sound researched and rebuilt, and the promise "taken from the text, as the
+scholars read it" told truly, with no line about synthetic voices. Plan: `script/TEASER-PLAN.md`; verses: `script/TEASER-CHECK.md`;
+sound: `lab/review/teaser/SOUND-RESEARCH.md`; style test: `lab/review/teaser/style-test.jpg`.
+
+Built once, additively:
+- **Script** `script/teaser.en.json` (kind "trailer", `"teaser": 1`, `cut` 3, `noStops`), symlink `script/ep96.en.json`, written by
+  `lab/review/teaser/mkscript.py`. 15 lines, 64.60 s, 6 introductions (Duryodhana in the refusal; Bhishma, Drona, Karna; Arjuna,
+  Krishna), turn at 55 % (the conch), one signature (the universal form).
+- **3D layer** `src/scenes/teaser/war3d.js` (Three.js 0.187.0 by dynamic import; SwiftShader WebGL in the headless browser), scenes
+  `src/scenes/teaser/scenes.js`, registry entry 96 in `src/episodes.js`. A new drawn figure, `teaserDrona`, is defined in the
+  teaser's scenes only (the kit is untouched).
+- **Shared tools, behind the script's own flag** (`"teaser"`): `tools/gate.mjs` (duration 55–65 s; the rules-2 voice rules and the
+  voice-over-bed check apply; the trailer's 10 dB duck limit does not; a teaser script is never the "previous episode" of the next
+  number), `tools/mix.py` (the teaser is mixed by `main_rules2`), `tools/score.py` (the teaser is scored by the new
+  `tools/score_teaser.py`). Proof: `node tools/gate.mjs --ep N --audio` for 44, 48, 49 and 97 is byte-identical before and after
+  (`lab/review/teaser/gate-proof/gNN.before.txt` / `.after.txt`; the 97 baseline was taken with the teaser script absent, because a
+  script numbered 96 changed 97's "previous episode" checks until the guard was added); their timelines and mixes are unchanged (md5).
+- **Environment** (not the repository): Playwright 1.65.1 in `node_modules` asks for headless shell build 1255 and only 1243 is
+  installed (its download host is blocked); `/opt/pw-browsers/chromium_headless_shell-1255` is a symlink to the 1243 build.
+  pedalboard 0.9.26 and pyarrow were installed into the system Python from PyPI. pip and npm caches were cleared (0.5 GB).
+- **Render in segments**: the disk had 8.6 GB free, under the 11 GB a full render wants for its frames. `lab/review/teaser/tools/
+  render_segments.sh` renders five 13 s segments with `tools/render.mjs --video-only` (its own disk check; frames deleted after each),
+  joins them by stream copy and muxes the gate-passed mix once. Nothing regenerable but the caches was found to delete (the 6 GB of
+  loose git objects and the masters were left alone).
+
+Voice: 85 takes (Chatterbox, the bm_daniel reference, one take a line, `--pace 60` to prefer the slower takes), 14 lines, median
+124.4 Hz, farthest 1.4 semitones, no stretch; the recogniser writes "Bishma", "Carner", "Kulu-Keshitra" (Kurukshetra was tried as
+"Kooru-kshetra" too). Bhima's line (2.63.14) and a Vyasa shot were voiced and cut for length (72 s with them).
+
+Loop: script gate → voice → score and mix, audio gate on the wav → stills every 0.25 s and the viewer pass → five full frame gates
+(each found something the stills did not: freezes under the trailer's threshold in the drawn and slow intro shots, a hue run, figure
+contrast on Arjuna, Karna, Drona and Krishna, each printed only once the worse one was fixed) → render once.
+
+Viewer pass (stills, before the render). Hook: sound and the field from frame 0, MAHABHARATAM legible by 1.5 s (contrast 5.0:1).
+Introductions: one figure, one plaque, one line each, 3.4–4.2 s. Turn: the conch rings across the plain, then 780 arrows rise. Peak:
+the light floods, the form comes up on it, the camera pulls back, the sub drop, "I am Time". End: the name again, FOLLOW, Episode 1,
+one struck D. Changed because of it: Duryodhana's mace and Bhishma's and Drona's bows crossed their faces (laid aside); a chariot and
+the near pennants passed through the camera in the crane and the Krishna shot (lanes and camera moved, near pennants left out where
+the camera crosses them); the figures on the chariot floated (a projected side panel now holds them in the box); Arjuna's raised bow
+crossed his plaque.
+
+Gate (`lab/review/teaser/gate-final.log`): passed. 0 freezes over 0.3 s; 0 captions after their cut; shortest picture 3.40 s; title at
+1.5 s alpha 1.00, 5.0:1; 1.94 words/s; hue run ≤ 2; 415 figure samples all standing off their grounds; adjacent pHash min 24; mix
+−14.15 LUFS, −3.11 dBTP, LRA 5.1, voice over the rest a median 15.6 dB and 8.9 dB at the 10th percentile, 0 windows under −34 dBFS
+between lines, worst fall 11.0 dB, 0 silences, first 100 ms −9.3 dBFS. After the remix below the audio gate was run again and passed:
+−14.15 LUFS, −3.14 dBTP, LRA 5.1, voice over the rest 15.5 / 9.0 dB, worst window between lines −29.8 dBFS, first 100 ms −12.3 dBFS.
+
+Render: five segments, 6,369 s in all for 1,938 frames at mb 8 (3.3 s a frame on average with two workers; the 3D shots about
+4.1 s, the drawn shots about 1.2 s; one 3D layer alone measured 1.0–1.3 s at mb 1, 5.6 s at mb 8, on one page). After the render the
+final sheets showed Arjuna's bow crossing his face in his introduction (the "attend" pose); that shot was redrawn ("stand") and spliced
+at the master's keyframes (frames 824–950; framemd5: only those 127 frames differ; the audio packets are identical; record in
+`lab/review/teaser/seg/splice/`). The first mux was then replaced with a remix (video copied, md5 equal): the frame-0 hit had
+overshot to +3.8 dBFS true peak in the AAC share copy (66 samples at full scale) and now starts 40 ms in, and a drone pad carries the
+promise's pause.
+
+Verify (`tools/finish.sh 96` with `CHECK_ONLY`, through temporary `episode96*.mp4` links; `lab/review/teaser/finish.log`): clean.
+1,938 frames, 64.6 s; 0 freezes over 0.3 s on master and share, 0 low-motion runs, 0 repeats, no dead air; share 18.96 MB, High,
+yuv420p, moov first, every asked keyframe present, SSIM to the master mean 0.959, worst 0.886; master −14.2 LUFS, −2.8 dBTP, LRA 5.1;
+share −14.2 LUFS, −3.0 dBTP, LRA 5.0, 0 samples at full scale; on the share file 0 windows under −34 dBFS between lines, worst fall 11.0 dB,
+voice over the rest a median 15.0 dB and 8.9 dB at the 10th percentile, first 100 ms −12.5 dBFS; the recogniser on the final mix hears
+every line, with "Kool lu keshitra", "Bishma", "grand saya" and "conscious" for "conches".
+
+Looked at: every pre-render 0.25 s sheet (twice, before and after the viewer-pass fixes), the 4-frame style test, both frames of every
+cut and the contact sheet of the final file (`lab/review/teaser/post-cuts-*.jpg`, `post-contact.jpg`). The final file's 0.25 s sheets
+(`post-pass-*.jpg`) were made and not all opened.
+
+Still weak: nobody has listened. The voice over the rest is a median 15.0 dB on the share file, exactly at the limit (15.5 on the wav).
+Inside lines the pauses between sentences fall to about −44 dBFS (cousins, promise): the floor rule measures only between lines, and these
+are quiet, not silent. The horses are flat drawn cards and read as cut-outs close up (the gather shot opens on one passing the lens). The
+massed hosts are cards with one repeated drawing per kind; the conch shot's lower half is a texture of heads. The form at the peak is the
+trailer's drawing, laid over the 3D light; it does not move in depth with it. The recogniser does not write Kurukshetra, Bhishma or
+"grandsire" as spelled. The introductions run 3.4–4.2 s, above the asked 2.5–3.5 s, because the slower voice made the lines longer.
+
+To re-run: `python3 -I lab/review/teaser/mkscript.py`; voice as `tools/episode_loop.md` step 2 with `--ep 96 --pace 60`;
+`python3 -I tools/score.py --ep 96 && python3 -I tools/mix.py --ep 96`; `node tools/gate.mjs --ep 96 --frames --audio`;
+`bash lab/review/teaser/tools/render_segments.sh`; then the share encode and checks as `tools/finish.sh` (through `episode96*.mp4` links).

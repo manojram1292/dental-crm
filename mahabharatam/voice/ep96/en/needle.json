@@ -1,0 +1,80 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "needle~0.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Duryodhana will not give a needle-point of earth.",
+ "heard": "Duryodhana will not give a needle point of Earth.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 3.517,
+   "words": 8,
+   "text": "Duryodhana will not give a needle-point of earth."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.84
+  ],
+  [
+   0.84,
+   1.06
+  ],
+  [
+   1.06,
+   1.565
+  ],
+  [
+   1.638,
+   1.7
+  ],
+  [
+   1.7,
+   1.82
+  ],
+  [
+   1.82,
+   2.52
+  ],
+  [
+   2.52,
+   2.78
+  ],
+  [
+   2.78,
+   3.179
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 192,
+ "longest_pause_s": 0.07,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 124.4,
+  "st": 9.1,
+  "edb": 19.1,
+  "dur": 3.29,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 12.1,
+  "jitter": 2.18,
+  "tail_db": -72.1
+ },
+ "film_median_hz": 123.8,
+ "semitones_from_film_median": 0.09,
+ "names": {
+  "Duryodhana": {
+   "heard": "duryodhana",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

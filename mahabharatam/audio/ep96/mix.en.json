@@ -1,0 +1,147 @@
+{
+ "music_under_voice_db": -20.7,
+ "voice_over_bed": {
+  "median_db": 15.5,
+  "p10_db": 9.0,
+  "windows": 429,
+  "min_median_db": 15.0,
+  "min_p10_db": 8.0
+ },
+ "rules": 2,
+ "stems": [
+  "mus",
+  "amb",
+  "foley"
+ ],
+ "duck_db": {
+  "mus": 17.0,
+  "amb": 11.0,
+  "foley": 12.0
+ },
+ "duck_release_ms": 120,
+ "rests": [
+  {
+   "before": "conch",
+   "from_s": 35.34,
+   "seconds": 1.18,
+   "bed_dip_db": 3.5,
+   "quietest_window_db": -17.5,
+   "under_the_second_before_db": -7.9
+  },
+  {
+   "before": "promise",
+   "from_s": 52.29,
+   "seconds": 1.46,
+   "bed_dip_db": 3.5,
+   "quietest_window_db": -22.2,
+   "under_the_second_before_db": -0.9
+  }
+ ],
+ "bed_floor": {
+  "floor_db": -34,
+  "windows": 262,
+  "worst_window_db": -29.8,
+  "worst_window_at_s": 3.25,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 11.0,
+  "worst_drop_at_s": 20.0,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 12,
+  "drop_window_s": 0.3,
+  "before_lifting_the_bed": {
+   "worst_window_db": -35.3,
+   "worst_window_at_s": 53.7,
+   "windows_under_floor": 1,
+   "worst_drop_db": 20.9,
+   "worst_drop_at_s": 48.0,
+   "drops_over_limit": 16
+  },
+  "bed_lift_db_max": 16.4,
+  "bed_lifted_seconds": 1.71
+ },
+ "line_gain_multiplier": 1.5,
+ "next_under_body_db": null,
+ "first_100ms_db": -12.3,
+ "first_frame_33ms_db": -26.7,
+ "word_to_cut": [
+  {
+   "line": "cousins",
+   "last_word_ends_before_cut_s": 0.523,
+   "first_word_after_cut_s": 0.2
+  },
+  {
+   "line": "needle",
+   "last_word_ends_before_cut_s": 0.871,
+   "first_word_after_cut_s": 0.15
+  },
+  {
+   "line": "gather",
+   "last_word_ends_before_cut_s": 0.684,
+   "first_word_after_cut_s": 0.18
+  },
+  {
+   "line": "bhishma",
+   "last_word_ends_before_cut_s": 0.45,
+   "first_word_after_cut_s": 0.19
+  },
+  {
+   "line": "drona",
+   "last_word_ends_before_cut_s": 0.48,
+   "first_word_after_cut_s": 0.16
+  },
+  {
+   "line": "karna",
+   "last_word_ends_before_cut_s": 0.467,
+   "first_word_after_cut_s": 0.19
+  },
+  {
+   "line": "arjuna",
+   "last_word_ends_before_cut_s": 0.449,
+   "first_word_after_cut_s": 0.16
+  },
+  {
+   "line": "krishna",
+   "last_word_ends_before_cut_s": 0.488,
+   "first_word_after_cut_s": 0.16
+  },
+  {
+   "line": "conch",
+   "last_word_ends_before_cut_s": 0.322,
+   "first_word_after_cut_s": 0.85
+  },
+  {
+   "line": "between",
+   "last_word_ends_before_cut_s": 0.353,
+   "first_word_after_cut_s": 0.06
+  },
+  {
+   "line": "lowers",
+   "last_word_ends_before_cut_s": 0.451,
+   "first_word_after_cut_s": 0.06
+  },
+  {
+   "line": "time",
+   "last_word_ends_before_cut_s": 1.437,
+   "first_word_after_cut_s": 0.2
+  },
+  {
+   "line": "promise",
+   "last_word_ends_before_cut_s": 0.482,
+   "first_word_after_cut_s": 0.15
+  },
+  {
+   "line": "endcard",
+   "last_word_ends_before_cut_s": 2.161,
+   "first_word_after_cut_s": 0.2
+  }
+ ],
+ "least_word_to_cut_s": 0.322,
+ "voice_eq": "as the trailer: high-pass 58 Hz, +1 dB under 160 Hz, \u22121 dB over 7.5 kHz, +1.5 dB at 3.2 kHz, \u22121.5 dB at 320 Hz, a short room 15 dB under",
+ "lufs": -14.15,
+ "true_peak_dbtp": -3.14,
+ "lra": 5.1,
+ "timeline": "7ddf9453367db7cd",
+ "voiced": 14
+}

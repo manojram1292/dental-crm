@@ -1,0 +1,82 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "bhishma~0.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Bhishma, the grandsire, leads the Kauravas.",
+ "heard": "Bishma, the Grand Saya, leads the Coravas.",
+ "recogniser_errors": 1,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 3.358,
+   "words": 6,
+   "text": "Bhishma, the grandsire, leads the Kauravas."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.03,
+   0.561
+  ],
+  [
+   0.861,
+   1.723
+  ],
+  [
+   1.9,
+   1.9
+  ],
+  [
+   1.997,
+   2.32
+  ],
+  [
+   2.382,
+   2.4
+  ],
+  [
+   2.4,
+   3.223
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 126,
+ "longest_pause_s": 0.3,
+ "pauses_shortened": [
+  {
+   "at_s": 0.71,
+   "was_s": 0.36,
+   "now_s": 0.3
+  }
+ ],
+ "measured": {
+  "f0": 125.9,
+  "st": 10.8,
+  "edb": 17.3,
+  "dur": 3.2,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.1,
+  "jitter": 2.32,
+  "tail_db": -72.4
+ },
+ "film_median_hz": 123.8,
+ "semitones_from_film_median": 0.3,
+ "names": {
+  "Bhishma": {
+   "heard": "bishma",
+   "fit": 0.92
+  },
+  "Kauravas": {
+   "heard": "kauravas",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

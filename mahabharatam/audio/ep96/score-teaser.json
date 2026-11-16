@@ -1,0 +1,15 @@
+{
+ "pedalboard": "0.9.26",
+ "irs": [
+  "041_TrainStation_SouthStationBoston.wav",
+  "133_SubwayStation_ParkStreetBoston.wav",
+  "235_Outside_Field.wav",
+  "256_Stairwell.wav"
+ ],
+ "motif": "Sa Pa komal-Dha Pa (D A B-flat A)",
+ "drum_engine_bpm": [
+  120.0,
+  132.0
+ ],
+ "cues": 191
+}

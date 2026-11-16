@@ -1,0 +1,84 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "arjuna~0.s3.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Arjuna, the archer, chose Krishna over an army.",
+ "heard": "Arjuna the archer chose Krishna over an army.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 3.759,
+   "words": 8,
+   "text": "Arjuna, the archer, chose Krishna over an army."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.56
+  ],
+  [
+   0.56,
+   0.8
+  ],
+  [
+   0.8,
+   1.445
+  ],
+  [
+   1.722,
+   2.092
+  ],
+  [
+   2.173,
+   2.48
+  ],
+  [
+   2.48,
+   3.0
+  ],
+  [
+   3.0,
+   3.16
+  ],
+  [
+   3.16,
+   3.624
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 123,
+ "longest_pause_s": 0.28,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 117.9,
+  "st": 13.9,
+  "edb": 16.3,
+  "dur": 3.61,
+  "jumps": 0.0,
+  "creak": 0.012,
+  "hnr": 9.5,
+  "jitter": 2.47,
+  "tail_db": -72.4
+ },
+ "film_median_hz": 123.8,
+ "semitones_from_film_median": -0.84,
+ "names": {
+  "Krishna": {
+   "heard": "krishna",
+   "fit": 1.0
+  },
+  "Arjuna": {
+   "heard": "arjuna",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

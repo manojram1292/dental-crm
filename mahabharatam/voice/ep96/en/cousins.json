@@ -1,0 +1,71 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "cousins~0.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "A hundred brothers. Five cousins. One throne.",
+ "heard": "a hundred brothers, five cousins, one throne.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 4.135,
+   "words": 7,
+   "text": "A hundred brothers. Five cousins. One throne."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.12
+  ],
+  [
+   0.12,
+   0.62
+  ],
+  [
+   0.696,
+   1.218
+  ],
+  [
+   1.551,
+   1.861
+  ],
+  [
+   1.921,
+   2.563
+  ],
+  [
+   2.909,
+   3.329
+  ],
+  [
+   3.455,
+   4.01
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.35,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 135.0,
+  "st": 12.1,
+  "edb": 17.5,
+  "dur": 3.98,
+  "jumps": 0.0,
+  "creak": 0.012,
+  "hnr": 11.8,
+  "jitter": 2.28,
+  "tail_db": -71.8
+ },
+ "film_median_hz": 123.8,
+ "semitones_from_film_median": 1.51,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

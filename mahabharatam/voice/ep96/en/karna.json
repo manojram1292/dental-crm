@@ -1,0 +1,80 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "karna~1.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Karna will not fight while Bhishma lives.",
+ "heard": "Carner will not fight while Bishmar lives.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 2.92,
+   "words": 7,
+   "text": "Karna will not fight while Bhishma lives."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.03,
+   0.38
+  ],
+  [
+   0.38,
+   0.56
+  ],
+  [
+   0.56,
+   0.827
+  ],
+  [
+   0.998,
+   1.373
+  ],
+  [
+   1.444,
+   1.687
+  ],
+  [
+   1.767,
+   2.1
+  ],
+  [
+   2.1,
+   2.773
+  ]
+ ],
+ "lead_air_ms": 20,
+ "tail_air_ms": 142,
+ "longest_pause_s": 0.17,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 118.3,
+  "st": 10.3,
+  "edb": 18.2,
+  "dur": 2.76,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 9.8,
+  "jitter": 2.33,
+  "tail_db": -70.8
+ },
+ "film_median_hz": 123.8,
+ "semitones_from_film_median": -0.78,
+ "names": {
+  "Bhishma": {
+   "heard": "bishmar",
+   "fit": 0.86
+  },
+  "Karna": {
+   "heard": "carner",
+   "fit": 0.73
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

@@ -1,0 +1,170 @@
+{
+ "cousins": [
+  {
+   "k": 0,
+   "text": "A hundred brothers. Five cousins. One throne.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "needle": [
+  {
+   "k": 0,
+   "text": "Duryodhana will not give a needle-point of earth.",
+   "spell": {
+    "Duryodhana": "Duryodhana"
+   },
+   "seeds": 5
+  }
+ ],
+ "gather": [
+  {
+   "k": 0,
+   "text": "Eighteen armies gather at Kurukshetra.",
+   "spell": {},
+   "seeds": 5
+  },
+  {
+   "k": 1,
+   "text": "Eighteen armies gather at Kooru-kshetra.",
+   "spell": {
+    "Kurukshetra": "Kooru-kshetra"
+   },
+   "seeds": 5
+  }
+ ],
+ "bhishma": [
+  {
+   "k": 0,
+   "text": "Bhishma, the grandsire, leads the Kauravas.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "drona": [
+  {
+   "k": 0,
+   "text": "Drona taught them all. Now he fights for Duryodhana.",
+   "spell": {
+    "Duryodhana": "Duryodhana"
+   },
+   "seeds": 5
+  }
+ ],
+ "karna": [
+  {
+   "k": 0,
+   "text": "Karna, born in armour, will not fight while Bhishma lives.",
+   "spell": {
+    "Karna": "Karna"
+   },
+   "seeds": 5
+  },
+  {
+   "k": 1,
+   "text": "Karna will not fight while Bhishma lives.",
+   "spell": {
+    "Bhishma": "Bhishma",
+    "Karna": "Karna"
+   },
+   "seeds": 5
+  }
+ ],
+ "arjuna": [
+  {
+   "k": 0,
+   "text": "Arjuna, the archer, chose Krishna over an army.",
+   "spell": {
+    "Krishna": "Krishna"
+   },
+   "seeds": 5
+  }
+ ],
+ "krishna": [
+  {
+   "k": 0,
+   "text": "Krishna will lift no weapon. He drives the chariot.",
+   "spell": {
+    "Krishna": "Krishna"
+   },
+   "seeds": 5
+  }
+ ],
+ "bhima": [
+  {
+   "k": 0,
+   "text": "Bhima has sworn to break Duryodhana's thigh.",
+   "spell": {
+    "Duryodhana": "Duryodhana"
+   },
+   "seeds": 5
+  }
+ ],
+ "conch": [
+  {
+   "k": 0,
+   "text": "The conches sound. The first arrows fly.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "between": [
+  {
+   "k": 0,
+   "text": "Arjuna asks for his chariot between the armies.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "lowers": [
+  {
+   "k": 0,
+   "text": "He sees teachers and kin. He lowers his bow.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "time": [
+  {
+   "k": 0,
+   "text": "Krishna shows his supreme form. I am Time.",
+   "spell": {
+    "Krishna": "Krishna"
+   },
+   "seeds": 10
+  }
+ ],
+ "promise": [
+  {
+   "k": 0,
+   "text": "Taken from the Critical Edition, the text scholars read.",
+   "spell": {},
+   "seeds": 5
+  },
+  {
+   "k": 1,
+   "text": "Taken from the Critical Edition, the text scholars read. Nothing added for effect.",
+   "spell": {
+    "Critical": "Critical",
+    "Edition": "Edition"
+   },
+   "seeds": 5
+  }
+ ],
+ "nothing": [
+  {
+   "k": 0,
+   "text": "Nothing added for effect.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "endcard": [
+  {
+   "k": 0,
+   "text": "Follow. Episode one is waiting.",
+   "spell": {},
+   "seeds": 5
+  }
+ ]
+}

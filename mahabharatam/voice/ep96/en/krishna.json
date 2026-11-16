@@ -1,0 +1,84 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "krishna~0.s0.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Krishna will lift no weapon. He drives the chariot.",
+ "heard": "Krishna will lift no weapon. He drives the chariot.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 3.479,
+   "words": 9,
+   "text": "Krishna will lift no weapon. He drives the chariot."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.32
+  ],
+  [
+   0.32,
+   0.58
+  ],
+  [
+   0.58,
+   0.845
+  ],
+  [
+   1.002,
+   1.14
+  ],
+  [
+   1.14,
+   1.703
+  ],
+  [
+   2.017,
+   2.08
+  ],
+  [
+   2.08,
+   2.34
+  ],
+  [
+   2.34,
+   2.66
+  ],
+  [
+   2.66,
+   3.319
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 152,
+ "longest_pause_s": 0.31,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 128.5,
+  "st": 11.3,
+  "edb": 18.5,
+  "dur": 3.3,
+  "jumps": 0.0,
+  "creak": 0.024,
+  "hnr": 9.7,
+  "jitter": 2.52,
+  "tail_db": -59.4
+ },
+ "film_median_hz": 123.8,
+ "semitones_from_film_median": 0.65,
+ "names": {
+  "Krishna": {
+   "heard": "krishna",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

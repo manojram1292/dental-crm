@@ -1,0 +1,84 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "time~0.s7.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Krishna shows his supreme form. I am Time.",
+ "heard": "Krishna shows his Supreme Form, I Am Time.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 4.223,
+   "words": 8,
+   "text": "Krishna shows his supreme form. \u201cI am Time.\u201d"
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.32
+  ],
+  [
+   0.32,
+   1.02
+  ],
+  [
+   1.02,
+   1.28
+  ],
+  [
+   1.28,
+   2.112
+  ],
+  [
+   2.219,
+   2.617
+  ],
+  [
+   2.936,
+   3.04
+  ],
+  [
+   3.04,
+   3.3
+  ],
+  [
+   3.3,
+   4.096
+  ]
+ ],
+ "lead_air_ms": 29,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.32,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 118.3,
+  "st": 10.1,
+  "edb": 17.8,
+  "dur": 4.07,
+  "jumps": 0.0,
+  "creak": 0.004,
+  "hnr": 11.2,
+  "jitter": 1.78,
+  "tail_db": -99.7
+ },
+ "film_median_hz": 123.8,
+ "semitones_from_film_median": -0.78,
+ "names": {
+  "Time": {
+   "heard": "time",
+   "fit": 1.0
+  },
+  "Krishna": {
+   "heard": "krishna",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

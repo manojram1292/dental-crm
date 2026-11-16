@@ -1,0 +1,94 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "drona~0.s0.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Drona taught them all. Now he fights for Duryodhana.",
+ "heard": "Drona taught them all. Now he fights for Duryodhana.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 3.73,
+   "words": 9,
+   "text": "Drona taught them all. Now he fights for Duryodhana."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.44
+  ],
+  [
+   0.44,
+   0.62
+  ],
+  [
+   0.62,
+   0.82
+  ],
+  [
+   0.82,
+   1.263
+  ],
+  [
+   1.683,
+   1.82
+  ],
+  [
+   1.82,
+   2.19
+  ],
+  [
+   2.271,
+   2.36
+  ],
+  [
+   2.36,
+   2.64
+  ],
+  [
+   2.64,
+   3.56
+  ]
+ ],
+ "lead_air_ms": 24,
+ "tail_air_ms": 162,
+ "longest_pause_s": 0.42,
+ "pauses_shortened": [
+  {
+   "at_s": 1.47,
+   "was_s": 0.57,
+   "now_s": 0.42
+  }
+ ],
+ "measured": {
+  "f0": 130.6,
+  "st": 12.2,
+  "edb": 17.4,
+  "dur": 3.54,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.3,
+  "jitter": 2.7,
+  "tail_db": -65.0
+ },
+ "film_median_hz": 123.8,
+ "semitones_from_film_median": 0.93,
+ "names": {
+  "Drona": {
+   "heard": "drona",
+   "fit": 1.0
+  },
+  "Duryodhana": {
+   "heard": "duryodhana",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

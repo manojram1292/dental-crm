@@ -1,0 +1,115 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "promise~1.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Taken from the Critical Edition, the text scholars read. Nothing added for effect.",
+ "heard": "Taken from the critical edition, the text scholars read, nothing added for effect.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 5.69,
+   "words": 13,
+   "text": "Taken from the Critical Edition, the text scholars read. Nothing added for effect."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.28
+  ],
+  [
+   0.28,
+   0.56
+  ],
+  [
+   0.56,
+   0.74
+  ],
+  [
+   0.74,
+   1.14
+  ],
+  [
+   1.14,
+   1.88
+  ],
+  [
+   2.18,
+   2.22
+  ],
+  [
+   2.22,
+   2.505
+  ],
+  [
+   2.567,
+   2.9
+  ],
+  [
+   2.9,
+   3.524
+  ],
+  [
+   3.944,
+   4.158
+  ],
+  [
+   4.233,
+   4.58
+  ],
+  [
+   4.58,
+   4.92
+  ],
+  [
+   4.92,
+   5.535
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 145,
+ "longest_pause_s": 0.42,
+ "pauses_shortened": [
+  {
+   "at_s": 2.03,
+   "was_s": 0.36,
+   "now_s": 0.3
+  },
+  {
+   "at_s": 3.73,
+   "was_s": 0.46,
+   "now_s": 0.42
+  }
+ ],
+ "measured": {
+  "f0": 126.8,
+  "st": 11.8,
+  "edb": 20.8,
+  "dur": 5.51,
+  "jumps": 0.32,
+  "creak": 0.006,
+  "hnr": 8.6,
+  "jitter": 2.6,
+  "tail_db": -73.5
+ },
+ "film_median_hz": 123.8,
+ "semitones_from_film_median": 0.42,
+ "names": {
+  "Edition": {
+   "heard": "edition",
+   "fit": 1.0
+  },
+  "Critical": {
+   "heard": "critical",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

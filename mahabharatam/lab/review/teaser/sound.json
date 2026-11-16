@@ -1,0 +1,766 @@
+{
+ "file": "episode96-share.mp4",
+ "seconds": 64.62,
+ "stops": [
+  [
+   3.4,
+   7.335
+  ],
+  [
+   8.0833,
+   11.4006
+  ],
+  [
+   12.283299999999999,
+   15.4025
+  ],
+  [
+   16.293300000000002,
+   19.4513
+  ],
+  [
+   20.1266,
+   23.6569
+  ],
+  [
+   24.326600000000003,
+   27.046599999999998
+  ],
+  [
+   27.7266,
+   31.285899999999998
+  ],
+  [
+   31.96,
+   35.2393
+  ],
+  [
+   36.6166,
+   39.7361
+  ],
+  [
+   40.1933,
+   43.3133
+  ],
+  [
+   43.7933,
+   47.4912
+  ],
+  [
+   48.1666,
+   52.1901
+  ],
+  [
+   53.85,
+   59.3401
+  ],
+  [
+   60.0666,
+   62.4961
+  ]
+ ],
+ "holes": {
+  "floor_db": -34,
+  "windows": 262,
+  "worst_window_db": -29.8,
+  "worst_window_at_s": 3.25,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 11.0,
+  "worst_drop_at_s": 20.0,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 12,
+  "drop_window_s": 0.3
+ },
+ "voice_over_bed": {
+  "median_db": 15.0,
+  "p10_db": 8.9
+ },
+ "start": {
+  "first_100ms_db": -12.5,
+  "first_frame_33ms_db": -26.7,
+  "first_10ms_db": -27.9
+ },
+ "clipping": {
+  "samples_at_0.999": 0,
+  "peak_dbfs": -2.99
+ },
+ "recogniser": {
+  "heard": "A hundred brothers, five cousins, one throne. Duryodhana will not give a needle point of earth. 18 armies gather at Kool -lu -Keshitra. Bishma, the Grand Saya, leads the Kauravas. Drona taught them all. Now he fights for Duryodhana. Karna will not fight while Bhishma lives. Arjuna the archer chose Krishna over an army. Krishna will lift no weapon. He drives the chariot. The conscious sound, the first arrows fly. Arjuna asks for his chariot between the armies. He sees teachers and kin. He lowers his bow. Krishna shows his supreme form, I Am Time. Taken from the critical edition, the text scholars read. Nothing added for effect. Follow. Episode 1 is waiting.",
+  "transcribed_in_stretches_starting_at_s": [
+   0.0,
+   12.03,
+   24.07,
+   40.03,
+   53.6,
+   64.62
+  ],
+  "words": [
+   [
+    "A",
+    2.68,
+    3.42
+   ],
+   [
+    "hundred",
+    3.42,
+    3.78
+   ],
+   [
+    "brothers,",
+    3.78,
+    4.14
+   ],
+   [
+    "five",
+    4.64,
+    5.02
+   ],
+   [
+    "cousins,",
+    5.02,
+    5.44
+   ],
+   [
+    "one",
+    6.32,
+    6.38
+   ],
+   [
+    "throne.",
+    6.38,
+    6.9
+   ],
+   [
+    "Duryodhana",
+    8.08,
+    8.82
+   ],
+   [
+    "will",
+    8.82,
+    9.04
+   ],
+   [
+    "not",
+    9.04,
+    9.36
+   ],
+   [
+    "give",
+    9.36,
+    9.7
+   ],
+   [
+    "a",
+    9.7,
+    9.82
+   ],
+   [
+    "needle",
+    9.82,
+    10.04
+   ],
+   [
+    "point",
+    10.04,
+    10.5
+   ],
+   [
+    "of",
+    10.5,
+    10.78
+   ],
+   [
+    "earth.",
+    10.78,
+    11.1
+   ],
+   [
+    "18",
+    12.03,
+    12.51
+   ],
+   [
+    "armies",
+    12.51,
+    13.05
+   ],
+   [
+    "gather",
+    13.05,
+    13.45
+   ],
+   [
+    "at",
+    13.45,
+    13.77
+   ],
+   [
+    "Kool",
+    13.77,
+    14.17
+   ],
+   [
+    "-lu",
+    14.17,
+    14.39
+   ],
+   [
+    "-Keshitra.",
+    14.39,
+    15.29
+   ],
+   [
+    "Bishma,",
+    16.07,
+    16.53
+   ],
+   [
+    "the",
+    16.93,
+    17.09
+   ],
+   [
+    "Grand",
+    17.09,
+    17.29
+   ],
+   [
+    "Saya,",
+    17.29,
+    17.73
+   ],
+   [
+    "leads",
+    18.23,
+    18.31
+   ],
+   [
+    "the",
+    18.31,
+    18.61
+   ],
+   [
+    "Kauravas.",
+    18.61,
+    19.17
+   ],
+   [
+    "Drona",
+    20.09,
+    20.47
+   ],
+   [
+    "taught",
+    20.47,
+    20.63
+   ],
+   [
+    "them",
+    20.63,
+    20.85
+   ],
+   [
+    "all.",
+    20.85,
+    21.11
+   ],
+   [
+    "Now",
+    21.81,
+    21.85
+   ],
+   [
+    "he",
+    21.85,
+    22.11
+   ],
+   [
+    "fights",
+    22.11,
+    22.39
+   ],
+   [
+    "for",
+    22.39,
+    22.65
+   ],
+   [
+    "Duryodhana.",
+    22.65,
+    23.43
+   ],
+   [
+    "Karna",
+    24.07,
+    24.55
+   ],
+   [
+    "will",
+    24.55,
+    24.79
+   ],
+   [
+    "not",
+    24.79,
+    25.01
+   ],
+   [
+    "fight",
+    25.01,
+    25.31
+   ],
+   [
+    "while",
+    25.31,
+    25.79
+   ],
+   [
+    "Bhishma",
+    25.79,
+    26.31
+   ],
+   [
+    "lives.",
+    26.31,
+    26.75
+   ],
+   [
+    "Arjuna",
+    27.73,
+    28.15
+   ],
+   [
+    "the",
+    28.15,
+    28.43
+   ],
+   [
+    "archer",
+    28.43,
+    28.93
+   ],
+   [
+    "chose",
+    28.93,
+    29.59
+   ],
+   [
+    "Krishna",
+    29.59,
+    29.93
+   ],
+   [
+    "over",
+    29.93,
+    30.59
+   ],
+   [
+    "an",
+    30.59,
+    30.79
+   ],
+   [
+    "army.",
+    30.79,
+    31.01
+   ],
+   [
+    "Krishna",
+    32.19,
+    32.19
+   ],
+   [
+    "will",
+    32.19,
+    32.45
+   ],
+   [
+    "lift",
+    32.45,
+    32.69
+   ],
+   [
+    "no",
+    32.69,
+    33.01
+   ],
+   [
+    "weapon.",
+    33.01,
+    33.37
+   ],
+   [
+    "He",
+    33.93,
+    33.95
+   ],
+   [
+    "drives",
+    33.95,
+    34.21
+   ],
+   [
+    "the",
+    34.21,
+    34.53
+   ],
+   [
+    "chariot.",
+    34.53,
+    34.95
+   ],
+   [
+    "The",
+    36.59,
+    36.61
+   ],
+   [
+    "conscious",
+    36.61,
+    36.85
+   ],
+   [
+    "sound,",
+    36.85,
+    37.39
+   ],
+   [
+    "the",
+    37.87,
+    38.03
+   ],
+   [
+    "first",
+    38.03,
+    38.35
+   ],
+   [
+    "arrows",
+    38.35,
+    38.79
+   ],
+   [
+    "fly.",
+    38.79,
+    39.35
+   ],
+   [
+    "Arjuna",
+    40.03,
+    40.51
+   ],
+   [
+    "asks",
+    40.51,
+    41.05
+   ],
+   [
+    "for",
+    41.05,
+    41.31
+   ],
+   [
+    "his",
+    41.31,
+    41.45
+   ],
+   [
+    "chariot",
+    41.45,
+    41.95
+   ],
+   [
+    "between",
+    41.95,
+    42.33
+   ],
+   [
+    "the",
+    42.33,
+    42.63
+   ],
+   [
+    "armies.",
+    42.63,
+    42.89
+   ],
+   [
+    "He",
+    43.77,
+    43.77
+   ],
+   [
+    "sees",
+    43.77,
+    43.97
+   ],
+   [
+    "teachers",
+    43.97,
+    44.55
+   ],
+   [
+    "and",
+    44.55,
+    44.95
+   ],
+   [
+    "kin.",
+    44.95,
+    45.19
+   ],
+   [
+    "He",
+    46.01,
+    46.03
+   ],
+   [
+    "lowers",
+    46.03,
+    46.33
+   ],
+   [
+    "his",
+    46.33,
+    46.77
+   ],
+   [
+    "bow.",
+    46.77,
+    47.07
+   ],
+   [
+    "Krishna",
+    48.43,
+    48.43
+   ],
+   [
+    "shows",
+    48.43,
+    48.97
+   ],
+   [
+    "his",
+    48.97,
+    49.37
+   ],
+   [
+    "supreme",
+    49.37,
+    49.67
+   ],
+   [
+    "form,",
+    49.67,
+    50.45
+   ],
+   [
+    "I",
+    50.99,
+    51.15
+   ],
+   [
+    "Am",
+    51.15,
+    51.37
+   ],
+   [
+    "Time.",
+    51.37,
+    51.89
+   ],
+   [
+    "Taken",
+    53.6,
+    54.02
+   ],
+   [
+    "from",
+    54.02,
+    54.32
+   ],
+   [
+    "the",
+    54.32,
+    54.5
+   ],
+   [
+    "critical",
+    54.5,
+    54.78
+   ],
+   [
+    "edition,",
+    54.78,
+    55.36
+   ],
+   [
+    "the",
+    55.96,
+    55.98
+   ],
+   [
+    "text",
+    55.98,
+    56.2
+   ],
+   [
+    "scholars",
+    56.2,
+    56.62
+   ],
+   [
+    "read.",
+    56.62,
+    57.02
+   ],
+   [
+    "Nothing",
+    58.0,
+    58.02
+   ],
+   [
+    "added",
+    58.02,
+    58.32
+   ],
+   [
+    "for",
+    58.32,
+    58.68
+   ],
+   [
+    "effect.",
+    58.68,
+    59.0
+   ],
+   [
+    "Follow.",
+    60.02,
+    60.14
+   ],
+   [
+    "Episode",
+    61.02,
+    61.02
+   ],
+   [
+    "1",
+    61.02,
+    61.5
+   ],
+   [
+    "is",
+    61.5,
+    61.74
+   ],
+   [
+    "waiting.",
+    61.74,
+    62.06
+   ]
+  ],
+  "gaps_over_0.35s_inside_a_sentence": [
+   {
+    "after": "brothers,",
+    "before": "five",
+    "at_s": 4.14,
+    "gap_s": 0.5
+   },
+   {
+    "after": "cousins,",
+    "before": "one",
+    "at_s": 5.44,
+    "gap_s": 0.88
+   },
+   {
+    "after": "Bishma,",
+    "before": "the",
+    "at_s": 16.53,
+    "gap_s": 0.4
+   },
+   {
+    "after": "Saya,",
+    "before": "leads",
+    "at_s": 17.73,
+    "gap_s": 0.5
+   },
+   {
+    "after": "sound,",
+    "before": "the",
+    "at_s": 37.39,
+    "gap_s": 0.48
+   },
+   {
+    "after": "form,",
+    "before": "I",
+    "at_s": 50.45,
+    "gap_s": 0.54
+   },
+   {
+    "after": "edition,",
+    "before": "the",
+    "at_s": 55.36,
+    "gap_s": 0.6
+   }
+  ],
+  "script_words": 110,
+  "misheard": [
+   {
+    "script": "eighteen",
+    "heard": "18"
+   },
+   {
+    "script": "kurukshetra bhishma",
+    "heard": "kool lu keshitra bishma"
+   },
+   {
+    "script": "grandsire",
+    "heard": "grand saya"
+   },
+   {
+    "script": "conches",
+    "heard": "conscious"
+   },
+   {
+    "script": "one",
+    "heard": "1"
+   }
+  ]
+ },
+ "voice_stem": {
+  "peak_dbfs": -6.04,
+  "samples_at_0.999": 0,
+  "boundaries": 28,
+  "ordinary_speech_step_99pct_db": -24.0,
+  "loudest_step_at_a_boundary_db": -74.7,
+  "boundaries_with_a_step_over_-40_db": [],
+  "boundaries_with_level_over_-30_db": []
+ },
+ "pauses_inside_sentences_in_the_voice_files": {
+  "over_0.35_s": [],
+  "longest": [
+   {
+    "shot": "bhishma",
+    "after": "Bhishma,",
+    "before": "the",
+    "silence_s": 0.3
+   },
+   {
+    "shot": "promise",
+    "after": "Edition,",
+    "before": "the",
+    "silence_s": 0.29
+   },
+   {
+    "shot": "arjuna",
+    "after": "archer,",
+    "before": "chose",
+    "silence_s": 0.27
+   }
+  ]
+ }
+}
