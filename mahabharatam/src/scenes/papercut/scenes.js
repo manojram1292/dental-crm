@@ -226,7 +226,7 @@
 
   // ═══════════════════════════════ 3 · CARRY (two years) ═══════════════════════════════
   shot('carry', (ctx, t, env, st, b) => {
-    const cam = PC.cam('rack', t / env.dur, {});
+    const cam = { ...PC.cam('rack', t / env.dur, {}), zoom: lerp(1.04, 1.16, t / env.dur) };   // the focus racks while the camera creeps in (a still frame read as a freeze)
     const u = ss(0.3, env.dur - 0.4, t);   // the focus racks from the window (the moons) to her
     bg(ctx, 'jade', cam);
     // the moons, one phase a 12 fps step, crossing the round window: the months passing
@@ -341,7 +341,7 @@
     const SCH = PC.splitSchedule(env.words), T_FLAT = SCH.flat, T_F = SCH.folds, T_CUT = SCH.cut, T_UN = SCH.unfold, FD = SCH.foldDur;
     const cam = PC.cam('frame', 0, {});
     const rot = st > T_UN + 0.6 ? (t - T_UN - 0.6) * 0.06 : 0;   // then a slow turn around the rosette's centre
-    const zoom = st > T_UN + 0.4 ? lerp(1, 1.18, ss(T_UN + 0.4, env.dur, t)) : 1;
+    const zoom = st > T_UN + 0.4 ? lerp(1.06, 1.18, ss(T_UN + 0.4, env.dur, t)) : lerp(1.0, 1.06, Math.min(1, t / (T_UN + 0.4)));   // a slow push through the rest and the folds, never still
     const cv = { zoom, px: 0, py: 0, rot };
     bg(ctx, 'indigo', cv);
     const cx = 540, cy = 860, half = 330;
@@ -349,8 +349,8 @@
     const open = st >= T_UN;
     if (open) { ctx.save(); const gl = ctx.createRadialGradient(cx, cy, 40, cx, cy, 560); gl.addColorStop(0, 'rgba(255,190,110,0.55)'); gl.addColorStop(1, 'rgba(255,150,80,0)'); ctx.fillStyle = gl; ctx.globalAlpha = ss(T_UN, T_UN + 0.3, t); ctx.fillRect(0, 0, W, H); ctx.restore(); }
     // the water drops of the rest, then the mass flattening into a sheet
-    if (st < T_FLAT + 0.2) {
-      PC.layer(ctx, (g) => { const f = ss(0, T_FLAT, st); if (st > T_FLAT - 0.17) { const k = st > T_FLAT ? 1 : 0.5; PC.piece(g, PC.smooth([[-half, -half], [half, -half], [half, half], [-half, half]].map(([x, y]) => [cx + x * lerp(0.75, 1, k), cy + y * lerp(0.75, 1, k)]), k > 0.9 ? 1 : 3), C.red, { seed: 412, wob: lerp(4, 0.8, k) }); } else mass(g, cx, cy, lerp(250, 300, f), C.red, 84, lerp(1, 0.7, f));
+    if (st < T_FLAT) {
+      PC.layer(ctx, (g) => { const f = ss(0, T_FLAT, st); if (st > T_FLAT - 0.17) { const k = st > T_FLAT ? 1 : 0.5; PC.piece(g, PC.smooth([[-half, -half], [half, -half], [half, half], [-half, half]].map(([x, y]) => [cx + x * lerp(0.75, 1, k), cy + y * lerp(0.75, 1, k)]), k > 0.9 ? 1 : 3), C.red, { seed: 412, wob: lerp(4, 0.8, k) }); } else { const j = (PC.stepF(env.T) % 2 ? 4 : -4); mass(g, cx + j, cy, lerp(250, 300, f), C.red, 84, lerp(1, 0.7, f)); }
         for (let k = 0; k < 7; k++) { const ph = (t * 1.7 + hash(k, 8)) % 1, x = cx - 200 + hash(k, 9) * 400; PC.piece(g, PC.xf([[0, -1], [0.5, 0.3], [0, 0.8], [-0.5, 0.3]], x, lerp(300, cy - 120, ph), 20), C.cream, { seed: 300 + k, wob: 0.5 }); } }, { cv, cam: cv, z: 1 });
       return;
     }
@@ -358,7 +358,7 @@
     const folds = [{ ax: [0, -1], keep: (x, y) => x <= 0 }, { ax: [1, 0], keep: (x, y) => y <= 0 }, { ax: [1, 1], keep: (x, y) => y <= x }];
     const fk = T_F.filter((a) => st >= a).length;   // folds begun
     PC.layer(ctx, (g) => {
-      g.translate(cx, cy);
+      g.translate(cx, cy); if (fk === 0) g.rotate(-0.18 * clamp((T_F[0] - st) / (T_F[0] - T_FLAT)));   // the new sheet settles as it lands, before the first fold
       const sq = [[-half, -half], [half, -half], [half, half], [-half, half]];
       // the region still showing after k folds: the square ∩ the kept half-planes
       const region = (k) => { let p = sq; const sides = [(x, y) => x, (x, y) => y, (x, y) => x - y]; for (let i = 0; i < k; i++) p = PC.clipHalf(p, (x, y) => sides[i](x, y) - 0 + (i === 2 ? 0 : 0)); return p; };
@@ -548,7 +548,8 @@
     PC.cam('still', 0, {});
     const cv = { zoom: 1, px: 0, py: 0, rot: 0 };
     bg(ctx, 'indigo', cv);
-    PC.layer(ctx, (g) => { g.translate(540, 900); g.rotate(t * 0.08); g.translate(-540, -900); sheetPieces(g, 540, 900, 1, 0, G.indigo.far); }, { shadow: 0.5, rimCol: '#8a98d0' });
+    PC.layer(ctx, (g) => { g.translate(540, 900); g.rotate(t * 0.22); g.translate(-540, -900); sheetPieces(g, 540, 900, 1, 0, G.indigo.far); }, { shadow: 0.5, rimCol: '#8a98d0' });
+    PC.layer(ctx, (g) => scraps(g, t, 14, C.red, 47, [60, 0, 1020, 1880], 140), { shadow: 0.5 });
     PC.layer(ctx, (g) => border(g, C.red, 45), { shadow: 0.6 });
     PC.layer(ctx, (g) => { const bob = (PC.stepF(env.T) % 6 < 3) ? 0 : -6; peacock(g, 300, 480 + bob, 0.5, 1, C.red, 101); peacock(g, 690, 480 - bob, 0.5, -1, C.red, 111); }, { shadow: 0.8 });
     // the title strip, letters popping in on 12 fps steps

@@ -1,0 +1,850 @@
+{
+ "file": "episode95-share.mp4",
+ "seconds": 57.07,
+ "stops": [
+  [
+   0.16,
+   2.4209
+  ],
+  [
+   3.3533,
+   7.8333
+  ],
+  [
+   8.666599999999999,
+   10.4666
+  ],
+  [
+   11.299999999999999,
+   14.769300000000001
+  ],
+  [
+   15.6,
+   18.9153
+  ],
+  [
+   19.8,
+   22.566599999999998
+  ],
+  [
+   23.4666,
+   29.019599999999997
+  ],
+  [
+   31.3,
+   35.6314
+  ],
+  [
+   36.5666,
+   39.8463
+  ],
+  [
+   40.7333,
+   44.6075
+  ],
+  [
+   46.15,
+   48.929899999999996
+  ],
+  [
+   49.8333,
+   53.8595
+  ]
+ ],
+ "holes": {
+  "floor_db": -34,
+  "windows": 248,
+  "worst_window_db": -33.7,
+  "worst_window_at_s": 8.5,
+  "windows_under_floor": 0,
+  "under_floor_at_s": [],
+  "worst_drop_db": 11.6,
+  "worst_drop_at_s": 23.3,
+  "drops_over_limit": 0,
+  "drops_at_s": [],
+  "drop_limit_db": 12,
+  "drop_window_s": 0.3
+ },
+ "voice_over_bed": {
+  "median_db": 15.5,
+  "p10_db": 9.4
+ },
+ "start": {
+  "first_100ms_db": -25.5,
+  "first_frame_33ms_db": -39.4,
+  "first_10ms_db": -41.7
+ },
+ "clipping": {
+  "samples_at_0.999": 0,
+  "peak_dbfs": -2.08
+ },
+ "recogniser": {
+  "heard": "One lump of flesh, a hundred sons. Gandhari cared for a weary sage, who granted her one hundred sons. She carried the child two years. Then her sister -in -law bore a son, bright as the morning's son. In grief without telling her husband, she forced the birth. Out came a mass of flesh, hard as iron. That sage, Vyasa, came. Fill a hundred pots with ghee. Sprinkle it with cold water. It split into 101 parts, each the size of a thumb joint. Each went into its pots, Duryodhana was born first, jackals howled. The Brahmin said, give this one up. for love of his son the king would not. Within a month all hundred were born then one daughter to Charlotte.",
+  "transcribed_in_stretches_starting_at_s": [
+   0.0,
+   15.3,
+   29.6,
+   45.2,
+   57.07
+  ],
+  "words": [
+   [
+    "One",
+    0.0,
+    0.22
+   ],
+   [
+    "lump",
+    0.22,
+    0.46
+   ],
+   [
+    "of",
+    0.46,
+    0.7
+   ],
+   [
+    "flesh,",
+    0.7,
+    0.92
+   ],
+   [
+    "a",
+    1.46,
+    1.56
+   ],
+   [
+    "hundred",
+    1.56,
+    1.82
+   ],
+   [
+    "sons.",
+    1.82,
+    2.14
+   ],
+   [
+    "Gandhari",
+    3.16,
+    3.64
+   ],
+   [
+    "cared",
+    3.64,
+    3.94
+   ],
+   [
+    "for",
+    3.94,
+    4.34
+   ],
+   [
+    "a",
+    4.34,
+    4.44
+   ],
+   [
+    "weary",
+    4.44,
+    4.66
+   ],
+   [
+    "sage,",
+    4.66,
+    5.08
+   ],
+   [
+    "who",
+    5.64,
+    5.72
+   ],
+   [
+    "granted",
+    5.72,
+    6.02
+   ],
+   [
+    "her",
+    6.02,
+    6.38
+   ],
+   [
+    "one",
+    6.38,
+    6.62
+   ],
+   [
+    "hundred",
+    6.62,
+    7.04
+   ],
+   [
+    "sons.",
+    7.04,
+    7.34
+   ],
+   [
+    "She",
+    8.62,
+    8.7
+   ],
+   [
+    "carried",
+    8.7,
+    8.96
+   ],
+   [
+    "the",
+    8.96,
+    9.22
+   ],
+   [
+    "child",
+    9.22,
+    9.46
+   ],
+   [
+    "two",
+    9.46,
+    9.8
+   ],
+   [
+    "years.",
+    9.8,
+    10.18
+   ],
+   [
+    "Then",
+    11.24,
+    11.3
+   ],
+   [
+    "her",
+    11.3,
+    11.5
+   ],
+   [
+    "sister",
+    11.5,
+    11.78
+   ],
+   [
+    "-in",
+    11.78,
+    12.02
+   ],
+   [
+    "-law",
+    12.02,
+    12.24
+   ],
+   [
+    "bore",
+    12.24,
+    12.46
+   ],
+   [
+    "a",
+    12.46,
+    12.7
+   ],
+   [
+    "son,",
+    12.7,
+    13.0
+   ],
+   [
+    "bright",
+    13.3,
+    13.44
+   ],
+   [
+    "as",
+    13.44,
+    13.68
+   ],
+   [
+    "the",
+    13.68,
+    13.84
+   ],
+   [
+    "morning's",
+    13.84,
+    14.36
+   ],
+   [
+    "son.",
+    14.36,
+    14.6
+   ],
+   [
+    "In",
+    15.3,
+    15.64
+   ],
+   [
+    "grief",
+    15.64,
+    15.9
+   ],
+   [
+    "without",
+    15.9,
+    16.22
+   ],
+   [
+    "telling",
+    16.22,
+    16.7
+   ],
+   [
+    "her",
+    16.7,
+    16.88
+   ],
+   [
+    "husband,",
+    16.88,
+    17.22
+   ],
+   [
+    "she",
+    17.74,
+    17.82
+   ],
+   [
+    "forced",
+    17.82,
+    18.08
+   ],
+   [
+    "the",
+    18.08,
+    18.42
+   ],
+   [
+    "birth.",
+    18.42,
+    18.72
+   ],
+   [
+    "Out",
+    19.74,
+    19.88
+   ],
+   [
+    "came",
+    19.88,
+    20.18
+   ],
+   [
+    "a",
+    20.18,
+    20.4
+   ],
+   [
+    "mass",
+    20.4,
+    20.64
+   ],
+   [
+    "of",
+    20.64,
+    20.92
+   ],
+   [
+    "flesh,",
+    20.92,
+    21.16
+   ],
+   [
+    "hard",
+    21.64,
+    21.82
+   ],
+   [
+    "as",
+    21.82,
+    22.02
+   ],
+   [
+    "iron.",
+    22.02,
+    22.32
+   ],
+   [
+    "That",
+    23.4,
+    23.5
+   ],
+   [
+    "sage,",
+    23.5,
+    23.88
+   ],
+   [
+    "Vyasa,",
+    24.2,
+    24.42
+   ],
+   [
+    "came.",
+    24.64,
+    24.82
+   ],
+   [
+    "Fill",
+    25.52,
+    25.52
+   ],
+   [
+    "a",
+    25.52,
+    25.64
+   ],
+   [
+    "hundred",
+    25.64,
+    25.92
+   ],
+   [
+    "pots",
+    25.92,
+    26.2
+   ],
+   [
+    "with",
+    26.2,
+    26.52
+   ],
+   [
+    "ghee.",
+    26.52,
+    26.84
+   ],
+   [
+    "Sprinkle",
+    27.4,
+    27.66
+   ],
+   [
+    "it",
+    27.66,
+    27.86
+   ],
+   [
+    "with",
+    27.86,
+    28.0
+   ],
+   [
+    "cold",
+    28.0,
+    28.26
+   ],
+   [
+    "water.",
+    28.26,
+    28.82
+   ],
+   [
+    "It",
+    30.62,
+    31.3
+   ],
+   [
+    "split",
+    31.3,
+    31.56
+   ],
+   [
+    "into",
+    31.56,
+    31.96
+   ],
+   [
+    "101",
+    31.96,
+    32.48
+   ],
+   [
+    "parts,",
+    32.48,
+    33.12
+   ],
+   [
+    "each",
+    33.54,
+    33.9
+   ],
+   [
+    "the",
+    33.9,
+    34.18
+   ],
+   [
+    "size",
+    34.18,
+    34.54
+   ],
+   [
+    "of",
+    34.54,
+    34.72
+   ],
+   [
+    "a",
+    34.72,
+    34.8
+   ],
+   [
+    "thumb",
+    34.8,
+    35.02
+   ],
+   [
+    "joint.",
+    35.02,
+    35.32
+   ],
+   [
+    "Each",
+    36.32,
+    36.6
+   ],
+   [
+    "went",
+    36.6,
+    36.84
+   ],
+   [
+    "into",
+    36.84,
+    37.14
+   ],
+   [
+    "its",
+    37.14,
+    37.3
+   ],
+   [
+    "pots,",
+    37.3,
+    37.56
+   ],
+   [
+    "Duryodhana",
+    38.08,
+    38.6
+   ],
+   [
+    "was",
+    38.6,
+    38.86
+   ],
+   [
+    "born",
+    38.86,
+    39.06
+   ],
+   [
+    "first,",
+    39.06,
+    39.62
+   ],
+   [
+    "jackals",
+    40.76,
+    41.18
+   ],
+   [
+    "howled.",
+    41.18,
+    41.88
+   ],
+   [
+    "The",
+    42.3,
+    42.32
+   ],
+   [
+    "Brahmin",
+    42.32,
+    42.8
+   ],
+   [
+    "said,",
+    42.8,
+    43.14
+   ],
+   [
+    "give",
+    43.64,
+    43.74
+   ],
+   [
+    "this",
+    43.74,
+    44.04
+   ],
+   [
+    "one",
+    44.04,
+    44.28
+   ],
+   [
+    "up.",
+    44.28,
+    44.5
+   ],
+   [
+    "for",
+    45.2,
+    46.2
+   ],
+   [
+    "love",
+    46.2,
+    46.44
+   ],
+   [
+    "of",
+    46.44,
+    46.74
+   ],
+   [
+    "his",
+    46.74,
+    46.94
+   ],
+   [
+    "son",
+    46.94,
+    47.26
+   ],
+   [
+    "the",
+    47.26,
+    47.84
+   ],
+   [
+    "king",
+    47.84,
+    48.06
+   ],
+   [
+    "would",
+    48.06,
+    48.36
+   ],
+   [
+    "not.",
+    48.36,
+    48.64
+   ],
+   [
+    "Within",
+    49.78,
+    49.82
+   ],
+   [
+    "a",
+    49.82,
+    50.0
+   ],
+   [
+    "month",
+    50.0,
+    50.2
+   ],
+   [
+    "all",
+    50.2,
+    50.68
+   ],
+   [
+    "hundred",
+    50.68,
+    51.02
+   ],
+   [
+    "were",
+    51.02,
+    51.26
+   ],
+   [
+    "born",
+    51.26,
+    51.52
+   ],
+   [
+    "then",
+    51.52,
+    52.06
+   ],
+   [
+    "one",
+    52.06,
+    52.32
+   ],
+   [
+    "daughter",
+    52.32,
+    52.78
+   ],
+   [
+    "to",
+    52.78,
+    53.26
+   ],
+   [
+    "Charlotte.",
+    53.26,
+    53.58
+   ]
+  ],
+  "gaps_over_0.35s_inside_a_sentence": [
+   {
+    "after": "flesh,",
+    "before": "a",
+    "at_s": 0.92,
+    "gap_s": 0.54
+   },
+   {
+    "after": "sage,",
+    "before": "who",
+    "at_s": 5.08,
+    "gap_s": 0.56
+   },
+   {
+    "after": "husband,",
+    "before": "she",
+    "at_s": 17.22,
+    "gap_s": 0.52
+   },
+   {
+    "after": "flesh,",
+    "before": "hard",
+    "at_s": 21.16,
+    "gap_s": 0.48
+   },
+   {
+    "after": "parts,",
+    "before": "each",
+    "at_s": 33.12,
+    "gap_s": 0.42
+   },
+   {
+    "after": "pots,",
+    "before": "Duryodhana",
+    "at_s": 37.56,
+    "gap_s": 0.52
+   },
+   {
+    "after": "first,",
+    "before": "jackals",
+    "at_s": 39.62,
+    "gap_s": 1.14
+   },
+   {
+    "after": "said,",
+    "before": "give",
+    "at_s": 43.14,
+    "gap_s": 0.5
+   }
+  ],
+  "script_words": 125,
+  "misheard": [
+   {
+    "script": "morning sun",
+    "heard": "morning's son"
+   },
+   {
+    "script": "a hundred and one",
+    "heard": "101"
+   },
+   {
+    "script": "pot",
+    "heard": "pots"
+   },
+   {
+    "script": "brahmins",
+    "heard": "brahmin"
+   },
+   {
+    "script": "duhshala",
+    "heard": "to charlotte"
+   }
+  ]
+ },
+ "voice_stem": {
+  "peak_dbfs": -6.2,
+  "samples_at_0.999": 0,
+  "boundaries": 24,
+  "ordinary_speech_step_99pct_db": -24.3,
+  "loudest_step_at_a_boundary_db": -74.6,
+  "boundaries_with_a_step_over_-40_db": [],
+  "boundaries_with_level_over_-30_db": []
+ },
+ "pauses_inside_sentences_in_the_voice_files": {
+  "over_0.35_s": [
+   {
+    "shot": "vyasa",
+    "after": "came:",
+    "before": "\"Fill",
+    "silence_s": 0.37
+   }
+  ],
+  "longest": [
+   {
+    "shot": "vyasa",
+    "after": "came:",
+    "before": "\"Fill",
+    "silence_s": 0.37
+   },
+   {
+    "shot": "split",
+    "after": "parts,",
+    "before": "each",
+    "silence_s": 0.29
+   },
+   {
+    "shot": "daughter",
+    "after": "born,",
+    "before": "then",
+    "silence_s": 0.28
+   },
+   {
+    "shot": "boon",
+    "after": "sage,",
+    "before": "who",
+    "silence_s": 0.27
+   },
+   {
+    "shot": "refuse",
+    "after": "son,",
+    "before": "the",
+    "silence_s": 0.27
+   },
+   {
+    "shot": "daughter",
+    "after": "daughter:",
+    "before": "Duhshala.",
+    "silence_s": 0.25
+   },
+   {
+    "shot": "forced",
+    "after": "husband,",
+    "before": "she",
+    "silence_s": 0.24
+   },
+   {
+    "shot": "mass",
+    "after": "flesh,",
+    "before": "hard",
+    "silence_s": 0.21
+   }
+  ]
+ }
+}

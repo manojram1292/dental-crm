@@ -990,3 +990,64 @@ trailer's drawing, laid over the 3D light; it does not move in depth with it. Th
 To re-run: `python3 -I lab/review/teaser/mkscript.py`; voice as `tools/episode_loop.md` step 2 with `--ep 96 --pace 60`;
 `python3 -I tools/score.py --ep 96 && python3 -I tools/mix.py --ep 96`; `node tools/gate.mjs --ep 96 --frames --audio`;
 `bash lab/review/teaser/tools/render_segments.sh`; then the share encode and checks as `tools/finish.sh` (through `episode96*.mp4` links).
+
+## Red paper-cut sample · pipeline 95 (2026-11-17): `papercut.mp4`, `papercut-share.mp4`
+
+A style sample for the owner: one short of the series in a new look, red paper-cut in the Indian sanjhi manner (the rules:
+`.claude/skills/lemo-styles/references/papercut-red.md`, with the series' rules over them). Story: the birth of Gandhari's hundred
+sons, CE 1.107, constituted text only; verse and Sanskrit per line in `script/papercut-CHECK.md` (what the star passages add, such as
+Duryodhana braying, the rain of blood, the iron bar, the wish for a daughter and "two years" for the pots, is listed there and left out).
+
+Built additively:
+- **Script** `script/papercut.en.json` (`"rules": 2`, `"credits": "source-only"`, `"papercut": 1`), symlink `script/ep95.en.json`, written by
+  `lab/review/papercut/mkscript.py`. 12 voiced lines and an end card, 57.07 s, turn at 51.9 % (the fold-cut-unfold), one signature.
+- **Look** `src/scenes/papercut/paper.js` (paper textures as patterns that move with each piece, hand-cut wobble, inset yin contour,
+  holes cut through, per-sheet shadow and light/dark cut rims, jointed profile figures with swapped face pieces and crescent eyes with
+  bridges, an 8-fold rosette from one mirrored wedge, the banner strip, `peel` and `turn` transitions for this film only) and
+  `src/scenes/papercut/scenes.js` (one scene per line; captions are a paper banner drawn there), entry 95 in `src/episodes.js`.
+  Figures step at 12 fps (`PC.stepT`, frame-grid safe under motion blur); camera, light and flying offcuts move every frame. Gold foil once
+  (Vyasa's halo). No film grain, no plaster overlay.
+- **Sound** `tools/score_papercut.py` (reuses the teaser's tanpura, bansuri, bell, choir, drums and rooms; new santoor, sitar pluck,
+  dholak heartbeat, the one ghanta on "Jackals", scissor shear, fold swish and crease tap, unfold snap, peel, cardboard thud, drips, pot
+  clinks, jackal glides, crickets). The fold-cut-unfold is timed from the word "hundred" by one schedule shared by picture and score.
+- **Shared tools, behind the script's `"papercut"` flag**: `tools/gate.mjs` (transitions `peel`/`turn` count as medium transitions;
+  no previous-episode question, no catalog titles; a papercut script is never the "previous episode" of 96 and is skipped in the
+  previous-episodes pHash), `tools/score.py` (dispatch to `score_papercut.py`). `tools/mix.py` unchanged (main_rules2). Proof:
+  `node tools/gate.mjs --ep N --audio` for 44, 48, 49, 96, 97 byte-identical before/after (`lab/review/papercut/gate-proof/`).
+
+Voice: 72 takes (Chatterbox, bm_daniel reference, one take a line, `select --pace -80` to prefer the quicker takes: the first selection
+ran 65.9 s); two lines shortened and re-voiced inside the verse check ("News came: … Kunti …" → "Then her sister-in-law bore a son …";
+"under guard" dropped). Median 126.5 Hz, farthest 1.4 st, no stretch.
+
+Loop: script gate → voice → score/mix/audio gate (the first mixes failed: −18.3 LUFS from a clipped music stem that the master paid
+for, then LRA 2.1; fixed with a soft stem limiter, per-line `mixDb` and bed dynamics; hits moved out of the speech for voice clarity) →
+style test and model sheet (figures redrawn once: the first were stick figures) → 0.25 s stills and the viewer pass → six frame gates
+(motion at 0.5 s, figure contrast for Kunti and Gandhari in the sunrise, freezes in slow shots) → render in five segments → verify.
+
+Viewer pass. Hook: big cut letters from frame 0 over the beating lump, santoor and heartbeat on the first frame. Changed because of it:
+the Kunti scene's near figure covered the frame; Vyasa's raised arm and Gandhari's offering hands met in a red-on-red knot (arms
+re-posed, the bowl dropped); the king first held the child out toward the brahmins (now to his chest, in cream paper so it does not
+merge with him); the rows of pots were red bands (now spaced, dark shelves, light behind); the end card's peacocks overlapped into a blob.
+
+Verify (`tools/finish.sh 95` through temporary `episode95*.mp4` links; `lab/review/papercut/finish.log`). The first render had 7 freezes
+over 0.3 s (freezedetect n=0.003) at 8.6 s (carry), 29.9 s (split, the flat sheet) and 55–57 s (end card), which the pre-render gate's
+looser threshold passed. Those shots were given motion, the gate run again (passed), and three patches rendered at the master's
+keyframes and spliced (`lab/review/papercut/tools/splice.sh`): framemd5 shows only frames 240–370, 870–1121 and 1634–1711 differ; the
+decoded audio md5 is unchanged. After: 1,712 frames, 57.07 s; 0 freezes on master and share; share 19.3 MB; SSIM to master 0.986
+(worst 0.968); master −14.1 LUFS, −2.9 dBFS peak, LRA 5.5; share −14.2 LUFS, −2.1 dBFS peak; on the share file 0 windows under −34 dBFS
+between lines, worst fall 11.6 dB, voice over the rest a median 15.5 dB and 9.4 dB at the 10th percentile (wav: 15.8 / 9.7), first
+100 ms −25.5 dBFS, 0 samples at full scale. The recogniser on the final mix writes "morning's son", "101", "pots", "brahmin" and
+"to charlotte" for Duhshala.
+
+Looked at: the style test, the model sheet, the split strip, every pre-render 0.25 s sheet (before and after the fixes), the cut sheet,
+and the final contact sheet. The final 0.25 s sheets were made and not all opened.
+
+Still weak: nobody has heard it. Duhshala is not recognised (the name was never tried with other spellings). The voice over the rest is
+15.5 dB on the share file, near the limit. The pots shot reads as rows of small shapes rather than pots at phone size, and the child
+rising from the broken pot is a plain red shape. The figures' faces are small in the wide shots; only Gandhari has a close-up. The
+hundred boys of the payoff are one stamped figure. Paper grain is a texture pattern (not a soft-light pass with the alpha restored, as the
+style describes; the result is the same: holes stay holes).
+
+To re-run: `python3 -I lab/review/papercut/mkscript.py`; voice as `tools/episode_loop.md` step 2 with `--ep 95` and `select --pace -80`;
+`python3 -I tools/score.py --ep 95 && python3 -I tools/mix.py --ep 95`; `node tools/gate.mjs --ep 95 --frames --audio`;
+`bash lab/review/papercut/tools/render_segments.sh` (then `splice.sh` reproduces the patch); share encode and checks as `tools/finish.sh`.
