@@ -1,0 +1,79 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "mass~0.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Out came a mass of flesh, hard as iron.",
+ "heard": "Out came a mass of flesh, hard as iron.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 2.967,
+   "words": 9,
+   "text": "Out came a mass of flesh, hard as iron."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.211
+  ],
+  [
+   0.292,
+   0.35
+  ],
+  [
+   0.414,
+   0.68
+  ],
+  [
+   0.68,
+   0.94
+  ],
+  [
+   0.94,
+   1.246
+  ],
+  [
+   1.352,
+   1.7
+  ],
+  [
+   1.919,
+   2.1
+  ],
+  [
+   2.1,
+   2.3
+  ],
+  [
+   2.3,
+   2.841
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.22,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 127.9,
+  "st": 7.4,
+  "edb": 17.1,
+  "dur": 2.82,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.5,
+  "jitter": 2.32,
+  "tail_db": -63.8
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": 0.1,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

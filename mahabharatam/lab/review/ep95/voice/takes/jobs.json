@@ -1,0 +1,30 @@
+[
+ {
+  "id": "kunti~1",
+  "text": "Then her sister-in-law bore a son, bright as the morning sun.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "pots~1",
+  "text": "Each went into its pot. Duryodhana was born first.",
+  "ref": "/home/user/dental-crm/mahabharatam/lab/review/trailer/v3/voice/ref_daniel.wav",
+  "exag": 0.5,
+  "temp": 0.7,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ }
+]

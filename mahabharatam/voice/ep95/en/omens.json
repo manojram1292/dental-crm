@@ -1,0 +1,79 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "omens~0.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Jackals howled. The brahmins said: give this one up.",
+ "heard": "Jackals howled. The Brahmin said, give this one up.",
+ "recogniser_errors": 1,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 4.074,
+   "words": 9,
+   "text": "Jackals howled. The brahmins said: give this one up."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.58
+  ],
+  [
+   0.58,
+   1.285
+  ],
+  [
+   1.588,
+   1.68
+  ],
+  [
+   1.68,
+   2.16
+  ],
+  [
+   2.16,
+   2.781
+  ],
+  [
+   3.005,
+   3.12
+  ],
+  [
+   3.12,
+   3.38
+  ],
+  [
+   3.38,
+   3.64
+  ],
+  [
+   3.64,
+   3.872
+  ]
+ ],
+ "lead_air_ms": 19,
+ "tail_air_ms": 200,
+ "longest_pause_s": 0.3,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 117.6,
+  "st": 14.8,
+  "edb": 19.4,
+  "dur": 3.85,
+  "jumps": 0.0,
+  "creak": 0.025,
+  "hnr": 9.9,
+  "jitter": 2.5,
+  "tail_db": -70.7
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": -1.36,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

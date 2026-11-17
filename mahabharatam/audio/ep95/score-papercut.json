@@ -1,0 +1,11 @@
+{
+ "motif": "Sa Pa komal-Dha Pa (D A B-flat A)",
+ "raga": "D with komal Re and komal Dha",
+ "ghanta_at_s": 40.333,
+ "unfold_at_s": 31.945,
+ "cues": 198,
+ "irs": [
+  "041_TrainStation_SouthStationBoston.wav",
+  "256_Stairwell.wav"
+ ]
+}

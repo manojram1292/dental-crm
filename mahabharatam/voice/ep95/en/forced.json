@@ -1,0 +1,83 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "forced~0.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "In grief, without telling her husband, she forced the birth.",
+ "heard": "In grief without telling her husband, she forced the birth.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 3.515,
+   "words": 10,
+   "text": "In grief, without telling her husband, she forced the birth."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.12
+  ],
+  [
+   0.12,
+   0.549
+  ],
+  [
+   0.662,
+   0.933
+  ],
+  [
+   1.015,
+   1.16
+  ],
+  [
+   1.16,
+   1.658
+  ],
+  [
+   1.735,
+   1.957
+  ],
+  [
+   2.207,
+   2.388
+  ],
+  [
+   2.496,
+   2.803
+  ],
+  [
+   2.884,
+   2.92
+  ],
+  [
+   2.92,
+   3.31
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 200,
+ "longest_pause_s": 0.25,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 127.1,
+  "st": 9.2,
+  "edb": 18.1,
+  "dur": 3.29,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 9.4,
+  "jitter": 2.8,
+  "tail_db": -69.2
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": -0.01,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

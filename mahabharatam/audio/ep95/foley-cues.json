@@ -1,0 +1,1190 @@
+[
+ {
+  "line": "hook",
+  "cue": "santoor (D, frame 0)",
+  "start_s": 0.04,
+  "peak_db": -20.0
+ },
+ {
+  "line": "hook",
+  "cue": "sub under the lump",
+  "start_s": 0.04,
+  "peak_db": -17.1
+ },
+ {
+  "line": "hook",
+  "cue": "heartbeat (the lump)",
+  "start_s": 0.04,
+  "peak_db": -6.3
+ },
+ {
+  "line": "hook",
+  "cue": "heartbeat (the lump)",
+  "start_s": 0.72,
+  "peak_db": -16.9
+ },
+ {
+  "line": "hook",
+  "cue": "heartbeat (the lump)",
+  "start_s": 1.47,
+  "peak_db": -14.2
+ },
+ {
+  "line": "hook",
+  "cue": "heartbeat (the lump)",
+  "start_s": 2.22,
+  "peak_db": -14.8
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick",
+  "start_s": 0.04,
+  "peak_db": -18.4
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick",
+  "start_s": 0.123,
+  "peak_db": -20.6
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick",
+  "start_s": 0.207,
+  "peak_db": -26.3
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick",
+  "start_s": 0.29,
+  "peak_db": -23.0
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick",
+  "start_s": 0.373,
+  "peak_db": -29.9
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick",
+  "start_s": 0.457,
+  "peak_db": -28.6
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick",
+  "start_s": 0.54,
+  "peak_db": -27.2
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick",
+  "start_s": 0.623,
+  "peak_db": -24.2
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick",
+  "start_s": 0.707,
+  "peak_db": -27.1
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick (A HUNDRED SONS)",
+  "start_s": 1.429,
+  "peak_db": -24.2
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick (A HUNDRED SONS)",
+  "start_s": 1.512,
+  "peak_db": -26.3
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick (A HUNDRED SONS)",
+  "start_s": 1.596,
+  "peak_db": -23.4
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick (A HUNDRED SONS)",
+  "start_s": 1.679,
+  "peak_db": -26.5
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick (A HUNDRED SONS)",
+  "start_s": 1.762,
+  "peak_db": -28.7
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick (A HUNDRED SONS)",
+  "start_s": 1.846,
+  "peak_db": -23.9
+ },
+ {
+  "line": "hook",
+  "cue": "cut letter tick (A HUNDRED SONS)",
+  "start_s": 1.929,
+  "peak_db": -24.2
+ },
+ {
+  "line": "hook",
+  "cue": "santoor motif",
+  "start_s": 1.429,
+  "peak_db": -22.6
+ },
+ {
+  "line": "boon",
+  "cue": "peel (transition)",
+  "start_s": 2.973,
+  "peak_db": -10.1
+ },
+ {
+  "line": "boon",
+  "cue": "santoor (court)",
+  "start_s": 3.333,
+  "peak_db": -25.4
+ },
+ {
+  "line": "boon",
+  "cue": "santoor (court)",
+  "start_s": 3.653,
+  "peak_db": -26.7
+ },
+ {
+  "line": "boon",
+  "cue": "santoor (court)",
+  "start_s": 3.973,
+  "peak_db": -23.3
+ },
+ {
+  "line": "boon",
+  "cue": "santoor (court)",
+  "start_s": 4.293,
+  "peak_db": -26.5
+ },
+ {
+  "line": "boon",
+  "cue": "santoor (court)",
+  "start_s": 4.613,
+  "peak_db": -22.2
+ },
+ {
+  "line": "boon",
+  "cue": "unfold snap (the flower)",
+  "start_s": 6.263,
+  "peak_db": -4.8
+ },
+ {
+  "line": "boon",
+  "cue": "bell (the flower)",
+  "start_s": 6.263,
+  "peak_db": -17.8
+ },
+ {
+  "line": "boon",
+  "cue": "cloth (she offers the bowl)",
+  "start_s": 3.433,
+  "peak_db": -27.0
+ },
+ {
+  "line": "carry",
+  "cue": "bansuri (long notes)",
+  "start_s": 8.517,
+  "peak_db": -21.8
+ },
+ {
+  "line": "carry",
+  "cue": "sitar pluck (a month)",
+  "start_s": 8.567,
+  "peak_db": -38.0
+ },
+ {
+  "line": "carry",
+  "cue": "sitar pluck (a month)",
+  "start_s": 9.067,
+  "peak_db": -40.7
+ },
+ {
+  "line": "carry",
+  "cue": "sitar pluck (a month)",
+  "start_s": 9.567,
+  "peak_db": -37.7
+ },
+ {
+  "line": "carry",
+  "cue": "sitar pluck (a month)",
+  "start_s": 10.067,
+  "peak_db": -38.5
+ },
+ {
+  "line": "carry",
+  "cue": "sitar pluck (a month)",
+  "start_s": 10.567,
+  "peak_db": -37.2
+ },
+ {
+  "line": "kunti",
+  "cue": "page turn (transition)",
+  "start_s": 10.96,
+  "peak_db": -8.4
+ },
+ {
+  "line": "kunti",
+  "cue": "santoor (sunrise)",
+  "start_s": 11.25,
+  "peak_db": -25.4
+ },
+ {
+  "line": "kunti",
+  "cue": "santoor (sunrise)",
+  "start_s": 11.53,
+  "peak_db": -22.6
+ },
+ {
+  "line": "kunti",
+  "cue": "santoor (sunrise)",
+  "start_s": 11.81,
+  "peak_db": -26.0
+ },
+ {
+  "line": "kunti",
+  "cue": "santoor (sunrise)",
+  "start_s": 12.09,
+  "peak_db": -29.7
+ },
+ {
+  "line": "kunti",
+  "cue": "santoor (sunrise)",
+  "start_s": 12.37,
+  "peak_db": -23.6
+ },
+ {
+  "line": "kunti",
+  "cue": "santoor (sunrise)",
+  "start_s": 12.65,
+  "peak_db": -23.0
+ },
+ {
+  "line": "kunti",
+  "cue": "santoor (sunrise)",
+  "start_s": 12.93,
+  "peak_db": -21.3
+ },
+ {
+  "line": "kunti",
+  "cue": "santoor (sunrise)",
+  "start_s": 13.21,
+  "peak_db": -22.8
+ },
+ {
+  "line": "kunti",
+  "cue": "santoor (sunrise)",
+  "start_s": 13.49,
+  "peak_db": -18.0
+ },
+ {
+  "line": "kunti",
+  "cue": "santoor (sunrise)",
+  "start_s": 13.77,
+  "peak_db": -21.1
+ },
+ {
+  "line": "kunti",
+  "cue": "bell (the child)",
+  "start_s": 12.7,
+  "peak_db": -21.9
+ },
+ {
+  "line": "forced",
+  "cue": "low sitar (grief)",
+  "start_s": 15.45,
+  "peak_db": -25.6
+ },
+ {
+  "line": "forced",
+  "cue": "choir (low, oo)",
+  "start_s": 15.3,
+  "peak_db": -31.4
+ },
+ {
+  "line": "forced",
+  "cue": "heartbeat (stumbling)",
+  "start_s": 15.7,
+  "peak_db": -18.9
+ },
+ {
+  "line": "forced",
+  "cue": "heartbeat (stumbling)",
+  "start_s": 16.4,
+  "peak_db": -16.8
+ },
+ {
+  "line": "forced",
+  "cue": "heartbeat (stumbling)",
+  "start_s": 16.9,
+  "peak_db": -18.4
+ },
+ {
+  "line": "forced",
+  "cue": "heartbeat (stumbling)",
+  "start_s": 17.9,
+  "peak_db": -17.1
+ },
+ {
+  "line": "forced",
+  "cue": "heartbeat (stumbling)",
+  "start_s": 18.3,
+  "peak_db": -15.4
+ },
+ {
+  "line": "forced",
+  "cue": "shudder (thud)",
+  "start_s": 18.32,
+  "peak_db": -13.8
+ },
+ {
+  "line": "mass",
+  "cue": "falling step (tick)",
+  "start_s": 19.5,
+  "peak_db": -28.2
+ },
+ {
+  "line": "mass",
+  "cue": "falling step (tick)",
+  "start_s": 19.65,
+  "peak_db": -26.0
+ },
+ {
+  "line": "mass",
+  "cue": "falling step (tick)",
+  "start_s": 19.8,
+  "peak_db": -24.9
+ },
+ {
+  "line": "mass",
+  "cue": "THUD (it lands)",
+  "start_s": 19.78,
+  "peak_db": -0.5
+ },
+ {
+  "line": "mass",
+  "cue": "boom",
+  "start_s": 19.78,
+  "peak_db": -15.1
+ },
+ {
+  "line": "mass",
+  "cue": "dholak (dha)",
+  "start_s": 19.8,
+  "peak_db": -5.0
+ },
+ {
+  "line": "vyasa",
+  "cue": "peel (transition)",
+  "start_s": 23.107,
+  "peak_db": -11.9
+ },
+ {
+  "line": "vyasa",
+  "cue": "choir bloom (aa)",
+  "start_s": 23.217,
+  "peak_db": -28.8
+ },
+ {
+  "line": "vyasa",
+  "cue": "bell (the gold)",
+  "start_s": 23.217,
+  "peak_db": -15.3
+ },
+ {
+  "line": "vyasa",
+  "cue": "bansuri (motif)",
+  "start_s": 23.567,
+  "peak_db": -19.4
+ },
+ {
+  "line": "vyasa",
+  "cue": "pot clink",
+  "start_s": 25.547,
+  "peak_db": -12.6
+ },
+ {
+  "line": "vyasa",
+  "cue": "pot clink",
+  "start_s": 25.627,
+  "peak_db": -13.2
+ },
+ {
+  "line": "vyasa",
+  "cue": "pot clink",
+  "start_s": 25.707,
+  "peak_db": -13.5
+ },
+ {
+  "line": "vyasa",
+  "cue": "pot clink",
+  "start_s": 25.787,
+  "peak_db": -15.8
+ },
+ {
+  "line": "vyasa",
+  "cue": "pot clink",
+  "start_s": 25.867,
+  "peak_db": -14.1
+ },
+ {
+  "line": "vyasa",
+  "cue": "pot clink",
+  "start_s": 25.947,
+  "peak_db": -13.2
+ },
+ {
+  "line": "vyasa",
+  "cue": "pot clink",
+  "start_s": 26.027,
+  "peak_db": -12.1
+ },
+ {
+  "line": "vyasa",
+  "cue": "water drip",
+  "start_s": 27.553,
+  "peak_db": -20.5
+ },
+ {
+  "line": "vyasa",
+  "cue": "water drip",
+  "start_s": 27.785,
+  "peak_db": -20.5
+ },
+ {
+  "line": "vyasa",
+  "cue": "water drip",
+  "start_s": 28.018,
+  "peak_db": -20.5
+ },
+ {
+  "line": "vyasa",
+  "cue": "water drip",
+  "start_s": 28.222,
+  "peak_db": -20.5
+ },
+ {
+  "line": "vyasa",
+  "cue": "water drip",
+  "start_s": 28.447,
+  "peak_db": -20.5
+ },
+ {
+  "line": "vyasa",
+  "cue": "water drip",
+  "start_s": 28.667,
+  "peak_db": -20.5
+ },
+ {
+  "line": "vyasa",
+  "cue": "water drip",
+  "start_s": 28.94,
+  "peak_db": -20.5
+ },
+ {
+  "line": "vyasa",
+  "cue": "water drip",
+  "start_s": 29.122,
+  "peak_db": -20.5
+ },
+ {
+  "line": "vyasa",
+  "cue": "water drip",
+  "start_s": 29.357,
+  "peak_db": -20.5
+ },
+ {
+  "line": "split",
+  "cue": "reverse swell into the sheet",
+  "start_s": 29.285,
+  "peak_db": -30.4
+ },
+ {
+  "line": "split",
+  "cue": "the lump goes flat (snap)",
+  "start_s": 29.865,
+  "peak_db": -12.4
+ },
+ {
+  "line": "split",
+  "cue": "cold water drip (the rest)",
+  "start_s": 29.64,
+  "peak_db": -25.0
+ },
+ {
+  "line": "split",
+  "cue": "cold water drip (the rest)",
+  "start_s": 29.74,
+  "peak_db": -25.7
+ },
+ {
+  "line": "split",
+  "cue": "cold water drip (the rest)",
+  "start_s": 29.84,
+  "peak_db": -26.6
+ },
+ {
+  "line": "split",
+  "cue": "fold 1 (swish)",
+  "start_s": 30.165,
+  "peak_db": -10.4
+ },
+ {
+  "line": "split",
+  "cue": "fold 1 (crease tap)",
+  "start_s": 30.465,
+  "peak_db": -1.2
+ },
+ {
+  "line": "split",
+  "cue": "fold 1 (santoor)",
+  "start_s": 30.465,
+  "peak_db": -25.8
+ },
+ {
+  "line": "split",
+  "cue": "fold 2 (swish)",
+  "start_s": 30.485,
+  "peak_db": -12.8
+ },
+ {
+  "line": "split",
+  "cue": "fold 2 (crease tap)",
+  "start_s": 30.785,
+  "peak_db": -1.3
+ },
+ {
+  "line": "split",
+  "cue": "fold 2 (santoor)",
+  "start_s": 30.785,
+  "peak_db": -25.1
+ },
+ {
+  "line": "split",
+  "cue": "fold 3 (swish)",
+  "start_s": 30.805,
+  "peak_db": -12.3
+ },
+ {
+  "line": "split",
+  "cue": "fold 3 (crease tap)",
+  "start_s": 31.105,
+  "peak_db": -4.0
+ },
+ {
+  "line": "split",
+  "cue": "fold 3 (santoor)",
+  "start_s": 31.105,
+  "peak_db": -27.8
+ },
+ {
+  "line": "split",
+  "cue": "scissor shear",
+  "start_s": 31.145,
+  "peak_db": -4.2
+ },
+ {
+  "line": "split",
+  "cue": "sitar pluck (a cut)",
+  "start_s": 31.265,
+  "peak_db": -27.5
+ },
+ {
+  "line": "split",
+  "cue": "scissor shear",
+  "start_s": 31.312,
+  "peak_db": -6.4
+ },
+ {
+  "line": "split",
+  "cue": "sitar pluck (a cut)",
+  "start_s": 31.432,
+  "peak_db": -29.4
+ },
+ {
+  "line": "split",
+  "cue": "scissor shear",
+  "start_s": 31.478,
+  "peak_db": -8.2
+ },
+ {
+  "line": "split",
+  "cue": "sitar pluck (a cut)",
+  "start_s": 31.598,
+  "peak_db": -29.6
+ },
+ {
+  "line": "split",
+  "cue": "scissor shear",
+  "start_s": 31.645,
+  "peak_db": -8.6
+ },
+ {
+  "line": "split",
+  "cue": "sitar pluck (a cut)",
+  "start_s": 31.765,
+  "peak_db": -27.4
+ },
+ {
+  "line": "split",
+  "cue": "scissor shear",
+  "start_s": 31.812,
+  "peak_db": -6.1
+ },
+ {
+  "line": "split",
+  "cue": "sitar pluck (a cut)",
+  "start_s": 31.932,
+  "peak_db": -28.3
+ },
+ {
+  "line": "split",
+  "cue": "unfold snap 1",
+  "start_s": 31.925,
+  "peak_db": -3.4
+ },
+ {
+  "line": "split",
+  "cue": "unfold snap 2",
+  "start_s": 32.025,
+  "peak_db": -1.2
+ },
+ {
+  "line": "split",
+  "cue": "unfold snap 3",
+  "start_s": 32.125,
+  "peak_db": -1.4
+ },
+ {
+  "line": "split",
+  "cue": "santoor glissando (the unfold)",
+  "start_s": 31.495,
+  "peak_db": -9.2
+ },
+ {
+  "line": "split",
+  "cue": "bloom (choir on D, aa)",
+  "start_s": 31.945,
+  "peak_db": -24.5
+ },
+ {
+  "line": "split",
+  "cue": "bell (the hundred and one)",
+  "start_s": 31.965,
+  "peak_db": -15.7
+ },
+ {
+  "line": "split",
+  "cue": "dholak (dha) on the unfold",
+  "start_s": 31.945,
+  "peak_db": -5.8
+ },
+ {
+  "line": "pots",
+  "cue": "page turn (transition)",
+  "start_s": 36.227,
+  "peak_db": -13.0
+ },
+ {
+  "line": "pots",
+  "cue": "low drone (the rows)",
+  "start_s": 36.267,
+  "peak_db": -27.3
+ },
+ {
+  "line": "pots",
+  "cue": "the pot cracks open",
+  "start_s": 37.854,
+  "peak_db": -0.9
+ },
+ {
+  "line": "pots",
+  "cue": "dholak (dha, the child)",
+  "start_s": 37.874,
+  "peak_db": -2.6
+ },
+ {
+  "line": "pots",
+  "cue": "rising (tick)",
+  "start_s": 37.974,
+  "peak_db": -31.2
+ },
+ {
+  "line": "pots",
+  "cue": "rising (tick)",
+  "start_s": 38.057,
+  "peak_db": -28.8
+ },
+ {
+  "line": "pots",
+  "cue": "rising (tick)",
+  "start_s": 38.14,
+  "peak_db": -31.4
+ },
+ {
+  "line": "pots",
+  "cue": "rising (tick)",
+  "start_s": 38.224,
+  "peak_db": -30.3
+ },
+ {
+  "line": "pots",
+  "cue": "santoor (low, unresolved)",
+  "start_s": 38.074,
+  "peak_db": -20.6
+ },
+ {
+  "line": "omens",
+  "cue": "GHANTA (the one stroke)",
+  "start_s": 40.333,
+  "peak_db": -14.0
+ },
+ {
+  "line": "omens",
+  "cue": "sub (the stroke)",
+  "start_s": 40.333,
+  "peak_db": -13.0
+ },
+ {
+  "line": "omens",
+  "cue": "jackal howl",
+  "start_s": 40.683,
+  "peak_db": -29.7
+ },
+ {
+  "line": "omens",
+  "cue": "jackal howl",
+  "start_s": 41.133,
+  "peak_db": -30.1
+ },
+ {
+  "line": "omens",
+  "cue": "jackal howl",
+  "start_s": 41.633,
+  "peak_db": -31.4
+ },
+ {
+  "line": "omens",
+  "cue": "jackal howl",
+  "start_s": 42.733,
+  "peak_db": -29.5
+ },
+ {
+  "line": "omens",
+  "cue": "jackal howl",
+  "start_s": 43.533,
+  "peak_db": -29.4
+ },
+ {
+  "line": "omens",
+  "cue": "dholak (the brahmins)",
+  "start_s": 42.121,
+  "peak_db": -10.6
+ },
+ {
+  "line": "omens",
+  "cue": "choir (dark, aa)",
+  "start_s": 40.633,
+  "peak_db": -36.1
+ },
+ {
+  "line": "refuse",
+  "cue": "peel (transition)",
+  "start_s": 45.14,
+  "peak_db": -10.5
+ },
+ {
+  "line": "refuse",
+  "cue": "cloth (he turns)",
+  "start_s": 46.63,
+  "peak_db": -25.8
+ },
+ {
+  "line": "refuse",
+  "cue": "bansuri (low)",
+  "start_s": 45.6,
+  "peak_db": -23.9
+ },
+ {
+  "line": "refuse",
+  "cue": "heartbeat (slow)",
+  "start_s": 45.4,
+  "peak_db": -22.4
+ },
+ {
+  "line": "refuse",
+  "cue": "heartbeat (slow)",
+  "start_s": 46.5,
+  "peak_db": -21.4
+ },
+ {
+  "line": "refuse",
+  "cue": "heartbeat (slow)",
+  "start_s": 47.6,
+  "peak_db": -23.2
+ },
+ {
+  "line": "refuse",
+  "cue": "heartbeat (slow)",
+  "start_s": 48.7,
+  "peak_db": -20.5
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 50.279,
+  "peak_db": -24.1
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 50.279,
+  "peak_db": -29.5
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 50.438,
+  "peak_db": -21.9
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 50.438,
+  "peak_db": -32.1
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 50.597,
+  "peak_db": -19.7
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 50.597,
+  "peak_db": -30.9
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 50.756,
+  "peak_db": -21.9
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 50.756,
+  "peak_db": -27.5
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 50.915,
+  "peak_db": -17.6
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 50.915,
+  "peak_db": -29.9
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 51.074,
+  "peak_db": -17.5
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 51.074,
+  "peak_db": -28.2
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 51.233,
+  "peak_db": -20.6
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 51.233,
+  "peak_db": -28.0
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 51.392,
+  "peak_db": -19.7
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 51.392,
+  "peak_db": -30.2
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 51.551,
+  "peak_db": -22.7
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 51.551,
+  "peak_db": -27.6
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 51.71,
+  "peak_db": -20.2
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 51.71,
+  "peak_db": -28.4
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 51.869,
+  "peak_db": -19.5
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 51.869,
+  "peak_db": -27.3
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 52.028,
+  "peak_db": -17.9
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 52.028,
+  "peak_db": -30.7
+ },
+ {
+  "line": "daughter",
+  "cue": "santoor run (a ring of sons)",
+  "start_s": 52.187,
+  "peak_db": -16.6
+ },
+ {
+  "line": "daughter",
+  "cue": "paper tick (a ring)",
+  "start_s": 52.187,
+  "peak_db": -28.7
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 49.633,
+  "peak_db": -14.3
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 49.946,
+  "peak_db": -23.1
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 50.258,
+  "peak_db": -22.1
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 50.571,
+  "peak_db": -21.2
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 50.883,
+  "peak_db": -13.8
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 51.196,
+  "peak_db": -22.1
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 51.508,
+  "peak_db": -21.1
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 51.821,
+  "peak_db": -20.7
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 52.133,
+  "peak_db": -12.5
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 52.446,
+  "peak_db": -23.0
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 52.758,
+  "peak_db": -22.6
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 53.071,
+  "peak_db": -22.7
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 53.383,
+  "peak_db": -13.0
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 53.696,
+  "peak_db": -22.3
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 54.008,
+  "peak_db": -22.0
+ },
+ {
+  "line": "daughter",
+  "cue": "dholak groove",
+  "start_s": 54.321,
+  "peak_db": -23.0
+ },
+ {
+  "line": "daughter",
+  "cue": "snap (the daughter)",
+  "start_s": 53.038,
+  "peak_db": -5.4
+ },
+ {
+  "line": "daughter",
+  "cue": "bell (the daughter)",
+  "start_s": 53.058,
+  "peak_db": -13.0
+ },
+ {
+  "line": "daughter",
+  "cue": "bansuri (high, motif)",
+  "start_s": 53.158,
+  "peak_db": -17.2
+ },
+ {
+  "line": "endcard",
+  "cue": "cut letter tick",
+  "start_s": 54.467,
+  "peak_db": -19.8
+ },
+ {
+  "line": "endcard",
+  "cue": "cut letter tick",
+  "start_s": 54.55,
+  "peak_db": -19.9
+ },
+ {
+  "line": "endcard",
+  "cue": "cut letter tick",
+  "start_s": 54.633,
+  "peak_db": -22.7
+ },
+ {
+  "line": "endcard",
+  "cue": "cut letter tick",
+  "start_s": 54.717,
+  "peak_db": -20.5
+ },
+ {
+  "line": "endcard",
+  "cue": "cut letter tick",
+  "start_s": 54.8,
+  "peak_db": -20.7
+ },
+ {
+  "line": "endcard",
+  "cue": "cut letter tick",
+  "start_s": 54.883,
+  "peak_db": -19.3
+ },
+ {
+  "line": "endcard",
+  "cue": "santoor (resolve)",
+  "start_s": 54.487,
+  "peak_db": -17.6
+ },
+ {
+  "line": "endcard",
+  "cue": "santoor (resolve)",
+  "start_s": 54.527,
+  "peak_db": -17.7
+ },
+ {
+  "line": "endcard",
+  "cue": "santoor (resolve)",
+  "start_s": 54.567,
+  "peak_db": -17.4
+ },
+ {
+  "line": "endcard",
+  "cue": "santoor (resolve)",
+  "start_s": 54.607,
+  "peak_db": -14.0
+ },
+ {
+  "line": "endcard",
+  "cue": "bell (resolve)",
+  "start_s": 54.487,
+  "peak_db": -11.7
+ },
+ {
+  "line": "endcard",
+  "cue": "dholak (resolve)",
+  "start_s": 54.487,
+  "peak_db": -3.7
+ },
+ {
+  "line": "endcard",
+  "cue": "snap (FOLLOW)",
+  "start_s": 55.347,
+  "peak_db": -11.9
+ }
+]

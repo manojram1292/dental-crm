@@ -1,0 +1,116 @@
+{
+ "hook": [
+  {
+   "k": 0,
+   "text": "One lump of flesh. A hundred sons.",
+   "spell": {},
+   "seeds": 7
+  }
+ ],
+ "boon": [
+  {
+   "k": 0,
+   "text": "Gandhari cared for a weary sage, who granted her one hundred sons.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "carry": [
+  {
+   "k": 0,
+   "text": "She carried the child two years.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "kunti": [
+  {
+   "k": 0,
+   "text": "News came: her sister-in-law Kunti had a son, bright as the morning sun.",
+   "spell": {},
+   "seeds": 5
+  },
+  {
+   "k": 1,
+   "text": "Then her sister-in-law bore a son, bright as the morning sun.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "forced": [
+  {
+   "k": 0,
+   "text": "In grief, without telling her husband, she forced the birth.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "mass": [
+  {
+   "k": 0,
+   "text": "Out came a mass of flesh, hard as iron.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "vyasa": [
+  {
+   "k": 0,
+   "text": "That sage, Vyasa, came: Fill a hundred pots with ghee. Sprinkle it with cold water.",
+   "spell": {
+    "Vyasa": "Vyasa"
+   },
+   "seeds": 5
+  }
+ ],
+ "split": [
+  {
+   "k": 0,
+   "text": "It split into a hundred and one parts, each the size of a thumb joint.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "pots": [
+  {
+   "k": 0,
+   "text": "Each went into its pot, under guard. Duryodhana was born first.",
+   "spell": {
+    "Duryodhana": "Duryodhana"
+   },
+   "seeds": 5
+  },
+  {
+   "k": 1,
+   "text": "Each went into its pot. Duryodhana was born first.",
+   "spell": {
+    "Duryodhana": "Duryodhana"
+   },
+   "seeds": 5
+  }
+ ],
+ "omens": [
+  {
+   "k": 0,
+   "text": "Jackals howled. The brahmins said: give this one up.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "refuse": [
+  {
+   "k": 0,
+   "text": "For love of his son, the king would not.",
+   "spell": {},
+   "seeds": 5
+  }
+ ],
+ "daughter": [
+  {
+   "k": 0,
+   "text": "Within a month all hundred were born, then one daughter: Duhshala.",
+   "spell": {},
+   "seeds": 5
+  }
+ ]
+}

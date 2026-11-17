@@ -67,9 +67,18 @@
     "best_heard": "vyasa",
     "best_fit": 1.0,
     "median_fit": 1.0
+   },
+   {
+    "spelling": "Vyasa",
+    "ep": 95,
+    "line": "vyasa",
+    "takes": 5,
+    "best_heard": "viassa",
+    "best_fit": 1.0,
+    "median_fit": 1.0
    }
   ],
-  "from": "ep50/grew"
+  "from": "ep95/vyasa"
  },
  "Pandava": {
   "spelling": "Pandava",
@@ -202,9 +211,18 @@
     "best_heard": "duryodhana",
     "best_fit": 1.0,
     "median_fit": 0.9
+   },
+   {
+    "spelling": "Duryodhana",
+    "ep": 95,
+    "line": "pots",
+    "takes": 5,
+    "best_heard": "duryodhana",
+    "best_fit": 1.0,
+    "median_fit": 1.0
    }
   ],
-  "from": "ep96/drona"
+  "from": "ep95/pots"
  },
  "Draupadi": {
   "spelling": "Draupadi",
@@ -601,5 +619,59 @@
    }
   ],
   "from": "ep96/promise"
+ },
+ "Gandhari": {
+  "spelling": "Gandhari",
+  "heard": "gandhari",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Gandhari",
+    "ep": 95,
+    "line": "boon",
+    "takes": 5,
+    "best_heard": "gandhari",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep95/boon"
+ },
+ "Kunti": {
+  "spelling": "Kunti",
+  "heard": "kunti",
+  "fit": 1.0,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Kunti",
+    "ep": 95,
+    "line": "kunti",
+    "takes": 5,
+    "best_heard": "kunti",
+    "best_fit": 1.0,
+    "median_fit": 1.0
+   }
+  ],
+  "from": "ep95/kunti"
+ },
+ "Duhshala": {
+  "spelling": "Duhshala",
+  "heard": "dushala",
+  "fit": 0.93,
+  "ok": true,
+  "tried": [
+   {
+    "spelling": "Duhshala",
+    "ep": 95,
+    "line": "daughter",
+    "takes": 5,
+    "best_heard": "dushala",
+    "best_fit": 0.93,
+    "median_fit": 0.93
+   }
+  ],
+  "from": "ep95/daughter"
  }
 }

@@ -1,0 +1,79 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "refuse~0.s2.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "For love of his son, the king would not.",
+ "heard": "For love of his son, the king would not.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 2.98,
+   "words": 9,
+   "text": "For love of his son, the king would not."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.14
+  ],
+  [
+   0.14,
+   0.4
+  ],
+  [
+   0.4,
+   0.68
+  ],
+  [
+   0.68,
+   0.88
+  ],
+  [
+   0.88,
+   1.47
+  ],
+  [
+   1.748,
+   1.78
+  ],
+  [
+   1.78,
+   2.04
+  ],
+  [
+   2.04,
+   2.32
+  ],
+  [
+   2.32,
+   2.779
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 196,
+ "longest_pause_s": 0.28,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 126.5,
+  "st": 11.7,
+  "edb": 18.2,
+  "dur": 2.75,
+  "jumps": 0.0,
+  "creak": 0.005,
+  "hnr": 12.4,
+  "jitter": 1.89,
+  "tail_db": -70.8
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": -0.1,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

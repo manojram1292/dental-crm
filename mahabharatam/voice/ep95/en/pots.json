@@ -1,0 +1,84 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "pots~1.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Each went into its pot. Duryodhana was born first.",
+ "heard": "Each went into its pot, Duryodhana was born first.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 3.48,
+   "words": 9,
+   "text": "Each went into its pot. Duryodhana was born first."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.2
+  ],
+  [
+   0.2,
+   0.4
+  ],
+  [
+   0.4,
+   0.66
+  ],
+  [
+   0.66,
+   0.881
+  ],
+  [
+   0.961,
+   1.388
+  ],
+  [
+   1.557,
+   2.14
+  ],
+  [
+   2.14,
+   2.449
+  ],
+  [
+   2.521,
+   2.806
+  ],
+  [
+   2.889,
+   3.265
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.17,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 137.0,
+  "st": 8.7,
+  "edb": 20.1,
+  "dur": 3.33,
+  "jumps": 0.48,
+  "creak": 0.0,
+  "hnr": 10.4,
+  "jitter": 2.3,
+  "tail_db": -85.2
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": 1.28,
+ "names": {
+  "Duryodhana": {
+   "heard": "duryodhana",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

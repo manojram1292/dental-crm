@@ -1,0 +1,87 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "kunti~1.s1.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Then her sister-in-law bore a son, bright as the morning sun.",
+ "heard": "Then her sister-in-law bore a son bright as the morning's son.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 3.669,
+   "words": 11,
+   "text": "Then her sister-in-law bore a son, bright as the morning sun."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.14
+  ],
+  [
+   0.14,
+   0.3
+  ],
+  [
+   0.3,
+   1.04
+  ],
+  [
+   1.04,
+   1.28
+  ],
+  [
+   1.28,
+   1.5
+  ],
+  [
+   1.5,
+   1.78
+  ],
+  [
+   1.78,
+   2.16
+  ],
+  [
+   2.16,
+   2.48
+  ],
+  [
+   2.48,
+   2.62
+  ],
+  [
+   2.62,
+   3.16
+  ],
+  [
+   3.16,
+   3.543
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.0,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 122.7,
+  "st": 8.4,
+  "edb": 16.2,
+  "dur": 3.52,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 11.3,
+  "jitter": 2.11,
+  "tail_db": -79.5
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": -0.62,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

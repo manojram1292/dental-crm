@@ -118,6 +118,8 @@
     58: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
     59: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
     60: ['ep41/_common', 'ep44/_common', 'ep46/_common', 'ep49/_common', 'ep51/_common', 'scenes'],
+    // 95: THE RED PAPER-CUT SAMPLE (script/papercut.en.json, scenes in src/scenes/papercut/: the sanjhi paper look in Canvas2D; never a numbered episode)
+    95: ['papercut/paper', 'papercut/scenes'],
     // 96: THE WAR TEASER (script/teaser.en.json, scenes in src/scenes/teaser/: a Three.js layer (war3d) under the drawn figures; never a numbered episode)
     96: ['ep41/_common', 'ep46/_common', 'ep49/_common', 'teaser/war3d', 'teaser/scenes'],
     // 97: THE FULL-EPIC TRAILER (script/trailer.en.json, scenes in src/scenes/trailer/; never a numbered episode)

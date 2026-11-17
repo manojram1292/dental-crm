@@ -1,0 +1,108 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "vyasa~0.s2.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "That sage, Vyasa, came: Fill a hundred pots with ghee. Sprinkle it with cold water.",
+ "heard": "that sage, Vyasa, came. Fill a hundred pots with ghee. Sprinkle it with cold water.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 5.753,
+   "words": 15,
+   "text": "That sage, Vyasa, came: \"Fill a hundred pots with ghee. Sprinkle it with cold water.\""
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.16
+  ],
+  [
+   0.16,
+   0.78
+  ],
+  [
+   0.849,
+   1.04
+  ],
+  [
+   1.04,
+   1.689
+  ],
+  [
+   2.072,
+   2.18
+  ],
+  [
+   2.18,
+   2.28
+  ],
+  [
+   2.28,
+   2.673
+  ],
+  [
+   2.747,
+   2.899
+  ],
+  [
+   2.987,
+   3.16
+  ],
+  [
+   3.16,
+   3.64
+  ],
+  [
+   3.929,
+   4.02
+  ],
+  [
+   4.095,
+   4.5
+  ],
+  [
+   4.5,
+   4.684
+  ],
+  [
+   4.744,
+   4.86
+  ],
+  [
+   4.86,
+   5.631
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 120,
+ "longest_pause_s": 0.38,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 126.1,
+  "st": 11.6,
+  "edb": 18.1,
+  "dur": 5.6,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 9.9,
+  "jitter": 2.28,
+  "tail_db": -74.4
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": -0.15,
+ "names": {
+  "Vyasa": {
+   "heard": "vyasa",
+   "fit": 1.0
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

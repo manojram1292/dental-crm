@@ -114,6 +114,7 @@ function ebur(file, ss, to) {
 const PAL_HUES = (() => { try { return Object.fromEntries([...fs.readFileSync(path.join(ROOT, 'src', 'kit', 'stage.js'), 'utf8').matchAll(/'([a-z0-9-]+)': P\((-?\d+),/g)].map((m) => [m[1], +m[2]])); } catch { return {}; } })();
 const pyList = (name) => { try { return new Set((fs.readFileSync(path.join(ROOT, 'tools', 'score.py'), 'utf8').match(new RegExp(name + " = \\(([^)]*)\\)")) || [, ''])[1].match(/'[^']+'/g).map((x) => x.slice(1, -1))); } catch { return new Set(); } };
 const AMB = pyList('AMB_KINDS'), FOLEY = pyList('FOLEY_KINDS'), MUSIC = pyList('MUSIC_KINDS');
+const PAPER_TRS = new Set(['peel', 'turn']);   // the paper-cut sample (script "papercut": 1): a sheet peeled off, a page turned (src/scenes/papercut/)
 const CAMS = new Set(['push', 'pull', 'tilt', 'slide', 'orbit', 'rack', 'crane', 'frame', 'still']), TRS = new Set(['ink', 'brush', 'lamp', 'smoke']);
 const hueGap = (a, b) => { const d = Math.abs(a - b) % 360; return d > 180 ? 360 - d : d; };
 const readScript = (ep, lang) => { const f = path.join(ROOT, 'script', `${epTag(ep)}.${lang}.json`); return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null; };
@@ -149,15 +150,15 @@ function scriptChecks41({ ep, sc, SL, L, dur, lang, firsts }) {
   if (!lp.hookQuestion || !lp.openQuestion) fails.push('"loop" needs hookQuestion and openQuestion');
   if (!SL[lp.answeredBy]) fails.push('"loop.answeredBy" must name the line that answers the hook');
   const pa = L.find((l) => l.id === lp.prevAnsweredBy);
-  if (sc.kind === 'intro' || sc.kind === 'trailer') info.push(`${sc.kind}: no previous episode to answer (rule not applied)`);   // only the series introduction (script "kind": "intro")
+  if (sc.kind === 'intro' || sc.kind === 'trailer' || sc.papercut) info.push(`${sc.kind || 'papercut sample'}: no previous episode to answer (rule not applied)`);   // the paper-cut style sample (95, "papercut") stands alone   // only the series introduction (script "kind": "intro")
   else if (!pa) fails.push('"loop.prevAnsweredBy" must name the line that answers the previous episode\'s open question');
   else { info.push(`previous question answered at ${pa.start.toFixed(1)} s`); if (pa.start > 15) fails.push(`the previous episode's question is answered at ${pa.start.toFixed(1)} s (max 15)`); }
-  const prev0 = readScript(ep - 1, lang), prev = prev0 && prev0.teaser ? null : prev0, next = readScript(ep + 1, lang);   // the war teaser (96, "teaser") is not an episode: it is never the previous script of the one after it
+  const prev0 = readScript(ep - 1, lang), prev = prev0 && (prev0.teaser || prev0.papercut || sc.papercut) ? null : prev0, next = readScript(ep + 1, lang);   // the war teaser (96, "teaser") is not an episode: it is never the previous script of the one after it
   if (prev && prev.loop && prev.loop.openQuestion && prev.loop.openQuestion !== lp.prevQuestion) fails.push(`"loop.prevQuestion" does not match episode ${ep - 1}'s openQuestion ("${prev.loop.openQuestion}")`);
   // titles against the catalog
   const cat = catalogTitles(), S = sc.strings || {};
-  if (ep !== 99 && sc.kind !== 'intro' && sc.kind !== 'trailer' && cat[ep] && S.episodeTitle !== cat[ep]) fails.push(`episodeTitle "${S.episodeTitle}" ≠ catalog "${cat[ep]}"`);
-  if (ep !== 99 && sc.kind !== 'intro' && sc.kind !== 'trailer' && cat[ep + 1] && S.nextTitle !== cat[ep + 1]) fails.push(`nextTitle "${S.nextTitle}" ≠ catalog "${cat[ep + 1]}"`);
+  if (ep !== 99 && sc.kind !== 'intro' && sc.kind !== 'trailer' && !sc.papercut && cat[ep] && S.episodeTitle !== cat[ep]) fails.push(`episodeTitle "${S.episodeTitle}" ≠ catalog "${cat[ep]}"`);
+  if (ep !== 99 && sc.kind !== 'intro' && sc.kind !== 'trailer' && !sc.papercut && cat[ep + 1] && S.nextTitle !== cat[ep + 1]) fails.push(`nextTitle "${S.nextTitle}" ≠ catalog "${cat[ep + 1]}"`);
   if ((sc.rules || 1) >= 2 && sc.kind !== 'trailer' && sc.credits !== 'source-only') fails.push('"rules": 2 needs "credits": "source-only" (the source line only on screen)');
   if (sc.credits === 'source-only') { if (!S.sourceLine) fails.push('strings.sourceLine is required'); if (S.madeLine) fails.push('"credits": "source-only" but strings.madeLine is set (the owner: the source line only)'); }   // owner, 14 Nov: no "Voices: synthetic · Drawn in code" on screen
   else if (!S.sourceLine || !/synthetic/i.test(S.madeLine || '')) fails.push('strings.sourceLine and strings.madeLine ("Voices: synthetic · Drawn in code") are required');
@@ -198,7 +199,7 @@ function scriptChecks41({ ep, sc, SL, L, dur, lang, firsts }) {
   else if (new Set(pals).size < 2) fails.push('fewer than 2 palettes');
   // camera grammar
   const cams = new Set(), trs = new Set();
-  for (const l of sc.lines) { if (l.id === 'next') continue; if (!l.cam) fails.push(`line "${l.id}" has no camera move ("cam")`); else for (const c of String(l.cam).split('+')) { if (!CAMS.has(c)) fails.push(`line "${l.id}": unknown cam "${c}"`); if (c !== 'still') cams.add(c); } if (l.tr) { if (TRS.has(l.tr)) trs.add(l.tr); else if (l.tr !== 'dissolve' && l.tr !== 'cut') fails.push(`line "${l.id}": unknown transition "${l.tr}"`); } }
+  for (const l of sc.lines) { if (l.id === 'next') continue; if (!l.cam) fails.push(`line "${l.id}" has no camera move ("cam")`); else for (const c of String(l.cam).split('+')) { if (!CAMS.has(c)) fails.push(`line "${l.id}": unknown cam "${c}"`); if (c !== 'still') cams.add(c); } if (l.tr) { if (TRS.has(l.tr) || (sc.papercut && PAPER_TRS.has(l.tr))) trs.add(l.tr); else if (l.tr !== 'dissolve' && l.tr !== 'cut') fails.push(`line "${l.id}": unknown transition "${l.tr}"`); } }
   info.push(`${cams.size} camera moves · ${trs.size} medium transitions`);
   if (cams.size < 4) fails.push(`${cams.size} distinct camera moves (min 4)`);
   if (trs.size < 2) fails.push(`${trs.size} distinct transitions born from the medium (min 2)`);
@@ -276,7 +277,7 @@ async function frameChecks41({ ep, lang, fps, means, L, SL, page, trailerKind = 
   const keyOf = (ms) => [ms[Math.min(ms.length - 1, Math.round(0.5 * fps))], ms[Math.min(ms.length - 1, Math.round(3 * fps))], ms[ms.length - 1]].map((a) => phash(a));
   const mine = keyOf(means), ds = [];
   for (const e of [ep - 1, ep - 2, ep - 3]) {
-    if (!readScript(e, lang) || e === 99 || e < 1) continue;
+    if (!readScript(e, lang) || e === 99 || e < 1 || readScript(e, lang).papercut) continue;   // the paper-cut sample (95) is not in the run of episodes
     let r2;
     try {
       r2 = await openReel({ scale: 0.125, lang, ep: e, grain: 0 });

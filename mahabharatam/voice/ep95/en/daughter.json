@@ -1,0 +1,92 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "daughter~0.s4.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "Within a month all hundred were born, then one daughter: Duhshala.",
+ "heard": "Within a month, all 100 were born, then one daughter, Dushala.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 4.226,
+   "words": 11,
+   "text": "Within a month all hundred were born, then one daughter: Duhshala."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.18
+  ],
+  [
+   0.18,
+   0.26
+  ],
+  [
+   0.26,
+   0.753
+  ],
+  [
+   0.846,
+   0.98
+  ],
+  [
+   0.98,
+   1.3
+  ],
+  [
+   1.3,
+   1.52
+  ],
+  [
+   1.52,
+   1.961
+  ],
+  [
+   2.254,
+   2.32
+  ],
+  [
+   2.32,
+   2.58
+  ],
+  [
+   2.58,
+   3.223
+  ],
+  [
+   3.475,
+   4.073
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 142,
+ "longest_pause_s": 0.29,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 125.2,
+  "st": 10.3,
+  "edb": 18.9,
+  "dur": 4.05,
+  "jumps": 0.36,
+  "creak": 0.0,
+  "hnr": 11.8,
+  "jitter": 2.37,
+  "tail_db": -70.1
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": -0.27,
+ "names": {
+  "Duhshala": {
+   "heard": "dushala",
+   "fit": 0.93
+  }
+ },
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

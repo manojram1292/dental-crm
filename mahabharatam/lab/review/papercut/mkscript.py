@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+"""Writes script/papercut.en.json (pipeline 95, the red paper-cut sample short) and the symlink script/ep95.en.json.
+Verse check for every line: script/papercut-CHECK.md. Re-running keeps the measured voice fields (estVoice) untouched
+only if they are set below; the voice itself lives in voice/ep95/en/.
+
+    python3 -I lab/review/papercut/mkscript.py
+"""
+import json, os
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+
+L = []
+MIXDB = {'boon': -1.5, 'carry': -3.5, 'kunti': -2, 'forced': -4, 'mass': 0, 'vyasa': -1, 'split': 1.5, 'pots': -1.5, 'omens': 1.5, 'refuse': -4, 'daughter': 0.5}   # the voice's level per line (tools/mix.py moves the voice only): quiet for grief, up for the turn, the omens and the payoff
+def line(id, text, **k):
+    d = {'id': id, 'text': text}; d.update(k)
+    if id in MIXDB: d['mixDb'] = MIXDB[id]
+    L.append(d)
+
+line('hook', 'One lump of flesh. A hundred sons.', estVoice=2.4, pre=60, post=500, role='hook', caption=False,
+     beats=[3, 6], amb='forest-night', music='dread', foley=['snap', 'thud'], pal='grief-blue', cam='push',
+     note='COLD OPEN, sound and motion from frame 0: on deep indigo paper the red mass sits in a lotus of cut paper and beats like a heart; '
+          'the hook is cut-out cream letters ONE LUMP OF FLESH / A HUNDRED SONS popping in on 12 fps steps, the second line on "hundred". CE 1.107.12, 1.107.8.')
+line('boon', 'Gandhari cared for a weary sage, who granted her one hundred sons.', estVoice=4.0, pre=220, post=420,
+     emphasis=['Gandhari'], beats=[0, 5, 10], amb='court', ambLead=200, music='calm', foley=['cloth', 'step'],
+     pal='dice-vermilion', cam='slide', tr='peel',
+     note='Rice paper: Vyasa (deep plum-black paper, matted hair, beard) on the left, Gandhari (red, cream blindfold) bowing on the right; '
+          'between them a cut lotus with a hundred tiny petals unfolds on "hundred". CE 1.107.7-8.')
+line('carry', 'She carried the child two years.', estVoice=2.4, pre=200, post=420,
+     beats=[1, 4], music='still', foley=['breath', 'rustle'], pal='river-jade', cam='rack',
+     note='Jade-green night: Gandhari seated in profile; paper moons step across a jali window behind her, crescent by crescent (24 phases). CE 1.107.9.')
+line('kunti', 'Then her sister-in-law bore a son, bright as the morning sun.', estVoice=3.8, pre=200, post=420,
+     beats=[1, 5, 10], music='wonder', foley=['birds', 'cloth'], pal='wedding-turmeric', cam='crane', tr='turn',
+     note='Turmeric paper: an 8-fold sun rosette (one wedge mirrored) rises behind a far pavilion where Kunti holds a child; Gandhari in the near layer hears it, head turned. CE 1.107.10, 1.107.15.')
+line('forced', 'In grief, without telling her husband, she forced the birth.', estVoice=3.7, pre=200, post=480,
+     beats=[1, 5, 9], amb='court', music='grief', foley=['breath', 'cloth'], pal='venom-violet', cam='push', closeup=True,
+     note='Violet-black paper, a close profile of Gandhari (blindfold, a tear crescent), the face piece swaps from still to grief; the blind king far off behind a jali, '
+          'unaware. Restraint: no blow shown; her hands press, the paper shudders. CE 1.107.11.')
+line('mass', 'Out came a mass of flesh, hard as iron.', estVoice=2.9, pre=200, post=480,
+     beats=[4, 7], music='dread', foley=['thud', 'snap'], pal='wrath-crimson', cam='tilt', tr='peel',
+     note='Iron-black paper: the red mass drops into frame (cardboard thud, camera shake), cut with crescent rivets like a ball of iron. CE 1.107.12.')
+line('vyasa', 'That sage, Vyasa, came: "Fill a hundred pots with ghee. Sprinkle it with cold water."', estVoice=5.2, pre=200, post=480,
+     emphasis=['Vyasa,'], beats=[2, 6, 11], amb='forest-day', ambLead=200, music='awe', foley=['step', 'pour'], pal='seat-ivory', cam='pull',
+     note='Rice paper: Vyasa arrives in the only GOLD FOIL of the film (a gold halo rosette, 8-fold), stands over the mass; cut water drops fall on it. CE 1.107.13, 1.107.17-18.')
+line('split', 'It split into a hundred and one parts, each the size of a thumb joint.', estVoice=4.6, pre=1600, post=520,
+     beats=[1, 4, 7, 13], music='wonder', foley=['snap', 'water'], pal='pure-flame', cam='frame', signature=True, rest=True,
+     note='TURN · SIGNATURE: the rest (a 3.5 dB dip, 1.6 s, filled by the paper) is the fold and the cut: on indigo the mass flattens into a red sheet, folds three times (swish, crease tap), '
+          'scissors cut (shear sweeps); the voice comes in over the cutting and the sheet UNFOLDS with three snaps on "hundred" into 101 pieces (1 + 4 + 8 + 16 + 32 + 40). CE 1.107.19-20.')
+line('pots', 'Each went into its pot. Duryodhana was born first.', estVoice=3.6, pre=200, post=480,
+     emphasis=['Duryodhana'], beats=[3, 5, 8], amb='forest-night', music='dread', foley=['pot', 'snap'], pal='grief-blue', cam='slide', tr='turn',
+     note='HOLES ARE LIGHT: rows of 101 jali pots backlit on night paper; one pot cracks open and a red infant piece stands up. CE 1.107.21-22, 1.107.24.')
+line('omens', 'Jackals howled. The brahmins said: give this one up.', estVoice=4.4, pre=200, post=480,
+     beats=[0, 2, 5, 9], music='wrath', foley=['growl', 'breath'], sfx=['gong@0'], pal='venom-violet', cam='orbit',
+     note='Violet-black night paper: cut-out jackals howl in a circle round the palace (the ONE big ghanta stroke on "Jackals"); the brahmins point at the child. CE 1.107.28-31.')
+line('refuse', 'For love of his son, the king would not.', estVoice=2.9, pre=850, post=480, rest=True,
+     beats=[3, 8], amb='court', music='grief', foley=['cloth', 'breath'], pal='dice-vermilion', cam='push', tr='peel',
+     note='Rice paper, a rest before it (a dip): the blind king (crowned, eyes closed crescents) holds the child to his chest and turns away from the brahmins. CE 1.107.33.')
+line('daughter', 'Within a month all hundred were born, then one daughter: Duhshala.', estVoice=3.8, pre=200, post=480,
+     emphasis=['Duhshala'], beats=[3, 7, 10], music='joy', foley=['snap', 'anklet'], pal='wedding-turmeric', cam='pull',
+     note='PAYOFF: symmetry replicates: a hundred small red boys in rings round one girl piece at the centre, the camera pulling back to the whole window-flower. CE 1.107.34, 1.107.37.')
+line('endcard', '', est=2.6, voice=False, caption=False, role='end', pal='grief-blue', cam='still', foley=[],
+     note='END CARD: MAHABHARATAM / AS VYASA TOLD IT cut letters on a red banner, FOLLOW, the source line. Nothing about how it was made.')
+
+sc = {
+    'lang': 'en',
+    'fonts': {'caption': "'EB Garamond'", 'display': "'Cinzel'"},
+    'timing': {'wordsPerSecond': 2.4, 'voiceGap': 0.35, 'voiceLead': 0.12, 'tail': 0.0, 'frameSnap': True},
+    'rules': 2,
+    'credits': 'source-only',
+    'papercut': 1,
+    'voice': {'note': 'tools/voice2.py (Chatterbox, the bm_daniel reference, one take a line, no stretch); names from voice/names.json'},
+    'captionBand': {'y': 1400, 'kinetic': False},
+    'episode': 95,
+    'source': 'THE RED PAPER-CUT SAMPLE (pipeline number 95; a style sample, never a numbered episode). The birth of Gandhari\'s hundred sons, '
+              'BORI Critical Edition Adi 1.107 (GRETIL constituted text, lab/ce/adi.txt; star passages *1135-*1150 and appendix 63 not used). '
+              'Verse check per line: script/papercut-CHECK.md.',
+    'structure': 'COLD OPEN (cut letters, the mass) -> the boon -> two years -> Kunti\'s son -> the forced birth (close-up) -> the iron mass -> Vyasa (gold) -> '
+                 'a rest -> TURN + SIGNATURE: fold, cut, unfold into 101 -> the pots, Duryodhana -> the omens (the gong) -> a rest -> the king refuses -> '
+                 'PAYOFF: a hundred and one daughter -> end card.',
+    'hookStyle': 'papercut',
+    'names': {
+        'Vyasa': 'the sage, the epic\'s author',
+        'Gandhari': 'the blind king\'s wife',
+        'Kunti': 'wife of Pandu, the king\'s brother',
+        'Duryodhana': 'eldest of the hundred',
+        'Duhshala': 'the only daughter',
+    },
+    'loop': {
+        'hookQuestion': 'How does one lump of flesh become a hundred sons?',
+        'answeredBy': 'split',
+        'openQuestion': 'What will Duryodhana become?',
+        'prevQuestion': None,
+        'prevAnsweredBy': None,
+    },
+    'strings': {
+        'seriesTitle': 'Mahabharatam',
+        'seriesSubtitle': 'As Vyasa Told It',
+        'episodeLabel': 'Mahabharatam',
+        'episodeTitle': 'A Hundred and One',
+        'episodeSeparator': ' · ',
+        'followWord': 'Follow',
+        'sourceLine': 'Text: the Mahabharata · BORI Critical Edition',
+    },
+    'lines': L,
+}
+p = os.path.join(ROOT, 'script', 'papercut.en.json')
+json.dump(sc, open(p, 'w'), indent=1, ensure_ascii=False)
+ln = os.path.join(ROOT, 'script', 'ep95.en.json')
+if not os.path.islink(ln):
+    os.symlink('papercut.en.json', ln)
+print('wrote', p, sum(len(l['text'].split()) for l in L), 'words')

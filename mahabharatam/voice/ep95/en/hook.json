@@ -1,0 +1,71 @@
+{
+ "speaker": "narrator",
+ "script_speaker": "narrator",
+ "voice": "chatterbox (ONNX, CPU); reference: Kokoro bm_daniel reading a calm storyteller passage at 0.8 speed (lab/review/trailer/v3/voice/ref_daniel.wav), the approved trailer's reference",
+ "engine": "chatterbox-onnx",
+ "takes_from": [
+  "hook~0.s2.wav"
+ ],
+ "one_take": true,
+ "stretch": 0,
+ "spoken_as": "One lump of flesh. A hundred sons.",
+ "heard": "One lump of flesh, a hundred sons.",
+ "recogniser_errors": 0,
+ "chunks": [
+  {
+   "t0": 0,
+   "t1": 2.461,
+   "words": 7,
+   "text": "One lump of flesh. A hundred sons."
+  }
+ ],
+ "wordTimes": [
+  [
+   0.0,
+   0.18
+  ],
+  [
+   0.18,
+   0.42
+  ],
+  [
+   0.42,
+   0.68
+  ],
+  [
+   0.753,
+   1.119
+  ],
+  [
+   1.419,
+   1.48
+  ],
+  [
+   1.48,
+   1.76
+  ],
+  [
+   1.76,
+   2.334
+  ]
+ ],
+ "lead_air_ms": 30,
+ "tail_air_ms": 123,
+ "longest_pause_s": 0.3,
+ "pauses_shortened": [],
+ "measured": {
+  "f0": 131.2,
+  "st": 10.8,
+  "edb": 20.0,
+  "dur": 2.31,
+  "jumps": 0.0,
+  "creak": 0.0,
+  "hnr": 10.4,
+  "jitter": 2.48,
+  "tail_db": -71.8
+ },
+ "film_median_hz": 127.2,
+ "semitones_from_film_median": 0.54,
+ "names": {},
+ "note": "tools/voice2.py: one take, no time-stretch; word times are the recogniser's (faster-whisper base.en) on this file; nobody has listened"
+}

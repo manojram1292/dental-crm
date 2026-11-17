@@ -3025,6 +3025,10 @@ def main():
     teaser = bool(_sc.get('teaser'))   # the war teaser (pipeline 96): its own score and sound design (tools/score_teaser.py); nothing else takes this path
     if teaser:
         src_hash += '+' + hashlib.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'score_teaser.py'), 'rb').read()).hexdigest()[:12]
+    papercut = bool(_sc.get('papercut'))   # the red paper-cut sample (pipeline 95): its own score and paper foley (tools/score_papercut.py); nothing else takes this path
+    if papercut:
+        for f_ in ('score_teaser.py', 'score_papercut.py'):
+            src_hash += '+' + hashlib.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), f_), 'rb').read()).hexdigest()[:12]
     stamp = {'episode': ep, 'lang': lang, 'timeline': tl['signature'], 'duration': tl['duration'], 'score': src_hash}
     out_wav = os.path.join(ROOT, 'audio', tag, 'music.wav')
     side = os.path.join(ROOT, 'audio', tag, 'music.json')
@@ -3037,7 +3041,14 @@ def main():
         except Exception:
             pass
     if ep >= 41:
-        if teaser:
+        if papercut:
+            sys.modules.setdefault('score', sys.modules[__name__])
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # also under python3 -I
+            import score_papercut
+            stems, tlog, tmeta = score_papercut.build(tl, _sc)
+            FOLEY_LOG.extend(tlog)
+            json.dump(tmeta, open(os.path.join(ROOT, 'audio', tag, 'score-papercut.json'), 'w'), indent=1)
+        elif teaser:
             sys.modules.setdefault('score', sys.modules[__name__])
             sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # also under python3 -I
             import score_teaser
