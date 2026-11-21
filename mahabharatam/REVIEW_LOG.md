@@ -993,6 +993,8 @@ To re-run: `python3 -I lab/review/teaser/mkscript.py`; voice as `tools/episode_l
 
 ## Red paper-cut sample · pipeline 95 (2026-11-17): `papercut.mp4`, `papercut-share.mp4`
 
+**Owner verdict (2026-11-21): approved.** The red paper-cut (sanjhi) look is accepted as a series style.
+
 A style sample for the owner: one short of the series in a new look, red paper-cut in the Indian sanjhi manner (the rules:
 `.claude/skills/lemo-styles/references/papercut-red.md`, with the series' rules over them). Story: the birth of Gandhari's hundred
 sons, CE 1.107, constituted text only; verse and Sanskrit per line in `script/papercut-CHECK.md` (what the star passages add, such as
